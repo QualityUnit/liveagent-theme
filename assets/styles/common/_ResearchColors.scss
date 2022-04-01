@@ -1,0 +1,34 @@
+/* stylelint-disable selector-class-pattern */
+
+.Research,
+.Statistics--block,
+%researchColors {
+	--colorResearch-1: #46a6ff;
+	--colorResearch_light-1: #e3f2ff;
+	--colorResearch-2: #48c6ce;
+	--colorResearch_light-2: #e4f7f8;
+	--colorResearch-3: #07b65d;
+	--colorResearch_light-3: #daf4e7;
+	--colorResearch-4: #9154ce;
+	--colorResearch_light-4: #efe6f8;
+	--colorResearch-5: #f72f49;
+	--colorResearch_light-5: #fee0e4;
+	--colorResearch-6: #fa9531;
+	--colorResearch_light-6: #feefe0;
+	--colorResearch-7: #ffb928;
+	--colorResearch_light-7: #fff5df;
+	--colorResearch-8: #b44b85;
+	--colorResearch_light-8: #f4e4ed;
+	--colorResearch-9: #fba086;
+	--colorResearch_light-9: #ffe2da;
+
+	&--color {
+
+		@for $color from 1 to 10 {
+			&-#{$color} {
+				--post-color: var(--colorResearch-#{$color});
+				--post-color-bg: var(--colorResearch_light-#{$color});
+			}
+		}
+	}
+}

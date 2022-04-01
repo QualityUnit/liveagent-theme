@@ -1,0 +1,438 @@
+/* stylelint-disable selector-class-pattern, selector-id-pattern */
+/* stylelint-disable no-descending-specificity */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.Signup {
+
+	&__form {
+
+		@include color(background-color, main-background);
+		@include color(box-shadow, box-shadow);
+		position: relative;
+		max-width: 425px;
+		margin: auto;
+		margin-right: 10px;
+		padding: 0.5em 2.5em 2em;
+		border-radius: $border-radius-16;
+
+		@media (max-width: 768px) {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		&__title {
+
+			@include color(background-color, third-color);
+			font-size: 30px;
+			line-height: 48px;
+			text-align: center;
+			padding: 0.5em;
+			border-radius: 13px;
+
+			@media (min-width: $breakpoint-tablet) {
+				margin: 0 -1.1em;
+			}
+		}
+
+		&__subtitle {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		&__labels {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: center;
+			align-items: center;
+			margin: 1.5em 0;
+
+			&__label {
+				display: flex;
+				margin: 0 5px;
+				padding: 0 13px;
+				font-size: 12px;
+				line-height: 26px;
+				font-weight: 700;
+				border-radius: 13px;
+				color: #1e1e1e;
+				background-color: #efe6f8;
+
+				&:last-of-type {
+					background-color: #e3f2ff;
+				}
+			}
+		}
+
+		input[type="text"],
+		input[type="url"],
+		input[type="email"] {
+			width: 100%;
+		}
+
+		.Button {
+			margin-top: 0;
+			margin-bottom: 1em;
+			margin-right: 0;
+			width: 100%;
+			height: 3.5em;
+			font-size: 1rem;
+			text-align: center;
+		}
+
+		#signUpError {
+			position: relative;
+			font-size: 14px;
+			text-align: center;
+			color: $red;
+
+			div {
+				position: absolute;
+				bottom: 8px;
+				width: 100%;
+				background-color: #fff;
+			}
+		}
+
+		#domainFieldmain {
+
+			input[type="url"],
+			input[type="text"] {
+				padding-right: 115px;
+			}
+		}
+
+		#promoFieldmain {
+
+			@include color(color, font-color-normal);
+			text-align: center;
+			font-size: 14px;
+			padding: 0 2em;
+			margin: 1.5em 0;
+			cursor: pointer;
+
+			[type="checkbox"] {
+				display: none;
+
+				+ label {
+					margin: 2em 0;
+
+					&::before {
+
+						@include square(1.5em);
+						position: relative;
+						top: 0.35em;
+						display: inline-block;
+						content: "";
+						background: url(../../images/checkbox-unactive.svg) center center no-repeat;
+						background-size: contain;
+						cursor: pointer;
+						margin-right: 0.5em;
+					}
+
+					p {
+						font-family: $font-primary;
+						margin-bottom: 0;
+					}
+				}
+
+				&:checked + label {
+
+					&::before {
+						background-image: url(../../images/checkbox-active.svg);
+					}
+				}
+			}
+
+			p {
+
+				@include color(color, font-color-normal);
+				display: inline;
+				font-size: 14px;
+				cursor: pointer;
+			}
+		}
+
+		&__item {
+			position: relative;
+			margin-bottom: 1.125em;
+
+			&::before {
+
+				@include color(color, border-color-gray-icon);
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 20px;
+				font-size: 18px;
+				line-height: 48px;
+				text-align: center;
+				width: 22px;
+			}
+
+			input {
+				padding-left: 60px;
+			}
+
+			&.has-svg {
+
+				svg {
+
+					@include color(fill, border-color-gray-icon);
+					position: absolute;
+					top: 50%;
+					left: 20px;
+					transform: translateY(-50%);
+				}
+			}
+
+			&:focus-within {
+
+				&::before {
+
+					@include color(color, font-color-dark);
+				}
+
+				svg {
+
+					@include color(fill, font-color-dark);
+				}
+			}
+
+			&__domain {
+
+				@include color(color, font-color-normal, !important);
+				position: absolute;
+				display: flex;
+				align-items: center;
+				top: 1px;
+				right: 1px;
+				font-size: 1rem;
+				font-weight: 600;
+				height: calc(#{$input-height-normal} - 2px);
+				background-color: $lightest-gray;
+				padding: 0 20px;
+				border-top-right-radius: 4px;
+				border-bottom-right-radius: 4px;
+			}
+
+			&__info {
+				position: absolute;
+				top: -8px;
+				right: -7px;
+				z-index: 1;
+				width: 16px;
+				height: 16px;
+				line-height: 16px;
+
+				&__icon {
+					position: relative;
+					cursor: pointer;
+
+					&::before {
+
+						@include color(color, font-color-normal);
+					}
+
+					&:hover {
+
+						+ .Signup__form__item__info__content {
+							display: block !important;
+						}
+					}
+
+					.ComparePlans__tooltip__text {
+						left: auto;
+						right: -0.5em;
+
+						&::after {
+							left: auto !important;
+							right: 1em;
+						}
+					}
+				}
+
+				&__content {
+
+					@include color(color, font-color-medium);
+					@include color(background-color, main-background);
+					@include color(border-color, border-color-gray, !important);
+					display: none;
+					position: absolute;
+					top: 10px;
+					right: 10px;
+					min-width: 310px;
+					padding: 15px 20px;
+					border: 1px solid transparent;
+					font-size: 12px;
+					line-height: 18px;
+				}
+			}
+
+			.ErrorMessage {
+
+				@include color(color, error-color);
+				position: absolute;
+				left: 20px;
+				font-size: 12px;
+				line-height: 1.3;
+			}
+
+			&.Valid {
+
+				input[type="url"],
+				input[type="text"],
+				input[type="email"] {
+
+					@include color(border-color, successful-color);
+					@include color(color, successful-color);
+
+					&::placeholder {
+
+						@include color(color, successful-color);
+						opacity: 1;
+					}
+				}
+
+				&::before {
+
+					@include color(color, successful-color);
+				}
+
+				svg {
+
+					@include color(fill, successful-color);
+				}
+
+				.ErrorMessage {
+					display: none;
+				}
+
+				.Signup__form__item__domain {
+
+					@include color(color, successful-color);
+				}
+			}
+
+			&.Error {
+
+				input[type="url"],
+				input[type="text"],
+				input[type="email"] {
+
+					@include color(border-color, error-color);
+					@include color(color, error-color);
+
+					&::placeholder {
+
+						@include color(color, error-color);
+						opacity: 1;
+					}
+				}
+
+				&::before {
+
+					@include color(color, error-color);
+				}
+
+				svg {
+
+					@include color(fill, error-color);
+				}
+
+				.Signup__form__item__domain {
+
+					@include color(color, error-color);
+				}
+			}
+
+			&.Waiting {
+
+				.ErrorMessage {
+
+					@include color(color, font-color-dark);
+				}
+			}
+		}
+
+		&__submit {
+
+			@include color(color, font-color-normal);
+			display: flex;
+			flex-flow: wrap column;
+			justify-content: flex-start;
+			align-items: center;
+
+			a {
+
+				@include color(color, font-color-normal);
+				text-decoration: none;
+				font-weight: 700;
+
+				&:active,
+				&:focus,
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			p {
+
+				@include color(color, font-color-normal);
+				max-width: 100% !important;
+				font-size: 14px;
+				line-height: 1;
+				opacity: 1;
+			}
+
+			&__label {
+
+				@include color(color, font-color-medium);
+				position: relative;
+				left: 195px;
+				top: 37px;
+				font-size: 12px;
+				margin-top: -24px;
+			}
+		}
+
+		&__terms {
+			text-align: center;
+			font-size: 13px;
+
+			p {
+
+				@include color(color, font-color-level3);
+				font-size: inherit;
+				line-height: 22px;
+				margin-bottom: 0;
+			}
+		}
+
+		@media (max-width: 480px) {
+			margin-bottom: 50px;
+			padding: 25px;
+			box-shadow: none;
+		}
+	}
+
+	&__block {
+		margin: 100px 0;
+	}
+}
+
+.elementor-shortcode {
+
+	.Signup__form__submit__label {
+		display: none !important;
+	}
+}
+
+.activeOverlay {
+	overflow: hidden;
+
+	.Signup__block {
+		z-index: 999999;
+	}
+}

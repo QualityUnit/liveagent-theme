@@ -1,0 +1,48 @@
+/* stylelint-disable selector-class-pattern */
+
+%posttag {
+
+	@include color(background-color, main-background);
+	@include color(color, primary-color, !important);
+	display: inline-flex;
+	align-items: center;
+	border-radius: 1.5em;
+	padding: 0.15em 1.5em 0.2em 0.2em;
+	font-size: 0.875rem;
+	font-family: $font-secondary;
+	text-transform: uppercase;
+}
+
+.career__post__tags li {
+
+	@extend %posttag;
+	margin-right: 1em;
+
+	img {
+
+		width: 2em;
+		border-radius: 50%;
+		box-shadow: 2px 4px 9px 0 rgba($black-real, 0.12);
+		flex: 0;
+		margin-right: 0.5em;
+	}
+}
+
+.post__tag-star {
+
+	@extend %posttag;
+
+	&::before {
+
+		@include square(2em);
+		content: "";
+		position: relative;
+		display: inline-flex;
+		border-radius: 50%;
+		overflow: hidden;
+		background: url(../images/star-icon.svg) center calc(50% - 1px) no-repeat, linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
+		background-size: 1em, cover;
+		margin-right: 0.5em;
+		box-shadow: 2px 4px 9px 0 rgba($black-real, 0.12);
+	}
+}

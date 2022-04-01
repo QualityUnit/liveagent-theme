@@ -1,0 +1,14 @@
+/* stylelint-disable selector-class-pattern */
+
+.Text {
+
+	&--faq {
+		margin-top: 100px;
+		margin-bottom: 100px;
+
+		@media (max-width: $breakpoint-tablet) {
+			margin-top: 75px !important;
+			margin-bottom: 75px !important;
+		}
+	}
+}

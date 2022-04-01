@@ -1,0 +1,123 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../elements/ResearchBlock";
+
+.Block--research {
+	--post-color: #46a6ff !important;
+
+	.Research--block {
+
+		&.elementor-column.elementor-col-50 {
+			padding: 2.625em !important;
+
+			+ .Research--block {
+				margin-top: 0;
+			}
+		}
+
+		&__negative {
+			background: var(--post-color);
+
+			&.has-bg {
+				background: var(--post-color) url(../images/research_block_bg.svg) center center no-repeat !important;
+				background-size: cover !important;
+			}
+		}
+
+		&__buttons {
+			left: 2.625em;
+			right: auto;
+		}
+
+		.elementor-text-editor {
+			all: unset !important;
+		}
+
+		.source {
+			font-size: 0.875rem;
+			color: #b0b4bb;
+		}
+
+		.value .elementor-heading-title {
+			color: var(--post-color);
+		}
+
+		@media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-tablet-landscape - 1px) {
+
+			.elementor-widget-image {
+				margin-left: auto !important;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+
+		> .elementor-container > .elementor-row {
+			flex-wrap: wrap;
+
+			> .elementor-col-50 {
+				width: 100%;
+			}
+		}
+
+		&__aside {
+			margin-top: 2em;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__aside {
+
+			.elementor-col-50 + .elementor-col-50 {
+				margin-left: 1em;
+			}
+		}
+
+		&.elementor-column.elementor-col-50 {
+			width: 50% !important;
+			min-height: 32em !important;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&::after {
+
+			@include posCustom(-6em, 0, -6em, -2em);
+			content: "";
+			position: absolute;
+			background: url(../images/block_research_bg.svg) left center no-repeat;
+			background-size: contain;
+			z-index: -1;
+		}
+
+		&__aside.elementor-column.elementor-col-50 {
+			width: 65%;
+			right: -5%;
+
+			> .elementor-column-wrap > .elementor-widget-wrap {
+				align-content: center;
+			}
+
+			.Research--block + .Research--block {
+				margin-left: 2em;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop-box) {
+		padding-top: 6em;
+		padding-bottom: 6em;
+
+		&::after {
+
+			@include posCustom(-4em, -15%, -4em, -5%);
+		}
+
+		&__aside.elementor-column.elementor-col-50 {
+			width: 55%;
+			right: -5%;
+		}
+	}
+}

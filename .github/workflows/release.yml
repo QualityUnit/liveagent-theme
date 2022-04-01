@@ -1,0 +1,142 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP 7.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "7.4"
+
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
+
+      - name: Install Composer dependencies
+        run: composer install
+
+      - name: Install Yarn dependencies [theme]
+        run: yarn
+
+      - name: Build CSS and JS [theme]
+        run: yarn build
+
+      - name: Remove unnecessary files [theme]
+        run: rm -rf node_modules vendor .git .idea .github *.md *.lock .editorconfig .eslintignore .eslintrc .gitignore .stylelintrc composer.json gulpfile.js package.json phpcs.xml
+
+      - name: Install Yarn dependencies [web-calc]
+        working-directory: ./apps/web-calc/
+        run: yarn
+
+      - name: Build CSS and JS [web-calc]
+        working-directory: ./apps/web-calc/
+        run: yarn build
+
+      - name: Remove unnecessary files [web-calc]
+        working-directory: ./apps/web-calc/
+        run: rm -rf node_modules public src build.js package.json README.md yarn.lock
+
+      - name: Install Yarn dependencies [web-calc-featured]
+        working-directory: ./apps/web-calc-featured/
+        run: yarn
+
+      - name: Build CSS and JS [web-calc-featured]
+        working-directory: ./apps/web-calc-featured/
+        run: yarn build
+
+      - name: Remove unnecessary files [web-calc-featured]
+        working-directory: ./apps/web-calc-featured/
+        run: rm -rf node_modules public src build.js package.json README.md yarn.lock
+
+      - name: Install Yarn dependencies [typing-test]
+        working-directory: ./apps/typing-test/
+        run: yarn
+
+      - name: Build CSS and JS [typing-test]
+        working-directory: ./apps/typing-test/
+        run: yarn build
+
+      - name: Remove unnecessary files [typing-test]
+        working-directory: ./apps/typing-test/
+        run: rm -rf node_modules public src .babelrc package.json README.md tsconfig.json webpack.config.js yarn.lock
+
+      - name: Install Yarn dependencies [qu-checklists]
+        working-directory: ./lib/widgets/qu-checklists/
+        run: yarn
+
+      - name: Build CSS and JS [qu-checklists]
+        working-directory: ./lib/widgets/qu-checklists/
+        run: yarn build
+
+      - name: Remove unnecessary files [qu-checklists]
+        working-directory: ./lib/widgets/qu-checklists/
+        run: rm -rf node_modules package.json yarn.lock webpack.config.js
+
+      - name: Install Yarn dependencies [qu-expertnote]
+        working-directory: ./lib/widgets/qu-expertnote/
+        run: yarn
+
+      - name: Build CSS and JS [qu-expertnote]
+        working-directory: ./lib/widgets/qu-expertnote/
+        run: yarn build
+
+      - name: Remove unnecessary files [qu-expertnote]
+        working-directory: ./lib/widgets/qu-expertnote/
+        run: rm -rf node_modules package.json yarn.lock webpack.config.js
+
+      - name: Install Yarn dependencies [statistics]
+        working-directory: ./lib/widgets/statistics/
+        run: yarn
+
+      - name: Build CSS and JS [statistics]
+        working-directory: ./lib/widgets/statistics/
+        run: yarn build
+
+      - name: Remove unnecessary files [statistics]
+        working-directory: ./lib/widgets/statistics/
+        run: rm -rf node_modules package.json yarn.lock
+
+      - name: Version
+        id: version
+        uses: actions-ecosystem/action-regex-match@v2
+        with:
+          text: ${{ github.ref }}
+          regex: ".*/([^/]+)$"
+
+      - name: Create a zip file
+        run: zip -r liveagent_${{ steps.version.outputs.group1 }}.zip .
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          body: See changes in the [CHANGELOG.md](CHANGELOG.md)
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./liveagent_${{ steps.version.outputs.group1 }}.zip
+          asset_name: liveagent_${{ steps.version.outputs.group1 }}.zip
+          asset_content_type: application/zip

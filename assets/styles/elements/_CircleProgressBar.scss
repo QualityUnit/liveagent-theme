@@ -1,0 +1,27 @@
+/* stylelint-disable selector-class-pattern */
+
+.CircleProgressBar {
+
+	@include square(1.5em);
+	position: relative;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+
+	&__spinner {
+
+		@include square(100%);
+		border-radius: 50%;
+	}
+
+	&__middle {
+
+		@include square(100%);
+		position: absolute;
+		border-radius: 50%;
+		transform: scale(0.55);
+		background-color: $white;
+	}
+}

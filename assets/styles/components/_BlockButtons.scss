@@ -1,0 +1,79 @@
+/* stylelint-disable selector-class-pattern */
+
+.BlockButtons {
+
+	h2,
+	h3 {
+		padding-right: 70px !important;
+	}
+
+	h3 {
+		font-size: 32px;
+		line-height: 42px !important;
+	}
+
+	.elementor-widget-text-editor {
+		padding-right: 70px;
+
+		p {
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.elementor-widget-html {
+		padding-left: 70px;
+
+		.Button + .Button {
+			margin-left: 30px;
+		}
+	}
+
+	.elementor-widget-text-editor + .elementor-widget-html {
+		padding-left: 0;
+		margin-top: 15px;
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		.elementor-widget-html {
+			padding-left: 0;
+
+			.Button {
+				margin: 5px 0 !important;
+
+				&:first-of-type {
+					margin-right: 30px !important;
+				}
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		h3 {
+			font-size: 28px;
+			line-height: 38px !important;
+		}
+
+		.elementor-widget-text-editor {
+			padding-right: 0;
+		}
+
+		.elementor-widget-html {
+
+			.Button {
+				margin-left: 0 !important;
+			}
+		}
+
+		.elementor-col-50 {
+
+			&:last-of-type {
+				margin-top: 30px !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,59 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.fakeChatButton {
+
+	@include square(4em);
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 999997;
+	border-radius: 50%;
+	background: url(../images/fakeChatButton.svg) center center no-repeat;
+	background-size: 105%;
+	box-shadow: 0 4px 4px 0 rgba($black-real, 0.175);
+	cursor: pointer;
+
+
+	&.hover {
+
+		.fakeChatButton__msg {
+			opacity: 1;
+		}
+	}
+
+	@media (min-device-width: 1366px) {
+
+		&:hover {
+
+			.fakeChatButton__msg {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__msg {
+
+		@include color(color, font-color-light);
+		@include color(background-color, content-color-dark);
+		position: absolute;
+		display: block;
+		text-align: center;
+		min-width: 26em;
+		right: 0;
+		bottom: calc(100% + 1em);
+		font-size: 0.75rem;
+		border-radius: 5px;
+		padding: 0.75em 1em;
+		opacity: 0;
+		transition: opacity 0.2s;
+
+		&::after {
+
+			@include triangle(1em, $black, down);
+			position: absolute;
+			content: "";
+			top: 100%;
+			right: 2em;
+		}
+	}
+}

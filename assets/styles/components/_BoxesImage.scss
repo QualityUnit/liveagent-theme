@@ -1,0 +1,214 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+$bgcolors: (
+	"purple": #f3e6ff,
+	"orange": #feefe0,
+	"yellow": #fff5df,
+	"blue": #d3eaff,
+	"red": #fee0e4,
+	"grey": #edeff3,
+	"blue2": #e1eff2,
+	"purple2": #f4e4ed,
+	"violet": #e2d7ee,
+	"yellow2": #fffade,
+	"blue3": #dfeafd,
+	"green": #daf4e7,
+	"purple3": #ffe4df
+);
+
+.Boxes--image {
+
+	padding: 0 1rem !important;
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 0 2.5rem !important;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper {
+			padding: 0 1.25em !important;
+		}
+	}
+
+	.elementor-inner-section {
+		margin-top: 1em;
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-top: 3em;
+		}
+
+		.elementor-row {
+			flex-wrap: wrap;
+
+			.elementor-widget-wrap {
+
+				@include clear;
+				display: block;
+			}
+
+			.elementor-column {
+				width: 100%;
+				padding: 0 !important;
+				margin-bottom: 2.875em;
+
+				.elementor-column-wrap > .elementor-widget-wrap {
+					background-color: transparent;
+					border-radius: $border-radius-16;
+					box-shadow: 0.3125rem 0.625rem 6.625rem -0.625rem rgba($black-real, 0.1);
+				}
+
+				@each $name, $color in $bgcolors {
+					$i: index($bgcolors, $name $color); /* stylelint-disable-line scss/no-global-function-names */
+
+					&:nth-of-type(#{$i}n), &.#{$name} {
+
+						.elementor-widget-heading {
+							background-color: $color;
+						}
+					}
+				}
+
+				+ .elementor-column {
+
+					&:nth-of-type(3):last-of-type {
+
+						.elementor-widget-heading {
+							background-color: map-get($bgcolors, "green"); /* stylelint-disable-line scss/no-global-function-names */
+						}
+					}
+				}
+			}
+
+			.elementor-widget-image {
+				position: absolute;
+				right: 0;
+				width: 50%;
+				overflow: visible;
+				z-index: 1;
+				margin-right: -1em;
+
+				.elementor-image {
+					padding: 0 !important;
+				}
+			}
+
+			.elementor-widget-heading {
+				border-radius: $border-radius-16 $border-radius-16 0 0;
+				padding: 1.5em !important;
+
+				.elementor-heading-title {
+					font-size: 1.25rem;
+					line-height: 1.33;
+				}
+			}
+
+			.elementor-widget-text-editor {
+				padding: 0 !important;
+			}
+
+			.elementor-text-editor {
+				padding: 1.5em !important;
+				text-align: left;
+				margin-bottom: 0;
+
+				p {
+					text-align: initial;
+					line-height: 1.75;
+					margin-bottom: 0;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				.elementor-widget-image {
+					width: 50%;
+					margin-top: -2em;
+					margin-right: -2em;
+
+					.elementor-image {
+						padding: 0 !important;
+					}
+
+					img {
+						max-height: 15em;
+					}
+				}
+
+				.elementor-widget-heading {
+					padding: 2.5em 54% 2.5em 3.375em !important;
+
+					.elementor-heading-title {
+						font-size: 1.5rem;
+					}
+				}
+
+				.elementor-text-editor {
+					padding: 2.375em 3.375em !important;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				.elementor-widget-image {
+					margin-top: -1em;
+					margin-right: -1em;
+
+					img {
+						max-height: none;
+					}
+				}
+
+				.elementor-column {
+					width: calc(50% - 0.75em);
+
+					+ .elementor-column {
+
+						&:nth-of-type(2n) {
+
+							margin-left: 1.5em;
+						}
+
+						&:nth-of-type(3):last-of-type {
+							width: 100% !important;
+							margin-left: 0;
+
+							.elementor-widget-heading {
+								padding-right: 30% !important;
+							}
+
+							.elementor-widget-image {
+								width: 30%;
+								margin-top: -2em;
+							}
+
+							.elementor-text-editor {
+								padding-right: 30% !important;
+							}
+						}
+					}
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+
+				.elementor-widget-image {
+					margin-top: -2em;
+					margin-right: -2em;
+				}
+
+				.elementor-column {
+					width: calc(50% - 2.875em / 2);
+
+					+ .elementor-column {
+
+						&:nth-of-type(2n) {
+
+							margin-left: 2.875em;
+						}
+					}
+				}
+			}
+		}
+	}
+}

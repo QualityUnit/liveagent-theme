@@ -1,0 +1,108 @@
+/* stylelint-disable selector-class-pattern */
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+
+	@include color(background-color, main-background);
+	font-family: $font-primary;
+	font-size: $font-size-default;
+	font-weight: $font-weight-normal;
+	line-height: $line-height-default;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+	@media (max-width: 1600px) {
+		overflow-x: hidden;
+	}
+}
+
+.home .AppContainer {
+	overflow: hidden;
+}
+
+.wrapper {
+	position: relative;
+	width: 100%;
+	max-width: $wrapper-width;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $wrapper-padding;
+	padding-right: $wrapper-padding;
+	border-radius: 1rem;
+
+	@media (max-width: $breakpoint-desktop) {
+		padding-left: ($wrapper-padding * 2);
+		padding-right: ($wrapper-padding * 2);
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+		padding-left: ($wrapper-padding * 2) !important;
+		padding-right: ($wrapper-padding * 2) !important;
+	}
+
+	@media (max-width: 415px) {
+		padding-left: $wrapper-padding !important;
+		padding-right: $wrapper-padding !important;
+	}
+
+	&__extended {
+		max-width: $breakpoint-desktop-box;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 3em 8.7%;
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+
+			padding: 5.25em 7.5em;
+		}
+	}
+
+	&__wide {
+		position: relative;
+		max-width: 1380px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 1.5em 0;
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 2.75em 0;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: flex;
+		}
+	}
+}
+
+.grecaptcha-badge {
+	display: none !important;
+}
+
+.flex {
+	display: flex;
+
+	&-wrap {
+		flex-wrap: wrap;
+	}
+
+	&-align-center {
+		align-content: center;
+	}
+}
+
+.mobile--only {
+
+	@media (min-width: $breakpoint-tablet) {
+		display: none;
+	}
+}
+
+.desktop--only {
+
+	@media (max-width: $breakpoint-tablet - 1px) {
+		display: none;
+	}
+}

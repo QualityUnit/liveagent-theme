@@ -1,0 +1,126 @@
+$info-width: 18ch;
+
+.click--chartbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.75em;
+	line-height: 1.3;
+	width: 100%;
+	padding: 0.5em 1em;
+	background-color: rgba($lightest-gray, 0.75);
+
+	.select--icon {
+		margin-right: 0.75em;
+		width: 1em;
+	}
+}
+
+.charts {
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+	width: calc(100% - #{$info-width});
+	margin-top: 0.75em;
+	padding: 0 1.875em;
+
+	@media (min-width: $breakpoint-tablet) {
+		margin-top: 1.5em;
+	}
+}
+
+.chart {
+
+	&--bar {
+		height: 2.5em;
+		opacity: 0.8;
+		flex: 0 0 auto;
+		border-radius: 3px 10px 10px 10px;
+		transition: width 0.75s ease-out 0.2s, opacity 0.2s, filter 0.2s;
+
+		&__wrapper {
+			position: relative;
+			display: flex;
+			align-items: center;
+			margin-top: 0.75em;
+			transition: transform 0.25s;
+			cursor: pointer;
+
+			&:hover:not(.limited) {
+
+				.chart--bar {
+					filter: saturate(150%);
+					opacity: 1;
+				}
+			}
+
+			&:first-of-type {
+				cursor: default;
+
+				.chart--bar {
+					filter: saturate(100%);
+					opacity: 0.8;
+				}
+			}
+
+			&.limited.limited {
+
+				.chart--bar {
+					background: linear-gradient(to top, $medium-gray, $medium-gray-quotes);
+					opacity: 0.35;
+				}
+			}
+
+			$barColors: (
+				(#ffbd39, #fa9531)
+				(#46a6ff, #2570ed)
+				(#e4470c, #ff6d36)
+				(#00c275, #00a966)
+			);
+
+			@for $i from 1 through length($barColors) {
+				$val: nth($barColors, $i);
+
+				&:nth-of-type(#{$i}) {
+
+					.chart--bar {
+						background: linear-gradient(to top, #{nth($val, 1)}, #{nth($val, 2)});
+					}
+				}
+			}
+		}
+
+		&__info {
+			display: block;
+			font-family: $font-primary;
+			line-height: 1.1;
+			margin-left: 1em;
+			max-width: $info-width;
+			flex: 0 0 auto;
+
+			.name {
+
+				@include color(color, font-color-level3);
+				display: block;
+				font-size: 0.75rem;
+				font-weight: 400;
+
+				a:not(:hover) {
+					color: currentColor;
+				}
+			}
+
+			.price {
+				display: block;
+				font-size: 0.875rem;
+				font-weight: 700;
+				margin: 0;
+				color: $black;
+			}
+		}
+
+		.info-icon {
+			flex: 0 0 auto;
+		}
+	}
+}

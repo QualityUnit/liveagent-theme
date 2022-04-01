@@ -1,0 +1,148 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../components/ChecklistsToc";
+@import "../elements/CircleProgressBar";
+
+.Post__header__small {
+
+	@include color(background-color, main-background);
+	position: fixed;
+	width: 100vw;
+	transition: all 0.2s;
+	top: 0;
+	z-index: 101;
+	transform: translateY(calc(-100% - 4px));
+	box-shadow: 0 4px 4px 0 rgba($black-real, 0.1);
+
+	&__navLabel {
+
+		@include color(color, font-color-level3);
+		display: none;
+		font-size: 0.75rem;
+
+		@media (min-width: $breakpoint-desktop-box) {
+			display: inline;
+		}
+	}
+
+	&__navigation {
+		align-items: center;
+		cursor: pointer;
+		max-width: 60%;
+	}
+
+	&__title {
+		margin-bottom: 0;
+		margin-right: 0.5em;
+
+		@media (max-width: $breakpoint-tablet) {
+
+			font-size: 0.75em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			margin-left: 1.5em;
+			margin-right: 1em;
+		}
+	}
+
+	.Post__header {
+
+		&__counter {
+
+			@include color(color, font-color-dark);
+			font-family: $font-secondary;
+			font-size: 0.8125rem;
+			font-weight: 500;
+			margin-left: 0.75em;
+		}
+
+		&__progress {
+			margin-left: auto;
+		}
+
+		&__collapse {
+
+			@include color(color, font-color-dark);
+			@include color(background-color, button-outline-color);
+			font-family: $font-secondary;
+			font-size: 0.8125rem;
+			font-weight: 600;
+			border-radius: 6px;
+			text-align: center;
+			transition: all 0.2s;
+			padding: 0.45em;
+			margin-left: 0.75em;
+			cursor: pointer;
+
+
+			&:hover {
+
+				@include color(background-color, secondary-background);
+			}
+
+			.inactive {
+				display: none;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&__progress {
+				margin-left: auto;
+				flex: 0 0 auto;
+			}
+
+			&__collapse {
+				margin-left: 1.5em;
+				margin-right: 4em;
+				padding: 0.5em 1.25em 0.5em 0.75em;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+
+			&__progress {
+				margin-left: 16em;
+			}
+
+			&__collapse {
+				margin-right: 0;
+			}
+		}
+	}
+
+
+	&.visible {
+		transform: translateY(0);
+	}
+
+	.wrapper__wide {
+		display: flex;
+		align-items: center;
+		min-height: 5.625em;
+		padding: 0;
+	}
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+		padding: 0 1.5em;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper__wide {
+			width: calc(100% - 16.875em + 3em - 16.5em);
+			// padding-left: 7em;
+			margin: 0 auto;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop-box) {
+
+		.wrapper__wide {
+			padding-left: 13.5em;
+			width: auto;
+		}
+	}
+}

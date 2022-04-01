@@ -1,0 +1,38 @@
+/* stylelint-disable selector-class-pattern */
+
+.Logos {
+
+	h2 {
+		text-align: center;
+		margin-bottom: 0;
+	}
+
+	.Clients {
+		margin: 45px 0;
+
+		&__item {
+			margin: 0 40px;
+
+			&:first-of-type {
+				margin-left: 0;
+			}
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		.wrapper {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+}

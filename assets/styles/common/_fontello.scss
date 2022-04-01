@@ -1,0 +1,338 @@
+@font-face {
+	font-family: fontello;
+	src:
+		url(../webfonts/fontello.woff2?2022022201) format("woff2"),
+		url(../webfonts/fontello.woff?2022022201) format("woff"),
+		url(../webfonts/fontello.ttf?2022022201) format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+[class^="fontello-"]::before,
+[class*="fontello-"]::before {
+	font-family: fontello, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.fontello-icon-e800::before {
+	content: "\e800" !important; // about us
+}
+
+.fontello-icon-e801::before {
+	content: "\e801" !important; // academy
+}
+
+.fontello-icon-e802::before {
+	content: "\e802" !important; // alternatives
+}
+
+.fontello-icon-e803::before {
+	content: "\e803" !important; // awards
+}
+
+.fontello-icon-e804::before {
+	content: "\e804" !important; // blog
+}
+
+.fontello-icon-e805::before {
+	content: "\e805" !important; // business solutions
+}
+
+.fontello-icon-e806::before {
+	content: "\e806" !important; // call center
+}
+
+.fontello-icon-e807::before {
+	content: "\e807" !important; // features
+}
+
+.fontello-icon-e808::before {
+	content: "\e808" !important; // help desk
+}
+
+.fontello-icon-e809::before {
+	content: "\e809" !important; // industry solutions
+}
+
+.fontello-icon-e80a::before {
+	content: "\e80a" !important; // integrations
+}
+
+.fontello-icon-e80b::before {
+	content: "\e80b" !important; // knowledge base
+}
+
+.fontello-icon-e80c::before {
+	content: "\e80c" !important; // live chat
+}
+
+.fontello-icon-e80d::before {
+	content: "\e80d" !important; // social media
+}
+
+.fontello-icon-e80e::before {
+	content: "\e80e" !important; // success stories
+}
+
+.fontello-icon-e80f::before {
+	content: "\e80f" !important; // use cases
+}
+
+.fontello-icon-e810::before {
+	content: "\e810" !important; // webinars
+}
+
+.fontello-icon-e811::before {
+	content: "\e811" !important; // why liveagent
+}
+
+.fontello-icon-e82a::before {
+	content: "\e82a" !important; // glossary
+}
+
+.fontello-icon-e82b::before {
+	content: "\e82b" !important; // templates
+}
+
+.fontello-bars-solid::before {
+	content: "\e812";
+}
+
+.fontello-calendar-regular::before {
+	content: "\e813";
+}
+
+.fontello-check-circle-regular::before {
+	content: "\e814";
+}
+
+.fontello-facebook-f-brands::before {
+	content: "\e815";
+}
+
+.fontello-facebook-square-brands::before {
+	content: "\e816";
+}
+
+.fontello-folder-solid::before {
+	content: "\e817";
+}
+
+.fontello-instagram-brands::before {
+	content: "\e818";
+}
+
+.fontello-linkedin-brands::before {
+	content: "\e819";
+}
+
+.fontello-linkedin-in-brands::before {
+	content: "\e81a";
+}
+
+.fontello-search-solid::before {
+	content: "\e81b";
+}
+
+.fontello-times-circle-regular::before {
+	content: "\e81c";
+}
+
+.fontello-twitter-brands::before {
+	content: "\e81d";
+}
+
+.fontello-twitter-square-brands::before {
+	content: "\e81e";
+}
+
+.fontello-user-solid::before {
+	content: "\e81f";
+}
+
+.fontello-youtube-square-brands::before {
+	content: "\e820";
+}
+
+.fontello-chevron-down-solid::before {
+	content: "\e821";
+}
+
+.fontello-chevron-left-solid::before {
+	content: "\e822";
+}
+
+.fontello-chevron-right-solid::before {
+	content: "\e823";
+}
+
+.fontello-chevron-up-solid::before {
+	content: "\e824";
+}
+
+.fontello-dribbble-brands::before {
+	content: "\e825";
+}
+
+.fontello-github-brands::before {
+	content: "\e826";
+}
+
+.fontello-map-marker-alt-solid::before {
+	content: "\e827";
+}
+
+.fontello-phone-solid::before {
+	content: "\e828";
+}
+
+.fontello-wordpress-simple-brands::before {
+	content: "\e829";
+}
+
+.fontello-info::before {
+	content: "\e82c";
+}
+
+.fontello-company::before {
+	content: "\e82d";
+}
+
+.fontello-mail::before {
+	content: "\e82e";
+}
+
+.fontello-user::before {
+	content: "\e82f";
+}
+
+.fontello-inbox::before {
+	content: "\e830" !important;
+}
+
+.fontello-folder2::before {
+	content: "\e831" !important;
+}
+
+.fontello-anchor::before {
+	content: "\e832" !important;
+}
+
+.fontello-menu-academy::before {
+	content: "\e851" !important;
+}
+
+.fontello-menu-awards::before {
+	content: "\e852" !important;
+}
+
+.fontello-menu-blog::before {
+	content: "\e853" !important;
+}
+
+.fontello-menu-business-solutions::before {
+	content: "\e854" !important;
+}
+
+.fontello-menu-call-center::before {
+	content: "\e855" !important;
+}
+
+.fontello-menu-change-log::before {
+	content: "\e839" !important;
+}
+
+.fontello-menu-customer-portal::before {
+	content: "\e856" !important;
+}
+
+.fontello-menu-directory::before {
+	content: "\e857" !important;
+}
+
+.fontello-menu-glossary::before {
+	content: "\e833" !important;
+}
+
+.fontello-menu-help-desk::before {
+	content: "\e843" !important;
+}
+
+.fontello-menu-industry-solutions::before {
+	content: "\e844" !important;
+}
+
+.fontello-menu-knowledge-base::before {
+	content: "\e845" !important;
+}
+
+.fontello-menu-live-chat::before {
+	content: "\e846" !important;
+}
+
+.fontello-menu-social-media::before {
+	content: "\e847" !important;
+}
+
+.fontello-menu-system-status::before {
+	content: "\e842" !important;
+}
+
+.fontello-menu-take-a-tour::before {
+	content: "\e849" !important;
+}
+
+.fontello-menu-templates::before {
+	content: "\e84a" !important;
+}
+
+.fontello-menu-ticketing::before {
+	content: "\e84b" !important;
+}
+
+.fontello-menu-typing-test::before {
+	content: "\e84c" !important;
+}
+
+.fontello-menu-use-cases::before {
+	content: "\e84d" !important;
+}
+
+.fontello-menu-vector::before {
+	//support portal
+	content: "\e848" !important;
+}
+
+.fontello-menu-webinars::before {
+	content: "\e84e" !important;
+}
+
+.fontello-menu-why-liveagent::before {
+	content: "\e84f" !important;
+}
+
+.fontello-menu-about-us::before {
+	content: "\e850" !important;
+}
+
+.fontello-menu-wordpress::before {
+	content: "\e829" !important;
+}
+
+.fontello-menu-research::before {
+	content: "\e834" !important;
+}
+
+.fontello-menu-checklists::before {
+	content: "\e835" !important;
+}

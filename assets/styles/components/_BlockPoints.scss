@@ -1,0 +1,203 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.BlockPoints {
+	margin-top: 100px !important;
+	margin-bottom: 100px !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+
+	&.margin-top {
+		margin-top: 150px !important;
+	}
+
+	&.margin-bottom {
+		margin-bottom: 150px !important;
+	}
+
+	.elementor-widget:not(:last-child) {
+		margin-bottom: 0 !important;
+	}
+
+	h2 {
+		font-size: $font-size-h1;
+		line-height: $line-height-h1 !important;
+		text-align: center;
+	}
+
+	.elementor-text-editor {
+		text-align: center;
+
+		p {
+			text-align: center;
+		}
+	}
+
+	.elementor-section-boxed {
+		margin-top: 40px;
+	}
+
+	.elementor-col-25 {
+
+		@include color(background-color, main-background);
+		max-width: 265px !important;
+		margin: 10px;
+		padding: 40px;
+		padding-bottom: 0;
+		border-radius: $border-radius-16;
+
+		img {
+			display: block;
+			max-width: 60px !important;
+			max-height: 60px;
+			margin-bottom: 20px;
+		}
+
+		h3 {
+			font-size: 24px;
+			line-height: 28px;
+			margin-bottom: 15px;
+		}
+
+		a {
+
+			@include color(color, primary-color);
+
+			&:active,
+			&:focus,
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.elementor-text-editor {
+			text-align: left;
+
+			p {
+				text-align: left;
+			}
+		}
+
+		.elementor-widget-text-editor {
+			text-align: left;
+
+			p {
+				text-align: left;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.Button {
+			width: 100%;
+			margin-top: 25px;
+			text-align: center;
+		}
+	}
+
+	&--no-title {
+
+		.elementor-section-boxed {
+			margin-top: 0 !important;
+		}
+
+		.elementor-col-25 {
+			padding-bottom: 0 !important;
+		}
+	}
+
+	@media (max-width: 1250px) and (min-width: 1024px) {
+
+		.elementor-col-25 {
+			width: 23% !important;
+			max-width: none !important;
+			margin: 1% !important;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		.elementor-row,
+		.elementor-container {
+			flex-wrap: wrap;
+			margin-top: 40px;
+		}
+
+		.elementor-col-25 {
+			width: 48%;
+			margin: 1% !important;
+			max-width: none !important;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+		margin-top: 75px !important;
+		margin-bottom: 75px !important;
+
+		h2 {
+			font-size: $font-size-h2;
+			line-height: $line-height-h2 !important;
+		}
+
+		.elementor-section-boxed {
+			margin-top: 0;
+		}
+
+		.elementor-col-25 {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		.elementor-col-25 { /* stylelint-disable-line no-duplicate-selectors */
+			width: 100%;
+			margin: 10px 0 !important;
+		}
+	}
+
+	@media (max-width: $breakpoint-iphone-old) {
+
+		.elementor-col-25 {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+}
+
+.BlockPoints--background {
+
+	@extend .Box;
+	@extend .Box--gray;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+
+	.wrapper {
+		padding-top: 100px !important;
+		padding-bottom: 100px !important;
+	}
+
+	.elementor-col-25 {
+		padding-top: 40px !important;
+		padding-bottom: 40px !important;
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+		padding-top: 100px !important;
+		padding-bottom: 100px !important;
+
+		.wrapper {
+			padding-top: 0 !important;
+			padding-bottom: 0 !important;
+		}
+	}
+}
+
+.BlockPoints--boxes {
+
+	.elementor-col-25 {
+
+		@include color(background-color, secondary-background);
+		padding-bottom: 40px !important;
+	}
+}

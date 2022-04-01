@@ -1,0 +1,305 @@
+.qu-Checklist {
+	margin-bottom: 3em;
+}
+
+.qu-ChecklistItem {
+
+	position: relative;
+	box-shadow: 0 19px 120px -40px rgba($black-real, 0.18);
+	border-radius: $border-radius-16;
+	border-width: 2px;
+	border-style: solid;
+	border-color: rgba($light-gray, 0);
+	margin-bottom: 1.5em;
+	overflow: hidden;
+
+	&.open {
+
+		@include color(background-color, main-background);
+		border-color: rgba($light-gray, 1);
+
+		.qu-ChecklistItem {
+
+			&__content {
+				display: block;
+			}
+		}
+	}
+
+	&.checked {
+
+		&.open {
+			border-color: $saturated-green;
+		}
+
+		label {
+			color: $saturated-green;
+
+			&::before {
+				background-image: url(../../../../../assets/images/checkbox-checklist-active.svg?v2) !important;
+			}
+		}
+	}
+
+	label,
+	input[type="text"] {
+		position: relative;
+		z-index: 1;
+		display: inline-flex;
+		align-items: center;
+		font-family: $font-secondary;
+		font-weight: 600;
+		font-size: 1.125rem;
+		transition: all 0.2s;
+
+		h2 {
+			all: unset;
+			font-size: 1em;
+			margin: 0;
+			line-height: inherit;
+		}
+	}
+
+	label {
+		cursor: pointer;
+
+		&::before {
+
+			@include square(1.25em);
+			display: block;
+			content: "";
+			margin-left: -2.75em;
+			margin-right: 0.75em;
+			background: transparent url(../../../../../assets/images/checkbox-checklist-inactive.svg?v2) center center no-repeat;
+			background-size: contain;
+			transition: all 0.2s;
+			flex: 0 0 auto;
+
+			@media (min-width: $breakpoint-tablet) {
+				margin-right: 1.25em;
+			}
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+
+				text-decoration: underline;
+
+				&::before {
+					background-image: url(../../../../../assets/images/checkbox-checklist-inactive-hover.svg?v2);
+				}
+			}
+		}
+	}
+
+	input[type="text"] {
+
+		border: none !important;
+	}
+
+	input[type="checkbox"] {
+		display: none;
+	}
+
+	&__header {
+		position: relative;
+		display: flex;
+		background-color: $lightest-gray;
+		padding: 0.75em 2em 0.75em 5em;
+		border-radius: $border-radius-16 $border-radius-16 0 0;
+		transition: background-color 0.2s;
+		cursor: pointer;
+
+		@media (min-width: $breakpoint-tablet) {
+			align-items: center;
+			padding: 0.75em 2em 0.75em 6rem;
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+				background-color: $pricing-gray;
+			}
+		}
+
+		.open & {
+			background-color: $lightest-gray;
+			border-bottom: 1px solid $light-gray;
+
+
+			@media (hover: hover) {
+
+				&:hover {
+					background-color: $pricing-gray;
+				}
+			}
+		}
+
+		.checked & {
+			background-color: rgb(236, 249, 243);
+
+			@media (hover: hover) {
+
+				&:hover {
+
+					background-color: rgba($desaturated-green, 1);
+				}
+			}
+
+			&__copy.Button {
+				border-color: $saturated-green;
+				color: $saturated-green;
+			}
+
+			label {
+
+				&::before {
+					background-image: url(../../../../../assets/images/checkbox-checklist-active.svg?v2) !important;
+				}
+			}
+		}
+
+		&__copy.Button {
+
+			@include color(border-color, border-color-inputs);
+			position: relative;
+			z-index: 1;
+			display: inline-flex;
+			align-items: center;
+			background-color: rgba($saturated-green, 0);
+			font-family: $font-secondary;
+			font-weight: 600;
+			margin-left: auto;
+			margin-right: 0.75em;
+
+			svg {
+
+				@include square(1.5em);
+				flex: 1 0 auto;
+			}
+
+			span {
+				white-space: nowrap;
+			}
+
+			svg,
+			span {
+				color: currentColor;
+				fill: currentColor;
+			}
+
+			@media (hover: hover) {
+
+				&:hover {
+
+					@include color(border-color, border-color-inputs);
+					color: currentColor;
+					background-color: $light-gray;
+				}
+
+				.checked &:hover {
+					color: $saturated-green;
+					border-color: currentColor;
+					background-color: rgba($saturated-green, 0.15);
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				margin-right: 2em;
+
+				svg {
+
+					margin-right: 0.5em;
+				}
+			}
+		}
+
+		&__arrow {
+			margin-top: 0.75em;
+			flex: 0 1.125rem;
+			transition: transform 0.2s;
+
+			@media (min-width: $breakpoint-tablet) {
+				margin-top: 0;
+			}
+		}
+
+		.open &__arrow {
+			transform: scaleY(-1);
+		}
+
+		&__pseudo {
+
+			@include posZero();
+			position: absolute;
+		}
+	}
+
+	&__content {
+		display: none;
+		padding: 2em;
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 2em 6em 3em;
+		}
+
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin-top: 0 !important;
+		}
+
+		label {
+
+			&::before {
+				order: 2;
+				margin-left: 1em;
+				margin-right: 0;
+			}
+		}
+
+		img {
+			max-width: 100%;
+			width: 100%;
+			border: none;
+		}
+	}
+
+	&__footer {
+		margin-top: 2em;
+
+		&::before {
+			display: block;
+			content: "";
+			width: 100%;
+			height: 1px;
+			background: linear-gradient(to right, rgba($white, 0) 0%, $light-gray 19.79%, rgba($light-gray, 0.84507) 72.4%, rgba($light-gray, 0) 100%, rgba($white, 0) 100%);
+			margin-bottom: 2em;
+		}
+
+		label {
+
+			&::before {
+				order: -1;
+				margin-left: 0;
+				margin-right: 1em;
+			}
+
+			.checked {
+
+				@include color(color, font-color-dark);
+			}
+
+			span {
+
+				color: currentColor;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			text-align: center;
+		}
+	}
+}

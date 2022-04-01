@@ -1,0 +1,80 @@
+/* stylelint-disable selector-class-pattern */
+
+.Clients {
+	display: flex;
+	flex-flow: wrap row;
+	justify-content: center;
+	align-items: center;
+	margin-top: 160px;
+
+	&__item {
+		margin: 15px 45px;
+
+		&:first-of-type {
+			margin-left: 0;
+		}
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+
+	img {
+		display: block;
+		max-width: 125px;
+		height: 25px;
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		&__item {
+			display: none !important;
+		}
+
+		@for $item from 1 to 4 {
+			&__item:nth-of-type(#{$item}) {
+				display: block !important;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+		margin-top: 125px;
+
+		&__item {
+			margin: 20px !important;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+		margin-top: 75px;
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		margin-top: 50px;
+	}
+}
+
+.Block .Clients {
+	margin-top: 40px;
+	justify-content: flex-start;
+
+	&__item {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-start;
+		width: 30% !important;
+		margin: 20px 0 !important;
+
+		img {
+			max-width: 85%;
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		&__item {
+			width: 50% !important;
+		}
+	}
+}

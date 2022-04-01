@@ -1,0 +1,174 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Boxes {
+	$widgetPadding: 2.5rem;
+
+	&.Boxes--stars {
+
+		.elementor-column.elementor-column {
+			padding: 20px;
+		}
+
+		.elementor-col-50 {
+			width: 33.333%;
+		}
+
+		.elementor-widget-wrap.elementor-widget-wrap {
+
+			border-radius: 1.25rem;
+			overflow: hidden;
+
+			.elementor-column {
+
+				@media (min-width: $breakpoint-desktop-box) {
+					transition: transform 0.2s;
+
+					&:hover {
+						transform: translateY(-1em);
+
+						.elementor-widget-heading:last-of-type .elementor-widget-container {
+
+							*::after {
+								transform: translateX(1em);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.elementor-widget-image.elementor-widget-image {
+			position: relative;
+			width: 100%;
+			height: 0;
+			padding-bottom: 46.25%;
+			background: url(../images/box-star_bg.svg?v2) center -3px no-repeat;
+			background-size: cover;
+			text-align: left;
+
+			.elementor-image a {
+				overflow: visible;
+				border-radius: 0;
+				max-height: none;
+			}
+
+			img {
+				display: inline-block;
+				margin: 0;
+				width: auto !important;
+				max-width: none;
+				max-height: 4.5em;
+
+				@media (max-width: $breakpoint-desktop) {
+					max-height: 3.5em;
+				}
+			}
+
+			.elementor-widget-container {
+
+				@include square(100%);
+				position: absolute;
+				display: flex;
+				align-items: center;
+				top: 0;
+				left: 0;
+				padding: 0;
+				padding-left: $widgetPadding;
+			}
+		}
+
+		&-white {
+
+			.wrapper .elementor-inner-section .elementor-widget-wrap {
+				box-shadow: 0 0 1.25rem 0 rgba(250, 149, 49, 0.15);
+			}
+
+			.elementor-widget-image.elementor-widget-image {
+				background: url(../images/box-star-white_bg.svg) -2px center no-repeat;
+				background-size: cover;
+			}
+		}
+
+		.elementor-inner-section .elementor-widget-container.elementor-widget-container {
+			text-align: left;
+			padding: 1.75rem $widgetPadding 0;
+		}
+
+		.elementor-inner-section .elementor-widget-text-editor .elementor-widget-container {
+			padding-top: 0;
+			padding-bottom: $widgetPadding;
+
+			p {
+				text-align: left;
+				line-height: 1.625;
+			}
+		}
+
+		.elementor-widget-heading.elementor-widget-heading {
+
+			&:last-of-type .elementor-widget-container {
+				padding: 1.75rem $widgetPadding $widgetPadding;
+			}
+		}
+
+		.elementor-col-25 {
+
+			.elementor-widget-image img {
+				max-height: 3.5em;
+			}
+
+			.elementor-widget-heading {
+
+				&.elementor-widget-heading {
+
+					h3 {
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+
+		.elementor-widget-heading.elementor-widget-heading,
+		.elementor-widget-text-editor.elementor-widget-text-editor {
+			padding: 0 !important;
+
+			h3 {
+				font-size: 1.25rem;
+				margin-bottom: 0.75em;
+			}
+
+			&:last-of-type h3 {
+				margin-bottom: 0;
+			}
+
+			+ .elementor-widget-heading:last-of-type .elementor-widget-container {
+				padding: 0 $widgetPadding $widgetPadding;
+
+				* {
+
+					@include color(background-image, background);
+					font-family: $font-secondary;
+					font-weight: $font-weight-bold;
+					color: transparent;
+					background-clip: text;
+
+					&::after {
+						display: inline-block;
+						position: relative;
+						top: 0.25em;
+						content: url(../images/box-star-arrow.svg);
+						margin-left: 0.5em;
+						transition: transform 0.2s;
+					}
+				}
+			}
+		}
+
+		.elementor-image.elementor-image {
+			display: inline-block;
+			padding: 0;
+			height: auto;
+			margin-top: -3em;
+		}
+	}
+}

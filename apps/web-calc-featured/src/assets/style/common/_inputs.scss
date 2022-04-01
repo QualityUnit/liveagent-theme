@@ -1,0 +1,98 @@
+input,
+.inputField {
+
+	&[type="text"],
+	&[type="email"],
+	&[type="url"],
+	&[type="number"],
+	&[type="search"] {
+
+		@include color(background-color, main-background);
+		@include color(border-color, border-color-inputs);
+		color: currentColor;
+		outline: none;
+		border: 1px solid;
+		border-radius: 4px;
+		padding: 0.85em 1.42em 0.85em 3.5em;
+		font-size: 0.875rem;
+		height: 48px;
+
+		@include input-placeholder {
+			color: currentColor;
+		}
+	}
+
+	&--wrapper {
+
+		@include color(color, font-color-level3);
+		display: inline-block;
+		position: relative;
+	}
+
+	&--icon {
+
+		@include square(1.25em);
+		position: absolute;
+		left: 0.85em;
+		top: 50%;
+		transform: translateY(-50%);
+		fill: $light-gray-icon !important;
+	}
+
+	&.select-filter {
+		position: absolute;
+		height: 0;
+		width: 0;
+		padding: 0;
+		opacity: 0;
+	}
+}
+
+input[type="range"] {
+	-webkit-appearance: none;
+	background: $medium-orange;
+	background-image: linear-gradient(to right, $light-orange, $dark-orange);
+	background-repeat: no-repeat;
+	border-radius: 5px;
+	width: 100%;
+	height: 5px;
+	margin: 1.5em 0 1em;
+	cursor: pointer;
+
+	&:focus {
+		cursor: grab;
+	}
+
+	@include sliderTrack {
+		-webkit-appearance: none;
+		box-shadow: none;
+		border: none;
+		background: transparent;
+	}
+
+	@include sliderThumb {
+		-webkit-appearance: none;
+
+		@include square(2em);
+		border-radius: 50%;
+		background: linear-gradient(to bottom, $light-orange, $dark-orange);
+		box-shadow: 0 0 0.25em 0.05em rgba($black-real, 0.06), 0 0 0 2px $medium-orange;
+
+		@media (min-width: $breakpoint-desktop) {
+
+			@include square(1em);
+		}
+	}
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
