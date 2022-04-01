@@ -1,0 +1,82 @@
+/* stylelint-disable selector-class-pattern */
+
+.ShortPricing {
+
+	&__item {
+
+		@include color(box-shadow, box-shadow);
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+		height: auto;
+		margin: 20px 0;
+		padding: 27px 30px;
+		border-radius: ($border-radius * 2);
+
+		&__icon {
+			margin-right: 35px;
+
+			img {
+				width: 55px;
+				height: 55px;
+			}
+		}
+
+		&__text {
+			width: 215px;
+
+			&__title {
+
+				@include color(color, font-color-dark);
+				font-size: $font-size-bigger;
+				line-height: $line-height-bigger;
+				margin: 0;
+			}
+
+			&__subtitle {
+
+				@include color(color, font-color-medium);
+				font-size: $font-size-smaller;
+				line-height: $line-height-smaller;
+				margin: 0;
+			}
+		}
+
+		&__price {
+
+			&__amount {
+
+				@include color(color, font-color-dark);
+				font-size: $font-size-h1;
+				line-height: $line-height-h1;
+				margin-right: 10px;
+			}
+
+			&__label {
+
+				@include color(color, font-color-medium);
+				font-size: $font-size-bigger;
+				line-height: $line-height-bigger;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		width: calc(100% + 85px);
+		margin-left: -42.5px;
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+		width: 100%;
+
+		&__item {
+
+			&__icon,
+			&__text {
+				margin-bottom: 15px;
+			}
+		}
+	}
+}

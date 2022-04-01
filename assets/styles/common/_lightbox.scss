@@ -1,0 +1,153 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+body.lb-disable-scrolling {
+	overflow: hidden;
+}
+
+.lightboxOverlay {
+
+	@include color(background-color, invert-main-background);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999999;
+	opacity: 0.8;
+	display: none;
+}
+
+.lightbox {
+	overflow: hidden;
+
+	&.splide,
+	&-youtube {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 999999;
+		text-align: center;
+		line-height: 0;
+		font-weight: 400;
+		outline: none;
+		opacity: 0;
+		transition: opacity 0.5s;
+
+		&::after {
+
+			@include color(background-color, invert-main-background);
+			@include square(100%);
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0.8;
+		}
+
+		&.active {
+			opacity: 1;
+		}
+
+		> * {
+			z-index: 1;
+		}
+	}
+
+	.splide {
+
+		&__list {
+			height: 100vh;
+		}
+
+		&__slide {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+		}
+	}
+
+	.youtube {
+
+		&__inn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+		}
+
+		&__wrapper {
+			position: relative;
+			width: calc(100% - 1em);
+			height: 0;
+			padding-bottom: 56.25%;
+			z-index: 1;
+
+			@media (min-width: $breakpoint-desktop) {
+				width: 85%;
+				height: 100vh;
+				padding-bottom: 0;
+			}
+		}
+
+		&__inmodal {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			left: 0;
+		}
+	}
+
+
+	&__image-wrapper {
+		padding: 0 4em;
+
+		img {
+			max-width: 100%;
+			max-height: 100vh;
+		}
+
+	}
+
+	.splide__arrows {
+		position: absolute;
+		width: 100%;
+		height: 2em;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 2;
+	}
+
+	.splide__arrow {
+
+		@include square(2em);
+		font-size: 2rem;
+
+		&::before {
+			display: none;
+		}
+
+		&:disabled {
+			display: none;
+		}
+
+		svg {
+			fill: #fff;
+		}
+	}
+
+	&__close.lightbox__close {
+
+		@include color(color, font-color-light);
+		@include square(1em);
+		position: absolute;
+		display: inline-block;
+		right: 0.5em;
+		top: 0.5em;
+		font-size: 3rem;
+		line-height: 1;
+		cursor: pointer;
+		z-index: 2;
+		text-shadow: 0 0 0.1em rgba($black-real, 0.8);
+	}
+}

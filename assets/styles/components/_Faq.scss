@@ -1,0 +1,112 @@
+/* stylelint-disable selector-class-pattern */
+
+.Faq {
+	margin-top: 100px !important;
+	margin-bottom: 100px !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+
+	&.margin-top {
+		margin-top: 150px !important;
+	}
+
+	&.margin-bottom {
+		margin-bottom: 150px !important;
+	}
+
+	.wrapper {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
+	.elementor-widget-heading {
+
+		h2 {
+			font-size: 24px;
+			line-height: 32px;
+			margin: 0 0 15px;
+			padding-left: 65px;
+		}
+	}
+
+	.elementor-accordion {
+
+		.elementor-accordion-item {
+
+			@include color(background-color, main-background);
+			border: 0;
+			border-top: 1px solid $light-gray;
+
+			&:hover {
+
+				@include color(background-color, secondary-background, !important);
+			}
+		}
+
+		.elementor-tab-title {
+			position: relative;
+			padding: 14px;
+
+			.elementor-accordion-icon {
+				width: 24px;
+				height: 24px;
+				position: absolute;
+				top: 13px;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 55% auto;
+				background-image: url(../images/icon_faq_plus.svg);
+				transition: background-image 0.3s;
+
+				span {
+					display: none !important;
+				}
+			}
+
+			.elementor-accordion-title {
+				display: block;
+				font-size: 15px;
+				line-height: 22px;
+				padding-left: 50px !important;
+			}
+
+			&.elementor-active {
+
+				@include color(background-color, secondary-background, !important);
+
+				.elementor-accordion-icon {
+					transform: none;
+					background-image: url(../images/icon_faq_minus.svg);
+				}
+			}
+		}
+
+		.elementor-tab-content {
+			display: block;
+			overflow: hidden;
+			border: 0;
+			padding: 0 65px 15px;
+			transition: height 0.5s;
+
+			p {
+				font-size: 14px;
+			}
+
+			a:not(.Button) {
+
+				@include color(color, primary-color);
+
+				&:active,
+				&:focus,
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			&.elementor-active {
+
+				@include color(background-color, secondary-background, !important);
+			}
+		}
+	}
+}

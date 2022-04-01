@@ -1,0 +1,177 @@
+input[type="submit"],
+input[type="button"],
+button,
+.button,
+.Button {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	padding: 0.5em $button-padding-normal;
+	margin: 0;
+	border: 0;
+	border-radius: $border-radius - 2;
+	font-size: $button-font-size-normal;
+	font-family: $font-secondary;
+	font-weight: $font-weight-semi;
+	line-height: 1;
+	isolation: isolate;
+	cursor: pointer;
+	user-select: none;
+	min-height: 3em;
+
+	+ .Button.Button {
+		margin-top: 0 !important;
+	}
+
+	&:lang(ru) {
+		padding: 0 1em;
+	}
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: default;
+
+		&:hover {
+
+			&::before {
+				opacity: 1;
+			}
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+}
+
+.Button--full {
+
+	@include color(background, background);
+	@include color(color, button-full-font-color);
+	overflow: hidden;
+
+	&::before {
+
+		@include color(background, background);
+		@include fullSize;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: ($border-radius - 2);
+		opacity: 1;
+		transition: opacity 0.75s;
+		z-index: -1;
+	}
+
+	&::after {
+
+		@include color(background, background-invert);
+		@include fullSize;
+		display: block !important;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: ($border-radius - 2);
+		opacity: 0;
+		transition: opacity 0.75s;
+		z-index: -1;
+	}
+
+	&:hover {
+
+		&::before {
+			opacity: 0;
+		}
+
+		&::after {
+			opacity: 1;
+		}
+	}
+}
+
+.Button--icon {
+
+	svg {
+		fill: currentColor;
+	}
+
+	&__left {
+
+		svg {
+			margin-right: 3em;
+		}
+
+		&.Button--narrow svg {
+			margin-right: 1em;
+		}
+	}
+
+	&__right {
+
+		svg {
+			margin-left: 3em;
+		}
+
+		&.Button--narrow svg {
+			margin-left: 1em;
+		}
+	}
+}
+
+.Button--outline {
+
+	@include color(color, border-color-inputs);
+	border: 1px solid currentColor;
+	background-color: transparent;
+	overflow: hidden;
+	transition: all 0.3s;
+
+	&:hover {
+
+		@include color(color, primary-color);
+	}
+
+	&:disabled:hover {
+
+		@include color(color, border-color-inputs);
+	}
+
+	&__dark {
+
+		@include color(color, border-color-dark);
+	}
+}
+
+.Button--narrow {
+	padding: 0.75em 0.85em;
+	min-height: 2.85em;
+}
+
+
+.Button--normal {
+	color: #fff;
+	background-color: #fa9531;
+	transition: all 0.3s;
+	overflow: hidden;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: $button-height-normal;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: #f98006;
+	}
+}
+
+
+.Button--back {
+	margin-top: 20px;
+}

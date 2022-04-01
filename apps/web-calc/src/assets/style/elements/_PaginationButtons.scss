@@ -1,0 +1,9 @@
+.PaginationButtons {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	.Button:last-child {
+		margin-left: auto;
+	}
+}

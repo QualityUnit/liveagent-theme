@@ -1,0 +1,26 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../layouts/Research";
+@import "../layouts/ResearchPost";
+@import "../elements/ResearchBlock";
+
+.Research--block {
+
+	&__button__twitter {
+		background: url(../../images/twitter-icon.svg) bottom center no-repeat;
+		background-size: contain;
+	}
+
+	&__button__copy {
+		background: url(../../images/copy-icon.svg) bottom center no-repeat;
+		background-size: contain;
+	}
+
+	&__negative {
+
+		&.has-bg {
+			background: var(--post-color) url(../../images/research_block_bg.svg) center center no-repeat;
+			background-size: cover;
+		}
+	}
+}

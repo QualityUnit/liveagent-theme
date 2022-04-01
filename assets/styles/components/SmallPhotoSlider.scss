@@ -1,0 +1,83 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.SmallPhoto__slider {
+
+	&__photo {
+		position: relative;
+		display: block;
+		border-radius: $border-radius-16;
+		overflow: hidden;
+
+		&:not(.notitle) {
+
+			&::before {
+				position: absolute;
+				display: block;
+				bottom: 0;
+				width: 100%;
+				height: 75%;
+				content: "" !important;
+				background: linear-gradient(to top, rgba($black, 0.55), transparent);
+			}
+		}
+	}
+
+	.splide__slide {
+		font-family: $font-secondary;
+		font-size: 0.875rem;
+	}
+
+	.nice__arrows {
+		width: calc(100% + 4em);
+	}
+
+	.SmallPhoto__slider &__desc {
+
+		@include color(color, font-color-light);
+		position: absolute;
+		font-family: $font-secondary;
+		font-weight: 600;
+		font-size: 0.875rem;
+		padding-left: 1.5em;
+		margin-bottom: 0;
+		bottom: 0.75em;
+		width: 100%;
+		z-index: 2;
+	}
+
+	&__zoomin {
+		display: none;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		width: 120%;
+
+		&__photo:hover 	&__zoomin {
+
+			transform: translateY(0%);
+		}
+
+		&__zoomin {
+
+			@include posZero;
+			@include color(color, font-color-light);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			background: linear-gradient(90deg, rgba($light-orange, 0.95) 0%, rgba($dark-orange, 0.95) 100%);
+			transform: translateY(100%);
+			transition: transform 0.2s;
+			z-index: 5;
+
+			svg {
+				margin-right: 0.5em;
+				fill: currentColor;
+			}
+		}
+	}
+}

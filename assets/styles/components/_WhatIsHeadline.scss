@@ -1,0 +1,50 @@
+/* stylelint-disable selector-class-pattern */
+
+.Post__content__whatis-headline {
+
+	@include color(background-color, secondary-background);
+	margin-left: -3.125em;
+	margin-right: -3.125em;
+	margin-bottom: 1em;
+	padding: 2.25em 3.125em;
+	border-radius: $border-radius-16;
+
+	&::before {
+		content: url(../images/icon-bulb.svg?v2);
+		width: 1.375rem;
+		display: block;
+	}
+
+	h2 {
+		margin-top: 0 !important;
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+
+	&.has-tag {
+		border-radius: $border-radius-16;
+
+		&::before {
+			display: none;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+
+		&.has-tag {
+			min-width: 53.125em;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+		margin: 0 -1.25em 1em;
+		padding: 1.25em;
+	}
+
+	@media (min-width: $breakpoint-desktop-box) {
+		margin: 0 -6em 1em;
+		padding: 2.25em 6em;
+	}
+}

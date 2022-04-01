@@ -1,0 +1,64 @@
+/* stylelint-disable selector-class-pattern */
+
+.TourPageCTA {
+
+	section.elementor-section.elementor-inner-section.wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background: $medium-orange url(../images/value-boxes_bg.svg) left bottom no-repeat;
+		background-size: cover;
+		border-radius: $border-radius-16;
+		width: 100% !important;
+		padding: 3rem 0;
+	}
+
+	.elementor-widget-wrap div {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	.elementor-widget-wrap ul.no-cc {
+		justify-content: center;
+		margin: 1rem 0 0 !important;
+	}
+
+	.elementor-widget-heading h1,
+	.elementor-widget-heading h2 {
+		margin-bottom: 0 !important;
+	}
+
+	.elementor-text-editor.elementor-clearfix p {
+		margin-bottom: 0 !important;
+	}
+
+	img.attachment-full.size-full {
+		width: 2.25rem;
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		h1.elementor-heading-title.elementor-size-default {
+			font-size: 34px;
+		}
+
+		section.elementor-section.elementor-inner-section.wrapper {
+			border-radius: 0;
+		}
+
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		.elementor-widget-container > .flex.flex-wrap > a.Button--full {
+			margin: 0 0 1rem 0 !important;
+		}
+
+		h1.elementor-heading-title.elementor-size-default {
+			font-size: 32px;
+		}
+
+	}
+}

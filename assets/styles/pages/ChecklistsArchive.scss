@@ -1,0 +1,23 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.Checklists {
+
+	.Category {
+
+		&__header {
+
+			.wrapper {
+				background: $desaturated-green url(../../images/checklists_archive_header.svg?v2) right center no-repeat;
+				background-size: auto 80%;
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					background-position: center;
+					background-size: cover;
+				}
+			}
+		}
+	}
+}

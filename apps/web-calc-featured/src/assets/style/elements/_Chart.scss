@@ -1,0 +1,102 @@
+.charts {
+	margin-top: 0.75em;
+	padding: 0 1.875em;
+	font-family: $font-secondary;
+
+	@media (min-width: $breakpoint-tablet) {
+		margin-top: 1.5em;
+	}
+}
+
+.chart {
+
+	&--bar {
+		display: flex;
+		align-items: center;
+		height: 2.5em;
+		border-radius: 3px 10px 10px 10px;
+		padding-left: 1em;
+		transition: width 0.75s ease-out 0.2s, background 0.2s;
+		background: linear-gradient(113.73deg, #d7d7d7 15.26%, #c4c4c4 84.73%);
+
+		.price {
+			display: block;
+			font-size: 0.875rem;
+			font-weight: 700;
+			white-space: nowrap;
+			margin: 0;
+		}
+
+		&__wrapper {
+			position: relative;
+			display: grid;
+			align-items: center;
+			grid-template-columns: 11ch 60%;
+			width: 100%;
+			margin-top: 0.75em;
+			transition: transform 0.25s;
+
+			&[value="LiveAgent"] .chart--bar {
+				background: linear-gradient(to right, #ffbd39, #fa9531) !important;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				grid-template-columns: 11ch 75%;
+			}
+
+			$barColors: (
+				(#2898ff, #2570ed)
+				(#ff591b, #da4107)
+				(#00ba70, #00975b)
+				(#ffb928, #eaa312)
+				(#b158ff, #a033ff)
+				(#7bdb30, #63c716)
+				(#5be1e8, #3dbfc8)
+				(#1b8bf3, #0e7ade)
+				(#028b86, #00706b)
+				(#de4141, #c82a2a)
+				(#5451ff, #423efc)
+				(#8c9d20, #a1b42e)
+			);
+
+
+			@for $i from 1 through length($barColors) {
+				$val: nth($barColors, $i);
+
+				&:nth-of-type(#{$i}n) {
+
+					&:hover {
+
+						.chart--bar {
+							background: linear-gradient(to right, #{nth($val, 1)}, #{nth($val, 2)});
+						}
+					}
+				}
+			}
+
+			&__info {
+				display: flex;
+				width: 100%;
+				padding-right: 1em;
+
+				.name {
+
+					@include color(color, font-color-normal);
+					display: block;
+					font-size: 0.75rem;
+					line-height: 1.21;
+					font-weight: 400;
+
+					a:not(:hover) {
+						color: currentColor;
+					}
+				}
+
+				.info-icon {
+					flex: 0 0 auto;
+					align-self: center;
+				}
+			}
+		}
+	}
+}

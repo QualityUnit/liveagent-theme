@@ -1,0 +1,16 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.Pagination {
+	display: flex;
+	flex-flow: wrap row;
+	justify-content: center;
+	width: 100%;
+
+	a {
+
+		@extend .Button;
+		@extend .Button--outline;
+		line-height: 46px;
+	}
+}

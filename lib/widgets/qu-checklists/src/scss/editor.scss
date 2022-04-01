@@ -1,0 +1,108 @@
+@use "sass:math";
+@import "../../../../../assets/styles/common/variables";
+
+.qu-Checklist {
+	position: relative;
+	border: 1px solid $medium-gray-quotes;
+	padding-bottom: 1.5em;
+
+	&::before {
+		content: "Checklist block";
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		display: inline-block;
+		padding: 0.25em 1.5em;
+		background-color: $light-gray;
+		text-align: center;
+	}
+
+	[data-type="qu/checklistitem"] + .block-list-appender {
+		display: flex;
+		justify-content: center;
+
+		button {
+			width: auto !important;
+
+			&::after {
+				content: attr(aria-label);
+				margin-left: 1em;
+			}
+		}
+	}
+}
+
+.qu-ChecklistItem {
+
+	&__header {
+		display: block !important;
+	}
+
+	&__footer,
+	&__footer .components-base-control__field {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+
+		.components-base-control {
+			width: 100%;
+		}
+
+		input[type="text"].components-text-control__input {
+			font-family: $font-secondary;
+			font-weight: 400;
+			font-size: 1.125rem;
+			border: none !important;
+			text-align: center;
+			width: 100%;
+		}
+
+		label {
+
+			order: -1;
+			margin-right: 1em;
+
+			&::before {
+				display: none !important;
+			}
+		}
+	}
+
+	.qu-ChecklistItem__content ul li {
+		margin-bottom: 0.5em !important;
+
+		&::before {
+			font-size: 1rem !important;
+			top: -2px !important;
+		}
+	}
+
+	.block-library-heading-level-toolbar {
+
+		[aria-label="Heading 1"],
+		[aria-label="Heading 2"] {
+			display: none !important;
+		}
+	}
+
+	/**
+	 * Animations
+	 */
+
+	// These keyframes should not be part of the _animations.scss mixins file.
+	// Because keyframe animations can't be defined as mixins properly.
+	// Since hey are intended only for the editor, we add them here instead.
+	@keyframes edit-post__fade-in-animation {
+
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+}
+

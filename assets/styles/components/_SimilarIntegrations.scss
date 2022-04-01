@@ -1,0 +1,54 @@
+/* stylelint-disable selector-class-pattern */
+
+.SimilarIntegrations {
+
+	.elementor-container {
+		width: 100%;
+	}
+
+	h2 {
+		font-size: 24px;
+		line-height: 28px;
+		text-align: center;
+	}
+
+	&__items {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+	&__item {
+		display: flex;
+		flex-flow: nowrap column;
+		justify-content: flex-start;
+		align-items: center;
+		width: 185px;
+		height: 185px;
+		background-color: #fff;
+		margin: 10px;
+		padding: 35px 10px 20px;
+		border-radius: 16px;
+		text-align: center;
+
+		img {
+			max-width: 55px;
+			max-height: 55px;
+			min-height: 55px;
+			margin-bottom: 20px;
+		}
+
+		h3 {
+			font-size: 18px;
+			line-height: 24px;
+			margin-bottom: 0;
+			max-height: 47px;
+			overflow: hidden;
+
+			a {
+				color: #000;
+			}
+		}
+	}
+}

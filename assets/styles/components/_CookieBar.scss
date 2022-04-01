@@ -1,0 +1,129 @@
+/* stylelint-disable selector-class-pattern */
+
+.Kolaciky {
+
+	@include color(background-color, content-color-dark);
+	@include color(color, font-color-light);
+	@include shakeX(2em);
+	position: fixed;
+	bottom: 25px;
+	left: 25px;
+	z-index: 9999999;
+	display: none;
+	flex-flow: wrap row;
+	justify-content: flex-start;
+	align-items: center;
+	width: 400px;
+	max-width: 100%;
+	height: auto;
+	overflow: hidden;
+	border-radius: $border-radius-16;
+
+	&.shakeX {
+		animation: shakeX 0.75s;
+	}
+
+	.wrapper {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 25px;
+	}
+
+	p {
+
+		color: inherit;
+		font-size: 14px;
+		line-height: 26px;
+		margin-bottom: 0;
+
+		a {
+			color: inherit;
+			text-decoration: underline;
+
+			&:active,
+			&:focus,
+			&:hover {
+
+				@include color(color, primary-color);
+				text-decoration: none;
+			}
+		}
+	}
+
+	&__buttons {
+		margin-top: 25px;
+		width: 100%;
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: space-between;
+
+		.Button--full {
+
+			@include color(background, main-background);
+			@include color(color, font-color-dark);
+			transition: all 0.75s;
+
+			&::before,
+			&::after {
+				opacity: 0;
+			}
+
+			&:hover {
+
+				@include color(color, font-color-light, !important);
+				background: transparent;
+
+				&::before,
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__button {
+
+		&--more {
+
+			@include color(color, font-color-light);
+			border-color: transparent !important;
+			padding: 0;
+			font-weight: 400;
+			text-decoration: underline;
+
+			&:active,
+			&:focus,
+			&:hover {
+
+				@include color(color, primary-color);
+				text-decoration: none;
+			}
+		}
+	}
+
+	&.show {
+		display: block;
+	}
+
+	&.hide {
+		display: none;
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 10000000;
+
+		p {
+			font-size: $font-size-smaller;
+			line-height: $line-height-smaller;
+		}
+
+		.wrapper {
+			padding: 30px;
+		}
+	}
+}

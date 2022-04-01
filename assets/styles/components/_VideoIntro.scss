@@ -1,0 +1,120 @@
+/* stylelint-disable selector-class-pattern */
+
+.VideoIntro {
+	position: relative;
+	margin-top: 100px;
+	overflow-x: hidden;
+
+	.wrapper {
+		padding-top: 85px;
+		padding-bottom: 85px;
+	}
+
+	&__text,
+	&__video {
+		width: 50%;
+	}
+
+	&__text {
+
+		* {
+			max-width: 485px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__video {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: center;
+		align-items: center;
+
+		iframe {
+			max-width: 100%;
+		}
+
+		img {
+			position: absolute;
+			width: auto;
+			max-height: 275px;
+			pointer-events: none;
+		}
+
+		a {
+			position: relative;
+			z-index: 1;
+			display: block;
+			width: 150px;
+			height: 150px;
+			background-image: url(../images/button_play.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100% auto;
+			font-size: 0;
+			transition: opacity 0.3s;
+
+			&:active,
+			&:focus,
+			&:hover {
+				opacity: 0.75;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+		margin-top: 75px;
+
+		.wrapper {
+			padding-top: 75px;
+		}
+
+		&__text,
+		&__video {
+			width: 100%;
+
+			* {
+				max-width: none;
+			}
+		}
+
+		&__video {
+			margin-top: 50px;
+
+			img {
+				position: relative;
+				top: 0;
+				right: 0;
+				max-width: 100%;
+				max-height: 350px;
+			}
+
+			a {
+				position: absolute;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		&__video {
+
+			iframe {
+				height: auto !important;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		&__video {
+
+			a {
+				width: 100px;
+				height: 100px;
+			}
+		}
+	}
+}

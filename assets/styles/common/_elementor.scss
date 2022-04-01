@@ -1,0 +1,144 @@
+/* stylelint-disable selector-class-pattern */
+
+//hotfix removal of custom-frontend-legacy padding suddenly appearing
+.elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated > .elementor-widget-wrap {
+	padding: 0 !important;
+}
+
+.elementor:not(:lang(en)) {
+	hyphens: auto;
+}
+
+.elementor-element-populated {
+	padding: 0 !important;
+}
+
+.elementor-section.elementor-section-boxed > .elementor-container {
+	width: 100%;
+	max-width: $breakpoint-desktop-box;
+}
+
+.elementor-widget-heading {
+
+	h2.elementor-heading-title {
+		line-height: $line-height-h2;
+
+		&.elementor-size-xl {
+			font-size: $font-size-h2-xl;
+			line-height: 1.5;
+
+			@media (max-width: $breakpoint-tablet - 1px) {
+				font-size: 1.75rem;
+			}
+		}
+	}
+
+	h3.elementor-heading-title {
+		line-height: $line-height-h3;
+	}
+
+	h4.elementor-heading-title {
+		line-height: $line-height-h4;
+	}
+
+	h5.elementor-heading-title {
+		line-height: $line-height-h5;
+	}
+
+	h6.elementor-heading-title {
+		line-height: $line-height-h6;
+	}
+}
+
+.elementor-widget-heading .elementor-heading-title {
+	margin-bottom: $default-element-margin;
+}
+
+@media (max-width: $breakpoint-desktop) {
+
+	.elementor-container {
+
+		.elementor-col-50 {
+
+			&:first-of-type {
+				padding-right: 15px;
+			}
+
+			&:last-of-type {
+				padding-left: 15px;
+			}
+		}
+	}
+}
+
+body:not(.elementor-editor-active) {
+
+	@media (max-width: $breakpoint-tablet) {
+
+		.elementor-column.elementor-col-50,
+		.elementor-column[data-col="50"] {
+			width: 100% !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+	}
+
+	@media (min-width: 769px) {
+
+		.elementor .elementor-hidden-desktop {
+			display: none !important;
+		}
+	}
+
+	@media (max-width: 768px) and (min-width: 481px) {
+
+		.elementor .elementor-hidden-tablet {
+			display: none !important;
+		}
+	}
+
+	@media (max-width: 480px) {
+
+		.elementor .elementor-hidden-phone {
+			display: none !important;
+		}
+	}
+}
+
+.elementor-text-editor {
+
+	a:not(.Button) {
+
+		@include color(color, primary-color);
+
+		&:active,
+		&:focus,
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.elementor-image {
+	width: auto !important;
+	max-width: 100% !important;
+	max-height: 100%;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.elementor-widget-video {
+	max-width: 100% !important;
+	max-height: 100%;
+
+	justify-content: center !important;
+
+	.elementor-widget-container {
+		padding-left: 0 !important;
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

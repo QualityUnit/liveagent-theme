@@ -1,0 +1,267 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+
+@import "../common/variables";
+@import "../common/mixins";
+@import "../common/ResearchColors";
+
+$maxWidth: 71.125em;
+
+.Research {
+	max-width: $maxWidth;
+	margin: 0 auto;
+
+	&__header {
+		position: relative;
+		background-color: transparent;
+		padding: 1.5em;
+
+		> * {
+			position: relative;
+			z-index: 1;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100vw;
+			height: calc(100% + 4em);
+			left: 50%;
+			transform: translateX(-50%);
+			background: url(../../images/bg_industry_research.svg) center bottom no-repeat;
+			background-size: cover;
+		}
+
+		h1.Research__title {
+			font-size: 2.75rem;
+			line-height: 1.1;
+			margin-bottom: 0;
+			text-align: center;
+
+			.Research__title__number {
+				font-size: 1.25em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-small) {
+
+			h1.Research__title {
+				font-size: 4.25rem;
+			}
+		}
+
+		@media (max-width: $breakpoint-tablet-landscape) {
+
+			.Research__thumbnail {
+				width: 65%;
+				margin: 0 auto;
+
+				img {
+
+					width: 100%;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 3em 0 3em 3em 3em;
+
+			&::after {
+				height: calc(100% + 12em);
+				padding-bottom: 0;
+			}
+
+			.Research__thumbnail {
+				width: 40%;
+				height: 100%;
+				min-height: 25em;
+				margin-right: 5.625em;
+
+				img {
+
+					@include square(100%);
+					object-fit: contain;
+				}
+			}
+
+			.Research__intro {
+				width: calc(60% - 5.265em);
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			margin-bottom: 5em;
+
+			h1.Research__title {
+				font-size: 5rem;
+				text-align: left;
+			}
+		}
+	}
+
+	&--content.Content {
+
+		@include color(color, font-color-dark);
+		padding: 0 1.25em;
+
+		.checklist .elementor-text-editor.elementor-text-editor ul:not([class]) {
+
+			@include color(color, font-color-dark);
+			color: currentColor;
+		}
+
+		%highlight {
+
+			@include color(color, primary-color);
+			border-left: 1px solid $dark-orange;
+			padding: 0 1.5rem;
+			font-weight: 600;
+
+			strong {
+				font-weight: 600;
+			}
+		}
+
+		.elementor-widget {
+			margin-bottom: 0;
+		}
+
+		.elementor-element.highlight {
+
+			p {
+
+				@extend %highlight;
+			}
+		}
+
+		p {
+			color: inherit;
+			line-height: 1.6;
+			margin-bottom: 2em;
+
+			&.highlight {
+
+				@extend %highlight;
+			}
+		}
+
+		@media (min-width: $maxWidth) {
+			padding: 0;
+		}
+	}
+
+	&--wrapper {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 57.6%;
+			margin: 0 auto;
+		}
+	}
+
+	&--category {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&__title {
+				display: flex;
+				align-items: center;
+				font-size: 1.75rem;
+				line-height: 1.42;
+			}
+
+			&__image {
+				margin-right: 0.785em;
+
+				img {
+
+					@include square(2em);
+				}
+			}
+		}
+	}
+
+	&--post {
+
+		&__blocks {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 2rem 0 4rem 0;
+		}
+
+		&__block {
+			width: 100%;
+
+			@media (min-width: $breakpoint-tablet) {
+				width: 50%;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				width: 33%;
+			}
+
+			&__inn {
+
+				@include color(box-shadow, box-shadow);
+				display: flex;
+				align-items: center;
+				border: 1px solid transparent;
+				border-radius: 1rem;
+				padding: 0.5rem 1rem;
+				min-height: 5.25em;
+				margin: 1rem 1.3rem 1rem 0;
+				font-weight: 600;
+
+				&:hover {
+					border-color: var(--post-color);
+					text-decoration: none !important;
+
+					&::before {
+						border-color: var(--post-color);
+					}
+				}
+
+				&::before {
+
+					@include square(0.75em);
+					display: inline-block;
+					flex: 0 0 auto;
+					content: "";
+					border: 3px solid #bec2c9;
+					border-top: 0;
+					border-left: 0;
+					transform: rotate(-45deg);
+					margin: 0.7rem;
+					margin-left: auto;
+					order: 2;
+				}
+			}
+
+			&--title {
+				font-family: $font-secondary;
+				font-size: 1rem;
+				font-weight: 600;
+				line-height: normal;
+				margin: 0.5rem 0 0.5rem 0 !important;
+				color: $black;
+			}
+		}
+
+		&__counter {
+
+			@include square(2.4em);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex: 0 0 auto;
+			padding: 0.6rem;
+			border: 0 solid $white;
+			border-radius: 0.6rem;
+			white-space: nowrap;
+			margin: 0 1rem 0 0;
+			font-size: 1.25em;
+			color: var(--post-color);
+			background-color: var(--post-color-bg);
+		}
+	}
+
+}

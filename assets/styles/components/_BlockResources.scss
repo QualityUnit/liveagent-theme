@@ -1,0 +1,34 @@
+/* stylelint-disable selector-class-pattern */
+
+.BlockResources {
+
+	@include color(background-color, newsletter-background);
+	margin: 40px 0;
+	padding: 30px 40px !important;
+	border-radius: $border-radius;
+
+	p {
+
+		@include color(color, font-color-dark);
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-start;
+		align-items: center;
+		font-size: $font-size-bigger;
+		line-height: $line-height-bigger;
+		font-weight: 700;
+		margin-bottom: 0;
+
+		&::before {
+			content: "";
+			display: block;
+			width: 24px;
+			height: 24px;
+			margin-right: 15px;
+			background-image: url(../images/icon_knowledgebase.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100% auto;
+		}
+	}
+}

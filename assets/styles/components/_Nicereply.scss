@@ -1,0 +1,71 @@
+/* stylelint-disable selector-class-pattern */
+
+.Nicereply {
+	display: flex;
+	background: $medium-orange url(../images/nicereply_bubbles.svg) right center no-repeat;
+	padding: 2em 3em;
+
+	&::before {
+		display: none;
+		align-self: flex-start;
+		content: "";
+		width: 4em;
+		height: 4.5em;
+		background: url(../images/nicereply_crown.svg) center center no-repeat;
+		background-size: contain;
+		margin-right: 2.5em;
+		margin-top: -0.5em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: block;
+		}
+	}
+
+	&__content {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 66.75%;
+		}
+	}
+
+	&__title {
+		font-family: $font-secondary;
+		font-weight: 700;
+		font-size: 1.375rem;
+		line-height: 1.5;
+	}
+
+	.no-cc {
+		display: block;
+		font-size: 0.75rem;
+		list-style: none;
+		padding: 0;
+		margin: 0.5rem 0;
+
+		li {
+			display: block;
+			line-height: 1.2;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 150%;
+
+			li {
+				display: inline-block;
+
+				+ li {
+					margin-left: 1em;
+				}
+			}
+		}
+	}
+
+	.Button {
+		height: auto;
+		padding: 0.5em 3.35em;
+
+		span {
+			line-height: 1;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+* {
+	box-sizing: border-box;
+
+	&:active,
+	&:focus,
+	&:hover {
+		outline: 0;
+	}
+}
+
+#app {
+	position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+
+	&:active,
+	&:focus,
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+figure {
+	margin: 0;
+}
+
+.hidden {
+	display: none !important;
+}

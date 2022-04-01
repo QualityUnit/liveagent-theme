@@ -1,0 +1,155 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.SliderCutted {
+	max-width: 77em;
+	margin: 0 auto 3em;
+	position: relative;
+
+	.splide {
+
+		&__pagination {
+
+			li + li {
+				margin-left: 0.25em;
+			}
+
+			&__page {
+				opacity: 1;
+
+				&.is-active {
+
+					@include color(background-color, primary-color);
+					width: 2em;
+					border-radius: 0.5em;
+				}
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		margin: 0 auto 5em;
+		mask-image: radial-gradient(circle 4em at 3em 50%, $white 0%, $white 50%, transparent 50%), radial-gradient(circle 4em at calc(100% - 3em) 50%, $white 0%, $white 50%, transparent 50%), linear-gradient(to right, transparent, $black-real 2em, $black-real calc(100% - 2em), transparent);
+
+		&__slide {
+			padding: 3em;
+		}
+	}
+
+	&__inn {
+		position: relative;
+		display: block;
+
+		&--mask {
+			display: none;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			min-height: 26em;
+
+			.SliderCutted__inn {
+
+				&--main {
+
+					@include color(background-color, main-background);
+					@include color(box-shadow, box-shadow-big);
+					@include square(100%);
+					position: absolute;
+					display: flex;
+					align-items: center;
+					border-radius: $border-radius-16;
+					overflow: hidden;
+					z-index: 1;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			min-height: auto;
+			height: 21.5em;
+
+			.SliderCutted__inn {
+
+				&--main {
+					box-shadow: none;
+					mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1120 337' xmlns='http://www.w3.org/2000/svg' xml:space='preserve'%3E%3Cpath d='M64 76.998c0-8.836 7.163-16 16-16h1088c8.84 0 16 7.17 16 16.006v104.994c0 8.837-7.63 15.744-15.23 20.26-9.38 5.58-15.77 15.932-15.77 26.74 0 10.808 6.39 21.16 15.77 26.74 7.6 4.516 15.23 11.423 15.23 20.26v104.994c0 8.836-7.16 16.006-16 16.006H80c-8.837 0-16-7.163-16-16v-105c0-8.837 7.629-15.744 15.225-20.26C88.611 250.158 95 239.806 95 228.998c0-10.808-6.389-21.16-15.775-26.74C71.629 197.742 64 190.835 64 181.998v-105Z' style='fill:%23000;fill-rule:nonzero' transform='translate(-64 -60.998)'/%3E%3C/svg%3E%0A"); /* stylelint-disable-line */
+					mask-position: center;
+					mask-size: cover;
+					mask-repeat: no-repeat;
+					transform: translateZ(1px);
+				}
+
+				&--mask {
+
+					@include square(calc(100% - 2px));
+					display: block;
+					filter: drop-shadow(0 4px 1.5em rgba($black-real, 0.15));
+					transform: translateZ(0);
+					transition: all 0.2s;
+				}
+			}
+
+			&:hover {
+
+				.SliderCutted__title,
+				.learn-more {
+
+					@include color(color, primary-color, !important);
+				}
+
+				.SliderCutted__inn--mask {
+
+					filter: drop-shadow(0 4px 1.5em rgba($black-real, 0.25));
+				}
+			}
+		}
+	}
+
+	&__image {
+		position: relative;
+		height: 13em;
+
+		img {
+
+			@include square(100%);
+			object-fit: cover;
+		}
+	}
+
+	&__title {
+		line-height: 1.5;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__image,
+		&__content {
+			width: 50%;
+		}
+
+		&__image {
+			height: 100%;
+		}
+
+		&__content {
+			padding: 0 2em;
+
+			p:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+
+		&__title {
+			font-size: 1.625rem;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&__content {
+			padding: 0 3.5em;
+		}
+	}
+}

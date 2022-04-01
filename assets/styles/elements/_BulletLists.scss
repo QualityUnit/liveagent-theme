@@ -1,0 +1,83 @@
+/* stylelint-disable selector-class-pattern */
+
+.bullet-list {
+	$bulletList: "basic", "first", "second", "third", "fourth";
+
+	@each $list in $bulletList {
+		&__#{$list} {
+
+			h4 {
+
+				@include color(color, bullet-list-#{$list});
+			}
+
+			li {
+
+				&::before {
+
+					@include color(color, bullet-list-#{$list});
+					content: "\2022";
+				}
+			}
+		}
+	}
+}
+
+.bullet-list__basic {
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	li {
+		display: flex;
+		border-radius: 0.75rem;
+		box-shadow: 2px 2px 1.125rem -0.325rem rgba($black, 0.15);
+		padding: 0.5rem 1rem;
+		margin-top: 0.5em;
+		margin-right: 0.5em;
+		min-width: 11rem;
+
+		&::before {
+			position: static !important;
+			margin-right: 0.5rem;
+		}
+	}
+}
+
+[class*="bullet-list__"] {
+	margin-bottom: 0.875em;
+
+	&:not(.bullet-list__basic) {
+		box-shadow: 0.325rem 0.625rem 5.625rem -1rem rgba($black, 0.1);
+		border-radius: 0.75rem;
+		padding: 1.125em;
+	}
+
+	h4 {
+		font-size: 1rem;
+		margin-top: -1rem;
+		margin-left: -1rem;
+		padding: 1rem;
+		box-shadow: 0 0.75rem 1.5rem -1rem rgba($black, 0.1);
+	}
+
+	ul {
+		list-style: none;
+		padding-left: 0;
+		font-size: 0.875rem;
+	}
+
+	li {
+		position: relative;
+		padding-left: 1.5em;
+
+		&::before {
+			position: absolute;
+			font-size: 2em;
+			top: 0;
+			left: 0;
+		}
+	}
+}

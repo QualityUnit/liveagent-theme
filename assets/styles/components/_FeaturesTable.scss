@@ -1,0 +1,285 @@
+/* stylelint-disable selector-class-pattern */
+
+.FeaturesTable {
+	width: 100%;
+	min-height: 100%;
+	padding: 0;
+
+
+	&__background {
+		background-image: linear-gradient(to bottom, $light-orange, $dark-orange);
+		padding: 0 15rem;
+		display: flex;
+		justify-content: center;
+		margin: 0 25%;
+		border-radius: 7rem;
+	}
+
+
+	&__grid-items {
+		display: grid;
+		grid-template-columns: repeat(2, 50%);
+		grid-gap: 1rem;
+		font-family: $font-secondary;
+		font-size: 12px;
+		font-weight: $font-weight-normal;
+		z-index: 1;
+	}
+
+	&__grid-items__title {
+		font-size: 16px;
+		font-weight: 800;
+		padding: 0 0 5px;
+	}
+
+	&__grid-items__text {
+		text-align: justify;
+	}
+
+	&__grid-item__default-cell {
+		background-color: $white;
+		border-radius: 45px;
+		box-shadow: 0 0 22px rgba(0, 0, 0, 0.1);
+		padding: 24px 30px;
+	}
+
+
+	&__grid-item__internal-calls {
+		background-image: url(../images/feautures/internal-calls.png);
+		background-position: unset;
+		background-size: 488px;
+		background-repeat: no-repeat;
+		height: 244px;
+		padding: 37px 90px;
+	}
+
+	&__grid-item__internal-calls .FeaturesTable__grid-items__text {
+		width: 296px;
+	}
+
+	&__grid-item__built-kb {
+		background-image: url(../images/feautures/built-kb.png);
+		background-position: unset;
+		background-size: 475px;
+		background-repeat: no-repeat;
+		height: 305px;
+		padding: 45px 40px;
+	}
+
+	&__grid-item__built-kb .FeaturesTable__grid-items__text {
+		width: 390px;
+	}
+
+	&__grid-item__call-logs {
+		background-image: url(../images/feautures/call-logs.png);
+		background-position: unset;
+		background-size: 475px;
+		background-repeat: no-repeat;
+		height: 240px;
+		padding: 42px;
+	}
+
+	&__grid-item__call-logs .FeaturesTable__grid-items__text {
+		width: 395px;
+	}
+
+	&__grid-item__call-recording {
+		background-image: url(../images/feautures/call-recording.png);
+		background-position: unset;
+		background-size: 475px;
+		background-repeat: no-repeat;
+		height: 295px;
+		padding: 32px 74px;
+	}
+
+	&__grid-item__call-recording .FeaturesTable__grid-items__text {
+		width: 361px;
+	}
+
+	&__grid-item__callback {
+		background-image: url(../images/feautures/callback.png);
+		background-position: unset;
+		background-size: 475px;
+		background-repeat: no-repeat;
+		height: 200px;
+		padding: 65px 52px;
+	}
+
+	&__grid-item__callback .FeaturesTable__grid-items__text {
+		width: 365px;
+	}
+
+	&__grid-item__historical-reports {
+		background-image: url(../images/feautures/historical-reports.png);
+		background-position: unset;
+		background-size: 475px;
+		background-repeat: no-repeat;
+		height: 281px;
+		padding: 55px 41px;
+	}
+
+	&__grid-item__historical-reports .FeaturesTable__grid-items__text {
+		width: 394px;
+	}
+
+	&__grid-item__multiple-call-devices {
+		background-image: url(../images/feautures/multiple-call-devices.png);
+		background-position: unset;
+		background-size: 475px;
+		background-repeat: no-repeat;
+		height: 267px;
+		padding: 35px 43px;
+	}
+
+	&__grid-item__multiple-call-devices .FeaturesTable__grid-items__text {
+		width: 322px;
+	}
+
+	&__grid-item__multiple-call-devices .FeaturesTable__grid-items__title {
+		width: 322px;
+	}
+
+	&__grid-item__omnichannel-desktop {
+		background-image: url(../images/feautures/omnichannel-desktop.png);
+		background-position: unset;
+		background-size: 530px;
+		background-repeat: no-repeat;
+		height: 233px;
+		padding: 35px 40px;
+	}
+
+	&__grid-item__omnichannel-desktop .FeaturesTable__grid-items__text {
+		width: 442px;
+	}
+
+	&__grid-item__omnichannel-helpdesk {
+		background-image: url(../images/feautures/omnichannel-helpdesk.png);
+		background-position: unset;
+		background-size: 475px;
+		background-repeat: no-repeat;
+		height: 205px;
+		padding: 32px 40px;
+	}
+
+	&__grid-item__omnichannel-helpdesk .FeaturesTable__grid-items__text {
+		width: 392px;
+	}
+
+	&__grid-item__push-notifications {
+		background-image: url(../images/feautures/push-notifications.png);
+		background-position: unset;
+		background-size: 505px;
+		background-repeat: no-repeat;
+		height: 260px;
+		padding: 48px 47px;
+	}
+
+	&__grid-item__push-notifications .FeaturesTable__grid-items__text {
+		width: 365px;
+	}
+
+	&__grid-item__softphones {
+		background-image: url(../images/feautures/softphones.png);
+		background-position: unset;
+		background-size: 522px;
+		background-repeat: no-repeat;
+		height: 222px;
+		padding: 41px 77px;
+	}
+
+	&__grid-item__softphones .FeaturesTable__grid-items__text {
+		width: 405px;
+	}
+
+	&__grid-item__video-call {
+		background-image: url(../images/feautures/video-call.png);
+		background-position: unset;
+		background-size: 530px;
+		background-repeat: no-repeat;
+		padding: 142px 45px;
+	}
+
+	&__grid-item__video-call .FeaturesTable__grid-items__text {
+		width: 445px;
+	}
+
+	&__grid-item__voip {
+		background-image: url(../images/feautures/voip.png);
+		background-position: unset;
+		background-size: 475px;
+		background-repeat: no-repeat;
+		height: 276px;
+		padding: 35px 42px;
+	}
+
+	&__grid-item__voip .FeaturesTable__grid-items__text {
+		width: 385px;
+	}
+}
+
+@media (max-width: 2560px) {
+
+	.FeaturesTable {
+
+		&__background {
+			margin: 0 34%;
+		}
+	}
+}
+
+@media (max-width: 2000px) {
+
+	.FeaturesTable {
+
+		&__background {
+			margin: 0 24%;
+		}
+	}
+}
+
+@media (max-width: 1040px) {
+
+	.FeaturesTable {
+
+		&__background {
+			margin: 0 14%;
+			padding: 0 13%;
+		}
+
+		&__grid-items {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+		}
+
+		&__grid-items > div {
+			padding: 1.4rem 2rem;
+			border-radius: 45px;
+			background: $white;
+			box-shadow: 0 0 22px rgba(0, 0, 0, 0.1);
+			height: auto;
+		}
+
+		&__grid-item {
+
+			&__video-call,
+			&__built-kb,
+			&__softphones,
+			&__call-recording,
+			&__call-logs,
+			&__push-notifications,
+			&__omnichannel-desktop,
+			&__multiple-call-devices,
+			&__grid-items__title,
+			&__callback,
+			&__voip,
+			&__omnichannel-helpdesk,
+			&__internal-calls,
+			&__historical-reports {
+
+				.FeaturesTable__grid-items__text {
+					width: auto;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,86 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.CustomHtmlSignupForm {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 100px;
+
+	.SignupForm {
+		width: 50%;
+
+		@media (max-width: $breakpoint-tablet) {
+			width: 100%;
+			margin: 0 2rem;
+		}
+	}
+
+	fieldset {
+		margin: 0;
+		padding: 0;
+		border: 0;
+
+		legend {
+			display: none !important;
+		}
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="number"],
+	input[type="password"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	textarea,
+	select {
+		display: block;
+		min-width: 100%;
+		margin-bottom: 20px;
+	}
+
+	textarea {
+		min-height: 250px;
+	}
+
+	input[type="checkbox"] {
+		display: inline-block;
+		margin-right: 10px;
+
+		+ label {
+			display: inline-block;
+		}
+	}
+
+	input[type="submit"] {
+
+		@extend .Button--full;
+		margin-top: 35px;
+	}
+}
+
+body.page-id-165153 {
+
+	.ShortTrial {
+
+		.wrapper {
+			background-color: #ffefdc !important;
+			background-image: none !important;
+		}
+
+		@media (max-width: $breakpoint-desktop-box) {
+			background-color: #ffefdc !important;
+			background-image: none !important;
+
+			.wrapper {
+				background-color: transparent !important;
+				background-image: none !important;
+			}
+		}
+	}
+
+	.SimilarSources {
+		display: none !important;
+	}
+}

@@ -1,0 +1,51 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.AwardsSmall {
+
+	&__list {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&__item {
+		$spacing: 1em;
+		position: relative;
+		width: calc(50% - #{$spacing});
+		padding-bottom: calc(50% - #{$spacing});
+
+		a[href][target] {
+
+			@include posZero;
+			position: absolute;
+			display: block;
+
+			img {
+
+				@include square(100%);
+				object-fit: cover;
+			}
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		$spacing: 1em;
+		margin-top: 1em;
+		margin-left: -#{$spacing};
+
+		&__item {
+			width: calc(25% - #{$spacing});
+			padding-bottom: calc(25% - #{$spacing});
+
+			+ li {
+				margin-left: $spacing;
+			}
+		}
+	}
+}

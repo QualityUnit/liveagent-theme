@@ -1,0 +1,35 @@
+.webcalc--main {
+	position: relative;
+	display: flex;
+	border-radius: $border-radius-16;
+	padding: 1em;
+	max-width: 48.375em;
+	min-height: 100vh;
+	margin: 0 auto;
+	background: $lightest-gray;
+	counter-reset: pageTitles;
+
+	&__inn {
+		display: flex;
+		flex-direction: column;
+		height: auto;
+		width: 100%;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		background: $lightest-gray url(../../images/background.svg) right top no-repeat;
+		background-size: contain;
+		padding: 2em 8.25em;
+		min-height: 33em;
+
+		&::after {
+
+			@include posCustom(-1.5em, -2.375em, -1.5em, -2.375em);
+			content: "";
+			position: absolute;
+			background: url(../../images/background_elements.svg) center center no-repeat;
+			background-size: contain;
+			z-index: -1;
+		}
+	}
+}

@@ -1,0 +1,228 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.ScheduleDemo {
+
+	.wrapper {
+		padding-right: 0 !important;
+	}
+
+	@media (max-width: 1024px) {
+
+		&.Block--background {
+			padding-top: 0 !important;
+			padding-bottom: 0 !important;
+
+			.wrapper {
+				margin-top: 0 !important;
+			}
+		}
+
+		.info-column {
+			padding-bottom: 1.5em;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		&.Block--background {
+			max-width: none;
+			margin-top: 0 !important;
+
+			.wrapper {
+				max-width: none;
+			}
+		}
+	}
+
+	.elementor-text-editor {
+		font-size: 16px;
+		line-height: 1.5;
+		color: inherit;
+
+		strong {
+			color: #000;
+		}
+
+		p {
+			font-size: inherit;
+			line-height: inherit;
+		}
+	}
+
+	.info-column {
+		font-family: "Open Sans", sans-serif;
+
+		.title h3 {
+			font-size: 1.2rem;
+			font-family: inherit;
+		}
+
+		h4 {
+			font-family: inherit;
+			font-size: 16px;
+			font-weight: 600;
+		}
+
+		.text {
+			max-width: 55ch;
+			margin-bottom: 1.5em;
+		}
+
+		.what-learn {
+			margin-top: 0.5em;
+
+			strong {
+				font-size: 14px;
+			}
+		}
+
+		.Button {
+			height: 4em;
+			font-size: 1rem;
+
+			span {
+				line-height: 4;
+			}
+		}
+
+		.dates {
+			position: relative;
+			margin-bottom: 1.5em !important;
+			margin-left: -1.25rem;
+			width: 100vw;
+			padding-left: 3.5em;
+			padding-top: 1em;
+			color: #000;
+			background-color: #e4e4e4;
+
+			.elementor-text-editor {
+				font-size: 0.875rem;
+
+				p {
+					font-size: inherit;
+				}
+
+				//Icon calendar spacing
+				&::before {
+					content: url(../images/icon-calendar.svg);
+					float: left;
+					margin-left: -2.5em;
+				}
+			}
+
+			@media (min-width: 415px) and (max-width: 768px) {
+				margin-left: -40px;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				padding-left: 5em;
+				margin-left: -2.5em;
+			}
+
+			@media (min-width: 1024px) {
+				position: absolute;
+				top: -100px;
+				right: -7.375em;
+				width: calc(248 / 908 * 100%);
+				min-width: 34ch;
+				margin-bottom: auto !important;
+				padding: 0.45em 1em 1.5em 6em;
+				background: transparent url(../images/scheduledemo_shapetop.svg) calc(100% + 2rem) calc(100% - 0.75rem) no-repeat;
+				background-size: cover;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			position: relative;
+
+			.title h3 {
+				font-size: 2rem;
+			}
+
+			.elementor-column-wrap {
+				position: relative;
+				z-index: 1;
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				z-index: 0;
+				top: -100px;
+				bottom: -100px;
+				right: -7.375em;
+				left: 0;
+				background:
+					url(../images/scheduledemo_phone.svg) calc(100% + 2.5em)
+					calc(100% + 2.5em) no-repeat;
+				background-size: 21.25em;
+			}
+		}
+	}
+
+	.image-column {
+		position: relative;
+		min-height: 30rem;
+
+		&::before {
+			content: "";
+			position: absolute;
+			background-color: $black;
+			opacity: 0.15;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+		}
+
+		.elementor-widget-wrap {
+			position: relative;
+			z-index: 2;
+			padding: 1.5em;
+			color: #fff;
+
+			@media (min-width: $breakpoint-tablet) {
+				padding: 3.5em;
+			}
+		}
+
+		.quote {
+			margin-top: auto;
+
+			p {
+				color: inherit;
+			}
+		}
+
+		.logos {
+			display: flex;
+			margin-top: 1.5em;
+
+			.Clients {
+				margin-top: 0;
+
+				&__item {
+					margin: 0 !important;
+				}
+			}
+
+			img {
+				filter: saturate(0) brightness(100);
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			min-height: 30rem;
+		}
+
+		@media (max-width: $breakpoint-tablet) {
+			margin-right: 1.5em;
+		}
+
+		@media (min-width: 1024px) {
+
+			&.elementor-inner-column.elementor-column:last-of-type {
+				margin: -100px 0 -100px 7.375em;
+			}
+		}
+	}
+}

@@ -1,0 +1,96 @@
+/* stylelint-disable selector-class-pattern */
+
+.TourPageNumbers {
+
+	.elementor-container {
+		counter-reset: numbers-counter;
+		position: relative;
+	}
+
+	.elementor-column.elementor-col-50 {
+		position: relative;
+
+		span.number {
+			font-size: 225px;
+			line-height: 165px;
+			font-weight: 600;
+			position: absolute;
+			top: -88px;
+			left: -57px;
+			opacity: 0.1;
+			color: $dark-gray;
+		}
+
+		h1 {
+			margin: 7rem 0 0;
+		}
+	}
+
+	.elementor-column.elementor-col-50.TourPage__text-padding {
+		padding: 8rem 0 0 5rem;
+	}
+
+	.elementor-widget-container .elementor-image img {
+		box-shadow: none !important;
+	}
+
+	&__replaces-block {
+
+		display: flex;
+		flex-direction: column;
+		padding: 3rem 0 0;
+
+		&__title {
+
+			@include color(color, package-color-4);
+			font-family: $font-secondary;
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		&__logos {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: 0.5rem 0 0;
+
+			&__logo {
+				height: 34px !important;
+				padding: 0 1rem 0 0;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		.elementor-column.elementor-col-50.TourPage__text-padding {
+			padding: 0 0 0 5rem !important;
+		}
+
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		.elementor-column.elementor-col-50.TourPage__text-padding {
+			padding: 8rem 0 0 5rem !important;
+		}
+
+		.elementor-column.elementor-col-50.elementor-inner-column.TourPage__image {
+			display: none;
+		}
+
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		.elementor-column.elementor-col-50.TourPage__text-padding {
+			padding: 8rem 0 0 2rem !important;
+		}
+
+		&__replaces-block__logos__logo {
+			height: 25px !important;
+		}
+
+	}
+
+}

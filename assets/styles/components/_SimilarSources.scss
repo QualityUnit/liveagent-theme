@@ -1,0 +1,96 @@
+/* stylelint-disable selector-class-pattern */
+
+.SimilarSources {
+
+	.wrapper {
+		border-top: 1px solid #f0f0f0;
+		padding-top: 20px;
+		margin-bottom: 30px;
+	}
+
+	&__title {
+
+		@include color(color, font-color-normal);
+		font-size: 14px;
+		margin-top: 0 !important;
+		margin-bottom: 8px;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		position: relative;
+		display: inline-block;
+		width: 50%;
+		font-size: 12px;
+		line-height: 18px;
+		margin: 5px 0;
+
+		a {
+
+			@include color(color, font-color-normal);
+			display: inline-block;
+			position: relative;
+			padding-left: 15px;
+
+			&::before {
+				content: "● ";
+				margin-right: 5px;
+				position: absolute;
+				left: 0;
+			}
+
+			&:active,
+			&:focus,
+			&:hover {
+				text-decoration: underline;
+
+				&::before {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	&--blog {
+		margin-top: 25px;
+
+		.wrapper {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		li {
+			width: 100% !important;
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		li {
+			width: 100% !important;
+		}
+	}
+}
+
+.Post__sidebar__resources {
+
+	.SimilarSources {
+
+		li {
+			width: 100% !important;
+		}
+	}
+}
+
+.SimilarSources + .ShortTrial {
+	margin-top: 0 !important;
+}
+
+body.login .SimilarSources {
+	display: none !important;
+}

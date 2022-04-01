@@ -1,0 +1,25 @@
+.webcalcBlock {
+
+	@include color(background-color, main-background);
+	@include color(box-shadow, box-shadow);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+
+	&--narrow {
+		padding: 1.25em;
+		border-radius: $border-radius-6;
+	}
+
+	&--rounded__right {
+		padding: 1.25em 0 1.75em;
+		border-radius: 6px 30px 30px 6px;
+		margin-bottom: 1.5em;
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-bottom: 2.8em;
+		}
+	}
+}
+
