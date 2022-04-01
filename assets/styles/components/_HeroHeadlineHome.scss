@@ -1,0 +1,700 @@
+.heroHeadline__home,
+.heroHeadline {
+	margin-top: 1em;
+	overflow-x: hidden;
+
+	.wrapper,
+	.elementor-column-wrap,
+	.elementor-container.elementor-container {
+		max-width: $breakpoint-desktop-big;
+		padding: 0;
+	}
+
+	.wrapper {
+		margin-left: calc(50vw - 1180px / 2);
+		margin-right: 0;
+		width: 100vw;
+		padding-left: 20px;
+	}
+
+	.elementor-row {
+		flex-wrap: nowrap;
+	}
+
+	.industry_woman img {
+		mask-image: url(https://www.liveagent.com/app/uploads/2021/07/industry_woman_mask.png) !important;
+		mask-size: cover !important;
+		mask-position: center center !important;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		.wrapper {
+			padding-right: 0 !important;
+
+			> .elementor-row {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		.wrapper {
+			margin: 0;
+			padding-left: 40px;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) and (max-width: $breakpoint-desktop-box) {
+
+		.wrapper {
+			margin-left: 0;
+			padding-left: 20px;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop-big) {
+		width: calc(100vw - 1rem) !important;
+		overflow: hidden;
+	}
+
+	@media (min-width: $breakpoint-desktop-big) {
+
+		.elementor-container.elementor-container {
+			max-width: 100vw;
+		}
+
+		.wrapper {
+			margin-right: auto;
+			padding-left: 20px !important;
+		}
+
+	}
+
+	&--info.elementor-column {
+		width: 100%;
+		text-align: center;
+		justify-content: center;
+		z-index: 2;
+
+		.heroHeadline__title .elementor-heading-title {
+
+			@extend h1;
+			font-size: 2rem;
+			line-height: 1.2;
+			margin-bottom: 0;
+			text-align: center;
+
+			@media (min-width: $breakpoint-tablet-landscape + 1px) {
+				font-size: 2.5rem;
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+				font-size: 3.25rem;
+			}
+		}
+
+		.no-cc {
+			line-height: 2;
+			margin-bottom: 1.75em;
+			justify-content: center;
+		}
+
+		.flex {
+			justify-content: center;
+		}
+
+		.Button--full {
+			margin-right: 1.5em;
+			margin-bottom: 1rem;
+		}
+
+		.Button--inaction {
+			margin-bottom: 1rem;
+		}
+
+		@media (max-width: $breakpoint-tablet) {
+
+			margin-right: 0 !important;
+
+			> .elementor-column-wrap {
+				margin-right: 0 !important;
+				padding-right: 0 !important;
+			}
+
+			.Button {
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			.Clients {
+				justify-content: center;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			text-align: left;
+			justify-content: flex-start;
+			align-items: center;
+
+			.heroHeadline__title .elementor-heading-title {
+				text-align: left;
+			}
+
+			.no-cc,
+			.flex {
+				justify-content: flex-start;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 42%;
+			margin-right: auto;
+
+			.heroHeadline & {
+				width: 39%;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop) {
+
+			.heroHeadline__home--usedby,
+			.Clients {
+				display: none;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			width: 50%;
+			margin-right: auto;
+
+			.heroHeadline & {
+				width: 35%;
+			}
+
+			.no-cc {
+				width: 75%;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			width: 38%;
+
+			.heroHeadline & {
+				width: 35%;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) and (max-height: 900px) {
+			padding: 3rem 0;
+
+			> .elementor-column-wrap {
+				margin-right: 5% !important;
+			}
+
+			.heroHeadline__title .elementor-heading-title {
+				font-size: $font-size-h2-xl;
+			}
+
+			.heroHeadline__home--subtitle,
+			.heroHeadline--subtitle {
+
+				h3,
+				.h3 {
+					font-size: $font-size-h3;
+				}
+			}
+
+			.no-cc {
+				width: 100%;
+			}
+
+			.Clients {
+
+				&__item:nth-of-type(4) {
+					display: none;
+				}
+			}
+		}
+
+		@media (min-width: 1921px) {
+			margin-right: 10.5rem;
+
+			.heroHeadline & {
+				margin-right: 18%;
+			}
+		}
+	}
+
+
+	&--subtitle {
+
+		h3,
+		.h3 {
+			font-size: 1.25rem;
+			line-height: 1.5;
+			font-family: $font-secondary;
+			font-weight: 400;
+			margin-bottom: 0;
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				font-size: 1.625rem;
+			}
+		}
+
+	}
+
+	&--usedby.elementor-widget {
+		margin-bottom: 1em;
+
+		h6,
+		.h6 {
+
+			@include color(color, font-color-level3);
+			margin-bottom: 0;
+			font-size: 0.875rem;
+		}
+	}
+
+	.Clients {
+		justify-content: flex-start;
+		margin: 0;
+
+		&__item {
+			margin: 0 !important;
+			filter: grayscale(0) brightness(50) brightness(0.65);
+
+
+			+ .Clients__item {
+				margin-left: 1em !important;
+			}
+
+			img {
+				max-width: 4rem;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				img {
+					max-width: 6rem;
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+
+				+ .Clients__item {
+					margin-left: 2em !important;
+				}
+			}
+		}
+	}
+
+	.heroHeadline--bg {
+
+		&.elementor-column::before {
+			display: none;
+		}
+
+		.elementor-column-wrap {
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+
+		.elementor-widget-image.animation,
+		.elementor-widget-html.animation,
+		.elementor-widget-shortcode.animation {
+			display: none;
+			position: absolute;
+			width: auto;
+			z-index: 2;
+			bottom: 0;
+
+			.elementor-widget-container,
+			.elementor-image {
+				padding: 0;
+				height: 100%;
+
+				svg,
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop) {
+				display: block;
+				left: -40% !important;
+				width: 80% !important;
+				bottom: auto;
+				height: 100%;
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				display: block;
+				left: -25%;
+				bottom: auto;
+				height: 100%;
+			}
+		}
+
+		.elementor-widget-image:not(.animation) {
+
+			.elementor-widget-container {
+				position: relative;
+				height: 100%;
+			}
+
+			.elementor-image {
+				position: absolute;
+				padding: 0;
+				width: 100% !important;
+				height: 100%;
+				max-height: none;
+				overflow: hidden;
+
+				img {
+
+					@include square(100%);
+					object-fit: cover;
+					object-position: center top;
+				}
+			}
+		}
+	}
+
+	&--bg.elementor-column {
+		position: relative;
+		width: 100%;
+
+		&::before,
+		.elementor-widget-image:not(.animation) {
+
+			@include posZero;
+			position: absolute;
+
+			.elementor-widget-container {
+				height: 100%;
+			}
+
+			.elementor-image {
+				overflow: hidden;
+
+				img {
+					border-radius: 5em;
+				}
+			}
+		}
+
+		&::before {
+			content: "";
+			background: url(../images/heroHeadline_bg.jpg) center top no-repeat;
+			background-size: cover;
+		}
+
+		.elementor-column-wrap {
+			margin: auto auto 3em 2em;
+		}
+
+		&.align-center .elementor-widget-wrap {
+			align-items: center;
+			align-content: center;
+		}
+
+
+		.chat--bubble {
+			display: flex;
+			margin-bottom: 0.75em;
+
+			&:not(.chat--bubble__dots) p {
+				font-size: 0.875rem;
+				line-height: 1.35;
+				margin: 0;
+				padding: 1em 1.5em;
+				border-radius: 1.25em;
+				box-shadow: 0.5em 0.625em 1.25em 0 rgba($black, 0.2);
+				max-width: calc(100% - 3em);
+			}
+
+			&__dots {
+
+				@include color(color, font-color-light);
+				align-items: center;
+
+				.elementor-text-editor,
+				.elementor-text-editor p {
+					display: flex !important;
+					font-size: 1rem !important;
+					padding: 0 !important;
+					margin: 0 !important;
+					background: none !important;
+					box-shadow: none !important;
+				}
+
+				strong {
+					$animationTime: 1.5s;
+
+					display: block;
+					font-size: 1.5rem;
+					margin-left: 0.05em;
+					animation: chatDots 1.5s linear infinite;
+
+					&:nth-child(2) {
+						animation-delay: $animationTime / 6;
+					}
+
+					&:nth-child(3) {
+						animation-delay: $animationTime / 3;
+					}
+				}
+			}
+
+			&:nth-child(odd) {
+
+				p {
+
+					@include color(background-color, secondary-background);
+					border-bottom-left-radius: 0.25em;
+				}
+
+				&::before {
+
+					@include square(2.25rem);
+					display: block;
+					background: url(../images/chat_john.png) center center no-repeat;
+					background-size: contain;
+					content: "";
+					margin-top: auto;
+					margin-right: 1em;
+					flex: 0 0 auto;
+				}
+			}
+
+			&:nth-child(even) {
+
+				p {
+
+					@include color(background-color, primary-color);
+					@include color(color, font-color-light);
+					position: relative;
+					max-width: calc(27ch + 3em);
+					padding: 0.75em 3em 0.75em 1.25em;
+
+					&::after {
+						position: absolute;
+						content: url(../images/chat_read.svg);
+						right: 0.5em;
+						bottom: 0;
+					}
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				margin-left: -16%;
+
+				&__dots {
+
+					@include color(color, border-color-inputs);
+				}
+
+				&:nth-child(even) {
+					margin-left: 1em;
+				}
+
+				p {
+					font-size: 1.125rem;
+					max-width: 29ch;
+				}
+			}
+		}
+
+		.white--bubble {
+			display: none;
+			position: relative;
+			left: -38%;
+			z-index: 2;
+			width: auto;
+			max-width: 29.625em;
+
+			&--quote {
+				min-width: 32em;
+				left: -22%;
+
+				&__logo {
+					margin-top: 1em;
+					height: 2em;
+					width: 100%;
+
+					img {
+
+						@include square(100%);
+						object-fit: contain;
+						object-position: left center;
+					}
+				}
+
+				p,
+				a,
+				.bigger {
+					font-size: 1.125em;
+				}
+
+				.bigger a {
+					font-size: 1em;
+				}
+
+				> *:first-child::before {
+
+					@include square(1.75em);
+					content: "";
+					background: url(../images/quote-small.svg) center center no-repeat;
+					background-size: contain;
+					display: block;
+					margin-bottom: 1em;
+				}
+
+				.elementor-widget-container.elementor-widget-container {
+					padding: 1.25em 2.5em 2.5em;
+				}
+
+				.small {
+					margin-top: 1.5rem;
+					align-items: center;
+				}
+
+				.readmore {
+
+					@include color(color, font-color-medium);
+					margin-left: auto;
+					font-size: 1em;
+
+					&--icon {
+
+						height: 1.5em;
+						fill: currentColor;
+						margin-left: 1em;
+					}
+
+					&:hover {
+
+						@include color(color, primary-color, !important);
+					}
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				display: block;
+				font-size: 0.875em;
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+				font-size: 1em;
+			}
+
+			&:not(:nth-of-type(2)) {
+				transform: scale(0.81);
+			}
+
+			.elementor-widget-container {
+
+				@include color(background-color, main-background);
+
+				display: flex;
+				align-content: center;
+				flex-wrap: wrap;
+				box-shadow: inset 0 -1.5625em 1.5625em -1.1875em rgba(157, 157, 157, 0.19), 0 1.375em 1em -0.625em rgba(144, 144, 144, 0.28);
+				border-radius: 1.875em;
+
+				h3,
+				.h3 {
+					// Shadows and border-radius 3x less in EM as font-size=3em
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-size: 3em;
+					font-family: $font-primary;
+					box-shadow: inset 0 -0.52em 0.52em -0.395em rgba(157, 157, 157, 0.19), 0.25em 0.25em 0.33em -0.208em rgba(144, 144, 144, 0.19);
+					width: 37%;
+					height: auto;
+					margin-bottom: 0;
+					border-radius: 0.625em;
+
+					span {
+						line-height: 1;
+					}
+				}
+
+				.white--bubble-right {
+					width: calc(100% - 37%);
+					padding: 1.75em 1.5em;
+				}
+
+				h4 {
+					font-size: 1.125em;
+					line-height: 1.33;
+					margin-bottom: 0.25em;
+				}
+
+				p {
+					font-size: 1em;
+					line-height: 1.5;
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		@media (max-width: $breakpoint-tablet - 1px) {
+			display: none;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			height: 40rem;
+
+			&::before,
+			.elementor-widget-image:not(.animation) .elementor-image img {
+				border-radius: 5em 0 0 5em;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) and (max-height: 900px) {
+			height: calc(100vh - 7.5em);
+
+			&::before,
+			.elementor-widget-image:not(.animation) .elementor-image img {
+				border-radius: 5em 0 0 5em;
+			}
+
+			.elementor-widget-image.animation {
+				left: -25% !important;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 48.125%;
+			max-width: 48rem;
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			height: 48rem;
+			width: 50%;
+
+			.heroHeadline__home & {
+				padding-top: 15%;
+			}
+
+			.elementor-column-wrap {
+				margin: 0;
+			}
+		}
+
+		@media (min-width: 1921px) {
+
+			&::before,
+			.elementor-widget-image:not(.animation) .elementor-image img {
+				border-radius: 5em;
+			}
+		}
+
+	}
+}

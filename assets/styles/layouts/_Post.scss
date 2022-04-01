@@ -1,0 +1,141 @@
+@import "../elements/Checklist";
+@import "../elements/PostTypography";
+
+$sidebarWidth: 13.5em;
+$signupSidebarWidth: 16.875em;
+
+.Post {
+
+	&__header {
+
+		.wrapper__wide {
+			border-radius: $border-radius-16;
+			height: 9.375em;
+
+			@media (min-width: $breakpoint-tablet) {
+				height: 14.375em;
+			}
+		}
+	}
+
+	&__logo {
+
+		@include square(9.375em);
+		@include color(background-color, main-background);
+		box-shadow: 0 0.25em 1em 0 rgba(0, 0, 0, 0.08);
+		padding: 1.5em;
+		border-radius: $border-radius-16;
+		display: none;
+
+		img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: block;
+			position: absolute;
+			top: -6em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: block;
+			position: absolute;
+			top: -8em;
+		}
+	}
+
+	&__sidebar {
+		display: none;
+
+		&__buttons {
+			margin-bottom: 2em;
+
+			.Button {
+				width: 100%;
+				padding: 0 1em;
+				text-align: center;
+				white-space: nowrap;
+				margin: 0;
+
+				+ .Button {
+					margin-top: 0.75em;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			display: block;
+			width: $sidebarWidth;
+			padding-left: 2em;
+		}
+	}
+
+	&__content {
+		padding: 0 1.5em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: calc(100% - #{$signupSidebarWidth} + 3em);
+			padding: 0 5em;
+
+			.Content {
+
+				> {
+
+					.Post__m__negative,
+					.BlockDiscover,
+					.ExtraFaq,
+					.wide,
+					.wp-block-embed,
+					.youtube__loader {
+						margin-left: -3.125em;
+						margin-right: -3.125em;
+					}
+
+					figure {
+
+						&.size-full,
+						&.wide,
+						&.size-large {
+							display: flex;
+							justify-content: center;
+							flex-wrap: wrap;
+
+							figcaption {
+								width: 100%;
+							}
+						}
+					}
+				}
+
+				.wp-block-embed,
+				.youtube__loader {
+					border-radius: $border-radius-16;
+					overflow: hidden;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			width: calc(100% - #{$sidebarWidth} - #{$signupSidebarWidth});
+			padding: 0 7.5em;
+
+			.Content {
+
+				> {
+
+					.Post__m__negative,
+					.BlockDiscover,
+					.ExtraFaq,
+					.wide,
+					.wp-block-embed,
+					.youtube__loader {
+						margin-left: -6em;
+						margin-right: -6em;
+					}
+				}
+			}
+		}
+	}
+}

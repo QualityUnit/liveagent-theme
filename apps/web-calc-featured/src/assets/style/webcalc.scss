@@ -1,0 +1,22 @@
+/* Common */
+
+@import "common/mixins";
+@import "common/variables";
+
+div#calcfeaturedWrapper[id*="calcfeaturedWrapper"] {
+
+	@import "common/sanitize";
+	@import "common/reset";
+	@import "common/global";
+	@import "common/typography";
+	@import "common/animations";
+	@import "common/inputs";
+	@import "elements/Button";
+	@import "elements/AgentsSlider";
+	@import "elements/Block";
+	@import "elements/Chart";
+	@import "elements/ShortCodeGenerator";
+	@import "elements/Tooltip";
+	@import "layouts/Main";
+	@import "layouts/Page";
+}

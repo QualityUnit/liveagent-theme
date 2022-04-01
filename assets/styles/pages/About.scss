@@ -1,0 +1,469 @@
+@import "../common/mixins";
+@import "../common/variables";
+
+.Post.about {
+
+	.Post {
+
+		&__main-title {
+			height: 0;
+			padding: 0;
+			text-indent: -9999px;
+			margin-bottom: 0;
+			width: 1px;
+			overflow: hidden;
+		}
+
+		&__sidebar {
+			display: block;
+
+			&__title {
+
+				@include color(color, font-color-medium);
+				font-size: 0.75rem;
+				font-family: $font-primary;
+			}
+
+			&__link {
+				margin-bottom: 1.5em;
+
+				&-icon {
+					margin-right: 1em;
+
+					img {
+
+						@include square(1.25em);
+					}
+				}
+
+				a {
+
+					@include color(color, font-color-dark);
+					font-size: 0.875rem;
+					font-family: $font-secondary;
+					font-weight: $font-weight-bold;
+
+					&:hover {
+
+						@include color(color, primary-color);
+					}
+				}
+			}
+
+			@media (max-width: $breakpoint-tablet-landscape - 1px) {
+
+				position: sticky;
+				top: 94px;
+				background: linear-gradient(to bottom, $white calc(100% - 2em), transparent);
+				z-index: 5;
+				width: 100vw;
+				margin-left: -1.25em;
+				padding: 1.5em 1.25em 0;
+				padding-bottom: 0;
+
+				.Archive__container__content__item {
+					margin-bottom: 0;
+				}
+
+				h4 {
+					margin-top: 0;
+				}
+
+				&__link {
+					display: inline-block;
+					margin-left: 0.5em;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				width: 250px;
+			}
+		}
+
+		img {
+			border: none;
+		}
+	}
+
+	.Boxes--shadow {
+
+		.wp-block-column {
+
+			@include color(box-shadow, box-shadow);
+			padding: 0 1.5em 1.5em;
+			position: relative;
+			transition: transform 0.2s;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+
+			.wp-block-image {
+				margin-top: 0;
+				margin-left: -1.5em;
+				margin-right: -1.5em;
+
+				&::before {
+
+					@include square(3em);
+					position: absolute;
+					z-index: 1;
+					top: 7em;
+					left: 1.5em;
+					display: block;
+					content: "";
+					background: url(../../images/icon-map-pin.svg) center center no-repeat;
+					background-size: contain;
+				}
+
+				a {
+
+					&::after {
+
+						@include posZero();
+						@include square(100%);
+						display: block;
+						position: absolute;
+						content: "" !important;
+					}
+				}
+			}
+
+			p {
+
+				@include color(color, font-color-medium);
+			}
+		}
+	}
+
+	.Directory__blocks__title {
+
+		&.has-text-align-center {
+
+			span {
+				padding: 0 25px;
+			}
+		}
+	}
+
+	.Post__container {
+		justify-content: flex-start;
+
+		@media (max-width: $breakpoint-tablet-landscape) {
+			flex-direction: column;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			flex-direction: row;
+			flex-wrap: nowrap;
+		}
+	}
+
+	.SmallPhoto__slider {
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-top: 2em;
+			margin-bottom: 4em;
+		}
+	}
+
+	.career__benefits {
+
+		li {
+
+			display: flex;
+			align-items: center;
+
+			img {
+				margin-right: 1.25em;
+			}
+
+			margin-bottom: 1.125em;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin-bottom: 4em;
+
+			li {
+
+				width: calc(50% - 1.5em);
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			width: 120%;
+		}
+	}
+
+	.about__career-block {
+
+		@include color(box-shadow, box-shadow-big);
+		position: relative;
+		border-radius: $border-radius-16;
+		padding: 1.5em 2.5em;
+		margin-top: 1.5em;
+		background-color: $medium-orange;
+		overflow: hidden;
+
+		&::before {
+
+			@include posZero;
+			position: absolute;
+			content: "";
+			left: 50%;
+			background: $medium-orange url(../../images/about_career_bg-orange.svg) right center no-repeat;
+			background-size: cover;
+			z-index: 1;
+		}
+
+		&.gray {
+			background-color: $lightest-gray;
+			box-shadow: none;
+
+			&::before {
+				background: $lightest-gray url(../../images/about_career_bg-gray.svg) left top no-repeat;
+				background-size: contain;
+				left: 0;
+				right: 35%;
+			}
+		}
+
+		.wp-block-media-text {
+
+			&__media,
+			&__content {
+				position: relative;
+				z-index: 2;
+			}
+
+			&__media {
+				max-width: 27.125em;
+			}
+
+			&__content {
+				padding: 0;
+			}
+		}
+
+		h4 {
+			font-size: 1.35rem;
+			line-height: 1.3;
+			margin-top: 1em;
+		}
+
+		p {
+			font-size: 0.875rem;
+			line-height: 2;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+
+			a:last-of-type {
+				display: flex;
+				align-items: center;
+				margin-top: 1em;
+
+				&::after {
+					all: unset;
+					content: url(../../images/arrow_small.svg) !important;
+					line-height: 1;
+					margin-left: 0.5em;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+
+			h4 {
+				margin-top: 0;
+			}
+
+			.wp-block-media-text {
+
+				&__media,
+				&__content {
+					width: 48%;
+				}
+
+				&__content {
+					margin-left: auto;
+				}
+			}
+
+			&.has-media-on-the-right {
+
+				.wp-block-media-text__media {
+					margin-left: auto;
+				}
+
+				.wp-block-media-text__content {
+					margin-left: 0;
+					order: -1;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			position: relative;
+			width: calc(100vw - 3em);
+			transform: translateX(calc(-50% - 1.5em));
+			left: calc(50% - 5.25em);
+			margin-top: 3em;
+
+			h4 {
+				font-size: 1.75rem;
+			}
+
+			p {
+				font-size: 1rem;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			padding: 6.25em;
+
+			.wp-block-media-text {
+
+				&__content {
+					width: calc(100% - 27.125em - 6.25em);
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			position: relative;
+			width: $breakpoint-desktop-box;
+			transform: none;
+			left: calc(-50% - 2.5em);
+		}
+	}
+
+	.about__team__images {
+
+		.wp-block-image {
+			height: 0;
+			padding-bottom: 100%;
+			overflow: hidden;
+		}
+	}
+
+
+	.Archive__container--people {
+		padding: 0 !important;
+
+		.Archive__header--people {
+			padding: 0;
+		}
+
+		.Archive__container {
+
+			&__content {
+				list-style: none;
+				justify-content: space-between;
+
+				@media (min-width: $breakpoint-desktop) {
+
+					&::after {
+						content: "";
+						width: 30.3%;
+					}
+				}
+			}
+
+			&__content__item {
+				flex: 0 auto;
+				width: 45%;
+
+				@media (min-width: $breakpoint-desktop) {
+					width: 30.3%;
+				}
+
+				&__text {
+					text-align: left;
+					padding: 0;
+					min-height: auto;
+				}
+
+				article,
+				&__thumbnail {
+					margin: 0;
+					padding: 0;
+					border-radius: 0;
+
+					img {
+						border-radius: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.milestones {
+		$negativeTop: -3em;
+		position: relative;
+		margin-top: 6em;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			height: calc(100% + #{-1 * $negativeTop});
+			width: 2px;
+			left: 50%;
+			top: $negativeTop;
+			transform: translateX(-50%);
+			background-color: #eee;
+		}
+
+		> div {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		p {
+			position: relative;
+			border: 1px solid #eee;
+			border-radius: 1em;
+			padding: 2em;
+			width: 100%;
+			margin-top: $negativeTop;
+
+			strong {
+				display: inline-block;
+				margin-bottom: 0.75em;
+			}
+
+			&::after {
+				position: absolute;
+
+				@include circle(12px);
+				@include color(background-color, primary-color);
+				content: "";
+				box-shadow: 0 0 0 6px #fff;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			&:nth-of-type(even) {
+				margin-left: calc(50% + 3em);
+
+				&::after {
+					left: calc(-3em - 7px);
+				}
+			}
+
+			&:nth-of-type(odd) {
+				margin-right: calc(50% + 3em);
+
+				&::after {
+					right: calc(-3em - 7px);
+				}
+			}
+		}
+	}
+}

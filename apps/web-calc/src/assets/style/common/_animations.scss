@@ -1,0 +1,33 @@
+@keyframes chatDots {
+
+	0% {
+		opacity: 0.5;
+	}
+
+	15% {
+		transform: translateY(-0.25em);
+	}
+
+	25% {
+		transform: translateY(0);
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0.5;
+	}
+}
+
+@keyframes fadeIn {
+
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}

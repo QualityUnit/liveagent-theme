@@ -1,0 +1,34 @@
+%searchField {
+	position: relative;
+	margin: 0 auto;
+
+	.searchField__icon {
+
+		@include square(1.5em);
+		position: absolute;
+		left: 1.25rem;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	input[type="search"] {
+		background-color: var(--main-background);
+		padding-left: 4em;
+		min-width: 18rem;
+		font-size: 0.875rem;
+		width: 100%;
+		height: 3.125rem;
+		transition: all 0.2s, background-color 0.2s;
+		border-radius: 2em;
+		border: none;
+		box-shadow: 0 4px 4rem 0 rgba(0, 0, 0, 0.12);
+
+		&:focus {
+			box-shadow: 0 4px 1.5rem 0 rgba(0, 0, 0, 0.15);
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			min-width: 27rem;
+		}
+	}
+}

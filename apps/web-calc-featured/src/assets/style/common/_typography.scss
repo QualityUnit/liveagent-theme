@@ -1,0 +1,75 @@
+h1,
+h2,
+h3,
+h4 {
+	font-family: $font-secondary;
+	font-weight: 700;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.25rem !important;
+	line-height: 1.5 !important;
+	margin: 0 auto 0.75em !important;
+
+	@media (min-width: $breakpoint-tablet) {
+		font-size: 1.875rem !important;
+		margin: 0 auto 1.25em !important;
+	}
+}
+
+h4 {
+	font-size: 0.875rem;
+
+	&.subtitle--icon {
+
+		img,
+		svg {
+			display: inline-block !important;
+			height: 1.25em;
+			margin-right: 0.75em;
+		}
+	}
+}
+
+p {
+
+	@include color(color, font-color-normal);
+	font-size: 0.875rem;
+	line-height: 1.6;
+}
+
+ul {
+	font-size: 0.875rem;
+}
+
+a:not(.Button) {
+	transition: color 0.2s;
+
+	&::after {
+		display: none !important;
+	}
+
+	&:hover {
+
+		@include color(color, primary-color);
+	}
+}
+
+.highlight {
+
+	@include color(color, primary-color);
+
+	&-gradient {
+
+		@include color(background, background);
+		background-clip: text;
+		color: transparent;
+		box-decoration-break: clone;
+	}
+}
+
+.error {
+
+	@include color(color, error-color);
+}

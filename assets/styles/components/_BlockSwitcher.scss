@@ -1,0 +1,133 @@
+.Block--switcher {
+
+	.wrapper__wide {
+		background: url(../images/switcherBlock_bg.jpg) center center no-repeat;
+		background-size: contain;
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		.elementor-row {
+			display: block;
+
+			.elementor-col-50.elementor-col-50 {
+				padding-left: 2.5em !important;
+				padding-right: 2.5em !important;
+			}
+		}
+	}
+
+	.elementor-image {
+		padding: 0 !important;
+		width: 120% !important;
+		max-width: none !important;
+		max-height: none;
+	}
+
+	.switcher {
+		display: flex;
+		margin: 0 6em 2em;
+
+		@media (max-width: $breakpoint-tablet-landscape) {
+			margin-top: 2em;
+		}
+
+		&__input {
+			display: none;
+
+			&:first-of-type:checked {
+
+				~ .switcher {
+
+
+					label:first-of-type {
+
+						@include color(color, font-color-dark);
+						cursor: default;
+					}
+
+					label:nth-of-type(2) {
+
+						&::before {
+							display: block;
+							left: -3.75em;
+						}
+					}
+				}
+			}
+
+			&:nth-of-type(2):checked {
+
+				~ .switcher {
+
+					.switcher__switch::before {
+						transform: translate(calc(1.5em + 2px), -50%);
+					}
+
+					label:first-of-type {
+
+						&::before {
+							display: block;
+							right: -3.75em;
+						}
+					}
+
+					label:nth-of-type(2) {
+
+						@include color(color, font-color-dark);
+						cursor: default;
+					}
+				}
+			}
+		}
+
+		label {
+
+			@include color(color, font-color-medium);
+			position: relative;
+			font-family: $font-secondary;
+			font-weight: 600;
+			cursor: pointer;
+			transition: color 0.2s;
+
+			&:hover {
+
+				@include color(color, primary-color);
+			}
+
+			&::before {
+				content: "";
+				display: none;
+				position: absolute;
+				width: 3em;
+				height: 100%;
+				z-index: 1;
+			}
+		}
+
+		&__switch {
+			position: relative;
+			width: 3em;
+			height: 1.5em;
+			background: linear-gradient(270deg, #2d2d30 0%, #2d2d30 19.27%, #696b70 100%);
+			box-shadow: inset 0 2px 2px 1px rgba(0, 0, 0, 0.25);
+			border-radius: $border-radius-16;
+			margin: 0 0.75em;
+			cursor: pointer;
+
+			&::before {
+				position: absolute;
+				content: "";
+				height: 0;
+				width: 1.25em;
+				padding-bottom: 1.25em;
+				top: 50%;
+				transform: translate(2px, -50%);
+				transition: transform 0.2s;
+				border-radius: 50%;
+				background: linear-gradient(to right, $white 0%, $pricing-gray 100%);
+				box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+			}
+		}
+	}
+}

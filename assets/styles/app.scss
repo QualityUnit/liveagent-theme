@@ -1,0 +1,101 @@
+/* Common */
+@import "common/mixins";
+@import "common/variables";
+@import "common/sanitize";
+@import "common/reset";
+@import "common/fontello";
+@import "common/global";
+@import "common/elementor";
+@import "common/lightbox";
+@import "common/animations";
+
+/* Elements */
+
+@import "elements/Typography";
+@import "elements/BulletLists";
+@import "elements/Checklist";
+@import "elements/Button";
+@import "elements/Form";
+@import "elements/PostTag";
+@import "elements/Pagination";
+@import "elements/YoutubeLoader";
+@import "elements/Tooltip";
+@import "elements/FakeChatButton";
+@import "elements/TextCopiedMessage";
+@import "elements/menuArrow";
+
+/* Components */
+
+@import "components/CookieBar";
+@import "components/DemoBar";
+@import "components/DemoElement";
+@import "components/BlogCTA";
+@import "components/BlogShare";
+@import "components/Box";
+@import "components/Boxes";
+@import "components/BoxesStars";
+@import "components/BoxesImage";
+@import "components/Newsletter";
+@import "components/HeroBanner";
+@import "components/Clients";
+@import "components/VideoIntro";
+@import "components/VerticalTabs";
+@import "components/Portals";
+@import "components/Reference";
+@import "components/Reviews";
+@import "components/Block";
+@import "components/BlockChannels";
+@import "components/BlockSolutions";
+@import "components/BlockPoints";
+@import "components/BlockBadges";
+@import "components/BlockDiscover";
+@import "components/BlockLearnMore";
+@import "components/BlockResources";
+@import "components/BlockResearch";
+@import "components/BlockQuote";
+@import "components/BlockSwitcher";
+@import "components/BlockVideo";
+@import "components/HorizontalTabs";
+@import "components/Faq";
+@import "components/Loader";
+@import "components/Logos";
+@import "components/BlockButtons";
+@import "components/BlockPricing";
+@import "components/Text";
+@import "components/ExtraFaq";
+@import "components/ShortFaq";
+@import "components/FeaturesSlider";
+@import "components/ShortPricing";
+@import "components/ShortTrial";
+@import "components/Numbers";
+@import "components/SimilarIntegrations";
+@import "components/Login";
+@import "components/SimilarSources";
+@import "components/Breadcrumb";
+@import "components/AlternativeTable";
+@import "components/SoftphoneTable";
+@import "components/WordCloud";
+@import "components/FeaturesTable";
+@import "components/InternalLinks";
+@import "components/SidebarTOC";
+@import "components/HeroHeadlineHome";
+@import "components/HeaderLanguageSwitcher";
+@import "components/WhatIsHeadline";
+@import "components/TourPageCTA";
+@import "components/TourPageNumbers";
+@import "components/Nicereply";
+@import "components/TrialBanner";
+@import "components/SignupSidebar";
+
+/* Layouts */
+
+@import "layouts/Header";
+@import "layouts/Footer";
+@import "layouts/Page";
+@import "layouts/Custom";
+@import "layouts/FullScreen";
+@import "layouts/ErrorPage";
+@import "layouts/Gutenberg";
+@import "layouts/Depending";
+@import "layouts/tests/ScheduleDemo";
+@import "layouts/tests/RequestDemo";

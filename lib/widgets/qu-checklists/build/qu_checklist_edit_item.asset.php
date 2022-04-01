@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('wp-block-editor', 'wp-element', 'wp-format-library', 'wp-media-utils'), 'version' => 'e24341411802f1b45a43da7dfad7687f');

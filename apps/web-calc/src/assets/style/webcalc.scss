@@ -1,0 +1,27 @@
+/* Common */
+
+@import "common/mixins";
+@import "common/variables";
+
+div#webcalcWrapper[id*="webcalcWrapper"] {
+
+	@import "common/sanitize";
+	@import "common/reset";
+	@import "common/global";
+	@import "common/typography";
+	@import "common/animations";
+	@import "common/inputs";
+	@import "elements/Select";
+	@import "elements/Button";
+	@import "elements/Feature";
+	@import "elements/AgentsSlider";
+	@import "elements/Tooltip";
+	@import "elements/ProgressBar";
+	@import "elements/PaginationButtons";
+	@import "elements/Block";
+	@import "elements/Chart";
+	@import "elements/ShortCodeGenerator";
+	@import "layouts/Main";
+	@import "layouts/Page";
+	@import "layouts/Features";
+}

@@ -1,0 +1,338 @@
+input[type="submit"],
+input[type="button"],
+button,
+.button,
+.Button {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	height: $button-height-normal;
+	padding: 0 $button-padding-normal;
+	border: 0;
+	border-radius: $border-radius - 2;
+	font-size: $button-font-size-normal;
+	font-family: $font-secondary;
+	font-weight: $font-weight-semi;
+	background-color: transparent;
+	cursor: pointer;
+
+	&:lang(ru) {
+		padding: 0 1em;
+	}
+}
+
+.Button + .Button {
+	margin-left: 15px;
+
+	&--outline {
+		top: 1px;
+	}
+}
+
+.Button--full {
+
+	@include color(background, background);
+	@include color(color, button-full-font-color);
+	overflow: hidden;
+
+	span,
+	strong {
+		position: relative;
+		z-index: 2;
+		font-weight: $font-weight-semi;
+		line-height: 1.33;
+	}
+
+	&::before {
+
+		@include color(background, background);
+		@include fullSize;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: ($border-radius - 2);
+		opacity: 1;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&::after {
+
+		@include color(background, background-invert);
+		@include fullSize;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: ($border-radius - 2);
+		opacity: 0;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		&::before {
+			opacity: 0;
+		}
+
+		&::after {
+			opacity: 1;
+		}
+	}
+}
+
+.Button--login {
+	display: block;
+}
+
+.Button--normal {
+	color: #fff;
+	background-color: #fa9531;
+	transition: all 0.3s;
+	overflow: hidden;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: 1.33;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: #f98006;
+	}
+}
+
+.Button--white {
+
+	@include color(background, content-color-light);
+	@include color(color, content-color-dark);
+	overflow: hidden;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: 1.33;
+	}
+
+	&::before {
+
+		@include color(background, content-color-light);
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: ($border-radius - 2);
+		opacity: 1;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&::after {
+
+		@include color(background, content-color-dark);
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: ($border-radius - 2);
+		opacity: 0;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		@include color(color, content-color-light);
+
+		&::before {
+			opacity: 0;
+		}
+
+		&::after {
+			opacity: 1;
+		}
+	}
+}
+
+.Button--outline {
+
+	@include color(color, font-color-dark);
+	border-width: 1px;
+	border-style: solid;
+	border-color: currentColor;
+	overflow: hidden;
+	transition: all 0.3s;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: 1.33;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		@include color(color, primary-color);
+		@include color(border-color, primary-color);
+	}
+}
+
+.Button--copy {
+	margin-bottom: 50px;
+	margin-left: 30px;
+	margin-top: 10px;
+	padding: 0 20px;
+	background-color: transparent;
+
+	span {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-start;
+		align-items: center;
+
+		&::before {
+			content: "";
+			display: block;
+			width: 20px;
+			height: 20px;
+			margin-right: 10px;
+			background-image: url(../../assets/images/icon-copy.svg);
+			transition: opacity 0.3s;
+		}
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		span {
+
+			&::before {
+				background-image: url(../../assets/images/icon-copy-hover.svg);
+			}
+		}
+	}
+}
+
+.Button--back {
+	margin-top: 20px;
+}
+
+.Button--small {
+	height: 2.25rem;
+	padding: 0.25em 1em;
+	font-size: 0.8125rem;
+}
+
+.Button--medium {
+	height: 60px;
+	padding: 0 40px;
+	font-size: 18px;
+
+	span {
+		line-height: 1.33;
+	}
+}
+
+.Button--big {
+	height: 72px;
+	padding: 0 30px;
+	font-size: 18px;
+
+	span {
+		line-height: 1.33;
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		height: 60px;
+		padding: 0 25px;
+		font-size: 16px;
+
+		span {
+			line-height: 1.33;
+		}
+	}
+}
+
+.Button--inaction {
+
+	@include color(color, font-color-dark);
+	display: inline-flex;
+	align-items: center;
+	font-family: $font-secondary;
+	font-weight: $font-weight-semi;
+	font-size: 0.875rem;
+
+	strong {
+		font-weight: $font-weight-semi;
+	}
+
+	&::before {
+		content: url(../images/play_seeinaction.svg);
+		margin-right: 0.75em;
+		line-height: 0;
+	}
+
+	&:hover {
+
+		@include color(color, primary-color);
+	}
+}
+
+.Button--learn-more {
+
+	@include color(color, dark-orange);
+	padding: 0.5rem 0 0 !important;
+	margin: 0 !important;
+
+	span {
+
+		img {
+			width: 24px;
+			padding: 0 0 0 0.2rem;
+		}
+	}
+
+	.highlight-gradient {
+
+		img {
+			transform: translate(0, 0);
+			transition: transform 530ms ease-in-out !important;
+		}
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+
+		.highlight-gradient {
+
+			@include color(background, background-invert);
+			background-clip: text;
+			color: transparent;
+			box-decoration-break: clone;
+
+			img {
+				transform: translate(10px, 0);
+				transition: transform 530ms ease-in-out !important;
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,366 @@
+.BlogPost {
+
+	&__header {
+
+		@include color(background-color, secondary-background);
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		border-radius: $border-radius-16;
+		padding: 2em;
+		width: 100%;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			flex-direction: row;
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			padding: 3em 4.25em;
+		}
+	}
+
+	&__thumbnail {
+		margin: 0;
+		overflow: hidden;
+		border-radius: $border-radius-16;
+		width: 100%;
+		height: 10em;
+		margin-bottom: 1.5em;
+
+		img {
+			object-fit: cover;
+			object-position: center;
+			width: 100%;
+			height: 100%;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 50%;
+			height: 15em;
+			margin-right: 2em;
+			margin-bottom: 0;
+			flex: 0 0 auto;
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			width: 37.5em;
+			height: 21em;
+			margin-right: 4.2em;
+			flex: 0 0 auto;
+		}
+	}
+
+	&__category {
+		text-transform: uppercase;
+		margin-bottom: 1em;
+
+		a {
+
+			@include color(color, font-color-dark);
+			display: inline;
+			font-size: 0.75rem;
+			line-height: 2;
+			letter-spacing: 0.2em;
+			font-weight: 700;
+
+			&:nth-child(1) {
+				display: none;
+			}
+
+			+ a:not(:nth-child(2)) {
+
+				&::before {
+					display: inline;
+					content: ", ";
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-bottom: 1.75em;
+		}
+	}
+
+	h1.BlogPost__title {
+		font-size: 1.5rem;
+		line-height: 1.25;
+		margin-bottom: 0.85em;
+
+		@media (min-width: $breakpoint-tablet) {
+			font-size: 2.25rem;
+		}
+	}
+
+	&__author {
+
+		@include color(color, font-color-level3);
+		display: flex;
+		flex-direction: column;
+
+		&-box {
+
+			@include color(background-color, light-background);
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: space-between;
+			align-items: flex-start;
+			max-width: 670px;
+			margin: 0 auto 40px;
+			border: 1px solid $lightest-gray;
+			border-radius: 30px;
+			overflow: hidden;
+
+			&__avatar {
+				width: 220px;
+			}
+
+			&__content {
+				width: calc(100% - 220px);
+				padding: 15px 40px;
+
+				&__name {
+
+					@include color(color, font-color-dark);
+					font-size: 14px;
+					font-weight: 700;
+					margin-bottom: 0;
+				}
+
+				&__position {
+
+					@include color(color, font-color-medium);
+					font-size: 12px;
+					margin-bottom: 10px;
+				}
+
+				&__description {
+
+					@include color(color, font-color-medium);
+					font-size: 12px;
+					line-height: 20px;
+					margin-bottom: 10px;
+					max-height: 95px;
+					overflow: hidden;
+				}
+
+				&__social {
+					display: flex;
+					flex-flow: wrap row;
+					justify-content: flex-start;
+					margin-left: -5px;
+
+					a {
+						display: block;
+						width: 20px;
+						height: 20px;
+						margin: 0 5px;
+						background-color: #777;
+						border-radius: 50%;
+						color: #fff;
+						font-size: 12px;
+						line-height: 20px;
+						text-align: center;
+						transition: all 0.3s ease;
+
+						&:active,
+						&:focus,
+						&:hover {
+							background-color: #000;
+						}
+					}
+				}
+			}
+		}
+
+		&__avatar {
+			margin: 0.5em 0;
+
+			img {
+				width: 1.625rem;
+				height: auto;
+				border-radius: 50%;
+				margin-right: 0.625em;
+			}
+		}
+
+		&__name {
+
+			font-size: 0.875rem;
+			line-height: 1;
+			font-weight: 700;
+			margin-bottom: 0;
+		}
+
+		&__position {
+
+			font-size: 0.75rem;
+			line-height: 1;
+			margin: 1em 0;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			align-items: center;
+			flex-direction: row;
+
+			&__avatar {
+				margin: 0;
+			}
+
+			&__position {
+				border-left: 1px solid currentColor;
+				padding-left: 1.5em;
+				margin: 0;
+				margin-left: 1.5em;
+			}
+		}
+	}
+
+	&__co-author {
+
+		@include color(background-color, light-background);
+		display: flex;
+		flex-flow: nowrap row;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin: 0;
+		border: 1px solid $lightest-gray;
+		border-radius: 30px;
+		overflow: hidden;
+
+		&__image {
+			width: 220px;
+
+			img {
+				width: auto;
+				height: 200px;
+				max-width: 220px;
+				max-height: 200px;
+			}
+		}
+
+		&__content {
+			padding: 15px 40px;
+
+			&__title {
+
+				@include color(color, font-color-dark);
+				font-size: 11px;
+				font-weight: 700;
+				margin-bottom: 0 !important;
+			}
+
+			&__name {
+
+				@include color(color, font-color-dark);
+				font-size: 14px;
+				font-weight: 700;
+				margin-bottom: 10px !important;
+
+				&:empty {
+					display: none;
+				}
+			}
+
+			&__description {
+
+				@include color(color, font-color-medium, !important);
+				font-size: 12px;
+				line-height: 20px;
+				margin-bottom: 0 !important;
+				max-height: 98px;
+				overflow: hidden;
+			}
+		}
+	}
+
+	&__content {
+
+		.Content {
+
+			p span.dropcap {
+				font-size: 100px;
+				line-height: 75px;
+				font-weight: 700;
+				float: left;
+				margin-right: 10px;
+			}
+
+			.BlogPost__articles {
+				margin: 0 auto 40px;
+				padding-top: 40px;
+				border-top: 1px solid #f1f1f1;
+
+				&__article {
+					display: flex;
+					flex-flow: nowrap row;
+					justify-content: flex-start;
+					align-items: center;
+					margin-bottom: 1em;
+
+					&__thumbnail {
+
+						img {
+							width: 90px;
+							height: 60px;
+							object-fit: cover;
+							max-width: none;
+							border-radius: 14px;
+							margin-right: 15px;
+						}
+					}
+
+					&__title {
+
+						@include color(color, font-color-dark);
+						font-size: 14px;
+						font-weight: 700;
+						margin-bottom: 0;
+
+						a {
+
+							@include color(color, font-color-dark);
+							transition: all 0.3s ease;
+
+							&:active,
+							&:focus,
+							&:hover {
+
+								@include color(color, primary-color);
+							}
+						}
+					}
+				}
+
+				@media (min-width: $breakpoint-tablet) {
+					display: flex;
+					flex-flow: wrap row;
+					justify-content: space-between;
+					align-items: flex-start;
+
+					&__article {
+						width: 50%;
+						padding-right: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		padding-top: 1em;
+
+		&__author-box {
+			flex-flow: wrap column;
+			max-width: 220px;
+
+			&__content {
+				width: 100%;
+				padding: 20px;
+
+				&__description {
+					max-height: none;
+				}
+			}
+		}
+	}
+}

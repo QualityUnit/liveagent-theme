@@ -1,0 +1,42 @@
+.BlogPost__share {
+
+	&__title {
+
+		@include color(color, font-color-dark);
+		font-size: 0.875rem;
+		font-weight: 700;
+		margin-bottom: 8px;
+		text-align: center;
+	}
+
+	&__items {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: center;
+		margin-bottom: 50px;
+
+		&__item {
+			margin: 0 10px;
+
+			a {
+
+				@include square(1.875em);
+				@include color(color, font-color-light, !important);
+				display: block;
+				background-color: #000;
+				border-radius: 50%;
+				font-size: 1rem;
+				line-height: 1.875;
+				text-align: center;
+				transition: all 0.3s ease;
+
+				&:active,
+				&:focus,
+				&:hover {
+
+					@include color(background-color, primary-color);
+				}
+			}
+		}
+	}
+}
