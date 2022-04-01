@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="preconnect" href="http://fonts.googleapis.com">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    <title>Compare LiveAgent with competition!</title>
+    <script>
+      (() => {
+        const db = sessionStorage.getItem('WebCalcFeatured');
+        // if(db === null) {
+          sessionStorage.setItem('WebCalcFeatured', '["instagram"]');
+        // }
+      })()
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="calcfeaturedWrapper">
+      <div id="calcfeatured" class="calcfeatured--main"></div>
+    </div>
+  </body>
+</html>

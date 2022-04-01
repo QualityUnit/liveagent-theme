@@ -1,0 +1,130 @@
+.AgentsSlider {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	padding: 0 1.5em;
+	border-radius: $border-radius-6;
+	box-shadow: 0 6px 12px 0 rgba(67, 67, 67, 0.04);
+
+	&.has-modal {
+		position: static;
+
+		&::before {
+
+			@include posZero;
+			content: "";
+			position: absolute;
+			z-index: 1;
+			background-color: rgba($white, 0.8);
+		}
+	}
+
+	.subtitle--icon {
+		
+		img {
+			@include square(22px);
+		}
+	}
+
+	&--modal {
+
+		@include color(background-color, main-background);
+		@include absoluteCenter;
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 1.5em 0.5em;
+		text-align: center;
+		border-radius: $border-radius-16;
+		box-shadow: 5px 10px 90px -10px rgba(0, 0, 0, 0.1);
+		z-index: 2;
+		animation: fadeIn 0.5s;
+		width: calc(100% - 2em);
+
+		iframe:not(iframe:first-of-type) {
+			display:none;
+		}
+
+		&__icon {
+
+			@include square(2.125em);
+			margin-bottom: 0.75em;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			width: calc(100% - 6.5em);
+			padding: 3em;
+		}
+
+		.error {
+			margin-top: 1em;
+		}
+
+		.submitting {
+
+			@include square(100%);
+			@include color(color, font-color-normal);
+			background-color: rgba($white, 0.9);
+			border-radius: $border-radius-16;
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 1;
+			font-size: 2rem;
+			font-weight: 600;
+
+			span {
+
+				$animationTime: 1.5s;
+
+				display: block;
+				font-size: 2rem;
+				margin-left: 0.05em;
+				animation: chatDots 1.5s linear infinite;
+
+				&:first-child {
+					margin-left: 0.25em;
+				}
+
+				&:nth-child(2) {
+					animation-delay: $animationTime / 6;
+				}
+
+				&:nth-child(3) {
+					animation-delay: $animationTime / 3;
+				}
+			}
+		}
+	}
+
+	input[type="range"].AgentsSlider__custom-agents {
+		margin-bottom: 2.5em;
+	}
+
+	&--form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 2em;
+
+		.Button {
+			margin-top: 1.5em;
+		}
+
+		textarea {
+			display: none;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: block;
+
+			.Button {
+				margin-top: 0;
+				margin-left: 1.5em;
+			}
+		}
+	}
+}

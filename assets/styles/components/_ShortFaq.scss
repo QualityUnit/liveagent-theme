@@ -1,0 +1,31 @@
+/* stylelint-disable selector-class-pattern */
+
+.ShortFaq {
+
+	@include color(border-top-color, border-color-gray-icon);
+	margin-top: 30px;
+	padding-top: 30px;
+	border-top-width: 1px;
+	border-top-style: solid;
+
+	h3 {
+
+		@include color(color, font-color-level3);
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-start;
+		align-items: center;
+		font-size: $font-size-h5;
+		line-height: $line-height-h5;
+		margin-bottom: 0;
+	}
+
+	p {
+
+		@include color(color, font-color-level3);
+		font-size: $font-size-smaller;
+		line-height: $line-height-smaller;
+		margin-top: 15px;
+		margin-bottom: 0;
+	}
+}

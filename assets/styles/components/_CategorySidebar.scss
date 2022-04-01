@@ -1,0 +1,256 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+
+.Category__sidebar {
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		width: $sidebarWidth;
+
+
+		&.fixed {
+			position: fixed;
+			top: 92px;
+			transition: all 0.2s;
+			transform: translateY(0);
+		}
+
+		&.scrolledOut {
+			transform: translateY(-100%);
+		}
+
+		&.overflow {
+
+			@include scrollbar;
+			overflow-y: scroll;
+			height: calc(100vh - 92px);
+			padding-bottom: 3em;
+		}
+	}
+
+	&__showfilter {
+		display: none !important;
+
+		&--label {
+			display: none;
+		}
+	}
+
+	&__item {
+
+		position: relative;
+		margin-top: 25px;
+		display: flex;
+		flex-flow: wrap column;
+
+		&:first-child {
+			border: none;
+			margin: 0.9rem 0 0 0;
+
+			h4 {
+				margin: 0 0 15px 0;
+			}
+		}
+
+		h4 {
+			margin-top: 25px;
+			margin-bottom: 15px;
+			font-family: $font-secondary;
+			font-size: $font-size-h4;
+			line-height: $line-height-h4;
+		}
+
+		ul,
+		label {
+			font-size: $font-size-smaller;
+			line-height: $line-height-smaller;
+		}
+
+		a {
+
+			@include color(color, primary-color);
+		}
+
+		label {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: flex-start;
+			align-items: center;
+
+			input {
+				display: none;
+			}
+
+			span {
+
+				@include color(color, font-color-dark);
+				cursor: pointer;
+
+				&:hover {
+
+					@include color(color, primary-color);
+				}
+			}
+
+			input:checked + span {
+
+				@include color(color, primary-color);
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 24%;
+
+			&--uniq {
+				column-count: 3 !important;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			width: 100%;
+
+			&--uniq,
+			&--wide {
+				display: flex;
+				column-count: unset;
+			}
+		}
+	}
+
+
+	@media (max-width: 1023px) {
+		position: sticky;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 100%;
+		margin-top: 0;
+		padding-top: 0;
+		padding-bottom: 50px;
+		top: 90px;
+		z-index: 1;
+
+		&::after {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 100vw;
+			height: 100%;
+			background: linear-gradient(to bottom, rgba($white, 1) 90%, rgba($white, 0));
+		}
+
+		&__showfilter {
+			margin-left: auto;
+
+			&--label {
+
+				@include color(color, font-color-normal);
+				display: flex;
+				align-items: center;
+				font-weight: 400;
+				padding: 0 1em;
+			}
+
+			&--icon {
+				height: 2em;
+				margin-right: 0.35em;
+				color: currentColor;
+			}
+
+			~ .Category__sidebar__items {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				position: absolute;
+				width: 100%;
+				top: 3em;
+				transform-origin: center top;
+				max-height: 0;
+				padding-bottom: 0;
+				transform: scaleY(0);
+				transition: all 0.5s;
+				overflow: hidden;
+
+				&.visible {
+					display: flex;
+					width: 100%;
+				}
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: 0;
+					bottom: -3em;
+					left: 50%;
+					z-index: -1;
+					width: 100vw;
+					transform: translateX(-50%);
+					background: linear-gradient(to bottom, rgba($white, 1) 90%, rgba($white, 0));
+				}
+			}
+
+			&:checked + &--label {
+				opacity: 0.5;
+			}
+
+			&:checked ~ .Category__sidebar__items {
+				max-height: 150vh;
+				transform: scaleY(1);
+				overflow: visible;
+			}
+		}
+
+		.Category__item {
+
+			&--wide {
+				display: block;
+				width: 48%;
+				column-count: 2;
+
+				h4 {
+					column-span: all;
+				}
+			}
+
+			&--uniq {
+				display: block;
+				width: 100% !important;
+				column-count: 2;
+
+				h4 {
+					column-span: all;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 767px) {
+
+		.Category__item--search {
+			width: 100%;
+
+			input {
+				width: 100%;
+			}
+		}
+
+		&__items {
+
+			.Category__sidebar__item {
+				width: 48%;
+				margin-top: 1em;
+
+				&--wide {
+					width: 100%;
+				}
+			}
+		}
+
+		&__showfilter:checked ~ &__items {
+			padding-bottom: 30em;
+			overflow: hidden scroll;
+		}
+	}
+}

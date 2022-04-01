@@ -1,0 +1,52 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.CustomersBubbles {
+
+	&--wrapper {
+		position: absolute;
+		z-index: 2;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			left: -30%;
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			left: -25%;
+		}
+	}
+
+	.slider {
+		// overflow: hidden;
+
+		.splide__list {
+			margin-top: -5em !important;
+		}
+	}
+
+	.white--bubble.white--bubble--quote {
+		min-width: 0;
+		transition: all 0.5s;
+		transform-origin: left bottom;
+		left: 10%;
+		top: -2em;
+		opacity: 0;
+		padding-top: 5em;
+		transform: scale(0.75) translate(-10%, 0) !important;
+		max-width: 28em;
+
+		&.is-active {
+			opacity: 0.5;
+			padding-top: 5em;
+			transform: scale(0.75) translate(-10%, 0) !important;
+		}
+
+		&.is-visible:not(.is-active) {
+			padding-top: 0;
+			opacity: 1;
+			transform: scale(1) translate(0, 0) !important;
+		}
+	}
+}

@@ -1,0 +1,243 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"); /* stylelint-disable-line */
+
+.IconTabs {
+
+	.Block--redesign__basic + &.Block {
+		margin-top: 0 !important;
+	}
+
+	> .elementor-container > .elementor-row {
+		flex-direction: column;
+
+		> .elementor-column {
+			width: 100%;
+		}
+	}
+
+	&__tabs {
+		text-align: center;
+
+		.elementor-icon-list-icon {
+
+			@include square(2.75em);
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			top: -0.1em;
+			border-radius: 50%;
+			background-color: rgba($medium-orange, 0);
+			transition: background-color 0.3s;
+
+			svg {
+				--e-icon-list-icon-size: 1.25em;
+				margin: 0 !important;
+			}
+		}
+
+		ul {
+			justify-content: center;
+
+			li {
+
+
+				a {
+
+					@include color(color, font-color-level3);
+					display: flex;
+					align-items: center;
+					position: relative;
+					margin: 0 10px;
+					line-height: 1.3;
+					font-weight: 600;
+					font-family: $font-secondary;
+					text-transform: none;
+					transition: all 0.3s;
+
+					&::after {
+
+						@include color(background, primary-color);
+						content: "";
+						position: absolute;
+						bottom: 0;
+						left: 50%;
+						width: 0;
+						height: 5px;
+						border-radius: 16px 16px 0 0;
+						transition: all 0.3s ease;
+					}
+				}
+
+				&:hover,
+				&.active {
+
+					.elementor-icon-list-icon {
+						background-color: rgba($medium-orange, 1);
+					}
+
+					a {
+
+						@include color(color, primary-color, !important);
+
+						&::after {
+							left: 0;
+							width: 100%;
+						}
+					}
+				}
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+
+					a {
+						padding: 1em;
+					}
+				}
+			}
+		}
+	}
+
+	&__content {
+
+		&:not(.elementor-element-edit-mode) {
+			overflow: hidden;
+		}
+
+		&.elementor-element-edit-mode > .elementor-column-wrap > .elementor-widget-wrap {
+			flex-direction: column;
+
+			> * {
+				flex: auto;
+			}
+		}
+
+		> .elementor-column-wrap {
+
+			> .elementor-widget-wrap {
+				display: flex;
+				flex-wrap: nowrap;
+				align-items: stretch;
+				transform: translateX(0);
+				transition: transform 0.5s;
+
+				> * {
+					flex: 1 0 100%;
+				}
+			}
+		}
+
+	}
+
+	&__block {
+		position: relative;
+
+		&.active {
+			transform: translateX(0);
+		}
+
+		&--chart {
+			position: relative;
+
+			.elementor-text-editor {
+				width: 100%;
+				text-align: center;
+
+				b,
+				strong {
+					font-size: 1.125rem;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+
+			&--chart {
+				right: -3em;
+			}
+		}
+	}
+
+	&__chartText {
+		position: relative;
+		margin-top: -5em;
+
+		p {
+
+			@include color(background, background);
+			background-clip: text;
+			color: transparent;
+			box-decoration-break: clone;
+			text-align: center;
+
+			font-size: 3.5rem;
+			font-family: "Patrick Hand", cursive;
+		}
+
+		&.big {
+			margin-top: -7em;
+
+			p {
+				font-size: 5rem;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			margin-top: -10em;
+
+			p {
+				font-size: 6.25rem;
+			}
+
+			&.big {
+				margin-top: -13em;
+
+				p {
+					font-size: 9.375rem;
+				}
+			}
+		}
+
+	}
+
+	&__textBubble {
+
+		@include color(background, main-background);
+		position: relative;
+		border-radius: $border-radius-16;
+		margin: 0 auto 0;
+		padding: 2em;
+		width: 80% !important;
+		box-shadow: 0 15px 41px rgba(145, 145, 145, 0.28), inset 0 -15px 20px rgba(157, 157, 157, 0.1);
+
+		.big + & {
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				margin: -2em auto 0;
+			}
+		}
+
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		&::before {
+			content: "";
+
+			@include square(2em);
+			@include color(background, main-background);
+			position: absolute;
+			top: -0.75em;
+			left: 50%;
+			transform: translateX(-50%) rotate(45deg);
+			border-radius: 8px;
+		}
+
+		.active & {
+			animation: bounceIn 0.5s 0.3s;
+		}
+	}
+}

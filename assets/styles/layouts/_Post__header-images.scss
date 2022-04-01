@@ -1,0 +1,312 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+body.single-ms_features {
+
+	.Post__header {
+
+		.wrapper__wide {
+			background: url(../../images/features-category_ticket-management.png) center center no-repeat;
+			background-size: cover;
+		}
+	}
+
+	$features: (
+		"call-center",
+		"gamification",
+		"integrations",
+		"live-chat",
+		"mobile-apps",
+		"multilingual",
+		"reporting",
+		"security",
+		"social",
+		"support-portal",
+		"ticket-management"
+	);
+
+	@for $i from 1 through length($features) {
+		$image: nth($features, $i); /* stylelint-disable-line scss/no-global-function-names */
+
+		.Post__header.#{$image} .wrapper__wide {
+
+			background: url(../../images/features-category_#{$image}.png) center center no-repeat;
+			background-size: cover;
+		}
+	}
+}
+
+body.single-ms_academy {
+
+	.Post__header {
+
+		.wrapper__wide {
+			background: url(../../images/academy-category_introduction.png) center center no-repeat;
+			background-size: cover;
+		}
+	}
+
+	$academy: (
+		"automated-customer-service",
+		"call-center-software",
+		"customer-appreciation",
+		"customer-communication",
+		"customer-feedback",
+		"customer-portal",
+		"customer-service-department",
+		"customer-service-reporting",
+		"customer-service",
+		"help-desk-software",
+		"introduction",
+		"live-chat",
+		"soft-skills",
+		"theory",
+		"ticketing"
+	);
+
+	@for $i from 1 through length($academy) {
+		$image: nth($academy, $i); /* stylelint-disable-line scss/no-global-function-names */
+
+		.Post__header.#{$image} .wrapper__wide {
+
+			background: url(../../images/academy-category_#{$image}.png) center center no-repeat;
+			background-size: cover;
+		}
+	}
+}
+
+body.single-ms_templates {
+
+	.Post__header {
+
+		.wrapper__wide {
+			background: url(../../images/templates-category_business.png) center center no-repeat;
+			background-size: cover;
+		}
+	}
+	$templates: (
+		"business",
+		"call-center",
+		"customer-service",
+		"e-commerce",
+		"help-desk",
+		"informational",
+		"knowledge-base",
+		"live-chat",
+		"marketing",
+		"customer-portal",
+		"email",
+		"social-customer-service",
+		"ticketing"
+	);
+
+	@for $i from 1 through length($templates) {
+		$image: nth($templates, $i); /* stylelint-disable-line scss/no-global-function-names */
+
+		.Post__header.#{$image} .wrapper__wide {
+
+			background: url(../../images/templates-category_#{$image}.png) center center no-repeat;
+			background-size: cover;
+		}
+	}
+}
+
+body.single-ms_integrations {
+
+	.Post__header {
+
+		.wrapper__wide {
+
+			@include color(background-color, primary-color);
+			background-image: url(../../images/integrations-category.svg);
+			background-position: center right;
+			background-size: auto 95%;
+
+			@media (max-width: $breakpoint-desktop) {
+				background-position: center;
+			}
+		}
+
+		&.cms {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_cms.svg);
+				background-size: auto 100%;
+				background-color: #f7c8c2;
+			}
+		}
+
+		&.crm {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_crm.svg);
+				background-size: auto 100%;
+				background-color: #c5d7f9;
+			}
+		}
+
+		&.email-marketing {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_email-marketing.svg);
+				background-size: auto 100%;
+				background-color: #eff1ff;
+			}
+		}
+
+		&.social {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_social.svg);
+				background-size: auto 100%;
+				background-color: #eff1ff;
+			}
+		}
+
+		&.voip-partners {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_voip-partners.svg);
+				background-size: auto 100%;
+				background-color: #eff1ff;
+			}
+		}
+
+		&.chatbot {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_chatbot.svg);
+				background-size: auto 100%;
+				background-color: #c5d7f9;
+			}
+		}
+
+		&.tracking {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_tracking.svg);
+				background-size: auto 100%;
+				background-color: #eff1ff;
+			}
+		}
+
+		&.collaboration-tools {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_collaboration-tools.svg);
+				background-size: auto 100%;
+				background-color: #f7c8c2;
+			}
+		}
+
+		&.feedback {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_feedback.svg);
+				background-size: auto 100%;
+				background-color: #f7c8c2;
+			}
+		}
+
+		&.ecommerce {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_ecommerce.svg);
+				background-size: auto 100%;
+				background-color: #f8cfd0;
+			}
+		}
+
+		&.migration-plugins {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_migration-plugins.svg);
+				background-size: auto 100%;
+				background-color: #f8cfd0;
+			}
+		}
+
+		&.billing-management {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_billing-management.svg);
+				background-size: auto 100%;
+				background-color: #eff1ff;
+			}
+		}
+
+		&.project-management {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_project-management.svg);
+				background-size: auto 100%;
+				background-color: #f7c8c2;
+			}
+		}
+
+		&.workflow {
+
+			.wrapper__wide {
+				background-image: url(../../images/integrations_workflow.svg);
+				background-size: auto 100%;
+				background-color: #eff1ff;
+			}
+		}
+	}
+}
+
+.Post__header {
+
+	.wrapper__wide {
+		border-radius: $border-radius-16;
+		background-size: cover;
+	}
+
+	&.customer-support-glossary {
+
+		.wrapper__wide {
+			background-image: url(../../images/bg_customer-support-glossary-image.svg?v3);
+			background-position: right top;
+
+			@media (max-width: $breakpoint-desktop-box) {
+				background-size: auto 85%, 110% auto;
+				background-position: right center, center;
+			}
+
+			@media (max-width: $breakpoint-desktop) {
+				background-position: center;
+			}
+
+			@media (max-width: $breakpoint-tablet) {
+				background-size: auto 85%, 200% auto;
+			}
+
+			@media (max-width: $breakpoint-mobile) {
+				background-size: auto 85%, 400% auto;
+			}
+		}
+	}
+
+	&.directory {
+
+		.wrapper__wide {
+			background-image: url(../../images/bg_category_directory.svg?v2);
+		}
+	}
+
+	&.about {
+
+		.wrapper__wide {
+			background: url(../../images/bg_category_about.jpg?v2) center center no-repeat;
+			background-size: contain;
+
+			@media (min-width: $breakpoint-tablet) {
+				background-image: url(../../images/bg_category_about_tablet.jpg?v2);
+				background-size: cover;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				background-image: url(../../images/bg_category_about_desktop.jpg?v2);
+			}
+		}
+	}
+}

@@ -1,0 +1,146 @@
+/* stylelint-disable selector-class-pattern, value-keyword-case */
+
+@import "../elements/menuArrow";
+
+.Checklists__toc {
+
+	&__block {
+		position: relative;
+		display: inline-block;
+		z-index: 1;
+	}
+
+	&__activator {
+
+		@extend %menuArrow;
+		display: inline-block;
+	}
+
+	&__wrapper {
+
+		@include color(background-color, main-background);
+		position: fixed;
+		top: 4em;
+		left: 50%;
+		transform: translate(-50%, -2em);
+		width: calc(100vw - 3em);
+		opacity: 0;
+		padding-right: 0.5em;
+		border-radius: $border-radius-16;
+		transition: all 0.25s;
+		filter: drop-shadow(0 3px 20px rgba($black-real, 0.15));
+
+		&.visible {
+			transform: translate(-50%, 0);
+			opacity: 1;
+		}
+
+		.Post__header__small:not(.visible) & {
+			transform: translate(-50%, -100%);
+		}
+
+		&::before {
+
+			@include triangle(1.5em, $white, "up");
+			position: absolute;
+			transform: scaleX(1.25);
+			top: -1.5em;
+			left: 5em;
+			content: "";
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			position: absolute;
+			width: 30em;
+			top: calc(100% + 1em);
+			left: -2.5em;
+			transform: translate(0, -2em);
+
+			&.visible {
+				transform: translate(0, 0);
+			}
+
+			.Post__header__small:not(.visible) & {
+				transform: translate(0, -100%);
+			}
+
+			&::before {
+				left: 2em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			left: auto;
+			right: -2.5em;
+
+			&::before {
+				left: auto;
+				right: 2.25em;
+			}
+		}
+	}
+
+	&__inn {
+		width: 100%;
+		padding: 2em;
+
+		ol {
+
+			@include scrollbar;
+			max-height: 19em;
+			overflow-y: scroll;
+			position: relative;
+			left: -1.35em;
+			margin-bottom: 0;
+			margin-right: -3.25em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 1em 3.5em 2.5em;
+
+			ol {
+				margin-right: -4.75em;
+			}
+		}
+	}
+
+	&__title {
+		font-size: 1.125rem;
+	}
+
+	&__item {
+
+		@include color(color, primary-color);
+		position: relative;
+		line-height: 1.75;
+
+		a {
+			display: block;
+		}
+
+		&::after {
+
+			@include square(100%);
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -2em;
+			display: block;
+			z-index: -1;
+			background-color: rgba($medium-orange, 0);
+			border-radius: 6px;
+		}
+
+		&:hover {
+
+			&::after {
+				background-color: rgba($medium-orange, 1);
+			}
+		}
+
+		a,
+		&::marker {
+			color: currentColor;
+		}
+	}
+}

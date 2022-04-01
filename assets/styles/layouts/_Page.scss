@@ -1,0 +1,96 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.Page {
+	padding: 75px 0 100px;
+}
+
+iframe[id*="b_xw2c9xiu"] {
+	min-height: 845px; // Demo Page Iframe
+}
+
+.GrowSurf {
+
+	ul {
+		margin: 0 !important;
+	}
+
+	form {
+		display: flex;
+		flex-flow: wrap column;
+		align-items: flex-start;
+	}
+
+	.grsf-global {
+
+		label {
+			font-size: 12px;
+			font-weight: $font-weight-normal;
+			margin: 0;
+		}
+
+		h5 {
+
+			@include color(color, font-color-dark);
+			margin-bottom: $default-element-margin;
+			font-family: $font-secondary;
+			font-weight: $font-weight-bold;
+			font-size: $font-size-h3;
+			line-height: $line-height-h3;
+		}
+
+		.grsf-share {
+			max-width: 100%;
+			margin: auto;
+		}
+
+		.grsf-form-control {
+
+			@extend .Input;
+			@include color(border-color, border-color-normal, !important);
+			width: 500px;
+			max-width: 100%;
+			line-height: 1;
+			box-shadow: none !important;
+		}
+
+		.grsf-button {
+
+			@extend .Button;
+			@extend .Button--full;
+			padding: 0 35px !important;
+			box-shadow: none !important;
+		}
+
+		.grsf-copy-link-button[class*="grsf-copy-link-button"] {
+
+			@extend .Button;
+			@include color(background, background);
+			width: 100%;
+			height: 48px !important;
+			margin-left: 15px !important;
+			padding: 0 35px !important;
+			font-size: 14px !important;
+			line-height: $button-height-normal;
+			font-weight: 700 !important;
+			box-shadow: none !important;
+			border-radius: ($border-radius - 2);
+			overflow: hidden;
+		}
+	}
+
+	&__info {
+		max-width: 85%;
+		margin: 15px 0;
+		text-align: left;
+		font-size: 14px;
+	}
+}
+
+@media (max-width: $breakpoint-tablet) {
+
+	.elementor-aspect-ratio-169 .elementor-fit-aspect-ratio {
+		padding-bottom: 0;
+		height: auto;
+	}
+}

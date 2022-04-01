@@ -1,0 +1,24 @@
+/* stylelint-disable selector-class-pattern */
+
+$featured: (
+	"ticket-management": "features_ticketing.svg",
+	"live-chat": "features_livechat.svg",
+	"call-center": "features_callcenter.svg",
+	"social": "features_social.svg",
+	"reporting": "features_reporting.svg",
+	"support-portal": "features_supportportal.svg",
+	"gamification": "features_gamification.svg",
+	"multilingual": "features_multilingual.svg",
+	"mobile-apps": "features_mobileapps.svg",
+	"integrations": "features_integrations.svg",
+	"security": "features_security.svg",
+);
+
+@each $className, $image in $featured {
+	.Category__item.pillar.#{$className} {
+
+		.Category__item__thumbnail__image {
+			background-image: url(../../images/#{$image});
+		}
+	}
+}

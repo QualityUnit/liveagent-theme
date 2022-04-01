@@ -1,0 +1,131 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.Newsletter {
+	padding-top: 0;
+	padding-bottom: 0;
+
+	.elementor-widget:not(:last-child) {
+		margin-bottom: 0 !important;
+	}
+
+	.elementor-widget-wrap {
+		align-content: center;
+	}
+
+	&__text {
+		width: 45%;
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	&__form {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-end;
+		width: 55%;
+
+		.Input {
+			min-width: 320px;
+			margin-right: 40px;
+			text-align: center;
+		}
+
+		.Button {
+			min-width: 185px;
+		}
+	}
+
+	.elementor-shortcode {
+
+		.Newsletter__form {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		&__text,
+		&__form {
+			justify-content: center;
+			width: 100%;
+			text-align: center;
+		}
+
+		form {
+			margin-top: 40px;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		.elementor-col-50 {
+			width: 100% !important;
+		}
+
+		form {
+			display: flex;
+			flex-flow: wrap column;
+			align-items: center;
+
+			.Input {
+				min-width: 240px !important;
+				margin-right: 0 !important;
+				margin-bottom: 20px !important;
+			}
+		}
+	}
+}
+
+form.MailChimp {
+
+	.mc-field-group {
+		display: flex;
+		flex-flow: wrap column;
+		align-items: flex-start;
+		margin-bottom: 25px;
+
+		label {
+			display: block;
+			margin-bottom: 3px;
+		}
+
+		input {
+			min-width: 50%;
+		}
+
+		select {
+
+			@include color(border-color, border-color-normal);
+			@include color(color, font-color-normal);
+			width: auto;
+			min-width: 50%;
+			height: $input-height-normal;
+			padding: 0 $input-padding-normal;
+			border-width: $input-border-width-normal;
+			border-style: solid;
+			border-radius: ($border-radius - 2);
+			background-color: transparent;
+			font-size: $input-font-size-normal;
+			font-weight: $font-weight-normal;
+
+			option {
+				padding: 0 $input-padding-normal;
+			}
+		}
+	}
+
+	input[type="submit"],
+	button {
+
+		@extend .Button;
+		@extend .Button--full;
+	}
+}

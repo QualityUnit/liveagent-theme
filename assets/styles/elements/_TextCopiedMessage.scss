@@ -1,0 +1,23 @@
+/* stylelint-disable selector-class-pattern */
+
+.TextCopiedMessage {
+
+	@include absoluteCenter();
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 5;
+	padding: 0.5em 2em;
+	font-size: 2rem;
+	background-color: rgba($black-real, 0.8);
+	border-radius: 8px;
+	opacity: 0;
+	text-align: center;
+	color: $white;
+	transition: opacity 0.2s;
+
+	&.active {
+		opacity: 1;
+	}
+}

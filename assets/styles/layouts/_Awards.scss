@@ -1,0 +1,84 @@
+/* stylelint-disable selector-class-pattern */
+
+.Awards {
+
+	&__container {
+		position: relative;
+		display: none;
+		padding-top: 0 !important;
+
+		&.active {
+			display: flex;
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			width: $breakpoint-desktop;
+			margin: 0 auto;
+		}
+
+		&--year {
+
+			@include color(color, secondary-background);
+			position: absolute;
+			font-size: 6rem;
+			line-height: 1;
+			transform: rotate(-90deg);
+			left: -0.5em;
+
+			@media (min-width: $breakpoint-desktop-box) {
+
+				font-size: 11.375rem;
+				left: 0.35em;
+				top: 1.25em;
+				transform-origin: left bottom;
+			}
+		}
+	}
+
+	&__content {
+		justify-content: space-between !important;
+	}
+
+	&__item {
+
+		article {
+			margin: 0 !important;
+		}
+
+		&--thumbnail {
+			position: relative;
+			z-index: 1;
+
+			a {
+				display: block;
+			}
+		}
+
+		&--text {
+
+			@include color(background-color, main-background);
+			border-radius: $border-radius-16;
+			box-shadow: 0 4px 64px rgba(0, 0, 0, 0.08);
+			margin-top: -3em;
+			min-height: 6em;
+			padding: 2em !important;
+			text-align: center;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			width: calc(50% - 1.75em) !important;
+
+			&--text {
+				min-height: 11.875em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: calc(33.333% - 1.75em) !important;
+
+			&--text {
+				padding: 2.625em !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,37 @@
+@import "../common/variables";
+
+%menuArrow {
+
+	&::after {
+
+		@include square(0.75em);
+		display: block;
+		position: relative;
+		flex: 0 0 auto;
+		content: "";
+		border: 3px solid $light-gray-icon;
+		border-top: 0;
+		border-right: 0;
+		transition: all 0.2s;
+		transform: rotate(-45deg) scaleX(1);
+		margin-left: auto;
+		top: -0.15em;
+		cursor: pointer;
+	}
+
+	&.menu-active,
+	&.active,
+	.active & {
+
+		&::after {
+			transform: rotate(-45deg) scale(-1);
+			top: 0.15em;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+
+		transform: scale(0.75);
+		filter: brightness(0.5);
+	}
+}

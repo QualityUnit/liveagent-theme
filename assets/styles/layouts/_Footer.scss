@@ -1,0 +1,392 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Footer {
+
+	.wrapper {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: space-between;
+		align-items: center;
+
+		@media (max-width: $breakpoint-desktop) {
+			justify-content: space-around;
+		}
+	}
+}
+
+/* ------------------------------- FOOTER TOP ------------------------------- */
+.Footer__top {
+	padding: 60px 0;
+
+	.wrapper {
+		align-items: flex-start;
+	}
+
+	&__column {
+		width: 19%;
+		padding: 15px 0;
+
+		&:nth-child(1) {
+
+			@include color(border-right-color, footer-column-border-color);
+			margin-right: 5%;
+			border-right-width: 1px;
+			border-right-style: solid;
+		}
+
+		&__title {
+			display: flex;
+			flex-flow: wrap row;
+			align-items: center;
+			height: 30px;
+
+			img {
+				display: block;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			&--image.h4 {
+				font-size: 0 !important;
+			}
+		}
+
+		a {
+
+			@include color(color, font-color-normal);
+
+			&:active,
+			&:focus,
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		ul {
+			font-size: 14px;
+			margin-bottom: 0;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+		padding: 0;
+
+		&__column {
+			display: flex;
+			flex-flow: wrap column;
+			align-items: center;
+			text-align: center;
+			width: 33.33%;
+			padding: 30px 0;
+			margin-right: 0 !important;
+			border-right: 0 !important;
+
+			&__title {
+				justify-content: center;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		&__column {
+			width: 50%;
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		&__column {
+			width: 100%;
+		}
+	}
+}
+
+/* ------------------------------ FOOTER MIDDLE ----------------------------- */
+.Footer__middle {
+
+	.wrapper {
+
+		@include color(background, background);
+		max-width: 1380px;
+		padding: 40px 120px;
+	}
+
+	ul {
+		display: flex;
+		flex-flow: wrap row;
+		margin-bottom: 0;
+	}
+
+	p {
+
+		@include color(color, font-color-light);
+		margin-bottom: 0;
+		font-family: $font-secondary;
+		font-size: $font-size-bigger;
+		line-height: $line-height-bigger;
+		font-weight: $font-weight-bold;
+	}
+
+	a {
+
+		@include color(color, font-color-light);
+		transition: opacity 0.5s;
+
+		&:active,
+		&:focus,
+		&:hover {
+			opacity: 0.75;
+		}
+	}
+
+	&__number {
+
+		li {
+
+			@include color(color, font-color-light);
+			font-family: $font-secondary;
+			font-size: $font-size-bigger;
+			line-height: $line-height-bigger;
+			font-weight: $font-weight-bold;
+
+			a {
+
+				&::before {
+					content: "\e828";
+					font-family: fontello, sans-serif;
+					font-weight: 900;
+					display: inline-block;
+					transform: rotate(90deg);
+					margin-right: 10px;
+				}
+			}
+
+			+ li {
+				margin-left: 45px;
+			}
+		}
+	}
+
+	&__social {
+
+		li {
+			font-size: 24px;
+
+			+ li {
+				margin-left: 20px;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		@include color(background, background);
+		padding: 40px 0;
+
+		.wrapper {
+			max-width: 1180px;
+			padding: 0 20px;
+			background: transparent;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		.wrapper {
+			flex-flow: wrap column;
+			align-items: center;
+		}
+
+		&__title,
+		&__number,
+		&__social {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: center;
+			width: 100%;
+		}
+
+		&__number {
+			margin: 20px 0 40px;
+
+			li + li {
+				margin-left: 40px;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		&__number {
+
+			li {
+				width: 100%;
+				text-align: center;
+				margin-left: 0 !important;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		&__number {
+
+			ul {
+				flex-flow: wrap column;
+				align-items: center;
+
+				li {
+					margin: 5px 0 !important;
+				}
+			}
+		}
+	}
+}
+
+/* ------------------------------ FOOTER BOTTOM ----------------------------- */
+.Footer__bottom {
+	padding: 20px 0;
+
+	ul {
+		display: flex;
+		flex-flow: wrap row;
+	}
+
+	p,
+	ul {
+		font-size: $font-size-smaller;
+		line-height: $line-height-smaller;
+		margin-bottom: 0;
+	}
+
+	a {
+
+		@include color(color, font-color-normal);
+
+		&:active,
+		&:focus,
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__navigation {
+
+		li + li {
+			margin-left: 30px;
+		}
+	}
+
+	&__right {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+		padding: 15px 0;
+
+		&__copyright,
+		&__navigation {
+			margin: 5px 0;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		&__navigation {
+
+			ul {
+				display: flex;
+				flex-flow: wrap row;
+				justify-content: center;
+			}
+
+			li {
+				margin: 0 15px !important;
+			}
+		}
+	}
+}
+
+.Footer__bottom__flags {
+	max-width: 140px;
+	margin-left: 20px;
+
+	.wpml-ls {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-end;
+	}
+
+	.wpml-ls-item-toggle {
+		border: 0;
+		text-decoration: none !important;
+
+		&::after {
+			border: 0.35em solid transparent !important;
+			border-bottom: 0.5em solid !important;
+			top: calc(50% - 0.56em) !important;
+		}
+	}
+
+	.wpml-ls-sub-menu {
+		border: 0;
+		top: -311px;
+		min-width: 130px;
+
+		.wpml-ls-item {
+			position: relative;
+
+			a {
+				border: 0;
+				text-decoration: none !important;
+			}
+		}
+	}
+
+	.wpml-ls-legacy-dropdown-click {
+
+		a {
+			border-radius: 8px;
+			margin-bottom: 3px;
+		}
+	}
+}
+
+body.facebook,
+body.liveagent-huawei,
+body.single-ms_glossary,
+body.post-type-archive-ms_glossary,
+body.single-format-standard,
+body.category-blog,
+body.single-ms_academy,
+body.post-type-archive-ms_academy,
+body.single-ms_templates,
+body.post-type-archive-ms_templates,
+body.typing-test,
+body.tipptest,
+body.prueba-de-tipeo,
+body.test-de-saisie,
+body.test-di-digitazione,
+body.teste-de-digitacao,
+body.typetest,
+body.gepelesi-teszt,
+body.test-pisania,
+body.test-na-umenie-nabirat-tekst,
+body.dazi-ceshi,
+body.post-type-archive-ms_directory,
+body.single-ms_directory,
+body.shopify-chat-software {
+
+	.Footer__middle {
+		display: none !important;
+	}
+
+	.Footer__top {
+		padding: 60px 0 15px;
+	}
+}

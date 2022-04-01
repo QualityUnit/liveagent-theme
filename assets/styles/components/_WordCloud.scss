@@ -1,0 +1,76 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.WordCloud {
+
+	@extend .Block--background;
+
+	h2 {
+		text-align: center;
+	}
+
+	&__container {
+		margin-top: 20px;
+		column-count: 2;
+
+		@media (min-width: $breakpoint-tablet) {
+			column-count: 3;
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			column-count: 4;
+		}
+
+		a {
+
+			@include color(color, main-nav-submenu-font-color);
+			@include color(background-color, main-background);
+			display: flex;
+			align-items: center;
+			padding: 0.82em 1em;
+			margin-bottom: 7px;
+			font-size: 0.75rem;
+			line-height: 1.25;
+			font-weight: 700;
+			border-radius: 0.65em;
+			transition: 0.3s all;
+			transform: translate3d(0, 0, 0) scale(1);
+			break-inside: avoid-column;
+
+			@media (min-width: $breakpoint-tablet) {
+				font-size: 0.875rem;
+			}
+
+			&::before {
+
+				@include color(background-color, primary-color);
+				@include square(0.82rem);
+				content: "";
+				display: block;
+				border-radius: 50%;
+				margin-right: 0.75em;
+				flex: 0 0 auto;
+			}
+
+			&::after {
+
+				content: url(../images/icon-arrow.svg);
+				display: block;
+				width: 0.5rem;
+				margin-left: auto;
+			}
+
+			&:active,
+			&:focus {
+				transform: translate3d(0, 0, 0) scale(1.07);
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+
+				&:hover {
+					transform: translate3d(0, 0, 0) scale(1.07);
+				}
+			}
+		}
+	}
+}

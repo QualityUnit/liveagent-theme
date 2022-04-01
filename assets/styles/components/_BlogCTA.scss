@@ -1,0 +1,146 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.BlogCTA {
+
+	&__wrapper {
+		display: flex;
+		justify-content: center;
+		margin: 1rem 0;
+		width: 100%;
+		border-radius: $border-radius;
+		overflow: hidden;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.Post__content & {
+				position: relative;
+				width: 41.857rem;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+	}
+
+	&__element {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 25px 45px;
+		background-image: url(../images/bg-cta.png), linear-gradient(30deg, #fa9531 0, #fa9531 100%);
+		background-position: 0%;
+		width: 100%;
+
+		.Button {
+
+			@extend .Button--white;
+			@include color(color, font-color-dark, !important);
+
+			&:active,
+			&:focus,
+			&:hover {
+
+				@include color(background-color, font-color-dark, !important);
+				@include color(color, font-color-light, !important);
+			}
+		}
+
+		&__image {
+
+			&--discover {
+				background-image: url(../images/bg_discover.png);
+				content: "";
+				background-repeat: no-repeat;
+				background-size: 100%;
+				position: absolute;
+				width: 127px;
+				height: 123px;
+				left: 49%;
+				bottom: 0;
+			}
+
+			&--support-portal {
+				background-image: url(../images/bg_support_portal.png);
+				content: "";
+				background-repeat: no-repeat;
+				background-size: 100%;
+				position: absolute;
+				width: 242px;
+				height: 104px;
+				left: 36%;
+				bottom: 0;
+			}
+
+			&--book {
+				background-image: url(../images/cta-blog-image.svg);
+				content: "";
+				background-repeat: no-repeat;
+				background-size: 100%;
+				position: absolute;
+				width: 139px;
+				height: 122px;
+				left: 50%;
+				bottom: 0;
+			}
+		}
+
+		&__text {
+			font-family: $font-primary;
+			font-size: $font-size-h3;
+			font-weight: 700;
+			color: $white;
+			max-width: 340px;
+			width: 39%;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		&__element {
+
+			&::before {
+				display: none;
+			}
+
+			&__image {
+
+				&--discover,
+				&--support-portal,
+				&--book {
+					display: none;
+				}
+			}
+		}
+
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		&__element {
+			padding: 25px 40px;
+			flex-direction: column;
+			align-items: end;
+
+			&__text {
+				width: 100%;
+				z-index: 1;
+				margin-bottom: 1em;
+				padding: 0 0 1rem 0;
+			}
+
+			&::before {
+				display: none;
+			}
+
+			&__image {
+
+				&--discover,
+				&--support-portal,
+				&--book {
+					display: none;
+				}
+			}
+		}
+	}
+}

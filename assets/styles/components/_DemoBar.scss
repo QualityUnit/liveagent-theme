@@ -1,0 +1,78 @@
+/* stylelint-disable selector-class-pattern, value-keyword-case */
+
+.DemoBar {
+
+	@include color(color, main-background);
+	position: relative;
+	display: flex;
+	align-items: center;
+	background-color: $dark-gray;
+	padding: 1.25em 3.5em 1.25em 2em;
+	border-radius: 1em 1em 0 0;
+	box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.15);
+
+	&__wrapper {
+		position: fixed;
+		display: none;
+		left: 50%;
+		bottom: 0;
+		transition: transform 0.5s;
+		transform: translate(-50%, 110%);
+		z-index: 5;
+
+		@media (min-width: $breakpoint-tablet - 1px) {
+			justify-content: center;
+			width: 85%;
+
+			&.visible {
+				display: flex;
+			}
+
+			&.show {
+				transform: translate(-50%, 0);
+			}
+
+			&.hide {
+				transform: translate(-50%, 110%);
+			}
+		}
+	}
+
+	&__main {
+		margin-right: 3.45em;
+	}
+
+	&__close {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0.15em;
+		font-size: 2rem;
+		padding: 0.5em;
+		cursor: pointer;
+		z-index: 1;
+	}
+
+	&__title {
+		font-family: $font-primary;
+		font-weight: 400;
+		color: currentColor;
+		margin-bottom: 0.5rem;
+	}
+
+	&__dates {
+		display: flex;
+
+		&--text {
+			font-size: $font-size-smaller;
+			color: currentColor;
+			margin-left: 0.5rem;
+			margin-bottom: 0;
+		}
+	}
+
+	&__button {
+		white-space: nowrap;
+		overflow: visible;
+	}
+}

@@ -1,0 +1,122 @@
+/* stylelint-disable selector-class-pattern */
+
+.Awards {
+
+	&__switcher {
+		justify-content: space-between;
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		transform: translateX(-50%);
+		margin-bottom: calc(-0.5em - 1px);
+
+		&--wrapper {
+
+			.badge {
+				width: auto !important;
+				margin: 0 auto;
+			}
+
+			.elementor-widget-text-editor p {
+				line-height: 1.8;
+				font-family: $font-secondary;
+				margin: 1em auto 4em;
+
+				@media (max-width: $breakpoint-tablet - 1px) {
+					font-size: 0.875rem;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 58%;
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+
+			&--wrapper.wrapper {
+				padding: 4.5em 12.25em 6em !important;
+				background-color: rgba($lightest-gray, 0.8) !important;
+
+				&::after {
+
+					@include posCustom(-2.375em, -3em, -5em, -3em);
+					content: "";
+					position: absolute;
+					background: url(../../images/bg_glass_elements.svg) -1.5em 0 no-repeat;
+					background-size: calc(100% + 2em);
+					z-index: -1;
+				}
+			}
+		}
+
+		&--title {
+
+			@include color(color, font-color-medium);
+			font-size: 0.875rem;
+			display: block;
+			position: relative;
+			top: 3em;
+			text-align: center;
+
+			@media (min-width: $breakpoint-tablet) {
+				position: static;
+				text-align: left;
+			}
+		}
+
+		&--inn {
+			position: relative;
+			width: 100%;
+			font-family: $font-secondary;
+			border-bottom: 3px solid $light-gray;
+		}
+
+		&--year {
+			position: relative;
+			display: block;
+			cursor: pointer;
+			padding-bottom: 1.25em;
+
+			span {
+
+				@include color(background-color, button-outline-color);
+				@include color(color, font-color-normal);
+				display: block;
+				padding: 0.5em 2.5em;
+				padding-bottom: 1em;
+				clip-path: url(#yearSwitch);
+			}
+
+			&.active {
+
+				span {
+
+					@include color(background, background);
+					@include color(color, font-color-light);
+					font-weight: 700;
+				}
+
+				&::after {
+
+					@include color(background, background);
+					box-shadow: 0 0 0 2px $dark-orange;
+				}
+			}
+
+			&::after {
+
+				@include square(1em);
+				position: absolute;
+				left: calc(50% - 1px);
+				bottom: 0;
+				transform: translateX(-50%);
+				background-color: $lightest-gray;
+				border: 2px solid $lightest-gray;
+				box-shadow: 0 0 0 2px $medium-gray-inputs;
+				border-radius: 50%;
+				content: "";
+			}
+		}
+	}
+}

@@ -1,0 +1,256 @@
+/* stylelint-disable selector-class-pattern */
+
+.Header__flags {
+	margin-left: 30px;
+	border-left: 1px solid #000;
+
+	@media (max-width: $breakpoint-desktop) {
+		margin-left: 0;
+		border-left: 0;
+		margin-right: 20px;
+		padding-right: 20px;
+		border-right: 1px solid #000;
+	}
+
+	ul {
+		margin: 0;
+	}
+
+	&__title,
+	p {
+		display: none;
+	}
+
+	&--item {
+		break-inside: avoid;
+
+		&-flag {
+
+			@include square(1.5em);
+			margin-right: 0.5rem;
+			border-radius: 50%;
+			box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.5);
+		}
+
+		&-link {
+
+			@include color(color, font-color-level3);
+			position: relative;
+			display: flex;
+			align-items: center;
+			padding: 0.5em 0;
+			// left: 3px;
+			font-size: 0.75rem;
+			line-height: 1;
+			text-decoration: none;
+
+			&:not(.active)::before {
+
+				@include square(100%);
+				background-color: rgba(0, 0, 0, 0.06);
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: -0.5em;
+				z-index: 1;
+				transform: scaleX(0);
+				transform-origin: left center;
+				transition: all 0.5s ease;
+				pointer-events: none;
+			}
+
+			&.active {
+				opacity: 0.6;
+			}
+
+			&:active,
+			&:focus,
+			&:hover {
+
+				&::before {
+					transform: scaleX(1);
+				}
+			}
+		}
+
+		&-toggle {
+			// padding: 5px 20px 5px 25px;
+			cursor: pointer;
+
+			.Header__flags--item-flag {
+				box-shadow: 0 0 0.5em 0 rgba($black-real, 0.3);
+			}
+
+			&::after {
+				content: "\e821";
+				font-family: fontello, sans-serif;
+				font-size: 0.75rem;
+				top: 9px;
+				right: 0;
+			}
+
+			&:active,
+			&:focus,
+			&:hover {
+
+				.Header__flags--item-flag {
+					box-shadow: 0 0 0.75em 0 rgba($black-real, 0.75);
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				padding: 0 1.25em;
+			}
+		}
+	}
+
+	&--mainmenu {
+
+		@include color(background-color, main-background);
+		position: fixed;
+		overflow: scroll;
+		display: none;
+		width: 100vw;
+		height: 100vh;
+		padding: 1.25em;
+		opacity: 0;
+		left: 0;
+		top: 4em;
+		transition: opacity 0.2s;
+
+		&.active {
+			display: block;
+
+			&.visible {
+				opacity: 1;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			@include clear;
+			position: absolute;
+			overflow: visible;
+			border-radius: $border-radius-16;
+			padding: 1.75em 0 1.75em 3em;
+			width: auto;
+			height: auto;
+			min-width: 32rem;
+			top: 4em;
+			left: auto;
+			right: 6.5em;
+			box-shadow: 0 0.18em 4em 0 rgba($black-real, 0.15);
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			right: 2.5em;
+		}
+	}
+
+	//Region switcher mobile - Prepared for more languages
+	// @for $input from 1 to 5 {
+	// 	.input--region:nth-of-type(#{$input}):checked {
+
+	// 		~ .Header__flags {
+
+	// 			&--region-switchers .Header__flags--region-switcher
+	// &:nth-of-type(#{$input}) {
+	// 				background-color: red;
+	// 			}
+
+	// 			&--regions .Header__flags--region:nth-of-type(#{$input}) {
+	// 				display: block;
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	&--region {
+		height: auto;
+		margin-right: 1em;
+		margin-bottom: 1em;
+		float: left;
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+
+			li {
+				transform: translateZ(0);
+				margin-right: 0.75em;
+			}
+		}
+
+		&-title {
+			position: relative;
+			// left: 3px;
+			font-size: 0.875rem;
+			line-height: 1.25;
+			margin: 0 0 0.25em 0;
+		}
+
+		&-europe {
+			float: none;
+			margin-right: 0;
+			column-count: 2;
+			column-gap: 2em;
+
+			h4,
+			.h4 {
+				column-span: all;
+			}
+
+			ul {
+				display: block;
+
+				li {
+					margin-right: 0;
+				}
+			}
+		}
+
+		//Region switcher mobile - Prepared for more languages
+		&-switchers {
+			display: none;
+			width: 100%;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			width: calc(100% / 3 - 1em);
+			float: right;
+			margin-right: 0;
+
+			ul {
+				display: block;
+
+				li {
+					margin-right: 0;
+				}
+			}
+
+			&-europe {
+				float: left;
+				width: calc(100% / 3 * 2);
+				height: 100%;
+				margin-bottom: 0;
+			}
+
+			&-switchers {
+				display: none;
+			}
+		}
+	}
+}
+
+// Temporary disable flags for not finished languages
+/* stylelint-disable-next-line no-duplicate-selectors */
+.Header__flags--item {
+	/* stylelint-disable-next-line no-duplicate-selectors */
+	&-sv,
+	&-ja,
+	&-cs,
+	&-fi,
+	&-no {
+		display: none !important;
+	}
+}

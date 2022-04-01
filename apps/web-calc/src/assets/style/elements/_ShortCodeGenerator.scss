@@ -1,0 +1,19 @@
+.shortcode--generator {
+	position: relative;
+	width: 100%;
+
+	textarea {
+		width: 100%;
+	}
+
+	&__message {
+
+		@include color(color, font-color-light);
+		@include absoluteCenter();
+		position: absolute;
+		z-index: 1;
+		background-color: rgba($black-real, 0.6);
+		padding: 1.5em;
+		border-radius: $border-radius-16;
+	}
+}

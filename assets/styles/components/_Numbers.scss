@@ -1,0 +1,99 @@
+/* stylelint-disable selector-class-pattern */
+
+.Numbers {
+
+	.elementor-container {
+		counter-reset: numbers-counter;
+		position: relative;
+	}
+
+	.elementor-col-33 {
+		counter-increment: numbers-counter;
+		position: relative;
+		padding-top: 90px;
+		padding-left: 90px;
+		padding-right: 90px;
+
+		&::before {
+			content: "0" counter(numbers-counter);
+			font-size: 200px;
+			line-height: 165px;
+			font-weight: 700;
+			position: absolute;
+			top: 0;
+			left: 50px;
+			opacity: 0.1;
+		}
+
+		h2 {
+			font-size: 24px;
+			line-height: 28px !important;
+		}
+
+		p {
+			margin-bottom: 0;
+
+			&::after {
+				content: "";
+				display: block;
+				width: 80px;
+				height: 2px;
+				background-color: #000;
+				margin-top: 25px;
+			}
+		}
+	}
+
+	&--red {
+
+		.elementor-col-33 {
+
+			&::before {
+				color: #fff;
+			}
+
+			h2,
+			p {
+				color: #fff;
+			}
+
+			p {
+
+				&::after {
+					background-color: #fff;
+				}
+			}
+		}
+
+		.wrapper {
+			background-color: #ff5776;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		&--red {
+			background-color: #ff5776;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		.elementor-col-33 {
+			padding-left: 40px;
+			padding-right: 40px;
+
+			&::before {
+				font-size: 160px;
+				left: 0;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		.elementor-col-33 {
+			width: 100%;
+		}
+	}
+}

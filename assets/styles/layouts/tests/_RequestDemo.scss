@@ -1,0 +1,157 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+body {
+
+	&.request-demo,
+	&.page-template-template-request-demo_new {
+
+		#app {
+			padding-top: 0;
+		}
+
+		#loader {
+			display: none;
+		}
+
+		.Header {
+			position: static;
+
+			&__items {
+				display: none;
+			}
+
+			.wrapper {
+				padding-left: 30px;
+				padding-right: 30px;
+				max-width: none;
+			}
+		}
+
+		.AppContainer ~ * {
+			display: none;
+		}
+	}
+}
+
+.RequestDemo.Block {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	padding: 0 !important;
+
+	.elementor-widget-heading h2.elementor-heading-title {
+		margin-bottom: 10px !important;
+	}
+
+	.wrapper {
+		padding: 2rem !important;
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+		margin-top: 0 !important;
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+
+		.wrapper {
+			margin-top: 0;
+		}
+	}
+
+	.elementor-spacer-inner {
+
+		@media (max-width: $breakpoint-desktop) {
+			height: 2em !important;
+		}
+	}
+
+	iframe {
+		width: 100% !important;
+	}
+
+	.elementor-section .elementor-container {
+
+		.Box--shadow:first-of-type {
+
+			@include color(box-shadow, box-shadow);
+			@include color(background-color, main-background);
+			padding: 1em !important;
+			border-radius: $border-radius-16;
+
+			@media (min-width: $breakpoint-desktop) {
+				padding: 0 2em !important;
+			}
+		}
+
+		.narrow-left {
+			display: block;
+			color: $medium-gray;
+			font-size: 1rem;
+			line-height: 1.5;
+
+			h5 {
+				font-family: "Open Sans", sans-serif;
+			}
+
+			p {
+				font-size: inherit;
+				line-height: inherit;
+			}
+
+			.checklist {
+
+				@include color(color, font-color-normal);
+				font-size: inherit;
+				max-width: 50ch;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				padding-top: 2em;
+				padding-left: 5.75em;
+			}
+		}
+	}
+
+	.quote .elementor-text-editor {
+		display: flex;
+		font-size: 1.125rem;
+		color: $medium-gray;
+
+		b {
+			color: #000;
+		}
+
+		.talkingHead {
+			width: 20%;
+			height: 0;
+			padding-bottom: 20%;
+			flex: 0 0 auto;
+			margin-right: 8%;
+			border-radius: 50%;
+			background: url(../images/talkinghead_brian.jpg) center center no-repeat;
+			background-size: cover;
+		}
+	}
+
+	.logos {
+		margin-left: -1.5em;
+		margin-bottom: 1em;
+
+		.Clients {
+			margin-top: 0;
+
+			&__item {
+				margin: 0 !important;
+
+				@media (max-width: $breakpoint-mobile) {
+					width: 25% !important;
+					margin-right: 1.75em !important;
+				}
+			}
+		}
+
+		img {
+			height: 1.25rem;
+			max-width: none;
+			filter: grayscale(100%) contrast(0) brightness(125%);
+		}
+	}
+}

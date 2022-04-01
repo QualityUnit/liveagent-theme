@@ -1,0 +1,36 @@
+/* stylelint-disable selector-class-pattern */
+
+.trialAd {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+	background: url(../images/trialAd_bg.svg) center center no-repeat;
+	background-size: cover;
+	padding: 2em 1.5em;
+	border-radius: $border-radius-16;
+
+	&__icon {
+
+		@include square(2.375em);
+		margin-bottom: 1.5em;
+	}
+
+	&__title {
+		line-height: 1.25;
+
+		@media (min-width: $breakpoint-tablet) {
+			font-size: 1.75rem;
+		}
+	}
+
+	&__text {
+
+		@include color(color, font-color-dark);
+		font-family: $font-secondary;
+		padding: 0 1.5em;
+		margin-bottom: 1.5em;
+	}
+}

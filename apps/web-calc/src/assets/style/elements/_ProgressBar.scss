@@ -1,0 +1,33 @@
+.ProgressBar {
+
+	@include progressbar() {
+		display: block;
+		background-color: $light-gray;
+		border-radius: 4px;
+		width: 100%;
+		height: 4px;
+		overflow: hidden;
+	}
+
+	@include progressbarValue() {
+
+		@include color(background, background);
+		transition: width 0.2s ease;
+	}
+
+	&--wrapper {
+		margin-top: auto;
+		margin-bottom: 2em;
+	}
+
+	&--label {
+
+		@extend .highlight-gradient;
+		display: block;
+		font-size: 0.625rem;
+		font-weight: 700;
+		text-align: right;
+		margin: 0;
+		transition: width 0.2s ease;
+	}
+}

@@ -1,0 +1,107 @@
+/* stylelint-disable selector-class-pattern */
+
+.HeroBanner {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+
+	&.margin-top {
+		margin-top: 100px;
+	}
+
+	&.margin-bottom {
+		margin-bottom: 100px;
+	}
+
+	.elementor-widget:not(:last-child) {
+		margin-bottom: 0;
+	}
+
+	.wrapper {
+		padding-top: 100px;
+		text-align: center;
+	}
+
+	h1,
+	h2 {
+		font-size: 58px;
+		line-height: 68px !important;
+		max-width: 85%;
+		margin: 0 auto 25px !important;
+	}
+
+	p {
+		font-size: $font-size-bigger;
+		line-height: $line-height-bigger;
+		max-width: 42.5%;
+		margin: 0 auto 45px;
+	}
+
+	.Button {
+		overflow: visible;
+	}
+
+	&--middle {
+		margin-top: 125px !important;
+		margin-bottom: 125px !important;
+
+		.wrapper {
+			padding-top: 0 !important;
+		}
+
+		.FeaturesSlider {
+			margin-top: 15px !important;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		h1 {
+			font-size: 48px;
+			line-height: 58px !important;
+		}
+
+		p {
+			max-width: 75%;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		.wrapper {
+			padding-top: 65px;
+		}
+
+		h1,
+		h2 {
+			max-width: none;
+			font-size: 42px;
+			line-height: 52px !important;
+		}
+
+		p {
+			max-width: 85%;
+			font-size: 16px;
+			line-height: 26px;
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		.wrapper {
+			padding-top: 35px;
+		}
+
+		h1,
+		h2 {
+			font-size: 32px;
+			line-height: 42px !important;
+		}
+
+		p {
+			max-width: none;
+			font-size: 14px;
+			line-height: 24px;
+		}
+	}
+}

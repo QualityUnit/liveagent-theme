@@ -1,0 +1,31 @@
+/* stylelint-disable selector-class-pattern */
+
+.Breadcrumb {
+
+	&__items {
+		margin-bottom: $default-element-margin;
+
+		span {
+
+			@include color(color, font-color-normal);
+			font-family: $font-primary;
+			font-size: $font-size-smaller;
+			line-height: $line-height-smaller;
+		}
+
+		a {
+
+			@include color(color, font-color-normal);
+		}
+	}
+}
+
+.Block {
+
+	.Breadcrumb {
+
+		&__items {
+			margin-bottom: 25px;
+		}
+	}
+}

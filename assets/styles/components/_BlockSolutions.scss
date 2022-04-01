@@ -1,0 +1,147 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.BlockSolutions {
+	margin-top: 100px !important;
+	margin-bottom: 100px !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+
+	.elementor-widget:not(:last-child) {
+		margin-bottom: 0 !important;
+	}
+
+	.elementor-col-50 {
+		padding-right: 50px;
+
+		.elementor-widget-wrap {
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		h2 {
+			font-size: $font-size-h1;
+			line-height: $line-height-h1 !important;
+		}
+
+		.elementor-widget-text-editor {
+
+			p {
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.Button {
+			margin-top: 25px;
+		}
+	}
+
+	.elementor-col-25 {
+
+		@include color(background-color, secondary-background);
+		max-width: 265px !important;
+		margin: 10px;
+		padding: 40px;
+		border-radius: $border-radius-16;
+
+		img {
+			display: block;
+			max-width: 60px !important;
+			max-height: 60px;
+			margin-bottom: 20px;
+		}
+
+		h3 {
+			font-size: 24px;
+			line-height: 28px;
+			margin-bottom: 15px;
+		}
+
+		p {
+			margin-bottom: 5px;
+		}
+
+		.elementor-widget-image {
+			width: 100% !important;
+		}
+
+		.Button {
+			width: 100%;
+			margin-top: 25px;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		.elementor-col-50 {
+			width: 100%;
+			margin: 0 0 50px;
+			max-width: none !important;
+
+			h2 {
+				font-size: $font-size-h2;
+				line-height: $line-height-h2 !important;
+			}
+		}
+
+		.elementor-row,
+		.elementor-container {
+			flex-wrap: wrap;
+		}
+
+		.elementor-col-25 {
+			width: 48%;
+			margin: 1%;
+			max-width: none !important;
+
+			&:nth-child(2) {
+				margin-left: 0 !important;
+			}
+
+			&:nth-child(3) {
+				margin-right: 0 !important;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+		margin-top: 75px !important;
+		margin-bottom: 75px !important;
+
+		h2 {
+			font-size: 28px;
+			line-height: 38px !important;
+		}
+
+		.elementor-col-50 {
+			margin-bottom: 50px;
+		}
+
+		.elementor-col-25 {
+			width: 100%;
+			margin: 10px 0;
+		}
+	}
+}
+
+.BlockSolutions--background {
+
+	@extend .Box;
+	@extend .Box--gray;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+
+	.wrapper {
+		padding-top: 100px !important;
+		padding-bottom: 100px !important;
+	}
+
+	.elementor-col-25 {
+
+		@include color(background-color, main-background);
+	}
+}

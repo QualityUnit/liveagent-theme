@@ -1,0 +1,77 @@
+.Feature {
+
+	@include color(box-shadow, box-shadow);
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+
+	background-color: $white;
+	padding: 0.85em;
+	font-size: 0.875rem;
+	min-width: 17.5em;
+	border-radius: $border-radius-6;
+	user-select: none;
+
+	&:hover {
+		z-index: 1;
+	}
+
+	h4 {
+		font-weight: 400;
+	}
+
+	&--wrapper {
+		margin-bottom: 0.75em;
+
+		input {
+			display: none;
+		}
+
+		input:checked + .Feature {
+			background-color: $medium-orange;
+
+			h4 {
+				font-weight: 600;
+			}
+
+			.info-icon {
+				filter: hue-rotate(160deg) saturate(800%);
+			}
+
+			&::before {
+				content: url(../../images/checkbox_on.svg);
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-bottom: 1.25em;
+		}
+	}
+
+	&::before {
+
+		@include square(1.5em);
+		content: url(../../images/checkbox_off.svg);
+		margin-right: 0.5em;
+	}
+
+	&::after {
+
+		@include square(1.5em);
+		margin-left: auto;
+	}
+
+	$features: "api", "automationrules", "callcenter", "customerforum", "facebook", "instagram", "ivr", "knowledgebase", "livechat", "selfservice", "ticketing", "twitter", "unlimitedcallrecording", "unlimitedchatbuttons", "unlimitedhistory", "unlimitedsupport", "unlimitedtickets", "unlimitedwebsites", "viber", "videocalls";
+
+	@each $feature in $features {
+		&.#{$feature}:after {
+			content: url(../../images/features/#{$feature}.svg);
+		}
+
+		&--wrapper input:checked + .Feature.#{$feature}:after {
+			content: url(../../images/features/#{$feature}_orange.svg);
+		}
+	}
+
+}

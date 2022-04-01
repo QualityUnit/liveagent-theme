@@ -1,0 +1,152 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.Box {
+
+	.wrapper,
+	.wrapper__wide {
+
+		@include color(background-color, main-background);
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1380px;
+		padding: 65px 120px;
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		@include color(background-color, main-background);
+		padding: 65px 0;
+
+		.wrapper,
+		.wrapper__wide {
+			max-width: 1180px;
+			padding: 65px 20px;
+			background-color: transparent;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		.wrapper,
+		.wrapper__wide {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+		padding: 0;
+	}
+}
+
+.Box--gray {
+
+	.wrapper,
+	.wrapper__wide {
+
+		@include color(background-color, newsletter-background);
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		@include color(background-color, newsletter-background);
+	}
+}
+
+.Box--orange {
+
+	.wrapper,
+	.wrapper__wide {
+
+		@include color(background-color, orange-background);
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		@include color(background-color, orange-background);
+	}
+}
+
+.Box--violet {
+
+	.wrapper,
+	.wrapper__wide {
+		background-color: $desaturated-violet;
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+		background-color: $desaturated-violet;
+	}
+}
+
+.Box--regular {
+
+	@include color(background-color, main-background);
+	box-shadow: 0 0.25em 4em 0 rgba($black-real, 0.1);
+	border-radius: $border-radius-16;
+	overflow: hidden;
+
+	padding: 1.5em;
+
+	@media (max-width: $breakpoint-tablet-landscape - 1px) {
+		margin-top: 2.5em;
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		.elementor-text-editor p {
+			font-size: 0.875rem;
+			line-height: 1.33;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		padding: 2.625em;
+	}
+
+	[class*="Block"] & {
+
+		@media (min-width: $breakpoint-tablet-small) {
+
+			+ .Box--regular {
+				margin-left: 1.5em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			+ .Box--regular {
+				margin-left: 2.5em;
+			}
+		}
+	}
+
+	.elementor-widget-image {
+		width: auto;
+
+		.elementor-image {
+			padding: 0;
+
+			img[src*="icon"] {
+				width: auto;
+				height: 3.75em;
+			}
+		}
+	}
+
+	.elementor-heading-title {
+		margin-bottom: 0;
+	}
+
+	&.highlight-title {
+
+		.elementor-heading-title {
+
+			@extend .highlight-gradient;
+			font-size: 1.5rem;
+		}
+	}
+}

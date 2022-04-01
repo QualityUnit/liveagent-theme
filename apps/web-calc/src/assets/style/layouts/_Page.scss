@@ -1,0 +1,67 @@
+.page {
+	display: flex;
+	animation: fadeIn 1s;
+	flex-direction: column;
+	align-items: center;
+
+	&:not(.optional) {
+		padding-top: 1em;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&:not(.optional) {
+			padding-top: 2.625em;
+		}
+	}
+
+	&.final {
+
+		@media (max-width: $breakpoint-tablet) {
+
+			.PaginationButtons {
+				flex-direction: column;
+
+				.Button {
+					width: 100%;
+					margin-bottom: 1em;
+
+					&--full {
+						order: -1;
+					}
+				}
+			}
+		}
+
+		h2 {
+			margin-left: -5em;
+			margin-right: -5em;
+		}
+	}
+}
+
+.intro--logo {
+	position: relative;
+	max-width: 16.5em;
+
+	@media (min-width: $breakpoint-tablet) {
+		left: -2em;
+	}
+}
+
+
+.split {
+	align-items: center;
+	width: 100%;
+
+	@media (min-width: $breakpoint-tablet) {
+
+		> div {
+			width: 50%;
+
+			&:nth-child(2):last-child {
+				margin-left: auto;
+			}
+		}
+	}
+}

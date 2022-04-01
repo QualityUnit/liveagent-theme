@@ -1,0 +1,145 @@
+/* stylelint-disable selector-class-pattern */
+
+.Portals {
+	margin-top: 135px;
+
+	&.elementor-element {
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+
+	.elementor-widget:not(:last-child) {
+		margin-bottom: 0;
+	}
+
+	h2 {
+		line-height: 44px;
+	}
+
+	.Button {
+		margin-top: 20px;
+	}
+
+	.wrapper {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.wrapper { /* stylelint-disable-line no-duplicate-selectors */
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: center;
+	}
+
+	&__text,
+	&__image {
+		display: flex;
+		flex-flow: wrap column;
+		justify-content: center;
+		width: 50%;
+	}
+
+	&__text {
+		display: flex;
+		flex-flow: wrap column;
+		justify-content: center;
+		align-items: flex-start;
+
+		p {
+			margin-bottom: 20px;
+		}
+
+		&__details {
+			margin-top: 30px;
+
+			p {
+				display: inline-block;
+				font-size: $font-size-smaller;
+				line-height: $line-height-smaller;
+				margin-bottom: 0;
+
+				a {
+
+					@include color(color, font-color-normal);
+
+					&:active,
+					&:focus,
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+
+			&__stars {
+				position: relative;
+				top: 2px;
+				display: inline-block;
+				margin-right: 12px;
+
+				&__item {
+					display: inline-block;
+					margin-right: 3px;
+					width: 16px;
+					height: 16px;
+					background-image: url(../images/icon_star.svg);
+
+					&__grayscale {
+						filter: grayscale(100%);
+					}
+				}
+			}
+		}
+	}
+
+	&__image {
+		text-align: right;
+
+		img {
+			display: inline-block;
+			max-width: 520px;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+		margin-top: 100px;
+
+		&__text,
+		&__image {
+			width: 100%;
+		}
+
+		&__text {
+			text-align: left;
+
+			&__details {
+				max-width: 450px;
+			}
+		}
+
+		&__image {
+			margin-top: 50px;
+
+			img {
+				max-width: 100%;
+				max-height: 250px;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		&.elementor-element {
+			margin-top: 25px;
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		&__image {
+
+			img {
+				max-width: 85%;
+			}
+		}
+	}
+}
