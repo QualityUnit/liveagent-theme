@@ -1,32 +1,9 @@
 <?php
 
-use function Env\env;
-
-/**
- * Directory containing all of the site's files
- *
- * @var string
- */
-$root_dir = dirname( __DIR__ );
-
-/**
- * Use Dotenv to set required environment variables and load .env file in root
- * .env.local will override .env if it exists
- */
-$env_files = file_exists( $root_dir . '/.env.local' )
-		? array( '.env', '.env.local' )
-		: array( '.env' );
-
-$dotenv = Dotenv\Dotenv::createUnsafeImmutable( $root_dir, $env_files, false );
-if ( file_exists( $root_dir . '/.env' ) ) {
-	$dotenv->load();
-	$dotenv->required( array( 'THEME_VERSION' ) );
-}
-
 /**
  * Setup variables
  */
-define( 'THEME_VERSION', env( 'THEME_VERSION' ) );
+define( 'THEME_VERSION', '1.0.0' );
 
 /**
 	* Includes
