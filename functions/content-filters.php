@@ -45,8 +45,8 @@ function icontabs_sources( $content ) {
 	$icontabs_block = preg_match( '/\<section.+class=".+IconTabs.+/', $content );
 
 	if ( $icontabs_block || is_user_logged_in() ) {
-		wp_enqueue_style( 'icontabs', get_template_directory_uri() . '/assets/dist/components/IconTabs' . isrtl() . wpenv() . '.css', false, $_ENV['THEME_VERSION'] );
-		wp_enqueue_script( 'icontabs', get_template_directory_uri() . '/assets/dist/IconTabs' . wpenv() . '.js', false, $_ENV['THEME_VERSION'], true );
+		wp_enqueue_style( 'icontabs', get_template_directory_uri() . '/assets/dist/components/IconTabs' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		wp_enqueue_script( 'icontabs', get_template_directory_uri() . '/assets/dist/IconTabs' . wpenv() . '.js', false, THEME_VERSION, true );
 	}
 		return $content;
 }

@@ -13,7 +13,7 @@
 
 function statistics_block_init() {
 	$path = get_template_directory() . '/lib/widgets/statistics/';
-	
+
 	require_once $path . 'layouts/block.php';
 	require_once $path . 'layouts/block-wide.php';
 	require_once $path . 'layouts/columns.php';
@@ -21,7 +21,7 @@ function statistics_block_init() {
 
 	function statistics_editor_assets() {
 		$path_uri = get_template_directory_uri() . '/lib/widgets/statistics/';
-		$version  = $_ENV['THEME_VERSION'];
+		$version  = THEME_VERSION;
 		$js_data  = array(
 			'url' => $path_uri . 'images',
 		);
@@ -61,7 +61,7 @@ function statistics_block_init() {
 
 	function statistics_assets() {
 		$path_uri = get_template_directory_uri() . '/lib/widgets/statistics/';
-		$version  = $_ENV['THEME_VERSION'];
+		$version  = THEME_VERSION;
 		set_custom_source( 'research_post', 'js' );
 
 		if ( is_singular() ) {
@@ -83,16 +83,16 @@ function statistics_block_init() {
 
 	function render_statistics( $attr ) {
 		$layout = $attr['layout'];
-		if ( $layout === 'full' ) {/*@codingStandardsIgnoreLine */ 
+		if ( $layout === 'full' ) {/*@codingStandardsIgnoreLine */
 			return full( $attr );
 		};
-		if ( $layout === 'columns' ) {/*@codingStandardsIgnoreLine */ 
+		if ( $layout === 'columns' ) {/*@codingStandardsIgnoreLine */
 			return columns( $attr );
 		};
-		if ( $layout === 'single' ) {/*@codingStandardsIgnoreLine */ 
+		if ( $layout === 'single' ) {/*@codingStandardsIgnoreLine */
 			return block( 'block1', $attr );
 		};
-		if ( $layout === 'singleWide' ) {/*@codingStandardsIgnoreLine */ 
+		if ( $layout === 'singleWide' ) {/*@codingStandardsIgnoreLine */
 			return block_wide( $attr );
 		};
 	}
@@ -181,9 +181,8 @@ function statistics_block_init() {
 					'default' => '1',
 				),
 			),
-		) 
+		)
 	);
 }
 
 add_action( 'init', 'statistics_block_init' );
-

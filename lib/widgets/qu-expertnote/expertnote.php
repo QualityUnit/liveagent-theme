@@ -15,12 +15,12 @@
 function qu_expertnote_init() {
 	$domain = 'qu-expertnote/';
 	$path   = get_parent_theme_file_path( '/lib/widgets/' . $domain );
-	
+
 	// Resources for editor/admin part
 	function expertnote_editor_assets() {
 		$domain   = 'qu-expertnote/';
 		$path_uri = get_template_directory_uri() . '/lib/widgets/' . $domain;
-		$version  = $_ENV['THEME_VERSION'];
+		$version  = THEME_VERSION;
 
 		wp_enqueue_style(
 			'qu_expertnote_editor_style',
@@ -35,7 +35,7 @@ function qu_expertnote_init() {
 			$path_uri . 'build/qu_expertnote_frontend.css',
 			array(),
 			$version,
-			false 
+			false
 		);
 
 		wp_enqueue_script(
@@ -51,8 +51,8 @@ function qu_expertnote_init() {
 	function expertnote_assets() {
 		$domain   = 'qu-expertnote/';
 		$path_uri = get_template_directory_uri() . '/lib/widgets/' . $domain;
-		$version  = $_ENV['THEME_VERSION'];
-		
+		$version  = THEME_VERSION;
+
 		if ( is_singular() ) {
 			$id = get_the_ID();
 			if ( has_block( 'qu/expertnote', $id ) ) {
@@ -61,7 +61,7 @@ function qu_expertnote_init() {
 					$path_uri . 'build/qu_expertnote_frontend.css',
 					array(),
 					$version,
-					false 
+					false
 				);
 			}
 		}
@@ -75,8 +75,8 @@ function qu_expertnote_init() {
 		return '
 			<div class="qu-expertNote" itemscope itemtype="https://schema.org/Claim">
 				<div class="qu-expertNote__top">
-					<strong class="qu-expertNote__note">' . esc_html( $attr['expertNote'] ) . '</strong>' . 
-					( ! empty( $attr['expertId'] ) 
+					<strong class="qu-expertNote__note">' . esc_html( $attr['expertNote'] ) . '</strong>' .
+					( ! empty( $attr['expertId'] )
 					? '
 					<div class="qu-expertNote__expert" itemscope itemprop="author" itemtype="https://schema.org/Person">
 						<div class="qu-expertNote__expert--image">
@@ -93,8 +93,8 @@ function qu_expertnote_init() {
 				. '
 				</div>
 				<h2 class="qu-expertNote__title" itemprop="headline">' . esc_html( $attr['header'] ) . '</h2>
-				<div class="qu-expertNote__content" itemprop="text">' . 
-					$attr['content'] //@codingStandardsIgnoreLine 
+				<div class="qu-expertNote__content" itemprop="text">' .
+					$attr['content'] //@codingStandardsIgnoreLine
 				. '</div>
 			</div>
 		';
@@ -129,11 +129,10 @@ function qu_expertnote_init() {
 					'type'    => 'string',
 					'default' => '',
 				),
-			), 
+			),
 		),
 	);
 }
 
 
 add_action( 'init', 'qu_expertnote_init' );
-

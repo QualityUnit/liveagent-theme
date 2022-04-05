@@ -1,4 +1,29 @@
 <?php
+
+use function Env\env;
+
+/**
+ * Directory containing all of the site's files
+ *
+ * @var string
+ */
+$root_dir = dirname( __DIR__ );
+
+/**
+ * Use Dotenv to set required environment variables and load .env file in root
+ * .env.local will override .env if it exists
+ */
+$env_files = file_exists( $root_dir . '/.env.local' )
+		? array( '.env', '.env.local' )
+		: array( '.env' );
+
+$dotenv = Dotenv\Dotenv::createUnsafeImmutable( $root_dir, $env_files, false );
+if ( file_exists( $root_dir . '/.env' ) ) {
+	$dotenv->load();
+	$dotenv->required( array( 'THEME_VERSION' ) );
+}
+
+
 header( 'Access-Control-Allow-Origin: *' );
 header( 'Access-Control-Allow-Methods: GET, OPTIONS, PUT, DELETE' );
 header( 'Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, X-Requested-With' );
@@ -15,8 +40,8 @@ if ( empty( $_GET['email'] ) ) {
 	http_response_code( 200 );
 
 	define( 'API_URL_ADDRESS', 'https://support.qualityunit.com/api/v3/' );
-	define( 'API_ACCESS_KEY', $_ENV["API_ACCESS_KEY"]);
-	define( 'API_DEPARTMENT_ID', $_ENV["API_DEPARTMENT_ID"] );
+	define( 'API_ACCESS_KEY', env( 'API_ACCESS_KEY' ) );
+	define( 'API_DEPARTMENT_ID', env( 'API_DEPARTMENT_ID' ) );
 	define( 'API_RECIPIENT_MAIL', 'sales@liveagent.com' );
 
 if ( isset( $_GET['email'] ) ) {

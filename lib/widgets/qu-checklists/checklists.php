@@ -15,14 +15,14 @@
 function qu_checklists_init() {
 	$domain = 'qu-checklists/';
 	$path   = get_parent_theme_file_path( '/lib/widgets/' . $domain );
-	
+
 	require_once $path . 'layouts/checklist-item.php';
 
 	// Resources for editor/admin part
 	function checklists_editor_assets() {
 		$domain   = 'qu-checklists/';
 		$path_uri = get_template_directory_uri() . '/lib/widgets/' . $domain;
-		$version  = $_ENV['THEME_VERSION'];
+		$version  = THEME_VERSION;
 
 		wp_enqueue_style(
 			'qu_checklist_block_editor_style',
@@ -37,7 +37,7 @@ function qu_checklists_init() {
 			$path_uri . 'build/qu_checklists_frontend.css',
 			array(),
 			$version,
-			false 
+			false
 		);
 
 		wp_enqueue_script(
@@ -61,8 +61,8 @@ function qu_checklists_init() {
 	function checklists_assets() {
 		$domain   = 'qu-checklists/';
 		$path_uri = get_template_directory_uri() . '/lib/widgets/' . $domain;
-		$version  = $_ENV['THEME_VERSION'];
-		
+		$version  = THEME_VERSION;
+
 		if ( is_singular() ) {
 			$id = get_the_ID();
 			if ( has_block( 'qu/checklist', $id ) ) {
@@ -71,7 +71,7 @@ function qu_checklists_init() {
 					$path_uri . 'build/qu_checklists_frontend.css',
 					array(),
 					$version,
-					false 
+					false
 				);
 
 				wp_enqueue_script(
@@ -79,11 +79,11 @@ function qu_checklists_init() {
 					$path_uri . 'build/qu_checklists_frontend.js',
 					'',
 					$version,
-					true 
+					true
 				);
 
 				wp_add_inline_script(
-					'qu_checklist_block_frontend_script', 
+					'qu_checklist_block_frontend_script',
 					'
 			if ( !localStorage.getItem( "quChecklists" ) )
 			localStorage.setItem("quChecklists","{}");
@@ -132,7 +132,7 @@ function qu_checklists_init() {
 				'customActionText' => array(
 					'type' => 'string',
 				),
-			), 
+			),
 		),
 	);
 
@@ -143,10 +143,10 @@ function qu_checklists_init() {
 		} else {
 			$pagetitle = get_the_title();
 		}
-		return '<div class="qu-Checklist Post__m__negative" itemscope itemtype="https://schema.org/HowTo" 
+		return '<div class="qu-Checklist Post__m__negative" itemscope itemtype="https://schema.org/HowTo"
 							data-list="' . $attr['checklistId'] . '">
 							<span itemprop="name" style="display:none">' . $pagetitle . '</span>' .
-								apply_filters( 'the_content', $content ) 
+								apply_filters( 'the_content', $content )
 						. '</div>';
 	}
 
@@ -169,4 +169,3 @@ function qu_checklists_init() {
 
 
 add_action( 'init', 'qu_checklists_init' );
-
