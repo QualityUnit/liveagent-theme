@@ -1,100 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import useStateSessionStorage from '../common/sessionStorage';
 import {production, path, i18n} from '../common/constants';
-import {getSelectedFeaturesNamed} from '../common/results/baseCalculations';
 
 function AgentsSlider(props) {
-  let [agents, handleRange] = useStateSessionStorage('agents');
-  let [showAgentsModal, setModal] = useState(false);
-  let [custom_agents, setCustomAgents] = useState(100);
-  let [emailInput, setEmail] = useState("");
-  let [emailOk, validateEmail] = useState(false);
-  let [gotError, setError] = useState(false);
-  let [requestSent, setSend] = useState(false);
-  let [isSubmitting, setSubmitting] = useState(false);
+	let [agents, handleRange] = useState(10);
+	let [showAgentsModal, setModal] = useState(false);
 
-  let formPath = 'http://liveagent.local/app/themes/liveagent/apps/web-calc/public/form-to-la.php';
+	const getValue = event => {
+		handleRange(agents = Number(event.target.value));
+		setTimeout(() => {
+			props.returnAgents(agents);
+		}, 10);
+	};
 
-  if(production) {
-    const host = window.location.host;
-    formPath = `https://${host}/app/themes/liveagent/apps/web-calc/build/form-to-la.php`;
-  }
+	useEffect(() => {
+		if(agents === 100) {
+			setModal(true);
+			handleRange(99);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [agents])
 
-  const getValue = event => {
-    handleRange(agents = Number(event.target.value));
-    setTimeout(() => {
-      props.returnAgents(agents);
-    }, 10);
-  };
-
-  agents=JSON.parse(agents);
-
-  useEffect(() => {
-    if(agents === 100) {
-      setModal(true);
-      handleRange(99);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [agents])
-
-  const mailValidator = (email) => {
-    const mailRegex = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/i;
-    const mailOk = new RegExp(mailRegex).test(email);
-    validateEmail(mailOk);
-  }
-
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
-    mailValidator(event.target.value);
-  }
-
-  const handleAgents = (event) => {
-    setCustomAgents(event.target.value);
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    if(emailOk) {
-      setSubmitting(true);
-      const requestOptions = {
-          method: 'GET',
-          mode: 'no-cors',
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
-          // used for POST method we got rid off because firewall blocking it
-          // body: JSON.stringify({"email":emailInput,"agents":custom_agents,"features":`${getSelectedFeaturesNamed()}`})
-      };
-      fetch(formPath + `?email=${emailInput}&agents=${custom_agents}&features=${getSelectedFeaturesNamed()}`, requestOptions)
-          .then(response => response.json())
-          .then(data => {
-            if(data.response === 'OK') {
-              setSubmitting(false);
-              setSend(true);
-              setTimeout(() => {
-                setModal(false);
-                setSend(false);
-              }, 3000);
-            }
-            if(data.response === 'ERROR') {
-              setSubmitting(false);
-              setError(true);
-
-              setTimeout(() => {
-                setError(false);
-              }, 3000)
-            }
-          });
-    }
-  }
-
-  return(
-    <div className={`AgentsSlider ${showAgentsModal ? 'has-modal' : ''}`}>
-      <h4 className="subtitle--icon">
-        <img src={`${production ? path:''}images/person.svg`} alt="Agents" />
-        {i18n.agents_number}: { !agents ? '1' : agents }
-      </h4>
-      <input type="range" min="1" max="100" defaultValue={ !agents ? '1' : agents } style={{backgroundSize: ( !agents ? "1" : agents ) +"% 100%"}} onChange={getValue} />
-      {showAgentsModal 
+	return(
+			<div className={`AgentsSlider`}>
+				{/* <div className={`AgentsSlider ${showAgentsModal ? 'has-modal' : ''}`}> */}
+				<h4 className="subtitle--icon">
+					<img src={`${production ? path:''}images/person.svg`} alt="Agents" />
+					{i18n.agents_number}: { !agents ? '1' : agents }
+				</h4>
+				<input type="range" min="1" max="100" defaultValue={ !agents ? '1' : agents } style={{backgroundSize: ( !agents ? "1" : agents ) +"% 100%"}} onChange={getValue} />
+				{/* {showAgentsModal
         ? <div className="AgentsSlider--modal">
             {requestSent
               ? <>
@@ -135,9 +69,9 @@ function AgentsSlider(props) {
             }
           </div>
         : null
-      }
-    </div>
-  )
+      } */}
+			</div>
+	)
 }
 
 export default AgentsSlider;
