@@ -20,7 +20,7 @@ function qu_expertnote_init() {
 	function expertnote_editor_assets() {
 		$domain   = 'qu-expertnote/';
 		$path_uri = get_template_directory_uri() . '/lib/widgets/' . $domain;
-		$version  = gmdate( 'ymdGis', filemtime( get_parent_theme_file_path( '/lib/widgets/' . $domain . 'build/qu_expertnote_edit.js' ) ) );
+		$version  = $_ENV['THEME_VERSION'];
 
 		wp_enqueue_style(
 			'qu_expertnote_editor_style',
@@ -51,7 +51,7 @@ function qu_expertnote_init() {
 	function expertnote_assets() {
 		$domain   = 'qu-expertnote/';
 		$path_uri = get_template_directory_uri() . '/lib/widgets/' . $domain;
-		$version  = gmdate( 'ymdGis', filemtime( get_parent_theme_file_path( '/lib/widgets/' . $domain . 'build/qu_expertnote_edit.js' ) ) );
+		$version  = $_ENV['THEME_VERSION'];
 		
 		if ( is_singular() ) {
 			$id = get_the_ID();

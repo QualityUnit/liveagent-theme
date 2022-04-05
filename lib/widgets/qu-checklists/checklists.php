@@ -22,7 +22,7 @@ function qu_checklists_init() {
 	function checklists_editor_assets() {
 		$domain   = 'qu-checklists/';
 		$path_uri = get_template_directory_uri() . '/lib/widgets/' . $domain;
-		$version  = gmdate( 'ymdGis', filemtime( get_parent_theme_file_path( '/lib/widgets/' . $domain . 'build/qu_checklists_edit.js' ) ) );
+		$version  = $_ENV['THEME_VERSION'];
 
 		wp_enqueue_style(
 			'qu_checklist_block_editor_style',
@@ -61,7 +61,7 @@ function qu_checklists_init() {
 	function checklists_assets() {
 		$domain   = 'qu-checklists/';
 		$path_uri = get_template_directory_uri() . '/lib/widgets/' . $domain;
-		$version  = gmdate( 'ymdGis', filemtime( get_parent_theme_file_path( '/lib/widgets/' . $domain . 'build/qu_checklists_edit.js' ) ) );
+		$version  = $_ENV['THEME_VERSION'];
 		
 		if ( is_singular() ) {
 			$id = get_the_ID();

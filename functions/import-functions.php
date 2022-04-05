@@ -34,27 +34,22 @@ function wp_head_content( $page ) {
 function set_source( $page, $source_file, $filetype = 'css' ) {
 	if ( wp_head_content( $page ) ) {
 		if ( 'css' === $filetype ) {
-			$version = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/dist/' . $source_file . wpenv() . '.css' ) );
-			// @codingStandardsIgnoreStart
 			?>
-			<link rel="stylesheet" type="text/css" media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( $version ) . '" />' ); ?>
+			<link rel="stylesheet" type="text/css" media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( $_ENV['THEME_VERSION'] ) . '" />' ); ?>
 			<?php
 			// @codingStandardsIgnoreEnd
 		}
 		if ( 'js' === $filetype ) {
-			$version = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/dist/' . $source_file . wpenv() . '.js' ) );
-			wp_enqueue_script( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . wpenv() . '.js', array(), $version, true );
+			wp_enqueue_script( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . wpenv() . '.js', array(), $_ENV['THEME_VERSION'], true );
 		}
 	}
 }
 
 function set_custom_source( $source_file, $filetype = 'css', $depends = false ) {
 	if ( 'css' === $filetype ) {
-		$version = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/dist/' . $source_file . wpenv() . '.css' ) );
-		wp_enqueue_style( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . isrtl() . wpenv() . '.css', false, $version );
+		wp_enqueue_style( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . isrtl() . wpenv() . '.css', false, $_ENV['THEME_VERSION'] );
 	}
 	if ( 'js' === $filetype ) {
-		$version = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/dist/' . $source_file . wpenv() . '.js' ) );
-		wp_enqueue_script( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . wpenv() . '.js', $depends, $version, true );
+		wp_enqueue_script( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . wpenv() . '.js', $depends, $_ENV['THEME_VERSION'], true );
 	}
 }

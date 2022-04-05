@@ -15,8 +15,8 @@ if ( empty( $_GET['email'] ) ) {
 	http_response_code( 200 );
 
 	define( 'API_URL_ADDRESS', 'https://support.qualityunit.com/api/v3/' );
-	define( 'API_ACCESS_KEY', 'wm716ft436p4qebyir36t3c9av0coy8o' );
-	define( 'API_DEPARTMENT_ID', 'd564fd60' );
+	define( 'API_ACCESS_KEY', $_ENV["API_ACCESS_KEY"]);
+	define( 'API_DEPARTMENT_ID', $_ENV["API_DEPARTMENT_ID"] );
 	define( 'API_RECIPIENT_MAIL', 'sales@liveagent.com' );
 
 if ( isset( $_GET['email'] ) ) {

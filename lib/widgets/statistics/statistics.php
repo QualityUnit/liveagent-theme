@@ -21,7 +21,7 @@ function statistics_block_init() {
 
 	function statistics_editor_assets() {
 		$path_uri = get_template_directory_uri() . '/lib/widgets/statistics/';
-		$version  = gmdate( 'ymdGis', filemtime( get_parent_theme_file_path( '/lib/widgets/statistics/build/index.js' ) ) );
+		$version  = $_ENV['THEME_VERSION'];
 		$js_data  = array(
 			'url' => $path_uri . 'images',
 		);
@@ -61,7 +61,7 @@ function statistics_block_init() {
 
 	function statistics_assets() {
 		$path_uri = get_template_directory_uri() . '/lib/widgets/statistics/';
-		$version  = gmdate( 'ymdGis', filemtime( get_parent_theme_file_path( '/lib/widgets/statistics/build/index.js' ) ) );
+		$version  = $_ENV['THEME_VERSION'];
 		set_custom_source( 'research_post', 'js' );
 
 		if ( is_singular() ) {
