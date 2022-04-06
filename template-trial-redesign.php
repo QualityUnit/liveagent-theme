@@ -11,13 +11,13 @@
 	</a>
 
 	<div class="Trial__container">
-		<div class="Trial__sidebar" style="background-image: url(<?= esc_url( home_url( '/', 'relative' ) ); ?>app/uploads/2020/01/bg_trial.jpg);">
+		<div class="Trial__sidebar" style="background-image: url(https://cdn.liveagent.com/app/uploads/2020/01/bg_trial.jpg);">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top--inn" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Trial Logo'])">
 				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent_black.svg" alt="<?php bloginfo( 'name' ); ?>">
 			</a>
 			<div class="Trial__sidebar__text">
 				<?php _e( '<p><em>"LiveAgent combines excellent live chat, ticketing and automation that allow us to provide exceptional support to our customers."</em></p><p>Peter Komornik, <strong>CEO</strong></p>', 'ms' ); ?>
-				<img class="Trial__sidebar__logo" src="<?= esc_url( home_url( '/', 'relative' ) ); ?>app/uploads/2019/11/logo_slido_white.svg" alt="<?php _e( 'Review', 'ms' ); ?>">
+				<img class="Trial__sidebar__logo" src="https://cdn.liveagent.com/app/uploads/2019/11/logo_slido_white.svg" alt="<?php _e( 'Review', 'ms' ); ?>">
 			</div>
 		</div>
 		<div class="Trial__main">
