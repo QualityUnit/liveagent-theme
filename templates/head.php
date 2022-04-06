@@ -15,7 +15,7 @@
 	<link rel="preconnect" href="https://googleads.g.doubleclick.net">
 	<link rel="preconnect" href="https://www.facebook.com">
 	<link rel="preconnect" href="https://connect.facebook.net">
-=	<link rel="preconnect" href="https://pap.qualityunit.com">
+	<link rel="preconnect" href="https://pap.qualityunit.com">
 
 	<link rel="apple-touch-icon" sizes="180x180" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/favicon/favicon-32x32.png">
