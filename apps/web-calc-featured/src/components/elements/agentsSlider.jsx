@@ -4,7 +4,7 @@ import {production, path, i18n} from '../common/constants';
 
 function AgentsSlider(props) {
 	let [agents, handleRange] = useStateSessionStorage('agents');
-	let [showAgentsModal, setModal] = useState(false);
+	let [setModal] = useState(false);
 
 	const getValue = event => {
 		handleRange(agents = Number(event.target.value));
