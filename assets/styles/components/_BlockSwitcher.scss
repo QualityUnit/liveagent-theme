@@ -3,14 +3,13 @@
 .Block--switcher {
 
 	.wrapper__wide {
-		background: url(../images/switcherBlock_bg.jpg) center center no-repeat;
-		background-size: contain;
+		background: transparent url(../images/background__elements.svg) center center no-repeat;
+		background-size: cover;
 	}
 
 	@media (max-width: $breakpoint-tablet) {
 
 		.elementor-row {
-			display: block;
 
 			.elementor-col-50.elementor-col-50 {
 				padding-left: 2.5em !important;
@@ -19,12 +18,36 @@
 		}
 	}
 
-	.elementor-image {
-		padding: 0 !important;
-		width: 120% !important;
-		max-width: none !important;
-		max-height: none;
+	@media (max-width: $breakpoint-tablet-landscape) {
+
+		.elementor-inner-section {
+			padding: 2em !important;
+		}
+
+		.elementor-row {
+			display: block;
+
+			.elementor-col-50.elementor-col-50 {
+				width: 100% !important;
+			}
+		}
 	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper__wide {
+			background: url(../images/switcherBlock_bg.jpg) center center no-repeat;
+			background-size: contain;
+		}
+
+		.elementor-image {
+			padding: 0 !important;
+			width: 120% !important;
+			max-width: none !important;
+			max-height: none;
+		}
+	}
+
 
 	.switcher {
 		display: flex;
