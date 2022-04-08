@@ -36,6 +36,10 @@
 		animation: fadeIn 0.5s;
 		width: calc(100% - 2em);
 
+		iframe:not(iframe:first-of-type) {
+			display:none;
+		}
+
 		&__icon {
 
 			@include square(2.125em);
