@@ -1,64 +1,8 @@
-.FeaturesTableNew {
+.FeaturesTableNew { // stylelint-disable-line
 	padding: 2em 1.5em 0;
 
 	.elementor-row {
 		display: block;
-	}
-
-	&__feature + &__feature {
-		margin-top: 2em;
-	}
-
-	@media (min-width: $breakpoint-tablet-landscape) {
-		padding: 0 0 2em 0;
-
-		.elementor-row {
-			display: flex;
-		}
-
-		&::before,
-		&::after {
-			content: "";
-			position: absolute;
-			z-index: -1;
-			left: 50%;
-		}
-
-		&:first-of-type,
-		&:last-of-type {
-
-			&::before {
-				mask-image: linear-gradient(transparent, $black-real);
-				mask-size: 100% 100%;
-				mask-position: 0, 0;
-				mask-repeat: no-repeat;
-			}
-		}
-
-		&:last-of-type {
-
-			&::before {
-				mask-image: linear-gradient($black-real, transparent);
-			}
-		}
-
-		&::before {
-			top: 0;
-			bottom: 0;
-			border-left: 1px dotted $light-gray-icon;
-		}
-
-		&::after {
-			width: 5.5em;
-			top: calc(50% - 1em + 1px);
-			transform: translate(-50%, -50%);
-			border-bottom: 1px dotted $light-gray-icon;
-		}
-
-		&__feature + &__feature {
-			margin-top: 0;
-			margin-left: 7.5em;
-		}
 	}
 
 	&__feature {
@@ -78,6 +22,7 @@
 				text-decoration: none;
 
 				&::before {
+
 					@include posZero;
 					position: absolute;
 					content: "";
@@ -104,7 +49,7 @@
 				font-size: 1rem;
 				margin-bottom: 1em;
 				text-align: left !important;
-				color: currentColor;
+				color: currentcolor;
 			}
 
 			p {
@@ -125,7 +70,7 @@
 			z-index: -1;
 		}
 
-		@media (max-width: $breakpoint-tablet-landscape - 1px) {
+		@media (max-width: $breakpoint-tablet-landscape - 1px) { // stylelint-disable-line
 
 			&.elementor-column {
 				width: 100% !important;
@@ -163,42 +108,6 @@
 			border-radius: $featureRadius $border-radius-16 $border-radius-16 $featureRadius;
 			filter: drop-shadow(0 1em 3em rgba($black, 0.14));
 
-			&:nth-of-type(even) {
-				border-radius: $border-radius-16 $featureRadius $featureRadius $border-radius-16;
-
-				&::after {
-					transform: scaleX(-1);
-				}
-
-				&::before {
-					right: auto;
-					left: -1em;
-				}
-
-				.elementor-widget-text-editor.elementor-element {
-					padding-left: 1.5em;
-					padding-right: 0;
-				}
-			}
-
-			&:hover {
-
-				@include color(color, font-color-light);
-				filter: none;
-				cursor: pointer;
-
-				&::after,
-				&::before {
-
-					@include color(background, background);
-					border-color: $dark-orange;
-				}
-
-				&::before {
-					box-shadow: inset 0 0 0 3px #f2f2f2;
-				}
-			}
-
 			&::before {
 
 				@include square(1.85em);
@@ -223,6 +132,98 @@
 				mask-composite: xor;
 				border-radius: $featureRadius $border-radius-16 $border-radius-16 $featureRadius;
 			}
+
+			&:hover {
+
+				@include color(color, font-color-light);
+				filter: none;
+				cursor: pointer;
+
+				&::after,
+				&::before {
+
+					@include color(background, background);
+					border-color: $dark-orange;
+				}
+
+				&::before {
+					box-shadow: inset 0 0 0 3px #f2f2f2;
+				}
+			}
+
+			&:nth-of-type(even) {
+				border-radius: $border-radius-16 $featureRadius $featureRadius $border-radius-16;
+
+				&::after {
+					transform: scaleX(-1);
+				}
+
+				&::before {
+					right: auto;
+					left: -1em;
+				}
+
+				.elementor-widget-text-editor.elementor-element {
+					padding-left: 1.5em;
+					padding-right: 0;
+				}
+			}
+		}
+	}
+
+	&__feature + &__feature {
+		margin-top: 2em;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		padding: 0 0 2em 0;
+
+		.elementor-row {
+			display: flex;
+		}
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			left: 50%;
+		}
+
+		&::before {
+			top: 0;
+			bottom: 0;
+			border-left: 1px dotted $light-gray-icon;
+		}
+
+		&::after {
+			width: 5.5em;
+			top: calc(50% - 1em + 1px);
+			transform: translate(-50%, -50%);
+			border-bottom: 1px dotted $light-gray-icon;
+		}
+
+		&:first-of-type,
+		&:last-of-type {
+
+			&::before {
+				mask-image: linear-gradient(transparent, $black-real);
+				mask-size: 100% 100%;
+				mask-position: 0, 0;
+				mask-repeat: no-repeat;
+			}
+		}
+
+		&:last-of-type {
+
+			&::before {
+				mask-image: linear-gradient($black-real, transparent);
+			}
+		}
+
+		&__feature + &__feature {
+			margin-top: 0;
+			margin-left: 7.5em;
 		}
 	}
 }
