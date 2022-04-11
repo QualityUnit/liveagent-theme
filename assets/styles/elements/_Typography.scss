@@ -113,6 +113,15 @@ p {
 		font-size: $font-size-smaller;
 		line-height: $line-height-smaller;
 	}
+
+	.poppins & {
+		font-family: $font-secondary;
+	}
+
+	.subtitle & {
+		font-family: $font-secondary;
+		font-size: 1.5rem;
+	}
 }
 
 ul,
@@ -673,7 +682,7 @@ video {
 
 	a {
 
-		@include color(color, font-color-dark);
+		@include color(color, font-color-dark, !important);
 		display: flex;
 		align-items: center;
 		font-family: $font-secondary;

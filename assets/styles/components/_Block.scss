@@ -91,16 +91,19 @@
 		&__basic {
 			margin-bottom: 3em !important;
 
-			h2,
-			h3,
-			.elementor-heading-title.elementor-heading-title {
-				text-align: center !important;
+			*:not(.elementor-inner-section) {
+
+				h2,
+				h3 {
+					text-align: center !important;
+				}
+
+				.elementor-text-editor.elementor-text-editor {
+					width: 100%;
+					text-align: center;
+				}
 			}
 
-			.elementor-text-editor.elementor-text-editor {
-				width: 100%;
-				text-align: center;
-			}
 		}
 
 		@media (min-width: $breakpoint-tablet + 1px) {
