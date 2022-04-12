@@ -92,14 +92,12 @@
 
 			.elementor-widget-image {
 
-				@include color(background-color, main-background);
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				width: 40%;
 				height: auto !important;
-				padding: 0.5em 1.5em !important;
-				border-radius: 12em;
+				padding: 0.5em !important;
 			}
 		}
 
