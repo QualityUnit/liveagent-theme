@@ -4,6 +4,8 @@
 /* global debug, textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, productDomain, authTokenName, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, papAccount, papAction, papCampaign, googleScript, capterraScript, textStart, textInvalid, textCreating, recaptchaId, variationId */
 
 ( function main() {
+	const g2crowdTracking = '<img src="[https://tracking.g2crowd.com/funnels/938455d7-8e96-4676-9ae2-427524d169d9.gif?stage=finish&stype=offer](https://www.google.com/url?q=https://tracking.g2crowd.com/funnels/938455d7-8e96-4676-9ae2-427524d169d9.gif?stage%3Dfinish%26stype%3Doffer&sa=D&source=editors&ust=1649168448086234&usg=AOvVaw0zCfH0uJwsXqg5C2ONFR0G)">';
+
 	function sendApiRequest( options ) {
 		const opt = options;
 		opt.dataType = 'json';
@@ -780,6 +782,7 @@
 				'#signup'
 			);
 		}
+		$( g2crowdTracking ).appendTo( '#signup' );
 
 		if ( typeof _paq !== 'undefined' ) {
 			_paq.push( [ 'setObjectId', subscription.account_id ] );
