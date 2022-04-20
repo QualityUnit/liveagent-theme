@@ -33,11 +33,17 @@
 			border-radius: 50%;
 			background-color: rgba($medium-orange, 0);
 			transition: background-color 0.3s;
+			margin-right: 0.25em;
 
 			svg {
 				--e-icon-list-icon-size: 1.25em;
 				margin: 0 !important;
+				fill: $light-gray-icon;
 			}
+		}
+
+		.elementor-icon-list-item.active svg {
+			fill: currentcolor;
 		}
 
 		ul {

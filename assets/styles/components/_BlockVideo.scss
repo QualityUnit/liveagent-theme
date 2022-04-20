@@ -253,7 +253,7 @@ $positions: ("left", "right");
 					}
 				}
 
-				@media (min-width: $breakpoint-desktop-hd) {
+				@media (min-width: $breakpoint-desktop-hd + 1px) {
 
 					.wrapper {
 						#{$pos}: auto;
@@ -263,7 +263,7 @@ $positions: ("left", "right");
 		}
 	}
 
-	@media (min-width: $breakpoint-desktop-hd) {
+	@media (min-width: $breakpoint-desktop-hd + 1px) {
 
 		.youtube__loader,
 		.elementor-custom-embed-image-overlay {
