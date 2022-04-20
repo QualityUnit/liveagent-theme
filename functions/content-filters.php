@@ -363,3 +363,53 @@ function replace_admin_subdomain( $content ) {
 	return preg_replace( $pattern, $replacement, $content );
 }
 add_filter( 'the_content', 'replace_admin_subdomain' );
+
+
+/* 
+* Change formatting in Block--learnMore <pre> blocks
+*/
+
+function learnmore_pre_block( $content ) {
+	if ( ! $content ) {
+		return $content;
+	}
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath       = new DOMXPath( $dom );
+	$block_class = 'Block--learnMore';
+	$blocks      = get_nodes( $xpath, $block_class );
+
+	foreach ( $blocks as $block ) {
+		foreach ( $block->getElementsByTagName( 'pre' ) as $pre ) {
+			// @codingStandardsIgnoreStart
+			$header      = $pre->childNodes->item( 0 )->textContent;
+			$regex       = '/(.+)(–|—|-|-)(.+)(\n|\r)*(.*)/';
+			$strong_text = preg_replace( $regex, '$1', $header );
+			$value_text  = preg_replace( $regex, '$3', $header );
+			$main_text   = $pre->textContent;
+			$main_text   = preg_replace( $regex, '$5', $main_text );
+			if( isset( $pre->childNodes->item( 3 )->textContent ) ) {
+				$main_text = $pre->childNodes->item( 3 )->textContent;
+			}
+			$pre->textContent = '';
+			$strong           = $dom->createElement( 'strong' );
+			$flex             = $dom->createElement( 'div' );
+			$flex->setAttribute( 'class', 'flex' );
+			$strong->textContent = $strong_text;
+			$flex->appendChild( $strong );
+			$flex->appendChild( $dom->createTextNode( $value_text ) );
+			$pre->appendChild( $flex );
+			$pre->appendChild( $dom->createTextNode( $main_text ) );
+		}
+		// @codingStandardsIgnoreEnd
+	}
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
+}
+add_filter( 'the_content', 'learnmore_pre_block', 9999 );
