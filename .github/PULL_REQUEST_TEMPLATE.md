@@ -1,21 +1,15 @@
-#### Changes proposed in this Pull Request
+**Changes proposed in this Pull Request**
+Describe what was changed in the Pull Request
 
-*
+**Testing instructions**
+Describe how and what should be tested by a Tester
 
-#### Testing instructions
+**Checklist**
+- [ ] My code follows the style guidelines of this project
+- [ ] My commits follow the style guidelines of this project
+- [ ] I have performed a self-review of my code
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
 
-<!--
-Add as many details as possible to help others reproduce the issue and test the fix.
-"Before / After" screenshots can also be very helpful when the change is visual.
--->
-
-*
-
-<!--
-Link a related issue to this PR. If the PR does not immediately resolve the issue,
-for example, it requires a separate deployment to production, avoid
-using the "fixes" keyword and instead attach the [Status] Fix Inbound label to
-the linked issue.
--->
-
-Related to #
+Close QualityUnit/web-issues#[ISSUE_NUMBER]
