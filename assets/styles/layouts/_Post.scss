@@ -38,12 +38,6 @@ $signupSidebarWidth: 16.875em;
 		@media (min-width: $breakpoint-tablet) {
 			display: block;
 			position: absolute;
-			top: -6em;
-		}
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-			display: block;
-			position: absolute;
 			top: -8em;
 		}
 	}
