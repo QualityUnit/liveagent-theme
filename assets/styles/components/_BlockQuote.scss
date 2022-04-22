@@ -44,8 +44,8 @@
 	}
 
 	&--owl {
-		background-color: #fa9531;
-		background-image: url(../images/bg_blockquote_owl.svg);
+		background: $dark-orange url(../images/bg_blockquote_owl.svg) right center no-repeat;
+		background-size: 40% auto;
 	}
 
 	&--hamster {
