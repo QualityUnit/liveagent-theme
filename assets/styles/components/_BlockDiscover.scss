@@ -2,47 +2,45 @@
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 
 .BlockDiscover {
-	background-repeat: no-repeat;
-	background-position: 95% -4px;
-	background-size: auto 110%;
-	margin: 40px -50px;
+	position: relative;
+	margin: 2.5em auto;
 	padding: 40px !important;
 	border-radius: $border-radius-16;
+	background: url(../images/cta_new_bg.svg) left top no-repeat;
+	background-size: cover;
 
-	&--discover {
-		background-color: #fa9531;
-		background-image: url(../images/bg_discover.png);
+	&::before {
+
+		@media (min-width: $breakpoint-tablet) {
+
+			@include posZero;
+			position: absolute;
+			content: "";
+			background: url(../images/cta_new_chat.png) 100% bottom no-repeat;
+			background-size: auto 100%;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			background-position: 95% bottom;
+		}
 	}
 
-	&--support-portal {
-		background-color: #fa9531;
-		background-image: url(../images/bg_support_portal.png);
-		background-position: 95% 100%;
-		background-size: 55% auto;
-
-		p {
-			padding-right: 3em;
-
-			&:first-of-type {
-				padding-right: 0;
-			}
-		}
+	.Button + .Button {
+		top: 0;
 	}
 
 	h4 {
 
 		@include color(color, font-color-light);
 		margin: 0;
-		font-size: 42px;
-		line-height: 48px;
-		font-weight: 700;
-		max-width: 45%;
+		font-size: 1.75rem;
+		line-height: 1.285;
+		font-weight: 600;
 	}
 
 	p {
 
 		@include color(color, font-color-light, !important);
-		max-width: 50%;
 		margin-bottom: 15px !important;
 		letter-spacing: 0 !important;
 
@@ -51,20 +49,6 @@
 			@include color(color, font-color-light);
 			font-size: $font-size-bigger;
 			line-height: $line-height-bigger;
-		}
-	}
-
-	.Button {
-
-		@extend .Button--white;
-		@include color(color, font-color-dark, !important);
-
-		&:active,
-		&:focus,
-		&:hover {
-
-			@include color(background-color, font-color-dark, !important);
-			@include color(color, font-color-light, !important);
 		}
 	}
 
@@ -82,29 +66,49 @@
 		}
 	}
 
-	@media (max-width: $breakpoint-desktop) {
-		background-image: none;
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		margin-top: 1.5em;
+
+		.Button {
+			padding: 0.5em 1.5em;
+		}
+
+		@media (max-width: $breakpoint-tablet-landscape) {
+
+			.Button {
+				padding: 0.5em 1.5em;
+				width: 100%;
+
+				+ .Button {
+					margin-left: 0;
+					margin-top: 1em;
+				}
+			}
+		}
+
+	}
+
+	@media (min-width: $breakpoint-tablet) {
 
 		h4,
 		p {
-			max-width: 100%;
+			max-width: 50%;
+		}
+
+		&__buttons {
+			max-width: 50%;
 		}
 	}
 
-	@media (max-width: $breakpoint-tablet) {
-		margin-left: 0;
-		margin-right: 0;
+	@media (min-width: $breakpoint-tablet-landscape) {
 
-		.Newsletter__form {
+		&__buttons {
+			flex-direction: row;
 
-			form {
-				display: flex;
-				flex-flow: wrap column;
-
-				.Input {
-					margin-right: 0;
-					margin-bottom: 15px;
-				}
+			.Button {
+				width: 50%;
 			}
 		}
 	}
