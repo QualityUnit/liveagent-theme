@@ -39,7 +39,7 @@ function ms_blockquote( $atts ) {
 	<?php } ?>
 	<?php if( $atts['type'] !== 'discover') {
 	?>
-		<h4 class="BlockQuote__text"><?= esc_html( $atts['text'] ); ?></h4>
+		<p class="BlockQuote__text"><?= esc_html( $atts['text'] ); ?></ú>
 		<p class="BlockQuote__author"><?= esc_html( $atts['author'] ); ?></p>
 	<?php } ?>
 	</div>

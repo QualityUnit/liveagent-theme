@@ -34,15 +34,17 @@
 				position: relative;
 
 				&::before {
+					content: "";
+					display: block;
+					width: 100px;
+					height: 75px;
 					position: absolute;
-					font-family: sans-serif;
-					font-weight: 700;
-					content: "„";
-					font-size: 12rem;
-					line-height: 0;
-					opacity: 0.3;
-					top: -0.18em;
-					left: -0.1em;
+					top: 0;
+					left: 0;
+					z-index: 1;
+					background-image: url(../images/bg_blockquote.svg);
+					background-repeat: no-repeat;
+					opacity: 0.25;
 				}
 			}
 
