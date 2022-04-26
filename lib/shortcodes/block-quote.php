@@ -3,13 +3,13 @@
 function ms_blockquote( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'text'   => '',
-			'author' => '',
-			'button' => __( 'Try it for free', 'ms' ),
+			'text'       => '',
+			'author'     => '',
+			'button'     => __( 'Try it for free', 'ms' ),
 			'buttonDemo' => '',
 			'link'       => __( '/trial', 'ms' ),
 			'linkDemo'   => '/demo',
-			'type'   => 'discover',
+			'type'       => 'discover',
 		),
 		$atts,
 		'blockquote'
@@ -18,8 +18,9 @@ function ms_blockquote( $atts ) {
 	ob_start();
 	?>
 
-	<div class="<?= esc_attr( $atts['type'] === 'discover' ? 'BlogCTA__wrapper Post__m__negative': 'BlockQuote BlockQuote--' . $atts['type'] ); ?>">
-	<?php if( $atts['type'] === 'discover') {
+	<div class="<?= esc_attr( 'discover' === $atts['type'] ? 'BlogCTA__wrapper Post__m__negative' : 'BlockQuote BlockQuote--' . $atts['type'] ); ?>">
+	<?php 
+	if ( 'discover' === $atts['type'] ) {
 		?>
 	<div class="BlogCTA__element">
 		<div class="BlogCTA__element__text quote">
@@ -37,8 +38,9 @@ function ms_blockquote( $atts ) {
 			</div>
 	</div>
 	<?php } ?>
-	<?php if( $atts['type'] !== 'discover') {
-	?>
+	<?php 
+	if ( 'discover' !== $atts['type'] ) {
+		?>
 		<p class="BlockQuote__text"><?= esc_html( $atts['text'] ); ?></ú>
 		<p class="BlockQuote__author"><?= esc_html( $atts['author'] ); ?></p>
 	<?php } ?>
