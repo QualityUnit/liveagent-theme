@@ -397,6 +397,19 @@
 			background-size: cover;
 		}
 
+		&::after {
+			position: absolute;
+			content: "";
+			background: url(../images/heroHeadline_badges.png) center top no-repeat;
+			background-size: contain;
+			z-index: 1;
+			width: 20%;
+			height: 0;
+			padding-bottom: 49%;
+			top: 0;
+			right: -2%;
+		}
+
 		.elementor-column-wrap {
 			margin: auto auto 3em 2em;
 		}
