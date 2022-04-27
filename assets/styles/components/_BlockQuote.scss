@@ -7,11 +7,11 @@
 	background-size: auto 122%;
 	margin: 40px 0;
 	padding: 40px !important;
-	border-radius: $border-radius;
+	border-radius: $border-radius-16;
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 
-		.Post__content & {
+		.Post__content &:not(.BlockQuote--discover) {
 			width: 41.875rem;
 			left: 50%;
 			transform: translateX(-50%);
@@ -36,11 +36,6 @@
 		background-color: #fa9531;
 		background-image: url(../images/bg_support_portal.png);
 		background-size: 60% auto;
-	}
-
-	&--discover {
-		background-color: #fa9531;
-		background-image: url(../images/bg_discover.png);
 	}
 
 	&--owl {
