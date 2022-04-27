@@ -361,6 +361,66 @@ $metabox = array(
 			'description' => '',
 			'type'        => 'editor',
 		),
+		array(
+			'id'          => 'mb_directory_faq-q11',
+			'label'       => 'FAQ - Question #11',
+			'description' => '',
+			'type'        => 'text',
+		),
+		array(
+			'id'          => 'mb_directory_faq-a11',
+			'label'       => 'FAQ - Answer #11',
+			'description' => '',
+			'type'        => 'editor',
+		),
+		array(
+			'id'          => 'mb_directory_faq-q12',
+			'label'       => 'FAQ - Question #12',
+			'description' => '',
+			'type'        => 'text',
+		),
+		array(
+			'id'          => 'mb_directory_faq-a12',
+			'label'       => 'FAQ - Answer #12',
+			'description' => '',
+			'type'        => 'editor',
+		),
+		array(
+			'id'          => 'mb_directory_faq-q13',
+			'label'       => 'FAQ - Question #13',
+			'description' => '',
+			'type'        => 'text',
+		),
+		array(
+			'id'          => 'mb_directory_faq-a13',
+			'label'       => 'FAQ - Answer #13',
+			'description' => '',
+			'type'        => 'editor',
+		),
+		array(
+			'id'          => 'mb_directory_faq-q14',
+			'label'       => 'FAQ - Question #14',
+			'description' => '',
+			'type'        => 'text',
+		),
+		array(
+			'id'          => 'mb_directory_faq-a14',
+			'label'       => 'FAQ - Answer #14',
+			'description' => '',
+			'type'        => 'editor',
+		),
+		array(
+			'id'          => 'mb_directory_faq-q15',
+			'label'       => 'FAQ - Question #15',
+			'description' => '',
+			'type'        => 'text',
+		),
+		array(
+			'id'          => 'mb_directory_faq-a15',
+			'label'       => 'FAQ - Answer #15',
+			'description' => '',
+			'type'        => 'editor',
+		),
 	),
 );
 
