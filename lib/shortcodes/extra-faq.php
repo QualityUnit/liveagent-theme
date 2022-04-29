@@ -1,6 +1,6 @@
 <?php
 
-function ms_extrafaq( $atts ) {
+function ms_faq( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'schema'      => 'yes',
@@ -28,7 +28,7 @@ function ms_extrafaq( $atts ) {
 			'answer-10'   => '',
 		),
 		$atts,
-		'extrafaq'
+		'faq'
 	);
 
 	ob_start();
@@ -147,76 +147,116 @@ function ms_extrafaq( $atts ) {
 		</div>
 		<?php } ?>
 
-		<div class="ExtraFaq <?= esc_html( $atts['is-wide'] === 'true' ? 'Post__m__negative':'' ); //@codingStandardsIgnoreLine ?>">
+		<div class="Faq <?= esc_html( $atts['is-wide'] === 'true' ? 'Post__m__negative':'' ); //@codingStandardsIgnoreLine ?>">
 			<h2 id="faq"><?= esc_html( $atts['headline'] ); ?></h2>
 
 			<?php if ( $atts['question-1'] ) { ?>
-				<div class="ExtraFaq__item">
+				<div class="Faq__item">
 					<h3><?= esc_html( $atts['question-1'] ); ?></h3>
-					<p><?= esc_html( $atts['answer-1'] ); ?></p>
+					<div class="Faq__outer-wrapper">
+						<div class="Faq__inner-wrapper">
+							<p><?= esc_html( $atts['answer-1'] ); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 
 			<?php if ( $atts['question-2'] ) { ?>
-				<div class="ExtraFaq__item">
+				<div class="Faq__item">
 					<h3><?= esc_html( $atts['question-2'] ); ?></h3>
-					<p><?= esc_html( $atts['answer-2'] ); ?></p>
+					<div class="Faq__outer-wrapper">
+						<div class="Faq__inner-wrapper">
+							<p><?= esc_html( $atts['answer-2'] ); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 
 			<?php if ( $atts['question-3'] ) { ?>
-				<div class="ExtraFaq__item">
+				<div class="Faq__item">
 					<h3><?= esc_html( $atts['question-3'] ); ?></h3>
-					<p><?= esc_html( $atts['answer-3'] ); ?></p>
+					<div class="Faq__outer-wrapper">
+						<div class="Faq__inner-wrapper">
+							<p><?= esc_html( $atts['answer-3'] ); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 
 			<?php if ( $atts['question-4'] ) { ?>
-				<div class="ExtraFaq__item">
+				<div class="Faq__item">
 					<h3><?= esc_html( $atts['question-4'] ); ?></h3>
-					<p><?= esc_html( $atts['answer-4'] ); ?></p>
+					<div class="Faq__outer-wrapper">
+						<div class="Faq__inner-wrapper">
+							<p><?= esc_html( $atts['answer-4'] ); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 
 			<?php if ( $atts['question-5'] ) { ?>
-				<div class="ExtraFaq__item">
+				<div class="Faq__item">
 					<h3><?= esc_html( $atts['question-5'] ); ?></h3>
-					<p><?= esc_html( $atts['answer-5'] ); ?></p>
+					<div class="Faq__outer-wrapper">
+						<div class="Faq__inner-wrapper">
+							<p><?= esc_html( $atts['answer-5'] ); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 
 			<?php if ( $atts['question-6'] ) { ?>
-				<div class="ExtraFaq__item">
+				<div class="Faq__item">
 					<h3><?= esc_html( $atts['question-6'] ); ?></h3>
-					<p><?= esc_html( $atts['answer-6'] ); ?></p>
+					<div class="Faq__outer-wrapper">
+						<div class="Faq__inner-wrapper">
+							<p><?= esc_html( $atts['answer-6'] ); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 
 			<?php if ( $atts['question-7'] ) { ?>
-				<div class="ExtraFaq__item">
+				<div class="Faq__item">
 					<h3><?= esc_html( $atts['question-7'] ); ?></h3>
-					<p><?= esc_html( $atts['answer-7'] ); ?></p>
+					<div class="Faq__outer-wrapper">
+						<div class="Faq__inner-wrapper">
+							<p><?= esc_html( $atts['answer-7'] ); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 
 			<?php if ( $atts['question-8'] ) { ?>
-				<div class="ExtraFaq__item">
+				<div class="Faq__item">
 					<h3><?= esc_html( $atts['question-8'] ); ?></h3>
-					<p><?= esc_html( $atts['answer-8'] ); ?></p>
+					<div class="Faq__outer-wrapper">
+						<div class="Faq__inner-wrapper">
+							<p><?= esc_html( $atts['answer-8'] ); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 
 			<?php if ( $atts['question-9'] ) { ?>
-				<div class="ExtraFaq__item">
+				<div class="Faq__item">
 					<h3><?= esc_html( $atts['question-9'] ); ?></h3>
-					<p><?= esc_html( $atts['answer-9'] ); ?></p>
+					<div class="Faq__outer-wrapper">
+						<div class="Faq__inner-wrapper">
+							<p><?= esc_html( $atts['answer-9'] ); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 
 			<?php if ( $atts['question-10'] ) { ?>
-				<div class="ExtraFaq__item">
+				<div class="Faq__item">
 					<h3><?= esc_html( $atts['question-10'] ); ?></h3>
-					<p><?= esc_html( $atts['answer-10'] ); ?></p>
+					<div class="Faq__outer-wrapper">
+						<div class="Faq__inner-wrapper">
+							<p><?= esc_html( $atts['answer-10'] ); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php } ?>
 		</div>
@@ -224,4 +264,4 @@ function ms_extrafaq( $atts ) {
 	<?php
 	return ob_get_clean();
 }
-add_shortcode( 'extrafaq', 'ms_extrafaq' );
+add_shortcode( 'faq', 'ms_faq' );

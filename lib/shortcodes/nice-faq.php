@@ -51,7 +51,7 @@ function ms_nicefaq( $atts ) {
 			'answer15'   => '',
 		),
 		$atts,
-		'nicefaq'
+		'faq'
 	);
 
 	ob_start();
@@ -86,44 +86,23 @@ function ms_nicefaq( $atts ) {
 		</div>
 		<?php } ?>
 
-		<div class="NiceFaq">
-			<div class="NiceFaq__main">
+		<div class="Faq">
 			<?php 
 			for ( $i = 1; $i <= 15; ++$i ) {
 				if ( $atts[ 'title' . $i ] && $atts[ 'question' . $i ] && $atts[ 'answer' . $i ] ) { 
 					?>
-						<div class="NiceFaq__item NiceFaq__item-<?= esc_html( $i . ( $i === 1 ? ' active' : '' ) ); // @codingStandardsIgnoreLine?>">
-							<div class="NiceFaq__question">
-								<div class="NiceFaq__item--person">
-									<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/nicefaq_guy1.png" alt="FAQ person" />
-								</div>
-								<span><?= esc_html( $atts[ 'question' . $i ] ); ?></span>
-							</div>
-							<div class="NiceFaq__answer">
-								<span><?= esc_html( $atts[ 'answer' . $i ] ); ?></span>
-								<div class="NiceFaq__item--person">
-									<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/nicefaq_guy2.png" alt="FAQ person" />
-								</div>
+					<div class="Faq__item">
+						<h3><?= esc_html( $atts['question' . $i] ); ?></h3>
+						<div class="Faq__outer-wrapper">
+							<div class="Faq__inner-wrapper">
+								<p><?= esc_html( $atts['answer' . $i] ); ?></p>
 							</div>
 						</div>
+					</div>
 					<?php 
 				}
 			} 
 			?>
-			</div>
-			<div class="NiceFaq__sidebar">
-			<ul class="NiceFaq__sidebar--items">
-				<?php 
-				for ( $i = 1; $i <= 15; ++$i ) {
-					if ( $atts[ 'title' . $i ] && $atts[ 'question' . $i ] && $atts[ 'answer' . $i ] ) { 
-						?>
-						<li class="NiceFaq__sidebar--item <?= esc_html( $i === 1 ? 'active' : '' ); // @codingStandardsIgnoreLine?>" data-item="NiceFaq__item-<?= esc_html( $i ) ?>"><?= esc_html( $atts[ 'title' . $i ] ); ?></li>
-						<?php 
-					}
-				} 
-				?>
-			</ul>
-			</div>
 		</div>
 
 	<?php

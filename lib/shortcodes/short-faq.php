@@ -13,9 +13,13 @@ function ms_shortfaq( $atts ) {
 	ob_start();
 	?>
 
-	<div class="ShortFaq">
+	<div class="Faq__item">
 		<h3><?= esc_html( $atts['title'] ); ?></h3>
-		<p><?= esc_html( $atts['text'] ); ?></p>
+		<div class="Faq__outer-wrapper">
+			<div class="Faq__inner-wrapper">
+				<p><?= esc_html( $atts['text'] ); ?></p>
+			</div>
+		</div>
 	</div>
 
 	<?php

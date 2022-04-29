@@ -2,8 +2,10 @@
 
 @import "../elements/Checklist";
 
-.ExtraFaq.ExtraFaq {
-	display: block !important;
+.Faq.Faq {
+	display: flex !important;
+	flex-flow: wrap row;
+	justify-content: space-between;
 
 	h2 {
 		font-size: 2rem;
@@ -16,27 +18,56 @@
 		@extend %checklist;
 	}
 
-	.ExtraFaq__item {
-		border: 1px solid $light-gray;
-		border-radius: 0.5rem;
-		padding: 0 2rem;
-		margin-bottom: 1.15em;
+	.Faq__item {
+		padding: 0 0.5rem;
 		overflow: hidden;
+		width: 45%;
 
 		h3 {
-
-			@include color(background-color, secondary-background);
-			font-size: $font-size-smaller;
+			font-size: $font-size-h3;
 			line-height: $line-height-smaller;
-			margin: 0 -2rem 1rem;
-			padding: 1rem 2rem;
+			margin: 0;
+			padding: 1rem;
+			position: relative;
+			left: 2px;
+			text-indent: -18px;
+
+			&::before {
+				content: url(../images/icon_checkmark_circle.svg);
+				position: relative;
+				left: -8px;
+				overflow: visible !important;
+			}
 		}
 
-		p {
-			font-size: $font-size-smaller;
+		div.Faq__outer-wrapper {
+			background: rgb(250, 149, 49);
+			background: linear-gradient(180deg, rgba(250, 149, 49, 1) 0%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
+			min-height: 150px;
+			width: 100%;
+			display: flex;
+			justify-content: flex-end;
 
-			&:empty {
-				display: none;
+			div.Faq__inner-wrapper {
+				min-height: 150px;
+				width: calc(100% - 1px);
+				background: $white;
+				outline: 1px dashed $white;
+
+				p {
+					width: 100%;
+					height: 100%;
+					font-size: $font-size-default;
+					border: 1px solid $white;
+					border-left: 1px dashed $white;
+					padding: 0 1rem;
+					color: $dark-gray;
+					text-align: left;
+
+					&:empty {
+						display: none;
+					}
+				}
 			}
 		}
 	}
