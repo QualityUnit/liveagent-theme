@@ -171,10 +171,16 @@
 										</div>
 									</div>
 								</div>
+<<<<<<< HEAD
 								<?php
 							}
 						}
 						?>
+=======
+							<?php }
+						} ?>
+						</div>
+>>>>>>> e1ca92e (reworked schemas and php to for cycle)
 					</div>
 				<?php } ?>
 
