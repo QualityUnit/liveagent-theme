@@ -8,7 +8,7 @@
 	justify-content: space-between;
 
 	h2 {
-		font-size: 2rem;
+		font-size: 2em;
 		line-height: 1.5;
 		margin-top: 1em;
 	}
@@ -19,36 +19,32 @@
 	}
 
 	.Faq__item {
-		padding: 0 0.5rem;
+		padding: 0 0.5em;
 		overflow: hidden;
 		width: 45%;
 
 		h3 {
 			font-size: $font-size-h3;
 			line-height: $line-height-smaller;
-			margin: 0;
-			padding: 1rem;
+			padding-left: 1em;
 			position: relative;
-			left: 2px;
-			text-indent: -18px;
+			margin-bottom: 1em;
 
 			&::before {
 				content: url(../images/icon_checkmark_circle.svg);
-				position: relative;
+				position: absolute;
 				left: -8px;
-				overflow: visible !important;
 			}
 		}
 
-		div.Faq__outer-wrapper {
-			background: rgb(250, 149, 49);
-			background: linear-gradient(180deg, rgba(250, 149, 49, 1) 0%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
+		.Faq__outer-wrapper {
+			background: linear-gradient(180deg, rgb(250, 149, 49) 0%, rgb(255, 255, 255) 70%, rgb(255, 255, 255) 100%);
 			min-height: 150px;
 			width: 100%;
 			display: flex;
 			justify-content: flex-end;
 
-			div.Faq__inner-wrapper {
+			.Faq__inner-wrapper {
 				min-height: 150px;
 				width: calc(100% - 1px);
 				background: $white;
@@ -60,7 +56,7 @@
 					font-size: $font-size-default;
 					border: 1px solid $white;
 					border-left: 1px dashed $white;
-					padding: 0 1rem;
+					padding: 0 1em;
 					color: $dark-gray;
 					text-align: left;
 

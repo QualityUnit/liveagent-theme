@@ -1,6 +1,6 @@
 <?php
 
-function ms_faq( $atts ) {
+function ms_extrafaq( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'schema'      => 'yes',
@@ -26,6 +26,16 @@ function ms_faq( $atts ) {
 			'answer-9'    => '',
 			'question-10' => '',
 			'answer-10'   => '',
+			'question-11' => '',
+			'answer-11'   => '',
+			'question-12' => '',
+			'answer-12'   => '',
+			'question-13' => '',
+			'answer-13'   => '',
+			'question-14' => '',
+			'answer-14'   => '',
+			'question-15' => '',
+			'answer-15'   => '',
 		),
 		$atts,
 		'faq'
@@ -41,106 +51,21 @@ function ms_faq( $atts ) {
 				"@context": "https://schema.org",
 				"@type": "FAQPage",
 				"mainEntity": [
-					<?php if ( $atts['question-1'] ) { ?>
-					{
+					<?php 
+					for ( $i = 1; $i <= 15; ++$i ) {
+						if ( $atts[ 'question-' . $i ] ) {
+							?>
+							
 						"@type": "Question",
-						"name": "<?= esc_attr( $atts['question-1'] ); ?>",
+						"name": "<?= esc_attr( $atts[ 'question-' . $i ] ); ?>",
 						"acceptedAnswer": {
 							"@type": "Answer",
-							"text": "<?= esc_attr( $atts['answer-1'] ); ?>"
+							"text": "<?= esc_attr( $atts[ 'answer-' . $i ] ); ?>"
 						}
-					}
-					<?php } ?>
-					<?php if ( $atts['question-2'] ) { ?>
-					,{
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts['question-2'] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts['answer-2'] ); ?>"
+						<?php 
 						}
-					}
-					<?php } ?>
-					<?php if ( $atts['question-3'] ) { ?>
-					,{
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts['question-3'] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts['answer-3'] ); ?>"
-						}
-					}
-					<?php } ?>
-					<?php if ( $atts['question-4'] ) { ?>
-					,{
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts['question-4'] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts['answer-4'] ); ?>"
-						}
-					}
-					<?php } ?>
-					<?php if ( $atts['question-5'] ) { ?>
-					,{
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts['question-5'] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts['answer-5'] ); ?>"
-						}
-					}
-					<?php } ?>
-					<?php if ( $atts['question-6'] ) { ?>
-					,{
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts['question-6'] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts['answer-6'] ); ?>"
-						}
-					}
-					<?php } ?>
-					<?php if ( $atts['question-7'] ) { ?>
-					,{
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts['question-7'] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts['answer-7'] ); ?>"
-						}
-					}
-					<?php } ?>
-					<?php if ( $atts['question-8'] ) { ?>
-					,{
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts['question-8'] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts['answer-8'] ); ?>"
-						}
-					}
-					<?php } ?>
-					<?php if ( $atts['question-9'] ) { ?>
-					,{
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts['question-9'] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts['answer-9'] ); ?>"
-						}
-					}
-					<?php } ?>
-					<?php if ( $atts['question-10'] ) { ?>
-					,{
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts['question-10'] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts['answer-10'] ); ?>"
-						}
-					}
-					<?php } ?>
+					} 
+					?>
 				]
 			}
 		</script>
@@ -149,119 +74,23 @@ function ms_faq( $atts ) {
 
 		<div class="Faq <?= esc_html( $atts['is-wide'] === 'true' ? 'Post__m__negative':'' ); //@codingStandardsIgnoreLine ?>">
 			<h2 id="faq"><?= esc_html( $atts['headline'] ); ?></h2>
-
-			<?php if ( $atts['question-1'] ) { ?>
-				<div class="Faq__item">
-					<h3><?= esc_html( $atts['question-1'] ); ?></h3>
-					<div class="Faq__outer-wrapper">
-						<div class="Faq__inner-wrapper">
-							<p><?= esc_html( $atts['answer-1'] ); ?></p>
+			<?php
+			for ( $i = 1; $i <= 15; ++$i ) {
+				if ( $atts[ 'question-' . $i ] && $atts[ 'answer-' . $i ] ) {
+					?>
+					<div class="Faq__item">
+						<h3><?= esc_html( $atts['question-' . $i] ); ?></h3>
+						<div class="Faq__outer-wrapper">
+							<div class="Faq__inner-wrapper">
+								<p><?= esc_html( $atts['answer-' . $i] ); ?></p>
+							</div>
 						</div>
 					</div>
-				</div>
-			<?php } ?>
-
-			<?php if ( $atts['question-2'] ) { ?>
-				<div class="Faq__item">
-					<h3><?= esc_html( $atts['question-2'] ); ?></h3>
-					<div class="Faq__outer-wrapper">
-						<div class="Faq__inner-wrapper">
-							<p><?= esc_html( $atts['answer-2'] ); ?></p>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-
-			<?php if ( $atts['question-3'] ) { ?>
-				<div class="Faq__item">
-					<h3><?= esc_html( $atts['question-3'] ); ?></h3>
-					<div class="Faq__outer-wrapper">
-						<div class="Faq__inner-wrapper">
-							<p><?= esc_html( $atts['answer-3'] ); ?></p>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-
-			<?php if ( $atts['question-4'] ) { ?>
-				<div class="Faq__item">
-					<h3><?= esc_html( $atts['question-4'] ); ?></h3>
-					<div class="Faq__outer-wrapper">
-						<div class="Faq__inner-wrapper">
-							<p><?= esc_html( $atts['answer-4'] ); ?></p>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-
-			<?php if ( $atts['question-5'] ) { ?>
-				<div class="Faq__item">
-					<h3><?= esc_html( $atts['question-5'] ); ?></h3>
-					<div class="Faq__outer-wrapper">
-						<div class="Faq__inner-wrapper">
-							<p><?= esc_html( $atts['answer-5'] ); ?></p>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-
-			<?php if ( $atts['question-6'] ) { ?>
-				<div class="Faq__item">
-					<h3><?= esc_html( $atts['question-6'] ); ?></h3>
-					<div class="Faq__outer-wrapper">
-						<div class="Faq__inner-wrapper">
-							<p><?= esc_html( $atts['answer-6'] ); ?></p>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-
-			<?php if ( $atts['question-7'] ) { ?>
-				<div class="Faq__item">
-					<h3><?= esc_html( $atts['question-7'] ); ?></h3>
-					<div class="Faq__outer-wrapper">
-						<div class="Faq__inner-wrapper">
-							<p><?= esc_html( $atts['answer-7'] ); ?></p>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-
-			<?php if ( $atts['question-8'] ) { ?>
-				<div class="Faq__item">
-					<h3><?= esc_html( $atts['question-8'] ); ?></h3>
-					<div class="Faq__outer-wrapper">
-						<div class="Faq__inner-wrapper">
-							<p><?= esc_html( $atts['answer-8'] ); ?></p>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-
-			<?php if ( $atts['question-9'] ) { ?>
-				<div class="Faq__item">
-					<h3><?= esc_html( $atts['question-9'] ); ?></h3>
-					<div class="Faq__outer-wrapper">
-						<div class="Faq__inner-wrapper">
-							<p><?= esc_html( $atts['answer-9'] ); ?></p>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-
-			<?php if ( $atts['question-10'] ) { ?>
-				<div class="Faq__item">
-					<h3><?= esc_html( $atts['question-10'] ); ?></h3>
-					<div class="Faq__outer-wrapper">
-						<div class="Faq__inner-wrapper">
-							<p><?= esc_html( $atts['answer-10'] ); ?></p>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
+				<?php }
+			} ?>
 		</div>
 
 	<?php
 	return ob_get_clean();
 }
-add_shortcode( 'faq', 'ms_faq' );
+add_shortcode( 'extrafaq', 'ms_extrafaq' );
