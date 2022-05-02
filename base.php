@@ -28,7 +28,7 @@
 		</div>
 
 		<?php wp_footer(); ?>
-
+		
 		<script>
 			const getCookieFrontend = ( name ) => {
 				const nameEq = `${name}=`
