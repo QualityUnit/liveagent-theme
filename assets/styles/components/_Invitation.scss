@@ -28,7 +28,7 @@ div[title*="Invitation"] {
 		}
 	}
 
-	.closeButton {
+	.closeButton { /* stylelint-disable-line */
 		top: -24px !important;
 	}
 
@@ -46,6 +46,13 @@ div[title*="Invitation"] {
 		color: $dark-orange !important;
 		padding: 0 1em !important;
 
+		&::before {
+			content: url(../images/icon-send.svg);
+			display: inline-block;
+			line-height: 1;
+			margin-right: 0.5em;
+		}
+
 		&:hover {
 			background-color: $dark-orange;
 			color: $white !important;
@@ -55,11 +62,5 @@ div[title*="Invitation"] {
 			}
 		}
 
-		&::before {
-			content: url(../images/icon-send.svg);
-			display: inline-block;
-			line-height: 1;
-			margin-right: 0.5em;
-		}
 	}
 }
