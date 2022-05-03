@@ -137,44 +137,18 @@
 				<?php the_content(); ?>
 
 				<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q1', true ) ) { ?>
-					<div class="hidden">
-						<script type="application/ld+json">
-							{
-								"@context": "https://schema.org",
-								"@type": "FAQPage",
-								"mainEntity": [
-
-									<?php 
-									for ( $i = 1; $i <= 15; ++$i ) {
-										if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ) {
-											?>
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-a' . $i, true ) ) ) ); ?>"
-										}
-										<?php 
-										}
-									} 
-									?>
-								]
-							}
-						</script>
-					</div>
-
 					<div class="Post__m__negative">
 						<h2 id="faq"><?php _e( 'FAQ', 'ms' ); ?></h2>
-						<div class="Faq">
+						<div class="Faq" itemscope itemtype="https://schema.org" itemprop="FAQpage">
 						<?php
 						for ( $i = 1; $i <= 15; ++$i ) {
 							if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ) {
 								?>
 								<div class="Faq__item">
-									<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ); ?></h3>
+									<h3 itemprop="Question"><?= esc_html( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ); ?></h3>
 									<div class="Faq__outer-wrapper">
 										<div class="Faq__inner-wrapper">
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-a' . $i, true ) ); ?></p>
+											<p itemprop="Answer"><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-a' . $i, true ) ); ?></p>
 										</div>
 									</div>
 								</div>
