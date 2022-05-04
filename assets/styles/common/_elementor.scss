@@ -1,5 +1,16 @@
 /* stylelint-disable selector-class-pattern */
 
+@media (max-width: $breakpoint-tablet) {
+
+	.BlockPricing,
+	.Block .startusing {
+
+		.Button--full {
+			margin-bottom: 1.5em !important;
+		}
+	}
+}
+
 //hotfix removal of custom-frontend-legacy padding suddenly appearing
 .elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated > .elementor-widget-wrap {
 	padding: 0 !important;
