@@ -62,7 +62,9 @@
 				grafana();
 				gtm();
 				buttonWrap();
-				createButton();
+				if ( typeof createButton == 'function' ) {
+					createButton();
+				}
 				postAffiliate();
 			});
 
