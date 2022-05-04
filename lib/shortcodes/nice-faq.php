@@ -51,50 +51,24 @@ function ms_nicefaq( $atts ) {
 			'answer15'   => '',
 		),
 		$atts,
-		'faq'
+		'nicefaq'
 	);
 
 	ob_start();
 	?>
 
 	<?php if ( 'yes' === $atts['schema'] ) { ?>
-		<div class="hidden">
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "FAQPage",
-				"mainEntity": [
-					<?php 
-					for ( $i = 1; $i <= 15; ++$i ) {
-						if ( $atts[ 'question' . $i ] ) {
-							?>
-							<?= $i > 1 ? ',' : '' ?>{
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts[ 'question' . $i ] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts[ 'answer' . $i ] ); ?>"
-						}
-					}
-							<?php 
-						}
-					} 
-					?>
-				]
-			}
-		</script>
-		</div>
 		<?php } ?>
 
-		<div class="Faq">
+		<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
 			<?php 
 			for ( $i = 1; $i <= 15; ++$i ) {
 				if ( $atts[ 'title' . $i ] && $atts[ 'question' . $i ] && $atts[ 'answer' . $i ] ) { 
 					?>
-					<div class="Faq__item">
-						<h3><?= esc_html( $atts['question' . $i] ); ?></h3>
-						<div class="Faq__outer-wrapper">
-							<div class="Faq__inner-wrapper">
+					<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+						<h3 itemprop="name"><?= esc_html( $atts['question' . $i] ); ?></h3>
+						<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+							<div class="Faq__inner-wrapper" itemprop="text">
 								<p><?= esc_html( $atts['answer' . $i] ); ?></p>
 							</div>
 						</div>
@@ -109,11 +83,6 @@ function ms_nicefaq( $atts ) {
 	set_custom_source( 'components/NiceFaq' );
 	set_custom_source( 'nicefaq', 'js' );
 
-	if ( isset( $atts['question-9'] ) ) {
-		set_custom_source( 'common/splide' );
-		set_custom_source( 'splide', 'js' );
-		set_custom_source( 'slider', 'js' );
-	}
 	return ob_get_clean();
 }
 add_shortcode( 'nicefaq', 'ms_nicefaq' );

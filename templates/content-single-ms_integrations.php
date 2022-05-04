@@ -139,16 +139,16 @@
 				<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q1', true ) ) { ?>
 					<div class="Post__m__negative">
 						<h2 id="faq"><?php _e( 'FAQ', 'ms' ); ?></h2>
-						<div class="Faq" itemscope itemtype="https://schema.org" itemprop="FAQpage">
+						<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
 						<?php
 						for ( $i = 1; $i <= 15; ++$i ) {
 							if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ) {
 								?>
-								<div class="Faq__item">
-									<h3 itemprop="Question"><?= esc_html( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ); ?></h3>
-									<div class="Faq__outer-wrapper">
-										<div class="Faq__inner-wrapper">
-											<p itemprop="Answer"><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-a' . $i, true ) ); ?></p>
+								<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+									<h3 itemprop="name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ); ?></h3>
+									<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+										<div class="Faq__inner-wrapper" itemprop="text">
+											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-a' . $i, true ) ); ?></p>
 										</div>
 									</div>
 								</div>

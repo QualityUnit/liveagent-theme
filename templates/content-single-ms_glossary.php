@@ -59,230 +59,24 @@
 				<?php the_content(); ?>
 
 				<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q1', true ) ) { ?>
-					<div class="hidden">
-						<script type="application/ld+json">
-							{
-								"@context": "https://schema.org",
-								"@type": "FAQPage",
-								"mainEntity": [
-									<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q1', true ) ) { ?>
-									{
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q1', true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a1', true ) ) ) ); ?>"
-										}
-									}
-									<?php } ?>
-									<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q2', true ) ) { ?>
-									,{
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q2', true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a2', true ) ) ) ); ?>"
-										}
-									}
-									<?php } ?>
-									<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q3', true ) ) { ?>
-									,{
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q3', true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a3', true ) ) ) ); ?>"
-										}
-									}
-									<?php } ?>
-									<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q4', true ) ) { ?>
-									,{
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q4', true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a4', true ) ) ) ); ?>"
-										}
-									}
-									<?php } ?>
-									<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q5', true ) ) { ?>
-									,{
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q5', true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a5', true ) ) ) ); ?>"
-										}
-									}
-									<?php } ?>
-									<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q6', true ) ) { ?>
-									,{
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q6', true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a6', true ) ) ) ); ?>"
-										}
-									}
-									<?php } ?>
-									<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q7', true ) ) { ?>
-									,{
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q7', true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a7', true ) ) ) ); ?>"
-										}
-									}
-									<?php } ?>
-									<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q8', true ) ) { ?>
-									,{
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q8', true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a8', true ) ) ) ); ?>"
-										}
-									}
-									<?php } ?>
-									<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q9', true ) ) { ?>
-									,{
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q9', true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a9', true ) ) ) ); ?>"
-										}
-									}
-									<?php } ?>
-									<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q10', true ) ) { ?>
-									,{
-										"@type": "Question",
-										"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q10', true ) ) ) ); ?>",
-										"acceptedAnswer": {
-											"@type": "Answer",
-											"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a10', true ) ) ) ); ?>"
-										}
-									}
-									<?php } ?>
-								]
-							}
-						</script>
-					</div>
-
 						<div class="Post__m__negative">
 							<h2 id="faq"><?php _e( 'FAQ', 'ms' ); ?></h2>
+							<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
 
-							<div class="Faq">
-								<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q1', true ) ) { ?>
-									<div class="Faq__item">
-										<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q1', true ) ); ?></h3>
-										<div class="Faq__outer-wrapper">
-											<div class="Faq__inner-wrapper">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a1', true ) ); ?></p>
+							<?php
+							for ( $i = 1; $i <= 15; ++$i ) {
+								if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q' . $i, true ) ) {
+									?>
+									<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+										<h3 itemprop="name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q' . $i, true ) ); ?></h3>
+										<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+											<div class="Faq__inner-wrapper" itemprop="text">
+												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a' . $i, true ) ); ?></p>
 											</div>
 										</div>
 									</div>
-								<?php } ?>
-
-								<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q2', true ) ) { ?>
-									<div class="Faq__item">
-										<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q2', true ) ); ?></h3>
-										<div class="Faq__outer-wrapper">
-											<div class="Faq__inner-wrapper">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a2', true ) ); ?></p>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-
-								<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q3', true ) ) { ?>
-									<div class="Faq__item">
-										<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q3', true ) ); ?></h3>
-										<div class="Faq__outer-wrapper">
-											<div class="Faq__inner-wrapper">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a3', true ) ); ?></p>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-
-								<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q4', true ) ) { ?>
-									<div class="Faq__item">
-										<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q4', true ) ); ?></h3>
-										<div class="Faq__outer-wrapper">
-											<div class="Faq__inner-wrapper">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a4', true ) ); ?></p>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-
-								<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q5', true ) ) { ?>
-									<div class="Faq__item">
-										<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q5', true ) ); ?></h3>
-										<div class="Faq__outer-wrapper">
-											<div class="Faq__inner-wrapper">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a5', true ) ); ?></p>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-
-								<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q6', true ) ) { ?>
-									<div class="Faq__item">
-										<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q6', true ) ); ?></h3>
-										<div class="Faq__outer-wrapper">
-											<div class="Faq__inner-wrapper">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a6', true ) ); ?></p>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-
-								<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q7', true ) ) { ?>
-									<div class="Faq__item">
-										<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q7', true ) ); ?></h3>
-										<div class="Faq__outer-wrapper">
-											<div class="Faq__inner-wrapper">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a7', true ) ); ?></p>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-
-								<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q8', true ) ) { ?>
-									<div class="Faq__item">
-										<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q8', true ) ); ?></h3>
-										<div class="Faq__outer-wrapper">
-											<div class="Faq__inner-wrapper">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a8', true ) ); ?></p>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-
-								<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q9', true ) ) { ?>
-									<div class="Faq__item">
-										<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q9', true ) ); ?></h3>
-										<div class="Faq__outer-wrapper">
-											<div class="Faq__inner-wrapper">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a9', true ) ); ?></p>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-
-								<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q10', true ) ) { ?>
-									<div class="Faq__item">
-										<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q10', true ) ); ?></h3>
-										<div class="Faq__outer-wrapper">
-											<div class="Faq__inner-wrapper">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-a10', true ) ); ?></p>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
+								<?php }
+							} ?>
 							</div>
 						</div>
 				<?php } ?>

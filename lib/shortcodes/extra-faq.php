@@ -38,50 +38,25 @@ function ms_extrafaq( $atts ) {
 			'answer-15'   => '',
 		),
 		$atts,
-		'faq'
+		'extrafaq'
 	);
 
 	ob_start();
 	?>
 
 	<?php if ( 'yes' === $atts['schema'] ) { ?>
-		<div class="hidden">
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "FAQPage",
-				"mainEntity": [
-					<?php 
-					for ( $i = 1; $i <= 15; ++$i ) {
-						if ( $atts[ 'question-' . $i ] ) {
-							?>
-							
-						"@type": "Question",
-						"name": "<?= esc_attr( $atts[ 'question-' . $i ] ); ?>",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "<?= esc_attr( $atts[ 'answer-' . $i ] ); ?>"
-						}
-						<?php 
-						}
-					} 
-					?>
-				]
-			}
-		</script>
-		</div>
 		<?php } ?>
 
-		<div class="Faq <?= esc_html( $atts['is-wide'] === 'true' ? 'Post__m__negative':'' ); //@codingStandardsIgnoreLine ?>">
+		<div class="Faq <?= esc_html( $atts['is-wide'] === 'true' ? 'Post__m__negative':'' ); //@codingStandardsIgnoreLine ?>" itemscope itemtype="https://schema.org/FAQPage">
 			<h2 id="faq"><?= esc_html( $atts['headline'] ); ?></h2>
 			<?php
 			for ( $i = 1; $i <= 15; ++$i ) {
 				if ( $atts[ 'question-' . $i ] && $atts[ 'answer-' . $i ] ) {
 					?>
-					<div class="Faq__item">
-						<h3><?= esc_html( $atts['question-' . $i] ); ?></h3>
-						<div class="Faq__outer-wrapper">
-							<div class="Faq__inner-wrapper">
+					<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+						<h3 itemprop="name"><?= esc_html( $atts['question-' . $i] ); ?></h3>
+						<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+							<div class="Faq__inner-wrapper" itemprop="text">
 								<p><?= esc_html( $atts['answer-' . $i] ); ?></p>
 							</div>
 						</div>

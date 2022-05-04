@@ -571,43 +571,15 @@
 				<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q1', true ) ) ) { ?>
 						<div class="Post__m__negative">
 							<h2 id="faq"><span><?php _e( 'FAQ', 'ms' ); ?></span></h2>
-
-								<div class="hidden">
-									<script type="application/ld+json">
-										{
-											"@context": "https://schema.org",
-											"@type": "FAQPage",
-											"mainEntity": [
-												<?php 
-												for ( $i = 1; $i <= 15; ++$i ) {
-													if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q' . $i, true ) ) {
-														?>
-							
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q' . $i, true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a' . $i, true ) ) ) ); ?>"
-													}
-													<?php 
-													}
-												} 
-												?>
-											]
-										}
-									</script>
-								</div>
-
-								<div class="Faq">
-
+								<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
 								<?php
 								for ( $i = 1; $i <= 15; ++$i ) {
 									if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q' . $i, true ) && get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a' . $i, true ) ) {
 										?>
-										<div class="Faq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q' . $i, true ) ); ?></h3>
-											<div class="Faq__outer-wrapper">
-												<div class="Faq__inner-wrapper">
+										<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+											<h3 itemprop="name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q' . $i, true ) ); ?></h3>
+											<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+												<div class="Faq__inner-wrapper" itemprop="text">
 													<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a' . $i, true ) ); ?></p>
 												</div>
 											</div>
