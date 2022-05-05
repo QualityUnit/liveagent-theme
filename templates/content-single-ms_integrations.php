@@ -141,7 +141,7 @@
 						<h2 id="faq"><?php _e( 'FAQ', 'ms' ); ?></h2>
 						<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
 						<?php
-						for ( $i = 1; $i <= 15; ++$i ) {
+						for ( $i = 1; $i <= 10; ++$i ) {
 							if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ) {
 								?>
 								<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
