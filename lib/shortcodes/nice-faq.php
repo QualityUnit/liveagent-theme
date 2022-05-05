@@ -96,11 +96,12 @@ function ms_nicefaq( $atts ) {
 							</div>
 						</div>
 					</div>
-					<?php 
-				}
-			} 
-			?>
-		</div>
+				</div>
+				<?php 
+			}
+		} 
+		?>
+	</div>
 
 	<?php
 	set_custom_source( 'components/NiceFaq' );
