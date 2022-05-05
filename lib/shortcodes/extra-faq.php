@@ -43,27 +43,25 @@ function ms_extrafaq( $atts ) {
 
 	ob_start();
 	?>
-
-	<?php if ( 'yes' === $atts['schema'] ) { ?>
-		<?php } ?>
-
-		<div class="Faq <?= esc_html( $atts['is-wide'] === 'true' ? 'Post__m__negative':'' ); //@codingStandardsIgnoreLine ?>" itemscope itemtype="https://schema.org/FAQPage">
-			<h2 id="faq"><?= esc_html( $atts['headline'] ); ?></h2>
-			<?php
-			for ( $i = 1; $i <= 15; ++$i ) {
-				if ( $atts[ 'question-' . $i ] && $atts[ 'answer-' . $i ] ) {
-					?>
-					<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-						<h3 itemprop="name"><?= esc_html( $atts['question-' . $i] ); ?></h3>
-						<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-							<div class="Faq__inner-wrapper" itemprop="text">
-								<p><?= esc_html( $atts['answer-' . $i] ); ?></p>
-							</div>
+	<div class="Faq <?= esc_html( $atts['is-wide'] === 'true' ? 'Post__m__negative':'' ); //@codingStandardsIgnoreLine ?>" itemscope itemtype="https://schema.org/FAQPage">
+		<h2 id="faq"><?= esc_html( $atts['headline'] ); ?></h2>
+		<?php
+		for ( $i = 1; $i <= 15; ++$i ) {
+			if ( $atts[ 'question-' . $i ] && $atts[ 'answer-' . $i ] ) {
+				?>
+				<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<h3 itemprop="name"><?= esc_html( $atts[ 'question-' . $i ] ); ?></h3>
+					<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<div class="Faq__inner-wrapper" itemprop="text">
+							<p><?= esc_html( $atts[ 'answer-' . $i ] ); ?></p>
 						</div>
 					</div>
-				<?php }
-			} ?>
-		</div>
+				</div>
+				<?php
+			}
+		}
+		?>
+	</div>
 
 	<?php
 	return ob_get_clean();

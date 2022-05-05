@@ -66,10 +66,10 @@ function ms_nicefaq( $atts ) {
 				if ( $atts[ 'title' . $i ] && $atts[ 'question' . $i ] && $atts[ 'answer' . $i ] ) { 
 					?>
 					<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-						<h3 itemprop="name"><?= esc_html( $atts['question' . $i] ); ?></h3>
+						<h3 itemprop="name"><?= esc_html( $atts[ 'question' . $i ] ); ?></h3>
 						<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 							<div class="Faq__inner-wrapper" itemprop="text">
-								<p><?= esc_html( $atts['answer' . $i] ); ?></p>
+								<p><?= esc_html( $atts[ 'answer' . $i ] ); ?></p>
 							</div>
 						</div>
 					</div>
