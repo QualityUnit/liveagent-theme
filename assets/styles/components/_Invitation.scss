@@ -1,0 +1,66 @@
+div[title*="Invitation"] {
+	margin-left: 0 !important;
+	left: auto !important;
+	right: 20px !important;
+	top: auto !important;
+	bottom: 100px !important;
+
+	> div {
+		padding: 1.125em !important;
+		box-shadow: 0 20px 90px 10px rgba(0, 0, 0, 0.12) !important;
+		border-radius: $border-radius-16 !important;
+
+		> div:first-of-type > div:first-of-type {
+
+			&::before {
+
+				@include circle(1.25em, $saturated-green, 3px solid $white);
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				display: block;
+				content: "";
+			}
+		}
+
+		> div:first-of-type > div:last-of-type {
+			display: none;
+		}
+	}
+
+	.closeButton { /* stylelint-disable-line */
+		top: -24px !important;
+	}
+
+	.btn-decline {
+		color: $medium-gray !important;
+
+		&:hover {
+			color: $dark-orange !important;
+		}
+	}
+
+	.btn-accept {
+		display: inline-flex !important;
+		align-items: center;
+		color: $dark-orange !important;
+		padding: 0 1em !important;
+
+		&::before {
+			content: url(../images/icon-send.svg);
+			display: inline-block;
+			line-height: 1;
+			margin-right: 0.5em;
+		}
+
+		&:hover {
+			background-color: $dark-orange;
+			color: $white !important;
+
+			&::before {
+				filter: saturate(0) brightness(1000);
+			}
+		}
+
+	}
+}

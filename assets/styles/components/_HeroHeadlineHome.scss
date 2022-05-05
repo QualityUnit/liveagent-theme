@@ -26,7 +26,7 @@
 	}
 
 	.industry_woman img {
-		mask-image: url(https://cdn.liveagent.com/app/uploads/2021/07/industry_woman_mask.png) !important;
+		mask-image: none !important;
 		mask-size: cover !important;
 		mask-position: center center !important;
 	}
@@ -395,6 +395,19 @@
 			content: "";
 			background: url(../images/heroHeadline_bg.jpg) center top no-repeat;
 			background-size: cover;
+		}
+
+		&::after {
+			position: absolute;
+			content: "";
+			background: url(../images/heroHeadline_badges.png) center top no-repeat;
+			background-size: contain;
+			z-index: 1;
+			width: 20%;
+			height: 0;
+			padding-bottom: 49%;
+			top: 0;
+			right: -2%;
 		}
 
 		.elementor-column-wrap {

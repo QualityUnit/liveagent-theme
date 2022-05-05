@@ -4,13 +4,18 @@
 
 	&-wrapper {
 
-		@include color(background-color, secondary-background);
-		display: flex;
-		flex-flow: wrap row;
+		display: flex !important;
+		flex-flow: column;
 		justify-content: center;
 		align-items: center;
 		border-radius: $border-radius-16;
-		margin: 0 auto 3.5em;
+
+		@media (min-width: $breakpoint-tablet) {
+
+			@include color(background-color, secondary-background);
+			margin: 0 auto 3.5em;
+			flex-flow: wrap row;
+		}
 
 		@media (min-width: $breakpoint-desktop) {
 			max-width: calc(100% - 5em);
@@ -84,28 +89,9 @@
 				display: flex;
 			}
 		}
-	}
-}
 
-.elementor-tabs-content-wrapper { /* stylelint-disable-line no-duplicate-selectors */
-
-	.elementor-tab-title {
-
-		@include color(background, background);
-		@include color(color, font-color-light);
-		margin: 10px 0 !important;
-		padding: 10px 0 !important;
-		border: 0 !important;
-		font-weight: 700;
-		text-align: center;
-		border-radius: ($border-radius - 2);
-	}
-
-	.elementor-tab-content { /* stylelint-disable-line no-duplicate-selectors */
-		padding: 10px 0 15px !important;
-
-		p {
-			margin: 0 !important;
+		.elementor-tab-mobile-title {
+			display: none !important;
 		}
 	}
 }

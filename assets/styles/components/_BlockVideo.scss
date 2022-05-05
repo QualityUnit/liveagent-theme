@@ -7,11 +7,14 @@
 	height: 100%;
 
 
-	.elementor-widget-container,
-	.elementor-widget-container * {
-		height: 100% !important;
-		padding-bottom: 0;
-		overflow: visible;
+	@media (min-width: 800px) {
+
+		.elementor-widget-container,
+		.elementor-widget-container * {
+			height: 100% !important;
+			padding-bottom: 0;
+			overflow: visible;
+		}
 	}
 
 	.youtube__loader {
@@ -26,7 +29,7 @@
 			all: unset;
 			position: absolute;
 			content: "";
-			width: 29.69%;
+			width: 50%;
 			height: 0;
 			padding-bottom: 52%;
 			background: url(../images/press_to_play.svg) center center no-repeat;
@@ -38,6 +41,10 @@
 			@media (max-width: $breakpoint-tablet) {
 				left: 50%;
 				transform: translate(-65%, -50%);
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				width: 29.69%;
 			}
 		}
 
@@ -62,7 +69,14 @@ $positions: ("left", "right");
 		position: absolute;
 		pointer-events: none;
 		z-index: 1;
-		width: 65%;
+		padding: 0 1.5em;
+		top: 2em;
+
+		@media (min-width: 800px) {
+			top: auto;
+			width: 65%;
+			padding: 0;
+		}
 
 		.elementor-text-editor {
 			width: 100%;
@@ -122,10 +136,11 @@ $positions: ("left", "right");
 		&::after,
 		& {
 			border-radius: $border-radius-16;
+			overflow: hidden;
 		}
 	}
 
-	@media (min-width: $breakpoint-tablet-landscape) {
+	@media (min-width: 800px) {
 
 		&.image-left {
 
@@ -178,10 +193,11 @@ $positions: ("left", "right");
 		@each $pos in $positions {
 			&-#{$pos} {
 
-				@media (min-width: $breakpoint-tablet) {
+				@media (min-width: 800px) {
 
 					.wrapper {
-						#{$pos}: calc(-50vw + 590px - 20px);
+						padding: 0;
+						width: 100vw;
 
 						.elementor-column {
 
@@ -207,14 +223,14 @@ $positions: ("left", "right");
 						@if $pos == left {
 
 							.elementor-column:last-of-type {
-								width: 60%;
+								width: 80%;
 							}
 						}
 
 						@if $pos == right {
 
 							.elementor-column:first-of-type {
-								width: 60%;
+								width: 80%;
 							}
 						}
 
@@ -250,7 +266,23 @@ $positions: ("left", "right");
 
 					.wrapper {
 						#{$pos}: calc(-50vw + 690px - 20px);
+						width: 100%;
+
+						@if $pos == left {
+
+							.elementor-column:last-of-type {
+								width: 60%;
+							}
+						}
+
+						@if $pos == right {
+
+							.elementor-column:first-of-type {
+								width: 60%;
+							}
+						}
 					}
+
 				}
 
 				@media (min-width: $breakpoint-desktop-hd + 1px) {
@@ -258,6 +290,7 @@ $positions: ("left", "right");
 					.wrapper {
 						#{$pos}: auto;
 					}
+
 				}
 			}
 		}

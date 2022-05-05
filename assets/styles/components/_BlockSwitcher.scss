@@ -7,17 +7,6 @@
 		background-size: cover;
 	}
 
-	@media (max-width: $breakpoint-tablet) {
-
-		.elementor-row {
-
-			.elementor-col-50.elementor-col-50 {
-				padding-left: 2.5em !important;
-				padding-right: 2.5em !important;
-			}
-		}
-	}
-
 	@media (max-width: $breakpoint-tablet-landscape) {
 
 		.elementor-inner-section {
@@ -40,21 +29,42 @@
 			background-size: contain;
 		}
 
+
+	}
+
+	@media (min-width: $breakpoint-desktop-box) {
+
 		.elementor-image {
 			padding: 0 !important;
 			width: 120% !important;
 			max-width: none !important;
 			max-height: none;
 		}
+
+		.elementor-row {
+
+			.elementor-col-50.elementor-col-50 {
+				padding-left: 2.5em !important;
+				padding-right: 2.5em !important;
+			}
+		}
 	}
 
 
 	.switcher {
 		display: flex;
-		margin: 0 6em 2em;
 
 		@media (max-width: $breakpoint-tablet-landscape) {
-			margin-top: 2em;
+			margin: 2em 0;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			justify-content: center;
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			margin: 2em 6em;
+			justify-content: flex-start;
 		}
 
 		&__input {
@@ -111,6 +121,7 @@
 			@include color(color, font-color-medium);
 			position: relative;
 			font-family: $font-secondary;
+			font-size: 0.875rem;
 			font-weight: 600;
 			cursor: pointer;
 			transition: color 0.2s;
@@ -152,6 +163,13 @@
 				border-radius: 50%;
 				background: linear-gradient(to right, $white 0%, $pricing-gray 100%);
 				box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			label {
+				font-size: 1rem;
 			}
 		}
 	}

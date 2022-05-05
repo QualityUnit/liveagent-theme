@@ -171,6 +171,30 @@ button,
 	}
 }
 
+.Button--knockout {
+
+	@include color(background-color, main-background);
+	mix-blend-mode: screen;
+	transition: all 0.2s;
+
+	span {
+		color: $black-real;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		@include color(background-color, content-color-dark);
+		mix-blend-mode: normal;
+
+		span {
+
+			@include color(color, font-color-light);
+		}
+	}
+}
+
 .Button--outline {
 
 	@include color(color, font-color-dark);
@@ -192,6 +216,23 @@ button,
 
 		@include color(color, primary-color);
 		@include color(border-color, primary-color);
+	}
+
+	&__white {
+
+		@include color(color, font-color-light);
+		border-width: 2px;
+		padding: 0.5em 1.5em;
+
+		&:active,
+		&:focus,
+		&:hover {
+
+			@include color(background-color, main-background);
+			@include color(border-color, font-color-light);
+			color: $black-real;
+			mix-blend-mode: screen;
+		}
 	}
 }
 

@@ -3,11 +3,13 @@
 function ms_discover( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'title'  => '',
-			'text'   => '',
-			'button' => '',
-			'link'   => '',
-			'type'   => 'discover',
+			'title'      => '',
+			'text'       => '',
+			'button'     => '',
+			'buttonDemo' => '',
+			'link'       => '',
+			'linkDemo'   => '/demo',
+			'type'       => 'discover',
 		),
 		$atts,
 		'discover'
@@ -17,12 +19,18 @@ function ms_discover( $atts ) {
 	?>
 
 	<div class="BlockDiscover BlockDiscover--<?= esc_attr( $atts['type'] ); ?>">
-		<p><strong><?= esc_html( $atts['title'] ); ?></strong></p>
+		<h4><?= esc_html( $atts['title'] ); ?></h4>
 		<p><?= esc_html( $atts['text'] ); ?></p>
 
-		<a href="<?= esc_url( $atts['link'] ); ?>" class="Button Button--white">
-			<span><?= esc_html( $atts['button'] ); ?></span>
-		</a>
+		<div class="BlockDiscover__buttons">
+			<a href="<?= esc_url( $atts['link'] ); ?>" class="Button Button--knockout">
+				<span><?= esc_html( $atts['button'] ); ?></span>
+			</a>
+			<a href="<?= esc_url( $atts['linkDemo'] ); ?>" class="Button Button--outline Button--outline__white">
+				<span><?= esc_html( strlen( $atts['buttonDemo'] ) > 0 ? $atts['buttonDemo'] : __( 'Schedule a Demo', 'ms' ) ); ?></span>
+			</a>
+		</div>
+
 	</div>
 
 	<?php
