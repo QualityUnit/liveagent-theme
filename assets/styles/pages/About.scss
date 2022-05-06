@@ -428,12 +428,13 @@
 		}
 
 		p {
+
+			@include color(background-color, main-background);
 			position: relative;
 			border: 1px solid #eee;
 			border-radius: 1em;
 			padding: 2em;
-			width: 100%;
-			margin-top: $negativeTop;
+			margin-top: 3em;
 
 			strong {
 				display: inline-block;
@@ -447,23 +448,39 @@
 				@include color(background-color, primary-color);
 				content: "";
 				box-shadow: 0 0 0 6px #fff;
-				top: 50%;
-				transform: translateY(-50%);
+				bottom: calc(100% + 0.5em);
+				left: 50%;
+				transform: translateX(-50%);
 			}
+		}
 
-			&:nth-of-type(even) {
-				margin-left: calc(50% + 3em);
+		@media (min-width: $breakpoint-tablet) {
+
+			p {
+				width: calc(50% - 3em);
+				margin-top: $negativeTop;
 
 				&::after {
-					left: calc(-3em - 7px);
+					top: 50%;
+					bottom: auto;
+					left: auto;
+					transform: translateY(-50%);
 				}
-			}
 
-			&:nth-of-type(odd) {
-				margin-right: calc(50% + 3em);
+				&:nth-of-type(even) {
+					margin-left: calc(50% + 3em);
 
-				&::after {
-					right: calc(-3em - 7px);
+					&::after {
+						left: calc(-3em - 7px);
+					}
+				}
+
+				&:nth-of-type(odd) {
+					margin-right: calc(50% + 3em);
+
+					&::after {
+						right: calc(-3em - 7px);
+					}
 				}
 			}
 		}

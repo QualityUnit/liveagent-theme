@@ -1300,10 +1300,10 @@
   resolved "https://registry.yarnpkg.com/@wordpress/babel-plugin-import-jsx-pragma/-/babel-plugin-import-jsx-pragma-3.1.2.tgz#71596ae30b390ddb23680147011a26dce11f88e1"
   integrity sha512-oMJnM3cJlu1hQMO4XmTFDhNPclj0cLRIeV5Y6uIF/9oNhhSfaMFu+ty0B4zBYodqwes/vbndwRg4j2q2bhG/Dg==
 
-"@wordpress/babel-preset-default@^6.9.0":
-  version "6.9.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/babel-preset-default/-/babel-preset-default-6.9.0.tgz#e5db211ae30360330b99832da8511030da307c7f"
-  integrity sha512-kwkkg/WaIv8BtiGJN6cWHaTm1tFKkMhawkQepJcIRDz5VAPEL8+iIreuUNLGkqoN9sZMVdnGPk2Uc0fPqE91Xg==
+"@wordpress/babel-preset-default@^6.10.0":
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/babel-preset-default/-/babel-preset-default-6.10.0.tgz#eeb50140c2c2b30af066ecfb99d850499452f0c2"
+  integrity sha512-L1zkeIi891SO761RzIve+C4aMbXPu8AC/i5d0rQZiqlaQ+kZ/t5HNfxNI+iJQP5lA0tZlO0+vF7CRhQ7+zSz6g==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/plugin-transform-react-jsx" "^7.16.0"
@@ -1313,8 +1313,8 @@
     "@babel/runtime" "^7.16.0"
     "@wordpress/babel-plugin-import-jsx-pragma" "^3.1.2"
     "@wordpress/browserslist-config" "^4.1.2"
-    "@wordpress/element" "^4.5.0"
-    "@wordpress/warning" "^2.7.0"
+    "@wordpress/element" "^4.6.0"
+    "@wordpress/warning" "^2.8.0"
     browserslist "^4.17.6"
     core-js "^3.19.1"
 
@@ -1323,35 +1323,35 @@
   resolved "https://registry.yarnpkg.com/@wordpress/browserslist-config/-/browserslist-config-4.1.2.tgz#3d33e6316af269f2478bd6b0923aadd73cb08612"
   integrity sha512-UH0Ifmm4tEjVPOtiqH6yxDvk2EKtqSAhnyhyfSIb0wUnEoGsWTjREZjzuhgjt/I2nTqfg+0gUSzL5D0yQH6wDQ==
 
-"@wordpress/element@^4.5.0":
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/element/-/element-4.5.0.tgz#2309715db74535f09787a821580b318591172891"
-  integrity sha512-24/QUS/EYZQY/qH3Mm9ntrwbuKZN7/lYK752NFquVMq1RtWfhEulVXxgLprIm08c2Rsb8u8dJ8YdqVougo/8JQ==
+"@wordpress/element@^4.6.0":
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/element/-/element-4.6.0.tgz#711cc23859494aff6ed41995ac356e9f6ce11736"
+  integrity sha512-CDj6LA+0HQ2qVHO4zTb6xjOcmcbEU+VT3X7wQa8sFrx9aIIuLllBwKteRon8JubXoOxibN2s86jmMF1RlwbRjg==
   dependencies:
     "@babel/runtime" "^7.16.0"
     "@types/react" "^17.0.37"
     "@types/react-dom" "^17.0.11"
-    "@wordpress/escape-html" "^2.7.0"
+    "@wordpress/escape-html" "^2.8.0"
     lodash "^4.17.21"
     react "^17.0.2"
     react-dom "^17.0.2"
 
-"@wordpress/escape-html@^2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/escape-html/-/escape-html-2.7.0.tgz#40f2db2e159c8057158a481e877c1c9d26d12372"
-  integrity sha512-PDTAImkw0yDrW06NSO2qLklm0QXegoykVZWci5xa8qnYSCBrkBrzv9G3cHtCKsGZzfZ43WYYKIpO6srJyM+l0A==
+"@wordpress/escape-html@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/escape-html/-/escape-html-2.8.0.tgz#163812d532efa0d0cdf28aa3d9e412383f11b51a"
+  integrity sha512-a7R5H3K+1P9NtXOw0E0dQG35pnRqm6iv/nMHIwh4VZIiFNpdB/GkZBSpkB8jaPKiYnCjsT8R+q0/qeLt+5eKTQ==
   dependencies:
     "@babel/runtime" "^7.16.0"
 
 "@wordpress/eslint-plugin@^12":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/eslint-plugin/-/eslint-plugin-12.1.0.tgz#9e98bf8b25173dce668a4863c4b80df42d3e80ab"
-  integrity sha512-NjLBnlYmUJL/W8XBYQhX3h/BhCXdOVa1O+PB1IrBTgu6Lirl1L6Bqr1gY7upX1bGTnjmMyiI7LCNtQu73k+cLA==
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/eslint-plugin/-/eslint-plugin-12.2.0.tgz#c605506ddf504fcbdc1e24b633e39afcf41d5c92"
+  integrity sha512-tXLoZl1A6hh0sFtmcSeIoReZC2e0CAPtdYevnfPeaB1TWY0zHoiyltjdbYZRKooQZ1VKvZ+O4xNGfSWAitAUOQ==
   dependencies:
     "@babel/eslint-parser" "^7.16.0"
     "@typescript-eslint/eslint-plugin" "^5.3.0"
     "@typescript-eslint/parser" "^5.3.0"
-    "@wordpress/babel-preset-default" "^6.9.0"
+    "@wordpress/babel-preset-default" "^6.10.0"
     "@wordpress/prettier-config" "^1.2.0"
     cosmiconfig "^7.0.0"
     eslint-config-prettier "^8.3.0"
@@ -1378,10 +1378,10 @@
     stylelint-config-recommended "^6.0.0"
     stylelint-config-recommended-scss "^5.0.2"
 
-"@wordpress/warning@^2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-2.7.0.tgz#9b0886963d790c2cfe9116e391ad5aea5407cf1a"
-  integrity sha512-mKHqCB63bDdT3OrAQ/iT+D4a4JqljuhJmP2jc+N8+Ta7a8nWglvvS4UGcfMKwEmy/4l49OljAp2o1ClVP62PsA==
+"@wordpress/warning@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-2.8.0.tgz#a1dc8854db5afdfd89336632267e0b54c6f6aa4a"
+  integrity sha512-s9xOJdl0j99JRJ+TGWmJ+WduipMpNDbDilpQ1VCPVJcOy/MiSkU2zMWwpTZcGzKWIktBVOV4R/pLEe0paKc8fA==
 
 "@xmldom/xmldom@^0.7.5":
   version "0.7.5"
@@ -5236,10 +5236,10 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-known-css-properties@^0.24.0:
-  version "0.24.0"
-  resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.24.0.tgz#19aefd85003ae5698a5560d2b55135bf5432155c"
-  integrity sha512-RTSoaUAfLvpR357vWzAz/50Q/BmHfmE6ETSWfutT0AJiw10e6CmcdYRQJlLRd95B53D0Y2aD1jSxD3V3ySF+PA==
+known-css-properties@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.25.0.tgz#6ebc4d4b412f602e5cfbeb4086bd544e34c0a776"
+  integrity sha512-b0/9J1O9Jcyik1GC6KC42hJ41jKwdO/Mq8Mdo5sYN+IuRTXs2YFHZC3kZSx6ueusqa95x3wLYe/ytKjbAfGixA==
 
 kuler@^2.0.0:
   version "2.0.0"
@@ -5729,10 +5729,10 @@ nan@^2.12.1, nan@^2.13.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
 
-nanoid@^3.3.1:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.2.tgz#c89622fafb4381cd221421c69ec58547a1eec557"
-  integrity sha512-CuHBogktKwpm5g2sRgv83jEy2ijFzBwMoYA60orPDR7ynsLijJDqgsi4RDGj3OJpy3Ieb+LYwiRmIOGyytgITA==
+nanoid@^3.3.3:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
+  integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -6411,12 +6411,12 @@ postcss@^6.0.23:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-postcss@^8.3.0, postcss@^8.4.12:
-  version "8.4.12"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.12.tgz#1e7de78733b28970fa4743f7da6f3763648b1905"
-  integrity sha512-lg6eITwYe9v6Hr5CncVbK70SoioNQIq81nsaG86ev5hAidQvmOeETBqs7jm43K2F5/Ley3ytDtriImV6TpNiSg==
+postcss@^8.3.0, postcss@^8.4.13:
+  version "8.4.13"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.13.tgz#7c87bc268e79f7f86524235821dfdf9f73e5d575"
+  integrity sha512-jtL6eTBrza5MPzy8oJLFuUscHDXTV5KcLlqAWHl5q5WYRfnNRGSmOZmOZ1T6Gy7A99mOZfqungmZMpMmCVJ8ZA==
   dependencies:
-    nanoid "^3.3.1"
+    nanoid "^3.3.3"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
@@ -7660,9 +7660,9 @@ stylelint-scss@^4.0.0:
     postcss-value-parser "^4.1.0"
 
 stylelint@^14.8:
-  version "14.8.1"
-  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-14.8.1.tgz#86810ebbd7a3570519c6b11d63dc6e5ee3ff3057"
-  integrity sha512-0YxTop3wTeEVmQWhS7jjLFaBkvfPmffRiJ6eFIDlK++f3OklaobTYFJu32E5u/cIrFLbcW52pLqrYpihA/y0/w==
+  version "14.8.2"
+  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-14.8.2.tgz#801eef74fe6020611e6a515abb9fc7caeb125793"
+  integrity sha512-tjDfexCYfoPdl/xcDJ9Fv+Ko9cvzbDnmdiaqEn3ovXHXasi/hbkt5tSjsiReQ+ENqnz0eltaX/AOO+AlzVdcNA==
   dependencies:
     balanced-match "^2.0.0"
     colord "^2.9.2"
@@ -7682,14 +7682,14 @@ stylelint@^14.8:
     import-lazy "^4.0.0"
     imurmurhash "^0.1.4"
     is-plain-object "^5.0.0"
-    known-css-properties "^0.24.0"
+    known-css-properties "^0.25.0"
     mathml-tag-names "^2.1.3"
     meow "^9.0.0"
     micromatch "^4.0.5"
     normalize-path "^3.0.0"
     normalize-selector "^0.2.0"
     picocolors "^1.0.0"
-    postcss "^8.4.12"
+    postcss "^8.4.13"
     postcss-media-query-parser "^0.2.3"
     postcss-resolve-nested-selector "^0.1.1"
     postcss-safe-parser "^6.0.0"
