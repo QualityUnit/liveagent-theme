@@ -59,11 +59,31 @@
 				<?php the_content(); ?>
 
 				<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q1', true ) ) { ?>
-						<div class="Post__m__negative">
-							<h2 id="faq"><?php _e( 'FAQ', 'ms' ); ?></h2>
-							<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
-
+						<div class="Post__m__negative Faq" itemscope itemtype="https://schema.org/FAQPage">
+							<h2 id="faq">
 							<?php
+								$headline = __( 'Frequently asked questions', 'ms' );
+								$words    = explode( ' ', $headline );
+								$counter  = 0;
+							foreach ( $words as $word ) {
+								if ( 0 === $counter ) {
+									echo '<span class="highlight">' . esc_html( $words[0] ) . '</span>';
+								} else {
+									echo ' ';
+									echo esc_html( $word );
+								}
+								$counter++;
+							}
+							?>
+							</h2>
+							<?php
+							if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-text', true ) ) {
+								?>
+								<div class="subhead--wrapper">
+									<p class="subhead"><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-text', true ) ); ?></p>
+								</div>
+								<?php
+							} 
 							for ( $i = 1; $i <= 10; ++$i ) {
 								if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q' . $i, true ) ) {
 									?>
@@ -79,7 +99,6 @@
 								}
 							}
 							?>
-							</div>
 						</div>
 				<?php } ?>
 

@@ -11,6 +11,13 @@
 		font-size: 2em;
 		line-height: 1.5;
 		margin-top: 1em;
+		flex: 0 0 100%;
+		text-align: center;
+
+		span:first-child {
+			font-family: $font-secondary;
+			color: $light-orange;
+		}
 	}
 
 	ul {
@@ -18,15 +25,38 @@
 		@extend %checklist;
 	}
 
+	.subhead--wrapper {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.subhead {
+			display: flex;
+			max-width: 60%;
+			flex: 0 0 100%;
+			text-align: center;
+			line-height: $main-nav-submenu-line-height;
+
+			@media (max-width: $breakpoint-tablet) {
+				max-width: 90%;
+			}
+		}
+	}
+
 	.Faq__item {
 		padding: 0 0.5em;
 		overflow: hidden;
 		width: 45%;
 
+		@media (max-width: $breakpoint-tablet) {
+			width: 100%;
+		}
+
 		h3 {
 			font-size: $font-size-h3;
 			line-height: $line-height-smaller;
-			padding-left: 1em;
+			padding-left: 1.5em;
 			position: relative;
 			margin-bottom: 1em;
 
@@ -34,18 +64,17 @@
 				content: url(../images/icon_checkmark_circle.svg);
 				position: absolute;
 				left: -8px;
+				top: 2px;
 			}
 		}
 
 		.Faq__outer-wrapper {
 			background: linear-gradient(180deg, rgb(250, 149, 49) 0%, rgb(255, 255, 255) 80%, rgb(255, 255, 255) 100%);
-			min-height: 150px;
 			width: 100%;
 			display: flex;
 			justify-content: flex-end;
 
 			.Faq__inner-wrapper {
-				min-height: 150px;
 				width: calc(100% - 1px);
 				background: $white;
 				outline: 1px dashed $white;
@@ -56,7 +85,7 @@
 					font-size: $font-size-default;
 					border: 1px solid $white;
 					border-left: 1px dashed $white;
-					padding: 0 1em;
+					padding: 0 1.5em;
 					color: $dark-gray;
 					text-align: left;
 

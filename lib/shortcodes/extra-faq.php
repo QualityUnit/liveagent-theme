@@ -6,6 +6,7 @@ function ms_extrafaq( $atts ) {
 			'schema'      => 'yes',
 			'is-wide'     => 'true',
 			'headline'    => '',
+			'subheadline' => '',
 			'question-1'  => '',
 			'answer-1'    => '',
 			'question-2'  => '',
@@ -44,8 +45,30 @@ function ms_extrafaq( $atts ) {
 	ob_start();
 	?>
 	<div class="Faq <?= esc_html( $atts['is-wide'] === 'true' ? 'Post__m__negative':'' ); //@codingStandardsIgnoreLine ?>" itemscope itemtype="https://schema.org/FAQPage">
-		<h2 id="faq"><?= esc_html( $atts['headline'] ); ?></h2>
+		<h2 id="faq">
 		<?php
+			$headline = esc_html( $atts['headline'] );
+			$words    = explode( ' ', $headline );
+			$counter  = 0;
+		foreach ( $words as $word ) {
+			if ( 0 === $counter ) {
+				echo '<span class="highlight">' . esc_html( $words[0] ) . '</span>';
+			} else {
+				echo ' ';
+				echo esc_html( $word );
+			}
+			$counter++;
+		}
+		?>
+		</h2>
+		<?php
+		if ( $atts['subheading'] ) {
+			?>
+			<div class="subhead--wrapper">
+				<p class="subhead"><?= esc_html( $atts['subheading'] ); ?></p>
+			</div>
+			<?php
+		} 
 		for ( $i = 1; $i <= 15; ++$i ) {
 			if ( $atts[ 'question-' . $i ] && $atts[ 'answer-' . $i ] ) {
 				?>
