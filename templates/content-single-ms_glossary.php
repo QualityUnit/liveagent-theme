@@ -74,9 +74,7 @@
 								}
 								$counter++;
 							}
-							?>
-							</h2>
-							<?php
+							echo '</h2>';
 							if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-text', true ) ) {
 								?>
 								<div class="subhead--wrapper">

@@ -77,13 +77,11 @@ function ms_nicefaq( $atts ) {
 				}
 				$counter++;
 			}
-			?>
-			</h2>
-			<?php
-			if ( $atts['subheading'] ) {
+			echo '</h2>';
+			if ( $atts['subheadline'] ) {
 				?>
 				<div class="subhead--wrapper">
-					<p class="subhead"><?= esc_html( $atts['subheading'] ); ?></p>
+					<p class="subhead"><?= esc_html( $atts['subheadline'] ); ?></p>
 				</div>
 				<?php
 			} 

@@ -584,9 +584,7 @@
 								}
 								$counter++;
 							}
-							?>
-							</h2>
-							<?php
+							echo '</h2>';
 							if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-text', true ) ) {
 								?>
 								<div class="subhead--wrapper">
