@@ -31,6 +31,17 @@
 			}
 		}
 	}
+
+	&__schema {
+		padding: 1.5em;
+		margin-bottom: 3em;
+		background-color: $medium-gray;
+
+		h2 {
+			text-align: center;
+			font-family: $font-secondary;
+		}
+	}
 }
 
 .qu-ChecklistItem {
