@@ -43,6 +43,9 @@ function AgentsSlider(props) {
 						<p>
 							{i18n.agentsModal_text}
 						</p>
+						<script>
+                  {formScript()}
+                </script>
           </div>
         : null
       }
