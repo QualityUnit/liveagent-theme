@@ -157,7 +157,7 @@ function qu_checklists_init() {
 							data-list="' . $attr['checklistId'] . '">
 							<meta itemprop="supply" content="' . $attr['supply'] . '">
 							<meta itemprop="tool" content="' . $attr['tool'] . '">
-							<meta itemprop="totalTime" content="PT' . strlen( $attr['totalTime'] ) > 0 ? $attr['totalTime'] : $read_time . 'M">
+							<meta itemprop="totalTime" content="PT' . ( strlen( $attr['totalTime'] ) > 0 ? $attr['totalTime'] : $read_time ) . 'M">
 							
 							<span itemprop="name" style="display:none">' . $pagetitle . '</span>' .
 								apply_filters( 'the_content', $content )
