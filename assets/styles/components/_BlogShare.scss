@@ -1,6 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 
 .BlogPost__share {
+	margin: 3em auto;
 
 	&__title {
 
@@ -15,7 +16,6 @@
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: center;
-		margin-bottom: 50px;
 
 		&__item {
 			margin: 0 10px;
