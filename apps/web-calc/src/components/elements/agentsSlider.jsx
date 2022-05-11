@@ -18,7 +18,7 @@ function AgentsSlider(props) {
 
 	useEffect(() => {
 		if(agents === 100) {
-			setModal(true);
+			// setModal(true);
 			handleRange(99);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps

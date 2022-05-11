@@ -2,13 +2,22 @@
 
 @import "../elements/Checklist";
 
-.ExtraFaq.ExtraFaq {
-	display: block !important;
+.Faq.Faq {
+	display: flex !important;
+	flex-flow: wrap row;
+	justify-content: space-between;
 
 	h2 {
-		font-size: 2rem;
+		margin: 0;
+		margin-bottom: 1em;
 		line-height: 1.5;
-		margin-top: 1em;
+		flex: 0 0 100%;
+		text-align: center;
+
+		span:first-child {
+			font-family: $font-secondary;
+			color: $light-orange;
+		}
 	}
 
 	ul {
@@ -16,28 +25,87 @@
 		@extend %checklist;
 	}
 
-	.ExtraFaq__item {
-		border: 1px solid $light-gray;
-		border-radius: 0.5rem;
-		padding: 0 2rem;
-		margin-bottom: 1.15em;
-		overflow: hidden;
+	.subhead--wrapper {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 2em;
 
-		h3 {
+		.subhead {
+			display: flex;
+			max-width: 60%;
+			flex: 0 0 100%;
+			text-align: center;
+			line-height: $main-nav-submenu-line-height;
 
-			@include color(background-color, secondary-background);
-			font-size: $font-size-smaller;
-			line-height: $line-height-smaller;
-			margin: 0 -2rem 1rem;
-			padding: 1rem 2rem;
-		}
-
-		p {
-			font-size: $font-size-smaller;
-
-			&:empty {
-				display: none;
+			@media (max-width: $breakpoint-tablet) {
+				max-width: 90%;
 			}
 		}
 	}
+
+	.Faq__item {
+		padding: 0 0.5em;
+		overflow: hidden;
+		width: 45%;
+
+		@media (max-width: $breakpoint-tablet) {
+			width: 100%;
+		}
+
+		h3 {
+			margin: 0;
+			margin-bottom: 1em;
+			font-size: $font-size-h3;
+			line-height: $line-height-smaller;
+			padding-left: 1.5em;
+			position: relative;
+
+			&::before {
+				content: url(../images/icon_checkmark_circle.svg);
+				position: absolute;
+				left: -8px;
+				top: 2px;
+			}
+		}
+
+		.Faq__outer-wrapper {
+			background: linear-gradient(180deg, rgb(250, 149, 49) 0%, rgb(255, 255, 255) 100%);
+			width: 100%;
+			display: flex;
+			justify-content: flex-end;
+			margin-bottom: 2em;
+
+			.Faq__inner-wrapper {
+				width: calc(100% - 1px);
+				background: $white;
+				outline: 1px dashed $white;
+
+				div {
+					display: none;
+				}
+
+				p {
+
+					@include square(100%);
+					margin: 0;
+					font-size: $font-size-default;
+					border: 1px solid $white;
+					border-left: 1px dashed $white;
+					padding: 0 1.5em;
+					color: $dark-gray;
+					text-align: left;
+
+					&:empty {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+.elementor-shortcode .Faq h2 {
+	font-size: $font-size-h2-xl;
 }

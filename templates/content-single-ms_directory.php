@@ -569,276 +569,44 @@
 					</div>
 				<?php } ?>
 				<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q1', true ) ) ) { ?>
-						<div class="Post__m__negative">
-							<h2 id="faq"><span><?php _e( 'FAQ', 'ms' ); ?></span></h2>
-
-								<div class="hidden">
-									<script type="application/ld+json">
-										{
-											"@context": "https://schema.org",
-											"@type": "FAQPage",
-											"mainEntity": [
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q1', true ) ) { ?>
-												{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q1', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a1', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q2', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q2', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a2', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q3', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q3', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a3', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q4', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q4', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a4', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q5', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q5', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a5', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q6', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q6', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a6', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q7', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q7', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a7', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q8', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q8', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a8', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q9', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q9', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a9', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q10', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q10', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a10', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q11', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q11', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a11', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q12', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q12', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a12', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q13', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q13', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a13', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q14', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q14', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a14', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-												<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q15', true ) ) { ?>
-												,{
-													"@type": "Question",
-													"name": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q15', true ) ) ) ); ?>",
-													"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?= esc_attr( clean_json( wp_strip_all_tags( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a15', true ) ) ) ); ?>"
-													}
-												}
-												<?php } ?>
-											]
-										}
-									</script>
+						<div class="Post__m__negative Faq" itemscope itemtype="https://schema.org/FAQPage">
+							<h2 id="faq">
+							<?php
+								$headline = __( 'Frequently asked questions', 'ms' );
+								$words    = explode( ' ', $headline );
+								$counter  = 0;
+							foreach ( $words as $word ) {
+								if ( 0 === $counter ) {
+									echo '<span class="highlight">' . esc_html( $words[0] ) . '</span>';
+								} else {
+									echo ' ';
+									echo esc_html( $word );
+								}
+								$counter++;
+							}
+							echo '</h2>';
+							if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-text', true ) ) {
+								?>
+								<div class="subhead--wrapper">
+									<p class="subhead"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-text', true ) ); ?></p>
 								</div>
-
-								<div class="ExtraFaq">
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q1', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q1', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a1', true ) ); ?></p>
+								<?php
+							} 
+							for ( $i = 1; $i <= 15; ++$i ) {
+								if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q' . $i, true ) && get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a' . $i, true ) ) {
+									?>
+									<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+										<h3 itemprop="name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q' . $i, true ) ); ?></h3>
+										<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+											<div class="Faq__inner-wrapper" itemprop="text">
+												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a' . $i, true ) ); ?></p>
+											</div>
 										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q2', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q2', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a2', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q3', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q3', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a3', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q4', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q4', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a4', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q5', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q5', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a5', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q6', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q6', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a6', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q7', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q7', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a7', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q8', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q8', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a8', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q9', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q9', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a9', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q10', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q10', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a10', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q11', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q11', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a11', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q12', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q12', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a12', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q13', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q13', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a13', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q14', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q14', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a14', true ) ); ?></p>
-										</div>
-									<?php } ?>
-
-									<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q15', true ) ) { ?>
-										<div class="ExtraFaq__item">
-											<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q15', true ) ); ?></h3>
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a15', true ) ); ?></p>
-										</div>
-									<?php } ?>
-								</div>
+									</div>
+									<?php
+								}
+							}
+							?>
 						</div>
 					<?php } ?>
 

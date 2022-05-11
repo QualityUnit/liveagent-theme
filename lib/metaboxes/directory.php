@@ -242,6 +242,12 @@ $metabox = array(
 			'type'        => 'text',
 		),
 		array(
+			'id'          => 'mb_directory_faq-text',
+			'label'       => 'FAQ - Subheadline',
+			'description' => '',
+			'type'        => 'text',
+		),
+		array(
 			'id'          => 'mb_directory_faq-q1',
 			'label'       => 'FAQ - Question #1',
 			'description' => '',

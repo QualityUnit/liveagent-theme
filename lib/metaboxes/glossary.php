@@ -22,6 +22,12 @@ $metabox = array(
 			'editor_args' => array(),
 		),
 		array(
+			'id'          => 'mb_glossary_faq-text',
+			'label'       => 'FAQ - Subheadline',
+			'description' => '',
+			'type'        => 'text',
+		),
+		array(
 			'id'          => 'mb_glossary_faq-q1',
 			'label'       => 'FAQ - Question #1',
 			'description' => '',

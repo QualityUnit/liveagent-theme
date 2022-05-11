@@ -1,8 +1,4 @@
 <?php 
-function get_post_id() {
-	global $post;
-	return $post->ID;
-}
 function checklist_item( $attr ) {
 	if ( isset( $_SERVER['HTTPS'] ) &&
 		( $_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1 ) || //@codingStandardsIgnoreLine
@@ -17,9 +13,6 @@ function checklist_item( $attr ) {
 	return '
 		<div class="qu-ChecklistItem open" data-checklistitem="' . $attr['checklistItemId'] . '" 
 			itemprop="step" itemscope itemtype="https://schema.org/HowToSection">
-			<meta itemprop="supply" content="unspecified">
-			<meta itemprop="tool" content="unspecified">
-			<meta itemprop="totalTime" content="unknown">
 			<div class="qu-ChecklistItem__header">
 				<input id="quChecklistItemCheckbox-' . $attr['checklistItemId'] . '" class="qu-ChecklistItem__checkbox" type="checkbox" />
 				<label id="' . sanitize_title( $attr['header'] ) . '" class="qu-ChecklistItem__header--text" for="quChecklistCheckbox-' . $attr['checklistItemId'] . '" data-list="' . $attr['checklistId'] . '" data-checklistitem="' . $attr['checklistItemId'] . '" itemprop="name">
