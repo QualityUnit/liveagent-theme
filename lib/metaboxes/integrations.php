@@ -89,6 +89,12 @@ $metabox = array(
 			'default'     => 'off',
 		),
 		array(
+			'id'          => 'mb_integrations_faq-text',
+			'label'       => 'FAQ - Subheadline',
+			'description' => '',
+			'type'        => 'text',
+		),
+		array(
 			'id'          => 'mb_integrations_faq-q1',
 			'label'       => 'FAQ - Question #1',
 			'description' => '',
