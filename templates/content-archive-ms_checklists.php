@@ -13,7 +13,7 @@
 				<p class="Category__header__subtitle"><?php _e( 'Pick from a variety of detailed checklists for all your business needs. Organize your workflows and get any job done efficiently without difficulties.', 'ms' ); ?></p>
 
 				<div class="Category__header__search searchField">
-					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
+					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
 					<input type="search" class="search search--academy" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
 				</div>
 			</div>
