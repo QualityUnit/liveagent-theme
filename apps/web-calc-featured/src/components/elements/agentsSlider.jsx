@@ -21,7 +21,7 @@ function AgentsSlider(props) {
 
 	useEffect(() => {
 		if(agents === 100) {
-			setModal(true);
+			// setModal(true);
 			handleRange(99);
 		}
 
@@ -43,9 +43,9 @@ function AgentsSlider(props) {
 						<p>
 							{i18n.agentsModal_text}
 						</p>
-							<script>
-								{formScript()}
-							</script>
+						<script>
+                  {formScript()}
+                </script>
           </div>
         : null
       }
