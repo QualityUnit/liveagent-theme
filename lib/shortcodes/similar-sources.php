@@ -9,7 +9,7 @@ function ms_similarsources() {
 	$current_path = str_replace( home_url(), '', get_permalink() );
 
 	// @codingStandardsIgnoreLine
-	$file = fopen( get_template_directory_uri() . '/outputs-20220502.csv', 'r' );
+	$file = fopen( get_template_directory_uri() . '/outputs-20220513.csv', 'r' );
 
 	if ( false !== $file ) {
 		// @codingStandardsIgnoreLine
