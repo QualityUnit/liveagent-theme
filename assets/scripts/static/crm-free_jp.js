@@ -7,28 +7,26 @@ const variationId = 'freedesk';
 
 const languageCode = 'ja-JP';
 
-const textValidating = 'Validating...';
-const textCreating = 'Creating...';
-const textInstalling = 'Installing';
-const textLaunching = 'Launching';
-const textRedirecting = 'Redirecting';
-const textFinalizing = 'Finalizing';
-const textStart = 'Start now';
-const textError = 'Something went wrong.';
-const textEmpty = "Field can't be empty";
-const textInvalid = 'Some fields are invalid';
-const textInvalidField = 'Field invalid';
-const textInvalidMail = 'Email invalid';
-const textValidDomain = 'Domain is valid';
-const textFailedDomain = 'Failed to validate domain';
-const textDomainNoHttp =
-	'ドメインには、http、www、大文字（A-Z）は使用できません';
-const textFailedRetrieve = 'Failed to retrieve valid progress info.';
-const textGoApp = 'Go to your App';
-const textReadyApp = 'Your LiveAgent is ready';
-const textDoneAppTitle = 'Your LiveAgent is ready';
-const textDoneAppText =
-	'The login credentials have been sent to your inbox. Please check it to continue to LiveAgent.';
+const textValidating = '検証中...';
+const textCreating = '作成中...';
+const textInstalling = 'インストール中';
+const textLaunching = '起動';
+const textRedirecting = 'リダイレクト';
+const textFinalizing = '最終調整';
+const textStart = '今すぐ開始する';
+const textError = '問題が発生しました。';
+const textEmpty = 'フィールドを空にすることはできません';
+const textInvalid = '一部のフィールドが無効です';
+const textInvalidField = 'フィールドが無効';
+const textInvalidMail = '無効な電子メール';
+const textValidDomain = 'ドメインは有効です';
+const textFailedDomain = 'ドメインの検証に失敗しました';
+const textDomainNoHttp = 'ドメインにhttpまたはwwwを含めることはできません';
+const textFailedRetrieve = '有効な進捗情報を取得できませんでした。';
+const textGoApp = 'アプリに移動する';
+const textReadyApp = 'LiveAgentの準備が整いました';
+const textDoneAppTitle = 'LiveAgentの準備が整いました';
+const textDoneAppText = 'ログイン認証情報が送信されました。LiveAgentを続けるにはそれを確認してください。';
 
 const productDomain = 'ladesk.com';
 const authTokenName = 'AuthToken';
