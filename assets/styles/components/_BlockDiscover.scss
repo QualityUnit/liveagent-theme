@@ -17,10 +17,11 @@
 			position: absolute;
 			content: "";
 			background: url(../images/cta_new_chat.png) 100% bottom no-repeat;
-			background-size: auto 100%;
+			background-size: 50% auto;
 		}
 
-		@media (min-width: $breakpoint-tablet-landscape) {
+		@media (min-width: $breakpoint-desktop) {
+			background-size: auto 100%;
 			background-position: 95% bottom;
 		}
 	}
@@ -93,22 +94,26 @@
 	@media (min-width: $breakpoint-tablet) {
 
 		h4,
+		p,
+		&__buttons {
+			max-width: 48%;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+
+		h4,
 		p {
 			max-width: 50%;
 		}
 
 		&__buttons {
-			max-width: 50%;
-		}
-	}
-
-	@media (min-width: $breakpoint-tablet-landscape) {
-
-		&__buttons {
 			flex-direction: row;
+			max-width: 58%;
 
-			.Button {
-				width: 50%;
+			.Button.Button {
+				white-space: nowrap;
+				max-width: 50%;
 			}
 		}
 	}

@@ -7,28 +7,26 @@ const variationId = 'freedesk';
 
 const languageCode = 'no';
 
-const textValidating = 'Validating...';
-const textCreating = 'Creating...';
-const textInstalling = 'Installing';
-const textLaunching = 'Launching';
-const textRedirecting = 'Redirecting';
-const textFinalizing = 'Finalizing';
-const textStart = 'Start now';
-const textError = 'Something went wrong.';
-const textEmpty = "Field can't be empty";
-const textInvalid = 'Some fields are invalid';
-const textInvalidField = 'Field invalid';
-const textInvalidMail = 'Email invalid';
-const textValidDomain = 'Domain is valid';
-const textFailedDomain = 'Failed to validate domain';
-const textDomainNoHttp =
-	'Domene må ikke inneholde http eller www og store bokstaver (A-Z)';
-const textFailedRetrieve = 'Failed to retrieve valid progress info.';
-const textGoApp = 'Go to your App';
-const textReadyApp = 'Your LiveAgent is ready';
-const textDoneAppTitle = 'Your LiveAgent is ready';
-const textDoneAppText =
-	'The login credentials have been sent to your inbox. Please check it to continue to LiveAgent.';
+const textValidating = 'Validerer...';
+const textCreating = 'Oppretter...';
+const textInstalling = 'Installerer';
+const textLaunching = 'Kjører';
+const textRedirecting = 'Omdirigerer';
+const textFinalizing = 'Finaliserer';
+const textStart = 'Start nå';
+const textError = 'Noe gikk galt.';
+const textEmpty = 'Feltet kan ikke være tomt';
+const textInvalid = 'Noen felter er ugyldige';
+const textInvalidField = 'Ugyldig felt';
+const textInvalidMail = 'Ugyldig e-post';
+const textValidDomain = 'Domenet er gyldig';
+const textFailedDomain = 'Kunne ikke validere domenet';
+const textDomainNoHttp = 'Domenet kan ikke inneholde http eller www';
+const textFailedRetrieve = 'Kunne ikke hente gyldig fremdriftsinformasjon.';
+const textGoApp = 'Gå til din App';
+const textReadyApp = 'Din LiveAgent er klar';
+const textDoneAppTitle = 'Din LiveAgent er klar';
+const textDoneAppText = 'Innloggingsdetaljene er sendt til din innboks. Vennligst bruk dem for å gå videre i LiveAgent.';
 
 const productDomain = 'ladesk.com';
 const authTokenName = 'AuthToken';

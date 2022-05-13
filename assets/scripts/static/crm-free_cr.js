@@ -7,28 +7,26 @@ const variationId = 'freedesk';
 
 const languageCode = 'hr';
 
-const textValidating = 'Validating...';
-const textCreating = 'Creating...';
-const textInstalling = 'Installing';
-const textLaunching = 'Launching';
-const textRedirecting = 'Redirecting';
-const textFinalizing = 'Finalizing';
-const textStart = 'Start now';
-const textError = 'Something went wrong.';
-const textEmpty = "Field can't be empty";
-const textInvalid = 'Some fields are invalid';
-const textInvalidField = 'Field invalid';
-const textInvalidMail = 'Email invalid';
-const textValidDomain = 'Domain is valid';
-const textFailedDomain = 'Failed to validate domain';
-const textDomainNoHttp =
-	'Domena ne može sadržavati http ili www niti velika slova (A-Z)';
-const textFailedRetrieve = 'Failed to retrieve valid progress info.';
-const textGoApp = 'Go to your App';
-const textReadyApp = 'Your LiveAgent is ready';
-const textDoneAppTitle = 'Your LiveAgent is ready';
-const textDoneAppText =
-	'The login credentials have been sent to your inbox. Please check it to continue to LiveAgent.';
+const textValidating = 'Potvrđivanje...';
+const textCreating = 'Kreiranje...';
+const textInstalling = 'Instaliranje';
+const textLaunching = 'Lansiranje';
+const textRedirecting = 'Preusmjeravanje';
+const textFinalizing = 'Završavanje';
+const textStart = 'Započni odmah';
+const textError = 'Nešto nije u redu.';
+const textEmpty = 'Polje ne može biti prazno';
+const textInvalid = 'Neka polja su nevažeća';
+const textInvalidField = 'Nevažeće polje';
+const textInvalidMail = 'Nevažeći email';
+const textValidDomain = 'Domena je važeća';
+const textFailedDomain = 'Neuspješna potvrda domene';
+const textDomainNoHttp = 'Domena ne smije sadržavati http ili www';
+const textFailedRetrieve = 'Neuspješno dohvaćanje važećih informacija o napretku.';
+const textGoApp = 'Idite u vašu aplikaciju';
+const textReadyApp = 'Vaš LiveAgent je spreman';
+const textDoneAppTitle = 'Vaš LiveAgent je spreman';
+const textDoneAppText = 'Podaci za prijavu su poslani u vašu ulaznu poštu. Molimo da ih provjerite kako bi mogli nastaviti s LiveAgent-om.';
 
 const productDomain = 'ladesk.com';
 const authTokenName = 'AuthToken';
