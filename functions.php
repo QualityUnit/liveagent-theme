@@ -46,3 +46,19 @@ define( 'THEME_VERSION', '1.0.4' );
 		require_once $filepath;
 	}
 	unset( $file, $filepath );
+
+
+	/**
+	  * TEMP: Fix for Visual/Text toggle removes paragraph tags on translations and shows on one line
+	  */
+
+	add_filter(
+		'tiny_mce_before_init',
+		function( $config ) {
+			if ( defined( 'ELEMENTOR_VERSION' ) && did_action( 'admin_init' ) && get_current_screen()->id === 'wpml_page_tm/menu/translations-queue' ) {
+				$config['wpautop'] = false;
+			}
+
+			return $config;
+		}
+	);
