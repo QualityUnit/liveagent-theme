@@ -13,7 +13,7 @@
 		margin-bottom: 0 !important;
 	}
 
-	.elementor-widget:not(:last-child) {
+	.elementor-widget:not(:last-child):not(.elementor-widget-spacer) {
 		margin-bottom: 0 !important;
 	}
 
