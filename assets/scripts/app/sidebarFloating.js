@@ -3,11 +3,19 @@
 const categorySidebar = document.querySelector(
 	'.Category__sidebar:not(#notFloating)'
 );
-const categoryContent = document.querySelector( '.Category__content' );
-const windowHeight = window.innerHeight;
+const categorySidebarLabels = categorySidebar
+	.querySelectorAll( '.Category__sidebar__items label' );
 
 const lockSidebar = () => {
 	if ( categorySidebar && 'IntersectionObserver' in window ) {
+		const newsLetter = document.querySelector( '.Newsletter' );
+		const categoryContent = document.querySelector( '.Category__content' );
+		const categoryContentItemsHeight = document.querySelector(
+			'.Category__content__items'
+		).getBoundingClientRect().height;
+		const windowHeight = window.innerHeight;
+
+		categorySidebar.dataset.wasIntersecting = false;
 		const headerHeight = document
 			.querySelector( 'header.Header' )
 			.getBoundingClientRect().height;
@@ -35,11 +43,17 @@ const lockSidebar = () => {
 			}
 		);
 
-		lockSidebarObserver.observe( categoryContent );
+		lockSidebarObserver.unobserve(
+			categoryContent
+		);
+		if ( categoryContentItemsHeight > windowHeight ) {
+			lockSidebarObserver.observe( categoryContent );
+		}
 
 		const unlockSidebarObserverOnFooter = new IntersectionObserver(
-			( [ footer ] ) => {
-				if ( footer.isIntersecting ) {
+			( [ entry ] ) => {
+				if ( entry.isIntersecting && categorySidebar.dataset.wasIntersecting !== 'true' ) {
+					entry.target.dataset.isIntersecting = true;
 					categorySidebar.classList.add( 'scrolledOut' );
 					setTimeout( () => {
 						categorySidebar.classList.remove(
@@ -52,9 +66,9 @@ const lockSidebar = () => {
 				}
 
 				if (
-					! footer.isIntersecting &&
-					categorySidebar.dataset.wasIntersecting
+					! entry.isIntersecting && categorySidebar.dataset.wasIntersecting === 'true'
 				) {
+					entry.target.dataset.isIntersecting = false;
 					categorySidebar.classList.add( 'fixed' );
 					if ( categorySidebarContentHeight + 120 > windowHeight ) {
 						categorySidebar.classList.add( 'overflow' );
@@ -64,9 +78,14 @@ const lockSidebar = () => {
 			}
 		);
 
-		unlockSidebarObserverOnFooter.observe(
-			document.querySelector( '.Newsletter' )
+		unlockSidebarObserverOnFooter.unobserve(
+			newsLetter
 		);
+		if ( categoryContentItemsHeight > windowHeight ) {
+			unlockSidebarObserverOnFooter.observe(
+				newsLetter
+			);
+		}
 	}
 };
 
@@ -77,6 +96,12 @@ const resizeWatcher = new ResizeObserver( ( [ entry ] ) => {
 } );
 
 resizeWatcher.observe( document.body );
+
+categorySidebarLabels.forEach( ( sidebarItem ) => {
+	sidebarItem.addEventListener( 'click', () => {
+		lockSidebar();
+	} );
+} );
 
 window.addEventListener( 'load', () => {
 	lockSidebar();
