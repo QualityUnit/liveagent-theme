@@ -97,11 +97,13 @@ const resizeWatcher = new ResizeObserver( ( [ entry ] ) => {
 
 resizeWatcher.observe( document.body );
 
-categorySidebarLabels.forEach( ( sidebarItem ) => {
-	sidebarItem.addEventListener( 'click', () => {
-		lockSidebar();
+if ( categorySidebar ) {
+	categorySidebarLabels.forEach( ( sidebarItem ) => {
+		sidebarItem.addEventListener( 'click', () => {
+			lockSidebar();
+		} );
 	} );
-} );
+}
 
 window.addEventListener( 'load', () => {
 	lockSidebar();
