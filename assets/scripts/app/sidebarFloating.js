@@ -3,8 +3,6 @@
 const categorySidebar = document.querySelector(
 	'.Category__sidebar:not(#notFloating)'
 );
-const categorySidebarLabels = categorySidebar
-	.querySelectorAll( '.Category__sidebar__items label' );
 
 const lockSidebar = () => {
 	if ( categorySidebar && 'IntersectionObserver' in window ) {
@@ -98,6 +96,8 @@ const resizeWatcher = new ResizeObserver( ( [ entry ] ) => {
 resizeWatcher.observe( document.body );
 
 if ( categorySidebar ) {
+	const categorySidebarLabels = categorySidebar
+		.querySelectorAll( '.Category__sidebar__items label' );
 	categorySidebarLabels.forEach( ( sidebarItem ) => {
 		sidebarItem.addEventListener( 'click', () => {
 			lockSidebar();
