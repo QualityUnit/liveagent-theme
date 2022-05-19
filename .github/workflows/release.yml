@@ -34,7 +34,7 @@ jobs:
         run: yarn build
 
       - name: Remove unnecessary files [theme]
-        run: rm -rf node_modules vendor .git .idea .github *.md *.lock .editorconfig .eslintignore .eslintrc .gitignore .stylelintrc composer.json gulpfile.js package.json phpcs.xml
+        run: rm -rf node_modules vendor .git .idea .github .husky *.md *.lock .editorconfig .eslintignore .eslintrc .gitignore .stylelintrc composer.json gulpfile.js commitlint.config.js package.json phpcs.xml
 
       - name: Install Yarn dependencies [web-calc]
         working-directory: ./apps/web-calc/

@@ -17,6 +17,8 @@
 	"devDependencies": {
 		"@babel/core": "^7.17",
 		"@babel/eslint-parser": "^7.17",
+		"@commitlint/cli": "^17.0.0",
+		"@commitlint/config-conventional": "^17.0.0",
 		"@wordpress/eslint-plugin": "^12",
 		"@wordpress/stylelint-config": "^20",
 		"browser-sync": "^2.27",
@@ -40,6 +42,7 @@
 		"gulp-svg-sprite": "^1.5",
 		"gulp-terser": "^2.1",
 		"gulp-uglifycss": "^1.1",
+		"husky": "^8.0.1",
 		"minimist": "^1.2",
 		"node-sass": "^7",
 		"prettier": "^2.6",
