@@ -2,10 +2,15 @@
 function yt_videodetails( $video_id ) {
 	$api_key    = 'AIzaSyBDTqSLyGpMSnDvJmuMVScYE4MW40Ged5A';
 	$ytid       = $video_id;
-	$video_info = json_decode( wp_remote_get( 'https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet%2CcontentDetails&contentDetails.duration&id=' . $ytid . '&key=' . $api_key, array(
-    'timeout'     => 10,
-    'sslverify' => false
-))['body'], false )->items[0]; //@codingStandardsIgnoreLine
+	$video_info = json_decode(
+		wp_remote_get(//@codingStandardsIgnoreLine
+			'https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet%2CcontentDetails&contentDetails.duration&id=' . $ytid . '&key=' . $api_key,
+			array(
+				'sslverify' => false,
+			)
+		)['body'],
+		false 
+	)->items[0];
 	return $video_info;
 }
 function yt_microdata( $video_id ) {
@@ -36,8 +41,7 @@ function add_yt_microdata( $html ) {
 	$html = preg_replace_callback(
 		'/(\<.+data-ytid="(.+?)".+\>)/',
 		function ( $m ) {
-				return 
-				yt_microdata( $m[2] ) . $m[1];
+				return yt_microdata( $m[2] ) . $m[1];
 		},
 		$html
 	);
