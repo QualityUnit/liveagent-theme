@@ -1,6 +1,6 @@
 <?php
 function yt_videodetails( $video_id ) {
-	$api_key    = 'AIzaSyBDTqSLyGpMSnDvJmuMVScYE4MW40Ged5A';
+	$api_key    = $_ENV['YOUTUBE_API_KEY'];
 	$ytid       = $video_id;
 	$video_info = json_decode(
 		wp_remote_get(//@codingStandardsIgnoreLine
