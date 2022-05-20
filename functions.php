@@ -29,6 +29,7 @@ define( 'THEME_VERSION', '1.0.5' );
 		'functions/import-functions.php', // Partials JS and SCSS import functions
 		'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
 		'functions/lazy-load.php', // Lazy loading of images, videos etc.
+		'functions/lazy-load-youtube-microdata.php', // Lazy loading and Microdata for YouTube videos.
 		'functions/post-types.php', // Import Custom Post Types
 		'functions/taxonomies.php', // Import Custom Taxonomies
 		'functions/metaboxes.php', // Import Metaboxes
@@ -49,8 +50,8 @@ define( 'THEME_VERSION', '1.0.5' );
 
 
 	/**
-	  * TEMP: Fix for Visual/Text toggle removes paragraph tags on translations and shows on one line
-	  */
+	* TEMP: Fix for Visual/Text toggle removes paragraph tags on translations and shows on one line
+	*/
 
 	add_filter(
 		'tiny_mce_before_init',
