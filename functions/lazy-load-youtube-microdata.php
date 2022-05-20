@@ -102,3 +102,16 @@ function elementor_youtube_loader( $html ) {
 	return $html;
 }
 add_filter( 'the_content', 'elementor_youtube_loader', 10 );
+
+function url_youtube_loader( $html ) {
+	$html = preg_replace_callback(
+		'/(\<a.+href=".+(youtube\.com|youtu\.be)\/(watch\?v=)?(.+?)"*\>)/',
+		function ( $m ) {
+				return yt_microdata( $m[4] ) . $m[1];
+		},
+		$html
+	);
+
+	return $html;
+}
+add_filter( 'the_content', 'url_youtube_loader', 10 );
