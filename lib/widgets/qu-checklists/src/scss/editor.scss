@@ -1,5 +1,6 @@
 @use "sass:math";
 @import "../../../../../assets/styles/common/variables";
+@import "../../../../../assets/styles/common/mixins";
 
 .qu-Checklist {
 	position: relative;
@@ -47,7 +48,32 @@
 .qu-ChecklistItem {
 
 	&__header {
+		position: relative;
 		display: block !important;
+	}
+
+	&__schemaImage {
+
+		@include square(14em !important);
+		margin-right: 1em;
+		object-fit: cover;
+
+		&.placeholder {
+			background-color: $light-gray;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&--wrapper {
+			display: flex;
+		}
+
+		&--loader {
+			min-height: auto !important;
+			width: calc(100% - 15em) !important;
+			border-top-right-radius: 16px;
+		}
 	}
 
 	&__footer,

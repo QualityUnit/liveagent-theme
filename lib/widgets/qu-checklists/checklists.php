@@ -121,6 +121,9 @@ function qu_checklists_init() {
 				'checklistItemId'  => array(
 					'type' => 'string',
 				),
+				'schemaImage'      => array(
+					'type' => 'string',
+				),
 				'header'           => array(
 					'type'    => 'string',
 					'default' => 'Enter checklist title here…',
