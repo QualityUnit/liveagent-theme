@@ -43,7 +43,7 @@ function ms_signup_form_free() {
 			<div id="signUpError"></div>
 
 			<div class="Signup__form__submit">
-				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form Free', 'Signup']); ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');">
+				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form Free', 'Signup']); handleSend();">
 					<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 				</div>
 
@@ -66,6 +66,19 @@ function ms_signup_form_free() {
 	<?php
 		add_action( 'wp_footer', function() {
 	?>
+	<script>
+			function handleSend() {
+				const mailValue = document.querySelector('input[type="email"]').value;
+				const mailSecondary = new RegExp('@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex.com|gmx.us|@gmx.com)$').test(mailValue);
+	
+				if(mailSecondary) {
+					ga('send', 'event', 'Trial Signup', {'event_category': 'SignUp', 'event_action': 'Trial', 'event_label': 'secondary', 'value': 1});
+				}
+				if(!mailSecondary) {
+					ga('send', 'event', 'Trial Signup', {'event_category': 'SignUp', 'event_action': 'Trial', 'event_label': 'primary', 'value': 10});
+				}
+			}
+	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/jquery.cookie.js' ?>"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/jquery.alphanum.js' ?>"></script>
