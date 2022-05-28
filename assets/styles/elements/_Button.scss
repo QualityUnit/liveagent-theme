@@ -94,6 +94,20 @@ button,
 	display: block;
 }
 
+.Button--demo {
+	display: block;
+	padding: 0 $button-padding-normal + 10px !important;
+}
+
+.Button--trial--wrapper {
+
+	@media (max-width: $breakpoint-desktop) {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+}
+
 .Button--normal {
 	color: #fff;
 	background-color: #fa9531;
