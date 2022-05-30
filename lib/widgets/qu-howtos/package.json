@@ -1,0 +1,26 @@
+{
+  "name": "howtos",
+  "version": "1.0.0",
+  "description": "Gutenberg HowTo Block",
+  "main": "./src/index.js",
+  "author": "Jozef Remen",
+  "license": "GPL-2.0",
+  "scripts": {
+    "build": "wp-scripts build",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "start": "wp-scripts start",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "devDependencies": {
+    "@wordpress/base-styles": "^4",
+    "@wordpress/block-editor": "^8",
+    "@wordpress/block-library": "^6",
+    "@wordpress/components": "^19",
+    "@wordpress/format-library": "^3",
+    "@wordpress/media-utils": "^3",
+    "@wordpress/scripts": "^20"
+  },
+  "dependencies": {}
+}

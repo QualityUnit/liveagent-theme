@@ -1,0 +1,115 @@
+@use "sass:math";
+@import "../../../../../assets/styles/common/variables";
+@import "../../../../../assets/styles/common/mixins";
+
+.qu-HowTo {
+	position: relative;
+	border: 1px solid $medium-gray-quotes;
+	padding-bottom: 1.5em;
+
+	&::before {
+		content: "HowTo block";
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		display: inline-block;
+		padding: 0.25em 1.5em;
+		background-color: $light-gray;
+		text-align: center;
+	}
+
+	[data-type="qu/howtoitem"] + .block-list-appender {
+		display: flex;
+		justify-content: center;
+
+		button {
+			width: auto !important;
+			min-width: 10em !important;
+
+			&::after {
+				content: attr(aria-label);
+				margin-left: 1em;
+			}
+		}
+	}
+
+	&__schema {
+		padding: 1.5em;
+		margin-bottom: 3em;
+		background-color: $medium-gray;
+
+		h2 {
+			text-align: center;
+			font-family: $font-secondary;
+		}
+	}
+}
+
+.qu-HowToItem {
+
+	&__header {
+		position: relative;
+		display: block !important;
+	}
+
+	&__schemaImage {
+
+		@include square(14em !important);
+		margin-right: 1em;
+		object-fit: cover;
+
+		&.placeholder {
+			background-color: $light-gray;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&--wrapper {
+			display: flex;
+		}
+
+		&--loader {
+			min-height: auto !important;
+			width: calc(100% - 15em) !important;
+			border-top-right-radius: 16px;
+		}
+	}
+
+	.qu-HowToItem__content ul li {
+		margin-bottom: 0.5em !important;
+
+		&::before {
+			font-size: 1rem !important;
+			top: -2px !important;
+		}
+	}
+
+	.block-library-heading-level-toolbar {
+
+		[aria-label="Heading 1"],
+		[aria-label="Heading 2"] {
+			display: none !important;
+		}
+	}
+
+	/**
+	 * Animations
+	 */
+
+	// These keyframes should not be part of the _animations.scss mixins file.
+	// Because keyframe animations can't be defined as mixins properly.
+	// Since hey are intended only for the editor, we add them here instead.
+	@keyframes edit-post__fade-in-animation {
+
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+}
+

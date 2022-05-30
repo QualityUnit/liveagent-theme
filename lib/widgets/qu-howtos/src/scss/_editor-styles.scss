@@ -1,0 +1,159 @@
+.qu-HowToItem {
+
+	.editor-styles-wrapper,
+	.qu-HowToItem__content {
+
+		@include color(color, $black);
+		font-size: 1rem;
+
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: $font-secondary;
+		}
+
+		p {
+			font-size: inherit;
+			line-height: inherit;
+		}
+
+		ul,
+		ol {
+			margin: 0 0 1em;
+			padding: 0;
+		}
+
+		ul li,
+		ol li {
+			// This overrides a bottom margin globally applied to list items in wp-admin.
+			margin-bottom: initial;
+		}
+
+
+		ul {
+			list-style: none;
+			padding-left: 0.5em;
+			text-align: left;
+
+			li {
+				position: relative;
+				padding-left: 1.5em;
+				margin-bottom: 0.35em;
+
+				&::before {
+
+					@include circle(1em);
+					display: inline-block;
+					content: "";
+					position: absolute;
+					top: 4px;
+					left: -0.5em;
+					background: $medium-orange url(../../../../../assets/images/icon-post-check.svg) center center no-repeat;
+					background-size: 50%;
+					padding: 0.25em;
+					font-size: 1.25em;
+					margin: 0;
+				}
+			}
+
+			ul {
+				list-style: none;
+				margin-top: 1em;
+
+				li {
+					padding-left: 0.5em;
+
+					&::before {
+
+						@include color(color, primary-color);
+						@include square(auto);
+						content: "\2022";
+						background: none;
+						padding: 0;
+						top: 0;
+					}
+				}
+			}
+		}
+
+		ol {
+			list-style-type: decimal;
+		}
+
+		ul ul,
+		ol ul {
+			list-style-type: circle;
+		}
+
+		// These are default editor styles
+		.wp-block {
+			max-width: 700px;
+
+			// TODO: the default padding/margin of the
+			// block editor content are not set properly
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		img,
+		iframe,
+		.components-resizable-box__container {
+			max-width: 100%;
+			width: 100% !important;
+		}
+
+		.wp-block[data-align="wide"],
+		.wp-block.alignwide {
+			max-width: 100%;
+		}
+
+		.wp-block[data-align="full"],
+		.wp-block.alignfull {
+			max-width: none;
+		}
+
+		.wp-block-table {
+
+			table {
+				font-size: 0.875rem;
+				text-align: center;
+				table-layout: fixed;
+			}
+
+			tr,
+			td {
+				border: none;
+			}
+
+			tr:nth-of-type(even) {
+
+				@include color(background-color, secondary-background);
+			}
+
+			td {
+				padding: 1.25em;
+
+				&:first-of-type {
+					font-weight: 700;
+					text-align: left;
+				}
+
+				+ td {
+					border-left: 1px solid $light-gray;
+				}
+			}
+
+			tr {
+
+				&:first-of-type {
+					font-weight: 700;
+				}
+
+				+ tr {
+					border-top: 1px dotted $light-gray-icon;
+				}
+			}
+		}
+	}
+}
