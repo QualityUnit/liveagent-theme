@@ -2,7 +2,7 @@
 
 const $ = jQuery;
 
-const productId = 'ladeskcz';
+const productId = 'b229622b';
 
 const textValidating = 'Ověřování...';
 const textCreating = 'Vytváření...';
