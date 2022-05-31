@@ -104,9 +104,8 @@ button,
 	}
 }
 
-.Buttons--wrapper {
+.Header__buttons {
 	display: flex;
-	flex-direction: row;
 
 	@media (max-width: $breakpoint-desktop) {
 		width: 100%;
