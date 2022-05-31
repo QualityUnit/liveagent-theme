@@ -97,14 +97,27 @@ button,
 .Button--demo {
 	display: block;
 	padding: 0 3.215em !important;
+	margin-right: 1em;
+
+	@media (max-width: $breakpoint-mobile) {
+		margin-right: 0;
+	}
 }
 
-.Button--trial--wrapper {
+.Buttons--wrapper {
+	display: flex;
+	flex-direction: row;
 
 	@media (max-width: $breakpoint-desktop) {
 		width: 100%;
 		display: flex;
+		flex-direction: row;
+		align-items: center;
 		justify-content: center;
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		flex-direction: column;
 	}
 }
 
