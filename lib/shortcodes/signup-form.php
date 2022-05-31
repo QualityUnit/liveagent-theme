@@ -77,7 +77,7 @@ function ms_signup_form() {
 			function handleSend() {
 				const mailValue = document.querySelector('input[type="email"]').value;
 				const mailSecondary = new RegExp('@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex.com|gmx.us|@gmx.com)$').test(mailValue);
-	
+
 				if(mailSecondary) {
 					ga('send', 'event', 'Trial Signup', {'event_category': 'SignUp', 'event_action': 'Trial', 'event_label': 'secondary', 'value': 1});
 				}
@@ -121,8 +121,7 @@ function ms_signup_form() {
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'hr' ) { ?>
 		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_cr.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'cs' ) { ?>
-		<?php $crm_cz_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm_cz.js' ) ); ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_cz.js?ver=' . $crm_cz_ver_app ?>"></script>
+		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_cz.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'da' ) { ?>
 		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_dk.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'et' ) { ?>
@@ -152,10 +151,8 @@ function ms_signup_form() {
 	<?php } else { ?>
 		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
 	<?php } ?>
-	<?php if ( ICL_LANGUAGE_CODE !== 'cs' ) { ?>
-		<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) ); ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
-	<?php } ?>
+	<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) ); ?>
+	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
 	<?php }, 999 ); ?>
 	<?php // @codingStandardsIgnoreEnd ?>
 
