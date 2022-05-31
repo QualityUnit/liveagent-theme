@@ -94,6 +94,16 @@ button,
 	display: block;
 }
 
+.Button--demo {
+	display: block;
+	padding: 0 3.215em !important;
+	margin-right: 1em;
+
+	@media (max-width: $breakpoint-mobile) {
+		margin-right: 0;
+	}
+}
+
 .Button--normal {
 	color: #fff;
 	background-color: #fa9531;
