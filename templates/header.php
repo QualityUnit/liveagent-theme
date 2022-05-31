@@ -33,7 +33,7 @@
 				endif;
 				?>
 
-				<div class="Header__buttons">
+				<div class="Header__navigation__buttons">
 					<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline Button--demo" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Demo'])">
 						<span><?php _e( 'Demo', 'ms' ); ?></span>
 					</a>

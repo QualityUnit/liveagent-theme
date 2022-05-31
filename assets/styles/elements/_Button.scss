@@ -104,22 +104,6 @@ button,
 	}
 }
 
-.Header__buttons {
-	display: flex;
-
-	@media (max-width: $breakpoint-desktop) {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-	}
-
-	@media (max-width: $breakpoint-mobile) {
-		flex-direction: column;
-	}
-}
-
 .Button--normal {
 	color: #fff;
 	background-color: #fa9531;

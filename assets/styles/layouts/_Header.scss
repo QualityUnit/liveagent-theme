@@ -60,6 +60,22 @@
 .Header__navigation {
 	display: flex;
 
+	&__buttons {
+		display: flex;
+
+		@media (max-width: $breakpoint-desktop) {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+		}
+
+		@media (max-width: $breakpoint-mobile) {
+			flex-direction: column;
+		}
+	}
+
 	.Button {
 		top: 9px;
 		margin-left: 15px;
