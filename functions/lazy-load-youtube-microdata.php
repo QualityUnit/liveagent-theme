@@ -32,8 +32,8 @@ function yt_videodetails( $video_id ) {
 			$handle = fopen( $cache, 'wb' ) or die( 'no fopen' );
 				fwrite( $handle, $json_cache ); 
 				fclose( $handle );
+				return $video_info->items[0];
 		}
-		return $video_info->items[0];
 	}
 	if ( $cache_exists ) {
 		// cache json results so to not over-query (api restrictions)
