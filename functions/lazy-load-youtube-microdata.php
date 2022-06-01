@@ -1,37 +1,53 @@
 <?php
 
+if ( ! file_exists( wp_get_upload_dir()['basedir'] . "/cache/youtube/" ) ) {//@codingStandardsIgnoreLine
+		mkdir( wp_get_upload_dir()['basedir'] . "/cache/youtube/", 0777, true );//@codingStandardsIgnoreLine
+}
+
 function yt_videodetails( $video_id ) {
 	// settings
-	$api_key       = $_ENV['YOUTUBE_API_KEY'];
-	$ytid          = $video_id;
-	$url           = 'https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet%2CcontentDetails&contentDetails.duration&id=' . $ytid . '&key=' . $api_key; // json source
-	$cache         = wp_get_upload_dir()['basedir'] . "/youtube_cache/" . $ytid . ".cache";//@codingStandardsIgnoreLine
+	$api_key = $_ENV['YOUTUBE_API_KEY'];
+	$ytid    = $video_id;
+	$url     = 'https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet%2CcontentDetails&contentDetails.duration&id=' . $ytid . '&key=' . $api_key; // json source
+	
+	$cache         = wp_get_upload_dir()['basedir'] . "/cache/youtube/" . $ytid . ".cache";//@codingStandardsIgnoreLine
+	$cache_exists  = file_exists( wp_get_upload_dir()['basedir'] . "/cache/youtube/" . $ytid . ".cache" );//@codingStandardsIgnoreLine
 	$force_refresh = false; // dev
 	$refresh       = 60 * 60 * 24; // once a day
 
-	// cache json results so to not over-query (api restrictions)
-	if ( $force_refresh || ( ( time() - filectime( $cache ) ) > ( $refresh ) || 0 == filesize( $cache ) ) ) {
-
-		// read json source
+	// read json source
+	if ( ! $cache_exists ) {
 		$json_cache = wp_remote_get( //@codingStandardsIgnoreLine
 			$url,
 			array(
 				'sslverify' => false,
 			) 
 		)['body'];
-		$handle     = fopen( $cache, 'wb' ) or die( 'no fopen' );
-		fwrite( $handle, $json_cache ); 
-		fclose( $handle );
-	} else {
-		$json_cache = file_get_contents( $cache ); // @codingStandardsIgnoreLine
+	
+		$video_info = json_decode(
+			$json_cache,
+			false 
+		);
+		if ( isset( $video_info->items[0] ) ) {
+			$handle = fopen( $cache, 'wb' ) or die( 'no fopen' );
+				fwrite( $handle, $json_cache ); 
+				fclose( $handle );
+		}
+		return $video_info->items[0];
 	}
-
-	$video_info = json_decode(
-		$json_cache,
-		false 
-	);
-
-	if ( isset( $video_info->items[0] ) ) {
+	if ( $cache_exists ) {
+		// cache json results so to not over-query (api restrictions)
+		if ( $force_refresh || ( ( time() - filectime( $cache ) ) > ( $refresh ) || 0 == filesize( $cache ) ) ) {
+			$handle = fopen( $cache, 'wb' ) or die( 'no fopen' );
+			fwrite( $handle, $json_cache ); 
+			fclose( $handle );
+		} else {
+			$json_cache = file_get_contents( $cache ); // @codingStandardsIgnoreLine
+		}
+		$video_info = json_decode(
+			$json_cache,
+			false 
+		);
 		return $video_info->items[0];
 	}
 	return null;
@@ -43,7 +59,7 @@ function yt_microdata( $video_id ) {
 	if ( isset( $data ) ) {
 		$channel = yt_videodetails( $video_id )->snippet->channelTitle;
 	
-		if ( 'Post Affiliate Pro' === $channel ) {
+		if ( 'Live Agent' === $channel ) {
 			$name        = yt_videodetails( $video_id )->snippet->title;
 			$description = yt_videodetails( $video_id )->snippet->description;
 			$uploaded    = yt_videodetails( $video_id )->snippet->publishedAt;
