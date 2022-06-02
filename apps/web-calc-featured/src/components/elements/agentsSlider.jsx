@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import useStateSessionStorage from '../common/sessionStorage';
 import {production, path, i18n} from '../common/constants';
 
 function AgentsSlider(props) {
-	let [agents, handleRange] = useStateSessionStorage('agents');
+	let [agents, handleRange] = useState(1);
 	let [showAgentsModal, setModal] = useState(false);
 
 	const getValue = event => {
