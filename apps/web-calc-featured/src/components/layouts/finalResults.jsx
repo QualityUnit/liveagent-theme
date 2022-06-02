@@ -17,7 +17,7 @@ const tagManagerArguments = {
 }
 
 function FinalResults() {
-  const agents = 10;
+  const agents = 1;
   const [agentsCount, setAgents] = useState(agents);
   const [selFeature, setFeature] = useState(`["${getWebCalcData()[0]}"]`);
   const [result, setResult] = useState(getMostExpensive(agentsCount, selFeature));

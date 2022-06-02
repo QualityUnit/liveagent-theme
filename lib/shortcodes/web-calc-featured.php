@@ -13,7 +13,7 @@ function ms_web_calc_featured( $atts ) {
 	?>
 
 	<?php
-		$sources_ver = gmdate( 'ymdGis', filemtime( get_template_directory() . '/apps/web-calc-featured/build/static/css/main.css' ) );
+		$sources_ver = gmdate( 'ymdGis', filemtime( get_template_directory() . '/apps/web-calc-featured/build/static/js/main.js' ) );
 	?>
 
 	<link href="<?= esc_url( get_template_directory_uri() ); ?>/apps/web-calc-featured/build/static/css/main.css?<?= esc_html( $sources_ver ) ?>" rel="stylesheet">
