@@ -666,6 +666,23 @@
 					display: flex !important;
 					padding: 0;
 
+					.icon-header-menu,
+					.icon-header-menu-wordpress {
+
+						&::after {
+							bottom: 0 !important;
+							height: 30px !important;
+						}
+					}
+
+					.button-more-integrations {
+
+						&::after {
+							bottom: 20px !important;
+							height: 30px !important;
+						}
+					}
+
 					li {
 						max-width: none;
 						padding: 0 0 0 25px !important;
