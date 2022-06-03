@@ -102,17 +102,34 @@ function ms_signup_sidebar( $atts ) {
 		add_action( 'wp_footer', function() {
 	?>
 	<script>
-			function handleSend() {
-				const mailValue = document.querySelector('input[type="email"]').value;
+		function handleSend() {
+			const mailValue = document.querySelector('input[type="email"]').value;
+
+			if (mailValue) {
 				const mailSecondary = new RegExp('@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex.com|gmx.us|@gmx.com)$').test(mailValue);
-	
+
 				if(mailSecondary) {
-					ga('send', 'event', 'Trial Signup', {'event_category': 'SignUp', 'event_action': 'Trial', 'event_label': 'secondary', 'value': 1});
+					gtag( 'event', 'Trial Signup', {
+						'event_category': 'SignUp',
+						'event_action': 'Trial',
+						'event_label': 'all',
+						'value': 1
+					} );
+
+					_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 				}
 				if(!mailSecondary) {
-					ga('send', 'event', 'Trial Signup', {'event_category': 'SignUp', 'event_action': 'Trial', 'event_label': 'primary', 'value': 10});
+					gtag( 'event', 'Trial Signup', {
+						'event_category': 'SignUp',
+						'event_action': 'Trial',
+						'event_label': 'workmail',
+						'value': 10
+					} );
+
+					_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 				}
 			}
+		}
 	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/jquery.cookie.js' ?>"></script>
