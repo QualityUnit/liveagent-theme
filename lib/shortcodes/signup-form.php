@@ -49,7 +49,7 @@ function ms_signup_form() {
 			<div id="signUpError"></div>
 
 			<div class="Signup__form__submit">
-				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']); handleSend();">
+				<div id="createButtonmain" class="Button Button--full" onclick="handleSend();">
 					<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 				</div>
 
@@ -76,13 +76,30 @@ function ms_signup_form() {
 	<script>
 			function handleSend() {
 				const mailValue = document.querySelector('input[type="email"]').value;
-				const mailSecondary = new RegExp('@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex.com|gmx.us|@gmx.com)$').test(mailValue);
 
-				if(mailSecondary) {
-					ga('send', 'event', 'Trial Signup', {'event_category': 'SignUp', 'event_action': 'Trial', 'event_label': 'secondary', 'value': 1});
-				}
-				if(!mailSecondary) {
-					ga('send', 'event', 'Trial Signup', {'event_category': 'SignUp', 'event_action': 'Trial', 'event_label': 'primary', 'value': 10});
+				if (mailValue) {
+					const mailSecondary = new RegExp('@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex.com|gmx.us|@gmx.com)$').test(mailValue);
+
+					if(mailSecondary) {
+						gtag( 'event', 'Trial Signup', {
+							'event_category': 'SignUp',
+							'event_action': 'Trial',
+							'event_label': 'all',
+							'value': 1
+						} );
+
+						_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
+					}
+					if(!mailSecondary) {
+						gtag( 'event', 'Trial Signup', {
+							'event_category': 'SignUp',
+							'event_action': 'Trial',
+							'event_label': 'workmail',
+							'value': 10
+						} );
+
+						_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
+					}
 				}
 			}
 	</script>

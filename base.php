@@ -70,13 +70,15 @@
 
 			if ( trialButton !== null ) {
 				trialButton.addEventListener( "click", () => {
-					setCookie( 'cookieLaw', 'yes', 14 );
-					document.querySelector( '.Kolaciky' ).classList.add( 'hide' );
+					if ( ! getCookieFrontend( "cookieLaw" ) ) {
+						setCookie( 'cookieLaw', 'yes', 14 );
+						document.querySelector( '.Kolaciky' ).classList.add( 'hide' );
 
-					consentGranted();
-					grafana();
-					gtm();
-					postAffiliate();
+						postAffiliate();
+						consentGranted();
+						grafana();
+						gtm();
+					}
 				});
 			}
 		</script>
