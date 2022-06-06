@@ -24,10 +24,7 @@ function ChartBar(props) {
     <div className={`chart--bar__wrapper ${active ? 'active':''}`} value={name} onClick={handleClick}>
       <div className="chart--bar__wrapper__info">
         <span className="name">
-          {url
-            ? <a href={url} target="_blank" rel="noreferrer">{name}</a>
-            : name
-          }
+          {name}
         </span>
         { agents > 1
           ? <i className={`info-icon ${ agents > 1 && agents < 9999 ? 'warning': '' }`}>

@@ -25,10 +25,7 @@ function ChartBar(props) {
       <div className="chart--bar" style={{width: defaultwidth + "%"}}></div>
       <dl className="chart--bar__info">
         <dt className="name">
-          {url
-            ? <a href={url} target="_blank" rel="noreferrer">{name}</a>
-            : name
-          }
+          {name}
         </dt>
         <dd className="price">
           <NumberFormat value={price} displayType={'text'} thousandSeparator={' '} prefix={'$'} />
