@@ -3,7 +3,7 @@ import NumberFormat from 'react-number-format';
 import { i18n } from '../common/constants';
 
 function ChartBar(props) {
-  const {name, url, price, laprice, width, agents, shortname} = props;
+  const {name, price, laprice, width, agents, shortname} = props;
   const [defaultwidth, setWidth] = useState(0);
   const [active, setActive] = useState(false);
 
