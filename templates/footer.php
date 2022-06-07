@@ -155,11 +155,11 @@
 		<div class="BuildingApp">
 			<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" alt="<?php bloginfo( 'name' ); ?>" class="BuildingApp__logo">
 
-			<div id="BuildingHeader" class="BuildingApp__title BuildingApp--desktop h2"><?php _e( 'Building Your LiveAgent...', 'ms' ); ?></div>
-			<p id="BuildingText" class="BuildingApp__text BuildingApp--desktop"><?php _e( 'We appreciate your recent sign up for a LiveAgent. <br>A message will be sent to your email address containing login details, right after your account is installed. <br>If you wait for a while, after installation is complete you will be able to access your account directly from here.', 'ms' ); ?></p>
+			<div class="BuildingHeader BuildingApp__title BuildingApp--desktop h2"><?php _e( 'Building Your LiveAgent...', 'ms' ); ?></div>
+			<p class="BuildingText BuildingApp__text BuildingApp--desktop"><?php _e( 'We appreciate your recent sign up for a LiveAgent. <br>A message will be sent to your email address containing login details, right after your account is installed. <br>If you wait for a while, after installation is complete you will be able to access your account directly from here.', 'ms' ); ?></p>
 
-			<div id="BuildingHeader" class="BuildingApp__title BuildingApp--mobile h2"><?php _e( 'We are currently building your LiveAgent dashboard...', 'ms' ); ?></div>
-			<p id="BuildingText" class="BuildingApp__text BuildingApp--mobile"><?php _e( 'After the process is over, we will send the login details to your mailbox.', 'ms' ); ?></p>
+			<div class="BuildingHeader BuildingApp__title BuildingApp--mobile h2"><?php _e( 'We are currently building your LiveAgent dashboard...', 'ms' ); ?></div>
+			<p class="BuildingText BuildingApp__text BuildingApp--mobile"><?php _e( 'After the process is over, we will send the login details to your mailbox.', 'ms' ); ?></p>
 
 			<div id="BuildingSubheader" class="BuildingApp__subtitle h4"><?php _e( 'Installation status', 'ms' ); ?></div>
 
