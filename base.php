@@ -266,16 +266,25 @@
 					script.onload = script.onreadystatechange = function() {
 						var rs = this.readyState; if (rs && (rs != 'complete') && (rs != 'loaded')) return;
 						PostAffTracker.setAccountId('default1');
-						try { PostAffTracker.track(); } catch (e) {}
+						if ( !getCookieFrontend( "cookieLaw" ) ) {
+							try {
+								PostAffTracker.disableTrackingMethod('C');
+								PostAffTracker.track();
+						} catch (e) {}
+						}
+						if ( getCookieFrontend( "cookieLaw" ) ) {
+							try {
+								PostAffTracker.enableTrackingMethods();
+								PostAffTracker.track();
+						} catch (e) {}
+						}
 					}
 					var placeholder = document.getElementById('papPlaceholder');
 					placeholder.parentNode.insertBefore(script, placeholder);
 					placeholder.parentNode.removeChild(placeholder);
 				})(document, 'script');
 			}
-			if ( getCookieFrontend( "cookieLaw" ) ) {
-				postAffiliate()
-			}
+			postAffiliate()
 		</script>
 	</body>
 </html>
