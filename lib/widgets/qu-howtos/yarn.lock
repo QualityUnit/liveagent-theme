@@ -2420,7 +2420,7 @@
     rememo "^3.0.0"
     traverse "^0.6.6"
 
-"@wordpress/block-editor@^9":
+"@wordpress/block-editor@^9", "@wordpress/block-editor@^9.2.0":
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-9.2.0.tgz#7eec57c5fae91fa6e8e1941b5f249b495ea3d316"
   integrity sha512-stkBa++A+poDdu0AJmZH6xCVieSPE3B9jyjuB1o7Pg6jzKt/pf5zWKUnPxjoEXpNXan/Ftud1KJSa5jFwpoKhw==
@@ -2735,22 +2735,22 @@
     requireindex "^1.2.0"
 
 "@wordpress/format-library@^3":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/format-library/-/format-library-3.3.0.tgz#c1b35a21658c4f3087cc8f0cc2ea76a3f8dbab8f"
-  integrity sha512-0VrFrKFFEX9SAdUHLgViF43vamTjTUzwCDi4i98cIj/Du9GuZDrItRoj2AkV5CiONhdtyUTODQr6zxuY0MYqyw==
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/format-library/-/format-library-3.8.0.tgz#a0dcc48c080aeb818d5f13427a41e03e723e6c64"
+  integrity sha512-xrKdv3wBhs6C+gzjFMSc4QL903Taoyg85O376WqwPpQJfJcu+43TvYOYC8vWbYFrNvgj59TI917CEV9BbmK61w==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@wordpress/a11y" "^3.5.0"
-    "@wordpress/block-editor" "^8.4.0"
-    "@wordpress/components" "^19.7.0"
-    "@wordpress/compose" "^5.3.0"
-    "@wordpress/data" "^6.5.0"
-    "@wordpress/element" "^4.3.0"
-    "@wordpress/html-entities" "^3.5.0"
-    "@wordpress/i18n" "^4.5.0"
-    "@wordpress/icons" "^8.1.0"
-    "@wordpress/rich-text" "^5.3.0"
-    "@wordpress/url" "^3.6.0"
+    "@wordpress/a11y" "^3.10.0"
+    "@wordpress/block-editor" "^9.2.0"
+    "@wordpress/components" "^19.12.0"
+    "@wordpress/compose" "^5.8.0"
+    "@wordpress/data" "^6.10.0"
+    "@wordpress/element" "^4.8.0"
+    "@wordpress/html-entities" "^3.10.0"
+    "@wordpress/i18n" "^4.10.0"
+    "@wordpress/icons" "^9.1.0"
+    "@wordpress/rich-text" "^5.8.0"
+    "@wordpress/url" "^3.11.0"
     lodash "^4.17.21"
 
 "@wordpress/hooks@^3.10.0", "@wordpress/hooks@^3.3.0", "@wordpress/hooks@^3.5.0":
