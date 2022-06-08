@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import useStateSessionStorage from '../common/sessionStorage';
 import {production, path, i18n} from '../common/constants';
 
 function AgentsSlider(props) {
-	let [agents, handleRange] = useState(10);
+	let [agents, handleRange] = useStateSessionStorage('agents');
   let [showAgentsModal, setModal] = useState(false);
 
 	const getValue = event => {
@@ -18,7 +19,7 @@ function AgentsSlider(props) {
 
 	useEffect(() => {
 		if(agents === 100) {
-			// setModal(true);
+			setModal(true);
 			handleRange(99);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
