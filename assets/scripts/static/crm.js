@@ -696,8 +696,10 @@
 					$( redirectForm ).appendTo( '#redirectButtonPanel' );
 					$( '#redirectButtonPanel' ).css( 'display', 'block' );
 
-					if ( $( '#BuildingHeader' ).length > 0 ) {
-						$( '#BuildingHeader' ).text( textReadyApp );
+					if ( $( '.BuildingHeader' ).length > 0 ) {
+						$( '.BuildingHeader' ).each( function() {
+							$( this ).text( textReadyApp );
+						} );
 						$( '#loader' ).addClass( 'ApplicationReady' );
 					}
 
@@ -729,9 +731,13 @@
 							$( '#trialform' ).submit();
 						}, 100 );
 					} );
-				} else if ( $( '#BuildingHeader' ).length > 0 ) {
-					$( '#BuildingHeader' ).text( textDoneAppTitle );
-					$( '#BuildingText' ).text( textDoneAppText );
+				} else if ( $( '.BuildingHeader' ).length > 0 ) {
+					$( '.BuildingHeader' ).each( function() {
+						$( this ).text( textDoneAppTitle );
+					} );
+					$( '.BuildingText' ).each( function() {
+						$( this ).text( textDoneAppText );
+					} );
 					$( '#loader' ).addClass( 'ApplicationReady' );
 					$( '#loader' ).addClass( 'ApplicationReady--spam' );
 				}
