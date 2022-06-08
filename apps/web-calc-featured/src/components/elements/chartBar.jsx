@@ -3,7 +3,7 @@ import NumberFormat from 'react-number-format';
 import { i18n } from '../common/constants';
 
 function ChartBar(props) {
-  const {name, url, price, width, agents, shortname} = props;
+  const {name, price, width, agents, shortname} = props;
   const [defaultwidth, setWidth] = useState(0);
   const [active, setActive] = useState(false);
 
@@ -24,10 +24,7 @@ function ChartBar(props) {
     <div className={`chart--bar__wrapper ${active ? 'active':''}`} value={name} onClick={handleClick}>
       <div className="chart--bar__wrapper__info">
         <span className="name">
-          {url
-            ? <a href={url} target="_blank" rel="noreferrer">{name}</a>
-            : name
-          }
+          {name}
         </span>
         { agents > 1
           ? <i className={`info-icon ${ agents > 1 && agents < 9999 ? 'warning': '' }`}>

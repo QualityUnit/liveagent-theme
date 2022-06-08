@@ -3,7 +3,7 @@ import NumberFormat from 'react-number-format';
 import { i18n } from '../common/constants';
 
 function ChartBar(props) {
-  const {name, url, price, laprice, width, agents, shortname} = props;
+  const {name, price, laprice, width, agents, shortname} = props;
   const [defaultwidth, setWidth] = useState(0);
   const [active, setActive] = useState(false);
 
@@ -25,10 +25,7 @@ function ChartBar(props) {
       <div className="chart--bar" style={{width: defaultwidth + "%"}}></div>
       <dl className="chart--bar__info">
         <dt className="name">
-          {url
-            ? <a href={url} target="_blank" rel="noreferrer">{name}</a>
-            : name
-          }
+          {name}
         </dt>
         <dd className="price">
           <NumberFormat value={price} displayType={'text'} thousandSeparator={' '} prefix={'$'} />
