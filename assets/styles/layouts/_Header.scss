@@ -666,6 +666,30 @@
 					display: flex !important;
 					padding: 0;
 
+					.icon-header-menu,
+					.icon-header-menu-wordpress,
+					.button-more-integrations {
+
+						&::after {
+							height: 1.875em !important;
+						}
+					}
+
+					.icon-header-menu,
+					.icon-header-menu-wordpress {
+
+						&::after {
+							bottom: 0 !important;
+						}
+					}
+
+					.button-more-integrations {
+
+						&::after {
+							bottom: 1.25em !important;
+						}
+					}
+
 					li {
 						max-width: none;
 						padding: 0 0 0 25px !important;
