@@ -285,7 +285,7 @@ $positions: ("left", "right");
 
 				}
 
-				@media (min-width: $breakpoint-desktop-hd + 1px) {
+				@media (min-width: ($breakpoint-desktop-hd + 1px)) {
 
 					.wrapper {
 						#{$pos}: auto;
@@ -296,7 +296,7 @@ $positions: ("left", "right");
 		}
 	}
 
-	@media (min-width: $breakpoint-desktop-hd + 1px) {
+	@media (min-width: ($breakpoint-desktop-hd + 1px)) {
 
 		.youtube__loader,
 		.elementor-custom-embed-image-overlay {
@@ -327,7 +327,7 @@ $positions: ("left", "right");
 	.videoTitle {
 		position: absolute;
 		pointer-events: none;
-		z-index: 1;
+		z-index: 2;
 		width: 100%;
 		padding: 2em;
 		top: 4em;
@@ -377,7 +377,7 @@ $positions: ("left", "right");
 				display: none;
 			}
 
-			@media (min-width: $breakpoint-tablet + 1px) {
+			@media (min-width: ($breakpoint-tablet + 1px)) {
 
 				@include posZero;
 				position: absolute;
@@ -399,20 +399,21 @@ $positions: ("left", "right");
 			position: relative;
 			overflow: visible;
 			border-radius: $border-radius-16;
+			z-index: 1;
 
-			&::before {
+			.playBtn {
 
 				position: absolute;
 				width: 10em;
 				height: 0;
 				padding-bottom: 20%;
-				content: "";
 				background: url(../images/play_videoHorizontal.svg) center center no-repeat;
 				background-size: contain;
 				bottom: 0;
 				left: 50%;
 				transform: translate(-50%, calc(50% - 0.15em));
-				z-index: 1;
+				z-index: 3;
+				cursor: pointer;
 			}
 
 			&::after {

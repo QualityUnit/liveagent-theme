@@ -4,10 +4,27 @@
     <strong>See it in Action</strong>
   </a>
 */
+const videoVertical = document.querySelectorAll(
+	'[class*="Block--video__vertical"] [data-ytid]'
+);
+
+if ( videoVertical.length > 0 ) {
+	videoVertical.forEach( ( video ) => {
+		const playBtn = document.createElement( 'span' );
+
+		Object.assign( playBtn, {
+			className: 'playBtn',
+		} );
+		playBtn.dataset.ytid = video.dataset.ytid;
+		video.closest( '.elementor-widget-container' ).insertAdjacentElement( 'afterbegin', playBtn );
+	} );
+}
+
+const body = document.querySelector( 'body' );
+
 const modalVideo = document.querySelectorAll(
 	'[data-lightbox="youtube"], [class*="Block--video"] [data-ytid]'
 );
-const body = document.querySelector( 'body' );
 
 function loadYouTubeModal( yt, target ) {
 	const videoID = yt.dataset.ytid;
