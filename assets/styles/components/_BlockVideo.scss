@@ -196,7 +196,7 @@ $positions: ("left", "right");
 				@media (min-width: 800px) {
 
 					.wrapper {
-						padding: 0;
+						//padding: 0;
 						width: 100vw;
 
 						.elementor-column {
@@ -206,6 +206,7 @@ $positions: ("left", "right");
 								&:first-of-type {
 									height: 120%;
 									top: -10%;
+									margin-left: -5vw;
 									margin-right: 10% !important;
 									width: 100% !important;
 								}
@@ -214,7 +215,8 @@ $positions: ("left", "right");
 								&:last-of-type {
 									height: 120%;
 									top: -10%;
-									margin-right: 10% !important;
+									margin-right: -5vw;
+									margin-left: 10% !important;
 									width: 100% !important;
 								}
 							}
@@ -265,10 +267,14 @@ $positions: ("left", "right");
 				@media (min-width: $breakpoint-desktop-box) {
 
 					.wrapper {
-						#{$pos}: calc(-50vw + 690px - 20px);
+						//#{$pos}: calc(-50vw + 690px - 20px);
 						width: 100%;
 
 						@if $pos == left {
+
+							.elementor-column:first-of-type {
+								margin-left: -13vw;
+							}
 
 							.elementor-column:last-of-type {
 								width: 60%;
@@ -280,6 +286,10 @@ $positions: ("left", "right");
 							.elementor-column:first-of-type {
 								width: 60%;
 							}
+
+							.elementor-column:last-of-type {
+								margin-right: -13vw;
+							}
 						}
 					}
 
@@ -288,7 +298,20 @@ $positions: ("left", "right");
 				@media (min-width: $breakpoint-desktop-hd + 1px) {
 
 					.wrapper {
-						#{$pos}: auto;
+
+						@if $pos == left {
+
+							.elementor-column:first-of-type {
+								margin-left: initial;
+							}
+						}
+
+						@if $pos == right {
+
+							.elementor-column:last-of-type {
+								margin-right: initial;
+							}
+						}
 					}
 
 				}
