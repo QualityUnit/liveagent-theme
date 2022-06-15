@@ -34,10 +34,6 @@
 				?>
 
 				<div class="Header__navigation__buttons">
-					<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline Button--demo" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Demo'])">
-						<span><?php _e( 'Demo', 'ms' ); ?></span>
-					</a>
-
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Free Trial'])">
 						<span><?php _e( 'Free Trial', 'ms' ); ?></span>
 					</a>
