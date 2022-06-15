@@ -196,7 +196,6 @@ $positions: ("left", "right");
 				@media (min-width: 800px) {
 
 					.wrapper {
-						//padding: 0;
 						width: 100vw;
 
 						.elementor-column {
@@ -267,7 +266,6 @@ $positions: ("left", "right");
 				@media (min-width: $breakpoint-desktop-box) {
 
 					.wrapper {
-						//#{$pos}: calc(-50vw + 690px - 20px);
 						width: 100%;
 
 						@if $pos == left {
