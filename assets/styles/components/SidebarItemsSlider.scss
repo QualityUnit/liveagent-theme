@@ -1,0 +1,119 @@
+/* stylelint-disable selector-class-pattern, selector-id-pattern */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.SidebarItemsSlider {
+
+	margin-top: 1.5em;
+	width: 100%;
+	max-width: 15.625em;
+	border-radius: 1rem;
+	transition: transform 0.5s;
+
+	&__wrapper {
+		position: sticky;
+		top: 15px + $header-height;
+		width: 100%;
+		z-index: 2;
+	}
+
+	&__wrapper:first-of-type & {
+		margin-top: 0;
+	}
+
+	&.scrolled {
+		transform: translateY(-100%);
+	}
+
+	// For scrolling version only
+	.splide {
+		visibility: visible;
+
+		&.is-active {
+
+			.splide__track {
+				position: relative;
+				margin: 1.5em 0;
+				top: 0.5rem;
+			}
+		}
+
+		&__list {
+			position: relative;
+			width: auto;
+		}
+
+		&__slide {
+			float: none;
+			height: auto !important;
+			padding-top: 0.75em;
+			padding-bottom: 0.75em;
+			margin: 0;
+		}
+
+		&__arrows {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			height: calc(100% + 2.5rem);
+
+			&::before {
+				content: "";
+				position: absolute;
+				background: linear-gradient(to bottom, $white 2em, rgba($white, 0) 3em, rgba($white, 0) calc(100% - 3em), $white);
+				width: 100%;
+				top: -1.5em;
+				bottom: 2em;
+				pointer-events: none;
+				z-index: 1;
+			}
+		}
+
+		&__arrow {
+			display: flex;
+			justify-content: center;
+			font-size: 0.5rem;
+			color: #c4c4c4;
+			width: 40%;
+			padding: 0.5em;
+			height: 2em;
+			border-radius: 0.5em;
+			border: 1px solid currentcolor;
+			background-color: $white;
+			z-index: 1;
+			opacity: 1;
+
+			svg {
+				fill: $black;
+			}
+
+			&:disabled {
+				cursor: default;
+				opacity: 0.3;
+			}
+
+			&:hover:enabled {
+				background-color: #c4c4c4;
+			}
+
+			&::before {
+				display: none;
+			}
+
+			&--prev {
+				top: -1.5em;
+			}
+
+			&--next {
+				top: auto;
+				bottom: 1em;
+
+				svg {
+					transform: scaleY(-1);
+				}
+			}
+		}
+	}
+}
