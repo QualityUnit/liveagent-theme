@@ -17,6 +17,8 @@ $sidebarWidth: 15.625rem;
 	}
 
 	&__content {
+		position: relative;
+		z-index: 1;
 
 		&__description {
 			font-size: 1.125rem;
@@ -71,6 +73,7 @@ $sidebarWidth: 15.625rem;
 
 		&__container {
 			display: flex;
+			align-items: flex-start;
 		}
 
 		&__content {

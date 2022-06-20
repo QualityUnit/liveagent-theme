@@ -6,7 +6,6 @@
 	@media (min-width: $breakpoint-tablet-landscape) {
 		width: $sidebarWidth;
 
-
 		&.fixed {
 			position: fixed;
 			top: 92px;
@@ -25,19 +24,26 @@
 			height: calc(100vh - 92px);
 			padding-bottom: 3em;
 		}
+
+		&__items {
+			max-width: ($sidebarWidth - 1.5);
+			padding-left: 1em;
+		}
+
+		&__item {
+
+			&:first-child {
+				margin: 0.9rem 0 0 0;
+			}
+		}
 	}
 
 	&__showfilter {
 		display: none !important;
 
 		&--label {
-			display: none !important;
+			display: none;
 		}
-	}
-
-	&__items {
-		max-width: ($sidebarWidth - 24);
-		padding-left: 1em;
 	}
 
 	&__item {
@@ -49,7 +55,6 @@
 
 		&:first-child {
 			border: none;
-			margin: 0.9rem 0 0 0;
 
 			h4 {
 				margin: 0 0 15px 0;
@@ -134,7 +139,7 @@
 		padding-top: 0;
 		padding-bottom: 50px;
 		top: 90px;
-		z-index: 1;
+		z-index: 2;
 
 		&::after {
 			content: "";
@@ -146,6 +151,11 @@
 			width: 100vw;
 			height: 100%;
 			background: linear-gradient(to bottom, rgba($white, 1) 90%, rgba($white, 0));
+		}
+
+		&__item {
+			padding-left: 1em;
+			padding-right: 1em;
 		}
 
 		&__showfilter {
