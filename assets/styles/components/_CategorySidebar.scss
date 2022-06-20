@@ -6,6 +6,7 @@
 	@media (min-width: $breakpoint-tablet-landscape) {
 		width: $sidebarWidth;
 
+
 		&.fixed {
 			position: fixed;
 			top: 92px;
@@ -30,8 +31,13 @@
 		display: none !important;
 
 		&--label {
-			display: none;
+			display: none !important;
 		}
+	}
+
+	&__items {
+		max-width: ($sidebarWidth - 24);
+		padding-left: 1em;
 	}
 
 	&__item {
@@ -70,10 +76,7 @@
 		}
 
 		label {
-			display: flex;
-			flex-flow: wrap row;
-			justify-content: flex-start;
-			align-items: center;
+			display: block;
 
 			input {
 				display: none;
@@ -82,17 +85,21 @@
 			span {
 
 				@include color(color, font-color-dark);
+				display: block;
+				margin: 0.05em -1em;
+				padding: 0.11em 1em;
+				border-radius: 1em;
 				cursor: pointer;
 
 				&:hover {
 
-					@include color(color, primary-color);
+					background-color: $pricing-gray;
 				}
 			}
 
 			input:checked + span {
-
-				@include color(color, primary-color);
+				font-weight: 600;
+				background-color: $pricing-gray;
 			}
 		}
 
@@ -106,6 +113,7 @@
 
 		@media (min-width: 1024px) {
 			width: 100%;
+			max-width: 100%;
 
 			&--uniq,
 			&--wide {
