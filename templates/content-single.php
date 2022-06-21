@@ -9,7 +9,7 @@
 		<div class="BlogPost__intro">
 			<div class="BlogPost__category">
 				<?php /* translators: %s: don't modify */ ?>
-				<?= wp_kses_post( preg_replace( '/(Blog|, and|,|and)/', '', get_the_taxonomies( 0, array( 'template' => __( '<span class="hidden">%s:</span><span>%l</span>' ) ) ) )['category'] ); 
+				<?= wp_kses_post( preg_replace( '/<a href=".+?<\/a>.+?(<a)/', '$1', get_the_taxonomies( 0, array( 'template' => __( '<span class="hidden">%s:</span><span>%l</span>' ) ) ) )['category'] );
 				?>
 			</div>
 			<h1 itemprop="name" class="BlogPost__title"><?php the_title(); ?></h1>
