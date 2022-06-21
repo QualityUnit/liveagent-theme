@@ -281,6 +281,7 @@
 					}
 					var placeholder = document.getElementById('papPlaceholder');
 					placeholder.parentNode.insertBefore(script, placeholder);
+					placeholder.parentNode.removeChild(placeholder);
 				})(document, 'script');
 			}
 
