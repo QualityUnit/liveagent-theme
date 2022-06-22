@@ -3,7 +3,52 @@
 .Boxes {
 	$widgetPadding: 2.5rem;
 
+	.elementor-col-33 {
+
+		.elementor-widget-heading {
+
+			h3 {
+
+				a {
+
+					&::before {
+						content: none;
+					}
+				}
+			}
+		}
+	}
+
 	&.Boxes--stars {
+
+		.learn-more {
+
+			a {
+
+				background: linear-gradient($dark-orange, $light-orange);
+				-webkit-text-fill-color: transparent;
+				-webkit-background-clip: text;
+				background-clip: text;
+				display: flex;
+				align-items: center;
+				font-family: $font-secondary;
+				font-weight: 600;
+				margin-top: auto;
+
+				&:hover {
+					cursor: pointer;
+					text-decoration: none !important;
+				}
+
+				&::after {
+					position: relative;
+					content: url(../images/arrow-right-orange.svg);
+					display: inline-block;
+					margin-left: 0.5em;
+					top: 0.25em;
+				}
+			}
+		}
 
 		.elementor-column.elementor-column {
 			padding: 20px;
@@ -13,23 +58,44 @@
 			width: 33.333%;
 		}
 
-		.elementor-widget-wrap.elementor-widget-wrap {
+		.elementor-inner-column {
 
-			border-radius: 1.25rem;
-			overflow: hidden;
+			.elementor-widget-wrap.elementor-widget-wrap {
 
-			.elementor-column {
+				position: relative;
+				border-radius: 1.25rem;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
 
-				@media (min-width: $breakpoint-desktop-box) {
-					transition: transform 0.2s;
+				&::after {
+					width: 100%;
+					height: 500px;
+					position: absolute;
+					left: 47%;
+					content: "";
+					background: linear-gradient(174.1deg, rgba(9, 0, 44, 0.12) 14.69%, rgba(255, 255, 255, 0) 78.55%);
+					opacity: 0.3;
+					transform: rotate(45deg);
+				}
 
-					&:hover {
-						transform: translateY(-1em);
+				div:nth-child(4) {
+					margin-top: auto;
+				}
 
-						.elementor-widget-heading:last-of-type .elementor-widget-container {
+				.elementor-column {
 
-							*::after {
-								transform: translateX(1em);
+					@media (min-width: $breakpoint-desktop-box) {
+						transition: transform 0.2s;
+
+						&:hover {
+							transform: translateY(-1em);
+
+							.elementor-widget-heading:last-of-type .elementor-widget-container {
+
+								*::after {
+									transform: translateX(1em);
+								}
 							}
 						}
 					}
@@ -37,13 +103,12 @@
 			}
 		}
 
+
 		.elementor-widget-image.elementor-widget-image {
 			position: relative;
 			width: 100%;
-			height: 0;
-			padding-bottom: 46.25%;
-			background: url(../images/box-star_bg.svg?v2) center -3px no-repeat;
-			background-size: cover;
+			height: 100px;
+			margin-top: 3em;
 			text-align: left;
 
 			.elementor-image a {
@@ -105,6 +170,8 @@
 		}
 
 		.elementor-widget-heading.elementor-widget-heading {
+
+			margin-top: -1.5em;
 
 			&:last-of-type .elementor-widget-container {
 				padding: 1.75rem $widgetPadding $widgetPadding;
