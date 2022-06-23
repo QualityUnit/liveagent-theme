@@ -416,105 +416,94 @@ add_filter( 'the_content', 'learnmore_pre_block', 9999 );
 
 
 function learnmore_sidebars( $content ) {
-	if ( is_page_template( 'elementor.php' ) ) {
-		if ( ! $content ) {
-			return $content;
-		}
 
-		$dom = new DOMDocument();
-		libxml_use_internal_errors( true );
-		$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
-		libxml_clear_errors();
-		$xpath       = new DOMXPath( $dom );
-		$block_class = 'xxxx';//Block--learnMore
-		$blocks      = get_nodes( $xpath, $block_class );
+	if ( ! $content ) {
+		return $content;
+	}
 
-		// @codingStandardsIgnoreStart
-		//$dom->appendChild($dom->createTextNode( 'dlzka blokov:'.count($blocks) ));
-		if ( count($blocks) > 0 ) {
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath       = new DOMXPath( $dom );
+	$block_class = 'Block--learnMore';//Block--learnMore
+	$blocks      = get_nodes( $xpath, $block_class );
 
-			$clText = 'elementor-text-editor elementor-clearfix';
-			$clContent = 'Content';
-			foreach ( $blocks as $block ) {
-				//remove Content class from section
-				$blockClasses = $block->getAttribute( 'class' );
-				$blockClasses = str_replace( ' ' . $clContent, '', $blockClasses);
-				$block->setAttribute( 'class', $blockClasses );
-				$divIndex = 0;
+	// @codingStandardsIgnoreStart
 
-				foreach ( $block->getElementsByTagName( 'div' ) as $div ) {
-					if ( $div->getAttribute( 'class' ) == $clText ) {
-						if( $divIndex == 1 ) {
+	if ( count($blocks) > 0 ) {
 
-							$wrapEl = $dom->createElement('div');
-							$wrapEl->setAttribute('class',$clText . ' ' . $clContent . ' wrapper__wide Post__container');
-							$wrap = $wrapEl->cloneNode();
-							$div->parentNode->replaceChild($wrap,$div);
-							$wrap->appendChild($div);
+		$clText = 'elementor-text-editor elementor-clearfix';
+		$clContent = 'Content';
 
-							$wrap->firstChild->setAttribute('class','BlogPost__content Post__content');
+		foreach ( $blocks as $block ) {
+			//remove 'Content' class from section
+			$blockClasses = $block->getAttribute( 'class' );
+			$blockClasses = str_replace( ' ' . $clContent, '', $blockClasses);
+			$block->setAttribute( 'class', $blockClasses );
+			$divIndex = 0;
 
-							$wrap->insertBefore($dom->createTextNode( 'sidebar 1' ),$wrap->firstChild);
-							$wrap->appendChild($dom->createTextNode( 'sidebar 2' ));
+			foreach ( $block->getElementsByTagName( 'div' ) as $div ) {
+				if ( $div->getAttribute( 'class' ) == $clText ) {
+					if( $divIndex == 1 ) {
 
-							/*$childsCount = $div->childNodes->length;
-							$div->insertBefore($dom->createTextNode( $childsCount ),$div->firstChild);*/
+						$wrapEl = $dom->createElement('div');
+						$wrapEl->setAttribute('class',' wrapper__wide Post__container');
+						$wrap = $wrapEl->cloneNode();
+						$div->parentNode->replaceChild($wrap,$div);
+						$wrap->appendChild($div);
 
-							/*$childrens = $div->cloneNode(true)->childNodes;
-							$new_div_clone = $new_div->cloneNode();
-							$div->insertBefore($new_div_clone,$div->firstChild);
-							foreach ( $childrens as $child ) {
-								$childClone = $child->cloneNode( true );
-								$div->firstChild->appendChild($childClone);
-							}*/
+						$formatedOutput = $wrap->firstChild->cloneNode(true);
+						$wrap->firstChild->setAttribute('class',$clText . 'BlogPost__content Post__content');
 
-							/*for($i=3;$i<50;$i++){
-								$div->removeChild($div->childNodes->item($i));
-							}*/
+						$sidebarRight = new DOMDocument;
+						$sidebarRight->loadHTML( mb_convert_encoding( '<div class="Signup__sidebar-wrapper">' . do_shortcode("[signup-sidebar]") . '</div>', 'HTML-ENTITIES', 'UTF-8' ) );
+						$wrap->insertBefore( $dom->importNode( $sidebarRight->documentElement, TRUE ), $wrap->firstChild );
 
-							/*$i = 0;
-							$newChildrens  = $div->childNodes;
-							foreach ( $newChildrens as $child ) {
-								if ( $i != 0 ) {
-									$div->removeChild($child);
+						$new = new DomDocument;
+						libxml_use_internal_errors( true );
+						$new->appendChild($new->importNode($formatedOutput, true));
+						libxml_clear_errors();
+						$xpath = new DOMXPath( $new );
+						$tags  = $xpath->query( './h2 | ./h3' );
+
+						if ( count( $tags ) > 2 ) {
+							foreach ( $tags as $node ) {
+								$tag   = $node->tagName; //@codingStandardsIgnoreLine
+								$title = $node->nodeValue; //@codingStandardsIgnoreLine
+								$id    = $node->getAttribute( 'id' );
+								if ( strlen( $id ) > 2 ) {
+									$toc[] = '<li class="SidebarTOC__item SidebarTOC__item--' . $tag . '"><a href="#' . $id . '">' . $title . '</a></li>'; // @codingStandardsIgnoreLine
 								}
-								$i++;
-							}*/
-
-							/*while ($div->hasChildNodes()) {
-								$div->removeChild($div->firstChild);
-							}*/
-
-
-
-						} else {
-							$div->setAttribute( 'class', $clText . ' ' . $clContent );
+							}
+							if ( isset( $toc ) ) {
+								$sidebarLeft = new DOMDocument;
+								$sidebarLeft->loadHTML( '<div class="Post__sidebar"><div class="SidebarTOC-wrapper"><div class="SidebarTOC"><div class="SidebarTOC__slider slider splide"><div class="splide__track"><ul class="SidebarTOC__content splide__list">' .
+										implode( '', $toc ) .'</ul></div></div></div></div></div>' );
+							}
 						}
-						$divIndex++;
+
+						$wrap->insertBefore( $dom->importNode( $sidebarLeft->documentElement, TRUE ), $wrap->firstChild );
+
+
+					} else {
+						//set 'Content' class for text elements (removed from section)
+						$div->setAttribute( 'class', $clText . ' ' . $clContent );
 					}
+					$divIndex++;
 				}
 			}
-
-		} else {
-
-			$sidebarLeftClass	= 'Post__sidebar';
-			$sidebarLeft		= get_nodes( $xpath, $sidebarLeftClass );
-
-			$dom->appendChild($dom->createTextNode( 'dlzka blokov:'.count($blocks) ));
-
-			foreach ( $sidebarLeft as $sidebar ){
-				$sidebar->appendChild($dom->createTextNode( 'xxxxx' ));
-			}
-
 		}
 
-		// @codingStandardsIgnoreEnd
-
-		$dom->removeChild( $dom->doctype );
-		$content = $dom->saveHtml();
-		$content = str_replace( '<html><body>', '', $content );
-		$content = str_replace( '</body></html>', '', $content );
-		return '[signup-sidebar]' . $content;
 	}
+
+	// @codingStandardsIgnoreEnd
+
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return  $content;
+
 }
 add_filter( 'the_content', 'learnmore_sidebars', 9999 );
