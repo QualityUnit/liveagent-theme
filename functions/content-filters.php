@@ -563,3 +563,60 @@ function learnmore_sidebars( $content ) {
 	// @codingStandardsIgnoreEnd
 }
 add_filter( 'the_content', 'learnmore_sidebars', 9999 );
+
+/*
+* Change formatting in Block--learnMore <pre> blocks
+*/
+
+function learnmore_image( $content ) {
+	if ( ! $content ) {
+		return $content;
+	}
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath       = new DOMXPath( $dom );
+	$block_class = 'Block--learnMore';
+	$blocks      = get_nodes( $xpath, $block_class );
+	// @codingStandardsIgnoreStart
+	foreach ( $blocks as $block ) {
+		foreach ( $block->getElementsByTagName( 'img' ) as $img ) {
+			$wrap_old = $img->parentNode;
+
+			if ( !$img->nextSibling && !$img->previousSibling && $wrap_old->nodeName == 'p' ) {
+
+				$img_media = urldecode($img->getAttribute('data-lasrc'));
+
+				$wrap_new = $dom->createElement('div');
+				$wrap_new->setAttribute('class', 'wp-block-image no-borders');
+
+				$figure = $dom->createElement('figure');
+				$figure->setAttribute('class', 'aligncenter size-large');
+
+				$link = $dom->createElement('a');
+				$link->setAttribute('href', $img_media);
+				$link->setAttribute('data-lightbox', 'gallery');
+				$link->setAttribute('class', 'SmallPhoto__slider__photo');
+
+				$overlay = new DOMDocument;
+				$overlay->loadHTML( '<span class="SmallPhoto__slider__zoomin"><svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"> <path d="M15.0086 13.2075H14.06L13.7238 12.8834C14.9005 11.5146 15.6089 9.73756 15.6089 7.80446C15.6089 3.494 12.1149 0 7.80446 0C3.494 0 0 3.494 0 7.80446C0 12.1149 3.494 15.6089 7.80446 15.6089C9.73756 15.6089 11.5146 14.9005 12.8834 13.7238L13.2075 14.06V15.0086L19.211 21L21 19.211L15.0086 13.2075V13.2075ZM7.80446 13.2075C4.81475 13.2075 2.40137 10.7942 2.40137 7.80446C2.40137 4.81475 4.81475 2.40137 7.80446 2.40137C10.7942 2.40137 13.2075 4.81475 13.2075 7.80446C13.2075 10.7942 10.7942 13.2075 7.80446 13.2075Z"></path></svg>Zoom in</span>' );
+
+				$wrap_new_clone = $wrap_new->cloneNode();
+				$wrap_old->parentNode->replaceChild($wrap_new_clone,$wrap_old);
+				$wrap_new_clone->appendChild($figure);
+				$figure->appendChild($link);
+				$link->appendChild( $dom->importNode($overlay->documentElement, TRUE) );
+				$link->appendChild($img);
+			}
+		}
+	}
+	// @codingStandardsIgnoreEnd
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
+}
+add_filter( 'the_content', 'learnmore_image', 9999 );

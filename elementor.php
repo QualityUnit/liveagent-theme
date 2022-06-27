@@ -4,6 +4,7 @@
 	 */
 	set_custom_source( 'pages/post', 'css' );
 	set_custom_source( 'common/splide', 'css' );
+	set_custom_source( 'components/SmallPhotoSlider', 'css' );
 	set_custom_source( 'splide', 'js' );
 	set_custom_source( 'sidebar_toc', 'js' );
 	set_custom_source( 'custom_lightbox', 'js' );
