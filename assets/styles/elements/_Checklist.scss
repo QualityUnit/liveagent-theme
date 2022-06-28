@@ -19,7 +19,7 @@
 			position: absolute;
 			top: 4px;
 			left: -0.5em;
-			background: $medium-orange url(../images/icon-post-check.svg) center center no-repeat;
+			background: $medium-orange url(../../images/icon-post-check.svg) center center no-repeat;
 			background-size: 50%;
 			padding: 0.25em;
 			font-size: 1.25em;
@@ -62,4 +62,31 @@
 			font-size: 1rem;
 		}
 	}
+
+	&--pros .elementor-text-editor.elementor-text-editor {
+
+		h4 {
+
+			color: $saturated-green;
+		}
+
+		ul:not([class]) li::before {
+			background-color: $desaturated-green;
+			background-image: url(../../images/icon-post-pros.svg);
+		}
+	}
+
+	&--cons .elementor-text-editor.elementor-text-editor {
+
+		h4 {
+
+			color: $saturated-red;
+		}
+
+		ul:not([class]) li::before {
+			background-color: $desaturated-red;
+			background-image: url(../../images/icon-post-cons.svg);
+		}
+	}
+
 }

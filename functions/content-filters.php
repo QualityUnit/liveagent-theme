@@ -565,7 +565,7 @@ function learnmore_sidebars( $content ) {
 add_filter( 'the_content', 'learnmore_sidebars', 9999 );
 
 /*
-* Change formatting in Block--learnMore <pre> blocks
+*  lightbox images in Block--learnMore
 */
 
 function learnmore_image( $content ) {
@@ -585,7 +585,7 @@ function learnmore_image( $content ) {
 		foreach ( $block->getElementsByTagName( 'img' ) as $img ) {
 			$wrap_old = $img->parentNode;
 
-			if ( !$img->nextSibling && !$img->previousSibling && $wrap_old->nodeName == 'p' ) {
+			if ( ! $img->nextSibling && ! $img->previousSibling && $wrap_old->nodeName == 'p' ) {
 
 				$img_media = urldecode($img->getAttribute('data-lasrc'));
 
@@ -601,6 +601,7 @@ function learnmore_image( $content ) {
 				$link->setAttribute('class', 'SmallPhoto__slider__photo');
 
 				$overlay = new DOMDocument;
+                //todo: load markup from one source
 				$overlay->loadHTML( '<span class="SmallPhoto__slider__zoomin"><svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"> <path d="M15.0086 13.2075H14.06L13.7238 12.8834C14.9005 11.5146 15.6089 9.73756 15.6089 7.80446C15.6089 3.494 12.1149 0 7.80446 0C3.494 0 0 3.494 0 7.80446C0 12.1149 3.494 15.6089 7.80446 15.6089C9.73756 15.6089 11.5146 14.9005 12.8834 13.7238L13.2075 14.06V15.0086L19.211 21L21 19.211L15.0086 13.2075V13.2075ZM7.80446 13.2075C4.81475 13.2075 2.40137 10.7942 2.40137 7.80446C2.40137 4.81475 4.81475 2.40137 7.80446 2.40137C10.7942 2.40137 13.2075 4.81475 13.2075 7.80446C13.2075 10.7942 10.7942 13.2075 7.80446 13.2075Z"></path></svg>Zoom in</span>' );
 
 				$wrap_new_clone = $wrap_new->cloneNode();
@@ -620,3 +621,122 @@ function learnmore_image( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'learnmore_image', 9999 );
+
+/*
+*  gallery sider in Block--learnMore
+*/
+
+function learnmore_gallery( $content ) {
+    // @codingStandardsIgnoreStart
+    if ( ! $content ) {
+        return $content;
+    }
+
+    $dom = new DOMDocument();
+    libxml_use_internal_errors( true );
+    $dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+    libxml_clear_errors();
+    $xpath      = new DOMXPath( $dom );
+    $sections   = get_nodes( $xpath, 'Block--learnMore' );
+    foreach ( $sections as $section ) {
+        //get list of galleries
+        $new_dom = new DomDocument;
+        libxml_use_internal_errors( true );
+        $new_dom->appendChild($new_dom->importNode($section, true));
+        libxml_clear_errors();
+        $new_xpath = new DOMXPath( $new_dom );
+        $galleries	= $new_xpath->query(".//*[contains(@class, 'galleryid-')]");
+        foreach ( $galleries as $gallery ) {
+            //todo: load markup from one source
+            $html_arrows = '<div class="splide__arrows nice__arrows"> <button class="splide__arrow splide__arrow--prev"> <svg viewBox="0 0 15 13" xmlns="http://www.w3.org/2000/svg"> <path d="M8.514 0 7.37 1.146l4.525 4.542H0v1.625h11.895L7.37 11.854 8.514 13 15 6.5 8.514 0Z" /> </svg> </button> <button class="splide__arrow splide__arrow--next"> <svg viewBox="0 0 15 13" xmlns="http://www.w3.org/2000/svg"> <path d="M8.514 0 7.37 1.146l4.525 4.542H0v1.625h11.895L7.37 11.854 8.514 13 15 6.5 8.514 0Z" /> </svg> </button> </div>';
+            $html_zoomin = '<span class="SmallPhoto__slider__zoomin"><svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"> <path d="M15.0086 13.2075H14.06L13.7238 12.8834C14.9005 11.5146 15.6089 9.73756 15.6089 7.80446C15.6089 3.494 12.1149 0 7.80446 0C3.494 0 0 3.494 0 7.80446C0 12.1149 3.494 15.6089 7.80446 15.6089C9.73756 15.6089 11.5146 14.9005 12.8834 13.7238L13.2075 14.06V15.0086L19.211 21L21 19.211L15.0086 13.2075V13.2075ZM7.80446 13.2075C4.81475 13.2075 2.40137 10.7942 2.40137 7.80446C2.40137 4.81475 4.81475 2.40137 7.80446 2.40137C10.7942 2.40137 13.2075 4.81475 13.2075 7.80446C13.2075 10.7942 10.7942 13.2075 7.80446 13.2075Z"></path></svg>Zoom in</span>';
+
+            //get list of gallerry items
+            $gallery_item = [];
+            foreach ( $gallery->childNodes as $item){
+                //$item_link = $item->getElementsByTagName( 'a' )->item( 0 );
+                //$item_overlay = new DOMDocument;
+                //$item_overlay->loadHTML($html_zoomin);
+                //$item_link->appendChild($new_dom->importNode($item_overlay->documentElement, TRUE));
+                $gallery_item[] = '<li class="splide__slide"><div class="slide__inn">' . $new_dom->saveHtml($item) . '</div></li>';
+            }
+            //build new gallery markup
+            if ( isset( $gallery_item ) ) {
+                $new_gallery = new DOMDocument;
+                $new_gallery->loadHTML( '<div class="SmallPhoto__slider slider splide">' . $html_arrows . '<div class="splide__track"><ul class="splide__list">' . implode( '', $gallery_item ) . '</ul></div></div>' );
+            }
+            //find gallery node and replace it
+            $gallery_id = $gallery->getAttribute( 'id' );
+            $gallery_node = $xpath->query( ".//*[contains(@class, 'galleryid-') and contains(@id, '$gallery_id')]" );
+            $gallery_node = $gallery_node->item( 0 );
+            $gallery_node->parentNode->replaceChild( $dom->importNode ($new_gallery->documentElement, TRUE), $gallery_node );
+        }
+    }
+    $dom->removeChild( $dom->doctype );
+    $content = $dom->saveHtml();
+    $content = str_replace( '<html><body>', '', $content );
+    $content = str_replace( '</body></html>', '', $content );
+    return $content;
+    // @codingStandardsIgnoreEnd
+}
+add_filter( 'the_content', 'learnmore_gallery', 9999 );
+
+/*
+*  checklists (pros and cons) in Block--learnMore
+*/
+
+function elementor_pros_cons( $content ) {
+	if ( ! $content ) {
+		return $content;
+	}
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath = new DOMXPath( $dom );
+	$sections = get_nodes( $xpath, 'elementor-section' );
+
+	// @codingStandardsIgnoreStart
+	foreach ( $sections as $section ) {
+		//get list of pros/cons sections
+		$new_dom = new DomDocument;
+		libxml_use_internal_errors( true );
+		$new_dom->appendChild($new_dom->importNode($section, true));
+		libxml_clear_errors();
+		$new_xpath = new DOMXPath( $new_dom );
+		$checklists	= get_nodes( $new_xpath, 'checklist' );
+		$cols = get_nodes( $new_xpath, 'elementor-col-50' );
+
+		if ( $checklists->length == 2 && $cols->length == 2) {
+
+			$checklists_index = 1;
+
+			foreach ( $checklists as $checklist ) {
+				$cl_checklist = $checklist->getAttribute( 'class' );
+				$id_checklist = $checklist->getAttribute( 'data-id' );
+
+				//get checklist node form $dom and add class
+				$checklist_dom = $xpath->query( "//*[@data-id='$id_checklist']" );
+				$checklist = $checklist_dom->item( 0 );
+
+				if ($checklists_index == 1) {
+					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--pros' );
+				}
+
+				if ($checklists_index == 2) {
+					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--cons' );
+				}
+				$checklists_index++;
+			}
+		}
+	}
+	// @codingStandardsIgnoreEnd
+
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
+}
+add_filter( 'the_content', 'elementor_pros_cons', 9999 );
