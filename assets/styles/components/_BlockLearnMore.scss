@@ -1,7 +1,37 @@
 /* stylelint-disable selector-class-pattern */
 
+%imgalign {
+	margin-top: -0.2em;
+	margin-bottom: -0.2em;
+	user-select: none;
+}
+
 .Block--learnMore {
 	position: relative;
+
+	.Post__content {
+
+		figure {
+			max-width: 100%;
+		}
+
+		img {
+
+			&.alignleft {
+
+				@extend %imgalign;
+				margin-right: 1em;
+				float: left;
+			}
+
+			&.alignright {
+
+				@extend %imgalign;
+				margin-left: 1em;
+				float: right;
+			}
+		}
+	}
 
 	&__header {
 
@@ -71,7 +101,7 @@
 
 			.elementor-element:not(.Block--learnMore__header) {
 				max-width: 41em;
-				//margin: 0 auto;
+				margin: 0 auto;
 				//padding: 0;
 			}
 		}
