@@ -25,9 +25,7 @@
 
 			a {
 
-				background: linear-gradient($dark-orange, $light-orange);
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
+				@include color(color, font-color-dark);
 				display: flex;
 				align-items: center;
 				font-family: $font-secondary;
@@ -41,7 +39,7 @@
 
 				&::after {
 					position: relative;
-					content: url(../images/arrow-right-orange.svg);
+					content: url(../images/arrow_small_right.svg);
 					display: inline-block;
 					margin-left: 0.5em;
 					top: 0.25em;
