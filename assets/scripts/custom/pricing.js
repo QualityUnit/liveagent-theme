@@ -219,7 +219,7 @@ function sticky( stickyTable ) {
 								} );
 							return;
 						}
-						if ( entry.boundingClientRect.top > 120 ) {
+						if ( entry.boundingClientRect.top > 96 ) {
 							header.classList.remove( 'ComparePlans__fixed' );
 							document
 								.querySelectorAll( '.ComparePlans__header__icon' )
@@ -235,7 +235,7 @@ function sticky( stickyTable ) {
 						}
 					},
 					{
-						rootMargin: `0px 0px -${ window.innerHeight - 120 }px 0px`,
+						rootMargin: `0px 0px -${ window.innerHeight - 96 }px 0px`,
 					}
 				);
 
