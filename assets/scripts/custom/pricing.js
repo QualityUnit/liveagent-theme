@@ -1,3 +1,5 @@
+/* global IntersectionObserver */
+
 const mainHeaderHeight = document.querySelector( '.Header' ).clientHeight;
 
 /* Expand table */
@@ -198,37 +200,47 @@ function sticky( stickyTable ) {
 			const header = document.querySelector(
 				'#ComparePlans__table-head-wrap'
 			);
-			const posTop = stickyTop.top + window.pageYOffset + 80;
 
-			window.addEventListener( 'scroll', () => {
-				if ( window.scrollY >= posTop ) {
-					header.classList.add( 'ComparePlans__fixed' );
-					document
-						.querySelectorAll( '.ComparePlans__header__icon' )
-						.forEach( ( element ) => {
-							const icon = element;
-							icon.classList.add(
-								'ComparePlans__header-image--hide'
-							);
-							icon.classList.remove(
-								'ComparePlans__header-image--show'
-							);
-						} );
-				} else {
-					header.classList.remove( 'ComparePlans__fixed' );
-					document
-						.querySelectorAll( '.ComparePlans__header__icon' )
-						.forEach( ( element ) => {
-							const icon = element;
-							icon.classList.remove(
-								'ComparePlans__header-image--hide'
-							);
-							icon.classList.add(
-								'ComparePlans__header-image--show'
-							);
-						} );
-				}
-			} );
+			if ( 'IntersectionObserver' in window ) {
+				const pricingHeaderObserver = new IntersectionObserver(
+					( [ entry ] ) => {
+						if ( entry.isIntersecting ) {
+							header.classList.add( 'ComparePlans__fixed' );
+							document
+								.querySelectorAll( '.ComparePlans__header__icon' )
+								.forEach( ( element ) => {
+									const icon = element;
+									icon.classList.add(
+										'ComparePlans__header-image--hide'
+									);
+									icon.classList.remove(
+										'ComparePlans__header-image--show'
+									);
+								} );
+							return;
+						}
+						if ( entry.boundingClientRect.top > 120 ) {
+							header.classList.remove( 'ComparePlans__fixed' );
+							document
+								.querySelectorAll( '.ComparePlans__header__icon' )
+								.forEach( ( element ) => {
+									const icon = element;
+									icon.classList.remove(
+										'ComparePlans__header-image--hide'
+									);
+									icon.classList.add(
+										'ComparePlans__header-image--show'
+									);
+								} );
+						}
+					},
+					{
+						rootMargin: `0px 0px -${ window.innerHeight - 120 }px 0px`,
+					}
+				);
+
+				pricingHeaderObserver.observe( header );
+			}
 		}
 	}
 }
