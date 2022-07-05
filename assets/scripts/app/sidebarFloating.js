@@ -4,6 +4,18 @@ const categorySidebar = document.querySelector(
 	'.Category__sidebar:not(#notFloating)'
 );
 
+/* Prevent to show footer over content while sidebar is changing from float to static
+*/
+const setContainerHeight = () => {
+	const sidebarHeight = categorySidebar.getBoundingClientRect().height;
+	const containerElement = document.querySelector( '.Category__container' );
+	containerElement.style.minHeight = sidebarHeight + 'px';
+
+	setTimeout( () => {
+		containerElement.style.minHeight = null;
+	}, 300 );
+};
+
 const lockSidebar = () => {
 	if ( categorySidebar && 'IntersectionObserver' in window ) {
 		function getActualHeight( e ) {
@@ -110,6 +122,7 @@ if ( categorySidebar ) {
 	categorySidebarLabels.forEach( ( sidebarItem ) => {
 		sidebarItem.addEventListener( 'click', () => {
 			lockSidebar();
+			setContainerHeight();
 		} );
 	} );
 }
