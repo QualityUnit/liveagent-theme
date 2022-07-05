@@ -47,6 +47,29 @@
 			}
 		}
 
+		.elementor-row {
+			display: flex;
+			flex-flow: wrap column;
+
+			@media (min-width: $breakpoint-tablet) {
+				flex-flow: wrap row;
+				justify-content: space-around;
+
+				.elementor-inner-column {
+					width: 45%;
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				flex-flow: wrap row;
+				justify-content: space-around;
+
+				.elementor-inner-column {
+					width: 33%;
+				}
+			}
+		}
+
 		.elementor-column.elementor-column {
 			padding: 20px;
 		}
