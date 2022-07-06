@@ -131,7 +131,7 @@
 		</div>
 
 		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar title="' . __( 'Try LiveAgent, best rated a cloud-based Help Desk Software for free', 'ms' ) . '" subtitle=""]' ); ?>
+			<?= do_shortcode( '[signup-sidebar title="' . __( 'Try LiveAgent, best rated cloud-based Help Desk Software for free', 'ms' ) . '" subtitle=""]' ); ?>
 		</div>
 
 		<div class="Post__content">
