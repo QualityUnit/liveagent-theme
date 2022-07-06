@@ -60,6 +60,19 @@
 .Header__navigation {
 	display: flex;
 
+	&__promo {
+		position: absolute;
+		z-index: 2;
+		width: 100%;
+		top: 100%;
+		margin-top: 1em;
+		cursor: pointer;
+
+		* {
+			width: 100%;
+		}
+	}
+
 	&__buttons {
 		display: flex;
 
@@ -238,7 +251,6 @@
 
 			li {
 				padding: 0 30px;
-				overflow: hidden;
 
 				&:first-of-type {
 					padding-right: 30px;
@@ -395,7 +407,7 @@
 					&:hover {
 
 						&::after {
-							width: calc(100% + 120px);
+							width: calc(100% + 50px);
 						}
 					}
 
