@@ -7,6 +7,9 @@
 	.wrapper__wide {
 		padding-top: 50px !important;
 		padding-bottom: 50px !important;
+		display: flex;
+		flex-direction: column;
+		position: relative;
 
 		.elementor-row {
 			align-items: center;
@@ -15,11 +18,69 @@
 		.elementor-container {
 			width: 100%;
 		}
+
+		&::before {
+
+			@include color(background-color, secondary-background);
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			content: "";
+			border-radius: $border-radius-16;
+			border-top-right-radius: 50%;
+			border-bottom-right-radius: 50%;
+		}
 	}
 
 	.wrapper__wide {
 		padding: 3.125em;
-		border-radius: $border-radius-16;
+	}
+
+	.elementor-widget-heading {
+
+		h2 {
+			padding-top: 1.5em;
+		}
+	}
+
+	.elementor-widget-text-editor {
+		width: 60%;
+	}
+
+	.pricing__tags {
+
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-start;
+
+		div:first-of-type {
+
+			span {
+				background-color: #efe6f8;
+			}
+		}
+
+		div:last-of-type {
+
+			span {
+				color: $medium-gray;
+				background-color: $lightest-gray;
+			}
+		}
+
+		&__label {
+
+			@include color(color, font-color-dark);
+			@include color(background-color, #e3f2ff);
+			background-color: #e3f2ff;
+			margin: 0 12px 12px 0;
+			padding: 3px 12px;
+			border-radius: 50px;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: 24px;
+			text-align: center;
+		}
 	}
 
 	&__container {
@@ -223,43 +284,45 @@
 			}
 		}
 
-		&__item:nth-child(1) {
+		@media (min-width: $breakpoint-desktop) {
 
-			&::before {
+			&__item:nth-child(1) {
 
-				@include color(background-color, main-background);
-				@include color(box-shadow, box-shadow);
-				border-radius: $border-radius-16;
-				content: "";
-				width: 300%;
-				height: 100%;
-				position: absolute;
+				&::before {
+
+					@include color(background-color, main-background);
+					@include color(box-shadow, box-shadow);
+					border-radius: $border-radius-16;
+					content: "";
+					width: 300%;
+					height: 100%;
+					position: absolute;
+				}
 			}
 
-		}
+			&__item:nth-child(2),
+			&__item:nth-child(3) {
+				border-left: 1px solid $light-gray;
+				z-index: 5;
+			}
 
-		&__item:nth-child(2),
-		&__item:nth-child(3) {
-			border-left: 1px solid $light-gray;
-			z-index: 5;
-		}
+			&__item:nth-child(4) {
+				margin-left: auto;
 
-		&__item:nth-child(4) {
-			margin-left: auto;
+				&::before {
 
-			&::before {
-
-				@include color(background-color, main-background);
-				@include color(box-shadow, box-shadow);
-				border-radius: $border-radius-16;
-				content: "";
-				display: inline-block;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: 2;
+					@include color(background-color, main-background);
+					@include color(box-shadow, box-shadow);
+					border-radius: $border-radius-16;
+					content: "";
+					display: inline-block;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 2;
+				}
 			}
 		}
 	}
