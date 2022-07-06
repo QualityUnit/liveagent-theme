@@ -1,6 +1,13 @@
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 
+$nl-input-height: 44px;
+
+%footer-newsletter-input {
+	height: $nl-input-height;
+	font-size: $font-size-smaller;
+}
+
 .Newsletter {
 	padding-top: 0;
 	padding-bottom: 0;
@@ -27,14 +34,79 @@
 		justify-content: flex-end;
 		width: 55%;
 
+		footer.Footer & {
+			width: 100%;
+			max-width: 450px;
+			display: flex;
+		}
+
+		form {
+
+			footer.Footer & {
+				width: 100%;
+				display: flex;
+				align-items: center;
+
+				&::before {
+
+					@include color(color, font-color-level3);
+					pointer-events: none;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: $nl-input-height;
+					height: $nl-input-height;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					font-family: fontello, sans-serif;
+					font-style: normal;
+					font-weight: 400;
+					content: "\e82e";
+					font-variant: normal;
+					text-transform: none;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+				}
+			}
+		}
+
 		.Input {
 			min-width: 320px;
 			margin-right: 40px;
 			text-align: center;
+
+			footer.Footer & {
+
+				@extend %footer-newsletter-input;
+				width: 100%;
+				min-width: initial;
+				padding: 0.25em 1em 0.25em $nl-input-height;
+				margin-right: 8px;
+				text-align: left;
+			}
 		}
 
 		.Button {
+
+			@extend .Button--full;
 			min-width: 185px;
+
+			footer.Footer & {
+
+				@extend %footer-newsletter-input;
+				@extend .Button--small;
+				@extend .Button--outline;
+				@extend .Button--outline__white;
+				min-width: 128px;
+				max-width: 128px;
+				background: transparent;
+
+				&::before,
+				&::after {
+					display: none;
+				}
+			}
 		}
 	}
 
@@ -81,6 +153,36 @@
 				margin-bottom: 20px !important;
 			}
 		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		&__form {
+
+			form {
+
+				footer.Footer & {
+					flex-direction: column;
+				}
+			}
+
+			.Input {
+
+				footer.Footer & {
+					margin-right: 0;
+					margin-bottom: 8px;
+				}
+			}
+
+			.Button {
+
+				footer.Footer & {
+					min-width: 100%;
+					max-width: 100%;
+				}
+			}
+		}
+
 	}
 }
 
