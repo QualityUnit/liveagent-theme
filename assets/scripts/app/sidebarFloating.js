@@ -79,7 +79,7 @@ const lockSidebar = () => {
 							'scrolledOut'
 						);
 						categorySidebar.dataset.wasIntersecting = true;
-					}, 200 );
+					}, 0 );
 				}
 
 				if (
