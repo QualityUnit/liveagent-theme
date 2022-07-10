@@ -25,6 +25,7 @@ define( 'THEME_VERSION', '1.0.12' );
 		'functions/rest-api.php', // Rest API mods
 		'functions/post-query-mods.php', // Post Query mods
 		'functions/redirects.php', // Taxonomies Redirects
+		'functions/content-filters-functions.php', // Content filters functions
 		'functions/content-filters.php', // Content filters
 		'functions/import-functions.php', // Partials JS and SCSS import functions
 		'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
