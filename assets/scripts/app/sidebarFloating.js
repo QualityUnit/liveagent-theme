@@ -4,8 +4,23 @@ const categorySidebar = document.querySelector(
 	'.Category__sidebar:not(#notFloating)'
 );
 
+/* Prevent to show footer over content while sidebar is changing from float to static
+*/
+const setContainerHeight = () => {
+	const sidebarHeight = categorySidebar.getBoundingClientRect().height;
+	const containerElement = document.querySelector( '.Category__container' );
+	containerElement.style.minHeight = sidebarHeight + 'px';
+
+	setTimeout( () => {
+		containerElement.style.minHeight = null;
+	}, 300 );
+};
+
 const lockSidebar = () => {
 	if ( categorySidebar && 'IntersectionObserver' in window ) {
+		function getActualHeight( e ) {
+			return e.getBoundingClientRect().height;
+		}
 		const newsLetter = document.querySelector( '.Newsletter' );
 		const categoryContent = document.querySelector( '.Category__content' );
 		const categoryContentItemsHeight = document.querySelector(
@@ -24,9 +39,11 @@ const lockSidebar = () => {
 		const lockSidebarObserver = new IntersectionObserver(
 			( [ content ] ) => {
 				if ( content.isIntersecting ) {
-					categorySidebar.classList.add( 'fixed' );
-					if ( categorySidebarContentHeight + 120 > windowHeight ) {
-						categorySidebar.classList.add( 'overflow' );
+					if ( getActualHeight( categoryContent ) > categorySidebarContentHeight ) {
+						categorySidebar.classList.add( 'fixed' );
+						if ( categorySidebarContentHeight + 120 > windowHeight ) {
+							categorySidebar.classList.add( 'overflow' );
+						}
 					}
 				}
 				if ( ! content.isIntersecting ) {
@@ -52,7 +69,9 @@ const lockSidebar = () => {
 			( [ entry ] ) => {
 				if ( entry.isIntersecting && categorySidebar.dataset.wasIntersecting !== 'true' ) {
 					entry.target.dataset.isIntersecting = true;
-					categorySidebar.classList.add( 'scrolledOut' );
+					if ( getActualHeight( categoryContent ) > categorySidebarContentHeight ) {
+						categorySidebar.classList.add( 'scrolledOut' );
+					}
 					setTimeout( () => {
 						categorySidebar.classList.remove(
 							'fixed',
@@ -60,18 +79,20 @@ const lockSidebar = () => {
 							'scrolledOut'
 						);
 						categorySidebar.dataset.wasIntersecting = true;
-					}, 200 );
+					}, 0 );
 				}
 
 				if (
 					! entry.isIntersecting && categorySidebar.dataset.wasIntersecting === 'true'
 				) {
-					entry.target.dataset.isIntersecting = false;
-					categorySidebar.classList.add( 'fixed' );
-					if ( categorySidebarContentHeight + 120 > windowHeight ) {
-						categorySidebar.classList.add( 'overflow' );
+					if ( getActualHeight( categoryContent ) > categorySidebarContentHeight ) {
+						entry.target.dataset.isIntersecting = false;
+						categorySidebar.classList.add( 'fixed' );
+						if ( categorySidebarContentHeight + 120 > windowHeight ) {
+							categorySidebar.classList.add( 'overflow' );
+						}
+						categorySidebar.dataset.wasIntersecting = false;
 					}
-					categorySidebar.dataset.wasIntersecting = false;
 				}
 			}
 		);
@@ -101,6 +122,7 @@ if ( categorySidebar ) {
 	categorySidebarLabels.forEach( ( sidebarItem ) => {
 		sidebarItem.addEventListener( 'click', () => {
 			lockSidebar();
+			setContainerHeight();
 		} );
 	} );
 }
