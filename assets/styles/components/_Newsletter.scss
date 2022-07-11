@@ -1,10 +1,10 @@
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 
-$nl-input-height: 44px;
+$nl-input-height: 44;
 
 %footer-newsletter-input {
-	height: $nl-input-height;
+	height: em($nl-input-height, $font-size-smaller);
 	font-size: $font-size-smaller;
 }
 
@@ -35,27 +35,26 @@ $nl-input-height: 44px;
 		width: 55%;
 
 		footer.Footer & {
-			width: 100%;
-			max-width: 450px;
 			display: flex;
+			width: 100%;
+			max-width: em(450);
 		}
 
 		form {
 
 			footer.Footer & {
-				width: 100%;
 				display: flex;
 				align-items: center;
+				width: 100%;
 
 				&::before {
 
+					@include square(em($nl-input-height));
 					@include color(color, font-color-level3);
 					pointer-events: none;
 					position: absolute;
 					top: 0;
 					left: 0;
-					width: $nl-input-height;
-					height: $nl-input-height;
 					display: flex;
 					justify-content: center;
 					align-items: center;
@@ -65,8 +64,6 @@ $nl-input-height: 44px;
 					content: "\e82e";
 					font-variant: normal;
 					text-transform: none;
-					-webkit-font-smoothing: antialiased;
-					-moz-osx-font-smoothing: grayscale;
 				}
 			}
 		}
@@ -79,10 +76,10 @@ $nl-input-height: 44px;
 			footer.Footer & {
 
 				@extend %footer-newsletter-input;
-				width: 100%;
+				width: 70%;
 				min-width: initial;
-				padding: 0.25em 1em 0.25em $nl-input-height;
-				margin-right: 8px;
+				padding: 0.25em 1em 0.25em em($nl-input-height, $font-size-smaller);
+				margin-right: em(8, $font-size-smaller);
 				text-align: left;
 			}
 		}
@@ -98,8 +95,8 @@ $nl-input-height: 44px;
 				@extend .Button--small;
 				@extend .Button--outline;
 				@extend .Button--outline__white;
-				min-width: 128px;
-				max-width: 128px;
+				width: 30%;
+				min-width: initial;
 				background: transparent;
 
 				&::before,
@@ -169,16 +166,16 @@ $nl-input-height: 44px;
 			.Input {
 
 				footer.Footer & {
+					width: 100%;
 					margin-right: 0;
-					margin-bottom: 8px;
+					margin-bottom: em(8, $font-size-smaller);
 				}
 			}
 
 			.Button {
 
 				footer.Footer & {
-					min-width: 100%;
-					max-width: 100%;
+					width: 100%;
 				}
 			}
 		}

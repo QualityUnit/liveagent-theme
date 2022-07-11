@@ -1,21 +1,21 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
 @mixin footerGrid() {
-	$h-gutter: 20px;
+	$h-gutter: 20;
 
 	&__row {
 		position: relative;
-		width: initial;
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: center;
-		margin-left: (-$h-gutter / 2);
-		margin-right: (-$h-gutter / 2);
+		width: initial;
+		margin-left: em(-$h-gutter / 2);
+		margin-right: em(-$h-gutter / 2);
 
 		> * {
 			position: relative;
-			padding-left: ($h-gutter / 2);
-			padding-right: ($h-gutter / 2);
+			padding-left: em($h-gutter / 2);
+			padding-right: em($h-gutter / 2);
 		}
 	}
 }
@@ -25,11 +25,11 @@
 	@include color(color, content-color-light);
 	@include color(background-color, invert-main-background);
 
-	padding-top: 110px;
-	padding-bottom: 20px;
+	padding-top: em(110);
+	padding-bottom: em(20);
 
 	@media (max-width: $breakpoint-mobile) {
-		padding-top: 60px;
+		padding-top: em(60);
 	}
 }
 
@@ -37,7 +37,7 @@
 .Footer__top {
 
 	@include footerGrid();
-	padding-bottom: 40px;
+	padding-bottom: em(40);
 
 	.wrapper {
 		align-items: flex-start;
@@ -45,13 +45,12 @@
 
 	&__column {
 		width: 20%;
-		padding-bottom: 40px;
+		padding-bottom: em(40);
 
 		&__title {
 			display: flex;
 			flex-flow: wrap row;
 			align-items: center;
-			height: 30px;
 
 			@include color(color, content-color-light);
 
@@ -62,7 +61,9 @@
 			}
 
 			&--image {
-				font-size: 0 !important;
+				width: 100%;
+				max-width: em(119, $font-size-default, "rem");
+				font-size: 0;
 			}
 		}
 
@@ -78,7 +79,7 @@
 		}
 
 		ul {
-			font-size: 14px;
+			font-size: $font-size-smaller;
 			margin-bottom: 0;
 		}
 	}
@@ -86,13 +87,13 @@
 	&__cta {
 
 		&:not(:first-child) {
-			margin-top: 8px;
+			margin-top: em(8);
 		}
 
 		.Button {
-			width: 170px;
-			height: 44px;
-			padding: 0 5px;
+			min-width: em(170, $font-size-smaller);
+			height: em(44);
+			padding: 0 em(5);
 		}
 	}
 
@@ -108,6 +109,11 @@
 
 			&__title {
 				justify-content: center;
+
+				&--image {
+					margin-left: auto;
+					margin-right: auto;
+				}
 			}
 		}
 	}
@@ -121,11 +127,11 @@
 
 	@media (max-width: $breakpoint-mobile) {
 
-		padding-bottom: 20px;
+		padding-bottom: em(20);
 
 		&__column {
 			width: 100%;
-			padding-bottom: 40px;
+			padding-bottom: em(40);
 		}
 	}
 }
@@ -133,7 +139,7 @@
 /* ------------------------------ FOOTER MIDDLE ----------------------------- */
 .Footer__middle {
 
-	padding-bottom: 20px;
+	padding-bottom: em(20);
 
 	@include footerGrid();
 
@@ -171,7 +177,7 @@
 	&__contacts,
 	&__social,
 	&__newsletter {
-		padding-bottom: 40px;
+		padding-bottom: em(40);
 	}
 
 	&__title {
@@ -202,7 +208,7 @@
 				font-family: fontello, sans-serif;
 				font-weight: 900;
 				display: inline-block;
-				margin-right: 10px;
+				margin-right: em(10);
 			}
 		}
 
@@ -220,13 +226,13 @@
 		width: 40%;
 
 		ul {
-			margin-left: -10px;
-			margin-right: -10px;
+			margin-left: em(-10, $font-size-default);
+			margin-right: em(-10, $font-size-default);
 
 			li {
-				padding-left: 10px;
-				padding-right: 10px;
-				font-size: 24px;
+				padding-left: em(10, 24);
+				padding-right: em(10, 24);
+				font-size: em(24, $font-size-default);
 
 			}
 		}
@@ -236,7 +242,7 @@
 		width: 40%;
 
 		&__text {
-			margin-top: 8px;
+			margin-top: em(8);
 		}
 	}
 
@@ -253,10 +259,10 @@
 		&__contacts,
 		&__social,
 		&__newsletter {
-			width: 100%;
 			display: flex;
 			flex-flow: wrap column;
 			align-items: center;
+			width: 100%;
 		}
 	}
 
@@ -286,7 +292,7 @@
 				align-items: center;
 
 				li {
-					margin: 5px 0 !important;
+					margin: em(5) 0 !important;
 				}
 			}
 		}
@@ -340,10 +346,10 @@
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
-			margin: -2px -10px;
+			margin: em(-2) em(-10);
 
 			li {
-				padding: 2px 10px;
+				padding: em(2) em(10);
 			}
 		}
 	}
@@ -355,7 +361,7 @@
 			align-items: center;
 
 			> *:not(:last-child) {
-				margin-bottom: 8px;
+				margin-bottom: em(8);
 			}
 		}
 
@@ -366,8 +372,8 @@
 }
 
 .Footer__bottom__flags {
-	max-width: 140px;
-	margin-left: 20px;
+	max-width: em(140);
+	margin-left: em(20);
 
 	.wpml-ls {
 		display: flex;
@@ -388,8 +394,8 @@
 
 	.wpml-ls-sub-menu {
 		border: 0;
-		top: -311px;
-		min-width: 130px;
+		top: em(-311);
+		min-width: em(130);
 
 		.wpml-ls-item {
 			position: relative;
@@ -404,8 +410,8 @@
 	.wpml-ls-legacy-dropdown-click {
 
 		a {
-			border-radius: 8px;
-			margin-bottom: 3px;
+			border-radius: em(8);
+			margin-bottom: em(3);
 		}
 	}
 }
@@ -439,7 +445,4 @@ body.shopify-chat-software {
 		display: none !important;
 	}
 
-	.Footer__top {
-		padding: 60px 0 15px;
-	}
 }

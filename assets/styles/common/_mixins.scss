@@ -11,16 +11,67 @@
 	padding-bottom: $ratio * $width;
 }
 
+// Round a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @param  {String} [$mode:round] (round|ceil|floor) How to round a number
+// @return {Number} A rounded number
+
+@function decimal-round ($number, $digits: 0, $mode: round) {
+    $n: 1;
+    // $number must be a number
+    @if type-of($number) != number {
+        @warn '#{ $number } is not a number.';
+        @return $number;
+    }
+    // $digits must be a unitless number
+    @if type-of($digits) != number {
+        @warn '#{ $digits } is not a number.';
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn '#{ $digits } has a unit.';
+        @return $number;
+    }
+    @for $i from 1 through $digits {
+        $n: $n * 10;
+    }
+    @if $mode == round {
+        @return round($number * $n) / $n;
+    } @else if $mode == ceil {
+        @return ceil($number * $n) / $n;
+    } @else if $mode == floor {
+        @return floor($number * $n) / $n;
+    } @else {
+        @warn '#{ $mode } is undefined keyword.';
+        @return $number;
+    }
+}
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
 //Function to convert Px to Ems, for example: width: em(24px);
 
-@function em($target, $context: $base-font-size) {
+@function em($target, $context: $font-size-default, $unit: 'em') {
 
 	@if $target == 0 {
 
 		@return 0;
 	}
 
-	@return $target / $context + 0;
+    $result: $target / strip-unit($context);
+
+	@return decimal-round($result, 3)+unquote($unit);
 }
 
 @mixin appearance($appearance: none) {
@@ -205,13 +256,13 @@
 	&::-webkit-scrollbar-track {
 		background-color: transparent;
 	}
-	
+
 	&::-webkit-scrollbar-thumb {
 		background-color: $light-gray;
 		border-radius: .625em;
 		height: 5em;
 	}
-	
+
 	&::-webkit-scrollbar {
 		width: 6px;
 	}
