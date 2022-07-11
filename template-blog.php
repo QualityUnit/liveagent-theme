@@ -58,14 +58,13 @@
 		<div class="BlogPost__content Post__content">
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
-				<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
-					<div class="Post__content__resources Post__m__negative">
-						<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
-						<div class="SimilarSources">
-							<?php echo do_shortcode( '[similarsources]' ); ?>
-						</div>
+
+				<div class="Post__content__resources Post__m__negative">
+					<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
+					<div class="SimilarSources">
+						<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
 					</div>
-				<?php } ?>
+				</div>
 			</div>
 		</div>
 	</div>
