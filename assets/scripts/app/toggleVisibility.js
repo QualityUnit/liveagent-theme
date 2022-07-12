@@ -35,7 +35,7 @@ if ( activators.length > 0 ) {
 
 const switcher = document.querySelector( '.Block--switcher' );
 ( function autoSwitch( interval = 5000 ) {
-	if ( ! isPaused ) {
+	if ( ! isPaused && switcher ) {
 		const notCheckedInput = switcher.querySelector( '.switcher__input:not(:checked)' );
 		const isActive = switcher.querySelector( '.visible[data-targetid]' );
 		const isHidden = switcher.querySelector( '.hidden[data-targetid]' );
