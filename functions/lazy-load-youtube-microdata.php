@@ -37,7 +37,7 @@ function yt_videodetails( $video_id ) {
 	}
 	if ( $cache_exists ) {
 		// cache json results so to not over-query (api restrictions)
-		if ( $force_refresh || ( ( time() - filectime( $cache ) ) > ( $refresh ) || 0 == filesize( $cache ) ) ) {
+		if ( $force_refresh ) {
 			$handle = fopen( $cache, 'wb' ) or die( 'no fopen' );
 			fwrite( $handle, $json_cache ); 
 			fclose( $handle );
