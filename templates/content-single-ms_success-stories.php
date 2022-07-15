@@ -65,14 +65,14 @@
 				if ( ! empty( $details->insta ) && 'https://www.instagram.com/' !== $details->insta ) {
 					?>
 					<a href="<?= esc_url( $details->insta ); ?>" class="Post__sidebar__social" target="_blank">
-						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/instagram.svg' ); ?>" alt="<?= esc_html( $details->insta ); ?>" />
+						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/instagram.svg' ); ?>" alt="<?= esc_attr( $details->insta ); ?>" />
 					</a>
 					<?php
 				}
 				if ( ! empty( $details->fb ) && 'https://www.facebook.com/' !== $details->fb ) {
 					?>
 					<a href="<?= esc_url( $details->fb ); ?>" class="Post__sidebar__social" target="_blank">
-						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/facebook.svg' ); ?>" alt="<?= esc_html( $details->fb ); ?>" />
+						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/facebook.svg' ); ?>" alt="<?= esc_attr( $details->fb ); ?>" />
 					</a>
 					<?php
 				}
@@ -80,21 +80,21 @@
 				if ( ! empty( $details->twitter ) && 'https://www.twitter.com/' !== $details->twitter ) {
 					?>
 					<a href="<?= esc_url( $details->twitter ); ?>" class="Post__sidebar__social" target="_blank">
-						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/twitter.svg' ); ?>" alt="<?= esc_html( $details->twitter ); ?>" />
+						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/twitter.svg' ); ?>" alt="<?= esc_attr( $details->twitter ); ?>" />
 					</a>
 					<?php
 				}
 				if ( ! empty( $details->linkedin ) ) {
 					?>
 					<a href="<?= esc_url( $details->linkedin ); ?>" class="Post__sidebar__social" target="_blank">
-						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/linkedin.svg' ); ?>" alt="<?= esc_html( $details->linkedin ); ?>" />
+						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/linkedin.svg' ); ?>" alt="<?= esc_attr( $details->linkedin ); ?>" />
 					</a>
 					<?php
 				}
 				if ( ! empty( $details->yt ) && 'https://www.youtube.com/user/' !== $details->yt ) {
 					?>
 					<a href="<?= esc_url( $details->yt ); ?>" class="Post__sidebar__social" target="_blank">
-						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/youtube.svg' ); ?>" alt="<?= esc_html( $details->yt ); ?>" />
+						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/youtube.svg' ); ?>" alt="<?= esc_attr( $details->yt ); ?>" />
 					</a>
 					<?php
 				}
@@ -186,7 +186,7 @@
 							<?php
 						}
 						?>
-						<img class="AuthorCard__image" src="<?=  esc_url( empty( $author->image ) ? get_template_directory_uri() . '/assets/images/author_avatar.svg' : $author->image ) ?>" alt="<?= esc_html( $author->name ); ?>" />
+						<img class="AuthorCard__image" src="<?=  esc_url( empty( $author->image ) ? get_template_directory_uri() . '/assets/images/author_avatar.svg' : $author->image ) ?>" alt="<?= esc_attr( $author->name ); ?>" />
 					</div>
 					<div class="AuthorCard__content">
 						<h3 class="AuthorCard__name" itemprop="name"><?= esc_html( $author->name ); ?></h3>
@@ -196,17 +196,17 @@
 						<ul class="AuthorCard__contacts">
 							<?php if ( ! empty( $author->email ) ) { ?>
 							<li class="AuthorCard__contact AuthorCard__contact--email fontello-mail">
-								<a href="mailto:<?= esc_url( $author->email ); ?>" title="<?= esc_html( $author->name ); ?> <?= esc_html( $author->company ); ?> by email" itemprop="email"><?php _e( 'Mail', 'use-case' ); ?></a>
+								<a href="mailto:<?= esc_url( $author->email ); ?>" title="<?= esc_attr( $author->name ); ?> <?= esc_attr( $author->company ); ?> by email" itemprop="email"><?php _e( 'Mail', 'use-case' ); ?></a>
 							</li>
 							<?php } ?>
 							<?php if ( ! empty( $author->phone ) ) { ?>
 							<li class="AuthorCard__contact AuthorCard__contact--phone fontello-icon-e806">
-								<a href="tel:<?= esc_html( $author->phone ); ?>" title="<?= esc_html( $author->name ); ?> <?= esc_html( $author->company ); ?> by phone" itemprop="telephone"><?= esc_html( $author->phone ); ?></a>
+								<a href="tel:<?= esc_html( $author->phone ); ?>" title="<?= esc_attr( $author->name ); ?> <?= esc_attr( $author->company ); ?> by phone" itemprop="telephone"><?= esc_html( $author->phone ); ?></a>
 							</li>
 							<?php } ?>
 							<?php if ( ! empty( $author->linkedin ) ) { ?>
 							<li class="AuthorCard__contact AuthorCard__contact--linkedin fontello-linkedin-brands">
-							<a href="<?= esc_url( $author->linkedin ); ?>" title="<?= esc_html( $author->name ); ?> <?= esc_html( $author->company ); ?> by LinkedIn" target="_blank" itemprop="url">LinkedIn</a>
+							<a href="<?= esc_url( $author->linkedin ); ?>" title="<?= esc_attr( $author->name ); ?> <?= esc_attr( $author->company ); ?> by LinkedIn" target="_blank" itemprop="url">LinkedIn</a>
 							</li>
 							<?php } ?>
 						</ul>

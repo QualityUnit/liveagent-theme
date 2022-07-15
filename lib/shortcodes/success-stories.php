@@ -60,7 +60,7 @@ function ms_success_stories( $atts ) {
 			?>
 
 
-			<li data-category="<?= esc_html( $category ) ?>" data-region="<?= esc_html( $region ) ?>" <?php post_class( 'Category__item Category__item--blogLike' ); ?>>
+			<li data-category="<?= esc_attr( $category ) ?>" data-region="<?= esc_attr( $region ) ?>" <?php post_class( 'Category__item Category__item--blogLike' ); ?>>
 				<a href="<?php the_permalink(); ?>">
 					<div class="Blog__item__thumbnail Category__item--blogLike__thumbnail">
 						<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
