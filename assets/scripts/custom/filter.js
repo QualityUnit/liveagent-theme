@@ -101,14 +101,14 @@
 				filterItem.addEventListener( 'change', () => {
 					function regexCategory( activeFilterCategory ) {
 						if ( activeFilterCategory !== '' ) {
-							return new RegExp( `\s?${ activeFilterCategory }\s?` );
+							return new RegExp( ` ?${ activeFilterCategory } ?` );
 						}
 						return '';
 					}
 
 					function regexRegion( activeFilterRegion ) {
 						if ( activeFilterRegion !== '' ) {
-							return new RegExp( `\s?${ activeFilterRegion }\s?` );
+							return new RegExp( ` ?${ activeFilterRegion } ?` );
 						}
 						return '';
 					}
