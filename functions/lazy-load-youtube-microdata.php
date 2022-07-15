@@ -135,7 +135,7 @@ function elementor_youtube_loader( $html ) {
 	$html = preg_replace_callback(
 		'/\<div(.+)elementor-widget-video.+data-settings=.+(youtube\.com|youtu\.be)\\\\\/(watch\?v=)?(.+?)(&amp;|&quot;|\?)(.+?\>)((\n.+?)+)?(.+elementor-video.+?\>)/',
 		function ( $m ) {
-				return yt_microdata( $m[4] ) . '<div' . $m[1] . ' elementor-widget-video">' . $m[7] . $m[9] . '<div class="youtube__loader youtube__loader--elementor" title="" data-ytid="' . $m[4] . '" data-width="" data-height=""><img class="youtube__loader--img" data-src="https://i.ytimg.com/vi/' . $m[4] . '/hqdefault.jpg" style="opacity: 0; transition: opacity .5s" alt=""></div>';
+				return yt_microdata( $m[4] ) . '<div' . $m[1] . ' elementor-widget-video">' . $m[7] . $m[9] . '<div class="youtube__loader youtube__loader--elementor" title="" data-ytid="' . $m[4] . '" data-width="" data-height=""><img class="youtube__loader--img" data-lasrc="https://i.ytimg.com/vi/' . $m[4] . '/hqdefault.jpg" style="opacity: 0; transition: opacity .5s" alt=""></div>';
 		},
 		$html
 	);
