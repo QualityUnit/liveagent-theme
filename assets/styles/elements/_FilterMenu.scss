@@ -1,0 +1,123 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@import "../common/variables";
+@import "../common/mixins";
+@import "./menuArrow";
+
+.FilterMenu {
+	position: relative;
+	z-index: 2;
+
+	&__title {
+
+		@extend %menuArrow;
+		display: flex;
+		font-size: 0.875rem;
+		line-height: 1;
+		border: 1px solid $medium-gray-inputs;
+		padding: 0.85em 1em;
+		border-radius: 12px;
+		background-color: $white;
+		transition: all 0.2s;
+		min-width: 10em;
+		cursor: pointer;
+		transform: scale(1);
+		filter: none;
+
+		&::after { // aka menuArrow
+			border-color: $black;
+			border-width: 2px;
+		}
+
+		&.active {
+			color: $dark-orange;
+			border-color: currentcolor;
+
+			&::after { // aka menuArrow
+				top: 0.35em;
+				border-color: currentcolor;
+			}
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+				color: $dark-orange;
+				border-color: currentcolor;
+
+				&::after {
+					border-color: currentcolor;
+				}
+			}
+
+			&.active:hover {
+				color: $black;
+				border-color: $medium-gray-inputs;
+			}
+		}
+	}
+
+	&__items {
+		position: absolute;
+		top: calc(100% + 1em);
+		left: -0.75em;
+		display: none;
+		opacity: 0;
+		background-color: $white;
+		border-radius: 12px;
+		width: 175%;
+		padding: 1em 1.45em;
+		transition: opacity 0.1s;
+		filter: drop-shadow(0 0 16px rgba($black-real, 0.1));
+
+		&::before {
+
+			@include triangle(1.5em, $white, "up");
+			position: absolute;
+			transform: scaleX(1.25);
+			top: -1.5em;
+			left: 50%;
+			content: "";
+		}
+
+		&--inn {
+
+			@include scrollbar(8px);
+			max-height: 19em;
+			overflow-y: scroll;
+			position: relative;
+			margin-left: -1.45em;
+			margin-right: -1.95em;
+
+			&.has-scrollbar {
+				margin-right: -1.45em;
+			}
+		}
+
+		&.active {
+			display: block;
+		}
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+
+	&__item {
+		display: flex;
+		align-content: center;
+		padding: 0.5em 1em;
+		margin-bottom: 0.25em;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+				background-color: $lightest-gray;
+			}
+		}
+	}
+}

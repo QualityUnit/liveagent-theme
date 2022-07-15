@@ -54,6 +54,7 @@ add_action(
 		add_image_size( 'archive_small_thumbnail', 175, 25 );
 		add_image_size( 'blog_thumbnail', 380, 380, array( 'center', 'center' ) );
 		add_image_size( 'blog_post_thumbnail', 960, 335 );
+		add_image_size( 'wide_image', 1380, 230, array( 'center', 'center' ) );
 		add_image_size( 'box_archive_thumbnail', 700, 400 );
 		add_image_size( 'logo_thumbnail', 185, 185 );
 		add_image_size( 'logo_small_thumbnail', 110, 110 );

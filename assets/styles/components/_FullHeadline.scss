@@ -1,0 +1,52 @@
+/* stylelint-disable selector-class-pattern */
+
+.FullHeadline {
+	max-width: $breakpoint-desktop-hd;
+	margin: 0 auto 3em;
+	border-radius: $border-radius-16;
+	padding: 2em 0;
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		background: $lightest-gray;
+		background-image: none !important;
+	}
+
+	&__title {
+		font-size: $font-size-h2;
+
+		* {
+			font-size: inherit;
+		}
+	}
+
+	&__subtitle {
+		font-size: $font-size-h3;
+		font-weight: 400;
+
+		* {
+			font-size: inherit;
+			font-weight: inherit;
+		}
+	}
+
+	.Buttons {
+		margin: 0.5em auto;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 8em 0 4em;
+
+		&__title {
+			font-size: 3.43rem;
+		}
+
+		&__subtitle {
+			font-size: 1.625rem;
+		}
+
+		.Buttons {
+			margin: 1.5em auto 3em;
+		}
+	}
+}

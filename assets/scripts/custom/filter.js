@@ -8,17 +8,20 @@
 			const listItem = queryAll( '.list li' );
 			const recount =
 				listItem.length - queryAll( ".list li[style*='none']" ).length;
-			query( '#countPosts' ).textContent = recount;
+			const counter = query( '#countPosts' );
+			if ( counter ) {
+				counter.textContent = recount;
+			}
 		}, 25 );
 	}
 
-	if ( query( '.Category__container' ) !== null ) {
+	if ( query( '.list' ) !== null ) {
 		const list = query( '.list' );
 		const listItems = list.querySelectorAll( 'li' );
 		const pillars = list.querySelectorAll( 'li.pillar' );
 		const countItems = listItems.length;
 		const filterItems = queryAll(
-			".Category__sidebar__item input[type='radio']"
+			'.filter-item'
 		);
 		const search = query( "input[type='search']" );
 		const { hash } = window.location;
@@ -27,6 +30,7 @@
 			plan: '',
 			size: '',
 			category: '',
+			region: '',
 			favourite: '',
 			type: '',
 		};
@@ -83,6 +87,9 @@
 			const dataCategory = listItem.dataset.category
 				? listItem.dataset.category
 				: '';
+			const dataRegion = listItem.dataset.region
+				? listItem.dataset.region
+				: '';
 			const dataFavourite = listItem.dataset.favourite
 				? listItem.dataset.favourite
 				: '';
@@ -92,9 +99,16 @@
 				const filterItem = e;
 
 				filterItem.addEventListener( 'change', () => {
-					function regex( activeFilterCategory ) {
+					function regexCategory( activeFilterCategory ) {
 						if ( activeFilterCategory !== '' ) {
-							return new RegExp( `^${ activeFilterCategory }$` );
+							return new RegExp( `\s?${ activeFilterCategory }\s?` );
+						}
+						return '';
+					}
+
+					function regexRegion( activeFilterRegion ) {
+						if ( activeFilterRegion !== '' ) {
+							return new RegExp( `\s?${ activeFilterRegion }\s?` );
 						}
 						return '';
 					}
@@ -120,7 +134,10 @@
 						! dataPlan.includes( activeFilter.plan ) ||
 						! dataSize.includes( activeFilter.size ) ||
 						! dataCategory.match(
-							regex( activeFilter.category )
+							regexCategory( activeFilter.category )
+						) ||
+						! dataRegion.match(
+							regexRegion( activeFilter.region )
 						) ||
 						! dataFavourite.includes( activeFilter.favourite ) ||
 						! dataType.includes( activeFilter.type )
@@ -164,7 +181,10 @@
 			listItems.forEach( ( element ) => {
 				const listItem = element;
 				const title = listItem
-					.querySelector( 'h3' )
+					.querySelector( '.item-title' )
+					.textContent.toLowerCase();
+				const excerpt = listItem
+					.querySelector( '.item-excerpt' )
 					.textContent.toLowerCase();
 
 				if (
@@ -181,7 +201,7 @@
 					listItem.style.display = 'flex';
 				}
 
-				if ( ! title.includes( val ) ) {
+				if ( ! title.includes( val ) && ! excerpt.includes( val ) ) {
 					listItem.style.display = 'none';
 				}
 

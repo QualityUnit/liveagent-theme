@@ -201,7 +201,7 @@
 	left: $left;
 }
 
-@mixin scrollbar() {
+@mixin scrollbar($width:6px) {
 	&::-webkit-scrollbar-track {
 		background-color: transparent;
 	}
@@ -213,11 +213,21 @@
 	}
 	
 	&::-webkit-scrollbar {
-		width: 6px;
+		width: $width;
 	}
 
-	scrollbar-width: 6px;
+	scrollbar-width: $width;
 	scrollbar-color: $light-gray transparent;
 }
 
-/* stylelint-enable */
+@mixin line-above($width: 45%, $top: -1em, $color: $light-gray) {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: $width;
+		top: $top;
+		border-top: 2px solid $color;
+	}
+}
