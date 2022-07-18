@@ -40,20 +40,20 @@ const switcher = document.querySelector( '.Block--switcher' );
 		const isActive = switcher.querySelector( '.visible[data-targetid]' );
 		const isHidden = switcher.querySelector( '.hidden[data-targetid]' );
 
-			notCheckedInput.checked = true;
+		notCheckedInput.checked = true;
 
-			isActive.classList.remove( 'visible' );
-			isActive.classList.add( 'hidden' );
+		isActive.classList.remove( 'visible' );
+		isActive.classList.add( 'hidden' );
 
-			isHidden.classList.remove( 'hidden' );
+		isHidden.classList.remove( 'hidden' );
 
-			setTimeout( () => {
-				isHidden.classList.add( 'visible' );
-			}, 200 );
+		setTimeout( () => {
+			isHidden.classList.add( 'visible' );
+		}, 200 );
 
-			setTimeout( () => {
-				autoSwitch();
-			}, interval );
-		}
-	}() );
+		setTimeout( () => {
+			autoSwitch();
+		}, interval );
+	}
+}() );
 
