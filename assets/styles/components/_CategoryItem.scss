@@ -151,7 +151,7 @@
 				overflow: hidden;
 				max-height: 70px;
 
-				@media (max-width: $breakpoint-tablet-landscape - 1px) {
+				@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 					max-width: 435px;
 				}
 			}

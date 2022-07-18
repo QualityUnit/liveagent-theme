@@ -31,7 +31,7 @@
 				)
 			);
 			while ( $query_success_stories_posts->have_posts() ) :
-			$query_success_stories_posts->the_post();
+				$query_success_stories_posts->the_post();
 
 					$regions_meta = get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories-region', true );
 				if ( $regions_meta ) {
