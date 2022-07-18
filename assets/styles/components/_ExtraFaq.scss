@@ -101,6 +101,17 @@
 						display: none;
 					}
 				}
+
+				a:not(.Button) {
+
+					@include color(color, primary-color);
+
+					&:active,
+					&:focus,
+					&:hover {
+						text-decoration: underline;
+					}
+				}
 			}
 		}
 	}
