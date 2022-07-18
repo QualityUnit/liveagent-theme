@@ -219,7 +219,7 @@
 		</div>
 	</div>
 	<?php
-	if ( $categories[0]->count >= 3 ) {
+	if ( isset( $categories[0]->count ) && $categories[0]->count >= 3 ) {
 		?>
 				<div class="wrapper__wide" style="padding-left: 21em">
 					<div class="h2 line-above no-margin"><?php _e( 'Related stories', 'use-case' ); ?></div>
