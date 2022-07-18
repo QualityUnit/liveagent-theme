@@ -3,6 +3,14 @@
 
 	.wrapper {
 		background-color: transparent !important;
+
+		.elementor-row {
+			display: block !important;
+		}
+
+		.elementor-element {
+			width: 100%;
+		}
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
