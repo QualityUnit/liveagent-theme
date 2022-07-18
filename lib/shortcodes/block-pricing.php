@@ -24,6 +24,7 @@ function ms_block_pricing( $atts ) {
 			<div class="PricingTable__header">
 				<div class="PricingTable__header__price">
 					<span class="PricingTable__header__price__amount"><?= esc_html( $atts['price1'] ); ?></span>
+					<span class="PricingTable__header__price__month"><?php _e( 'month', 'ms' ); ?></span>
 				</div>
 				<div class="PricingTable__header__title">
 					<h3><?= esc_html( $atts['title1'] ); ?></h3>
@@ -56,6 +57,7 @@ function ms_block_pricing( $atts ) {
 			<div class="PricingTable__header">
 				<div class="PricingTable__header__price">
 					<span class="PricingTable__header__price__amount"><?= esc_html( $atts['price2'] ); ?></span>
+					<span class="PricingTable__header__price__month"><?php _e( 'month', 'ms' ); ?></span>
 				</div>
 				<div class="PricingTable__header__title">
 					<h3><?= esc_html( $atts['title2'] ); ?></h3>
@@ -87,6 +89,7 @@ function ms_block_pricing( $atts ) {
 			<div class="PricingTable__header popular">
 				<div class="PricingTable__header__price">
 					<span class="PricingTable__header__price__amount"><?= esc_html( $atts['price3'] ); ?></span>
+					<span class="PricingTable__header__price__month"><?php _e( 'month', 'ms' ); ?></span>
 				</div>
 				<div class="PricingTable__header__title">
 					<h3><?= esc_html( $atts['title3'] ); ?></h3>
@@ -119,6 +122,7 @@ function ms_block_pricing( $atts ) {
 			<div class="PricingTable__header">
 				<div class="PricingTable__header__price">
 					<span class="PricingTable__header__price__amount"><?= esc_html( $atts['price4'] ); ?></span>
+					<span class="PricingTable__header__price__month"><?php _e( 'month', 'ms' ); ?></span>
 				</div>
 				<div class="PricingTable__header__title">
 					<h3><?= esc_html( $atts['title4'] ); ?></h3>
