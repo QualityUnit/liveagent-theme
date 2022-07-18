@@ -18,12 +18,10 @@ const setContainerHeight = () => {
 
 const lockSidebar = () => {
 	if ( categorySidebar && 'IntersectionObserver' in window ) {
-  
-		function getActualHeight( e ) {
-			return e.getBoundingClientRect().height;
-		}
-    
-		const bottomObserverPoint = document.querySelector( '.Footer' );
+        function getActualHeight( e ) {
+            return e.getBoundingClientRect().height;
+        }
+        const bottomObserverPoint = document.querySelector( '.Footer' );
 		const categoryContent = document.querySelector( '.Category__content' );
 		const categoryContentItemsHeight = document.querySelector(
 			'.Category__content__items'
