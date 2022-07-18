@@ -3,14 +3,14 @@
 function ms_block_pricing( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'title1' => '',
-			'price1' => '',
-			'title2' => '',
-			'price2' => '',
-			'title3' => '',
-			'price3' => '',
-			'title4' => '',
-			'price4' => '',
+			'title1' => 'Ticket',
+			'price1' => '15$',
+			'title2' => 'Ticket+chat',
+			'price2' => '29$',
+			'title3' => 'All-Inclusive',
+			'price3' => '49$',
+			'title4' => 'Free',
+			'price4' => '0$',
 		),
 		$atts,
 		'block_pricing'
@@ -31,16 +31,16 @@ function ms_block_pricing( $atts ) {
 				<div class="PricingTable__header__description">
 					<ul>
 						<li class="checkmark">
-							<span>Unlimited ticket history</span>
+							<span><?php _e( 'Unlimited ticket history', 'ms' ); ?></span>
 						</li>
 						<li class="checkmark" >
-							<span>Unlimited email addresses</span>
+							<span><?php _e( 'Unlimited email addresses', 'ms' ); ?></span>
 						</li>
 						<li  class="checkmark">
-							<span>Advanced reporting</span>
+							<span><?php _e( 'Advanced reporting', 'ms' ); ?></span>
 						</li>
 						<li  class="checkmark">
-							<span>Customer portal + forum</span>
+							<span><?php _e( 'Customer portal + forum', 'ms' ); ?></span>
 						</li>
 					</ul>
 				</div>
@@ -63,16 +63,16 @@ function ms_block_pricing( $atts ) {
 				<div class="PricingTable__header__description">
 					<ul">
 						<li class="italic">
-							<span>Everything in Ticket, plus:</span>
+							<span><?php _e( 'Everything in Ticket, plus:', 'ms' ); ?></span>
 						</li>
 						<li class="checkmark">
-							<span>Unlimited chat buttons</span>
+							<span><?php _e( 'Unlimited chat buttons', 'ms' ); ?></span>
 						</li>
 						<li class="checkmark">
-							<span>Feedback management</span>
+							<span><?php _e( 'Feedback management', 'ms' ); ?></span>
 						</li>
 						<li class="checkmark">
-							<span>Real time visitors monitor</span>
+							<span><?php _e( 'Real time visitors monitor', 'ms' ); ?></span>
 						</li>
 					</ul>
 				</div>
@@ -94,16 +94,16 @@ function ms_block_pricing( $atts ) {
 				<div class="PricingTable__header__description">
 					<ul>
 						<li class="italic">
-							<span>Everything in Ticket + chat, plus:</span>
+							<span><?php _e( 'Everything in Ticket + chat, plus:', 'ms' ); ?></span>
 						</li>
 						<li class="checkmark">
-							<span>Call center support</span>
+							<span><?php _e( 'Call center support', 'ms' ); ?></span>
 						</li>
 						<li class="checkmark">
-							<span>Video call</span>
+							<span><?php _e( 'Video call', 'ms' ); ?></span>
 						</li>
 						<li class="checkmark">
-							<span>IVR</span>
+							<span><?php _e( 'IVR', 'ms' ); ?></span>
 						</li>
 					</ul>
 				</div>
@@ -126,16 +126,16 @@ function ms_block_pricing( $atts ) {
 				<div class="PricingTable__header__description">
 					<ul>
 						<li class="checkmark">
-							<span>7 days ticket history</span>
+							<span><?php _e( '7 days ticket history', 'ms' ); ?></span>
 						</li>
 						<li class="checkmark">
-							<span>1 chat button</span>
+							<span><?php _e( '1 chat button', 'ms' ); ?></span>
 						</li>
 						<li class="checkmark">
-							<span>1 phone number</span>
+							<span><?php _e( '1 phone number', 'ms' ); ?></span>
 						</li>
 						<li class="checkmark">
-							<span>1 email address</span>
+							<span><?php _e( '1 email address', 'ms' ); ?></span>
 						</li>
 					</ul>
 				</div>

@@ -1,4 +1,21 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
+.BlockPricing.Block-orange--glass {
+
+	.wrapper {
+		background-color: transparent !important;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper {
+			background: url(../images/box-star_bg.svg?v2) center -3px no-repeat !important;
+			background-color: transparent !important;
+		}
+
+	}
+
+}
+
 .BlockPricing {
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
