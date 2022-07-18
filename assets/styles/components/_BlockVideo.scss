@@ -60,12 +60,11 @@
 		}
 
 		&::after {
-
+			//gradient is placed in $positions
 			@include square(100%);
 			content: "";
 			position: absolute;
 			font-size: $font-size-default;
-			background: linear-gradient(to right, rgba($black, 0.3) 10%, rgba($black, 0.8));
 			overflow: hidden;
 			z-index: 1;
 		}
@@ -169,13 +168,54 @@ $positions: ("left", "right");
 	}
 
 	.youtube__loader,
-	.elementor-custom-embed-image-overlay {
+	.elementor-custom-embed-image-overlay,
+	.elementor-widget-image {
 
 		&--img,
 		&::after,
 		& {
 			border-radius: $border-radius-16;
 			overflow: hidden;
+		}
+	}
+
+	.elementor-widget-image {
+
+		position: relative;
+		height: 29em;
+		overflow: hidden;
+
+		.elementor-widget-container {
+
+			@include posCustom(0);
+			position: absolute;
+		}
+
+		.elementor-image {
+
+			@include posCustom(0);
+			position: absolute;
+			overflow: hidden;
+
+			&::after {
+				//gradient is placed in $positions
+				@include posCustom(0);
+				position: absolute;
+				content: "";
+				font-size: $font-size-default;
+				overflow: hidden;
+				z-index: 2;
+			}
+
+			img {
+				all: unset;
+
+				@include fullSize;
+				position: relative;
+				z-index: 1;
+				object-fit: cover;
+				display: block;
+			}
 		}
 	}
 
@@ -198,6 +238,13 @@ $positions: ("left", "right");
 			}
 		}
 
+		.elementor-widget-image {
+
+			@include posCustom(0);
+			position: absolute;
+			height: initial;
+		}
+
 		&.image-left {
 
 			.elementor-widget-video {
@@ -214,6 +261,10 @@ $positions: ("left", "right");
 				.elementor-custom-embed-image-overlay {
 					border-radius: 0 4.375em 4.375em 0;
 				}
+			}
+
+			.elementor-widget-image {
+				border-radius: 0 4.375em 4.375em 0;
 			}
 		}
 
@@ -234,6 +285,10 @@ $positions: ("left", "right");
 					border-radius: 4.375em 0 0 4.375em;
 				}
 			}
+
+			.elementor-widget-image {
+				border-radius: 4.375em 0 0 4.375em;
+			}
 		}
 	}
 
@@ -248,6 +303,14 @@ $positions: ("left", "right");
 
 		@each $pos in $positions {
 			&-#{$pos} {
+
+				.elementor-widget-image .elementor-image::after {
+					background: linear-gradient(to #{$pos}, rgba($black, 0.3) 10%, rgba($black, 0.8));
+				}
+
+				.elementor-widget-video .youtube__loader::after {
+					background: linear-gradient(to #{$pos}, rgba($black, 0.8), rgba($black, 0.3) 90%);
+				}
 
 				@media (min-width: ($breakpoint-tablet + 1px)) {
 
@@ -388,7 +451,8 @@ $positions: ("left", "right");
 	@media (min-width: ($breakpoint-desktop-hd + 1px)) {
 
 		.youtube__loader,
-		.elementor-custom-embed-image-overlay {
+		.elementor-custom-embed-image-overlay,
+		.elementor-widget-image {
 
 			&--img,
 			&::after,
