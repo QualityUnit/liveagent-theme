@@ -35,8 +35,7 @@
 	position: relative;
 
 	&::before {
-
-		@include color(background-color, secondary-background);
+		background-color: $lightest-gray;
 		position: absolute;
 		content: "";
 		border-radius: $border-radius-16;
@@ -103,9 +102,7 @@
 		}
 
 		&__label {
-
-			@include color(color, font-color-dark);
-			@include color(background-color, #e3f2ff);
+			color: $black;
 			background-color: #e3f2ff;
 			margin: 0 1em 1em 0;
 			padding: 0.25em 1em;
@@ -179,9 +176,8 @@
 			}
 
 			&::before {
-
-				@include color(background-color, main-background);
-				@include color(box-shadow, box-shadow);
+				background-color: $white;
+				box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 				border-radius: $border-radius-16;
 				content: "";
 				display: inline-block;
@@ -269,8 +265,7 @@
 					}
 
 					span {
-
-						@include color(color, font-color-light);
+						color: $white;
 						position: relative;
 						left: -1em;
 						z-index: 6;
@@ -283,12 +278,10 @@
 					margin-bottom: 1em;
 
 					&::after {
-
-						@include color(color, font-color-light);
+						color: $white;
 						font-size: $font-size-smaller;
 						font-weight: $font-weight-normal;
 						content: "month";
-						// white-space: pre-wrap;
 						position: absolute;
 						top: 3em;
 						left: 12.8em;
@@ -354,9 +347,8 @@
 			&__item:nth-child(1) {
 
 				&::before {
-
-					@include color(background-color, main-background);
-					@include color(box-shadow, box-shadow);
+					background-color: $white;
+					box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 					border-radius: $border-radius-16;
 					content: "";
 					width: 300%;
@@ -375,9 +367,8 @@
 				margin-left: auto;
 
 				&::before {
-
-					@include color(background-color, main-background);
-					@include color(box-shadow, box-shadow);
+					background-color: $white;
+					box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 					border-radius: $border-radius-16;
 					content: "";
 					display: inline-block;
