@@ -48,6 +48,8 @@ function ms_success_stories( $atts ) {
 			}
 
 			$category = '';
+			$company  = get_the_title();
+
 			if ( ! empty( $categories ) ) {
 				foreach ( $categories as $category_item ) {
 						$category_item = array_shift( $categories );
@@ -58,12 +60,11 @@ function ms_success_stories( $atts ) {
 				$category = substr( $category, 0, -1 );
 			?>
 
-
 			<li data-category="<?= esc_attr( $category ) ?>" data-region="<?= esc_attr( $region ) ?>" <?php post_class( 'Category__item Category__item--blogLike' ); ?>>
-				<a href="<?php the_permalink(); ?>">
+				<a href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>">
 					<div class="Blog__item__thumbnail Category__item--blogLike__thumbnail">
 						<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
-						<img style="opacity: 0; transition: opacity 0.2s;" data-lasrc="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
+						<img style="opacity: 0; transition: opacity 0.2s;" data-lasrc="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="le="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>" />
 
 						<?php
 						$categories = get_the_terms( 0, 'ms_success-stories_categories' );
