@@ -224,6 +224,7 @@
 			padding: 0.75em 1em 0.75em 0.15em;
 			font-weight: 600;
 			line-height: 1.25;
+			z-index: 2;
 
 			+ .postLabel {
 				margin-top: 1em;
@@ -236,6 +237,7 @@
 				position: absolute;
 				top: 0;
 				right: calc(100% - 3px);
+				z-index: -1;
 			}
 		}
 
