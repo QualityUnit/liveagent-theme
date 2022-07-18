@@ -6,7 +6,7 @@ const categorySidebar = document.querySelector(
 
 const lockSidebar = () => {
 	if ( categorySidebar && 'IntersectionObserver' in window ) {
-		const newsLetter = document.querySelector( '.Newsletter' );
+		const bottomObserverPoint = document.querySelector( '.Footer' );
 		const categoryContent = document.querySelector( '.Category__content' );
 		const categoryContentItemsHeight = document.querySelector(
 			'.Category__content__items'
@@ -77,11 +77,11 @@ const lockSidebar = () => {
 		);
 
 		unlockSidebarObserverOnFooter.unobserve(
-			newsLetter
+			bottomObserverPoint
 		);
 		if ( categoryContentItemsHeight > windowHeight ) {
 			unlockSidebarObserverOnFooter.observe(
-				newsLetter
+				bottomObserverPoint
 			);
 		}
 	}
