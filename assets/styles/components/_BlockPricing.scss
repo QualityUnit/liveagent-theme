@@ -11,13 +11,16 @@
 		.elementor-element {
 			width: 100%;
 		}
+
+		.elementor-widget-text-editor {
+			width: 60%;
+		}
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 
 		.wrapper {
-			background: url(../images/box-star_bg.svg?v2) center -3px no-repeat !important;
-			background-color: transparent !important;
+			background: none !important;
 		}
 
 	}
