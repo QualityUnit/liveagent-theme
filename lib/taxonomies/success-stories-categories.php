@@ -1,11 +1,11 @@
 <?php
-
+// We have to use ms_success-stories everywhere to preserve old DB records
 add_action(
 	'init',
 	function () {
 		$labels = array(
-			'name'          => _x( 'Success Stories Categories', 'Taxonomy General Name', 'ms' ),
-			'singular_name' => _x( 'Success Story Category', 'Taxonomy Singular Name', 'ms' ),
+			'name'          => _x( 'Use case scenarios Categories', 'Taxonomy General Name', 'ms' ),
+			'singular_name' => _x( 'Use case scenario Category', 'Taxonomy Singular Name', 'ms' ),
 			'menu_name'     => __( 'Categories', 'ms' ),
 		);
 		$args   = array(

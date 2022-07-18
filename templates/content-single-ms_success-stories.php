@@ -2,7 +2,7 @@
 	$current_lang    = apply_filters( 'wpml_current_language', null );
 	$header_category = get_en_category( 'ms_success-stories', $post->ID );
 
-	
+	// We have to use ms_success-stories everywhere to preserve old DB records
 	$details = (object) array(
 		'website'      => get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories-website', true ),
 		'insta'        => get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories-insta', true ),
@@ -64,14 +64,14 @@
 				<?php
 				if ( ! empty( $details->insta ) && 'https://www.instagram.com/' !== $details->insta ) {
 					?>
-					<a href="<?= esc_url( $details->insta ); ?>" class="Post__sidebar__social" target="_blank">
+					<a href="<?= esc_url( $details->insta ); ?>" class="Post__sidebar__social" target="_blank" title="<?php the_title(); ?> Instagram">
 						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/instagram.svg' ); ?>" alt="<?= esc_attr( $details->insta ); ?>" />
 					</a>
 					<?php
 				}
 				if ( ! empty( $details->fb ) && 'https://www.facebook.com/' !== $details->fb ) {
 					?>
-					<a href="<?= esc_url( $details->fb ); ?>" class="Post__sidebar__social" target="_blank">
+					<a href="<?= esc_url( $details->fb ); ?>" class="Post__sidebar__social" target="_blank" title="<?php the_title(); ?> Facebook">
 						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/facebook.svg' ); ?>" alt="<?= esc_attr( $details->fb ); ?>" />
 					</a>
 					<?php
@@ -79,21 +79,21 @@
 
 				if ( ! empty( $details->twitter ) && 'https://www.twitter.com/' !== $details->twitter ) {
 					?>
-					<a href="<?= esc_url( $details->twitter ); ?>" class="Post__sidebar__social" target="_blank">
+					<a href="<?= esc_url( $details->twitter ); ?>" class="Post__sidebar__social" target="_blank" title="<?php the_title(); ?> Twitter">
 						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/twitter.svg' ); ?>" alt="<?= esc_attr( $details->twitter ); ?>" />
 					</a>
 					<?php
 				}
 				if ( ! empty( $details->linkedin ) ) {
 					?>
-					<a href="<?= esc_url( $details->linkedin ); ?>" class="Post__sidebar__social" target="_blank">
+					<a href="<?= esc_url( $details->linkedin ); ?>" class="Post__sidebar__social" target="_blank" title="<?php the_title(); ?> LinkedIn">
 						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/linkedin.svg' ); ?>" alt="<?= esc_attr( $details->linkedin ); ?>" />
 					</a>
 					<?php
 				}
 				if ( ! empty( $details->yt ) && 'https://www.youtube.com/user/' !== $details->yt ) {
 					?>
-					<a href="<?= esc_url( $details->yt ); ?>" class="Post__sidebar__social" target="_blank">
+					<a href="<?= esc_url( $details->yt ); ?>" class="Post__sidebar__social" target="_blank" title="<?php the_title(); ?> YouTube">
 						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/youtube.svg' ); ?>" alt="<?= esc_attr( $details->yt ); ?>" />
 					</a>
 					<?php
@@ -164,7 +164,7 @@
 		<div class="Post__content">
 			<div class="Post__content__breadcrumbs">
 				<ul>
-					<li><a href="<?php _e( '/features/', 'ms' ); ?>"><?php _e( 'Features', 'ms' ); ?></a></li>
+					<li><a href="<?php _e( '/use-case-scenarios/', 'ms' ); ?>"><?php _e( 'Use case scenarios', 'ms' ); ?></a></li>
 					<li><?php the_title(); ?></li>
 				</ul>
 			</div>
