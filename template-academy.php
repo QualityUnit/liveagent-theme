@@ -70,7 +70,7 @@
 						<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
 
 						<div class="SimilarSources">
-							<?php echo do_shortcode( '[similarsources]' ); ?>
+							<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
 						</div>
 					</div>
 				<?php } ?>

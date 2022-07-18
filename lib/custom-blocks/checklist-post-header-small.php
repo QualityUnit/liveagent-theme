@@ -31,24 +31,26 @@
 						</div>
 					</div>
 				</div>
+				<?php } ?>
 			</div>
 			<div class="Post__header__progress CircleProgressBar">
 				<div class="CircleProgressBar__middle" id="circleProgressMiddle"></div>
 				<div class="CircleProgressBar__spinner" id="circleProgressSpinner"></div>
 			</div>
-			<div class="Post__header__counter" id="checklistsCounter" data-checked="0" data-total="<?= esc_attr( checklists_toc()->count ); ?>">
-					<?= esc_html( checklists_toc()->count ); ?>
-			</div>
-			<div class="Post__header__collapse">
-				<span class="qu-Checklist__expander qu-Checklist__expander--collapse" data-action="closeAll">
-					<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 18.59 8.83 20 12 16.83 15.17 20l1.41-1.41L12 14l-4.59 4.59Zm9.18-13.18L15.17 4 12 7.17 8.83 4 7.41 5.41 12 10l4.59-4.59Z" fill="#050505"/></svg>
-					<span class="desktop--only"><?php _e( 'Collapse All', 'ms' ); ?></span>
-				</span>
-				<span class="qu-Checklist__expander qu-Checklist__expander--expand inactive" data-action="openAll">
-					<svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 18.59 8.83 20 12 16.83 15.17 20l1.41-1.41L12 14l-4.59 4.59Z" style="fill:#050505" transform="translate(0 -10)"/><path d="M16.59 5.41 15.17 4 12 7.17 8.83 4 7.41 5.41 12 10l4.59-4.59Z" style="fill:#050505" transform="translate(0 10)"/></svg>
-					<span class="desktop--only"><?php _e( 'Expand All', 'ms' ); ?></span>
-				</span>
-			</div>
-		<?php } ?>
+			<?php if ( checklists_toc() !== false ) { ?>
+				<div class="Post__header__counter" id="checklistsCounter" data-checked="0" data-total="<?= esc_attr( checklists_toc()->count ); ?>">
+						<?= esc_html( checklists_toc()->count ); ?>
+				</div>
+				<div class="Post__header__collapse">
+					<span class="qu-Checklist__expander qu-Checklist__expander--collapse" data-action="closeAll">
+						<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 18.59 8.83 20 12 16.83 15.17 20l1.41-1.41L12 14l-4.59 4.59Zm9.18-13.18L15.17 4 12 7.17 8.83 4 7.41 5.41 12 10l4.59-4.59Z" fill="#050505"/></svg>
+						<span class="desktop--only"><?php _e( 'Collapse All', 'ms' ); ?></span>
+					</span>
+					<span class="qu-Checklist__expander qu-Checklist__expander--expand inactive" data-action="openAll">
+						<svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 18.59 8.83 20 12 16.83 15.17 20l1.41-1.41L12 14l-4.59 4.59Z" style="fill:#050505" transform="translate(0 -10)"/><path d="M16.59 5.41 15.17 4 12 7.17 8.83 4 7.41 5.41 12 10l4.59-4.59Z" style="fill:#050505" transform="translate(0 10)"/></svg>
+						<span class="desktop--only"><?php _e( 'Expand All', 'ms' ); ?></span>
+					</span>
+				</div>
+			<?php } ?>
 		</div>
 	</div>

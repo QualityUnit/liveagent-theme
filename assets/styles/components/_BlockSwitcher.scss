@@ -2,6 +2,17 @@
 
 .Block--switcher {
 
+
+	[data-targetid] {
+		opacity: 0;
+		transition: opacity 0.2s;
+
+		&.visible {
+			opacity: 1;
+			transition: opacity 0.2s;
+		}
+	}
+
 	.wrapper__wide {
 		background: transparent url(../images/background__elements.svg) center center no-repeat;
 		background-size: cover;
