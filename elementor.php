@@ -12,15 +12,13 @@ while ( have_posts() ) :
 	<?php
 	if ( ! is_page( array( 'sitemap' ) ) ) {
 		?>
-		<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
 		<div class="SimilarSources">
 			<div class="wrapper">
 				<div class="SimilarSources__title h3"><?php _e( 'Related Resources to ', 'ms' ); ?><?php the_title(); ?></div>
 
-				<?php echo do_shortcode( '[similarsources]' ); ?>
+				<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
 			</div>
 		</div>
-		<?php } ?>
 	<?php } ?>
 
 <?php endwhile; ?>
