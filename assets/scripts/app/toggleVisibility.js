@@ -34,12 +34,11 @@ if ( activators.length > 0 ) {
 }
 
 const switcher = document.querySelector( '.Block--switcher' );
-if ( switcher ) {
-	( function autoSwitch( interval = 5000 ) {
-		if ( ! isPaused ) {
-			const notCheckedInput = switcher.querySelector( '.switcher__input:not(:checked)' );
-			const isActive = switcher.querySelector( '.visible[data-targetid]' );
-			const isHidden = switcher.querySelector( '.hidden[data-targetid]' );
+( function autoSwitch( interval = 5000 ) {
+	if ( ! isPaused && switcher ) {
+		const notCheckedInput = switcher.querySelector( '.switcher__input:not(:checked)' );
+		const isActive = switcher.querySelector( '.visible[data-targetid]' );
+		const isHidden = switcher.querySelector( '.hidden[data-targetid]' );
 
 			notCheckedInput.checked = true;
 
@@ -57,5 +56,4 @@ if ( switcher ) {
 			}, interval );
 		}
 	}() );
-}
 

@@ -13,15 +13,13 @@
 				<?php
 				if ( ! is_page( array( 'sitemap' ) ) ) {
 					?>
-					<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
-					<div class="SimilarSources SimilarSources--blog">
-						<div class="wrapper">
-							<div class="SimilarSources__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
+				<div class="SimilarSources SimilarSources--blog">
+					<div class="wrapper">
+						<div class="SimilarSources__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
 
-							<?php echo do_shortcode( '[similarsources]' ); ?>
-						</div>
+						<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
 					</div>
-					<?php } ?>
+				</div>
 				<?php } ?>
 			</div>
 
