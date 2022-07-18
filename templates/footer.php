@@ -51,9 +51,9 @@
 				<div class="Footer__middle__contacts">
 					<div class="Footer__middle__title h5"><?php _e( 'Sales and support', 'ms' ); ?></div>
 					<ul>
-						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
-						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>"><?php _e( '+1-888-257-8754', 'ms' ); ?></a></li>
-						<li class="Footer__middle__contacts__calendar"><a href="<?php _e( '/demo/', 'ms' ); ?>"><?php _e( 'Schedule a demo', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-257-8754', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__calendar"><a href="<?php _e( '/demo/', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s demo', 'ms' ); ?>"><?php _e( 'Schedule a demo', 'ms' ); ?></a></li>
 					</ul>
 				</div>
 
@@ -62,27 +62,27 @@
 					<ul>
 						<?php if ( get_option( 'ms_theme_ms_footer_instagram_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'Instagram', 'ms' ); ?>"><i class="fontello-instagram-brands"></i></a>
+								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Instagram', 'ms' ); ?>"><i class="fontello-instagram-brands"></i></a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_facebook_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'Facebook', 'ms' ); ?>"><i class="fontello-facebook-square-brands"></i></a>
+								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Facebook', 'ms' ); ?>"><i class="fontello-facebook-square-brands"></i></a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_twitter_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" target="_blank" title="<?php _e( 'Twitter', 'ms' ); ?>"><i class="fontello-twitter-square-brands"></i></a>
+								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Twitter', 'ms' ); ?>"><i class="fontello-twitter-square-brands"></i></a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_linkedin_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LinkedIn', 'ms' ); ?>"><i class="fontello-linkedin-brands"></i></a>
+								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>"><i class="fontello-linkedin-brands"></i></a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_youtube_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" target="_blank" title="<?php _e( 'YouTube', 'ms' ); ?>"><i class="fontello-youtube-square-brands"></i></a>
+								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>"><i class="fontello-youtube-square-brands"></i></a>
 							</li>
 						<?php } ?>
 					</ul>
