@@ -45,7 +45,7 @@ function ms_block_pricing( $atts ) {
 					</ul>
 				</div>
 				<div class="PricingTable__header__button">
-					<a href="/trial/'" class="Button Button--outline">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--outline">
 						<span>Try for FREE</span>
 					</a>
 				</div>
@@ -77,7 +77,7 @@ function ms_block_pricing( $atts ) {
 					</ul>
 				</div>
 				<div class="PricingTable__header__button">
-					<a href="/trial/'" class="Button Button--outline">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--outline">
 						<span>Try for FREE</span>
 					</a>
 				</div>
@@ -108,7 +108,7 @@ function ms_block_pricing( $atts ) {
 					</ul>
 				</div>
 				<div class="PricingTable__header__button">
-					<a href="/trial/'" class="Button Button--outline">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--outline">
 						<span>Try for FREE</span>
 					</a>
 				</div>
@@ -140,7 +140,7 @@ function ms_block_pricing( $atts ) {
 					</ul>
 				</div>
 				<div class="PricingTable__header__button">
-					<a href="/trial/'" class="Button Button--outline">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--outline">
 						<span>Create</span>
 					</a>
 				</div>
