@@ -120,7 +120,7 @@
 
 		}
 
-		@media (min-width: $breakpoint-tablet + 1px) {
+		@media (min-width: ($breakpoint-tablet + 1px) ) {
 
 			h2 {
 				text-align: left;
@@ -173,7 +173,7 @@
 				&:first-of-type {
 					width: 33%;
 
-					@media (max-width: $breakpoint-tablet - 1px) {
+					@media (max-width: ($breakpoint-tablet - 1px)) {
 						text-align: center;
 					}
 				}
@@ -214,7 +214,7 @@
 			width: 100% !important;
 			margin-left: 0 !important;
 
-			@media (max-width: $breakpoint-tablet - 1px) {
+			@media (max-width: ($breakpoint-tablet - 1px)) {
 				order: 2 !important;
 				width: 50% !important;
 				margin-top: 75px !important;
@@ -291,7 +291,7 @@
 					}
 				}
 
-				@media (max-width: $breakpoint-tablet - 1px) {
+				@media (max-width: ($breakpoint-tablet - 1px)) {
 					flex-direction: column;
 
 					&--value,
