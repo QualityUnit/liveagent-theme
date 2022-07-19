@@ -348,7 +348,6 @@ function exclude_posts_from_xml_sitemaps() {
 
 add_filter( 'wpseo_exclude_from_sitemap_by_post_ids', 'exclude_posts_from_xml_sitemaps' );
 
-
 /**
 	* Flush permalinks after post update
 	*/
@@ -358,7 +357,6 @@ function flush_rules_on_save_posts() {
 }
 
 add_action( 'save_post', 'flush_rules_on_save_posts', 20, 2 );
-
 
 /**
  * Replace admin subdomain
@@ -371,12 +369,11 @@ function replace_admin_subdomain( $content ) {
 }
 add_filter( 'the_content', 'replace_admin_subdomain' );
 
-
-/* 
-* Change formatting in Block--learnMore <pre> blocks
+/*
+*  checklists (pros and cons) in Block--learnMore
 */
 
-function learnmore_pre_block( $content ) {
+function elementor_pros_cons( $content ) {
 	if ( ! $content ) {
 		return $content;
 	}
@@ -385,38 +382,49 @@ function learnmore_pre_block( $content ) {
 	libxml_use_internal_errors( true );
 	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
 	libxml_clear_errors();
-	$xpath       = new DOMXPath( $dom );
-	$block_class = 'Block--learnMore';
-	$blocks      = get_nodes( $xpath, $block_class );
+	$xpath = new DOMXPath( $dom );
+	$sections = get_nodes( $xpath, 'elementor-section' );
 
-	foreach ( $blocks as $block ) {
-		foreach ( $block->getElementsByTagName( 'pre' ) as $pre ) {
-			// @codingStandardsIgnoreStart
-			$header      = $pre->childNodes->item( 0 )->textContent;
-			$regex       = '/(.+)(–|—|-|-)(.+)(\n|\r)*(.*)/';
-			$strong_text = preg_replace( $regex, '$1', $header );
-			$value_text  = preg_replace( $regex, '$3', $header );
-			$main_text   = $pre->textContent;
-			$main_text   = preg_replace( $regex, '$5', $main_text );
-			if( isset( $pre->childNodes->item( 3 )->textContent ) ) {
-				$main_text = $pre->childNodes->item( 3 )->textContent;
+	// @codingStandardsIgnoreStart
+	foreach ( $sections as $section ) {
+		//get list of pros/cons sections
+		$new_dom = new DomDocument;
+		libxml_use_internal_errors( true );
+		$new_dom->appendChild($new_dom->importNode($section, true));
+		libxml_clear_errors();
+		$new_xpath = new DOMXPath( $new_dom );
+		$checklists	= get_nodes( $new_xpath, 'checklist' );
+		$cols = get_nodes( $new_xpath, 'elementor-col-50' );
+
+		if ( $checklists->length == 2 && $cols->length == 2) {
+
+			$checklists_index = 1;
+
+			foreach ( $checklists as $checklist ) {
+				$cl_checklist = $checklist->getAttribute( 'class' );
+				$id_checklist = $checklist->getAttribute( 'data-id' );
+
+				//get checklist node form $dom and add class
+				$checklist_dom = $xpath->query( "//*[@data-id='$id_checklist']" );
+				$checklist = $checklist_dom->item( 0 );
+
+				if ($checklists_index == 1) {
+					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--pros' );
+				}
+
+				if ($checklists_index == 2) {
+					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--cons' );
+				}
+				$checklists_index++;
 			}
-			$pre->textContent = '';
-			$strong           = $dom->createElement( 'strong' );
-			$flex             = $dom->createElement( 'div' );
-			$flex->setAttribute( 'class', 'flex' );
-			$strong->textContent = $strong_text;
-			$flex->appendChild( $strong );
-			$flex->appendChild( $dom->createTextNode( $value_text ) );
-			$pre->appendChild( $flex );
-			$pre->appendChild( $dom->createTextNode( $main_text ) );
 		}
-		// @codingStandardsIgnoreEnd
 	}
+	// @codingStandardsIgnoreEnd
+
 	$dom->removeChild( $dom->doctype );
 	$content = $dom->saveHtml();
 	$content = str_replace( '<html><body>', '', $content );
 	$content = str_replace( '</body></html>', '', $content );
 	return $content;
 }
-add_filter( 'the_content', 'learnmore_pre_block', 9999 );
+add_filter( 'the_content', 'elementor_pros_cons', 9999 );

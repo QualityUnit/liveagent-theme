@@ -1,14 +1,52 @@
 /* stylelint-disable selector-class-pattern */
+@import "../elements/Checklist";
+%imgalign {
+	margin-top: -0.2em;
+	margin-bottom: -0.2em;
+	user-select: none;
+}
 
 .Block--learnMore {
 	position: relative;
+
+	.Post__content {
+
+		.SmallPhoto__slider {
+			max-width: 100%;
+
+			&__desc {
+				text-align: left !important;
+			}
+		}
+
+		figure {
+			max-width: 100%;
+		}
+
+		img {
+
+			&.alignleft {
+
+				@extend %imgalign;
+				margin-right: 1em;
+				float: left;
+			}
+
+			&.alignright {
+
+				@extend %imgalign;
+				margin-left: 1em;
+				float: right;
+			}
+		}
+	}
 
 	&__header {
 
 		font-family: $font-secondary;
 		border-radius: $border-radius-16;
 		padding: 1.5em;
-		background: url(../images/orange_glass_effect_bg.jpg) center center no-repeat;
+		background: url(../images/background__elements.svg) center center no-repeat;
 		background-size: cover;
 
 		h2,
@@ -29,7 +67,8 @@
 			}
 		}
 
-		+ .elementor-widget-text-editor pre {
+		+ .elementor-widget-text-editor pre,
+		+ .Post__container > .Post__content > .elementor-widget-text-editor:first-child pre {
 
 			@include color(background-color, main-background);
 			@include color(color, font-color-dark);
@@ -53,14 +92,11 @@
 		}
 	}
 
-	.elementor-element:not(.Block--learnMore__header) {
-		padding: 0 1.5em;
-	}
-
 	@media (min-width: $breakpoint-tablet-landscape) {
 
 		.wrapper__wide {
-			display: block;
+			padding-top: 0;
+			padding-bottom: 0;
 		}
 
 		.elementor-widget-wrap {
@@ -69,7 +105,6 @@
 			.elementor-element:not(.Block--learnMore__header) {
 				max-width: 41em;
 				margin: 0 auto;
-				padding: 0;
 			}
 		}
 
@@ -81,6 +116,13 @@
 				max-width: 41em;
 				margin: 0 auto;
 			}
+		}
+	}
+
+	@media (max-width: ($breakpoint-tablet-landscape - 1)) {
+
+		.wrapper__wide {
+			max-width: 100%;
 		}
 	}
 }
