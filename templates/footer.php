@@ -1,137 +1,110 @@
-<?php if ( is_page() ) { ?>
-	<?php
-	while ( have_posts() ) :
-		the_post();
-		?>
-
-		<?php
-		if ( get_post_meta( get_the_ID(), 'mb_page_mb_page_newsletter', true ) === 'on' ) {
-			echo '';
-		} else {
-			?>
-		<div class="Newsletter Box Box--gray">
-			<div class="wrapper">
-				<div class="Newsletter__text">
-					<div class="h3"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></div>
-					<p><?php _e( 'Be the first to receive exclusive offers and the latest news on our products and services directly in your inbox.', 'ms' ); ?></p>
-				</div>
-
-				<?= do_shortcode( '[newsletterform]' ); ?>
-			</div>
-		</div>
-			<?php
-		} endwhile;
-} else {
-	?>
-	<div class="Newsletter Box Box--gray">
-		<div class="wrapper">
-			<div class="Newsletter__text">
-				<div class="h3"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></div>
-				<p><?php _e( 'Be the first to receive exclusive offers and the latest news on our products and services directly in your inbox.', 'ms' ); ?></p>
-			</div>
-
-			<?= do_shortcode( '[newsletterform]' ); ?>
-		</div>
-	</div>
-<?php } ?>
-
 <footer class="Footer">
 	<div class="Footer__top">
 		<div class="wrapper">
-			<div class="Footer__top__column">
-				<?php
-				if ( is_active_sidebar( 'footer_column_1' ) ) :
-					dynamic_sidebar( 'footer_column_1' );
-				endif;
-				?>
-			</div>
+			<div class="Footer__top__row">
+				<div class="Footer__top__column">
+					<?php
+					if ( is_active_sidebar( 'footer_column_1' ) ) :
+						dynamic_sidebar( 'footer_column_1' );
+					endif;
+					?>
+				</div>
 
-			<div class="Footer__top__column">
-				<?php
-				if ( is_active_sidebar( 'footer_column_2' ) ) :
-					dynamic_sidebar( 'footer_column_2' );
-				endif;
-				?>
-			</div>
+				<div class="Footer__top__column">
+					<?php
+					if ( is_active_sidebar( 'footer_column_2' ) ) :
+						dynamic_sidebar( 'footer_column_2' );
+					endif;
+					?>
+				</div>
 
-			<div class="Footer__top__column">
-				<?php
-				if ( is_active_sidebar( 'footer_column_3' ) ) :
-					dynamic_sidebar( 'footer_column_3' );
-				endif;
-				?>
-			</div>
+				<div class="Footer__top__column">
+					<?php
+					if ( is_active_sidebar( 'footer_column_3' ) ) :
+						dynamic_sidebar( 'footer_column_3' );
+					endif;
+					?>
+				</div>
 
-			<div class="Footer__top__column">
-				<?php
-				if ( is_active_sidebar( 'footer_column_4' ) ) :
-					dynamic_sidebar( 'footer_column_4' );
-				endif;
-				?>
-			</div>
+				<div class="Footer__top__column">
+					<?php
+					if ( is_active_sidebar( 'footer_column_4' ) ) :
+						dynamic_sidebar( 'footer_column_4' );
+					endif;
+					?>
+				</div>
 
-			<div class="Footer__top__column">
-				<?php
-				if ( is_active_sidebar( 'footer_column_5' ) ) :
-					dynamic_sidebar( 'footer_column_5' );
-				endif;
-				?>
+				<div class="Footer__top__column">
+					<?php
+					if ( is_active_sidebar( 'footer_column_5' ) ) :
+						dynamic_sidebar( 'footer_column_5' );
+					endif;
+					?>
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="Footer__middle">
 		<div class="wrapper">
-			<div class="Footer__middle__title">
-				<p><?php _e( 'Stay in Touch', 'ms' ); ?></p>
-			</div>
+			<div class="Footer__middle__row">
+				<div class="Footer__middle__contacts">
+					<div class="Footer__middle__title h5"><?php _e( 'Sales and support', 'ms' ); ?></div>
+					<ul>
+						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-257-8754', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__calendar"><a href="<?php _e( '/demo/', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s demo', 'ms' ); ?>"><?php _e( 'Schedule a demo', 'ms' ); ?></a></li>
+					</ul>
+				</div>
 
-			<div class="Footer__middle__number">
-				<ul>
-					<li><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
-					<li><a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>"><?php _e( '+1-888-257-8754', 'ms' ); ?></a></li>
-				</ul>
-			</div>
+				<div class="Footer__middle__social">
+					<div class="Footer__middle__title h5"><?php _e( 'Socials', 'ms' ); ?></div>
+					<ul>
+						<?php if ( get_option( 'ms_theme_ms_footer_instagram_link' ) ) { ?>
+							<li>
+								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Instagram', 'ms' ); ?>"><i class="fontello-instagram-brands"></i></a>
+							</li>
+						<?php } ?>
+						<?php if ( get_option( 'ms_theme_ms_footer_facebook_link' ) ) { ?>
+							<li>
+								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Facebook', 'ms' ); ?>"><i class="fontello-facebook-square-brands"></i></a>
+							</li>
+						<?php } ?>
+						<?php if ( get_option( 'ms_theme_ms_footer_twitter_link' ) ) { ?>
+							<li>
+								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Twitter', 'ms' ); ?>"><i class="fontello-twitter-square-brands"></i></a>
+							</li>
+						<?php } ?>
+						<?php if ( get_option( 'ms_theme_ms_footer_linkedin_link' ) ) { ?>
+							<li>
+								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>"><i class="fontello-linkedin-brands"></i></a>
+							</li>
+						<?php } ?>
+						<?php if ( get_option( 'ms_theme_ms_footer_youtube_link' ) ) { ?>
+							<li>
+								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>"><i class="fontello-youtube-square-brands"></i></a>
+							</li>
+						<?php } ?>
+					</ul>
+				</div>
 
-			<div class="Footer__middle__social">
-				<ul>
-					<?php if ( get_option( 'ms_theme_ms_footer_instagram_link' ) ) { ?>
-						<li>
-							<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'Instagram', 'ms' ); ?>"><i class="fontello-instagram-brands"></i></a>
-						</li>
-					<?php } ?>
-					<?php if ( get_option( 'ms_theme_ms_footer_facebook_link' ) ) { ?>
-						<li>
-							<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'Facebook', 'ms' ); ?>"><i class="fontello-facebook-square-brands"></i></a>
-						</li>
-					<?php } ?>
-					<?php if ( get_option( 'ms_theme_ms_footer_twitter_link' ) ) { ?>
-						<li>
-							<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" target="_blank" title="<?php _e( 'Twitter', 'ms' ); ?>"><i class="fontello-twitter-square-brands"></i></a>
-						</li>
-					<?php } ?>
-					<?php if ( get_option( 'ms_theme_ms_footer_linkedin_link' ) ) { ?>
-						<li>
-							<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LinkedIn', 'ms' ); ?>"><i class="fontello-linkedin-brands"></i></a>
-						</li>
-					<?php } ?>
-					<?php if ( get_option( 'ms_theme_ms_footer_youtube_link' ) ) { ?>
-						<li>
-							<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" target="_blank" title="<?php _e( 'YouTube', 'ms' ); ?>"><i class="fontello-youtube-square-brands"></i></a>
-						</li>
-					<?php } ?>
-				</ul>
+				<div class="Footer__middle__newsletter">
+					<div class="Footer__middle__title h5"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></div>
+					<?= do_shortcode( '[newsletterform]' ); ?>
+					<div class="Footer__middle__newsletter__text">
+						<p><?php _e( 'Get the latest news about LiveAgent updates and discounts', 'ms' ); ?></p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="Footer__bottom">
 		<div class="wrapper">
-			<div class="Footer__bottom__copyright">
-				<p><?php _e( '© 2004-', 'ms' ); ?><?= esc_html( gmdate( 'Y' ) ) ?> <?php _e( 'Quality Unit, LLC. All rights reserved.', 'ms' ); ?></p>
-			</div>
-
-			<div class="Footer__bottom__right">
+			<div class="Footer__bottom__row">
+				<div class="Footer__bottom__copyright">
+					<p><?php _e( '© 2004-', 'ms' ); ?><?= esc_html( gmdate( 'Y' ) ) ?> <?php _e( 'Quality Unit, LLC. All rights reserved.', 'ms' ); ?></p>
+				</div>
 				<div class="Footer__bottom__navigation">
 					<?php
 					if ( has_nav_menu( 'footer_bottom_navigation' ) ) :

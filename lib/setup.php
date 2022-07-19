@@ -85,8 +85,8 @@ add_action(
 				'name'          => __( 'Footer Column #1', 'ms' ),
 				'id'            => 'footer_column_1',
 				'before_widget' => '<div class="%1$s %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<div class="Footer__top__column__title Footer__top__column__title--image h4"><img src="' . get_template_directory_uri() . '/assets/images/logo_liveagent.svg" alt="' . get_bloginfo( 'name' ) . '">',
+				'after_widget'  => '<div class="Footer__top__cta"><a href="' . __( '/trial/' ) . '" class="Button Button--full"><span>' . __( 'Start a FREE trial' ) . '</span></a></div></div>',
+				'before_title'  => '<div class="Footer__top__column__title Footer__top__column__title--image h5"><img src="' . get_template_directory_uri() . '/assets/images/logo_liveagent_light.svg" alt="' . get_bloginfo( 'name' ) . '">',
 				'after_title'   => '</div>',
 			)
 		);
@@ -97,7 +97,7 @@ add_action(
 				'id'            => 'footer_column_2',
 				'before_widget' => '<div class="%1$s %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<div class="Footer__top__column__title h4">',
+				'before_title'  => '<div class="Footer__top__column__title h5">',
 				'after_title'   => '</div>',
 			)
 		);
@@ -108,7 +108,7 @@ add_action(
 				'id'            => 'footer_column_3',
 				'before_widget' => '<div class="%1$s %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<div class="Footer__top__column__title h4">',
+				'before_title'  => '<div class="Footer__top__column__title h5">',
 				'after_title'   => '</div>',
 			)
 		);
@@ -119,7 +119,7 @@ add_action(
 				'id'            => 'footer_column_4',
 				'before_widget' => '<div class="%1$s %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<div class="Footer__top__column__title h4">',
+				'before_title'  => '<div class="Footer__top__column__title h5">',
 				'after_title'   => '</div>',
 			)
 		);
@@ -130,7 +130,7 @@ add_action(
 				'id'            => 'footer_column_5',
 				'before_widget' => '<div class="%1$s %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<div class="Footer__top__column__title h4">',
+				'before_title'  => '<div class="Footer__top__column__title h5">',
 				'after_title'   => '</div>',
 			)
 		);
