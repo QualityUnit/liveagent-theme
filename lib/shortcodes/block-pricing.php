@@ -151,6 +151,12 @@ function ms_block_pricing( $atts ) {
 			</div>
 		</div>
 	</div>
+	<div class="BlockPricing__button">
+		<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
+			<span><?php _e( 'Compare plans', 'ms' ); ?></span>
+			<span class="ButtonPricing--arrow">&#8594;</span>
+		</a>
+	</div>
 
 	<?php
 	return ob_get_clean();

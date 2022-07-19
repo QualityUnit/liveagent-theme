@@ -23,6 +23,8 @@
 
 	.wrapper {
 		background-color: transparent !important;
+		max-width: 1380px;
+		padding-left: 10em;
 
 		.elementor-row {
 			display: block !important;
@@ -124,35 +126,6 @@
 		}
 	}
 
-	.elementor-widget {
-
-		.elementor-widget-container {
-
-			.Button--full {
-				width: 16em;
-			}
-
-			.compare-plans {
-
-				a {
-					overflow: hidden;
-					white-space: nowrap;
-
-					&::after {
-						content: url(../images/arrow_right_white.svg);
-						position: relative;
-						display: flex;
-						background: 0;
-						margin-left: 0.5em;
-						opacity: 1 !important;
-						transform: scale(0.6);
-					}
-				}
-			}
-
-		}
-	}
-
 	&__container {
 		display: flex;
 		flex-flow: wrap column;
@@ -163,6 +136,7 @@
 		@media (min-width: $breakpoint-tablet) {
 			flex-flow: wrap row;
 			justify-content: flex-start;
+			max-width: 100%;
 		}
 
 		@media (min-width: 1300px) {
@@ -389,6 +363,26 @@
 					z-index: 2;
 				}
 			}
+		}
+	}
+
+	&__button {
+
+		.Button--full {
+			width: 16em;
+		}
+
+		.compare-plans {
+
+			a {
+				overflow: hidden;
+				white-space: nowrap;
+			}
+		}
+
+		.ButtonPricing--arrow {
+			margin-left: 0.8em;
+			transform: scale(1.5);
 		}
 	}
 }
