@@ -35,7 +35,8 @@
 		width: calc(100% + 4em);
 	}
 
-	.SmallPhoto__slider &__desc {
+	.SmallPhoto__slider &__desc,
+	&__desc {
 
 		@include color(color, font-color-light);
 		position: absolute;

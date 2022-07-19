@@ -3,8 +3,6 @@
 @import "../common/mixins";
 @import "../common/variables";
 
-@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"); /* stylelint-disable-line */
-
 .IconTabs {
 
 	.Block--redesign__basic + &.Block {
@@ -180,7 +178,7 @@
 			text-align: center;
 
 			font-size: 3.5rem;
-			font-family: "Patrick Hand", cursive;
+			font-family: $font-third;
 		}
 
 		&.big {

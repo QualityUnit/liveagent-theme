@@ -1,0 +1,41 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@import "../../../../../assets/styles/common/variables";
+@import "../../../../../assets/styles/common/mixins";
+
+.qu-UseCase {
+
+	&__map {
+		min-height: 13.25em;
+		margin-bottom: 3em;
+
+		iframe[src] {
+			min-height: 13.25em;
+			margin: 0;
+		}
+	}
+
+	&__stats {
+		background-color: $lightest-gray;
+		padding: 2.625em;
+		border-radius: $border-radius-16;
+		margin-bottom: 1.5em;
+
+		&--value {
+			font-family: $font-third;
+			font-size: 5rem;
+			line-height: 0.85;
+			width: 3em;
+		}
+
+		&--title[class] {
+			margin-top: 1em;
+		}
+
+		p {
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

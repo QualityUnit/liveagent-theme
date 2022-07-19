@@ -1,7 +1,11 @@
 <?php // @codingStandardsIgnoreLine
 	set_source( 'checklists', 'pages/Checklists', 'css' );
+	set_source( 'checklists', 'common/splide', 'css' );
+	set_source( 'checklists', 'components/SidebarItemsSlider', 'css' );
 	set_source( 'checklists', 'circleProgressBar', 'js' );
 	set_source( 'checklists', 'postHeaderSmallLocking', 'js' );
+	set_source( 'checklists', 'splide', 'js' );
+	set_source( 'checklists', 'sidebar_items_slider', 'js' );
 
 	$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_checklists' );
 	$categories = get_the_terms( $current_id, 'ms_checklists_categories' );
@@ -50,52 +54,59 @@ if ( $categories ) {
 	<div class="wrapper__wide Post__container">
 		<div class="Post__sidebar__wrapper">
 			<div class="Post__sidebar">
-					<?php if ( $categories ) { ?>
-					<div class="Post__sidebar__title"><strong><?php _e( 'Other', 'ms' ); ?> <?= esc_html( $category_name ); ?> <?php _e( 'checklists', 'ms' ); ?></strong></div>
-
-					<ul class="Post__sidebar__links">
-						<?php
-						$query_glossary_posts = new WP_Query(
-							array(
-								'post_type'      => 'ms_checklists',
-								// @codingStandardsIgnoreLine
-								'posts_per_page' => 500,
-								'orderby'        => 'date',
-								'order'          => 'ASC',
-								'tax_query'      => array( // @codingStandardsIgnoreLine
-									array(
-										'taxonomy' => 'ms_checklists_categories',
-										'field'    => 'term_id',
-										'terms'    => $category_id,
-									),
-								),
-							)
-						);
-						while ( $query_glossary_posts->have_posts() ) :
-							$query_glossary_posts->the_post();
-							if ( strcasecmp( $posttitle, get_the_title() ) ) {
-								?>
-								<li class="Post__sidebar__link">
-									<span class="Post__sidebar__link-icon">
-											<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-checklist.svg" alt="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" />
-									</span>
-									<a href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>">
-										<?php
-										if ( get_post_meta( get_the_ID(), 'mb_checklists_mb_checklists_sidebar_title', true ) ) {
-											echo esc_html( get_post_meta( get_the_ID(), 'mb_checklists_mb_checklists_sidebar_title', true ) );
-										} else {
-											echo esc_html( str_replace( '^', '', get_the_title() ) );
-										}
-										?>
-									</a>
-								</li>
+				<div class="SidebarItemsSlider__wrapper">
+					<div class="SidebarItemsSlider">
+						<?php if ( $categories ) { ?>
+						<div class="Post__sidebar__title"><strong><?php _e( 'Other', 'ms' ); ?> <?= esc_html( $category_name ); ?> <?php _e( 'checklists', 'ms' ); ?></strong></div>
+						<div class="SidebarItemsSlider__slider splide">
+							<div class="splide__track">
+								<ul class="Post__sidebar__links SidebarItemsSlider__list splide__list">
 								<?php
-							}
-							endwhile;
-						?>
-							<?php wp_reset_postdata(); ?>
-						</ul>
-					<?php } ?>
+								$query_glossary_posts = new WP_Query(
+									array(
+										'post_type'      => 'ms_checklists',
+										// @codingStandardsIgnoreLine
+										'posts_per_page' => 500,
+										'orderby'        => 'date',
+										'order'          => 'ASC',
+										'tax_query'      => array( // @codingStandardsIgnoreLine
+											array(
+												'taxonomy' => 'ms_checklists_categories',
+												'field'    => 'term_id',
+												'terms'    => $category_id,
+											),
+										),
+									)
+								);
+								while ( $query_glossary_posts->have_posts() ) :
+									$query_glossary_posts->the_post();
+									if ( strcasecmp( $posttitle, get_the_title() ) ) {
+										?>
+										<li class="Post__sidebar__link SidebarItemsSlider__item">
+											<span class="Post__sidebar__link-icon">
+													<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-checklist.svg" alt="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" />
+											</span>
+											<a href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>">
+												<?php
+												if ( get_post_meta( get_the_ID(), 'mb_checklists_mb_checklists_sidebar_title', true ) ) {
+													echo esc_html( get_post_meta( get_the_ID(), 'mb_checklists_mb_checklists_sidebar_title', true ) );
+												} else {
+													echo esc_html( str_replace( '^', '', get_the_title() ) );
+												}
+												?>
+											</a>
+										</li>
+										<?php
+									}
+									endwhile;
+								?>
+									<?php wp_reset_postdata(); ?>
+								</ul>
+							</div>
+						</div>
+						<?php } ?>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -115,6 +126,14 @@ if ( $categories ) {
 					</div>
 				</div>
 				<?php the_content(); ?>
+
+				<div class="Post__content__resources Post__m__negative">
+					<div class="h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
+
+					<div class="SimilarSources">
+						<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

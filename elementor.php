@@ -2,6 +2,13 @@
 	/**
 	 * Template Name: Elementor
 	 */
+	set_custom_source( 'pages/post', 'css' );
+	set_custom_source( 'common/splide', 'css' );
+	set_custom_source( 'components/SmallPhotoSlider', 'css' );
+	set_custom_source( 'splide', 'js' );
+	set_custom_source( 'custom_lightbox', 'js' );
+	set_custom_source( 'slider', 'js' );
+	set_custom_source( 'sidebar_toc', 'js' );
 ?>
 <?php
 while ( have_posts() ) :
@@ -12,15 +19,13 @@ while ( have_posts() ) :
 	<?php
 	if ( ! is_page( array( 'sitemap' ) ) ) {
 		?>
-		<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
 		<div class="SimilarSources">
 			<div class="wrapper">
 				<div class="SimilarSources__title h3"><?php _e( 'Related Resources to ', 'ms' ); ?><?php the_title(); ?></div>
 
-				<?php echo do_shortcode( '[similarsources]' ); ?>
+				<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
 			</div>
 		</div>
-		<?php } ?>
 	<?php } ?>
 
 <?php endwhile; ?>

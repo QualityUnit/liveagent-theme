@@ -128,6 +128,21 @@ body:not(.elementor-editor-active) {
 			text-decoration: underline;
 		}
 	}
+
+	&.elementor-text-editor ul:not([class]) li::before {
+
+		.page-template-elementor .checklist & {
+			background-image: url(../images/icon-post-check.svg);
+		}
+
+		.page-template-elementor .checklist--pros & {
+			background-image: url(../images/icon-post-pros.svg);
+		}
+
+		.page-template-elementor .checklist--cons & {
+			background-image: url(../images/icon-post-cons.svg);
+		}
+	}
 }
 
 .elementor-image {

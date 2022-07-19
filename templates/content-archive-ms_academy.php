@@ -101,8 +101,8 @@
 							<?php
 						}
 						?>
-							<h3 class="Category__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							<div class="Category__item__excerpt">
+							<h3 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<div class="Category__item__excerpt item-excerpt">
 								<a href="<?php the_permalink(); ?>">
 									<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
 									<?php if ( get_post_meta( get_the_ID(), 'mb_academy_mb_academy_pillar', true ) === 'on' ) { ?>
