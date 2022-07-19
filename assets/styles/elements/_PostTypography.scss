@@ -21,17 +21,23 @@
 
 	&__sidebar {
 
+		&__item {
+			margin-bottom: 1.5em;
+		}
+
 		&__categories,
 		&__available,
 		&__related,
 		&__resources,
-		&__partner {
+		&__partner,
+		&__item {
 
 			@extend %resources;
 			border: none;
 			margin-top: 0;
 
-			ul {
+			ul,
+			p {
 				font-size: $font-size-smaller;
 				line-height: $line-height-smaller;
 			}
@@ -70,6 +76,7 @@
 					font-weight: 700;
 					padding: 0 1em;
 					margin-bottom: 0.5em;
+					transition: all 0.2s;
 
 					&:active,
 					&:focus,
@@ -84,6 +91,21 @@
 						margin-bottom: 1.5em;
 					}
 				}
+
+				&.blue {
+
+					a {
+						background-color: $saturated-blue;
+						color: $white;
+
+						&:active,
+						&:focus,
+						&:hover {
+							background-color: $desaturated-blue;
+							color: $saturated-blue;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -93,6 +115,43 @@
 		h1 {
 			font-size: 3rem;
 			line-height: 1.26;
+		}
+
+		.Post__subtitle {
+			font-family: $font-secondary;
+			font-size: 1.125rem;
+			font-weight: 400;
+			line-height: 1.5;
+			margin-bottom: 2em;
+		}
+
+		.Post__sectiontitle {
+			position: relative;
+			font-size: 1.5em;
+			line-height: 1.166;
+			margin-top: 1.875rem;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			span {
+				display: inline-block;
+				padding-right: 1em;
+				background-color: $white;
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				height: 4px;
+				background: url(../../images/dotted-line.svg) left center no-repeat;
+				background-size: auto 100%;
+				z-index: -1;
+			}
 		}
 
 		table {

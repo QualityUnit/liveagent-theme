@@ -165,7 +165,7 @@
 						$csc_title = __( '${company_name} Customer Service Contacts', 'ms' );
 						$csc_title = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ), $csc_title );
 					?>
-					<h2 id="customer-service-contacts" class="Directory__blocks__title"><span><?php echo esc_html( $csc_title ); ?></span></h2>
+					<h2 id="customer-service-contacts" class="Post__sectiontitle"><span><?php echo esc_html( $csc_title ); ?></span></h2>
 
 					<?php
 						$csc_email_support = __( 'Contact ${company_name} customer support by email', 'ms' );
@@ -240,7 +240,7 @@
 						</div>
 					</div>
 
-					<h2 id="social-media" class="Directory__blocks__title"><span><?php _e( 'Social Media Support Contacts', 'ms' ); ?></span></h2>
+					<h2 id="social-media" class="Post__sectiontitle"><span><?php _e( 'Social Media Support Contacts', 'ms' ); ?></span></h2>
 
 					<?php
 						$csc_instagram = __( '${company_name} Instagram', 'ms' );
@@ -285,7 +285,7 @@
 						</div>
 					</div>
 
-					<h2 id="sla" class="Directory__blocks__title"><span><?php _e( 'SLAs & Agreements', 'ms' ); ?></span></h2>
+					<h2 id="sla" class="Post__sectiontitle"><span><?php _e( 'SLAs & Agreements', 'ms' ); ?></span></h2>
 
 					<?php
 						$email_sla = __( '${company_name} support agents usually replies to email within ', 'ms' );
@@ -455,7 +455,7 @@
 						</div>
 					</div>
 
-					<h2 id="legal-contacts" class="Directory__blocks__title"><span><?php _e( 'Legal Contacts', 'ms' ); ?></span></h2>
+					<h2 id="legal-contacts" class="Post__sectiontitle"><span><?php _e( 'Legal Contacts', 'ms' ); ?></span></h2>
 
 					<?php
 						$legal_terms = __( '${company_name} Terms & Conditions', 'ms' );
@@ -513,7 +513,7 @@
 						</div>
 					</div>
 
-					<h2 id="other-links" class="Directory__blocks__title"><span><?php _e( 'Other Links', 'ms' ); ?></span></h2>
+					<h2 id="other-links" class="Post__sectiontitle"><span><?php _e( 'Other Links', 'ms' ); ?></span></h2>
 
 					<?php
 						$others_affiliate = __( '${company_name} Affiliate Program', 'ms' );
@@ -547,7 +547,7 @@
 				</div>
 				<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_location', true ) ) ) { ?>
 					<div class="Post__m__negative">
-						<h2 id="location" class="Directory__blocks__title"><span><?php _e( 'Location', 'ms' ); ?></span></h2>
+						<h2 id="location" class="Post__sectiontitle"><span><?php _e( 'Location', 'ms' ); ?></span></h2>
 
 						<div class="Directory__blocks__items">
 							<?= wp_kses(
