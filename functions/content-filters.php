@@ -36,10 +36,31 @@ add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
 	*/
 
 function add_lightbox_rel( $content ) {
-	$pattern     = "/<a(.*?)href=('|\")(.*?).(gif|jpeg|jpg|png|webp)('|\")(.*?)>/i";
-	$replacement = '<a$1href=$2$3.$4$5 data-lightbox="gallery"$6>';
-	$content     = preg_replace( $pattern, $replacement, $content );
-	return $content;
+    // @codingStandardsIgnoreStart
+    if ( ! $content ) {
+        return $content;
+    }
+
+    $dom = new DOMDocument();
+    libxml_use_internal_errors( true );
+    $dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+    libxml_clear_errors();
+    $xpath = new DOMXPath( $dom );
+
+    foreach ( $xpath->query('//a') as $link ) {
+        $link_href = $link->getAttribute('href');
+        if ( $link_href && verify_image_link( $link_href ) ) {
+            $link->setAttribute( 'data-lightbox', 'gallery'  );
+        }
+    }
+
+    $dom->removeChild( $dom->doctype );
+    $content = $dom->saveHtml();
+    $content = str_replace( '<html><body>', '', $content );
+    $content = str_replace( '</body></html>', '', $content );
+    return $content;
+    // @codingStandardsIgnoreEnd
+
 }
 add_filter( 'the_content', 'add_lightbox_rel' );
 
