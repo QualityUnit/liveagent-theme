@@ -3,6 +3,8 @@
 	set_custom_source( 'common/splide', 'css' );
 	set_custom_source( 'splide', 'js' );
 	set_custom_source( 'sidebar_toc', 'js' );
+
+	$screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ) . "' ]" );
 ?>
 <div class="Post" itemscope itemtype="http://schema.org/Organization">
 	<div class="Post__header directory">
@@ -161,11 +163,19 @@
 
 				<p><?= $declaration; // phpcs:ignore ?></p>
 
-				<div class="Directory__screenshot">
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ) ?>" title="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ) ?> Homepage">
-						<?= do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ) . "' ]" ); ?>
-					</a>
-				</div>
+				<?php
+					if ( preg_match( '/\<img/', $screenshot ) ) {
+				?>
+				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) . ' ' . __( 'Homepage', 'ms' ) ); ?>">
+					<div class="Directory__screenshot--url">
+						<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>
+					</div>
+					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/browser_window.svg' ); ?>" />
+					<?= $screenshot; // @codingStandardsIgnoreLine ?>
+				</a>
+				<?php
+					}
+				?>
 
 				<div class="Directory__blocks">
 					<?php
