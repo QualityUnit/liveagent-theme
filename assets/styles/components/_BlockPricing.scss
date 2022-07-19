@@ -22,12 +22,21 @@
 	}
 
 	.wrapper {
-		background-color: transparent !important;
+		padding-top: 50px !important;
+		padding-bottom: 50px !important;
+		display: flex;
+		flex-direction: column;
+		background: none !important;
 		max-width: 1380px;
 		padding-left: 10em;
 
 		.elementor-row {
+			align-items: center;
 			display: block !important;
+		}
+
+		.elementor-container {
+			width: 100%;
 		}
 
 		.elementor-element {
@@ -41,10 +50,6 @@
 			}
 		}
 
-		.elementor-widget-text-editor {
-			width: 60%;
-		}
-
 		.elementor-widget-html {
 
 			.Button {
@@ -53,42 +58,16 @@
 		}
 	}
 
-	@media (min-width: $breakpoint-tablet-landscape) {
-
-		.wrapper {
-			background: none !important;
-		}
-
-	}
-
-	.wrapper,
-	.wrapper__wide {
-		padding-top: 50px !important;
-		padding-bottom: 50px !important;
-		display: flex;
-		flex-direction: column;
-
-		.elementor-row {
-			align-items: center;
-		}
-
-		.elementor-container {
-			width: 100%;
-		}
-	}
-
-	.wrapper__wide {
-		padding-left: 10em;
-	}
-
 	.elementor-widget-heading {
 
 		h2 {
+			font-size: 40px;
+			font-weight: $font-weight-bold;
 			padding-top: 1.5em;
 		}
 	}
 
-	.elementor-widget-text-editor {
+	.elementor-text-editor {
 		width: 60%;
 	}
 
@@ -367,6 +346,7 @@
 	}
 
 	&__button {
+		margin-top: 2.2em;
 
 		.Button--full {
 			width: 16em;
