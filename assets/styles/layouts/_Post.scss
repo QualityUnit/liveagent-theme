@@ -95,6 +95,7 @@ $signupSidebarWidth: 16.875em;
 
 	&__content {
 		padding: 0 1.5em;
+		margin: 0 auto;
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 			width: calc(100% - #{$signupSidebarWidth} + 3em);
