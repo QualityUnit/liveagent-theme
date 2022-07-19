@@ -10,10 +10,24 @@
 
 		.elementor-element {
 			width: 100%;
+
+			.tag {
+
+				p {
+					display: none;
+				}
+			}
 		}
 
 		.elementor-widget-text-editor {
 			width: 60%;
+		}
+
+		.elementor-widget-html {
+
+			.Button {
+				display: none;
+			}
 		}
 	}
 
