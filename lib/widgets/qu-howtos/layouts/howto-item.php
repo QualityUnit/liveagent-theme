@@ -41,9 +41,9 @@ function howto_item( $attr ) {
 		<div class="qu-HowToItem" data-howtoitem="' . $attr['howtoItemId'] . '" 
 			itemprop="step" itemscope itemtype="https://schema.org/HowToSection">
 			<div class="qu-HowToItem__header">
-				<h2 class="qu-HowToItem__header--text" itemprop="name">' . 
+				<h3 class="qu-HowToItem__header--text" itemprop="name">' .
 					$attr['header'] 
-		. ' </h2>
+		. ' </h3>
 			</div>
 			<div class="qu-HowToItem__content" itemprop="itemListElement" itemscope itemtype="https://schema.org/HowToStep">
 				<div class="qu-HowToItem__content--inn" itemprop="text" >
