@@ -37,9 +37,11 @@
 			font-size: 0.85rem;
 			background-color: rgba($dark-orange, 0.95);
 			color: $white !important;
+			border-radius: $border-radius-16;
+			overflow: hidden;
 			z-index: 1;
 			transition: transform 0.2s;
-			transform: translateY(100%);
+			transform: translateY(100%) translateZ(1px);
 
 			&::after {
 				content: "\e832" !important;

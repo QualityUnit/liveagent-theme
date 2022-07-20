@@ -38,7 +38,7 @@
 			font-size: $font-size-h2-xl;
 			line-height: 1.5;
 
-			@media (max-width: $breakpoint-tablet - 1px) {
+			@media (max-width: ($breakpoint-tablet - 1px)) {
 				font-size: 1.75rem;
 			}
 		}
