@@ -166,9 +166,9 @@
 				<?php
 				if ( preg_match( '/\<img/', $screenshot ) ) {
 					?>
-				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) . ' ' . __( 'Homepage', 'ms' ) ); ?>">
+				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>">
 					<div class="Directory__screenshot--url">
-					<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>
+					<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>
 					</div>
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/browser_window.svg' ); ?>" />
 				<?= $screenshot; // @codingStandardsIgnoreLine ?>
