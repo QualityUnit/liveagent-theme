@@ -8,6 +8,7 @@
 	&__screenshot {
 		position: relative;
 		display: block;
+		margin-bottom: 2.5em;
 		border-radius: $border-radius-16;
 		box-shadow: 3px 6px 50px -6px rgba($black-real, 0.1);
 		overflow: hidden;
@@ -21,6 +22,7 @@
 			&:hover {
 
 				.Directory__screenshot--url {
+					border-radius: $border-radius-16;
 					transform: translateY(0);
 				}
 			}
@@ -29,6 +31,7 @@
 		&--url {
 
 			@include posZero;
+			top: 100%;
 			position: absolute;
 			display: flex;
 			align-items: center;
