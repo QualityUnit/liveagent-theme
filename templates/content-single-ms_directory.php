@@ -3,6 +3,8 @@
 	set_custom_source( 'common/splide', 'css' );
 	set_custom_source( 'splide', 'js' );
 	set_custom_source( 'sidebar_toc', 'js' );
+
+	$screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ) . "' ]" );
 ?>
 <div class="Post" itemscope itemtype="http://schema.org/Organization">
 	<div class="Post__header directory">
@@ -155,17 +157,32 @@
 			<div class="Content">
 				<?php
 					$declaration = __( 'It looks like you’re trying to reach ${company_name}’s customer service team. Unfortunately, we’re not associated with ${company_name}’s support team. We are two entirely different business organizations. However, to make your life a little easier, we’ve researched ${company_name}’s website and found the following customer support contact details. Please get in contact with ${company_name}’s representatives by reaching out to them directly using the contact information below.', 'ms' );
+					$declaration = str_replace( '${company_name}’s website', '<a href="' . esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ) . '" title="' . esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ) . ' Homepage">${company_name}’s website</a>', $declaration );
 					$declaration = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ), $declaration );
 				?>
 
-				<p><?= esc_html( $declaration ); ?></p>
+				<p><?= $declaration; // phpcs:ignore ?></p>
+
+				<?php
+				if ( preg_match( '/\<img/', $screenshot ) ) {
+					?>
+				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>">
+					<div class="Directory__screenshot--url">
+					<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>
+					</div>
+					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/browser_window.svg' ); ?>" />
+				<?= $screenshot; // @codingStandardsIgnoreLine ?>
+				</a>
+					<?php
+				}
+				?>
 
 				<div class="Directory__blocks">
 					<?php
 						$csc_title = __( '${company_name} Customer Service Contacts', 'ms' );
 						$csc_title = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ), $csc_title );
 					?>
-					<h2 id="customer-service-contacts" class="Directory__blocks__title"><span><?php echo esc_html( $csc_title ); ?></span></h2>
+					<h2 id="customer-service-contacts" class="Post__sectiontitle"><span><?php echo esc_html( $csc_title ); ?></span></h2>
 
 					<?php
 						$csc_email_support = __( 'Contact ${company_name} customer support by email', 'ms' );
@@ -240,7 +257,7 @@
 						</div>
 					</div>
 
-					<h2 id="social-media" class="Directory__blocks__title"><span><?php _e( 'Social Media Support Contacts', 'ms' ); ?></span></h2>
+					<h2 id="social-media" class="Post__sectiontitle"><span><?php _e( 'Social Media Support Contacts', 'ms' ); ?></span></h2>
 
 					<?php
 						$csc_instagram = __( '${company_name} Instagram', 'ms' );
@@ -285,7 +302,7 @@
 						</div>
 					</div>
 
-					<h2 id="sla" class="Directory__blocks__title"><span><?php _e( 'SLAs & Agreements', 'ms' ); ?></span></h2>
+					<h2 id="sla" class="Post__sectiontitle"><span><?php _e( 'SLAs & Agreements', 'ms' ); ?></span></h2>
 
 					<?php
 						$email_sla = __( '${company_name} support agents usually replies to email within ', 'ms' );
@@ -455,7 +472,7 @@
 						</div>
 					</div>
 
-					<h2 id="legal-contacts" class="Directory__blocks__title"><span><?php _e( 'Legal Contacts', 'ms' ); ?></span></h2>
+					<h2 id="legal-contacts" class="Post__sectiontitle"><span><?php _e( 'Legal Contacts', 'ms' ); ?></span></h2>
 
 					<?php
 						$legal_terms = __( '${company_name} Terms & Conditions', 'ms' );
@@ -513,7 +530,7 @@
 						</div>
 					</div>
 
-					<h2 id="other-links" class="Directory__blocks__title"><span><?php _e( 'Other Links', 'ms' ); ?></span></h2>
+					<h2 id="other-links" class="Post__sectiontitle"><span><?php _e( 'Other Links', 'ms' ); ?></span></h2>
 
 					<?php
 						$others_affiliate = __( '${company_name} Affiliate Program', 'ms' );
@@ -547,7 +564,7 @@
 				</div>
 				<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_location', true ) ) ) { ?>
 					<div class="Post__m__negative">
-						<h2 id="location" class="Directory__blocks__title"><span><?php _e( 'Location', 'ms' ); ?></span></h2>
+						<h2 id="location" class="Post__sectiontitle"><span><?php _e( 'Location', 'ms' ); ?></span></h2>
 
 						<div class="Directory__blocks__items">
 							<?= wp_kses(
@@ -570,28 +587,15 @@
 				<?php } ?>
 				<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q1', true ) ) ) { ?>
 						<div class="Post__m__negative Faq" itemscope itemtype="https://schema.org/FAQPage">
-							<h2 id="faq">
+							<h2 id="faq"><?php _e( '<span class="highlight">Frequently</span> asked questions', 'ms' ); ?></h2>
 							<?php
-								$headline = __( 'Frequently asked questions', 'ms' );
-								$words    = explode( ' ', $headline );
-								$counter  = 0;
-							foreach ( $words as $word ) {
-								if ( 0 === $counter ) {
-									echo '<span class="highlight">' . esc_html( $words[0] ) . '</span>';
-								} else {
-									echo ' ';
-									echo esc_html( $word );
-								}
-								$counter++;
-							}
-							echo '</h2>';
 							if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-text', true ) ) {
 								?>
 								<div class="subhead--wrapper">
 									<p class="subhead"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-text', true ) ); ?></p>
 								</div>
 								<?php
-							} 
+							}
 							for ( $i = 1; $i <= 15; ++$i ) {
 								if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q' . $i, true ) && get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-a' . $i, true ) ) {
 									?>

@@ -7,42 +7,7 @@
 	position: relative;
 	margin-bottom: 1.5em;
 
-	input[type="text"] {
-		position: relative;
-		z-index: 1;
-		display: inline-flex;
-		align-items: center;
-		font-family: $font-secondary;
-		font-weight: 600;
-		font-size: 1.125rem;
-		transition: all 0.2s;
-		border: none !important;
-
-		h2 {
-			all: unset;
-			font-size: 1em;
-			margin: 0;
-			line-height: inherit;
-		}
-	}
-
-	&__header {
-		position: relative;
-		display: flex;
-		cursor: pointer;
-
-		@media (min-width: $breakpoint-tablet) {
-			align-items: center;
-			padding: 0.75em 2em 0.75em 6rem;
-		}
-	}
-
 	&__content {
-		padding: 2em;
-
-		@media (min-width: $breakpoint-tablet) {
-			padding: 2em 6em 3em;
-		}
 
 		h3,
 		h4,

@@ -62,4 +62,31 @@
 			font-size: 1rem;
 		}
 	}
+
+	&--pros .elementor-text-editor.elementor-text-editor {
+
+		h4 {
+
+			color: $saturated-green;
+		}
+
+		ul:not([class]) li::before {
+			background-color: $desaturated-green;
+			background-image: url(../images/icon-post-pros.svg);
+		}
+	}
+
+	&--cons .elementor-text-editor.elementor-text-editor {
+
+		h4 {
+
+			color: $saturated-red;
+		}
+
+		ul:not([class]) li::before {
+			background-color: $desaturated-red;
+			background-image: url(../images/icon-post-cons.svg);
+		}
+	}
+
 }

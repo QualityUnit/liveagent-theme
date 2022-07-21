@@ -63,3 +63,50 @@ textarea {
 		opacity: 1;
 	}
 }
+
+.checkbox {
+	color: $dark-gray;
+	font-size: 0.875rem;
+	margin-bottom: 0.75em;
+
+	input {
+		display: none;
+	}
+
+	label {
+		display: flex;
+		align-content: center;
+		width: 100%;
+		cursor: pointer;
+
+		&::before {
+			content: "";
+
+			@include square(1.429em);
+			background: url(../images/checkbox-inactive.svg) center center no-repeat;
+			background-size: contain;
+			margin-right: 0.75em;
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+
+				&::before {
+					background-image: url(../images/checkbox-hover.svg);
+				}
+			}
+		}
+	}
+
+	[type="checkbox"]:checked,
+	[type="radio"]:checked {
+
+		+ label {
+
+			&::before {
+				background-image: url(../images/checkbox-active.svg);
+			}
+		}
+	}
+}
