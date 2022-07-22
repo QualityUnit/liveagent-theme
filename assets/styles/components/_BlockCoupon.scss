@@ -185,7 +185,7 @@
 		transition: all 0.3s;
 
 		@media (min-width: $breakpoint-mobile) {
-			min-width: em(180);
+			min-width: em(220);
 		}
 
 		span::before {
@@ -238,6 +238,7 @@
 		@media (min-width: $breakpoint-mobile) {
 
 			&-btn {
+				min-width: em(180);
 				border-top-left-radius: 0;
 				border-bottom-left-radius: 0;
 			}
