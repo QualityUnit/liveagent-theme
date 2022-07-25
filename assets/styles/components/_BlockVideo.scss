@@ -79,8 +79,7 @@ $positions: ("left", "right");
 		position: absolute;
 		pointer-events: none;
 		z-index: 1;
-		padding: 0 1.5em;
-		top: 2em;
+		padding: 0 1.5em 9em 1.5em;
 
 		@media (min-width: ($breakpoint-tablet + 1px)) {
 			top: auto;
@@ -123,16 +122,34 @@ $positions: ("left", "right");
 		.elementor-text-editor {
 			position: relative;
 			display: flex;
-			flex-direction: column;
-			align-items: center;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: flex-start;
+			margin-bottom: 1em;
 
 			> * {
-				margin-bottom: 1em;
+				margin-bottom: 0 !important;
+				text-align: left;
+
+				&:first-child {
+					margin-right: 1em;
+				}
 			}
 
 			img {
 				position: relative;
-				transform: translateY(10%);
+				transform: translateY(-10%);
+			}
+		}
+	}
+
+	.elementor-text-editor {
+
+		@media (max-width: ($breakpoint-tablet)) {
+
+			&,
+			* {
+				text-align: left;
 			}
 		}
 	}
@@ -223,16 +240,9 @@ $positions: ("left", "right");
 		.title-with-logo {
 
 			.elementor-text-editor {
-				flex-direction: row;
-				align-items: flex-start;
-				margin-bottom: 1em;
 
-				> * {
-					margin-bottom: 0 !important;
-
-					&:first-child {
-						margin-right: 1em;
-					}
+				img {
+					transform: translateY(10%);
 				}
 			}
 		}
@@ -379,13 +389,21 @@ $positions: ("left", "right");
 							@if $pos == left {
 
 								right: 20%;
-								text-align: right;
+
+								&,
+								* {
+									text-align: right;
+								}
 							}
 
 							@if $pos == right {
 
 								left: 20%;
-								text-align: left;
+
+								&,
+								* {
+									text-align: left;
+								}
 							}
 						}
 					}
@@ -405,6 +423,7 @@ $positions: ("left", "right");
 
 							.elementor-column:last-of-type {
 								width: 60%;
+								min-height: 32em;
 							}
 						}
 
@@ -412,6 +431,7 @@ $positions: ("left", "right");
 
 							.elementor-column:first-of-type {
 								width: 60%;
+								min-height: 32em;
 							}
 
 							.elementor-column:last-of-type {
