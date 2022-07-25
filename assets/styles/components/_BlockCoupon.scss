@@ -195,11 +195,8 @@
 		svg {
 			width: 1em;
 			margin-right: 0.5em;
-
-			path {
-				fill: $color;
-				transition: all 0.3s;
-			}
+			fill: $color;
+			transition: all 0.3s;
 		}
 
 		&:active,
@@ -210,10 +207,7 @@
 			background-color: $gray;
 
 			svg {
-
-				path {
-					fill: $white;
-				}
+				fill: $white;
 			}
 		}
 	}
