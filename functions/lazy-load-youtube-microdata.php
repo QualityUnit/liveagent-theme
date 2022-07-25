@@ -173,7 +173,7 @@ function elementor_youtube_loader( $content ) {
 				
 			if ( $child->length ) {
 				$child->item( 0 )->appendChild( $youtube_loader );
-				if ( $schema ) {
+				if ( isset( $schema ) ) {
 					$child->item( 0 )->appendChild( $dom->importNode( $schema->documentElement, true ) ); // @codingStandardsIgnoreLine
 				}
 			}
