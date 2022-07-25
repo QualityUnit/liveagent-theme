@@ -98,8 +98,8 @@
 
 		.Button {
 			min-width: em(170, $font-size-smaller);
-			height: em(44);
-			padding: 0 em(5);
+			height: em(44, $font-size-smaller);
+			padding: 0 em(5, $font-size-smaller);
 		}
 	}
 
@@ -163,7 +163,7 @@
 
 		@include color(color, font-color-light);
 		margin-bottom: 0;
-		font-family: $font-secondary;
+		font-family: $font-primary;
 		font-size: $font-size-smaller;
 		line-height: $line-height-smaller;
 	}
@@ -200,7 +200,7 @@
 			li {
 
 				@include color(color, font-color-light);
-				font-family: $font-secondary;
+				font-family: $font-primary;
 				font-size: $font-size-smaller;
 				line-height: $line-height-smaller;
 				font-weight: $font-weight-semi;
@@ -209,12 +209,19 @@
 
 		a {
 
+			&:active,
+			&:focus,
+			&:hover {
+				text-decoration: underline;
+			}
+
 			&::before {
 				content: "\e828";
 				font-family: fontello, sans-serif;
 				font-weight: 900;
 				display: inline-block;
 				margin-right: em(10);
+				text-decoration: none;
 			}
 		}
 
@@ -326,8 +333,8 @@
 	ul {
 
 		@include color(color, font-color-normal);
-		font-size: $font-size-smaller;
-		line-height: $line-height-smaller;
+		font-size: em(12);
+		line-height: 1.66;
 		margin-bottom: 0;
 	}
 
