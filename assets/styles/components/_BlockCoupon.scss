@@ -36,14 +36,22 @@
 			&-heading {
 
 				&:not(:last-child) {
-					margin-bottom: em(6);
+					margin-bottom: em(16);
 				}
 
 				h2.elementor-heading-title {
 
-					@extend %h1;
+					font-size: em(32);
 					margin: 0;
 					color: $white;
+
+					@media (min-width: $breakpoint-mobile) {
+						font-size: em(48);
+					}
+
+					@media (min-width: $breakpoint-tablet-landscape) {
+						font-size: em(55);
+					}
 				}
 			}
 
@@ -59,16 +67,21 @@
 
 				&,
 				* {
+					font-family: $font-secondary;
 					color: $white;
 				}
 
 				&:not(:last-child) {
-					margin-bottom: em(32);
+					margin-bottom: em(28);
 				}
 
 				p {
-					font-size: em($font-size-bigger);
-					line-height: em($line-height-bigger);
+					font-size: em($font-size-default);
+					line-height: 1.5;
+
+					@media (min-width: $breakpoint-mobile) {
+						font-size: em($font-size-bigger);
+					}
 				}
 			}
 
@@ -94,6 +107,7 @@
 					}
 
 					p {
+						font-family: $font-secondary;
 						font-weight: $font-weight-semi;
 						color: $white;
 					}
@@ -110,6 +124,7 @@
 			&-item {
 				position: relative;
 				margin: 0 !important;
+				font-family: $font-secondary;
 				font-size: em(24);
 
 				@media (min-width: $breakpoint-tablet) {
