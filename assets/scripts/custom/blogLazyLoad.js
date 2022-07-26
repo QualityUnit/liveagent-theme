@@ -165,5 +165,5 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 		}
 	);
 
-	blogPostsObserver.observe( document.querySelector( '.Newsletter' ) ); // Binding observer on the Footer newsletter element
+	blogPostsObserver.observe( document.querySelector( '.Footer' ) ); // Binding observer on the Footer newsletter element
 }
