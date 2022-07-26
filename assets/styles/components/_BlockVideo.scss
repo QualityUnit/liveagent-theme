@@ -6,23 +6,26 @@
 	padding: 0;
 	height: 100%;
 
+	.elementor-widget-container {
+		padding-bottom: 1em;
+		overflow: visible;
+	}
 
-	@media (min-width: 800px) {
+	@media (min-width: ($breakpoint-tablet + 1px)) {
 
 		.elementor-widget-container,
 		.elementor-widget-container * {
 			height: 100% !important;
 			padding-bottom: 0;
-			overflow: visible;
 		}
 	}
 
 	.youtube__loader {
+		overflow: visible;
 		min-height: 29em;
 
 		&--img {
 			border-radius: 4.375em;
-			overflow: hidden;
 		}
 
 		&::before {
@@ -32,29 +35,36 @@
 			width: 50%;
 			height: 0;
 			padding-bottom: 52%;
-			background: url(../images/press_to_play.svg) center center no-repeat;
+			background-position: center center;
+			background-repeat: no-repeat;
 			background-size: contain;
 			top: 58%;
 			transform: translateY(-50%);
 			z-index: 2;
 
-			@media (max-width: $breakpoint-tablet) {
+			@media (max-width: ($breakpoint-tablet)) {
+				top: initial;
+				bottom: 0;
 				left: 50%;
-				transform: translate(-65%, -50%);
+				width: 10em;
+				height: 11em;
+				padding-bottom: 0;
+				transform: translate(-50%, 27%);
+				background-image: url(../images/press_to_play_bottom.svg);
+				background-position: center bottom;
 			}
 
-			@media (min-width: $breakpoint-tablet) {
+			@media (min-width: ($breakpoint-tablet + 1px)) {
 				width: 29.69%;
 			}
 		}
 
 		&::after {
-			all: unset;
-
+			//gradient is placed in $positions
 			@include square(100%);
 			content: "";
 			position: absolute;
-			background: linear-gradient(to right, rgba($black, 0.3) 10%, rgba($black, 0.8));
+			font-size: $font-size-default;
 			overflow: hidden;
 			z-index: 1;
 		}
@@ -69,18 +79,24 @@ $positions: ("left", "right");
 		position: absolute;
 		pointer-events: none;
 		z-index: 1;
-		padding: 0 1.5em;
-		top: 2em;
+		padding: 0 1.5em 9em 1.5em;
 
-		@media (min-width: 800px) {
+		@media (min-width: ($breakpoint-tablet + 1px)) {
 			top: auto;
 			width: 65%;
 			padding: 0;
 		}
 
+		@media (min-width: ($breakpoint-desktop-box + 1px)) {
+			width: 55%;
+		}
+
+		@media (min-width: ($breakpoint-desktop-hd + 1px)) {
+			width: 65%;
+		}
+
 		.elementor-text-editor {
 			width: 100%;
-			text-align: right;
 		}
 
 		h2,
@@ -90,16 +106,51 @@ $positions: ("left", "right");
 			font-size: 2.18rem;
 			line-height: 1.3 !important;
 			margin-bottom: 0 !important;
-			text-align: right;
 		}
 
 		p {
 
 			@include color(color, font-color-light);
-			text-align: right;
 			font-family: $font-secondary;
 			font-weight: 600;
 			font-size: 0.75rem;
+		}
+	}
+
+	.title-with-logo {
+
+		.elementor-text-editor {
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: flex-start;
+			margin-bottom: 1em;
+
+			> * {
+				margin-bottom: 0 !important;
+				text-align: left;
+
+				&:first-child {
+					margin-right: 1em;
+				}
+			}
+
+			img {
+				position: relative;
+				transform: translateY(-10%);
+			}
+		}
+	}
+
+	.elementor-text-editor {
+
+		@media (max-width: ($breakpoint-tablet)) {
+
+			&,
+			* {
+				text-align: left;
+			}
 		}
 	}
 
@@ -111,8 +162,11 @@ $positions: ("left", "right");
 
 			&::after {
 
-				content: url(../images/arrow_small.svg);
-				filter: saturate(0) brightness(120%);
+				content: url(../images/arrow_small_right.svg) !important;
+				position: relative;
+				top: 0.25em;
+				display: inline-block !important;
+				margin-left: 0.5em;
 			}
 		}
 	}
@@ -130,7 +184,8 @@ $positions: ("left", "right");
 	}
 
 	.youtube__loader,
-	.elementor-custom-embed-image-overlay {
+	.elementor-custom-embed-image-overlay,
+	.elementor-widget-image {
 
 		&--img,
 		&::after,
@@ -140,7 +195,64 @@ $positions: ("left", "right");
 		}
 	}
 
-	@media (min-width: 800px) {
+	.elementor-widget-image {
+
+		position: relative;
+		height: 29em;
+		overflow: hidden;
+
+		.elementor-widget-container {
+
+			@include posCustom(0);
+			position: absolute;
+		}
+
+		.elementor-image {
+
+			@include posCustom(0);
+			position: absolute;
+			overflow: hidden;
+
+			&::after {
+				//gradient is placed in $positions
+				@include posCustom(0);
+				position: absolute;
+				content: "";
+				font-size: $font-size-default;
+				overflow: hidden;
+				z-index: 2;
+			}
+
+			img {
+				all: unset;
+
+				@include fullSize;
+				position: relative;
+				z-index: 1;
+				object-fit: cover;
+				display: block;
+			}
+		}
+	}
+
+	@media (min-width: ($breakpoint-tablet + 1px)) {
+
+		.title-with-logo {
+
+			.elementor-text-editor {
+
+				img {
+					transform: translateY(10%);
+				}
+			}
+		}
+
+		.elementor-widget-image {
+
+			@include posCustom(0);
+			position: absolute;
+			height: initial;
+		}
 
 		&.image-left {
 
@@ -158,6 +270,10 @@ $positions: ("left", "right");
 				.elementor-custom-embed-image-overlay {
 					border-radius: 0 4.375em 4.375em 0;
 				}
+			}
+
+			.elementor-widget-image {
+				border-radius: 0 4.375em 4.375em 0;
 			}
 		}
 
@@ -178,10 +294,14 @@ $positions: ("left", "right");
 					border-radius: 4.375em 0 0 4.375em;
 				}
 			}
+
+			.elementor-widget-image {
+				border-radius: 4.375em 0 0 4.375em;
+			}
 		}
 	}
 
-	@media (min-width: $breakpoint-desktop) {
+	@media (min-width: ($breakpoint-desktop + 1px)) {
 
 		.wrapper {
 			max-width: none;
@@ -193,30 +313,44 @@ $positions: ("left", "right");
 		@each $pos in $positions {
 			&-#{$pos} {
 
-				@media (min-width: 800px) {
+				.elementor-widget-image .elementor-image::after {
+					background: linear-gradient(to #{$pos}, rgba($black, 0.3) 10%, rgba($black, 0.8));
+				}
+
+				.elementor-widget-video .youtube__loader::after {
+					background: linear-gradient(to #{$pos}, rgba($black, 0.8), rgba($black, 0.3) 90%);
+				}
+
+				@media (min-width: ($breakpoint-tablet + 1px)) {
 
 					.wrapper {
 						width: 100vw;
+						padding-top: 3em;
+						padding-bottom: 3em;
 
 						.elementor-column {
 
 							@if $pos == left {
 
 								&:first-of-type {
-									height: 120%;
-									top: -10%;
-									margin-left: -5vw;
-									margin-right: 10% !important;
+									position: relative;
 									width: 100% !important;
+									height: auto;
+									margin-top: -3em;
+									margin-bottom: -3em;
+									margin-left: -5vw;
+									margin-right: 5% !important;
 								}
 							} @else {
 
 								&:last-of-type {
-									height: 120%;
-									top: -10%;
-									margin-right: -5vw;
-									margin-left: 10% !important;
+									position: relative;
 									width: 100% !important;
+									height: auto;
+									margin-top: -3em;
+									margin-bottom: -3em;
+									margin-right: -5vw;
+									margin-left: 5% !important;
 								}
 							}
 						}
@@ -240,11 +374,13 @@ $positions: ("left", "right");
 							@if $pos == left {
 
 								right: -10%;
+								background-image: url(../images/press_to_play.svg);
 							}
 
 							@if $pos == right {
 
 								left: -10%;
+								background-image: url(../images/press_to_play_right.svg);
 							}
 						}
 
@@ -253,17 +389,27 @@ $positions: ("left", "right");
 							@if $pos == left {
 
 								right: 20%;
+
+								&,
+								* {
+									text-align: right;
+								}
 							}
 
 							@if $pos == right {
 
 								left: 20%;
+
+								&,
+								* {
+									text-align: left;
+								}
 							}
 						}
 					}
 				}
 
-				@media (min-width: $breakpoint-desktop-box) {
+				@media (min-width: ($breakpoint-desktop-box + 1)) {
 
 					.wrapper {
 						width: 100%;
@@ -272,10 +418,12 @@ $positions: ("left", "right");
 
 							.elementor-column:first-of-type {
 								margin-left: -13vw;
+								margin-right: 10% !important;
 							}
 
 							.elementor-column:last-of-type {
 								width: 60%;
+								min-height: 32em;
 							}
 						}
 
@@ -283,10 +431,12 @@ $positions: ("left", "right");
 
 							.elementor-column:first-of-type {
 								width: 60%;
+								min-height: 32em;
 							}
 
 							.elementor-column:last-of-type {
 								margin-right: -13vw;
+								margin-left: 10% !important;
 							}
 						}
 					}
@@ -320,7 +470,8 @@ $positions: ("left", "right");
 	@media (min-width: ($breakpoint-desktop-hd + 1px)) {
 
 		.youtube__loader,
-		.elementor-custom-embed-image-overlay {
+		.elementor-custom-embed-image-overlay,
+		.elementor-widget-image {
 
 			&--img,
 			&::after,
@@ -338,7 +489,7 @@ $positions: ("left", "right");
 	box-shadow: 0 50px 90px rgba(0, 0, 0, 0.06);
 	padding: 0.5em;
 
-	@media (min-width: $breakpoint-tablet-landscape) {
+	@media (min-width: ($breakpoint-tablet-landscape + 1px)) {
 
 		+ .Block--video__vertical {
 			margin-left: 3em;
@@ -353,15 +504,15 @@ $positions: ("left", "right");
 		padding: 2em;
 		top: 4em;
 
-		@media (min-width: $breakpoint-tablet) {
+		@media (min-width: ($breakpoint-tablet + 1px)) {
 			top: 14em;
 		}
 
-		@media (min-width: $breakpoint-tablet-landscape) {
+		@media (min-width: ($breakpoint-tablet-landscape + 1px)) {
 			top: 6em;
 		}
 
-		@media (min-width: $breakpoint-desktop) {
+		@media (min-width: ($breakpoint-desktop + 1px)) {
 			top: 9em;
 		}
 
