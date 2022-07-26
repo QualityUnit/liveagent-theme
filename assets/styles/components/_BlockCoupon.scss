@@ -16,6 +16,14 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 
+	&:not(:first-child) {
+		margin-top: em(40);
+	}
+
+	&:not(:last-child) {
+		margin-bottom: em(40);
+	}
+
 	.elementor {
 
 		&-widget {
