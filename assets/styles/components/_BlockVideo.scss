@@ -146,6 +146,7 @@ $positions: ("left", "right");
 				}
 			}
 
+
 			img {
 				position: relative;
 				transform: translateY(-10%);
@@ -241,13 +242,12 @@ $positions: ("left", "right");
 			}
 
 			img {
-				//all: unset;
 
 				@include fullSize;
 				appearance: none;
 				position: relative;
 				z-index: -1;// safari image overflow fix
-				object-fit: cover;
+				object-fit: cover;  
 			}
 		}
 	}

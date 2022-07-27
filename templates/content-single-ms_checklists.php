@@ -126,6 +126,14 @@ if ( $categories ) {
 					</div>
 				</div>
 				<?php the_content(); ?>
+
+				<div class="Post__content__resources Post__m__negative">
+					<div class="h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
+
+					<div class="SimilarSources">
+						<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

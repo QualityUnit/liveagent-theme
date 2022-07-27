@@ -38,7 +38,7 @@
 			font-size: $font-size-h2-xl;
 			line-height: 1.5;
 
-			@media (max-width: $breakpoint-tablet - 1px) {
+			@media (max-width: ($breakpoint-tablet - 1px)) {
 				font-size: 1.75rem;
 			}
 		}
@@ -126,6 +126,21 @@ body:not(.elementor-editor-active) {
 		&:focus,
 		&:hover {
 			text-decoration: underline;
+		}
+	}
+
+	&.elementor-text-editor ul:not([class]) li::before {
+
+		.page-template-elementor .checklist & {
+			background-image: url(../images/icon-post-check.svg);
+		}
+
+		.page-template-elementor .checklist--pros & {
+			background-image: url(../images/icon-post-pros.svg);
+		}
+
+		.page-template-elementor .checklist--cons & {
+			background-image: url(../images/icon-post-cons.svg);
 		}
 	}
 }

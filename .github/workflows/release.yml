@@ -108,6 +108,18 @@ jobs:
         working-directory: ./lib/widgets/qu-expertnote/
         run: rm -rf node_modules package.json yarn.lock webpack.config.js
 
+      - name: Install Yarn dependencies [qu-usecase]
+        working-directory: ./lib/widgets/qu-usecase/
+        run: yarn
+
+      - name: Build CSS and JS [qu-usecase]
+        working-directory: ./lib/widgets/qu-usecase/
+        run: yarn build
+
+      - name: Remove unnecessary files [qu-usecase]
+        working-directory: ./lib/widgets/qu-usecase/
+        run: rm -rf node_modules package.json yarn.lock webpack.config.js
+
       - name: Install Yarn dependencies [statistics]
         working-directory: ./lib/widgets/statistics/
         run: yarn

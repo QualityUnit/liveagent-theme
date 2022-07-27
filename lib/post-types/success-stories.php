@@ -1,22 +1,22 @@
 <?php
-
+// We have to use ms_success-stories everywhere to preserve old DB records
 add_action(
 	'init',
 	function () {
 		$labels  = array(
-			'name'           => _x( 'Success Stories', 'Post Type General Name', 'ms' ),
-			'singular_name'  => _x( 'Success Story', 'Post Type Singular Name', 'ms' ),
-			'menu_name'      => __( 'Success Stories', 'ms' ),
-			'name_admin_bar' => __( 'Success Story', 'ms' ),
+			'name'           => _x( 'Use Case Scenarios', 'Post Type General Name', 'ms' ),
+			'singular_name'  => _x( 'Use Case Scenario', 'Post Type Singular Name', 'ms' ),
+			'menu_name'      => __( 'Use Case Scenarios', 'ms' ),
+			'name_admin_bar' => __( 'Use Case Scenario', 'ms' ),
 		);
 		$rewrite = array(
-			'slug'       => 'success-stories',
+			'slug'       => 'use-case-scenarios',
 			'with_front' => true,
 			'pages'      => true,
 			'feeds'      => false,
 		);
 		$args    = array(
-			'label'               => __( 'Success Story', 'ms' ),
+			'label'               => __( 'Use Case Scenario', 'ms' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
 			'hierarchical'        => true,
@@ -28,7 +28,7 @@ add_action(
 			'show_in_admin_bar'   => true,
 			'show_in_nav_menus'   => true,
 			'can_export'          => true,
-			'has_archive'         => false,
+			'has_archive'         => true,
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'rewrite'             => $rewrite,

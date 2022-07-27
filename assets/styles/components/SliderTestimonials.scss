@@ -132,7 +132,7 @@
 			max-height: 750px;
 			text-align: left;
 
-			@media (max-width: $breakpoint-tablet - 1px) {
+			@media (max-width: ($breakpoint-tablet - 1px)) {
 
 				.slider,
 				.splide__track {
