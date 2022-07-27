@@ -146,7 +146,6 @@ $positions: ("left", "right");
 				}
 			}
 
-
 			img {
 				position: relative;
 				transform: translateY(-10%);
@@ -247,7 +246,7 @@ $positions: ("left", "right");
 				appearance: none;
 				position: relative;
 				z-index: -1;// safari image overflow fix
-				object-fit: cover;  
+				object-fit: cover;
 			}
 		}
 	}
