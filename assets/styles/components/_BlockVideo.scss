@@ -136,9 +136,24 @@ $positions: ("left", "right");
 				}
 			}
 
+			h2 {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+
+				> *:not(:last-child) {
+					margin-right: 0.5em;
+				}
+			}
+
 			img {
 				position: relative;
 				transform: translateY(-10%);
+			}
+
+			small {
+				font-size: 45%;
+				line-height: 1.4;
 			}
 		}
 	}
@@ -211,7 +226,9 @@ $positions: ("left", "right");
 
 			@include posCustom(0);
 			position: absolute;
+			z-index: 5;// safari image overflow fix
 			overflow: hidden;
+			border-radius: $border-radius-16;
 
 			&::after {
 				//gradient is placed in $positions
@@ -224,13 +241,13 @@ $positions: ("left", "right");
 			}
 
 			img {
-				all: unset;
+				//all: unset;
 
 				@include fullSize;
+				appearance: none;
 				position: relative;
-				z-index: 1;
+				z-index: -1;// safari image overflow fix
 				object-fit: cover;
-				display: block;
 			}
 		}
 	}
@@ -273,7 +290,11 @@ $positions: ("left", "right");
 			}
 
 			.elementor-widget-image {
-				border-radius: 0 4.375em 4.375em 0;
+
+				&,
+				.elementor-image {
+					border-radius: 0 4.375em 4.375em 0;
+				}
 			}
 		}
 
@@ -296,7 +317,11 @@ $positions: ("left", "right");
 			}
 
 			.elementor-widget-image {
-				border-radius: 4.375em 0 0 4.375em;
+
+				&,
+				.elementor-image {
+					border-radius: 4.375em 0 0 4.375em;
+				}
 			}
 		}
 	}
