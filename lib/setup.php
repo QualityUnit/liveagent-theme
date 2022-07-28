@@ -15,7 +15,6 @@ add_action(
 			array(
 				'clean-up',
 				'disable-trackbacks',
-				'js-to-footer',
 				'nice-search',
 			)
 		);
