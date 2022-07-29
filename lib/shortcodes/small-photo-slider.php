@@ -56,7 +56,7 @@ function ms_small_photo_slider( $atts ) {
 									</svg>
 									<?= esc_html( $atts['zoomin'] ); ?>
 								</span>
-								<img style="opacity: 0; transition: opacity 0.5s ease 0s;" data-lasrc="<?php the_post_thumbnail_url( 'person_thumbnail' ); ?>" alt="<?php the_title(); ?>" />
+								<img data-splide-lazy="<?php the_post_thumbnail_url( 'person_thumbnail' ); ?>" alt="<?php the_title(); ?>" />
 								<?php if ( $atts['showtitle'] !== 'false' ) {/* @codingStandardsIgnoreLine */?>
 									<span class="SmallPhoto__slider__desc"><?php the_title(); ?></span>
 									<?php
