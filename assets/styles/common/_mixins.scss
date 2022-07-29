@@ -110,7 +110,7 @@
 	height: 100%;
 }
 
-@mixin square($size: 1.5em) {
+@mixin square($size: 1.5em, $important: "") {
 	width: $size;
 	height: $size;
 }
