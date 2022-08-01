@@ -1,0 +1,50 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@import "../common/mixins";
+@import "../common/variables";
+@import "../components/BlockStartups";
+
+.Startups {
+
+	&__ideal {
+		margin-top: 8em;
+
+		[class*="wrapper"] {
+			padding: 0;
+			height: 85%;
+
+			background-position: right center;
+			background-size: 75% 100%;
+		}
+
+		&__image {
+			margin-top: -6em;
+			top: -1em;
+
+			.elementor-image {
+				padding: 1em;
+			}
+		}
+
+		.elementor-col-50[class]:last-of-type {
+			padding-left: 2em;
+			padding-right: 2em;
+
+			.elementor-heading-title {
+				font-size: 2.5rem;
+				line-height: 1.375;
+			}
+
+			.tag {
+
+				p {
+					margin-bottom: 0;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				padding-left: 4em;
+				padding-right: 9em;
+			}
+		}
+	}
+}

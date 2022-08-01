@@ -1,4 +1,4 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
 
 @media (max-width: $breakpoint-tablet) {
 
@@ -24,10 +24,21 @@
 	padding: 0 !important;
 }
 
-.elementor-section.elementor-section-boxed > .elementor-container {
-	width: 100%;
-	max-width: $breakpoint-desktop-box;
+.elementor-section.elementor-section-boxed {
+
+	&.section__wide--hd {
+
+		> .elementor-container {
+			max-width: $breakpoint-desktop-hd;
+		}
+	}
+
+	> .elementor-container {
+		width: 100%;
+		max-width: $breakpoint-desktop-box;
+	}
 }
+
 
 .elementor-widget-heading {
 
@@ -39,7 +50,7 @@
 			line-height: 1.375 !important;
 			margin-bottom: 0.75em !important;
 
-			@media (max-width: $breakpoint-tablet - 1px) {
+			@media (max-width: ($breakpoint-tablet - 1px)) {
 				font-size: $font-size-h2;
 			}
 		}
@@ -48,7 +59,7 @@
 			font-size: $font-size-h2-xl;
 			line-height: 1.5 !important;
 
-			@media (max-width: $breakpoint-tablet - 1px) {
+			@media (max-width: ($breakpoint-tablet - 1px)) {
 				font-size: 1.75rem;
 			}
 		}

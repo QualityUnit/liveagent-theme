@@ -23,6 +23,10 @@
 	&__graphics {
 		align-self: center;
 
+		.elementor-row {
+			display: flex;
+		}
+
 		&[class].elementor-column[class] {
 			position: relative;
 			padding-left: 0 !important;
@@ -36,15 +40,18 @@
 			top: 15%;
 			left: 0;
 			padding: 0;
+
+			@media (max-width: $breakpoint-tablet - 1px) {
+				display: none;
+			}
 		}
 
 		&--mid[class] {
-			font-size: 1.2rem;
-			width: 50%;
-			margin-left: auto;
 
 			@include color(box-shadow, box-shadow);
 			@include color(background-color, main-background);
+			font-size: 1.2rem;
+
 			border-radius: $border-radius-16;
 			padding: 1.5em;
 
@@ -121,15 +128,19 @@
 					max-height: 15em;
 				}
 			}
+
+			@media (min-width: $breakpoint-tablet) {
+				width: 50%;
+				margin-left: auto;
+			}
 		}
 
 		&--last[class] {
 			position: relative;
-			width: 20%;
 			margin-bottom: auto;
 			padding: 1em 0.25em;
 			background-color: $saturated-green;
-			border-radius: 0 $border-radius-16 $border-radius-16 0;
+			border-radius: $border-radius-16;
 			color: $white;
 			overflow: hidden;
 			font-family: $font-secondary;
@@ -160,6 +171,11 @@
 				.elementor-heading-title {
 					font-size: 2.375rem;
 				}
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				width: 20%;
+				border-radius: 0 $border-radius-16 $border-radius-16 0;
 			}
 		}
 	}

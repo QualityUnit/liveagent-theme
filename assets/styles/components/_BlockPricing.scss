@@ -116,6 +116,11 @@
 			flex-flow: wrap row;
 			justify-content: flex-start;
 			max-width: 100%;
+
+			&.startups {
+				max-width: calc(100% + 3.5em);
+				width: calc(100% + 3.5em);
+			}
 		}
 
 		@media (min-width: 1300px) {
@@ -162,21 +167,40 @@
 					position: relative;
 
 					&__price {
+						position: relative;
 						font-family: $font-secondary;
 						font-weight: $font-weight-bold;
-						font-size: 30px;
+						font-size: 1.875rem;
 						text-align: right;
-						position: relative;
 						top: -7px;
 
+						&.crossed {
+
+							[class*="amount"] {
+
+								&::before {
+
+									@include square(120%);
+									position: absolute;
+									background: url(../images/pricing_crossover.svg) center center no-repeat;
+									background-size: 100%;
+									right: -0.125em;
+									z-index: 3;
+									content: "";
+								}
+							}
+						}
+
 						&__amount {
+							position: relative;
+							z-index: 3;
 
 							&::after {
 								content: url(../images/icon-crown.svg);
 								position: absolute;
 								top: -1.7em;
 								left: 2em;
-								z-index: 7;
+								z-index: 2;
 							}
 						}
 
@@ -185,17 +209,13 @@
 							content: url(../images/pricing-banner-popular.svg) !important;
 							top: -1.4em;
 							left: calc(100% - 4.4em);
-							z-index: 5;
+							z-index: 1;
 						}
 
-						&::after {
-							background: linear-gradient(to right, $light-orange, $dark-orange);
-							-webkit-text-fill-color: transparent;
-							background-clip: text;
-							font-weight: $font-weight-semi;
-							font-size: 13px;
-							content: "Most popular";
+						&__popular {
 							position: absolute;
+							font-weight: $font-weight-semi;
+							font-size: 0.8125rem;
 							left: 0;
 							top: 0;
 						}
@@ -224,14 +244,14 @@
 						content: url(../images/pricing-banner.svg);
 						top: -1.4em;
 						left: calc(100% - 4.4em);
-						z-index: 5;
+						z-index: 0;
 					}
 
 					&__amount {
 						color: $white;
 						position: relative;
 						left: -1em;
-						z-index: 6;
+						z-index: 1;
 					}
 
 					&__month {
@@ -241,7 +261,7 @@
 						position: absolute;
 						top: 2.2em;
 						left: 11em;
-						z-index: 6;
+						z-index: 1;
 					}
 				}
 
@@ -304,6 +324,24 @@
 			}
 		}
 
+		.Block--startups__graphics--last {
+			width: 10em;
+			margin-top: 4em;
+			font-size: 0.75rem;
+
+			* {
+				font-size: inherit;
+			}
+
+			.price {
+				margin: 0;
+			}
+
+			.elementor-text-editor {
+				width: 100%;
+			}
+		}
+
 		@media (min-width: 1300px) {
 
 			&__item:nth-child(1) {
@@ -325,7 +363,8 @@
 				z-index: 5;
 			}
 
-			&__item:nth-child(4) {
+			&__item:nth-child(4),
+			&__item--last {
 				margin-left: auto;
 
 				&::before {
