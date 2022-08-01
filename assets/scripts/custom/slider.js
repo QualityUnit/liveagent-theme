@@ -219,7 +219,7 @@ if ( homeHorizontal.length > 0 ) {
 					} );
 				}
 			);
-			homeVertical.forEach( ( sliderObject ) => {
+			homeHorizontal.forEach( ( sliderObject ) => {
 				horizontalSliderObserver.observe( sliderObject );
 			} );
 		}
