@@ -91,7 +91,7 @@
 
 	padding: 1.5em;
 
-	@media (max-width: $breakpoint-tablet-landscape - 1px) {
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 		margin-top: 2.5em;
 	}
 
@@ -147,6 +147,30 @@
 
 			@extend .highlight-gradient;
 			font-size: 1.5rem;
+		}
+	}
+}
+
+.Box--center {
+
+	.elementor-widget-image .elementor-widget-container {
+		display: flex;
+		align-items: center;
+	}
+
+	* {
+		text-align: left !important;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		* {
+			justify-content: center !important;
+			text-align: center !important;
+		}
+
+		.elementor-widget-container {
+			display: flex;
 		}
 	}
 }

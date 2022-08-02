@@ -314,6 +314,11 @@ button,
 	}
 }
 
+.Button--wide[class] {
+	padding-left: 4em;
+	padding-right: 4em;
+}
+
 .Button--inaction {
 
 	@include color(color, font-color-dark);

@@ -1,0 +1,109 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity,
+ scss/no-global-function-names */
+
+.SideRibbon {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 0.75em 1.5em;
+	height: 3.875em;
+	border-top-left-radius: $border-radius-16;
+
+	&.SideRibbon {
+		width: auto !important;
+		color: $white;
+	}
+
+	+ .SideRibbon {
+		margin-top: 1em;
+	}
+
+	* {
+		position: relative;
+		z-index: 2;
+		color: inherit;
+	}
+
+	&::before {
+
+		position: absolute;
+		content: "";
+		width: 150%;
+		height: 100%;
+		background: linear-gradient(to left, rgba($white, 0.2), rgba($white, 0));
+		transform: rotate(-5deg);
+		bottom: -0.5em;
+		right: calc(-50% - 23px);
+		z-index: 1;
+	}
+
+	&::after {
+
+		position: absolute;
+		content: "";
+		transform: rotate(-45deg);
+		left: 0.25em;
+		bottom: -0.5em;
+	}
+
+	&__arrow {
+		position: absolute;
+		top: 0;
+		right: -23px;
+		z-index: 0;
+	}
+
+	&__wrapper {
+
+		.elementor-widget-wrap {
+			flex-direction: column !important;
+			align-items: flex-start;
+		}
+
+		&.absolute {
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				position: absolute;
+			}
+		}
+	}
+
+	p {
+		font-size: 0.75rem;
+		font-family: $font-secondary;
+		margin-bottom: 0;
+
+		strong {
+			font-size: 1.375em;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			font-size: 1rem;
+		}
+	}
+
+	$blue: #118af7;
+
+	$ribbonColors: (
+		"blue": ($blue, "#0664B9"),
+		"green": ($saturated-green, "#048543"),
+	);
+
+	@each $name, $colors in $ribbonColors {
+		$bgColor: nth($colors, 1);
+		$triangle: nth($colors, 2);
+
+		&.#{$name} {
+			background-color: $bgColor;
+
+			&::after {
+
+				@include triangle(1em, #{$triangle}, right);
+			}
+
+			.SideRibbon__arrow {
+				fill: $bgColor;
+			}
+		}
+	}
+}

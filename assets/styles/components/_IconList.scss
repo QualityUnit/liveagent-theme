@@ -1,0 +1,33 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.IconList {
+
+	.elementor-icon-list {
+
+		&-item {
+			margin-bottom: 0.75em;
+		}
+
+		&-icon {
+
+			@include square(3em);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: $border-radius;
+			background-color: $light-gray;
+			margin-right: 1em;
+
+			svg {
+				width: 1.5em;
+				height: auto;
+				margin: 0 !important;
+			}
+
+			i {
+				text-align: center;
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
