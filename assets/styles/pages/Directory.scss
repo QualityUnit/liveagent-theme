@@ -8,6 +8,7 @@
 	&__screenshot {
 		position: relative;
 		display: block;
+		margin-bottom: 2.5em;
 		border-radius: $border-radius-16;
 		box-shadow: 3px 6px 50px -6px rgba($black-real, 0.1);
 		overflow: hidden;
@@ -21,6 +22,7 @@
 			&:hover {
 
 				.Directory__screenshot--url {
+					border-radius: $border-radius-16;
 					transform: translateY(0);
 				}
 			}
@@ -37,9 +39,11 @@
 			font-size: 0.85rem;
 			background-color: rgba($dark-orange, 0.95);
 			color: $white !important;
+			border-radius: $border-radius-16;
+			overflow: hidden;
 			z-index: 1;
 			transition: transform 0.2s;
-			transform: translateY(100%);
+			transform: translateY(100%) translateZ(1px);
 
 			&::after {
 				content: "\e832" !important;

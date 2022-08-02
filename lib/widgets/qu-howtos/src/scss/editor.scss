@@ -5,7 +5,9 @@
 .qu-HowTo {
 	position: relative;
 	border: 1px solid $medium-gray-quotes;
-	padding-bottom: 1.5em;
+	padding: 0 1.5em 1.5em;
+	max-width: 840px;
+	margin: 0 auto;
 
 	&::before {
 		content: "HowTo block";
@@ -51,6 +53,11 @@
 	&__header {
 		position: relative;
 		display: block !important;
+
+		input {
+			font-size: 1.75rem !important;
+			font-weight: 600;
+		}
 	}
 
 	&__schemaImage {

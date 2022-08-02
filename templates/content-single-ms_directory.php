@@ -166,9 +166,9 @@
 				<?php
 				if ( preg_match( '/\<img/', $screenshot ) ) {
 					?>
-				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) . ' ' . __( 'Homepage', 'ms' ) ); ?>">
+				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>">
 					<div class="Directory__screenshot--url">
-					<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>
+					<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>
 					</div>
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/browser_window.svg' ); ?>" />
 				<?= $screenshot; // @codingStandardsIgnoreLine ?>
@@ -587,21 +587,8 @@
 				<?php } ?>
 				<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q1', true ) ) ) { ?>
 						<div class="Post__m__negative Faq" itemscope itemtype="https://schema.org/FAQPage">
-							<h2 id="faq">
+							<h2 id="faq"><?php _e( '<span class="highlight">Frequently</span> asked questions', 'ms' ); ?></h2>
 							<?php
-								$headline = __( 'Frequently asked questions', 'ms' );
-								$words    = explode( ' ', $headline );
-								$counter  = 0;
-							foreach ( $words as $word ) {
-								if ( 0 === $counter ) {
-									echo '<span class="highlight">' . esc_html( $words[0] ) . '</span>';
-								} else {
-									echo ' ';
-									echo esc_html( $word );
-								}
-								$counter++;
-							}
-							echo '</h2>';
 							if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-text', true ) ) {
 								?>
 								<div class="subhead--wrapper">
