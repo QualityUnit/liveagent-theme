@@ -5,6 +5,32 @@
 
 .Startups {
 
+	&__signin {
+
+		strong {
+			font-family: $font-secondary;
+			font-weight: 600;
+			font-size: 1.125rem;
+		}
+
+		.SideRibbon__wrapper {
+			top: -2em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.wrapper {
+				padding-top: 12em !important;
+			}
+
+			.SideRibbon__wrapper {
+				left: -8.25em;
+				top: -10em;
+			}
+		}
+
+	}
+
 	&__ideal {
 		margin-top: 8em;
 

@@ -7,12 +7,10 @@
 	position: relative;
 
 	&::before {
-		background-color: $lightest-gray;
 		position: absolute;
 		content: "";
+		background-color: $lightest-gray;
 		border-radius: $border-radius-16;
-		width: 100%;
-		height: 100%;
 
 		@media (min-width: 1300px) {
 			content: url(../images/bg_pricing.svg);
@@ -116,6 +114,9 @@
 			flex-flow: wrap row;
 			justify-content: flex-start;
 			max-width: 100%;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
 
 			&.startups {
 				max-width: calc(100% + 3.5em);
@@ -129,13 +130,24 @@
 
 		&__item {
 			position: relative;
-			max-width: 285px;
 			width: 100%;
 			margin-top: 5em;
 
 			@media (min-width: $breakpoint-tablet) {
-				margin: 5em;
+				max-width: 285px;
 				margin-left: 0;
+
+				&:nth-of-type(2n + 1):not([class*="startups"]) {
+					margin-right: auto;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				margin: 5em;
+
+				&:nth-of-type(2n + 1):not([class*="startups"]) {
+					margin-right: 0;
+				}
 			}
 
 			@media (min-width: 1300px) {
@@ -144,16 +156,14 @@
 			}
 
 			&::before {
+
+				@include posZero();
+				display: inline-block;
+				position: absolute;
 				background-color: $white;
 				box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 				border-radius: $border-radius-16;
 				content: "";
-				display: inline-block;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
 				z-index: 2;
 
 				@media (min-width: 1300px) {
@@ -167,12 +177,14 @@
 					position: relative;
 
 					&__price {
-						position: relative;
-						font-family: $font-secondary;
-						font-weight: $font-weight-bold;
-						font-size: 1.875rem;
-						text-align: right;
-						top: -7px;
+
+						&::after {
+							content: url(../images/icon-crown.svg);
+							position: absolute;
+							top: -2em;
+							right: 0;
+							z-index: 2;
+						}
 
 						&.crossed {
 
@@ -184,6 +196,7 @@
 									position: absolute;
 									background: url(../images/pricing_crossover.svg) center center no-repeat;
 									background-size: 100%;
+									top: -0.15em;
 									right: -0.125em;
 									z-index: 3;
 									content: "";
@@ -191,25 +204,8 @@
 							}
 						}
 
-						&__amount {
-							position: relative;
-							z-index: 3;
-
-							&::after {
-								content: url(../images/icon-crown.svg);
-								position: absolute;
-								top: -1.7em;
-								left: 2em;
-								z-index: 2;
-							}
-						}
-
 						&::before {
-							position: absolute;
-							content: url(../images/pricing-banner-popular.svg) !important;
-							top: -1.4em;
-							left: calc(100% - 4.4em);
-							z-index: 1;
+							content: url(../images/pricing-banner-popular.svg);
 						}
 
 						&__popular {
@@ -227,47 +223,50 @@
 				display: flex;
 				flex-direction: column;
 				position: relative;
-				height: 100%;
 				padding: 1.5em;
-				z-index: 3;
+				z-index: 2;
 
 				&__price {
+					display: flex;
+					align-content: center;
 					font-family: $font-secondary;
+					position: relative;
 					font-weight: $font-weight-bold;
 					font-size: 30px;
-					text-align: right;
-					position: relative;
-					top: -7px;
+					margin-top: -7px;
+					margin-right: -0.5em;
+					height: calc(100% - 1em);
 
 					&::before {
-						position: absolute;
+						position: relative;
+						display: inline-block;
 						content: url(../images/pricing-banner.svg);
-						top: -1.4em;
-						left: calc(100% - 4.4em);
+						margin-top: -1.4em;
+						margin-left: auto;
 						z-index: 0;
 					}
 
-					&__amount {
+					&--wrap {
+
+						position: absolute;
+						top: 0;
+						right: 1.5em;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
 						color: $white;
-						position: relative;
-						left: -1em;
-						z-index: 1;
 					}
 
 					&__month {
-						color: $white;
 						font-size: $font-size-smaller;
 						font-weight: $font-weight-normal;
-						position: absolute;
-						top: 2.2em;
-						left: 11em;
-						z-index: 1;
 					}
 				}
 
 				&__title h3 {
 					font-size: 24px;
-					margin-top: 2em;
+					margin-top: -0.5em;
 					margin-bottom: 1em;
 				}
 
@@ -324,8 +323,8 @@
 			}
 		}
 
-		.Block--startups__graphics--last {
-			width: 10em;
+		.Block--startups__graphics--last[class] {
+			width: 100%;
 			margin-top: 4em;
 			font-size: 0.75rem;
 
@@ -339,6 +338,10 @@
 
 			.elementor-text-editor {
 				width: 100%;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				width: 10em;
 			}
 		}
 
