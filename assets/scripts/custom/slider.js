@@ -1,4 +1,5 @@
 /* global Splide, IntersectionObserver */
+
 const direction = () => {
 	return document.documentElement.dir;
 };
@@ -10,11 +11,11 @@ const thisSliders = document.querySelectorAll(
 /* Testimonials Slider */
 if ( thisSliders.length > 0 ) {
 	thisSliders.forEach( ( slider ) => {
-		new Splide( slider, {
+		const testimonialSlider = new Splide( slider, {
 			type: 'loop',
 			autoplay: true,
 			direction: direction(),
-			lazyLoad: 'nearby',
+			lazyLoad: 'sequential',
 			speed: 300,
 			easing: 'linear',
 			fixedWidth: 'calc(50% - 70px)',
@@ -33,7 +34,25 @@ if ( thisSliders.length > 0 ) {
 					arrows: false,
 				},
 			},
-		} ).mount();
+		} );
+
+		if ( 'IntersectionObserver' in window && thisSliders.length > 0 ) {
+			const testimonialSliderObserver = new IntersectionObserver(
+				( entries ) => {
+					entries.forEach( ( entry ) => {
+						if ( entry.isIntersecting ) {
+							testimonialSlider.mount( );
+
+							const sliderObject = entry.target;
+							testimonialSliderObserver.unobserve( sliderObject );
+						}
+					} );
+				}
+			);
+			thisSliders.forEach( ( sliderObject ) => {
+				testimonialSliderObserver.observe( sliderObject );
+			} );
+		}
 	} );
 }
 
@@ -54,7 +73,7 @@ if ( homeVertical.length > 0 ) {
 			type: 'loop',
 			direction: 'ttb',
 			autoplay: true,
-			lazyLoad: 'nearby',
+			lazyLoad: 'sequential',
 			height: '44.5rem',
 			fixedHeight: '13.5rem',
 			speed: 500,
@@ -119,7 +138,7 @@ if ( homeVertical.length > 0 ) {
 				( entries ) => {
 					entries.forEach( ( entry ) => {
 						if ( entry.isIntersecting ) {
-							testimonials.mount();
+							testimonials.mount( );
 
 							const sliderObject = entry.target;
 							testimonialsObserver.unobserve( sliderObject );
@@ -148,7 +167,7 @@ if ( homeHorizontal.length > 0 ) {
 		} );
 		const horizontalSlider = new Splide( slider, {
 			type: 'loop',
-			lazyLoad: 'nearby',
+			lazyLoad: 'sequential',
 			autoplay: true,
 			fixedWidth: '27.65rem',
 			height: '15.5em',
@@ -187,7 +206,23 @@ if ( homeHorizontal.length > 0 ) {
 			}
 		} );
 
-		horizontalSlider.mount();
+		if ( 'IntersectionObserver' in window && homeHorizontal.length > 0 ) {
+			const horizontalSliderObserver = new IntersectionObserver(
+				( entries ) => {
+					entries.forEach( ( entry ) => {
+						if ( entry.isIntersecting ) {
+							horizontalSlider.mount( );
+
+							const sliderObject = entry.target;
+							horizontalSliderObserver.unobserve( sliderObject );
+						}
+					} );
+				}
+			);
+			homeHorizontal.forEach( ( sliderObject ) => {
+				horizontalSliderObserver.observe( sliderObject );
+			} );
+		}
 	} );
 }
 
@@ -197,9 +232,10 @@ const gutenSliders = document.querySelectorAll(
 );
 if ( gutenSliders.length > 0 ) {
 	gutenSliders.forEach( ( slider ) => {
-		new Splide( slider, {
+		const gutenSlider = new Splide( slider, {
 			type: 'loop',
 			autoplay: false,
+			lazyload: 'sequential',
 			direction: direction(),
 			speed: 300,
 			easing: 'linear',
@@ -217,7 +253,25 @@ if ( gutenSliders.length > 0 ) {
 					arrows: false,
 				},
 			},
-		} ).mount();
+		} );
+
+		if ( 'IntersectionObserver' in window && gutenSliders.length > 0 ) {
+			const gutenSliderObserver = new IntersectionObserver(
+				( entries ) => {
+					entries.forEach( ( entry ) => {
+						if ( entry.isIntersecting ) {
+							gutenSlider.mount( );
+
+							const sliderObject = entry.target;
+							gutenSliderObserver.unobserve( sliderObject );
+						}
+					} );
+				}
+			);
+			thisSliders.forEach( ( sliderObject ) => {
+				gutenSliderObserver.observe( sliderObject );
+			} );
+		}
 	} );
 }
 
@@ -265,7 +319,7 @@ if ( customerbubbles.length > 0 ) {
 			type: 'loop',
 			direction: 'ttb',
 			autoplay: true,
-			lazyLoad: 'nearby',
+			lazyLoad: 'sequential',
 			height: '29em',
 			speed: 500,
 			interval: 5000,
@@ -368,11 +422,11 @@ const smallPhotoSlider = document.querySelectorAll( '.SmallPhoto__slider' );
 
 if ( smallPhotoSlider.length > 0 ) {
 	smallPhotoSlider.forEach( ( slider ) => {
-		new Splide( slider, {
+		const smallPhotos = new Splide( slider, {
 			type: 'loop',
 			autoplay: true,
 			direction: direction(),
-			lazyLoad: 'nearby',
+			lazyLoad: 'sequential',
 			speed: 300,
 			easing: 'linear',
 			perPage: 3,
@@ -386,7 +440,25 @@ if ( smallPhotoSlider.length > 0 ) {
 					pagination: true,
 				},
 			},
-		} ).mount();
+		} );
+
+		if ( 'IntersectionObserver' in window && smallPhotoSlider.length > 0 ) {
+			const smallPhotosObserver = new IntersectionObserver(
+				( entries ) => {
+					entries.forEach( ( entry ) => {
+						if ( entry.isIntersecting ) {
+							smallPhotos.mount( );
+
+							const sliderObject = entry.target;
+							smallPhotosObserver.unobserve( sliderObject );
+						}
+					} );
+				}
+			);
+			smallPhotoSlider.forEach( ( sliderObject ) => {
+				smallPhotosObserver.observe( sliderObject );
+			} );
+		}
 	} );
 }
 
@@ -394,11 +466,11 @@ const logosSlider = document.querySelectorAll( '.Logos__slider' );
 
 if ( logosSlider.length > 0 ) {
 	logosSlider.forEach( ( slider ) => {
-		new Splide( slider, {
+		const logos = new Splide( slider, {
 			type: 'loop',
 			autoplay: true,
 			direction: direction(),
-			lazyLoad: 'nearby',
+			lazyLoad: 'sequential',
 			speed: 600,
 			interval: 8000,
 			easing: 'linear',
@@ -415,6 +487,24 @@ if ( logosSlider.length > 0 ) {
 					pagination: true,
 				},
 			},
-		} ).mount();
+		} );
+
+		if ( 'IntersectionObserver' in window && logosSlider.length > 0 ) {
+			const logosObserver = new IntersectionObserver(
+				( entries ) => {
+					entries.forEach( ( entry ) => {
+						if ( entry.isIntersecting ) {
+							logos.mount( );
+
+							const sliderObject = entry.target;
+							logosObserver.unobserve( sliderObject );
+						}
+					} );
+				}
+			);
+			logosSlider.forEach( ( sliderObject ) => {
+				logosObserver.observe( sliderObject );
+			} );
+		}
 	} );
 }
