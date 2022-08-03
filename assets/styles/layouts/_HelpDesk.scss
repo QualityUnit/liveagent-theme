@@ -19,9 +19,14 @@
 		}
 
 		.elementor-row {
+			display: flex;
+			justify-content: space-between;
+
+			.elementor-column.elementor-col-50.elementor-inner-column {
+				width: 45% !important;
+			}
 
 			.elementor-image {
-				display: flex;
 				padding: 0;
 			}
 		}
