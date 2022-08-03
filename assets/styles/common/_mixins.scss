@@ -64,14 +64,14 @@
 
 @function em($target, $context: $font-size-default, $unit: 'em') {
 
-	@if $target == 0 {
+    @if $target == 0 {
 
-		@return 0;
-	}
+        @return 0;
+    }
 
-    $result: $target / strip-unit($context);
-
-	@return decimal-round($result, 3)+unquote($unit);
+    $result: strip-unit($target) / strip-unit($context);
+    
+    @return decimal-round($result, 3)+unquote($unit);
 }
 
 @mixin appearance($appearance: none) {
