@@ -3,7 +3,7 @@
 .HelpDesk {
 
 	&--wide {
-		max-width: 1380px !important;
+		max-width: $breakpoint-desktop-box;
 		margin: 0 auto;
 
 		.wrapper {
