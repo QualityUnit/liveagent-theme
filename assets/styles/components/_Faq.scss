@@ -70,7 +70,7 @@
 				padding-left: 50px !important;
 			}
 
-			&.elementor-active {
+			&[data-active="elementor-active"] {
 
 				@include color(background-color, secondary-background, !important);
 
@@ -103,7 +103,7 @@
 				}
 			}
 
-			&.elementor-active {
+			&[data-active="elementor-active"] {
 
 				@include color(background-color, secondary-background, !important);
 			}
