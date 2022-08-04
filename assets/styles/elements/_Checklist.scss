@@ -49,21 +49,22 @@
 
 .checklist {
 
-	.elementor-text-editor.elementor-text-editor {
-		width: auto;
+	ul:not([class]) {
 
-		ul:not([class]) {
+		@extend %checklist;
+		@include color(color, font-color-normal);
+	}
 
-			@extend %checklist;
-			@include color(color, font-color-normal);
-		}
+	li {
+		font-size: 1rem;
 
-		li {
-			font-size: 1rem;
+		* {
+			all: unset;
+			font-size: inherit;
 		}
 	}
 
-	&--pros .elementor-text-editor.elementor-text-editor {
+	&--pros {
 
 		h4 {
 
@@ -76,7 +77,7 @@
 		}
 	}
 
-	&--cons .elementor-text-editor.elementor-text-editor {
+	&--cons {
 
 		h4 {
 
@@ -88,5 +89,4 @@
 			background-image: url(../images/icon-post-cons.svg);
 		}
 	}
-
 }

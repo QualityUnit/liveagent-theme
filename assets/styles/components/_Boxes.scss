@@ -128,19 +128,6 @@
 				}
 			}
 
-			.elementor-column-wrap {
-				position: relative;
-
-				@media (min-width: $breakpoint-tablet) {
-					height: 0;
-					padding-bottom: 150% !important;
-				}
-
-				@media (min-width: $breakpoint-tablet-landscape) {
-					padding-bottom: 118% !important;
-				}
-			}
-
 			.elementor-widget-wrap {
 				display: flex;
 				align-content: flex-end;
@@ -148,7 +135,7 @@
 				text-align: center;
 				border: 5px solid $lightest-gray;
 				border-radius: 1.875rem;
-				padding-top: 1em;
+				padding-top: 3em !important;
 				transition: border-color 0.2s;
 
 				&:hover {
@@ -189,13 +176,6 @@
 
 				.la-button {
 					margin-bottom: 1.5rem;
-				}
-
-				@media (min-width: $breakpoint-tablet) {
-
-					@include posZero();
-					position: absolute;
-					padding: 0;
 				}
 
 				@media (min-width: $breakpoint-desktop) {
