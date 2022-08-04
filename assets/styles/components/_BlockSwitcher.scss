@@ -13,14 +13,25 @@
 		}
 	}
 
-	.wrapper__wide {
+	[class*="checklist"] .elementor-text-editor.elementor-text-editor ul:not([class]) li::before {
+		background: $medium-orange url(../images/icon-post-check.svg) center center no-repeat;
+		background-size: 50%;
+	}
+
+	.wrapper__wide,
+	&.wrapper__wide {
 		background: transparent url(../images/background__elements.svg) center center no-repeat;
 		background-size: cover;
+
+		> .elementor-container {
+			padding: 8em 5em 8em 7em;
+		}
 	}
 
 	@media (max-width: $breakpoint-tablet-landscape - 1px) {
 
-		.elementor-inner-section {
+		&.wrapper__wide > .elementor-container,
+		.elementor-top-column.wrapper__wide .elementor-inner-section {
 			padding: 2em !important;
 		}
 
@@ -35,7 +46,8 @@
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 
-		.wrapper__wide {
+		.wrapper__wide,
+		&.wrapper__wide {
 			background: url(../images/switcherBlock_bg.jpg) center center no-repeat;
 			background-size: contain;
 		}

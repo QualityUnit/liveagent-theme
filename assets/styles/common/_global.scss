@@ -90,6 +90,10 @@ body {
 
 	&-align-center {
 		align-content: center;
+
+		.elementor-widget-wrap {
+			align-content: center;
+		}
 	}
 
 	&-justify-center {

@@ -1,15 +1,26 @@
 <?php
 
-function ms_signup_form() {
+function ms_signup_form( $atts ) {
+	$atts = shortcode_atts(
+		array(
+			'title'  => __( 'Start Free Trial', 'ms' ),
+			'label1' => __( '14 Day Trial', 'ms' ),
+			'label2' => __( 'No Credit Card required', 'ms' ),
+			'button' => __( 'Create account for FREE', 'ms' ),
+		),
+		$atts,
+		'people'
+	);
+
 	ob_start();
 	?>
 
 	<div class="Signup__form">
-		<div class="Signup__form__title h3"><?php _e( 'Start Free Trial', 'ms' ); ?></div>
+		<div class="Signup__form__title h3"><?= esc_html( $atts['title'] ); ?></div>
 
 		<div class="Signup__form__labels">
-			<span class="Signup__form__labels__label"><?php _e( '14 Day Trial', 'ms' ); ?></span>
-			<span class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></span>
+			<span class="Signup__form__labels__label"><?= esc_html( $atts['label1'] ); ?></span>
+			<span class="Signup__form__labels__label"><?= esc_html( $atts['label2'] ); ?></span>
 		</div>
 
 		<div id="signup">
@@ -50,7 +61,7 @@ function ms_signup_form() {
 
 			<div class="Signup__form__submit">
 				<div id="createButtonmain" class="Button Button--full" onclick="handleSend();">
-					<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
+					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>
 
 				<div class="WorkingPanel" style="display: none;">
