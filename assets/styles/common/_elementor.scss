@@ -11,6 +11,23 @@
 	}
 }
 
+.elementor-widget-image img {
+	height: auto;
+	max-width: 100%;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+// Fix for Start using LiveAgent now
+
+.Block .elementor-widget-image.badge ~ .elementor-widget {
+	text-align: center;
+
+	.elementor-widget-container {
+		margin: 1em 0 1em 0;
+	}
+}
 //hotfix removal of custom-frontend-legacy padding suddenly appearing
 .elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated > .elementor-widget-wrap {
 	padding: 0 !important;
@@ -137,21 +154,11 @@ body:not(.elementor-editor-active) {
 	}
 }
 
-.elementor-text-editor {
+.elementor-widget-text-editor {
 
-	a:not(.Button) {
+	&.elementor-widget-text-editor ul:not([class]) li::before {
 
-		@include color(color, primary-color);
-
-		&:active,
-		&:focus,
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-
-	&.elementor-text-editor ul:not([class]) li::before {
-
+		.page-template-elementor &,
 		.page-template-elementor .checklist & {
 			background-image: url(../images/icon-post-check.svg);
 		}
@@ -166,7 +173,7 @@ body:not(.elementor-editor-active) {
 	}
 }
 
-.elementor-image {
+.elementor-widget-image .elementor-widget-container {
 	width: auto !important;
 	max-width: 100% !important;
 	max-height: 100%;

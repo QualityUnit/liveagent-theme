@@ -354,10 +354,10 @@
 		}
 
 		.elementor-widget-image:not(.animation) {
+			position: relative;
+			height: 100%;
 
 			.elementor-widget-container {
-				position: relative;
-				height: 100%;
 				position: absolute;
 				padding: 0;
 				width: 100% !important;
@@ -717,7 +717,6 @@
 				border-radius: 5em;
 			}
 		}
-
 	}
 
 	&.heroHeadline--scroll & {

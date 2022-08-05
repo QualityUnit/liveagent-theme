@@ -143,6 +143,17 @@ ol {
 a {
 	transition: color 0.2s;
 	word-break: break-word;
+
+	&:not(.Button) {
+
+		@include color(color, primary-color);
+
+		&:active,
+		&:focus,
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 @media (max-width: $breakpoint-tablet) {
@@ -240,17 +251,6 @@ video {
 
 		li {
 			margin-bottom: 3px;
-		}
-	}
-
-	a:not(.Button) {
-
-		@include color(color, primary-color);
-
-		&:active,
-		&:focus,
-		&:hover {
-			text-decoration: underline;
 		}
 	}
 
