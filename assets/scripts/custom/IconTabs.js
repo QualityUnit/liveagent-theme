@@ -4,7 +4,7 @@ if ( iconTabs.length > 0 ) {
 	iconTabs.forEach( ( element ) => {
 		const thisSection = element;
 		const thisContent = thisSection.querySelector(
-			'.IconTabs__content > .elementor-column-wrap > .elementor-widget-wrap'
+			'.IconTabs__content > .elementor-widget-wrap'
 		);
 		const tabs = thisSection.querySelectorAll( '.IconTabs__tabs li' );
 		const blocks = thisSection.querySelectorAll( '.IconTabs__block' );

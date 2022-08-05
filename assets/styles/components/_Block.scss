@@ -71,7 +71,7 @@
 	&--big,
 	&--new {
 
-		.elementor-text-editor {
+		.elementor-widget-text-editor {
 
 			p {
 				font-size: 24px;
@@ -94,7 +94,7 @@
 			}
 		}
 
-		.elementor-text-editor {
+		.elementor-widget-text-editor {
 
 			@include color(color, font-color-medium);
 			font-size: 1rem;
@@ -112,7 +112,7 @@
 					text-align: center !important;
 				}
 
-				.elementor-text-editor.elementor-text-editor {
+				.elementor-widget-text-editor.elementor-widget-text-editor {
 					width: 100%;
 					text-align: center;
 				}
@@ -130,13 +130,13 @@
 				max-width: none;
 			}
 
-			.elementor-text-editor {
+			.elementor-widget-text-editor {
 
 				width: 88%;
 				text-align: left;
 			}
 
-			.elementor-image {
+			.elementor-widget-image {
 				padding: 0;
 			}
 
@@ -161,7 +161,7 @@
 		&__testimonials {
 
 			.wrapper {
-				background: $lightest-gray url(../images/earth.svg) left center no-repeat;
+				background: $lightest-gray url(./images/earth.svg) left center no-repeat;
 			}
 
 			.Button--full {
@@ -208,7 +208,7 @@
 		}
 
 		.value__boxes {
-			background: #feefe0 url(../images/value-boxes_bg.svg) left bottom no-repeat;
+			background: #feefe0 url(./images/value-boxes_bg.svg) left bottom no-repeat;
 			background-size: contain;
 			border-radius: $border-radius * 2;
 			width: 100% !important;
@@ -256,7 +256,7 @@
 					align-items: center;
 					width: 38%;
 					padding: 2.75em 2.5em;
-					background: url(../images/value-boxes-path.svg) right center no-repeat;
+					background: url(./images/value-boxes-path.svg) right center no-repeat;
 					background-size: auto 100%;
 
 					strong {
@@ -305,7 +305,7 @@
 
 					&--value {
 						padding-bottom: 1.5em;
-						background: url(../images/box-star-white_bg.svg) 0 bottom no-repeat;
+						background: url(./images/box-star-white_bg.svg) 0 bottom no-repeat;
 						background-size: cover;
 					}
 				}
@@ -376,7 +376,7 @@
 				}
 			}
 
-			.elementor-image {
+			.elementor-widget-image {
 				padding-left: 0;
 				padding-right: 0;
 			}
@@ -394,7 +394,7 @@
 		&--big,
 		&--new {
 
-			.elementor-text-editor {
+			.elementor-widget-text-editor {
 
 				p {
 					font-size: 16px;
@@ -447,7 +447,7 @@
 			line-height: 38px !important;
 		}
 
-		.elementor-image {
+		.elementor-widget-image {
 			padding-left: 0;
 			padding-right: 0;
 		}
@@ -519,7 +519,7 @@
 		background-color: transparent;
 
 		[class*=" wrapper"] {
-			background: transparent url(../images/background__elements.svg) center center no-repeat;
+			background: transparent url(./images/background__elements.svg) center center no-repeat;
 			background-size: cover;
 			border-radius: $border-radius-16;
 		}
@@ -542,7 +542,7 @@
 
 		.wrapper {
 
-			background: url(../images/orange_glass_effect_bg.jpg) center center no-repeat;
+			background: url(./images/orange_glass_effect_bg.jpg) center center no-repeat;
 			background-size: cover;
 		}
 	}
@@ -621,7 +621,7 @@
 				@include posCustom(-2.375em, -3em, -5em, -3em);
 				content: "";
 				position: absolute;
-				background: url(../images/bg_glass_elements.svg) -1.5em 0 no-repeat;
+				background: url(./images/bg_glass_elements.svg) -1.5em 0 no-repeat;
 				background-size: calc(100% + 2em);
 				z-index: -1;
 			}

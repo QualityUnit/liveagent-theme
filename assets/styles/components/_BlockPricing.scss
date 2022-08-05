@@ -28,12 +28,9 @@
 		max-width: 1380px;
 		padding-left: 10em;
 
-		.elementor-row {
+		.elementor-container {
 			align-items: center;
 			display: block !important;
-		}
-
-		.elementor-container {
 			width: 100%;
 		}
 
@@ -65,7 +62,7 @@
 		}
 	}
 
-	.elementor-text-editor {
+	.elementor-element.elementor-widget-text-editor {
 		width: 60%;
 	}
 
