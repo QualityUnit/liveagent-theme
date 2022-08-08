@@ -154,24 +154,22 @@ body:not(.elementor-editor-active) {
 	}
 }
 
-.elementor-widget-text-editor {
+ul:not([class]) li::before {
 
-	&.elementor-widget-text-editor ul:not([class]) li::before {
+	.page-template-elementor &,
+	.page-template-elementor .checklist & {
+		background-image: url(../images/icon-post-check.svg);
+	}
 
-		.page-template-elementor &,
-		.page-template-elementor .checklist & {
-			background-image: url(../images/icon-post-check.svg);
-		}
+	.page-template-elementor .checklist--pros & {
+		background-image: url(../images/icon-post-pros.svg);
+	}
 
-		.page-template-elementor .checklist--pros & {
-			background-image: url(../images/icon-post-pros.svg);
-		}
-
-		.page-template-elementor .checklist--cons & {
-			background-image: url(../images/icon-post-cons.svg);
-		}
+	.page-template-elementor .checklist--cons & {
+		background-image: url(../images/icon-post-cons.svg);
 	}
 }
+
 
 .elementor-widget-image .elementor-widget-container {
 	width: auto !important;
@@ -184,6 +182,8 @@ body:not(.elementor-editor-active) {
 .elementor-widget-video {
 	max-width: 100% !important;
 	max-height: 100%;
+	padding-left: 50px;
+	padding-right: 50px;
 
 	justify-content: center !important;
 
