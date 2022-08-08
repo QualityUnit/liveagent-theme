@@ -79,7 +79,15 @@ add_action(
 add_action(
 	'elementor/frontend/after_enqueue_styles',
 	function() {
+		wp_deregister_style( 'elementor' );
+		wp_deregister_style( 'elementor-frontend' );
 		wp_deregister_style( 'elementor-pro' );
+		wp_deregister_style( 'elementor-pro-frontend' );
+
+		wp_register_style( 'elementor-frontend', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		wp_enqueue_style( 'elementor-frontend' );
+
+		wp_deregister_script( 'wp-embed' );
 	},
 	1000
 );
