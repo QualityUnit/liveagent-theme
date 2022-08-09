@@ -1,3 +1,5 @@
+/* stylelint-disable selector-class-pattern */
+
 .elementor-element {
 	--flex-direction: initial;
 	--flex-wrap: initial;
@@ -32,53 +34,47 @@
 	visibility: hidden;
 }
 
-.elementor-align-center {
-	text-align: center;
-}
+.elementor-align {
 
-.elementor-align-center .elementor-button {
-	width: auto;
-}
+	&-center {
+		text-align: center;
 
-.elementor-align-right {
-	text-align: right;
-}
+		.elementor-button {
+			width: auto;
+		}
+	}
 
-.elementor-align-right .elementor-button {
-	width: auto;
-}
+	&-right {
+		text-align: right;
 
-.elementor-align-left {
-	text-align: left;
-}
+		.elementor-button {
+			width: auto;
+		}
+	}
 
-.elementor-align-left .elementor-button {
-	width: auto;
-}
 
-.elementor-align-justify .elementor-button {
-	width: 100%;
-}
+	&-left {
+		text-align: left;
 
-.elementor-section {
-	position: relative;
-}
+		.elementor-button {
+			width: auto;
+		}
+	}
 
-.elementor-section .elementor-container {
-	display: flex;
-	margin-right: auto;
-	margin-left: auto;
-	position: relative;
-}
-
-@media (max-width: 768px) {
-
-	.elementor-section .elementor-container {
-		flex-wrap: wrap;
+	&-justify .elementor-button {
+		width: 100%;
 	}
 }
 
 .elementor-section {
+	position: relative;
+
+	.elementor-container {
+		display: flex;
+		margin-right: auto;
+		margin-left: auto;
+		position: relative;
+	}
 
 	&.elementor-section-boxed > .elementor-container {
 		max-width: 1140px;
@@ -99,6 +95,13 @@
 
 	&.elementor-section-items-bottom > .elementor-container {
 		align-items: flex-end;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.elementor-section .elementor-container {
+		flex-wrap: wrap;
 	}
 }
 
