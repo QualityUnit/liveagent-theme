@@ -143,6 +143,7 @@ ol {
 a {
 	transition: color 0.2s;
 	word-break: break-word;
+	text-decoration: none;
 
 	&:not(.Button) {
 
@@ -151,7 +152,7 @@ a {
 		&:active,
 		&:focus,
 		&:hover {
-			text-decoration: underline;
+			text-decoration: none;
 		}
 	}
 }

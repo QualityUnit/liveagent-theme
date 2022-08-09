@@ -78,7 +78,7 @@ $positions: ("left", "right");
 	.videoTitle {
 		position: absolute;
 		pointer-events: none;
-		z-index: 1;
+		z-index: 2;
 		padding: 0 1.5em 9em 1.5em;
 
 		@media (min-width: ($breakpoint-tablet + 1px)) {
@@ -95,7 +95,7 @@ $positions: ("left", "right");
 			width: 65%;
 		}
 
-		.elementor-text-editor {
+		&.elementor-widget-text-editor .elementor-widget-container {
 			width: 100%;
 		}
 
@@ -119,7 +119,7 @@ $positions: ("left", "right");
 
 	.title-with-logo {
 
-		.elementor-text-editor {
+		.elementor-widget-text-editor .elementor-widget-container {
 			position: relative;
 			display: flex;
 			flex-direction: row;
@@ -158,7 +158,7 @@ $positions: ("left", "right");
 		}
 	}
 
-	.elementor-text-editor {
+	.elementor-widget-text-editor .elementor-widget-container {
 
 		@media (max-width: ($breakpoint-tablet)) {
 
@@ -201,13 +201,22 @@ $positions: ("left", "right");
 	.youtube__loader,
 	.elementor-custom-embed-image-overlay,
 	.elementor-widget-image {
+		position: relative;
+		background-size: cover;
 
 		&--img,
 		&::after,
 		& {
 			border-radius: $border-radius-16;
 			overflow: hidden;
+			background-size: cover;
 		}
+	}
+
+	.elementor-custom-embed-image-overlay {
+		position: absolute;
+
+		@include posZero();
 	}
 
 	.elementor-widget-image {
@@ -255,7 +264,7 @@ $positions: ("left", "right");
 
 		.title-with-logo {
 
-			.elementor-text-editor {
+			.elementor-widget-text-editor {
 
 				img {
 					transform: translateY(10%);
@@ -540,7 +549,7 @@ $positions: ("left", "right");
 			top: 9em;
 		}
 
-		.elementor-text-editor {
+		&.elementor-widget-text-editor .elementor-widget-container {
 			width: 100%;
 			text-align: center;
 		}
@@ -567,6 +576,7 @@ $positions: ("left", "right");
 	.elementor-widget-video {
 
 		.elementor-video,
+		.elementor-video-new,
 		.youtube__loader {
 
 			&::after {
@@ -622,6 +632,7 @@ $positions: ("left", "right");
 			}
 
 			.elementor-video,
+			.elementor-video-new,
 			.elementor-custom-embed-image-overlay {
 				border-radius: $border-radius-16;
 				overflow: hidden;
@@ -631,6 +642,7 @@ $positions: ("left", "right");
 
 				@include posZero;
 				position: absolute;
+				background-size: cover;
 			}
 		}
 

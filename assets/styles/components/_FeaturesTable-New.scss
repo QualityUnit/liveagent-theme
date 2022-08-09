@@ -11,6 +11,7 @@
 		filter: drop-shadow(0 1em 1em rgba($black, 0.09));
 
 		.elementor-widget-text-editor.elementor-element {
+			@include color(color, font-color-dark);
 			padding: 0;
 			padding-right: 1.5em;
 
@@ -134,7 +135,6 @@
 
 			&:hover {
 
-				@include color(color, font-color-light);
 				filter: none;
 				cursor: pointer;
 
@@ -147,6 +147,10 @@
 
 				&::before {
 					box-shadow: inset 0 0 0 3px #f2f2f2;
+				}
+
+				.elementor-widget-text-editor.elementor-element {
+					@include color(color, font-color-light);
 				}
 
 				.elementor-widget-image img {
