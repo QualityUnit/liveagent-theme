@@ -54,6 +54,7 @@ function elementor_youtube_loader( $content ) {
 			$settings = $parent_block->getAttribute( 'data-settings' );
 			$child    = $xpath->query( "//div[@data-settings='" . $settings . "']//div[contains(@class, 'elementor-video')]" );
 			preg_match( '/(youtube|youtu)(\.com|\.be)((\\\\\/)(.+?))"/', $settings, $ytid );
+
 			
 		if ( isset( $ytid[5] ) ) {
 			$ytid           = str_replace( 'watch?v=', '', $ytid[5] );
@@ -70,9 +71,13 @@ function elementor_youtube_loader( $content ) {
 			$youtube_loader->appendChild( $youtube_img );
 				
 			if ( $child->length ) {
-				$child->item( 0 )->appendChild( $youtube_loader );
+				$video_wrap = $dom->createElement( 'div' );
+				$video_wrap->setAttribute( 'class', 'elementor-video-new'); // @codingStandardsIgnoreLine
+				$video_wrap->appendChild( $youtube_loader );
+				$child->item(0)->parentNode->appendChild( $video_wrap ); // @codingStandardsIgnoreLine
+				$child->item(0)->parentNode->removeChild( $child->item(0) ); // @codingStandardsIgnoreLine
 				if ( isset( $schema ) ) {
-					$child->item( 0 )->appendChild( $dom->importNode( $schema->documentElement, true ) ); // @codingStandardsIgnoreLine
+					$video_wrap->appendChild( $dom->importNode( $schema->documentElement, true ) ); // @codingStandardsIgnoreLine
 				}
 			}
 		}
@@ -85,3 +90,17 @@ function elementor_youtube_loader( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'elementor_youtube_loader', 10 );
+
+
+function callback($buffer) {
+  // modify buffer here, and then return the updated code
+	$buffer = preg_replace('/\<script.+?preloaded-modules.+?\<\/script\>/', '', $buffer);
+  return $buffer;
+}
+
+function buffer_start() { ob_start("callback"); }
+
+function buffer_end() { ob_end_flush(); }
+
+add_action('after_setup_theme', 'buffer_start');
+add_action('shutdown', 'buffer_end');

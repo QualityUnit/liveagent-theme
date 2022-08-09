@@ -13,7 +13,7 @@
 		}
 	}
 
-	[class*="checklist"] .elementor-text-editor.elementor-text-editor ul:not([class]) li::before {
+	[class*="checklist"] .elementor-widget-text-editor.elementor-widget-text-editor ul:not([class]) li::before {
 		background: $medium-orange url(../images/icon-post-check.svg) center center no-repeat;
 		background-size: 50%;
 	}
@@ -80,7 +80,7 @@
 
 	@media (min-width: $breakpoint-desktop-box) {
 
-		.elementor-image {
+		.elementor-widget-image .elementor-widget-container {
 			padding: 0 !important;
 			width: 120% !important;
 			max-width: none !important;
