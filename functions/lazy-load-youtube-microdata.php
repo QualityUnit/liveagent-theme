@@ -196,8 +196,8 @@ add_filter( 'the_content', 'elementor_youtube_loader', 10 );
 // Removes preloaded-modules javascript to avoid YT ID error
 function callback( $buffer ) {
 	$buffer = str_replace( '</script>', '</script>^', $buffer );
-	$buffer = preg_replace( '/<script[^\^]+preloaded-modules[^\^]+<\/script>/', '', $buffer);
-	$buffer = preg_replace( '/script>\^/', 'script>', $buffer);
+	$buffer = preg_replace( '/<script[^\^]+preloaded-modules[^\^]+<\/script>/', '', $buffer );
+	$buffer = preg_replace( '/script>\^/', 'script>', $buffer );
 	return $buffer;
 }
 
