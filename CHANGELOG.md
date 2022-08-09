@@ -1,3 +1,7 @@
+### 1.0.20: August 9th, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.0.19: August 4th, 2022
 
 - Change Russian Domain
