@@ -92,15 +92,17 @@ function elementor_youtube_loader( $content ) {
 add_filter( 'the_content', 'elementor_youtube_loader', 10 );
 
 
-function callback($buffer) {
-  // modify buffer here, and then return the updated code
-	$buffer = preg_replace('/\<script.+?preloaded-modules.+?\<\/script\>/', '', $buffer);
-  return $buffer;
+function callback( $buffer ) {
+	// modify buffer here, and then return the updated code
+	$buffer = preg_replace( '/\<script.+?preloaded-modules.+?\<\/script\>/', '', $buffer );
+	return $buffer;
 }
 
-function buffer_start() { ob_start("callback"); }
+function buffer_start() {
+	ob_start( 'callback' ); }
 
-function buffer_end() { ob_end_flush(); }
+function buffer_end() {
+	ob_end_flush(); }
 
-add_action('after_setup_theme', 'buffer_start');
-add_action('shutdown', 'buffer_end');
+add_action( 'after_setup_theme', 'buffer_start' );
+add_action( 'shutdown', 'buffer_end' );
