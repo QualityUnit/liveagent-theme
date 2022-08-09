@@ -125,7 +125,6 @@ function ms_block_pricing( $atts ) {
 			} 
 		} 
 		?>
-	</div>
 </div>
 <div class="BlockPricing__button">
 	<a href="<?php _e( '/pricing/', 'ms' ); ?>" class="Button Button--full">
