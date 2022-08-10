@@ -110,7 +110,7 @@
 					content: url(../../images/startups_price_crown.svg);
 				}
 
-				.elementor-text-editor {
+				.elementor-widget-container {
 					position: absolute;
 					display: flex;
 					flex-direction: column;
@@ -118,7 +118,8 @@
 					align-items: center;
 					height: 100%;
 					margin-top: 1.5em;
-					right: 0.75em;
+					left: calc(50% - 0.75em);
+					transform: translateX(-50%);
 					color: $white;
 					z-index: 1;
 

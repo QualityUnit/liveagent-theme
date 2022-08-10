@@ -526,8 +526,8 @@ textarea,
  * Add the correct display in IE 10-.
  */
 
-[hidden] {
-  display: none;
+[hidden]:not([hidden*=false]) {
+  display: none !important;
 }
 
 /* Accessibility
