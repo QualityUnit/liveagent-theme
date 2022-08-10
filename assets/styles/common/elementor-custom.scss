@@ -1,4 +1,6 @@
 /* stylelint-disable selector-class-pattern */
+@import "variables";
+@import "mixins";
 
 .elementor-element {
 	--flex-direction: initial;
@@ -95,6 +97,67 @@
 
 	&.elementor-section-items-bottom > .elementor-container {
 		align-items: flex-end;
+	}
+}
+
+.elementor embed,
+.elementor iframe,
+.elementor object,
+.elementor video {
+	max-width: 100%;
+	width: 100%;
+	margin: 0;
+	line-height: 1;
+	border: none;
+}
+
+.elementor-widget-video .e-hosted-video .elementor-video {
+	object-fit: cover;
+}
+
+.elementor-fit-aspect-ratio {
+	position: relative;
+	height: 0;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		border: 0;
+		background-color: #000;
+	}
+
+	video {
+		width: 100%;
+	}
+}
+
+.elementor-aspect-ratio {
+
+	&-219 .elementor-fit-aspect-ratio {
+		padding-bottom: 42.8571%;
+	}
+
+	&-169 .elementor-fit-aspect-ratio {
+		padding-bottom: 56.25%;
+	}
+
+	&-43 .elementor-fit-aspect-ratio {
+		padding-bottom: 75%;
+	}
+
+	&-32 .elementor-fit-aspect-ratio {
+		padding-bottom: 66.6666%;
+	}
+
+	&-11 .elementor-fit-aspect-ratio {
+		padding-bottom: 100%;
+	}
+
+	&-916 .elementor-fit-aspect-ratio {
+		padding-bottom: 177.8%;
 	}
 }
 
@@ -221,6 +284,88 @@ ul.elementor-icon-list-items {
 
 		.elementor-inline-item {
 			word-break: break-word;
+		}
+	}
+}
+
+.elementor-accordion,
+.elementor-tabs {
+
+	.elementor-accordion-item {
+
+		@include color(background-color, main-background);
+		border: 0;
+		border-top: 1px solid $light-gray;
+
+		&:hover {
+
+			@include color(background-color, secondary-background, !important);
+		}
+	}
+
+	.elementor-tab-title {
+		position: relative;
+		padding: 14px;
+
+		.elementor-accordion-icon {
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			top: 13px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 55% auto;
+			background-image: url(../images/icon_faq_plus.svg);
+			transition: background-image 0.3s;
+
+			span {
+				display: none !important;
+			}
+		}
+
+		.elementor-accordion-title {
+			display: block;
+			font-size: 15px;
+			line-height: 22px;
+			padding-left: 50px !important;
+		}
+
+		&[data-active="elementor-active"] {
+
+			@include color(background-color, secondary-background, !important);
+
+			.elementor-accordion-icon {
+				transform: none;
+				background-image: url(../images/icon_faq_minus.svg);
+			}
+		}
+	}
+
+	.elementor-tab-content {
+		display: block;
+		overflow: hidden;
+		border: 0;
+		padding: 0 65px 15px;
+		transition: height 0.5s;
+
+		p {
+			font-size: 14px;
+		}
+
+		a:not(.Button) {
+
+			@include color(color, primary-color);
+
+			&:active,
+			&:focus,
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		&[data-active="elementor-active"] {
+
+			@include color(background-color, secondary-background, !important);
 		}
 	}
 }
