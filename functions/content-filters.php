@@ -176,47 +176,17 @@ function add_drop_caps( $content ) {
 	global $post;
 
 	if ( ! empty( $post ) && 'post' === $post->post_type ) {
-		$match = get_matches( '/\<p\>[A-Z]/i', $content, true );
-
+		$match = '/\<p\>(\<a.+?\>)?([A-Z])([^<]+)(\<\/a\>)?/i';
 		if ( ! empty( $match ) ) {
-			$letter  = str_replace( '<p>', '', $match );
-			$dropcap = '<p><span class="dropcap">' . $letter . '</span>';
-			$content = str_replace_once( $match, $dropcap, $content );
+			$dropcap = '<p>$1<span class="dropcap">$2</span>$3$4';
+			$content = preg_replace( $match, $dropcap, $content, 1 );
 		}
 	}
 
 	return $content;
 }
-add_filter( 'the_content', 'add_drop_caps', 30 );
-add_filter( 'the_excerpt', 'add_drop_caps', 30 );
-
-function get_matches( $p, $s, $first_value = false, $n = 0 ) {
-	$ok = preg_match_all( $p, $s, $matches );
-
-	if ( ! $ok ) {
-		return false;
-	} else {
-		if ( $first_value ) {
-			return $matches[ $n ][0];
-		} else {
-			return $matches[ $n ];
-		}
-	}
-}
-
-function str_replace_once( $search, $replace, $subject ) {
-	$first_char = strpos( $subject, $search );
-
-	if ( false !== $first_char ) {
-		$before_str = substr( $subject, 0, $first_char );
-		$after_str  = substr( $subject, $first_char + strlen( $search ) );
-
-		return $before_str . $replace . $after_str;
-	} else {
-		return $subject;
-	}
-}
-
+// add_filter( 'the_content', 'add_drop_caps', 30 );
+// add_filter( 'the_excerpt', 'add_drop_caps', 30 );
 
 /**
  * Changes default WordPress gutenberg button to LA style buttn
