@@ -100,24 +100,25 @@ function callback( $buffer ) {
 	$buffer = str_replace( '<script', '^<script', $buffer );
 	$buffer = str_replace( '<link', '^<link', $buffer );
 
-	// Elementor modules JS
+	// Elementor plugin JS
 	$buffer = preg_replace( '/<script[^\^]+preloaded-modules[^\^]+<\/script>/', '', $buffer );
 	$buffer = preg_replace( '/<script[^\^]+preloaded-elements[^\^]+<\/script>/', '', $buffer );
 	$buffer = preg_replace( '/<script[^\^]+elementor-pro\/[^\^]+frontend[^\^]+<\/script>/', '', $buffer );
 	$buffer = preg_replace( '/<script[^\^]+elementor\/[^\^]+frontend[^\^]+<\/script>/', '', $buffer );
-	// $buffer = preg_replace( '/<script[^\^]+elementor\/[^\^]+video[^\^]+<\/script>/', '', $buffer );
-	// $buffer = preg_replace( '/<script[^\^]+elementor\/[^\^]+waypoints[^\^]+<\/script>/', '', $buffer );
 
 	// WP block style
 	$buffer = preg_replace( '/<link[^\^]+dist\/block-library\/style[^\^]+>/', '', $buffer );
+
+	// WP Scripts
 	$buffer = preg_replace( '/<script[^\^]+dist\/vendor\/wp-polyfill[^\^]+>/', '', $buffer );
-	// $buffer = preg_replace( '/<script[^\^]+dist\/i18n[^\^]+>/', '', $buffer );
-	// $buffer = preg_replace( '/<link[^\^]+frontend[^\^]+>/', '', $buffer );
+
+	// JS for Babel async transpiling for old browsers like IE
+	$buffer = preg_replace( '/<script[^\^]+dist\/vendor\/regenerator-runtime[^\^]+>/', '', $buffer );
 
 	// Removing unique character for final output
 	$buffer = str_replace( '^<script', '<script', $buffer );
 	$buffer = str_replace( '^<link', '<link', $buffer );
-	$buffer = str_replace( '^^', '', $buffer );
+	$buffer = str_replace( '^', '', $buffer );
 	return $buffer;
 }
 

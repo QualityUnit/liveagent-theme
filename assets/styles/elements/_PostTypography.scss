@@ -218,6 +218,24 @@
 			}
 		}
 
+		.wp-block-columns {
+
+			.wp-block-column:first-of-type {
+
+				ul:not([class]) li::before {
+					background-color: $desaturated-green;
+					background-image: url(../../images/icon-post-pros.svg);
+				}
+			}
+
+			.wp-block-column:nth-of-type(2):last-of-type {
+
+				ul:not([class]) li::before {
+					background-image: url(../../images/icon-post-cons.svg);
+				}
+			}
+		}
+
 		@media (min-width: $breakpoint-tablet-landscape) {
 
 			h1 {

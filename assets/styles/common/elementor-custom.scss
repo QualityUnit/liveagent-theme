@@ -100,19 +100,57 @@
 	}
 }
 
-.elementor embed,
-.elementor iframe,
-.elementor object,
-.elementor video {
-	max-width: 100%;
-	width: 100%;
-	margin: 0;
-	line-height: 1;
-	border: none;
+.elementor {
+
+	embed,
+	iframe,
+	object,
+	video {
+		max-width: 100%;
+		width: 100%;
+		margin: 0;
+		line-height: 1;
+		border: none;
+	}
+
+	img {
+		height: auto;
+		max-width: 100%;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+	}
 }
 
-.elementor-widget-video .e-hosted-video .elementor-video {
-	object-fit: cover;
+.elementor-widget-video {
+
+	.elementor-open-inline .elementor-custom-embed-image-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-position: 50%;
+	}
+
+	.elementor-custom-embed-image-overlay {
+		cursor: pointer;
+		text-align: center;
+
+		&:hover .elementor-custom-embed-play i {
+			opacity: 1;
+		}
+
+		& img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.e-hosted-video .elementor-video {
+		object-fit: cover;
+	}
 }
 
 .elementor-fit-aspect-ratio {
@@ -203,6 +241,50 @@
 
 	&-image {
 		text-align: center;
+	}
+
+	.elementor-icon-list {
+
+		&-items {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		&-item {
+			display: flex;
+			align-items: center;
+			font-size: inherit;
+			margin: 0;
+			padding: 0;
+			position: relative;
+
+			&::after {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+			}
+
+			a {
+				display: flex;
+				align-items: center;
+				font-size: inherit;
+			}
+		}
+
+		&-icon {
+			display: flex;
+		}
+
+		&-icon svg {
+			width: var(--e-icon-list-icon-size, 1em);
+			height: var(--e-icon-list-icon-size, 1em);
+		}
+
+		&-icon i {
+			width: 1.25em;
+			font-size: var(--e-icon-list-icon-size);
+		}
 	}
 }
 
@@ -342,7 +424,6 @@ ul.elementor-icon-list-items {
 	}
 
 	.elementor-tab-content {
-		display: block;
 		overflow: hidden;
 		border: 0;
 		padding: 0 65px 15px;
@@ -361,11 +442,6 @@ ul.elementor-icon-list-items {
 			&:hover {
 				text-decoration: underline;
 			}
-		}
-
-		&[data-active="elementor-active"] {
-
-			@include color(background-color, secondary-background, !important);
 		}
 	}
 }

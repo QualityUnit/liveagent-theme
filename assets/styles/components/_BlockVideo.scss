@@ -214,9 +214,10 @@ $positions: ("left", "right");
 	}
 
 	.elementor-custom-embed-image-overlay {
-		position: absolute;
 
 		@include posZero();
+		position: absolute;
+		z-index: 1;
 	}
 
 	.elementor-widget-image {
@@ -226,12 +227,6 @@ $positions: ("left", "right");
 		overflow: hidden;
 
 		.elementor-widget-container {
-
-			@include posCustom(0);
-			position: absolute;
-		}
-
-		.elementor-image {
 
 			@include posCustom(0);
 			position: absolute;
@@ -629,6 +624,7 @@ $positions: ("left", "right");
 				content: "";
 				background: linear-gradient(to bottom, rgba($black, 0.15), rgba($black, 0.6));
 				border-radius: $border-radius-16;
+				z-index: 2;
 			}
 
 			.elementor-video,
@@ -643,6 +639,7 @@ $positions: ("left", "right");
 				@include posZero;
 				position: absolute;
 				background-size: cover;
+				z-index: 1;
 			}
 		}
 
