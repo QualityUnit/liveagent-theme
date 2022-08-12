@@ -36,32 +36,30 @@ add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
 	*/
 
 function add_lightbox_rel( $content ) {
-    // @codingStandardsIgnoreStart
-    if ( ! $content ) {
-        return $content;
-    }
+	if ( ! $content ) {
+					return $content;
+	}
 
-    $dom = new DOMDocument();
-    libxml_use_internal_errors( true );
-    $dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
-    libxml_clear_errors();
-    $xpath = new DOMXPath( $dom );
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath = new DOMXPath( $dom );
 
-    foreach ( $xpath->query('//a') as $link ) {
-        $link_href = $link->getAttribute('href');
-        if ( $link_href && verify_image_link( $link_href ) ) {
-            $link->setAttribute( 'data-lightbox', 'gallery'  );
-        }
-    }
+	foreach ( $xpath->query( '//a' )    as  $link ) {
+		$link_href = $link->getAttribute( 'href' );
+		if ( $link_href && verify_image_link( $link_href ) ) {
+						$link->setAttribute( 'data-lightbox', 'gallery' );
+		}
+	}
 
-    $dom->removeChild( $dom->doctype );
-    $content = $dom->saveHtml();
-    $content = str_replace( '<html><body>', '', $content );
-    $content = str_replace( '</body></html>', '', $content );
-    return $content;
-    // @codingStandardsIgnoreEnd
-
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
 }
+
 add_filter( 'the_content', 'add_lightbox_rel' );
 
 
@@ -403,21 +401,20 @@ function elementor_pros_cons( $content ) {
 	libxml_use_internal_errors( true );
 	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
 	libxml_clear_errors();
-	$xpath = new DOMXPath( $dom );
+	$xpath    = new DOMXPath( $dom );
 	$sections = get_nodes( $xpath, 'elementor-section' );
 
-	// @codingStandardsIgnoreStart
 	foreach ( $sections as $section ) {
 		//get list of pros/cons sections
 		$new_dom = new DomDocument;
 		libxml_use_internal_errors( true );
-		$new_dom->appendChild($new_dom->importNode($section, true));
+		$new_dom->appendChild( $new_dom->importNode( $section, true ) );
 		libxml_clear_errors();
 		$new_xpath = new DOMXPath( $new_dom );
-		$checklists	= get_nodes( $new_xpath, 'checklist' );
+		$checklists = get_nodes( $new_xpath, 'checklist' );
 		$cols = get_nodes( $new_xpath, 'elementor-col-50' );
 
-		if ( $checklists->length == 2 && $cols->length == 2) {
+		if ( 2 == $checklists->length && 2 == $cols->length ) {
 
 			$checklists_index = 1;
 
@@ -429,18 +426,17 @@ function elementor_pros_cons( $content ) {
 				$checklist_dom = $xpath->query( "//*[@data-id='$id_checklist']" );
 				$checklist = $checklist_dom->item( 0 );
 
-				if ($checklists_index == 1) {
+				if ( 1 == $checklists_index ) {
 					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--pros' );
 				}
 
-				if ($checklists_index == 2) {
+				if ( 2 == $checklists_index ) {
 					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--cons' );
 				}
 				$checklists_index++;
 			}
 		}
 	}
-	// @codingStandardsIgnoreEnd
 
 	$dom->removeChild( $dom->doctype );
 	$content = $dom->saveHtml();

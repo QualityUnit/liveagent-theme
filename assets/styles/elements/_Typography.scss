@@ -719,7 +719,8 @@ video {
 	color: $orange-new;
 	background-color: transparent;
 
-	&-gradient {
+	&-gradient,
+	%highlight-gradient {
 
 		@include color(background, background);
 		background-clip: text;
