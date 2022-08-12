@@ -52,18 +52,13 @@
 			}
 
 			&__excerpt {
-				max-height: 5em;
-				overflow: hidden;
 
 				p,
 				> a {
 
 					@include color(color, font-color-level3);
-					max-height: 5.25em;
-					overflow: hidden;
 					font-size: $font-size-smaller;
 					line-height: $line-height-smaller;
-					margin-bottom: 5px;
 				}
 			}
 		}
@@ -71,6 +66,24 @@
 
 		@media (min-width: $breakpoint-tablet) {
 			padding: 2.5em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.Category__item {
+
+				&__excerpt {
+					max-height: 5em;
+					overflow: hidden;
+
+					p,
+					> a {
+						max-height: 5.25em;
+						overflow: hidden;
+						margin-bottom: 5px;
+					}
+				}
+			}
 		}
 	}
 }
@@ -148,8 +161,11 @@
 				@include color(color, font-color-normal);
 				display: block;
 				font-weight: 700;
-				overflow: hidden;
-				max-height: 70px;
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					max-height: 70px;
+					overflow: hidden;
+				}
 
 				@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 					max-width: 435px;
@@ -160,10 +176,19 @@
 
 				@include color(color, primary-color);
 				display: flex;
-				position: absolute;
-				right: 0;
-				bottom: -2.25em;
 				font-weight: 700;
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					position: absolute;
+					right: 0;
+					bottom: -2.25em;
+				}
+
+				@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+					justify-content: flex-end;
+					width: 100%;
+					margin-top: 0.5em;
+				}
 
 				&::after {
 
