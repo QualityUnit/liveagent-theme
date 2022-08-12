@@ -3,7 +3,7 @@
 /**
  * Setup variables
  */
-define( 'THEME_VERSION', '1.0.16' );
+define( 'THEME_VERSION', '1.0.20' );
 
 /**
 	* Includes
@@ -28,6 +28,7 @@ define( 'THEME_VERSION', '1.0.16' );
 		'functions/content-filters-functions.php', // Content filters functions
 		'functions/content-filters.php', // Content filters
 		'functions/content-filters-learn-more.php', // Content filters for Block--learnMore
+		'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
 		'functions/import-functions.php', // Partials JS and SCSS import functions
 		'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
 		'functions/lazy-load.php', // Lazy loading of images, videos etc.

@@ -40,7 +40,7 @@ function ms_slidertestimonials_custom( $atts ) {
 								}
 								?>
 								">
-									<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_alternatives_mb_alternatives_person', true ), 'logo_thumbnail' ) ?>
+									<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_alternatives_mb_alternatives_person', true ), 'logo_thumbnail' ) ); ?>" alt="<?php the_title(); ?>" />
 								</div>
 								<b class="SliderTestimonials__slider__header__person__name"><?php the_title(); ?></b>
 								<div class="SliderTestimonials__slider__header__text">
@@ -56,7 +56,7 @@ function ms_slidertestimonials_custom( $atts ) {
 								<p><?php the_content(); ?></p>
 							</div>
 							<div class="SliderTestimonials__slider__header__text__logo">
-								<?php the_post_thumbnail( 'logo_thumbnail' ); ?>
+								<img data-splide-lazy="<?= esc_url( the_post_thumbnail_url( 'logo_thumbnail' ) ); ?>" alt="<?php the_title(); ?>" />
 							</div>
 						</div>
 					</li>

@@ -5,7 +5,7 @@ elCountdown.forEach( ( element ) => {
 	const countDownDate = el.getAttribute( 'data-endtime' );
 
 	if ( countDownDate !== null ) {
-		const timer = setInterval( function() {
+		setInterval( function() {
 			let endTime = new Date( countDownDate );
 			endTime = ( Date.parse( endTime ) / 1000 );
 

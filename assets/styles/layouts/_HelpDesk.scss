@@ -1,0 +1,91 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.HelpDesk {
+
+	&--wide {
+		max-width: $breakpoint-desktop-box;
+		margin: 0 auto;
+
+		.wrapper {
+			max-width: 100%;
+			padding: 0;
+		}
+	}
+
+	.wrapper {
+
+		.elementor-row.elementor-row {
+			gap: 1em;
+		}
+
+		.elementor-row {
+			display: flex;
+			justify-content: space-between;
+
+			.elementor-column.elementor-col-50.elementor-inner-column {
+				width: 45% !important;
+			}
+
+			.elementor-image {
+				padding: 0;
+			}
+		}
+	}
+
+	.elementor-widget-container {
+
+		.elementor-icon-box-wrapper {
+			display: flex;
+			align-items: center;
+			margin-bottom: 1em;
+
+			.elementor-icon-box-content {
+
+				.elementor-icon-box-title {
+					margin-bottom: 0 !important;
+				}
+			}
+		}
+	}
+
+	.checklist {
+
+		.elementor-text-editor.elementor-text-editor {
+			margin-bottom: 0;
+			width: 88%;
+
+			&:empty {
+				display: none;
+			}
+		}
+
+	}
+
+	.TourPageNumbers__replaces-block {
+		padding-top: 2em;
+
+		&__title {
+			opacity: 0.85;
+		}
+
+		&__logos {
+			opacity: 0.3;
+
+			&.darker {
+				opacity: 0.7;
+			}
+		}
+	}
+
+	.help-desk-logos {
+
+		img:first-child {
+			margin-right: 0.5em;
+		}
+	}
+
+}
+
+.HelpDeskFaq.Text.Text--faq {
+	margin-bottom: 0 !important;
+}

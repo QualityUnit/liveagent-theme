@@ -103,13 +103,13 @@
 
 			gtag('config', 'UA-132128640-1', {
 				'linker': {
-						'domains': ['liveagent.com', 'liveagent.fr', 'liveagent.de', 'liveagent.hu', 'liveagent.com.br', 'liveagent.sk', 'liveagent.es', 'live-agent.cn', 'live-agent.nl', 'live-agent.it', 'live-agent.pl', 'live-agent.ru', 'live-agent.cz', 'liveagent.vn', 'liveagent.no', 'liveagent.dk', 'liveagent.gr', 'liveagent.ro', 'liveagent.bg', 'liveagent.se', 'liveagent.jp', 'liveagent.fi', 'liveagent.ae', 'liveagent.ph', 'liveagent.si', 'liveagent.lv', 'liveagent.lt', 'liveagent.hr', 'liveagent.ee', 'support.liveagent.com', 'ladesk.com', 'liveagent.local', '*.ladesk.com']
+						'domains': ['liveagent.com', 'liveagent.fr', 'liveagent.de', 'liveagent.hu', 'liveagent.com.br', 'liveagent.sk', 'liveagent.es', 'live-agent.cn', 'live-agent.nl', 'live-agent.it', 'live-agent.pl', 'ru.liveagent.com', 'live-agent.cz', 'liveagent.vn', 'liveagent.no', 'liveagent.dk', 'liveagent.gr', 'liveagent.ro', 'liveagent.bg', 'liveagent.se', 'liveagent.jp', 'liveagent.fi', 'liveagent.ae', 'liveagent.ph', 'liveagent.si', 'liveagent.lv', 'liveagent.lt', 'liveagent.hr', 'liveagent.ee', 'support.liveagent.com', 'ladesk.com', 'liveagent.local', '*.ladesk.com']
 					}
 			})
 
 			gtag('config', 'G-T9HBB9KMVK', {
 				'linker': {
-					'domains': ['liveagent.com', 'liveagent.fr', 'liveagent.de', 'liveagent.hu', 'liveagent.com.br', 'liveagent.sk', 'liveagent.es', 'live-agent.cn', 'live-agent.nl', 'live-agent.it', 'live-agent.pl', 'live-agent.ru', 'live-agent.cz', 'liveagent.vn', 'liveagent.no', 'liveagent.dk', 'liveagent.gr', 'liveagent.ro', 'liveagent.bg', 'liveagent.se', 'liveagent.jp', 'liveagent.fi', 'liveagent.ae', 'liveagent.ph', 'liveagent.si', 'liveagent.lv', 'liveagent.lt', 'liveagent.hr', 'liveagent.ee', 'support.liveagent.com', 'ladesk.com', 'liveagent.local', '*.ladesk.com']
+					'domains': ['liveagent.com', 'liveagent.fr', 'liveagent.de', 'liveagent.hu', 'liveagent.com.br', 'liveagent.sk', 'liveagent.es', 'live-agent.cn', 'live-agent.nl', 'live-agent.it', 'live-agent.pl', 'ru.liveagent.com', 'live-agent.cz', 'liveagent.vn', 'liveagent.no', 'liveagent.dk', 'liveagent.gr', 'liveagent.ro', 'liveagent.bg', 'liveagent.se', 'liveagent.jp', 'liveagent.fi', 'liveagent.ae', 'liveagent.ph', 'liveagent.si', 'liveagent.lv', 'liveagent.lt', 'liveagent.hr', 'liveagent.ee', 'support.liveagent.com', 'ladesk.com', 'liveagent.local', '*.ladesk.com']
 				}
 			})
 
