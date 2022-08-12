@@ -69,6 +69,7 @@ add_action(
 				// Scripts
 				wp_dequeue_script( 'font-awesome-4-shim' );
 				wp_deregister_script( 'elementor-sticky' );
+				wp_deregister_script( 'elementor-frontend' );
 				wp_deregister_script( 'wpml-xdomain-data' );
 				wp_deregister_script( 'wpml-xdomain-data-js-extra' );
 		}
