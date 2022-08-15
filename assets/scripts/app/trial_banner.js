@@ -14,7 +14,7 @@ const mqtablet = window.matchMedia( '(min-width: 768px)' );
 
 const addTrialBanner = () => {
 	const boxesStars = document.querySelectorAll(
-		'section.Boxes--stars .elementor-inner-section .elementor-row'
+		'section.Boxes--stars .elementor-inner-section .elementor-container'
 	);
 
 	if ( boxesStars.length > 0 ) {
