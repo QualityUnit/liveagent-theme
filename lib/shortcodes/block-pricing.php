@@ -21,6 +21,7 @@ function ms_block_pricing( $atts ) {
 			'text3-2'  => __( 'Call center support', 'ms' ),
 			'text3-3'  => __( 'Video call', 'ms' ),
 			'text3-4'  => __( 'IVR', 'ms' ),
+			'popular'  => __( 'Most Popular', 'ms' ),
 			'title4'   => __( 'Free', 'ms' ),
 			'price4'   => __( '$0', 'ms' ),
 			'text4-1'  => __( '7 days ticket history', 'ms' ),
@@ -53,6 +54,13 @@ function ms_block_pricing( $atts ) {
 						<span class="PricingTable__header__price__month"><?php _e( 'month', 'ms' ); ?></span>
 					</div>
 				</div>
+				<?php
+				if ( 3 == $i ) {
+					?>
+					<p class="PricingTable__header__most-popular"><?= esc_html( $atts['popular'] ); ?></p>
+					<?php
+				}
+				?>
 				<div class="PricingTable__header__title">
 					<h3><?= esc_html( $atts[ 'title' . $i ] ); ?></h3>
 				</div>
