@@ -2,7 +2,6 @@
 
 .Block--switcher {
 
-
 	[data-targetid] {
 		opacity: 0;
 		transition: opacity 0.2s;
@@ -28,14 +27,14 @@
 		}
 	}
 
-	@media (max-width: $breakpoint-tablet-landscape - 1px) {
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 		&.wrapper__wide > .elementor-container,
 		.elementor-top-column.wrapper__wide .elementor-inner-section {
 			padding: 2em !important;
 		}
 
-		.elementor-row {
+		.elementor-container {
 			display: block;
 
 			.elementor-col-50.elementor-col-50 {
@@ -52,7 +51,7 @@
 			background-size: contain;
 		}
 
-		.elementor-row {
+		.elementor-container {
 
 			.elementor-col-50:first-child > * {
 				margin-left: -5em;
@@ -75,7 +74,7 @@
 			max-height: none;
 		}
 
-		.elementor-row {
+		.elementor-container {
 
 			.elementor-col-50.elementor-col-50 {
 				padding-left: 2.5em !important;
