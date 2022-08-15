@@ -36,6 +36,7 @@ function ms_countdown( $atts, $content = null ) {
 	<?php } ?>
 
 	<?php
+	set_custom_source( 'countdown', 'js' );
 	return ob_get_clean();
 }
 add_shortcode( 'countdown', 'ms_countdown' );
