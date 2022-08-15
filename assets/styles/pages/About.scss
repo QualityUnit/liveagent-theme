@@ -3,6 +3,8 @@
 @import "../common/mixins";
 @import "../common/variables";
 
+$sidebarWidth: 13.5em;
+
 .Post.about {
 
 	.Post {
@@ -55,30 +57,34 @@
 			@media (max-width: $breakpoint-tablet-landscape - 1px) {
 
 				position: sticky;
-				top: 94px;
+				top: $header-height;
+				left: 0;
+				right: 0;
 				background: linear-gradient(to bottom, $white calc(100% - 2em), transparent);
 				z-index: 5;
-				width: 100vw;
-				margin-left: -1.25em;
-				padding: 1.5em 1.25em 0;
-				padding-bottom: 0;
+				padding: 0 0.5em 1.5em 1.5em;
 
 				.Archive__container__content__item {
 					margin-bottom: 0;
 				}
 
-				h4 {
-					margin-top: 0;
+				&__title {
+					margin: 0 0 0.5em 0;
+				}
+
+				&__links {
+					margin: 0;
 				}
 
 				&__link {
 					display: inline-block;
-					margin-left: 0.5em;
+					padding: 0;
+					margin: 0 1em 0.5em 0;
 				}
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
-				width: 250px;
+				width: $sidebarWidth;
 			}
 		}
 
