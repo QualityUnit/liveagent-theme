@@ -51,3 +51,4 @@ require_once get_template_directory() . '/lib/shortcodes/small-photo-slider.php'
 	require_once get_template_directory() . '/lib/shortcodes/block-pricing.php';
 	require_once get_template_directory() . '/lib/shortcodes/nicereply-discount.php';
 	require_once get_template_directory() . '/lib/shortcodes/real-testimonials-slider.php';
+	require_once get_template_directory() . '/lib/shortcodes/countdown.php';
