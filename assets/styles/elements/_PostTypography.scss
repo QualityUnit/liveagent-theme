@@ -220,7 +220,7 @@
 
 		.wp-block-columns {
 
-			.wp-block-column:first-of-type {
+			.wp-block-column:first-of-type .wp-block-group:not(.bullet-list__first) {
 
 				ul:not([class]) li::before {
 					background-color: $desaturated-green;
@@ -228,7 +228,7 @@
 				}
 			}
 
-			.wp-block-column:nth-of-type(2):last-of-type {
+			.wp-block-column:nth-of-type(2):last-of-type .wp-block-group:not(.bullet-list__first) {
 
 				ul:not([class]) li::before {
 					background-image: url(../../images/icon-post-cons.svg);

@@ -39,7 +39,9 @@
 		<div class="wrapper__wide has-image">
 			<?php 
 			if ( has_post_thumbnail() ) {
-					the_post_thumbnail( 'wide_image' );
+				?>
+				<img src="<?php the_post_thumbnail_url( 'wide_image' ); ?>" alt="<?php the_title(); ?>" />
+				<?php
 			}
 			?>
 		</div>

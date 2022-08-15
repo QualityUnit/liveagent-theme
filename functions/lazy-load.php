@@ -45,3 +45,10 @@ function img_srcset_lazyload( $html ) {
 	return $html;
 }
 add_filter( 'the_content', 'img_srcset_lazyload', 100 );
+
+function style_img_lazyload( $html ) {
+	$html = preg_replace( '/style(="[^\'"]*\.(jpg|png|svg))/', 'data-style$1', $html );
+
+	return $html;
+}
+add_filter( 'the_content', 'style_img_lazyload', 100 );
