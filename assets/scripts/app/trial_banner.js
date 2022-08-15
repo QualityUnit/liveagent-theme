@@ -1,4 +1,3 @@
-/* global fetch */
 /* eslint prefer-promise-reject-errors: ["error", {"allowEmptyReject": true}] */
 /*
 	---------
