@@ -17,43 +17,45 @@ if ( activators.length > 0 ) {
 		activator.addEventListener( 'click', ( event ) => {
 			event.stopPropagation();
 			const thisActivator = event.target;
-			const thisTarget = document.querySelector(
+			const thisTarget = document.querySelectorAll(
 				`[data-targetId="${ thisActivator.dataset.target }"]`
 			);
 
 			hideVisible();
 			isPaused = true;
 
-			thisTarget.classList.remove( 'hidden' );
-			thisActivator.classList.add( 'active' );
-			setTimeout( () => {
-				thisTarget.classList.add( 'visible' );
-			}, 0 );
+			thisTarget.forEach( ( target ) => {
+				target.classList.remove( 'hidden' );
+				thisActivator.classList.add( 'active' );
+				setTimeout( () => {
+					target.classList.add( 'visible' );
+				}, 0 );
+			} );
 		} );
 	} );
 }
 
-const switcher = document.querySelector( '.Block--switcher' );
-( function autoSwitch( interval = 5000 ) {
-	if ( ! isPaused && switcher ) {
-		const notCheckedInput = switcher.querySelector( '.switcher__input:not(:checked)' );
-		const isActive = switcher.querySelector( '.visible[data-targetid]' );
-		const isHidden = switcher.querySelector( '.hidden[data-targetid]' );
+// const switcher = document.querySelector( '.Block--switcher' );
+// ( function autoSwitch( interval = 5000 ) {
+// 	if ( ! isPaused && switcher ) {
+// 		const notCheckedInput = switcher.querySelector( '.switcher__input:not(:checked)' );
+// 		const isActive = switcher.querySelector( '.visible[data-targetid]' );
+// 		const isHidden = switcher.querySelector( '.hidden[data-targetid]' );
 
-		notCheckedInput.checked = true;
+// 		notCheckedInput.checked = true;
 
-		isActive.classList.remove( 'visible' );
-		isActive.classList.add( 'hidden' );
+// 		isActive.classList.remove( 'visible' );
+// 		isActive.classList.add( 'hidden' );
 
-		isHidden.classList.remove( 'hidden' );
+// 		isHidden.classList.remove( 'hidden' );
 
-		setTimeout( () => {
-			isHidden.classList.add( 'visible' );
-		}, 200 );
+// 		setTimeout( () => {
+// 			isHidden.classList.add( 'visible' );
+// 		}, 200 );
 
-		setTimeout( () => {
-			autoSwitch();
-		}, interval );
-	}
-}() );
+// 		setTimeout( () => {
+// 			autoSwitch();
+// 		}, interval );
+// 	}
+// }() );
 
