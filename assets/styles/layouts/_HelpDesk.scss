@@ -9,10 +9,18 @@
 		.wrapper {
 			max-width: 100%;
 			padding: 0;
+
+			.elementor-column-wrap {
+				padding: 1.6em 0 1.1em 0 !important;
+			}
 		}
 	}
 
 	.wrapper {
+
+		.learn-more {
+			margin-top: 0.75em;
+		}
 
 		.elementor-row.elementor-row {
 			gap: 1em;
@@ -24,6 +32,17 @@
 
 			.elementor-column.elementor-col-50.elementor-inner-column {
 				width: 45% !important;
+
+				h2 {
+					font-size: 40px;
+				}
+
+				.bigger {
+
+					img {
+						transform: scale(1.2);
+					}
+				}
 			}
 
 			.elementor-image {
@@ -39,7 +58,13 @@
 			align-items: center;
 			margin-bottom: 1em;
 
+			svg {
+				transform: scale(0.9);
+			}
+
 			.elementor-icon-box-content {
+
+				margin-left: 0.2em;
 
 				.elementor-icon-box-title {
 					margin-bottom: 0 !important;
@@ -52,7 +77,6 @@
 
 		.elementor-text-editor.elementor-text-editor {
 			margin-bottom: 0;
-			width: 88%;
 
 			&:empty {
 				display: none;
