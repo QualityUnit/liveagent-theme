@@ -1,7 +1,7 @@
 const activators = document.querySelectorAll( '[data-target]' );
 const targets = document.querySelectorAll( `[data-targetId]` );
 
-let isPaused = false;
+// let isPaused = false;
 
 if ( activators.length > 0 ) {
 	activators.forEach( ( elem ) => {
@@ -22,7 +22,7 @@ if ( activators.length > 0 ) {
 			);
 
 			hideVisible();
-			isPaused = true;
+			// isPaused = true;
 
 			thisTarget.forEach( ( target ) => {
 				target.classList.remove( 'hidden' );
