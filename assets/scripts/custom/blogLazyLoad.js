@@ -1,4 +1,4 @@
-/* global fetch, IntersectionObserver, customLazyLoad */
+/* global fetch, IntersectionObserver */
 /* eslint-disable camelcase */
 
 /*
@@ -145,7 +145,8 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 									}
 								} );
 
-								customLazyLoad(); // Calling images lazyload
+								// eslint-disable-next-line
+								urlslabLazyLoad(); // Calling images lazyload
 							}
 						);
 						document
