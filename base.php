@@ -6,6 +6,8 @@
 	<?php get_template_part( 'templates/head' ); ?>
 	<?php get_template_part( 'lib/pagesources' ); ?>
 	<body <?php body_class(); ?>>
+	<?php wp_body_open(); ?>
+
 		<div id="app">
 			<?php
 				do_action( 'get_header' );
