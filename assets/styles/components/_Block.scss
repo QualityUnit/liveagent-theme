@@ -207,6 +207,39 @@
 			}
 		}
 
+		&__successtories {
+
+			.elementor-widget-heading {
+
+				&,
+				* {
+					text-align: center;
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+
+				.wrapper {
+					background-image: url(../images/earth.svg);
+					background-repeat: no-repeat;
+					background-position: left top;
+					background-size: cover;
+				}
+			}
+
+			@media (max-width: $breakpoint-desktop - 1px) {
+
+				background-image: url(../images/earth.svg);
+				background-repeat: no-repeat;
+				background-position: left top;
+				background-size: cover;
+
+				.wrapper {
+					background-color: transparent;
+				}
+			}
+		}
+
 		.value__boxes {
 			background: #feefe0 url(../images/value-boxes_bg.svg) left bottom no-repeat;
 			background-size: contain;

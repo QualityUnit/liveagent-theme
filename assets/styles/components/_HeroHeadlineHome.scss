@@ -143,6 +143,21 @@
 			justify-content: flex-start;
 			align-items: center;
 
+			//scroll down button base
+			&:first-child {
+
+				&,
+				> .elementor-column-wrap,
+				> .elementor-column-wrap > .elementor-widget-wrap {
+					height: 100%;
+				}
+
+				> .elementor-column-wrap > .elementor-widget-wrap {
+					position: relative;
+					padding-bottom: 6.5em !important;
+				}
+			}
+
 			.heroHeadline__title .elementor-heading-title {
 				text-align: left;
 			}
@@ -250,6 +265,32 @@
 
 	}
 
+	&--scroll {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		a {
+			position: relative;
+			display: block;
+			width: 1em;
+			height: 5.75em;
+			animation: down 2.5s infinite;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				display: block;
+				background: url(../images/scroll_down.svg) center center no-repeat;
+				background-size: contain;
+			}
+		}
+	}
+
 	&--usedby.elementor-widget {
 		margin-bottom: 1em;
 
@@ -264,12 +305,12 @@
 
 	.Clients {
 		justify-content: flex-start;
-		margin: 0;
+		margin: 5.25em 0 0 0;
 
 		&__item {
 			margin: 0 !important;
-			filter: grayscale(0) brightness(50) brightness(0.65);
-
+			filter: brightness(0) opacity(0.3);
+			transition: filter 0.3s;
 
 			+ .Clients__item {
 				margin-left: 1em !important;
@@ -277,6 +318,12 @@
 
 			img {
 				max-width: 4rem;
+			}
+
+			&:active,
+			&:focus,
+			&:hover {
+				filter: initial;
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
@@ -425,13 +472,14 @@
 			margin-bottom: 0.75em;
 
 			&:not(.chat--bubble__dots) p {
-				font-size: 0.875rem;
+				font-family: $font-secondary;
+				font-size: em($font-size-smaller);
 				line-height: 1.35;
 				margin: 0;
 				padding: 1em 1.5em;
-				border-radius: 1.25em;
-				box-shadow: 0.5em 0.625em 1.25em 0 rgba($black, 0.2);
-				max-width: calc(100% - 3em);
+				border-radius: em(16, $font-size-smaller);
+				box-shadow: em(9, $font-size-smaller) em(10, $font-size-smaller) em(25, $font-size-smaller) rgba($black, 0.15);
+				max-width: calc(100% - 6em);
 			}
 
 			&__dots {
@@ -471,8 +519,8 @@
 
 				p {
 
-					@include color(background-color, secondary-background);
-					border-bottom-left-radius: 0.25em;
+					border-bottom-left-radius: em(6, $font-size-smaller);
+					background: linear-gradient(90deg, #eee 0.73%, $white 38%);
 				}
 
 				&::before {
@@ -492,11 +540,11 @@
 
 				p {
 
-					@include color(background-color, primary-color);
 					@include color(color, font-color-light);
 					position: relative;
-					max-width: calc(27ch + 3em);
+					max-width: calc(32ch + 3em);
 					padding: 0.75em 3em 0.75em 1.25em;
+					background-color: $saturated-blue;
 
 					&::after {
 						position: absolute;
