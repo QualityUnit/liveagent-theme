@@ -1,6 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 
 .BlockSolution {
+	margin-bottom: 200px;
 
 	.elementor-inner-section {
 		position: relative;
@@ -8,12 +9,30 @@
 
 	.business-solution-wrapper {
 		max-width: $breakpoint-desktop-box;
+		padding: 4.5em 7.5em 3.7em !important;
 	}
+
+	.elementor-row {
+		display: flex;
+		flex-flow: wrap column;
+
+		@media (min-width: $breakpoint-desktop) {
+			flex-flow: row;
+		}
+	}
+
 
 	.column--solution {
 		position: relative;
-		max-width: 300px !important;
-		margin-left: 1em;
+		width: 295px !important;
+		margin-top: 2em;
+		align-self: flex-start;
+		flex-shrink: 0;
+
+		@media (min-width: $breakpoint-desktop) {
+			margin: 0;
+			margin-left: 1em;
+		}
 
 		&::after {
 
@@ -25,25 +44,34 @@
 			z-index: 1;
 		}
 
-		&-left {
-			position: relative;
-			width: 29% !important;
-		}
-
-		&-right {
-			position: relative;
-			width: 29% !important;
-		}
-
 		&-main-text {
-			width: 42%;
+			max-width: 430px;
+			width: 100%;
+			align-self: flex-start;
+
+			@media (min-width: $breakpoint-desktop) {
+				margin-right: 8%;
+				min-width: none;
+			}
 
 			.tag {
 				margin-bottom: 0;
 			}
 
 			.elementor-widget-html {
-				margin-top: 0.7em;
+				margin-top: 0;
+			}
+
+			.elementor-widget-heading {
+
+				h2 {
+					font-size: 30px;
+					line-height: 42px;
+					max-width: 80%;
+					font-weight: $font-weight-bold;
+					font-family: $font-secondary;
+					margin-bottom: 0;
+				}
 			}
 		}
 	}
@@ -78,6 +106,7 @@
 			opacity: 0.3;
 			padding-left: 2.5em;
 			margin: 0;
+			margin-bottom: 1em;
 			z-index: 2;
 
 			a {
@@ -87,3 +116,4 @@
 		}
 	}
 }
+
