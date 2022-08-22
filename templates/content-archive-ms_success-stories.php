@@ -34,13 +34,15 @@
 				$query_success_stories_posts->the_post();
 
 					$regions_meta = get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories-region', true );
+				
 				if ( $regions_meta ) {
-					$regions[] = $regions_meta;
+					$regions = $regions_meta;
 				}
 			endwhile;
 			wp_reset_postdata();
-
+			if ( isset( $regions ) ) {
 				$regions = array_merge( ...$regions );
+			}
 			?>
 
 	<div class="Filter">
@@ -49,9 +51,15 @@
 			<input type="search" class="search search--use-cases" placeholder="<?php _e( 'Search company', 'use-case' ); ?>" maxlength="50">
 		</div>
 
+		<?php
+			$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_success-stories_categories' ) ), SORT_REGULAR );
+
+		if ( isset( $categories ) && count( $categories ) > 0 ) {
+			?>
+
 		<div class="FilterMenu">
 			<div class="FilterMenu__title flex flex-align-center">
-				<?php _e( 'Industry', 'use-case' ); ?>
+			<?php _e( 'Industry', 'use-case' ); ?>
 			</div>
 			<div class="FilterMenu__items">
 				<div class="FilterMenu__items--inn">
@@ -61,10 +69,9 @@
 							<span onclick="_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Any'])"><?php _e( 'Any', 'ms' ); ?></span>
 						</label>
 					</div>
-						<?php
-						$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_success-stories_categories' ) ), SORT_REGULAR );
-						foreach ( $categories as $category ) {
-							?>
+					<?php
+					foreach ( $categories as $category ) {
+						?>
 
 							<div class="checkbox FilterMenu__item">
 								<input class="filter-item" type="radio" id="<?php echo esc_attr( $category->slug ); ?>" value="<?php echo esc_attr( $category->slug ); ?>" name="category" />
@@ -78,9 +85,14 @@
 			</div>
 		</div>
 
+			<?php
+		}
+
+		if ( isset( $regions ) && count( $regions ) > 0 ) {
+			?>
 		<div class="FilterMenu">
 			<div class="FilterMenu__title flex flex-align-center">
-				<?php _e( 'Region', 'use-case' ); ?>
+			<?php _e( 'Region', 'use-case' ); ?>
 			</div>
 			<div class="FilterMenu__items">
 				<div class="FilterMenu__items--inn">
@@ -90,27 +102,27 @@
 							<span onclick="_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Any'])"><?php _e( 'Any', 'ms' ); ?></span>
 						</label>
 					</div>
-					<?php
-					if ( ! empty( $regions ) ) {
-						$region_name = '';
+				<?php
+				if ( ! empty( $regions ) ) {
+					$region_name = '';
 
-						foreach ( $regions as $region ) {
-							if ( 'worldwide' === $region ) {
-								$region_name = __( 'World Wide', 'regions' );
-							} elseif ( 'europe' === $region ) {
-								$region_name = __( 'Europe', 'regions' );
-							} elseif ( 'northamerica' === $region ) {
-								$region_name = __( 'North America', 'regions' );
-							} elseif ( 'southamerica' === $region ) {
-								$region_name = __( 'South America', 'regions' );
-							} elseif ( 'asia' === $region ) {
-								$region_name = __( 'Asia', 'regions' );
-							} elseif ( 'middleeast' === $region ) {
-								$region_name = __( 'Middle East', 'regions' );
-							} elseif ( 'pacific' === $region ) {
-								$region_name = __( 'Pacific', 'regions' );
-							}
-							?>
+					foreach ( $regions as $region ) {
+						if ( 'worldwide' === $region ) {
+							$region_name = __( 'World Wide', 'regions' );
+						} elseif ( 'europe' === $region ) {
+							$region_name = __( 'Europe', 'regions' );
+						} elseif ( 'northamerica' === $region ) {
+							$region_name = __( 'North America', 'regions' );
+						} elseif ( 'southamerica' === $region ) {
+							$region_name = __( 'South America', 'regions' );
+						} elseif ( 'asia' === $region ) {
+							$region_name = __( 'Asia', 'regions' );
+						} elseif ( 'middleeast' === $region ) {
+							$region_name = __( 'Middle East', 'regions' );
+						} elseif ( 'pacific' === $region ) {
+							$region_name = __( 'Pacific', 'regions' );
+						}
+						?>
 
 							<div class="checkbox FilterMenu__item">
 								<input class="filter-item" type="radio" id="region_<?php echo esc_attr( $region ); ?>" value="region_<?php echo esc_attr( $region ); ?>" name="region" />
@@ -120,14 +132,14 @@
 								</label>
 							</div>
 							<?php 
-						} 
 					} 
-					?>
+				} 
+				?>
 				</div>
 
 			</div>
 		</div>
-
+		<?php } ?>
 		<div class="Category__content__description">
 			<div>
 				<span id="countPosts"></span>&nbsp;

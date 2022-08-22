@@ -233,7 +233,7 @@
 
 			@media (max-width: ($breakpoint-tablet - 1px)) {
 				order: 2 !important;
-				width: 50% !important;
+				width: 100% !important;
 				margin-top: 75px !important;
 			}
 
@@ -273,8 +273,11 @@
 					align-items: center;
 					width: 38%;
 					padding: 2.75em 2.5em;
-					background: url(../images/value-boxes-path.svg) right center no-repeat;
-					background-size: auto 100%;
+
+					@media (min-width: $breakpoint-tablet-landscape) {
+						background: url(../images/value-boxes-path.svg) right center no-repeat;
+						background-size: auto 100%;
+					}
 
 					strong {
 
@@ -527,16 +530,18 @@
 .Block--elements {
 	background-color: rgba($lightest-gray, 0.4);
 
-	.wrapper {
+	[class*=" wrapper"] {
 		background-color: rgba($lightest-gray, 0.4);
+		border-radius: $border-radius-16;
 	}
 
 	@media (min-width: $breakpoint-desktop-box) {
 		background-color: transparent;
 
-		.wrapper {
+		[class*=" wrapper"] {
 			background: transparent url(../images/background__elements.svg) center center no-repeat;
 			background-size: cover;
+			border-radius: $border-radius-16;
 		}
 	}
 }

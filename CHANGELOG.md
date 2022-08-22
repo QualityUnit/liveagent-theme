@@ -1,3 +1,23 @@
+### 1.0.22: August 19th, 2022
+
+- Release the new URLsLab plugin version
+
+### 1.0.21: August 15th, 2022
+
+- Bug Fixes and Improvements
+
+### 1.0.20: August 9th, 2022
+
+- Bug Fixes and Improvements
+
+### 1.0.19: August 4th, 2022
+
+- Change Russian Domain
+
+### 1.0.18: August 3th, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.0.17: July 26th, 2022
 
 - Bug Fixes and Improvements

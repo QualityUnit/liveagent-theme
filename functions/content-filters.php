@@ -21,7 +21,7 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 		if ( in_array( 'fontello-menu-take-a-tour', $item->classes ) ) {
 			$item_output .= '
 			<div data-ytid="3zYfDwqNj0U" data-lightbox="youtube" class="Header__navigation__promo">
-				<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="Tour Video" />' . '
+				<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="LiveAgent Tour Video" />' . '
 			</div>';
 		}
 	}
@@ -80,30 +80,6 @@ function icontabs_sources( $content ) {
 add_filter( 'the_content', 'icontabs_sources' );
 add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
-/**
-	* Add alt tag for every image
-	*/
-
-function add_img_alt_tag_title( $attr, $attachment = null ) {
-	$img_title = str_replace( '^', '', str_replace( '-', ' ', trim( wp_strip_all_tags( $attachment->post_title ) ) ) );
-
-	if ( empty( $attr['alt'] ) ) {
-		$attr['alt'] = $img_title;
-	}
-
-	return $attr;
-}
-add_filter( 'wp_get_attachment_image_attributes', 'add_img_alt_tag_title', 10, 2 );
-
-function add_alt_tag_to_images( $html ) {
-	$replace = str_replace( '^', '', get_the_title() );
-
-	$html = preg_replace( '/alt=""\s/', 'alt="' . $replace . '"', $html );
-
-	return $html;
-}
-add_filter( 'the_content', 'add_alt_tag_to_images', 30 );
-add_filter( 'render_block', 'add_alt_tag_to_images', 30 );
 
 /**
 	* Add X-DEFAULT Header
@@ -176,47 +152,17 @@ function add_drop_caps( $content ) {
 	global $post;
 
 	if ( ! empty( $post ) && 'post' === $post->post_type ) {
-		$match = get_matches( '/\<p\>[A-Z]/i', $content, true );
-
+		$match = '/\<p\>(\<a.+?\>)?([A-Z])([^<]+)(\<\/a\>)?/i';
 		if ( ! empty( $match ) ) {
-			$letter  = str_replace( '<p>', '', $match );
-			$dropcap = '<p><span class="dropcap">' . $letter . '</span>';
-			$content = str_replace_once( $match, $dropcap, $content );
+			$dropcap = '<p>$1<span class="dropcap">$2</span>$3$4';
+			$content = preg_replace( $match, $dropcap, $content, 1 );
 		}
 	}
 
 	return $content;
 }
-add_filter( 'the_content', 'add_drop_caps', 30 );
-add_filter( 'the_excerpt', 'add_drop_caps', 30 );
-
-function get_matches( $p, $s, $first_value = false, $n = 0 ) {
-	$ok = preg_match_all( $p, $s, $matches );
-
-	if ( ! $ok ) {
-		return false;
-	} else {
-		if ( $first_value ) {
-			return $matches[ $n ][0];
-		} else {
-			return $matches[ $n ];
-		}
-	}
-}
-
-function str_replace_once( $search, $replace, $subject ) {
-	$first_char = strpos( $subject, $search );
-
-	if ( false !== $first_char ) {
-		$before_str = substr( $subject, 0, $first_char );
-		$after_str  = substr( $subject, $first_char + strlen( $search ) );
-
-		return $before_str . $replace . $after_str;
-	} else {
-		return $subject;
-	}
-}
-
+// add_filter( 'the_content', 'add_drop_caps', 30 );
+// add_filter( 'the_excerpt', 'add_drop_caps', 30 );
 
 /**
  * Changes default WordPress gutenberg button to LA style buttn
