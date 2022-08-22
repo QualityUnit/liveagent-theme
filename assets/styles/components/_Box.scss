@@ -185,7 +185,16 @@
 	margin-right: auto;
 	border-radius: $border-radius-16;
 	box-shadow: 0 em(15) em(66) em(-15) rgba($black-real, 0.5);
+	font-size: $font-size-default;
 	overflow: hidden;
+
+	* {
+		font-family: $font-secondary;
+		line-height: 1.33;
+		font-size: em(30);
+		font-weight: $font-weight-bold;
+		text-align: center;
+	}
 
 	@media (min-width: $breakpoint-tablet) {
 		padding: em(35) em(60);

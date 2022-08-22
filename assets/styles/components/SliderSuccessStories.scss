@@ -112,12 +112,18 @@
 
 			@include square(em(60,$font-size-default));
 			z-index: 50;
-			opacity: 1;
+			opacity: 0.7;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			box-shadow: em(0) em(4) em(64) rgba($black, 0.08);
 			font-size: $font-size-default !important;
+			transition: opacity 0.2s;
+
+			&:active,
+			&:hover {
+				opacity: 1;
+			}
 
 			&::before {
 
