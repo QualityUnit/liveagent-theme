@@ -5,6 +5,7 @@
 
 		@include color(color, $black);
 		font-size: 1rem;
+		padding-bottom: 0 !important;
 
 		h3,
 		h4,
@@ -16,6 +17,10 @@
 		p {
 			font-size: inherit;
 			line-height: inherit;
+
+			span.dropcap {
+				all: unset !important;
+			}
 		}
 
 		ul,
@@ -47,7 +52,7 @@
 					display: inline-block;
 					content: "";
 					position: absolute;
-					top: 4px;
+					top: 2px;
 					left: -0.5em;
 					background: $medium-orange url(../../../../../assets/images/icon-post-check.svg) center center no-repeat;
 					background-size: 50%;
@@ -88,7 +93,6 @@
 
 		// These are default editor styles
 		.wp-block {
-			max-width: 700px;
 
 			// TODO: the default padding/margin of the
 			// block editor content are not set properly

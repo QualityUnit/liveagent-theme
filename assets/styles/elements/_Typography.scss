@@ -89,6 +89,11 @@ h6,
 	line-height: $line-height-h6;
 }
 
+.line-above {
+
+	@include line-above;
+}
+
 p {
 
 	*:not(.checklist) .elementor-text-editor > & {
@@ -714,12 +719,34 @@ video {
 	color: $orange-new;
 	background-color: transparent;
 
-	&-gradient {
+	&-gradient,
+	%highlight-gradient {
 
 		@include color(background, background);
 		background-clip: text;
 		color: transparent;
 		box-decoration-break: clone;
+	}
+
+	&__bubble {
+		position: relative;
+
+		* {
+			position: relative;
+			z-index: 1;
+		}
+
+		&::after {
+
+			@include posCustom(-0.65em);
+			display: block;
+			position: absolute;
+			right: -0.25em;
+			// z-index: -2;
+			content: "";
+			background: url(../images/highlight_bubble.svg) center center no-repeat;
+			background-size: 100%;
+		}
 	}
 }
 

@@ -26,7 +26,6 @@ require_once get_template_directory() . '/lib/shortcodes/small-photo-slider.php'
 	require_once get_template_directory() . '/lib/shortcodes/short-trial.php';
 	require_once get_template_directory() . '/lib/shortcodes/block-quote.php';
 	require_once get_template_directory() . '/lib/shortcodes/copy.php';
-	require_once get_template_directory() . '/lib/shortcodes/similar-integrations.php';
 	require_once get_template_directory() . '/lib/shortcodes/reviews.php';
 	require_once get_template_directory() . '/lib/shortcodes/login.php';
 	require_once get_template_directory() . '/lib/shortcodes/discover.php';
@@ -52,3 +51,4 @@ require_once get_template_directory() . '/lib/shortcodes/small-photo-slider.php'
 	require_once get_template_directory() . '/lib/shortcodes/block-pricing.php';
 	require_once get_template_directory() . '/lib/shortcodes/nicereply-discount.php';
 	require_once get_template_directory() . '/lib/shortcodes/real-testimonials-slider.php';
+	require_once get_template_directory() . '/lib/shortcodes/countdown.php';

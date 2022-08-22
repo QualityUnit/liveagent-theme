@@ -90,6 +90,25 @@ body {
 
 	&-align-center {
 		align-content: center;
+
+		.elementor-widget-wrap {
+			align-content: center;
+		}
+	}
+
+	&-justify-center {
+		justify-content: center;
+	}
+}
+
+.text-align {
+
+	&-center {
+		text-align: center;
+	}
+
+	&-justify {
+		text-align: justify;
 	}
 }
 
@@ -102,7 +121,51 @@ body {
 
 .desktop--only {
 
-	@media (max-width: $breakpoint-tablet - 1px) {
+	@media (max-width: ($breakpoint-tablet - 1px)) {
 		display: none;
+	}
+}
+
+.no-margin[class] {
+	margin: 0;
+}
+
+$marginSide: (
+	left, right, top, bottom
+);
+
+@each $side in $marginSide {
+
+	[class].ma-#{$side} {
+		margin-#{$side}: auto;
+	}
+}
+
+$sizes: (
+	"xxs": 0.15em,
+	"xs": 0.25em,
+	"s": 0.5em,
+	"m": 1em,
+	"l": 1.5em,
+	"xl": 2em,
+	"xxl": 2.5em,
+	"xxxl": 3.25em
+);
+
+@each $size, $val in $sizes {
+	.mt-#{$size}[class] {
+		margin-top: $val;
+	}
+
+	.mr-#{$size}[class] {
+		margin-right: $val;
+	}
+
+	.mb-#{$size}[class] {
+		margin-bottom: $val;
+	}
+
+	.ml-#{$size}[class] {
+		margin-left: $val;
 	}
 }

@@ -37,7 +37,7 @@ function ms_voip_partners() {
 					?>
 		<li class="VoIP__partner Logo__slide splide__slide">
 			<a href="<?= esc_url( get_the_permalink() ); ?>">
-					<?php the_post_thumbnail( 'archive_thumbnail' ); ?>
+				<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $post_thumbnail_id, 'archive_thumbnail' ) ); ?>" alt="<?php the_title(); ?>" />
 			</a>
 		</li>
 

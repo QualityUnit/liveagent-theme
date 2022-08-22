@@ -1,4 +1,4 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
 
 @media (max-width: $breakpoint-tablet) {
 
@@ -24,21 +24,42 @@
 	padding: 0 !important;
 }
 
-.elementor-section.elementor-section-boxed > .elementor-container {
-	width: 100%;
-	max-width: $breakpoint-desktop-box;
+.elementor-section.elementor-section-boxed {
+
+	&.section__wide--hd {
+
+		> .elementor-container {
+			max-width: $breakpoint-desktop-hd;
+		}
+	}
+
+	> .elementor-container {
+		width: 100%;
+		max-width: $breakpoint-desktop-box;
+	}
 }
+
 
 .elementor-widget-heading {
 
 	h2.elementor-heading-title {
 		line-height: $line-height-h2;
 
+		&.elementor-size-large {
+			font-size: 2.5rem;
+			line-height: 1.375 !important;
+			margin-bottom: 0.75em !important;
+
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+				font-size: $font-size-h2;
+			}
+		}
+
 		&.elementor-size-xl {
 			font-size: $font-size-h2-xl;
-			line-height: 1.5;
+			line-height: 1.5 !important;
 
-			@media (max-width: $breakpoint-tablet - 1px) {
+			@media (max-width: ($breakpoint-tablet - 1px)) {
 				font-size: 1.75rem;
 			}
 		}
@@ -126,6 +147,21 @@ body:not(.elementor-editor-active) {
 		&:focus,
 		&:hover {
 			text-decoration: underline;
+		}
+	}
+
+	&.elementor-text-editor ul:not([class]) li::before {
+
+		.page-template-elementor .checklist & {
+			background-image: url(../images/icon-post-check.svg);
+		}
+
+		.page-template-elementor .checklist--pros & {
+			background-image: url(../images/icon-post-pros.svg);
+		}
+
+		.page-template-elementor .checklist--cons & {
+			background-image: url(../images/icon-post-cons.svg);
 		}
 	}
 }

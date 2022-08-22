@@ -52,18 +52,13 @@
 			}
 
 			&__excerpt {
-				max-height: 5em;
-				overflow: hidden;
 
 				p,
 				> a {
 
 					@include color(color, font-color-level3);
-					max-height: 5.25em;
-					overflow: hidden;
 					font-size: $font-size-smaller;
 					line-height: $line-height-smaller;
-					margin-bottom: 5px;
 				}
 			}
 		}
@@ -71,6 +66,24 @@
 
 		@media (min-width: $breakpoint-tablet) {
 			padding: 2.5em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.Category__item {
+
+				&__excerpt {
+					max-height: 5em;
+					overflow: hidden;
+
+					p,
+					> a {
+						max-height: 5.25em;
+						overflow: hidden;
+						margin-bottom: 5px;
+					}
+				}
+			}
 		}
 	}
 }
@@ -148,10 +161,13 @@
 				@include color(color, font-color-normal);
 				display: block;
 				font-weight: 700;
-				overflow: hidden;
-				max-height: 70px;
 
-				@media (max-width: $breakpoint-tablet-landscape - 1px) {
+				@media (min-width: $breakpoint-tablet-landscape) {
+					max-height: 70px;
+					overflow: hidden;
+				}
+
+				@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 					max-width: 435px;
 				}
 			}
@@ -160,10 +176,19 @@
 
 				@include color(color, primary-color);
 				display: flex;
-				position: absolute;
-				right: 0;
-				bottom: -2.25em;
 				font-weight: 700;
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					position: absolute;
+					right: 0;
+					bottom: -2.25em;
+				}
+
+				@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+					justify-content: flex-end;
+					width: 100%;
+					margin-top: 0.5em;
+				}
 
 				&::after {
 
@@ -191,7 +216,6 @@
 .Category__item--blogLike {
 	border-radius: $border-radius-16;
 	box-shadow: 0 15px 66px -15px rgba($black-real, 0.12);
-	overflow: hidden;
 	transition: transform 0.2s;
 	cursor: pointer;
 	margin-bottom: 1.375em;
@@ -201,13 +225,52 @@
 	}
 
 	&__thumbnail {
+		position: relative;
 		display: block;
 		height: 9.375em;
+
+		.postLabels {
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			top: 2.5em;
+			right: -0.5em;
+			font-size: 0.625rem;
+		}
+
+		.postLabel {
+			position: relative;
+			display: flex;
+			align-items: center;
+			border-radius: 5px;
+			background-color: $saturated-blue;
+			color: $white;
+			margin-left: auto;
+			padding: 0.75em 1em 0.75em 0.15em;
+			font-weight: 600;
+			line-height: 1.25;
+			z-index: 2;
+
+			+ .postLabel {
+				margin-top: 1em;
+			}
+
+			svg {
+
+				fill: $saturated-blue;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: calc(100% - 3px);
+				z-index: -1;
+			}
+		}
 
 		img {
 
 			@include square(100%);
 			object-fit: cover;
+			border-radius: $border-radius-16 $border-radius-16 0 0;
 		}
 	}
 

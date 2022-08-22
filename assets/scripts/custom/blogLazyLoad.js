@@ -1,4 +1,4 @@
-/* global fetch, IntersectionObserver, customLazyLoad */
+/* global fetch, IntersectionObserver */
 /* eslint-disable camelcase */
 
 /*
@@ -145,7 +145,8 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 									}
 								} );
 
-								customLazyLoad(); // Calling images lazyload
+								// eslint-disable-next-line
+								urlslabLazyLoad(); // Calling images lazyload
 							}
 						);
 						document
@@ -165,5 +166,5 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 		}
 	);
 
-	blogPostsObserver.observe( document.querySelector( '.Newsletter' ) ); // Binding observer on the Footer newsletter element
+	blogPostsObserver.observe( document.querySelector( '.Footer' ) ); // Binding observer on the Footer newsletter element
 }

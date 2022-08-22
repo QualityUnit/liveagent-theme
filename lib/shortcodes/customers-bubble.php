@@ -36,7 +36,9 @@ function ms_customersbubble( $atts ) {
 			<li <?php post_class( 'splide__slide white--bubble white--bubble--quote' ); ?>>
 				<div class="slide__inn elementor-widget-container">
 					<?= get_the_content(); // @codingStandardsIgnoreLine ?>
-					<div class="white--bubble--quote__logo"><?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_logo', true ), 'testimonials_box_logo' ) ?></div>
+					<div class="white--bubble--quote__logo">
+						<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_logo', true ), 'testimonials_box_logo' ) ); ?>" alt="<?php the_title(); ?>" />
+					</div>
 				</div>
 			</li>
 

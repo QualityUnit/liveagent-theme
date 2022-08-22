@@ -84,6 +84,10 @@ $sidebarWidth: 15.625rem;
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				grid-column-gap: 1.25em;
+
+				&.wider {
+					grid-column-gap: 1.875em;
+				}
 			}
 		}
 

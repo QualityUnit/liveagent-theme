@@ -1,0 +1,110 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.FullHeadline {
+	max-width: $breakpoint-desktop-hd;
+	margin: 0 auto 3em;
+	padding: 2em 0;
+	background-color: $lightest-gray;
+	text-align: center;
+
+	[class*="elementor"] {
+		position: static;
+	}
+
+	&.negative {
+		color: $white;
+
+		* {
+			color: inherit;
+		}
+
+		.Clients {
+			filter: grayscale(100%) brightness(1000);
+		}
+	}
+
+	&.tall {
+		padding: 3em 0;
+	}
+
+	.elementor-widget:not(:last-child) {
+		margin-bottom: 0;
+	}
+
+	@media (min-width: $breakpoint-desktop-box) {
+
+		&__use-cases {
+			background: url(../images/case_scenarios_bg.jpg) center right no-repeat;
+			background-size: cover;
+		}
+	}
+
+	@media (min-width: ($breakpoint-desktop-hd + 1px)) {
+		border-radius: $border-radius-16;
+	}
+
+	&__title {
+		font-size: $font-size-h2;
+		line-height: 1.2;
+		margin-bottom: 0.75em;
+
+		* {
+			font-size: inherit;
+			line-height: inherit;
+			color: inherit;
+		}
+	}
+
+	&__subtitle {
+		font-size: $font-size-h3;
+		line-height: 1.42;
+		font-weight: 400;
+		margin-bottom: 1em;
+
+		* {
+			font-size: inherit;
+			font-weight: inherit;
+		}
+	}
+
+	.Buttons {
+		margin: 0.5em auto;
+	}
+
+	.mouse__scroller {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		bottom: 2em;
+
+		img {
+			height: 6em;
+		}
+	}
+
+	.Clients {
+		margin-top: 0;
+		filter: grayscale(100%) brightness(0);
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 8em 0 4em;
+
+		&.tall {
+
+			padding: 10em 0;
+		}
+
+		&__title {
+			font-size: 3.43rem;
+		}
+
+		&__subtitle {
+			font-size: 1.625rem;
+		}
+
+		.Buttons {
+			margin: 3em auto 3em;
+		}
+	}
+}

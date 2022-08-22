@@ -21,7 +21,7 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 		if ( in_array( 'fontello-menu-take-a-tour', $item->classes ) ) {
 			$item_output .= '
 			<div data-ytid="3zYfDwqNj0U" data-lightbox="youtube" class="Header__navigation__promo">
-				<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="Tour Video" />' . '
+				<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="LiveAgent Tour Video" />' . '
 			</div>';
 		}
 	}
@@ -36,11 +36,30 @@ add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
 	*/
 
 function add_lightbox_rel( $content ) {
-	$pattern     = "/<a(.*?)href=('|\")(.*?).(gif|jpeg|jpg|png|webp)('|\")(.*?)>/i";
-	$replacement = '<a$1href=$2$3.$4$5 data-lightbox="gallery"$6>';
-	$content     = preg_replace( $pattern, $replacement, $content );
+	if ( ! $content ) {
+					return $content;
+	}
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath = new DOMXPath( $dom );
+
+	foreach ( $xpath->query( '//a' )    as  $link ) {
+		$link_href = $link->getAttribute( 'href' );
+		if ( $link_href && verify_image_link( $link_href ) ) {
+						$link->setAttribute( 'data-lightbox', 'gallery' );
+		}
+	}
+
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
 	return $content;
 }
+
 add_filter( 'the_content', 'add_lightbox_rel' );
 
 
@@ -61,30 +80,6 @@ function icontabs_sources( $content ) {
 add_filter( 'the_content', 'icontabs_sources' );
 add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
-/**
-	* Add alt tag for every image
-	*/
-
-function add_img_alt_tag_title( $attr, $attachment = null ) {
-	$img_title = str_replace( '^', '', str_replace( '-', ' ', trim( wp_strip_all_tags( $attachment->post_title ) ) ) );
-
-	if ( empty( $attr['alt'] ) ) {
-		$attr['alt'] = $img_title;
-	}
-
-	return $attr;
-}
-add_filter( 'wp_get_attachment_image_attributes', 'add_img_alt_tag_title', 10, 2 );
-
-function add_alt_tag_to_images( $html ) {
-	$replace = str_replace( '^', '', get_the_title() );
-
-	$html = preg_replace( '/alt=""\s/', 'alt="' . $replace . '"', $html );
-
-	return $html;
-}
-add_filter( 'the_content', 'add_alt_tag_to_images', 30 );
-add_filter( 'render_block', 'add_alt_tag_to_images', 30 );
 
 /**
 	* Add X-DEFAULT Header
@@ -157,47 +152,17 @@ function add_drop_caps( $content ) {
 	global $post;
 
 	if ( ! empty( $post ) && 'post' === $post->post_type ) {
-		$match = get_matches( '/\<p\>[A-Z]/i', $content, true );
-
+		$match = '/\<p\>(\<a.+?\>)?([A-Z])([^<]+)(\<\/a\>)?/i';
 		if ( ! empty( $match ) ) {
-			$letter  = str_replace( '<p>', '', $match );
-			$dropcap = '<p><span class="dropcap">' . $letter . '</span>';
-			$content = str_replace_once( $match, $dropcap, $content );
+			$dropcap = '<p>$1<span class="dropcap">$2</span>$3$4';
+			$content = preg_replace( $match, $dropcap, $content, 1 );
 		}
 	}
 
 	return $content;
 }
-add_filter( 'the_content', 'add_drop_caps', 30 );
-add_filter( 'the_excerpt', 'add_drop_caps', 30 );
-
-function get_matches( $p, $s, $first_value = false, $n = 0 ) {
-	$ok = preg_match_all( $p, $s, $matches );
-
-	if ( ! $ok ) {
-		return false;
-	} else {
-		if ( $first_value ) {
-			return $matches[ $n ][0];
-		} else {
-			return $matches[ $n ];
-		}
-	}
-}
-
-function str_replace_once( $search, $replace, $subject ) {
-	$first_char = strpos( $subject, $search );
-
-	if ( false !== $first_char ) {
-		$before_str = substr( $subject, 0, $first_char );
-		$after_str  = substr( $subject, $first_char + strlen( $search ) );
-
-		return $before_str . $replace . $after_str;
-	} else {
-		return $subject;
-	}
-}
-
+// add_filter( 'the_content', 'add_drop_caps', 30 );
+// add_filter( 'the_excerpt', 'add_drop_caps', 30 );
 
 /**
  * Changes default WordPress gutenberg button to LA style buttn
@@ -348,7 +313,6 @@ function exclude_posts_from_xml_sitemaps() {
 
 add_filter( 'wpseo_exclude_from_sitemap_by_post_ids', 'exclude_posts_from_xml_sitemaps' );
 
-
 /**
 	* Flush permalinks after post update
 	*/
@@ -358,7 +322,6 @@ function flush_rules_on_save_posts() {
 }
 
 add_action( 'save_post', 'flush_rules_on_save_posts', 20, 2 );
-
 
 /**
  * Replace admin subdomain
@@ -371,12 +334,11 @@ function replace_admin_subdomain( $content ) {
 }
 add_filter( 'the_content', 'replace_admin_subdomain' );
 
-
-/* 
-* Change formatting in Block--learnMore <pre> blocks
+/*
+*  checklists (pros and cons) in Block--learnMore
 */
 
-function learnmore_pre_block( $content ) {
+function elementor_pros_cons( $content ) {
 	if ( ! $content ) {
 		return $content;
 	}
@@ -385,38 +347,47 @@ function learnmore_pre_block( $content ) {
 	libxml_use_internal_errors( true );
 	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
 	libxml_clear_errors();
-	$xpath       = new DOMXPath( $dom );
-	$block_class = 'Block--learnMore';
-	$blocks      = get_nodes( $xpath, $block_class );
+	$xpath    = new DOMXPath( $dom );
+	$sections = get_nodes( $xpath, 'elementor-section' );
 
-	foreach ( $blocks as $block ) {
-		foreach ( $block->getElementsByTagName( 'pre' ) as $pre ) {
-			// @codingStandardsIgnoreStart
-			$header      = $pre->childNodes->item( 0 )->textContent;
-			$regex       = '/(.+)(–|—|-|-)(.+)(\n|\r)*(.*)/';
-			$strong_text = preg_replace( $regex, '$1', $header );
-			$value_text  = preg_replace( $regex, '$3', $header );
-			$main_text   = $pre->textContent;
-			$main_text   = preg_replace( $regex, '$5', $main_text );
-			if( isset( $pre->childNodes->item( 3 )->textContent ) ) {
-				$main_text = $pre->childNodes->item( 3 )->textContent;
+	foreach ( $sections as $section ) {
+		//get list of pros/cons sections
+		$new_dom = new DomDocument;
+		libxml_use_internal_errors( true );
+		$new_dom->appendChild( $new_dom->importNode( $section, true ) );
+		libxml_clear_errors();
+		$new_xpath = new DOMXPath( $new_dom );
+		$checklists = get_nodes( $new_xpath, 'checklist' );
+		$cols = get_nodes( $new_xpath, 'elementor-col-50' );
+
+		if ( 2 == $checklists->length && 2 == $cols->length ) {
+
+			$checklists_index = 1;
+
+			foreach ( $checklists as $checklist ) {
+				$cl_checklist = $checklist->getAttribute( 'class' );
+				$id_checklist = $checklist->getAttribute( 'data-id' );
+
+				//get checklist node form $dom and add class
+				$checklist_dom = $xpath->query( "//*[@data-id='$id_checklist']" );
+				$checklist = $checklist_dom->item( 0 );
+
+				if ( 1 == $checklists_index ) {
+					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--pros' );
+				}
+
+				if ( 2 == $checklists_index ) {
+					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--cons' );
+				}
+				$checklists_index++;
 			}
-			$pre->textContent = '';
-			$strong           = $dom->createElement( 'strong' );
-			$flex             = $dom->createElement( 'div' );
-			$flex->setAttribute( 'class', 'flex' );
-			$strong->textContent = $strong_text;
-			$flex->appendChild( $strong );
-			$flex->appendChild( $dom->createTextNode( $value_text ) );
-			$pre->appendChild( $flex );
-			$pre->appendChild( $dom->createTextNode( $main_text ) );
 		}
-		// @codingStandardsIgnoreEnd
 	}
+
 	$dom->removeChild( $dom->doctype );
 	$content = $dom->saveHtml();
 	$content = str_replace( '<html><body>', '', $content );
 	$content = str_replace( '</body></html>', '', $content );
 	return $content;
 }
-add_filter( 'the_content', 'learnmore_pre_block', 9999 );
+add_filter( 'the_content', 'elementor_pros_cons', 9999 );

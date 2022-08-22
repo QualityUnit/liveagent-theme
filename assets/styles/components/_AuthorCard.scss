@@ -1,0 +1,123 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.AuthorCard {
+
+	@include color(background-color, secondary-background);
+	display: flex;
+	align-items: stretch;
+	border-radius: $border-radius-16;
+	overflow: hidden;
+
+	&.primary.primary {
+		order: -1;
+		margin-top: 0;
+		margin-bottom: 1.5em;
+	}
+
+	& + & {
+		margin-top: 1.5em;
+	}
+
+	&__image {
+
+		width: 100%;
+		border-radius: 50%;
+		flex: 1 1 5em;
+
+		&--wrapper {
+			padding-left: 1.5em;
+			padding-top: 1em;
+			width: 16%;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		width: 84%;
+		padding: 1em 1.5em;
+
+		h3.AuthorCard__name {
+			font-size: 1rem;
+			margin: 0;
+
+			a {
+				color: currentcolor;
+			}
+		}
+
+		.AuthorCard {
+
+			&__company {
+
+				@include color(color, font-color-medium);
+				font-size: 0.8125rem;
+				font-weight: 600;
+				text-transform: uppercase;
+			}
+
+			&__desc {
+				font-size: 0.875rem;
+				line-height: 1.538;
+			}
+		}
+	}
+
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin: 0;
+
+		@media (min-width: $breakpoint-tablet-small) {
+			margin-top: auto;
+			margin-bottom: 0;
+			display: block;
+		}
+
+		li {
+
+			@include color(background-color, button-outline-color);
+			display: inline-block;
+			position: relative;
+			font-family: $font-secondary;
+			font-weight: 600;
+			font-size: 0.75rem;
+			border-radius: 1em;
+			padding: 0.25em 1em;
+			transition: background-color 0.2s;
+			cursor: pointer;
+			margin-top: 0.75em;
+
+			&::before {
+
+				@include color(color, primary-color);
+				font-size: 1.125em;
+				margin-right: 0.5em;
+			}
+
+			&:hover {
+				background-color: $lighter-gray;
+			}
+
+			+ li {
+				margin-left: 0;
+
+				@media (min-width: $breakpoint-tablet-small) {
+					margin-left: 0.5em;
+				}
+			}
+
+			a {
+
+				@include color(color, font-color-dark, !important);
+				text-decoration: none !important;
+				display: inline-block;
+
+				&::after {
+					display: none !important;
+				}
+			}
+		}
+	}
+}

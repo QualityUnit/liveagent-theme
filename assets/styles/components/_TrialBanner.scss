@@ -1,36 +1,68 @@
 /* stylelint-disable selector-class-pattern */
 
-.trialAd {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	width: 100%;
-	background: url(../images/trialAd_bg.svg) center center no-repeat;
-	background-size: cover;
-	padding: 2em 1.5em;
-	border-radius: $border-radius-16;
+.Boxes.Boxes--stars {
 
-	&__icon {
-
-		@include square(2.375em);
-		margin-bottom: 1.5em;
-	}
-
-	&__title {
-		line-height: 1.25;
+	.elementor-col-50 {
 
 		@media (min-width: $breakpoint-tablet) {
-			font-size: 1.75rem;
+			width: 45%;
 		}
-	}
 
-	&__text {
+		@media (min-width: $breakpoint-desktop) {
+			width: 33%;
+		}
 
-		@include color(color, font-color-dark);
-		font-family: $font-secondary;
-		padding: 0 1.5em;
-		margin-bottom: 1.5em;
+		.trialAd {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			max-width: 350px;
+			margin: 1.5em auto;
+			padding: 3em 0;
+			background-color: $lightest-gray;
+			border-radius: $border-radius-16;
+			overflow: hidden;
+
+			&::after {
+				width: 100%;
+				min-height: 31em;
+				position: absolute;
+				left: 65%;
+				content: "";
+				background: linear-gradient(174.1deg, rgba(9, 0, 44, 0.12) 14.69%, rgba(255, 255, 255, 0) 78.55%);
+				opacity: 0.4;
+				transform: rotate(45deg);
+
+				@media (min-width: $breakpoint-desktop) {
+					left: 50%;
+				}
+			}
+
+			&__icon {
+
+				@include square(2.375em);
+				margin-bottom: 1.5em;
+			}
+
+			&__title {
+				line-height: 1.25;
+				font-size: 1.75rem;
+				text-align: center !important;
+			}
+
+			&__text {
+				color: $black;
+				font-family: $font-secondary;
+				padding: 0 1.5em;
+				margin-bottom: 1.5em;
+			}
+
+			.Button {
+				margin: 0 2.8em;
+			}
+		}
 	}
 }

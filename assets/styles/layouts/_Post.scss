@@ -1,7 +1,8 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
 
 @import "../elements/Checklist";
 @import "../elements/PostTypography";
+@import "../components/AuthorCard";
 
 $sidebarWidth: 13.5em;
 $signupSidebarWidth: 16.875em;
@@ -16,6 +17,17 @@ $signupSidebarWidth: 16.875em;
 
 			@media (min-width: $breakpoint-tablet) {
 				height: 14.375em;
+			}
+
+			&.has-image {
+				padding: 0;
+				overflow: hidden;
+
+				img {
+
+					@include square(100%);
+					object-fit: cover;
+				}
 			}
 		}
 	}
@@ -61,6 +73,19 @@ $signupSidebarWidth: 16.875em;
 			}
 		}
 
+		&__social {
+			display: inline-block;
+			margin-bottom: 1.5em;
+
+			+ a {
+				margin-left: 0.75em;
+			}
+
+			&::after {
+				display: none !important;
+			}
+		}
+
 		@media (min-width: $breakpoint-desktop-box) {
 			display: block;
 			width: $sidebarWidth;
@@ -70,6 +95,7 @@ $signupSidebarWidth: 16.875em;
 
 	&__content {
 		padding: 0 1.5em;
+		margin: 0 auto;
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 			width: calc(100% - #{$signupSidebarWidth} + 3em);
@@ -78,6 +104,11 @@ $signupSidebarWidth: 16.875em;
 			.Content {
 
 				> {
+
+					.Post__m__negative--small {
+						margin-left: -1.5em;
+						margin-right: -1.5em;
+					}
 
 					.Post__m__negative,
 					.BlockDiscover,
@@ -98,6 +129,10 @@ $signupSidebarWidth: 16.875em;
 							display: flex;
 							justify-content: center;
 							flex-wrap: wrap;
+							margin-left: -3.125em;
+							margin-right: -3.125em;
+							overflow: hidden;
+							border-radius: $border-radius-16;
 
 							figcaption {
 								width: 100%;
@@ -133,6 +168,23 @@ $signupSidebarWidth: 16.875em;
 						margin-right: -6em;
 					}
 				}
+			}
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-wrap: wrap;
+
+		.Button {
+			margin: 1em 1em 0 0;
+		}
+
+		@media (max-width: $breakpoint-mobile - 1px) {
+
+			.Button {
+				width: 100%;
+				margin: 1em 0 0 0;
 			}
 		}
 	}

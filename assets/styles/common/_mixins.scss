@@ -64,10 +64,10 @@
 
 @function em($target, $context: $font-size-default, $unit: 'em') {
 
-	@if $target == 0 {
+    @if $target == 0 {
 
-		@return 0;
-	}
+        @return 0;
+    }
 
     $result: $target / strip-unit($context);
 
@@ -110,7 +110,7 @@
 	height: 100%;
 }
 
-@mixin square($size: 1.5em) {
+@mixin square($size: 1.5em, $important: "") {
 	width: $size;
 	height: $size;
 }
@@ -252,7 +252,7 @@
 	left: $left;
 }
 
-@mixin scrollbar() {
+@mixin scrollbar($width:6px) {
 	&::-webkit-scrollbar-track {
 		background-color: transparent;
 	}
@@ -264,11 +264,21 @@
 	}
 
 	&::-webkit-scrollbar {
-		width: 6px;
+		width: $width;
 	}
 
-	scrollbar-width: 6px;
+	scrollbar-width: $width;
 	scrollbar-color: $light-gray transparent;
 }
 
-/* stylelint-enable */
+@mixin line-above($width: 45%, $top: -1em, $color: $light-gray) {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: $width;
+		top: $top;
+		border-top: 2px solid $color;
+	}
+}

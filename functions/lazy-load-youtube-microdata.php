@@ -37,7 +37,7 @@ function yt_videodetails( $video_id ) {
 	}
 	if ( $cache_exists ) {
 		// cache json results so to not over-query (api restrictions)
-		if ( $force_refresh || ( ( time() - filectime( $cache ) ) > ( $refresh ) || 0 == filesize( $cache ) ) ) {
+		if ( $force_refresh ) {
 			$handle = fopen( $cache, 'wb' ) or die( 'no fopen' );
 			fwrite( $handle, $json_cache ); 
 			fclose( $handle );
@@ -48,7 +48,9 @@ function yt_videodetails( $video_id ) {
 			$json_cache,
 			false 
 		);
-		return $video_info->items[0];
+		if ( $video_info ) {
+			return $video_info->items[0];
+		}
 	}
 	return null;
 }
@@ -65,6 +67,7 @@ function yt_microdata( $video_id ) {
 			$uploaded    = yt_videodetails( $video_id )->snippet->publishedAt;
 			$duration    = yt_videodetails( $video_id )->contentDetails->duration;
 			$thumbnail   = yt_videodetails( $video_id )->snippet->thumbnails->maxres->url;
+
 			return '
 				<div itemprop="video" itemscope itemtype="https://schema.org/VideoObject">
 					<meta itemprop="name" content="' . $name . '" />
@@ -94,9 +97,9 @@ function add_yt_microdata( $html ) {
 }
 add_filter( 'the_content', 'add_yt_microdata', 10 );
 
-/**
- * Youtube iframe replacemenets with image, loading YT on click
- */
+// /**
+//  * Youtube iframe replacemenets with image, loading YT on click
+//  */
 
 function youtube_loader( $html ) {
 	$html = preg_replace_callback(
@@ -131,15 +134,56 @@ function youtube_loader2( $html ) {
 }
 add_filter( 'the_content', 'youtube_loader2', 10 );
 
-function elementor_youtube_loader( $html ) {
-	$html = preg_replace_callback(
-		'/\<div(.+)elementor-widget-video.+data-settings=.+(youtube\.com|youtu\.be)\\\\\/(watch\?v=)?(.+?)(&amp;|&quot;|\?)(.+?\>)((\n.+?)+)?(.+elementor-video.+?\>)/',
-		function ( $m ) {
-				return yt_microdata( $m[4] ) . '<div' . $m[1] . ' elementor-widget-video">' . $m[7] . $m[9] . '<div class="youtube__loader youtube__loader--elementor" title="" data-ytid="' . $m[4] . '" data-width="" data-height=""><img class="youtube__loader--img" data-src="https://i.ytimg.com/vi/' . $m[4] . '/hqdefault.jpg" style="opacity: 0; transition: opacity .5s" alt=""></div>';
-		},
-		$html
-	);
+function elementor_youtube_loader( $content ) {
+	if ( ! $content ) {
+		return $content;
+	}
 
-	return $html;
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath         = new DOMXPath( $dom );
+	$parent        = "//div[contains(@class, 'elementor-widget-video')]";
+	$parent_blocks = $xpath->query( $parent );
+
+	foreach ( $parent_blocks as $parent_block ) {
+			$settings = $parent_block->getAttribute( 'data-settings' );
+			$child    = $xpath->query( "//div[@data-settings='" . $settings . "']//div[contains(@class, 'elementor-video')]" );
+			preg_match( '/(youtube|youtu)(\.com|\.be)((\\\\\/)(.+?))"/', $settings, $ytid );
+			
+		if ( isset( $ytid[5] ) ) {
+			$ytid           = str_replace( 'watch?v=', '', $ytid[5] );
+			$youtube_loader = $dom->createElement( 'div' );
+			$youtube_loader->setAttribute( 'class', 'youtube__loader youtube__loader--elementor' );
+			$youtube_loader->setAttribute( 'data-ytid', $ytid );
+				
+			$youtube_img = $dom->createElement( 'img' );
+			$youtube_img->setAttribute( 'class', 'youtube__loader--img' );
+			$youtube_img->setAttribute( 'data-lasrc', 'https://i.ytimg.com/vi/' . $ytid . '/hqdefault.jpg' );
+			$youtube_img->setAttribute( 'style', 'opacity: 0; transition: opacity .5s' );
+			$youtube_img->setAttribute( 'alt', 'Youtube video ' . $ytid );
+	
+			$youtube_loader->appendChild( $youtube_img );
+	
+			if ( ! empty( yt_microdata( $ytid ) ) ) {
+				$schema = new DOMDocument();
+				$schema->loadHTML( yt_microdata( $ytid ) );
+			}
+				
+			if ( $child->length ) {
+				$child->item( 0 )->appendChild( $youtube_loader );
+				if ( isset( $schema ) ) {
+					$child->item( 0 )->appendChild( $dom->importNode( $schema->documentElement, true ) ); // @codingStandardsIgnoreLine
+				}
+			}
+		}
+	}
+
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
 }
 add_filter( 'the_content', 'elementor_youtube_loader', 10 );
