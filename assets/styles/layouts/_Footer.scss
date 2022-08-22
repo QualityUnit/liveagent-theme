@@ -146,9 +146,9 @@
 .Footer__middle {
 
 	padding-bottom: em(20);
-  
+
 	@include footerGrid();
-  
+
 	.wrapper {
 		align-items: initial;
 	}
@@ -214,7 +214,7 @@
 			&:hover {
 				text-decoration: underline;
 			}
-    
+
 			&::before {
 				content: "\e828";
 				font-family: fontello, sans-serif;
@@ -269,7 +269,7 @@
 						}
 					}
 				}
-        
+
 			}
 		}
 	}
