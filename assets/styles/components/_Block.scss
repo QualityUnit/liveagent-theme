@@ -102,6 +102,23 @@
 			text-align: center;
 		}
 
+		.elementor-widget-text-editor.learn-more {
+
+			a {
+
+				@include color(color, font-color-level3);
+
+				&::after {
+
+					content: url(../images/arrow_small_right.svg) !important;
+					position: relative;
+					top: 0.25em;
+					display: inline-block !important;
+					margin-left: 0.5em;
+				}
+			}
+		}
+
 		&__basic {
 			margin-bottom: 3em !important;
 
