@@ -31,8 +31,6 @@ define( 'THEME_VERSION', '1.0.18' );
 		'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
 		'functions/import-functions.php', // Partials JS and SCSS import functions
 		'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
-		'functions/lazy-load.php', // Lazy loading of images, videos etc.
-		'functions/lazy-load-youtube-microdata.php', // Lazy loading and Microdata for YouTube videos.
 		'functions/post-types.php', // Import Custom Post Types
 		'functions/taxonomies.php', // Import Custom Taxonomies
 		'functions/metaboxes.php', // Import Metaboxes
