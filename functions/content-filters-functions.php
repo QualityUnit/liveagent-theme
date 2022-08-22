@@ -6,7 +6,7 @@ function add_class_to_node( $node, $classes ) {
 }
 
 function verify_image_link( $path ) {
-	$supported = array( 'gif', 'jpg', 'jpeg', 'png', 'webp' );
+	$supported = array( 'gif', 'jpg', 'jpeg', 'png', 'webp', 'avif' );
 	$ext = strtolower( pathinfo( $path, PATHINFO_EXTENSION ) );
 	if ( in_array( $ext, $supported ) ) {
 		return true;

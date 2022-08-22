@@ -276,7 +276,7 @@
 
 		.Content {
 
-			p span.dropcap {
+			> p:first-of-type::first-letter {
 				font-size: 100px;
 				line-height: 75px;
 				font-weight: 700;

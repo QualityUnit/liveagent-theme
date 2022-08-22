@@ -4,7 +4,6 @@
 	max-width: $breakpoint-desktop-hd;
 	margin: 0 auto 3em;
 	padding: 2em 0;
-	border-radius: $border-radius-16;
 	background-color: $lightest-gray;
 	text-align: center;
 
@@ -38,6 +37,10 @@
 			background: url(../images/case_scenarios_bg.jpg) center right no-repeat;
 			background-size: cover;
 		}
+	}
+
+	@media (min-width: ($breakpoint-desktop-hd + 1px)) {
+		border-radius: $border-radius-16;
 	}
 
 	&__title {

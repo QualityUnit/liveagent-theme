@@ -84,6 +84,7 @@
 			span {
 				color: $medium-gray;
 				background-color: $lightest-gray;
+				padding-left: 0;
 			}
 		}
 
@@ -91,11 +92,12 @@
 			color: $black;
 			background-color: #e3f2ff;
 			margin: 0 1em 1em 0;
-			padding: 0.25em 1em;
+			padding: 0.5em 1.5em;
 			border-radius: 50px;
 			font-size: 12px;
 			font-weight: 500;
 			line-height: $line-height-default;
+			font-family: $font-secondary;
 			text-align: center;
 		}
 	}
@@ -123,6 +125,7 @@
 
 		@media (min-width: 1300px) {
 			justify-content: flex-start;
+			max-width: 95%;
 		}
 
 		&__item {
@@ -204,14 +207,16 @@
 						&::before {
 							content: url(../images/pricing-banner-popular.svg);
 						}
+					}
 
-						&__popular {
-							position: absolute;
-							font-weight: $font-weight-semi;
-							font-size: 0.8125rem;
-							left: 0;
-							top: 0;
-						}
+					&__most-popular {
+						position: absolute;
+						background: -webkit-linear-gradient(left, $light-orange, $dark-orange);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						font-family: $font-secondary;
+						font-size: 13px;
+						font-weight: $font-weight-semi;
 					}
 				}
 			}
@@ -391,16 +396,13 @@
 			width: 16em;
 		}
 
-		.compare-plans {
-
-			a {
-				overflow: hidden;
-				white-space: nowrap;
-			}
+		a {
+			overflow: hidden;
+			white-space: nowrap;
 		}
 
 		.ButtonPricing--arrow {
-			margin-left: 0.8em;
+			margin: 0 0 0.4em 0.8em;
 			transform: scale(1.5);
 		}
 	}
