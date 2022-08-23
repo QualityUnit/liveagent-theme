@@ -88,8 +88,8 @@
 								<div class="Blog__item__meta__categories">
 									<span class="Blog__item__meta__category"><?= esc_html( $category_item->name ); ?></span>
 								</div>
-								<h3 class="Category__item__title"><a href="<?php the_permalink(); ?>"><?= esc_html( $post_title ); ?></a></h3>
-								<a href="<?php the_permalink(); ?>" class="Category__item__excerpt">
+								<h3 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?= esc_html( $post_title ); ?></a></h3>
+								<a href="<?php the_permalink(); ?>" class="Category__item__excerpt item-excerpt">
 									<p>
 										<?= esc_html( wp_trim_words( get_the_excerpt(), 12 ) ); ?>
 									</p>
