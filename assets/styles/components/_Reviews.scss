@@ -111,6 +111,47 @@
 		}
 	}
 
+	&__images-hover {
+
+		.elementor-column {
+
+			width: 100%;
+
+			&:first-child {
+
+				@include posZero();
+				position: absolute;
+				z-index: 5;
+				opacity: 0;
+				background-color: rgba($white, 0);
+				transition: all 0.3s;
+				cursor: pointer;
+
+				&:active,
+				&:focus,
+				&:hover {
+					opacity: 1;
+					background-color: rgba($white, 0.6);
+				}
+
+				[class^="elementor"] {
+
+					@include fullSize();
+					position: relative;
+				}
+
+				a {
+
+					@include posZero();
+					position: absolute;
+					justify-content: center;
+					align-items: center;
+					display: flex;
+				}
+			}
+		}
+	}
+
 	@media (max-width: $breakpoint-desktop) {
 		margin-top: 100px;
 		margin-bottom: 100px;

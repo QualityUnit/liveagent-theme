@@ -146,7 +146,7 @@
 				align-content: flex-end;
 				justify-content: center;
 				text-align: center;
-				border: 5px solid $lightest-gray;
+				border: 5px solid $pricing-gray;
 				border-radius: 1.875rem;
 				padding-top: 1em;
 				transition: border-color 0.2s;
@@ -208,6 +208,34 @@
 						margin-bottom: 4rem;
 					}
 				}
+			}
+		}
+	}
+
+	&--hover {
+
+		.elementor-inner-section .elementor-column {
+
+			&:active,
+			&:focus,
+			&:hover {
+
+				.Button--full {
+
+					@extend %Button--full--hover;
+				}
+			}
+
+			.elementor-widget-html {
+				position: initial;
+			}
+
+			.Boxes__hover {
+
+				@include posZero();
+				position: absolute;
+				z-index: 10;
+				cursor: pointer;
 			}
 		}
 	}
