@@ -22,13 +22,10 @@
 			margin-top: 0.75em;
 		}
 
-		.elementor-row.elementor-row {
-			gap: 1em;
-		}
-
-		.elementor-row {
+		.elementor-container.elementor-container {
 			display: flex;
 			justify-content: space-between;
+			gap: 1em;
 			flex-flow: column;
 
 			@media (min-width: $breakpoint-tablet) {
@@ -53,9 +50,36 @@
 					}
 				}
 			}
+		}
 
-			.elementor-image {
-				padding: 0;
+
+		.elementor-row.elementor-row {
+			display: flex;
+			justify-content: space-between;
+			gap: 1em;
+			flex-flow: column;
+
+			@media (min-width: $breakpoint-tablet) {
+				flex-flow: row;
+			}
+
+			.elementor-column.elementor-col-50.elementor-inner-column {
+				width: 100% !important;
+
+				@media (min-width: $breakpoint-tablet) {
+					width: 45% !important;
+				}
+
+				h2 {
+					font-size: 40px;
+				}
+
+				.bigger {
+
+					img {
+						transform: scale(1.2);
+					}
+				}
 			}
 		}
 	}
@@ -84,7 +108,7 @@
 
 	.checklist {
 
-		.elementor-text-editor.elementor-text-editor {
+		.elementor-widget-container.elementor-widget-container {
 			margin-bottom: 0;
 
 			&:empty {
