@@ -81,6 +81,22 @@ body {
 	display: none !important;
 }
 
+.hidden {
+	display: none !important;
+}
+
+.invisible {
+	visibility: none !important;
+	opacity: 0 !important;
+	cursor: default;
+
+	*,
+	&:hover * {
+		cursor: default !important;
+	}
+
+}
+
 .flex {
 	display: flex;
 
