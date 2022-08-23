@@ -33,14 +33,24 @@
 		margin-bottom: 2em;
 
 		.subhead {
-			display: flex;
+			display: block;
 			max-width: 60%;
-			flex: 0 0 100%;
 			text-align: center;
 			line-height: $main-nav-submenu-line-height;
 
 			@media (max-width: $breakpoint-tablet) {
 				max-width: 90%;
+			}
+
+			a {
+
+				@include color(color, primary-color);
+
+				&:active,
+				&:focus,
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 	}
