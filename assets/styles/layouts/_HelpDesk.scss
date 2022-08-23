@@ -9,25 +9,77 @@
 		.wrapper {
 			max-width: 100%;
 			padding: 0;
+
+			.elementor-column-wrap {
+				padding: 1.6em 0 1.1em 0 !important;
+			}
 		}
 	}
 
 	.wrapper {
 
-		.elementor-row.elementor-row {
-			gap: 1em;
+		.learn-more {
+			margin-top: 0.75em;
 		}
 
-		.elementor-row {
+		.elementor-container.elementor-container {
 			display: flex;
 			justify-content: space-between;
+			gap: 1em;
+			flex-flow: column;
 
-			.elementor-column.elementor-col-50.elementor-inner-column {
-				width: 45% !important;
+			@media (min-width: $breakpoint-tablet) {
+				flex-flow: row;
 			}
 
-			.elementor-image {
-				padding: 0;
+			.elementor-column.elementor-col-50.elementor-inner-column {
+				width: 100% !important;
+
+				@media (min-width: $breakpoint-tablet) {
+					width: 45% !important;
+				}
+
+				h2 {
+					font-size: 40px;
+				}
+
+				.bigger {
+
+					img {
+						transform: scale(1.2);
+					}
+				}
+			}
+		}
+
+
+		.elementor-row.elementor-row {
+			display: flex;
+			justify-content: space-between;
+			gap: 1em;
+			flex-flow: column;
+
+			@media (min-width: $breakpoint-tablet) {
+				flex-flow: row;
+			}
+
+			.elementor-column.elementor-col-50.elementor-inner-column {
+				width: 100% !important;
+
+				@media (min-width: $breakpoint-tablet) {
+					width: 45% !important;
+				}
+
+				h2 {
+					font-size: 40px;
+				}
+
+				.bigger {
+
+					img {
+						transform: scale(1.2);
+					}
+				}
 			}
 		}
 	}
@@ -39,7 +91,13 @@
 			align-items: center;
 			margin-bottom: 1em;
 
+			svg {
+				transform: scale(0.9);
+			}
+
 			.elementor-icon-box-content {
+
+				margin-left: 0.2em;
 
 				.elementor-icon-box-title {
 					margin-bottom: 0 !important;
@@ -50,9 +108,8 @@
 
 	.checklist {
 
-		.elementor-text-editor.elementor-text-editor {
+		.elementor-widget-container.elementor-widget-container {
 			margin-bottom: 0;
-			width: 88%;
 
 			&:empty {
 				display: none;
@@ -82,6 +139,10 @@
 		img:first-child {
 			margin-right: 0.5em;
 		}
+
+		a::after {
+			display: none !important;
+		}
 	}
 
 }
@@ -89,3 +150,4 @@
 .HelpDeskFaq.Text.Text--faq {
 	margin-bottom: 0 !important;
 }
+
