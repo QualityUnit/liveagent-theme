@@ -34,6 +34,17 @@ button,
 	}
 }
 
+%Button--full--hover {
+
+	&::before {
+		opacity: 0;
+	}
+
+	&::after {
+		opacity: 1;
+	}
+}
+
 .Button--full {
 
 	@include color(background, background);
@@ -80,13 +91,7 @@ button,
 	&:focus,
 	&:hover {
 
-		&::before {
-			opacity: 0;
-		}
-
-		&::after {
-			opacity: 1;
-		}
+		@extend %Button--full--hover;
 	}
 }
 
@@ -222,7 +227,7 @@ button,
 	&__white {
 
 		@include color(color, font-color-light);
-		border-width: 2px;
+		border-width: 1px;
 		padding: 0.5em 1.5em;
 
 		&:active,

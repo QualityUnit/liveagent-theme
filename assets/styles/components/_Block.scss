@@ -82,8 +82,8 @@
 
 	&--redesign {
 
-		h2 {
-			font-size: 2.5rem;
+		h2,
+		h3 {
 			line-height: 1.36 !important;
 			text-align: center;
 
@@ -92,6 +92,14 @@
 				font-size: inherit;
 				line-height: inherit;
 			}
+		}
+
+		h2 {
+			font-size: 2.5rem;
+		}
+
+		h3 {
+			font-size: 1.875rem;
 		}
 
 		.elementor-text-editor {
@@ -139,7 +147,8 @@
 
 		@media (min-width: ($breakpoint-tablet + 1px) ) {
 
-			h2 {
+			h2,
+			h3 {
 				text-align: left;
 			}
 
@@ -220,6 +229,39 @@
 				&.Block--background {
 					padding-top: 2rem !important;
 					padding-bottom: 2rem !important;
+				}
+			}
+		}
+
+		&__successtories {
+
+			.elementor-widget-heading {
+
+				&,
+				* {
+					text-align: center;
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+
+				.wrapper {
+					background-image: url(../images/earth.svg);
+					background-repeat: no-repeat;
+					background-position: left top;
+					background-size: cover;
+				}
+			}
+
+			@media (max-width: $breakpoint-desktop - 1px) {
+
+				background-image: url(../images/earth.svg);
+				background-repeat: no-repeat;
+				background-position: left top;
+				background-size: cover;
+
+				.wrapper {
+					background-color: transparent;
 				}
 			}
 		}
