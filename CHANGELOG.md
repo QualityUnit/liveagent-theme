@@ -1,3 +1,7 @@
+### 1.0.23: August 23rd, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.0.22: August 19th, 2022
 
 - Release the new URLsLab plugin version
