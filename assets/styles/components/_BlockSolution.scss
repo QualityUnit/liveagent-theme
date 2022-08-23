@@ -21,10 +21,19 @@
 		}
 	}
 
+	.elementor-container {
+		display: flex;
+		flex-flow: wrap column;
+
+		@media (min-width: $breakpoint-desktop) {
+			flex-flow: row;
+		}
+	}
+
 
 	.column--solution {
 		position: relative;
-		width: 295px !important;
+		width: 18.75rem !important;
 		margin-top: 2em;
 		align-self: flex-start;
 		flex-shrink: 0;
@@ -47,7 +56,6 @@
 		&-main-text {
 			max-width: 430px;
 			width: 100%;
-			align-self: flex-start;
 
 			@media (min-width: $breakpoint-desktop) {
 				margin-right: 8%;
@@ -65,8 +73,8 @@
 			.elementor-widget-heading {
 
 				h2 {
-					font-size: 30px;
-					line-height: 42px;
+					font-size: 1.875rem;
+					line-height: 1.4;
 					max-width: 80%;
 					font-weight: $font-weight-bold;
 					font-family: $font-secondary;
@@ -86,6 +94,7 @@
 		&--heading {
 			position: absolute;
 			padding-left: 2.5em;
+			margin: 0;
 			margin-top: 6em;
 		}
 
