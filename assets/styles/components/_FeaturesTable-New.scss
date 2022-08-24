@@ -26,14 +26,14 @@
 					font-size: 0.875rem;
 					text-decoration: none;
 					margin-top: 0.5em;
-	
+
 					&::before {
-	
+
 						@include posZero;
 						position: absolute;
 						content: "";
 					}
-	
+
 					&::after {
 						position: relative;
 						content: url(../images/arrow_small_right.svg);
@@ -41,7 +41,7 @@
 						margin-left: 0.5em;
 						top: 0.25em;
 					}
-	
+
 					&:hover::after {
 						filter: brightness(200);
 					}
@@ -124,7 +124,7 @@
 					border-radius: $featureRadius;
 					background-color: $white;
 
-					[class*=elementor] {
+					[class*="elementor"] {
 						display: flex;
 						justify-content: center;
 						align-content: center;
@@ -133,6 +133,7 @@
 					}
 
 					img {
+
 						@include square(calc(100% - 1em));
 						object-fit: contain;
 					}
@@ -164,6 +165,7 @@
 				}
 
 				&:hover {
+
 					.elementor-widget-image img {
 						border-radius: 0;
 						box-shadow: none;
@@ -314,7 +316,9 @@
 		}
 
 		&.full {
-			&:before, &:after {
+
+			&::before,
+			&::after {
 				display: none;
 			}
 
