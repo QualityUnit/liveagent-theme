@@ -148,7 +148,8 @@
 			}
 		}
 
-		& &--last.elementor-column[class] {
+		& &--last.elementor-column[class],
+		&--last[class] {
 			position: relative;
 			margin-bottom: auto;
 			padding: 1em 0.25em !important;
