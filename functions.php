@@ -3,7 +3,7 @@
 /**
  * Setup variables
  */
-define( 'THEME_VERSION', '1.0.24' );
+define( 'THEME_VERSION', '1.0.25' );
 
 /**
 	* Includes
@@ -32,7 +32,7 @@ define( 'THEME_VERSION', '1.0.24' );
 		'functions/import-functions.php', // Partials JS and SCSS import functions
 		'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
 		'functions/lazy-load.php', // Lazy loading of images, videos etc.
-		'functions/lazy-load-youtube-microdata.php', // Lazy loading and Microdata for YouTube videos.
+//		'functions/lazy-load-youtube-microdata.php', // Lazy loading and Microdata for YouTube videos.
 		'functions/post-types.php', // Import Custom Post Types
 		'functions/taxonomies.php', // Import Custom Taxonomies
 		'functions/metaboxes.php', // Import Metaboxes

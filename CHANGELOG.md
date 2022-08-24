@@ -1,3 +1,7 @@
+### 1.0.25: August 24th, 2022
+
+- Hotfix
+
 ### 1.0.24: August 24th, 2022
 
 - Bug Fixes and Improvements
