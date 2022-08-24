@@ -3,12 +3,17 @@
 .Text {
 
 	&--faq {
-		margin-top: 100px;
-		margin-bottom: 100px;
+		margin-top: $block-space;
+		margin-bottom: $block-space;
 
 		@media (max-width: $breakpoint-tablet) {
-			margin-top: 75px !important;
-			margin-bottom: 75px !important;
+			margin-top: $block-space-sm !important;
+			margin-bottom: $block-space-sm !important;
+		}
+
+		.Faq {
+			margin-top: 0 !important;
+			margin-bottom: 0 !important;
 		}
 	}
 }

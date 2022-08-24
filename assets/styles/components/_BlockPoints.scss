@@ -2,17 +2,17 @@
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 
 .BlockPoints {
-	margin-top: 100px !important;
-	margin-bottom: 100px !important;
+	margin-top: $block-space !important;
+	margin-bottom: $block-space !important;
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
 
 	&.margin-top {
-		margin-top: 150px !important;
+		margin-top: $block-space !important;
 	}
 
 	&.margin-bottom {
-		margin-bottom: 150px !important;
+		margin-bottom: $block-space !important;
 	}
 
 	.elementor-widget:not(:last-child) {
@@ -133,8 +133,8 @@
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		margin-top: 75px !important;
-		margin-bottom: 75px !important;
+		margin-top: $block-space-sm !important;
+		margin-bottom: $block-space-sm !important;
 
 		h2 {
 			font-size: $font-size-h2;
@@ -173,8 +173,8 @@
 	padding-bottom: 0 !important;
 
 	.wrapper {
-		padding-top: 100px !important;
-		padding-bottom: 100px !important;
+		padding-top: $block-space !important;
+		padding-bottom: $block-space !important;
 	}
 
 	.elementor-col-25 {
@@ -183,8 +183,8 @@
 	}
 
 	@media (max-width: $breakpoint-desktop-box) {
-		padding-top: 100px !important;
-		padding-bottom: 100px !important;
+		padding-top: $block-space !important;
+		padding-bottom: $block-space !important;
 
 		.wrapper {
 			padding-top: 0 !important;

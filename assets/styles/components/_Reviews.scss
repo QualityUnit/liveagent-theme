@@ -1,8 +1,8 @@
 /* stylelint-disable selector-class-pattern */
 
 .Reviews {
-	margin-top: 150px;
-	margin-bottom: 150px;
+	margin-top: $block-space;
+	margin-bottom: $block-space;
 
 	.elementor-widget:not(:last-child) {
 		margin-bottom: 0 !important;
