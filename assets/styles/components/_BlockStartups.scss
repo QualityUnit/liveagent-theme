@@ -3,9 +3,21 @@
 .Block--startups {
 
 	&.wrapper__wide {
+		background-position: left center;
 
 		> .elementor-container {
-			padding: 8em 5em 8em 5em;
+			padding: 7em 0 7em 5em;
+		}
+	}
+
+	&.Block--switcher .elementor-inner-section .elementor-column {
+
+		&:not(:last-of-type),
+		&:last-of-type {
+
+			> * {
+				all: unset;
+			}
 		}
 	}
 
@@ -34,26 +46,27 @@
 			margin-right: -3em;
 		}
 
-		&--first[class] {
+		& &--first.elementor-column[class] {
 			position: absolute;
 			width: 75%;
 			top: 15%;
 			left: 0;
-			padding: 0;
+			padding: 0 !important;
+			margin-left: -3em;
 
 			@media (max-width: ($breakpoint-tablet - 1px)) {
 				display: none;
 			}
 		}
 
-		&--mid[class] {
+		& &--mid.elementor-column[class] {
 
 			@include color(box-shadow, box-shadow);
 			@include color(background-color, main-background);
 			font-size: 1.2rem;
 
 			border-radius: $border-radius-16;
-			padding: 1.5em;
+			padding: 1.5em !important;
 
 			* {
 				font-size: inherit !important;
@@ -135,10 +148,10 @@
 			}
 		}
 
-		&--last[class] {
+		& &--last.elementor-column[class] {
 			position: relative;
 			margin-bottom: auto;
-			padding: 1em 0.25em;
+			padding: 1em 0.25em !important;
 			background-color: $saturated-green;
 			border-radius: $border-radius-16;
 			color: $white;
