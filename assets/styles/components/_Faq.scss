@@ -1,17 +1,17 @@
 /* stylelint-disable selector-class-pattern */
 
 .Faq {
-	margin-top: 100px !important;
-	margin-bottom: 100px !important;
+	margin-top: $block-space !important;
+	margin-bottom: $block-space !important;
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
 
 	&.margin-top {
-		margin-top: 150px !important;
+		margin-top: $block-space !important;
 	}
 
 	&.margin-bottom {
-		margin-bottom: 150px !important;
+		margin-bottom: $block-space !important;
 	}
 
 	.wrapper {

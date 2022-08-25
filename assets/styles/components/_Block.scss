@@ -2,8 +2,8 @@
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 
 .Block {
-	margin-top: 100px !important;
-	margin-bottom: 100px !important;
+	margin-top: $block-space !important;
+	margin-bottom: $block-space !important;
 
 	&.no-margin-top {
 		margin-top: 0 !important;
@@ -276,7 +276,7 @@
 			@media (max-width: ($breakpoint-tablet - 1px)) {
 				order: 2 !important;
 				width: 100% !important;
-				margin-top: 75px !important;
+				margin-top: $block-space-sm !important;
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
@@ -468,7 +468,7 @@
 
 	@media (max-width: $breakpoint-tablet) {
 		margin-top: 0 !important;
-		margin-bottom: 75px !important;
+		margin-bottom: $block-space-sm !important;
 
 		&.image-right {
 
@@ -562,10 +562,10 @@
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		margin-top: 75px !important;
-		margin-bottom: 75px !important;
-		padding-top: 75px !important;
-		padding-bottom: 75px !important;
+		margin-top: $block-space-sm !important;
+		margin-bottom: $block-space-sm !important;
+		padding-top: $block-space-sm !important;
+		padding-bottom: $block-space-sm !important;
 	}
 }
 
