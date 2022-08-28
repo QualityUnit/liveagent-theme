@@ -16,6 +16,7 @@
 			@include posZero;
 			position: absolute;
 			content: "";
+			pointer-events: none;
 			background: url(../images/cta_new_chat.png) 100% bottom no-repeat;
 			background-size: 50% auto;
 		}
@@ -40,14 +41,21 @@
 	}
 
 	p {
-
-		@include color(color, font-color-light, !important);
 		margin-bottom: 15px !important;
 		letter-spacing: 0 !important;
 
+		&,
+		* {
+
+			@include color(color, font-color-light, !important);
+		}
+
+		a {
+			text-decoration: underline;
+		}
+
 		strong {
 
-			@include color(color, font-color-light);
 			font-size: $font-size-bigger;
 			line-height: $line-height-bigger;
 		}

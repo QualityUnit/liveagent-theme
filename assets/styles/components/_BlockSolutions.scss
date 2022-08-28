@@ -2,8 +2,8 @@
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 
 .BlockSolutions {
-	margin-top: 100px !important;
-	margin-bottom: 100px !important;
+	margin-top: $block-space !important;
+	margin-bottom: $block-space !important;
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
 
@@ -109,8 +109,8 @@
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		margin-top: 75px !important;
-		margin-bottom: 75px !important;
+		margin-top: $block-space-sm !important;
+		margin-bottom: $block-space-sm !important;
 
 		h2 {
 			font-size: 28px;
@@ -136,8 +136,8 @@
 	padding-bottom: 0 !important;
 
 	.wrapper {
-		padding-top: 100px !important;
-		padding-bottom: 100px !important;
+		padding-top: $block-space !important;
+		padding-bottom: $block-space !important;
 	}
 
 	.elementor-col-25 {

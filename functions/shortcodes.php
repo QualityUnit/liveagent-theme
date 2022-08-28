@@ -6,6 +6,7 @@ require_once get_template_directory() . '/lib/shortcodes/small-photo-slider.php'
 	require_once get_template_directory() . '/lib/shortcodes/newsletter-form.php';
 	require_once get_template_directory() . '/lib/shortcodes/clients.php';
 	require_once get_template_directory() . '/lib/shortcodes/voip-partners.php';
+	require_once get_template_directory() . '/lib/shortcodes/slider-success-stories.php';
 	require_once get_template_directory() . '/lib/shortcodes/slider-testimonials.php';
 	require_once get_template_directory() . '/lib/shortcodes/slider-testimonials-custom.php';
 	require_once get_template_directory() . '/lib/shortcodes/slider-testimonials-home.php';

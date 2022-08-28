@@ -82,6 +82,31 @@
 	}
 }
 
+.Box--violet-fx {
+	background: linear-gradient(90deg, #483ff0 0%, #9d3cf9 100%);
+	box-shadow: 0 em(15) em(66) em(-15) rgba(72, 63, 240, 0.5);
+
+	&::after {
+
+		@include posZero();
+		content: "";
+		position: absolute;
+		z-index: 1;
+		display: block;
+		background: url(../images/box-fx-horizontal01.svg) center center no-repeat;
+		background-size: cover;
+	}
+
+	> * {
+		position: relative;
+		z-index: 2;
+	}
+
+	* {
+		color: $white;
+	}
+}
+
 .Box--regular {
 
 	@include color(background-color, main-background);
@@ -148,6 +173,31 @@
 			@extend .highlight-gradient;
 			font-size: 1.5rem;
 		}
+	}
+}
+
+.Box--medium {
+
+	@include color(background-color, main-background);
+	max-width: em(837);
+	padding: em(24) em(18);
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: $border-radius-16;
+	box-shadow: 0 em(15) em(66) em(-15) rgba($black-real, 0.5);
+	font-size: $font-size-default;
+	overflow: hidden;
+
+	* {
+		font-family: $font-secondary;
+		line-height: 1.33;
+		font-size: em(30);
+		font-weight: $font-weight-bold;
+		text-align: center;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: em(35) em(60);
 	}
 }
 
