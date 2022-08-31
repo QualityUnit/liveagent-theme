@@ -6,11 +6,11 @@
 	overflow: hidden;
 
 	&.margin-top {
-		margin-top: 100px;
+		margin-top: $block-space;
 	}
 
 	&.margin-bottom {
-		margin-bottom: 100px;
+		margin-bottom: $block-space;
 	}
 
 	.elementor-widget:not(:last-child) {

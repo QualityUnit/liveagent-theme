@@ -57,6 +57,11 @@
 			@media (min-width: ($breakpoint-tablet + 1px)) {
 				width: 29.69%;
 			}
+
+			@media (min-width: ($breakpoint-desktop-box + 1px)) {
+				width: 28.1%;
+				transform: translate(-3.7%, -50%);
+			}
 		}
 
 		&::after {

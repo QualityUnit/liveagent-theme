@@ -21,7 +21,7 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 		if ( in_array( 'fontello-menu-take-a-tour', $item->classes ) ) {
 			$item_output .= '
 			<div data-ytid="3zYfDwqNj0U" data-lightbox="youtube" class="Header__navigation__promo">
-				<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="Tour Video" />' . '
+				<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="LiveAgent Tour Video" />' . '
 			</div>';
 		}
 	}
@@ -80,30 +80,6 @@ function icontabs_sources( $content ) {
 add_filter( 'the_content', 'icontabs_sources' );
 add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
-/**
-	* Add alt tag for every image
-	*/
-
-function add_img_alt_tag_title( $attr, $attachment = null ) {
-	$img_title = str_replace( '^', '', str_replace( '-', ' ', trim( wp_strip_all_tags( $attachment->post_title ) ) ) );
-
-	if ( empty( $attr['alt'] ) ) {
-		$attr['alt'] = $img_title;
-	}
-
-	return $attr;
-}
-add_filter( 'wp_get_attachment_image_attributes', 'add_img_alt_tag_title', 10, 2 );
-
-function add_alt_tag_to_images( $html ) {
-	$replace = str_replace( '^', '', get_the_title() );
-
-	$html = preg_replace( '/alt=""\s/', 'alt="' . $replace . '"', $html );
-
-	return $html;
-}
-add_filter( 'the_content', 'add_alt_tag_to_images', 30 );
-add_filter( 'render_block', 'add_alt_tag_to_images', 30 );
 
 /**
 	* Add X-DEFAULT Header

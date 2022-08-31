@@ -214,7 +214,7 @@
 		border-radius: $border-radius-16;
 		margin: 0 auto 0;
 		padding: 2em;
-		width: 80% !important;
+		max-width: 30.25em;
 		box-shadow: 0 15px 41px rgba(145, 145, 145, 0.28), inset 0 -15px 20px rgba(157, 157, 157, 0.1);
 
 		.big + & {

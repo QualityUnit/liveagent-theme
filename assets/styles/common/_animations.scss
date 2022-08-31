@@ -105,3 +105,18 @@
 		transform: scale3d(1, 1, 1);
 	}
 }
+
+@keyframes down {
+
+	0% {
+		transform: translate(0);
+	}
+
+	20% {
+		transform: translateY(1em);
+	}
+
+	40% {
+		transform: translate(0);
+	}
+}
