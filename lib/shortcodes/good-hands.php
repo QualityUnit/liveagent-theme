@@ -1,6 +1,14 @@
 <?php
 
-function ms_good_hands() {
+function ms_good_hands( $atts ) {
+	$atts = shortcode_atts(
+		array(
+			'clients' => 0,
+		),
+		$atts,
+		'good-hands'
+	);
+
 	ob_start();
 	?>
 
@@ -24,6 +32,9 @@ function ms_good_hands() {
 								</div>
 							</div>
 
+							<?php
+							if ( 0 === $atts['clients'] ) {
+								?>
 							<div class="elementor-element elementor-widget elementor-widget-html">
 								<div class="elementor-widget-container">
 									<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--medium Button--full"><span><?php _e( 'Try it now for free', 'ms' ); ?></span></a>
@@ -69,6 +80,12 @@ function ms_good_hands() {
 									</div>
 								</div>
 							</div>
+								<?php
+							}
+							if ( $atts['clients'] > 0 ) {
+								echo do_shortcode( '[clients posts=' . $atts['clients'] . ']' );
+							}
+							?>
 						</div>
 					</div>
 				</div>

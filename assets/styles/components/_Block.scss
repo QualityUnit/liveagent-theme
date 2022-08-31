@@ -2,19 +2,19 @@
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 
 .Block {
-	margin-top: 100px !important;
-	margin-bottom: 100px !important;
+	margin-top: 100px;
+	margin-bottom: 100px;
 
 	&.no-margin-top {
-		margin-top: 0 !important;
+		margin-top: 0;
 	}
 
 	&.no-margin-bottom {
-		margin-bottom: 0 !important;
+		margin-bottom: 0;
 	}
 
 	.elementor-widget:not(:last-child):not(.elementor-widget-spacer) {
-		margin-bottom: 0 !important;
+		margin-bottom: 0;
 	}
 
 	.wrapper {
@@ -559,9 +559,11 @@
 .Block--background-glass {
 	padding: 0 !important;
 
-	.wrapper {
+	.wrapper,
+	.wrapper__wide {
 		background-color: $lightest-gray !important;
 		padding: 2.5em 1.5em 3em !important;
+		border-radius: 1rem;
 
 		.badge {
 			width: auto !important;
@@ -589,7 +591,8 @@
 
 	@media (min-width: $breakpoint-tablet) {
 
-		.wrapper {
+		.wrapper,
+		.wrapper__wide {
 			padding: 2.5em 4.5em 3em !important;
 
 			&-narrow {
@@ -611,7 +614,8 @@
 			}
 		}
 
-		.wrapper {
+		.wrapper,
+		.wrapper__wide {
 			padding: 4.5em 12.25em 6em !important;
 			background-color: rgba($lightest-gray, 0.8) !important;
 

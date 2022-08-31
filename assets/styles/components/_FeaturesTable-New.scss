@@ -141,6 +141,34 @@
 
 				.elementor-widget-text-editor {
 					width: 45%;
+					padding: 0 1.5em;
+				}
+
+				.bg-right {
+					position: absolute;
+					right: 0;
+					top: -1em;
+					bottom: -1em;
+					width: 25%;
+					border-radius: 0;
+					z-index: 0;
+					max-width: none;
+					max-height: none;
+					background-color: transparent;
+
+					*[class] {
+						max-height: 100%;
+					}
+				}
+
+				&:hover {
+					.bg-right {
+						opacity: 0;
+					}
+				}
+
+				&:nth-of-type(even) .elementor-widget-wrap {
+					justify-content: flex-end;
 				}
 			}
 
@@ -170,6 +198,10 @@
 						border-radius: 0;
 						box-shadow: none;
 					}
+				}
+
+				&:nth-of-type(even) .elementor-widget-text-editor.elementor-element {
+					padding-right: 1.5em;
 				}
 			}
 
