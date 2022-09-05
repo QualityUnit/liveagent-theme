@@ -25,7 +25,19 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 			</div>';
 		}
 	}
-
+	?>
+	<script>
+		(
+			() => {
+				const tourVideo = document.querySelector('li > .Header__navigation__promo');
+				if(tourVideo) {
+					const parent = tourVideo.closest('li');
+					parent.insertAdjacentElement('afterend', tourVideo);
+				}
+			}
+		)();
+	</script>
+	<?php
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
@@ -352,13 +364,13 @@ function elementor_pros_cons( $content ) {
 
 	foreach ( $sections as $section ) {
 		//get list of pros/cons sections
-		$new_dom = new DomDocument;
+		$new_dom = new DomDocument();
 		libxml_use_internal_errors( true );
 		$new_dom->appendChild( $new_dom->importNode( $section, true ) );
 		libxml_clear_errors();
-		$new_xpath = new DOMXPath( $new_dom );
+		$new_xpath  = new DOMXPath( $new_dom );
 		$checklists = get_nodes( $new_xpath, 'checklist' );
-		$cols = get_nodes( $new_xpath, 'elementor-col-50' );
+		$cols       = get_nodes( $new_xpath, 'elementor-col-50' );
 
 		if ( 2 == $checklists->length && 2 == $cols->length ) {
 
@@ -370,7 +382,7 @@ function elementor_pros_cons( $content ) {
 
 				//get checklist node form $dom and add class
 				$checklist_dom = $xpath->query( "//*[@data-id='$id_checklist']" );
-				$checklist = $checklist_dom->item( 0 );
+				$checklist     = $checklist_dom->item( 0 );
 
 				if ( 1 == $checklists_index ) {
 					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--pros' );

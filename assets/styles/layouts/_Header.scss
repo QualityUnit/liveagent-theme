@@ -61,11 +61,7 @@
 	display: flex;
 
 	&__promo {
-		position: absolute;
-		z-index: 2;
-		width: 100%;
-		top: 100%;
-		margin-top: 1em;
+		max-width: 184px;
 		cursor: pointer;
 
 		* {
