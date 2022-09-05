@@ -1,3 +1,7 @@
+### 1.0.27: September 5th, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.0.26: August 25th, 2022
 
 - Bug Fixes and Improvements
