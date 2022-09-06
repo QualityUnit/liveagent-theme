@@ -61,12 +61,15 @@
 		const body  = document.body;
 		const gtag1 = document.createElement('script');
 		const gtag2 = document.createElement('script');
-		gtag1.async = true; gtag2.async = true;
+		const gtag3 = document.createElement('script');
+		gtag1.async = true; gtag2.async = true; gtag3.async = true;
 		gtag1.src = "https://www.googletagmanager.com/gtag/js?id=UA-132128640-1";
 		gtag2.src = "https://www.googletagmanager.com/gtag/js?id=G-T9HBB9KMVK";
+		gtag3.src = "https://www.googletagmanager.com/gtag/js?id=AW-966671101";
 
 		body.insertAdjacentElement('beforeend', gtag1);
 		body.insertAdjacentElement('beforeend', gtag2);
+		body.insertAdjacentElement('beforeend', gtag3);
 	}
 
 	if ( ! mobile.matches ) {
@@ -101,6 +104,12 @@
 	})
 
 	gtag('config', 'G-T9HBB9KMVK', {
+		'linker': {
+			'domains': ['liveagent.com', 'liveagent.fr', 'liveagent.de', 'liveagent.hu', 'liveagent.com.br', 'liveagent.sk', 'liveagent.es', 'live-agent.cn', 'live-agent.nl', 'live-agent.it', 'live-agent.pl', 'ru.liveagent.com', 'live-agent.cz', 'liveagent.vn', 'liveagent.no', 'liveagent.dk', 'liveagent.gr', 'liveagent.ro', 'liveagent.bg', 'liveagent.se', 'liveagent.jp', 'liveagent.fi', 'liveagent.ae', 'liveagent.ph', 'liveagent.si', 'liveagent.lv', 'liveagent.lt', 'liveagent.hr', 'liveagent.ee', 'support.liveagent.com', 'ladesk.com', 'liveagent.local', '*.ladesk.com']
+		}
+	})
+
+	gtag('config', 'AW-966671101', {
 		'linker': {
 			'domains': ['liveagent.com', 'liveagent.fr', 'liveagent.de', 'liveagent.hu', 'liveagent.com.br', 'liveagent.sk', 'liveagent.es', 'live-agent.cn', 'live-agent.nl', 'live-agent.it', 'live-agent.pl', 'ru.liveagent.com', 'live-agent.cz', 'liveagent.vn', 'liveagent.no', 'liveagent.dk', 'liveagent.gr', 'liveagent.ro', 'liveagent.bg', 'liveagent.se', 'liveagent.jp', 'liveagent.fi', 'liveagent.ae', 'liveagent.ph', 'liveagent.si', 'liveagent.lv', 'liveagent.lt', 'liveagent.hr', 'liveagent.ee', 'support.liveagent.com', 'ladesk.com', 'liveagent.local', '*.ladesk.com']
 		}
