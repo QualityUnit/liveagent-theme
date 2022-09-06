@@ -69,7 +69,7 @@
         @return 0;
     }
 
-    $result: $target / strip-unit($context);
+    $result: strip-unit($target) / strip-unit($context);
 
 	@return decimal-round($result, 3)+unquote($unit);
 }
