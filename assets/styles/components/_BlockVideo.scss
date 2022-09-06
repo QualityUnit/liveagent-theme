@@ -79,6 +79,7 @@
 $positions: ("left", "right");
 
 .Block--video:not(.Block--video__vertical) {
+	overflow: hidden;
 
 	.videoTitle {
 		position: absolute;
@@ -334,6 +335,8 @@ $positions: ("left", "right");
 
 		.wrapper {
 			max-width: none;
+			padding-right: 0;
+			padding-left: 0;
 		}
 	}
 
@@ -446,7 +449,7 @@ $positions: ("left", "right");
 						@if $pos == left {
 
 							.elementor-column:first-of-type {
-								margin-left: -13vw;
+								margin-left: -14vw;
 								margin-right: 10% !important;
 							}
 
@@ -464,7 +467,7 @@ $positions: ("left", "right");
 							}
 
 							.elementor-column:last-of-type {
-								margin-right: -13vw;
+								margin-right: -14vw;
 								margin-left: 10% !important;
 							}
 						}
