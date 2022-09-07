@@ -10,6 +10,20 @@
 		}
 	}
 
+	.elementor-top-column {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&:first-of-type {
+				width: 45% !important;
+
+				> * {
+					margin-left: 0 !important;
+				}
+			}
+		}
+	}
+
 	&.Block--switcher .elementor-inner-section .elementor-column {
 
 		&:not(:last-of-type),
@@ -21,7 +35,7 @@
 		}
 	}
 
-	.elementor-text-editor {
+	.elementor-widget-text-editor {
 		width: 100%;
 	}
 
@@ -33,11 +47,8 @@
 	}
 
 	&__graphics {
+		all: unset;
 		align-self: center;
-
-		.elementor-row {
-			display: flex;
-		}
 
 		&[class].elementor-column[class] {
 			position: relative;
@@ -48,7 +59,8 @@
 
 		& &--first.elementor-column[class] {
 			position: absolute;
-			width: 75%;
+			width: 70% !important;
+			max-width: 536px;
 			top: 15%;
 			left: 0;
 			padding: 0 !important;
@@ -67,6 +79,7 @@
 
 			border-radius: $border-radius-16;
 			padding: 1.5em !important;
+			z-index: 1;
 
 			* {
 				font-size: inherit !important;
@@ -90,8 +103,8 @@
 			.price {
 				position: absolute;
 				top: 0;
-				right: -5em;
-				transform: translate(-2em, calc(-50% - 0.25em));
+				right: -3em;
+				transform: translate(-2em, calc(-50% + 1.25em));
 				width: auto;
 
 				&::before {
@@ -110,7 +123,7 @@
 					content: url(../../images/startups_price_crown.svg);
 				}
 
-				.elementor-text-editor {
+				.elementor-widget-container {
 					position: absolute;
 					display: flex;
 					flex-direction: column;
@@ -118,7 +131,8 @@
 					align-items: center;
 					height: 100%;
 					margin-top: 1.5em;
-					right: 0.75em;
+					left: calc(50% - 0.75em);
+					transform: translateX(-50%);
 					color: $white;
 					z-index: 1;
 
@@ -133,17 +147,8 @@
 				}
 			}
 
-			.elementor-image {
-
-				a {
-					border-radius: $border-radius;
-					overflow: hidden;
-					max-height: 15em;
-				}
-			}
-
 			@media (min-width: $breakpoint-tablet) {
-				width: 50%;
+				width: 48% !important;
 				margin-left: auto;
 			}
 		}
@@ -179,6 +184,10 @@
 				z-index: 2;
 			}
 
+			.elementor-widget-text-editor {
+				width: 100% !important;
+			}
+
 			.price {
 				margin-top: 1.5em;
 
@@ -187,8 +196,14 @@
 				}
 			}
 
-			@media (min-width: $breakpoint-tablet) {
-				width: 20%;
+		}
+
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 55% !important;
+
+			& &--last.elementor-column[class] {
+				width: 20% !important;
 				border-radius: 0 $border-radius-16 $border-radius-16 0;
 			}
 		}

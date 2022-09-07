@@ -96,7 +96,7 @@ h6,
 
 p {
 
-	*:not(.checklist) .elementor-text-editor > & {
+	*:not(.checklist) .elementor-widget-text-editor > & {
 		line-height: 1.625;
 	}
 
@@ -143,6 +143,18 @@ ol {
 a {
 	transition: color 0.2s;
 	word-break: break-word;
+	text-decoration: none;
+
+	&:not(.Button) {
+
+		@include color(color, primary-color);
+
+		&:active,
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 @media (max-width: $breakpoint-tablet) {
@@ -240,17 +252,6 @@ video {
 
 		li {
 			margin-bottom: 3px;
-		}
-	}
-
-	a:not(.Button) {
-
-		@include color(color, primary-color);
-
-		&:active,
-		&:focus,
-		&:hover {
-			text-decoration: underline;
 		}
 	}
 
@@ -634,6 +635,18 @@ video {
 
 			.wp-block-column {
 				width: 33.33%;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			&:not(.is-not-stacked-on-mobile) > .wp-block-column {
+				flex-basis: 0;
+				flex-grow: 1;
+
+				&:not(:first-child) {
+					margin-left: var(--wp--style--block-gap, 2em);
+				}
 			}
 		}
 	}
