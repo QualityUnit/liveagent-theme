@@ -102,7 +102,6 @@
 			font-size: 1.875rem;
 		}
 
-
 		.elementor-widget-text-editor {
 
 			@include color(color, font-color-medium);
@@ -254,7 +253,7 @@
 				}
 			}
 
-			@media (max-width: $breakpoint-desktop - 1px) {
+			@media (max-width: ($breakpoint-desktop - 1px)) {
 
 				background-image: url(../images/earth.svg);
 				background-repeat: no-repeat;
