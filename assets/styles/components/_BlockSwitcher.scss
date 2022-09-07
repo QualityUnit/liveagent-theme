@@ -49,31 +49,33 @@
 		&.wrapper__wide {
 			background: url(../images/switcherBlock_bg.jpg) center center no-repeat;
 			background-size: contain;
-		}
 
-		.elementor-container {
+			.elementor-container {
 
-			.elementor-column {
+				.elementor-column {
 
-				&:not(:last-of-type) {
-					width: 35%;
+					&:not(:last-of-type) {
+						width: 35%;
 
-					> * {
-						margin-left: -5em;
-						width: auto !important;
+						> * {
+							margin-left: -5em;
+							width: auto !important;
+						}
 					}
-				}
 
-				&:last-of-type {
-					width: 65%;
+					&:last-of-type {
+						width: 65%;
 
-					> * {
-						margin-right: -3em;
-						width: auto;
+						> * {
+							margin-right: -3em;
+							width: auto;
+						}
 					}
 				}
 			}
 		}
+
+
 	}
 
 	@media (min-width: $breakpoint-desktop-box) {

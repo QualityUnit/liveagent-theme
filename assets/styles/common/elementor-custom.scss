@@ -357,6 +357,180 @@
 		margin-right: auto;
 		margin-left: auto;
 	}
+
+	@media (min-width: 481px) {
+
+		&.elementor-vertical-align-top .elementor-icon-box-wrapper {
+			align-items: flex-start;
+		}
+
+		&.elementor-vertical-align-middle .elementor-icon-box-wrapper {
+			align-items: center;
+		}
+
+		&.elementor-vertical-align-bottom .elementor-icon-box-wrapper {
+			align-items: flex-end;
+		}
+	}
+
+	&.elementor-position-left .elementor-icon-box-wrapper,
+	&.elementor-position-right .elementor-icon-box-wrapper {
+		display: flex;
+	}
+
+	&.elementor-position-left .elementor-icon-box-icon,
+	&.elementor-position-right .elementor-icon-box-icon {
+		display: inline-flex;
+		flex: 0 0 auto;
+	}
+
+	&.elementor-position-right .elementor-icon-box-wrapper {
+		text-align: right;
+		flex-direction: row-reverse;
+	}
+
+	&.elementor-position-right .elementor-icon-box-icon {
+		margin-left: var(--icon-box-icon-margin, 15px);
+		margin-right: 0;
+		margin-bottom: unset;
+	}
+
+	&.elementor-position-left .elementor-icon-box-wrapper {
+		text-align: left;
+		flex-direction: row;
+	}
+
+	&.elementor-position-left .elementor-icon-box-icon {
+		margin-right: var(--icon-box-icon-margin, 15px);
+		margin-left: 0;
+		margin-bottom: unset;
+	}
+
+	&.elementor-position-top .elementor-icon-box-wrapper {
+		display: block;
+		text-align: center;
+		flex-direction: unset;
+	}
+
+	&.elementor-position-top .elementor-icon-box-icon {
+		margin-bottom: var(--icon-box-icon-margin, 15px);
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	@media (max-width: 768px) {
+
+		&.elementor-tablet-position-left .elementor-icon-box-wrapper,
+		&.elementor-tablet-position-right .elementor-icon-box-wrapper {
+			display: flex;
+		}
+
+		&.elementor-tablet-position-left .elementor-icon-box-icon,
+		&.elementor-tablet-position-right .elementor-icon-box-icon {
+			display: inline-flex;
+			flex: 0 0 auto;
+		}
+
+		&.elementor-tablet-position-right .elementor-icon-box-wrapper {
+			text-align: right;
+			flex-direction: row-reverse;
+		}
+
+		&.elementor-tablet-position-right .elementor-icon-box-icon {
+			margin-left: var(--icon-box-icon-margin, 15px);
+			margin-right: 0;
+			margin-bottom: unset;
+		}
+
+		&.elementor-tablet-position-left .elementor-icon-box-wrapper {
+			text-align: left;
+			flex-direction: row;
+		}
+
+		&.elementor-tablet-position-left .elementor-icon-box-icon {
+			margin-right: var(--icon-box-icon-margin, 15px);
+			margin-left: 0;
+			margin-bottom: unset;
+		}
+
+		&.elementor-tablet-position-top .elementor-icon-box-wrapper {
+			display: block;
+			text-align: center;
+			flex-direction: unset;
+		}
+
+		&.elementor-tablet-position-top .elementor-icon-box-icon {
+			margin-bottom: var(--icon-box-icon-margin, 15px);
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
+	@media (max-width: 480px) {
+
+		&.elementor-mobile-position-left .elementor-icon-box-wrapper,
+		&.elementor-mobile-position-right .elementor-icon-box-wrapper {
+			display: flex;
+		}
+
+		&.elementor-mobile-position-left .elementor-icon-box-icon,
+		&.elementor-mobile-position-right .elementor-icon-box-icon {
+			display: inline-flex;
+			flex: 0 0 auto;
+		}
+
+		&.elementor-mobile-position-right .elementor-icon-box-wrapper {
+			text-align: right;
+			flex-direction: row-reverse;
+		}
+
+		&.elementor-mobile-position-right .elementor-icon-box-icon {
+			margin-left: var(--icon-box-icon-margin, 15px);
+			margin-right: 0;
+			margin-bottom: unset;
+		}
+
+		&.elementor-mobile-position-left .elementor-icon-box-wrapper {
+			text-align: left;
+			flex-direction: row;
+		}
+
+		&.elementor-mobile-position-left .elementor-icon-box-icon {
+			margin-right: var(--icon-box-icon-margin, 15px);
+			margin-left: 0;
+			margin-bottom: unset;
+		}
+
+		&.elementor-mobile-position-top .elementor-icon-box-wrapper {
+			display: block;
+			text-align: center;
+			flex-direction: unset;
+		}
+
+		&.elementor-mobile-position-top .elementor-icon-box-icon {
+			margin-bottom: var(--icon-box-icon-margin, 15px);
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		&.elementor-position-left .elementor-icon-box-icon,
+		&.elementor-position-right .elementor-icon-box-icon {
+			display: block;
+			flex: unset;
+		}
+	}
+
+	.elementor-icon-box-title a {
+		color: inherit;
+	}
+
+	.elementor-icon-box-content {
+		flex-grow: 1;
+	}
+
+	.elementor-icon-box-description {
+		margin: 0;
+	}
 }
 
 ul.elementor-icon-list-items {

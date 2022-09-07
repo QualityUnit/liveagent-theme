@@ -20,7 +20,7 @@
 		}
 	}
 
-	.youtube__loader {
+	.youtube_urlslab_loader {
 		overflow: visible;
 		min-height: 29em;
 
@@ -40,7 +40,7 @@
 			background-size: contain;
 			top: 58%;
 			transform: translateY(-50%);
-			z-index: 2;
+			z-index: 3;
 
 			@media (max-width: ($breakpoint-tablet)) {
 				top: initial;
@@ -71,7 +71,7 @@
 			position: absolute;
 			font-size: $font-size-default;
 			overflow: hidden;
-			z-index: 1;
+			z-index: 2;
 		}
 	}
 }
@@ -83,7 +83,7 @@ $positions: ("left", "right");
 	.videoTitle {
 		position: absolute;
 		pointer-events: none;
-		z-index: 2;
+		z-index: 3;
 		padding: 0 1.5em 9em 1.5em;
 
 		@media (min-width: ($breakpoint-tablet + 1px)) {
@@ -124,12 +124,10 @@ $positions: ("left", "right");
 
 	.title-with-logo {
 
-		.elementor-widget-text-editor .elementor-widget-container {
+		.elementor-widget-container {
 			position: relative;
 			display: flex;
-			flex-direction: row;
 			align-items: flex-start;
-			justify-content: flex-start;
 			margin-bottom: 1em;
 
 			> * {
@@ -153,7 +151,7 @@ $positions: ("left", "right");
 
 			img {
 				position: relative;
-				transform: translateY(-10%);
+				transform: translateY(10%);
 			}
 
 			small {
@@ -203,7 +201,7 @@ $positions: ("left", "right");
 		}
 	}
 
-	.youtube__loader,
+	.youtube_urlslab_loader,
 	.elementor-custom-embed-image-overlay,
 	.elementor-widget-image {
 		position: relative;
@@ -284,7 +282,7 @@ $positions: ("left", "right");
 			.elementor-widget-video {
 				margin-left: -1.5em;
 
-				.youtube__loader {
+				.youtube_urlslab_loader {
 
 					&--img,
 					&::after {
@@ -311,7 +309,7 @@ $positions: ("left", "right");
 			.elementor-widget-video {
 				margin-right: -1.5em;
 
-				.youtube__loader {
+				.youtube_urlslab_loader {
 
 					&--img,
 					&::after {
@@ -350,7 +348,7 @@ $positions: ("left", "right");
 					background: linear-gradient(to #{$pos}, rgba($black, 0.3) 10%, rgba($black, 0.8));
 				}
 
-				.elementor-widget-video .youtube__loader::after {
+				.elementor-widget-video .youtube_urlslab_loader::after {
 					background: linear-gradient(to #{$pos}, rgba($black, 0.8), rgba($black, 0.3) 90%);
 				}
 
@@ -402,7 +400,7 @@ $positions: ("left", "right");
 							}
 						}
 
-						.youtube__loader::before {
+						.youtube_urlslab_loader::before {
 
 							@if $pos == left {
 
@@ -502,7 +500,7 @@ $positions: ("left", "right");
 
 	@media (min-width: ($breakpoint-desktop-hd + 1px)) {
 
-		.youtube__loader,
+		.youtube_urlslab_loader,
 		.elementor-custom-embed-image-overlay,
 		.elementor-widget-image {
 
@@ -577,7 +575,7 @@ $positions: ("left", "right");
 
 		.elementor-video,
 		.elementor-video-new,
-		.youtube__loader {
+		.youtube_urlslab_loader {
 
 			&::after {
 				display: none;
