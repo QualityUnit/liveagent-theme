@@ -55,10 +55,6 @@
 	&__image {
 		margin: 1.5em auto !important;
 
-		.elementor-image {
-			all: unset;
-		}
-
 		@media (min-width: $breakpoint-tablet) {
 			transform: rotate(-7.76deg) !important;
 			box-shadow: 0 0 4px 0 rgba($black-real, 0.5);
