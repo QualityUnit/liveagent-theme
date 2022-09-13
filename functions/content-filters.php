@@ -352,13 +352,13 @@ function elementor_pros_cons( $content ) {
 
 	foreach ( $sections as $section ) {
 		//get list of pros/cons sections
-		$new_dom = new DomDocument;
+		$new_dom = new DomDocument();
 		libxml_use_internal_errors( true );
 		$new_dom->appendChild( $new_dom->importNode( $section, true ) );
 		libxml_clear_errors();
-		$new_xpath = new DOMXPath( $new_dom );
+		$new_xpath  = new DOMXPath( $new_dom );
 		$checklists = get_nodes( $new_xpath, 'checklist' );
-		$cols = get_nodes( $new_xpath, 'elementor-col-50' );
+		$cols       = get_nodes( $new_xpath, 'elementor-col-50' );
 
 		if ( 2 == $checklists->length && 2 == $cols->length ) {
 
@@ -370,7 +370,7 @@ function elementor_pros_cons( $content ) {
 
 				//get checklist node form $dom and add class
 				$checklist_dom = $xpath->query( "//*[@data-id='$id_checklist']" );
-				$checklist = $checklist_dom->item( 0 );
+				$checklist     = $checklist_dom->item( 0 );
 
 				if ( 1 == $checklists_index ) {
 					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--pros' );
@@ -391,3 +391,25 @@ function elementor_pros_cons( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'elementor_pros_cons', 9999 );
+
+function change_schema_hostname( $data ) {
+	$protocol = 'http:\/\/';
+	$hostname = 'www.liveagent.com';
+	
+	if ( isset( $_SERVER['HTTPS'] ) &&
+			( $_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1 ) || //@codingStandardsIgnoreLine
+			isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) &&
+			$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ) { //@codingStandardsIgnoreLine
+		$protocol = 'https:\/\/';
+	}
+
+	if ( isset( $_SERVER['SERVER_NAME'] ) ) {
+		$hostname = $_SERVER['SERVER_NAME']; //@codingStandardsIgnoreLine
+	}
+
+	$json   = wp_json_encode( $data );
+	$output = preg_replace( '/http(s?):\\\\\/\\\\\/(www\.)?live.?agent\.(.+?)\//', $protocol . $hostname . '\/', $json );
+	return $output;
+}
+
+add_filter( 'wpseo_schema_graph', 'change_schema_hostname', 10, 2 );
