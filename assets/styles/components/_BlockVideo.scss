@@ -296,11 +296,7 @@ $positions: ("left", "right");
 			}
 
 			.elementor-widget-image {
-
-				&,
-				.elementor-image {
-					border-radius: 0 4.375em 4.375em 0;
-				}
+				border-radius: 0 4.375em 4.375em 0;
 			}
 		}
 
@@ -323,11 +319,7 @@ $positions: ("left", "right");
 			}
 
 			.elementor-widget-image {
-
-				&,
-				.elementor-image {
-					border-radius: 4.375em 0 0 4.375em;
-				}
+				border-radius: 4.375em 0 0 4.375em;
 			}
 		}
 	}
@@ -344,7 +336,7 @@ $positions: ("left", "right");
 		@each $pos in $positions {
 			&-#{$pos} {
 
-				.elementor-widget-image .elementor-image::after {
+				.elementor-widget-image::after {
 					background: linear-gradient(to #{$pos}, rgba($black, 0.3) 10%, rgba($black, 0.8));
 				}
 

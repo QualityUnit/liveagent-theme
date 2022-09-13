@@ -26,7 +26,7 @@
 	.checklist {
 		max-width: none;
 
-		.elementor-text-editor.elementor-text-editor ul:not([class]) li::before {
+		ul:not([class]) li::before {
 			background-image: url(../../images/icon-post-check.svg);
 		}
 	}

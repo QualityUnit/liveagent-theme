@@ -38,14 +38,8 @@ $bgcolors: (
 			margin-top: 3em;
 		}
 
-		.elementor-row {
+		> .elementor-container {
 			flex-wrap: wrap;
-
-			.elementor-widget-wrap {
-
-				@include clear;
-				display: block;
-			}
 
 			.elementor-column {
 				width: 100%;
@@ -87,10 +81,6 @@ $bgcolors: (
 				overflow: visible;
 				z-index: 1;
 				margin-right: -1em;
-
-				.elementor-image {
-					padding: 0 !important;
-				}
 			}
 
 			.elementor-widget-heading {
@@ -104,10 +94,6 @@ $bgcolors: (
 			}
 
 			.elementor-widget-text-editor {
-				padding: 0 !important;
-			}
-
-			.elementor-text-editor {
 				padding: 1.5em !important;
 				text-align: left;
 				margin-bottom: 0;
@@ -126,10 +112,6 @@ $bgcolors: (
 					margin-top: -2em;
 					margin-right: -2em;
 
-					.elementor-image {
-						padding: 0 !important;
-					}
-
 					img {
 						max-height: 15em;
 					}
@@ -143,7 +125,7 @@ $bgcolors: (
 					}
 				}
 
-				.elementor-text-editor {
+				.elementor-widget-text-editor {
 					padding: 2.375em 3.375em !important;
 				}
 			}
@@ -182,7 +164,7 @@ $bgcolors: (
 								margin-top: -2em;
 							}
 
-							.elementor-text-editor {
+							.elementor-widget-text-editor {
 								padding-right: 30% !important;
 							}
 						}
