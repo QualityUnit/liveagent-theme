@@ -25,7 +25,19 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 			</div>';
 		}
 	}
-
+	?>
+	<script>
+		(
+			() => {
+				const tourVideo = document.querySelector('li > .Header__navigation__promo');
+				if(tourVideo) {
+					const parent = tourVideo.closest('li');
+					parent.insertAdjacentElement('afterend', tourVideo);
+				}
+			}
+		)();
+	</script>
+	<?php
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
