@@ -1,3 +1,7 @@
+### 1.0.29: September 13th, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.0.28: September 7th, 2022
 
 - New Elementor Simplified Output
