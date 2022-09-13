@@ -60,7 +60,7 @@
 			}
 
 			&:hover,
-			&.elementor-active {
+			&[data-active="elementor-active"] {
 
 				a {
 
@@ -85,7 +85,7 @@
 			padding: 30px 30px 0 !important;
 			border: 0 !important;
 
-			&.elementor-active {
+			&[data-active="elementor-active"] {
 				display: flex;
 			}
 		}

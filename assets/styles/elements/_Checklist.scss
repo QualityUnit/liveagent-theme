@@ -1,3 +1,5 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
 %checklist {
 	list-style: none;
 	padding-left: 0.5em;
@@ -47,23 +49,26 @@
 	}
 }
 
-.checklist {
+.checklist,
+.wp-block-columns {
 
-	.elementor-text-editor.elementor-text-editor {
-		width: auto;
+	ul:not([class]) {
 
-		ul:not([class]) {
+		@extend %checklist;
+		@include color(color, font-color-normal);
+	}
 
-			@extend %checklist;
-			@include color(color, font-color-normal);
-		}
+	li {
+		font-size: 1rem;
 
-		li {
-			font-size: 1rem;
+		* {
+			all: unset;
+			font-size: inherit;
 		}
 	}
 
-	&--pros .elementor-text-editor.elementor-text-editor {
+	&--pros,
+	.wp-block-column:first-of-type .wp-block-group:not(.bullet-list__first) {
 
 		h4 {
 
@@ -76,7 +81,8 @@
 		}
 	}
 
-	&--cons .elementor-text-editor.elementor-text-editor {
+	&--cons,
+	.wp-block-column:nth-of-type(2):last-of-type .wp-block-group:not(.bullet-list__first) {
 
 		h4 {
 
@@ -88,5 +94,4 @@
 			background-image: url(../images/icon-post-cons.svg);
 		}
 	}
-
 }

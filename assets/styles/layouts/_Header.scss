@@ -61,11 +61,7 @@
 	display: flex;
 
 	&__promo {
-		position: absolute;
-		z-index: 2;
-		width: 100%;
-		top: 100%;
-		margin-top: 1em;
+		max-width: 184px;
 		cursor: pointer;
 
 		* {
@@ -740,6 +736,7 @@
 html[lang="de-DE"],
 html[lang="et"],
 html[lang="es-ES"],
+html[lang="hr"],
 html[lang="lv-LV"],
 html[lang="lt-LT"],
 html[lang="ru-RU"],
@@ -765,6 +762,15 @@ html[lang="vi-VN"] {
 
 	.Header__navigation .icon-header-menu-magento {
 		background: url(../images/icons-menu-integrations.png) 4px 0;
+	}
+}
+
+html[lang="bg-BG"],
+html[lang="lv-LV"] {
+
+	.Header__navigation__buttons .Button {
+		padding-left: em(24, $font-size-smaller);
+		padding-right: em(24, $font-size-smaller);
 	}
 }
 

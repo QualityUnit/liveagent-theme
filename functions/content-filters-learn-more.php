@@ -17,6 +17,16 @@ function learnmore_pre_block( $content ) {
 	$block_class = 'Block--learnMore';
 	$blocks      = get_nodes( $xpath, $block_class );
 
+	if ( $blocks[0] ) {
+		set_custom_source( 'pages/post', 'css' );
+		set_custom_source( 'common/splide', 'css' );
+		set_custom_source( 'components/SmallPhotoSlider', 'css' );
+		set_custom_source( 'splide', 'js' );
+		set_custom_source( 'custom_lightbox', 'js' );
+		set_custom_source( 'slider', 'js' );
+		set_custom_source( 'sidebar_toc', 'js' );
+	}
+
 	foreach ( $blocks as $block ) {
 		foreach ( $block->getElementsByTagName( 'pre' ) as $pre ) {
 			
@@ -58,8 +68,6 @@ function learnmore_sidebars( $content ) {
 		return $content;
 	}
 
-	
-
 	$cl_block          = 'Block--learnMore';
 	$cl_block_header   = 'Block--learnMore__header';
 	$cl_content        = 'Content';
@@ -91,7 +99,7 @@ function learnmore_sidebars( $content ) {
 
 				$div_index = 0;
 				foreach ( $block->getElementsByTagName( 'div' ) as $div ) {
-					if ( $div->getAttribute( 'class' ) == $cl_target ) {
+					if ( str_contains( $div->getAttribute( 'class' ), $cl_target ) ) {
 						if ( 0 == $div_index ) {
 
 							//isolate block-header

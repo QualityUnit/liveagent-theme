@@ -84,7 +84,7 @@
 		}
 	}
 
-	@media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-tablet-landscape - 1px) {
+	@media (min-width: $breakpoint-tablet) and (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 		> .elementor-column-wrap > .elementor-widget-wrap {
 			flex-direction: row;
@@ -264,10 +264,6 @@
 				color: var(--post-color);
 			}
 		}
-	}
-
-	.elementor-image {
-		padding: 0 !important;
 	}
 
 	.elementor-widget-wrap {

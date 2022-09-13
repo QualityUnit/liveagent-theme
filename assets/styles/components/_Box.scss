@@ -168,7 +168,7 @@
 
 	@media (max-width: $breakpoint-desktop) {
 
-		.elementor-text-editor p {
+		.elementor-widget-text-editor p {
 			font-size: 0.875rem;
 			line-height: 1.33;
 		}
@@ -206,7 +206,7 @@
 	.elementor-widget-image {
 		width: auto;
 
-		.elementor-image {
+		.elementor-widget-container {
 			padding: 0;
 
 			img[src*="icon"] {

@@ -4,7 +4,7 @@
 	<div class="BlogPost__header wrapper__wide">
 		<div class="BlogPost__thumbnail">
 			<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ) ); ?>"></meta>
-			<?php the_post_thumbnail( 'blog_post_thumbnail' ); ?>
+			<img src="<?php the_post_thumbnail_url( 'blog_post_thumbnail' ); ?>" alt="<?php the_title(); ?>" />
 		</div>
 		<div class="BlogPost__intro">
 			<div class="BlogPost__category">

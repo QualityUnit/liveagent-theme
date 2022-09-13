@@ -17,7 +17,7 @@
 
 	.wrapper {
 		background-image:
-			url(../images/bg_reference_points.svg),
+			url(../images/bg_reference_points.png),
 			linear-gradient(90deg, rgba(189, 249, 251, 1) 0%, rgba(91, 241, 246, 1) 100%);
 		background-size: auto 100%;
 		background-position: center right;
@@ -54,11 +54,6 @@
 
 	&__text {
 		max-width: 475px;
-
-		.elementor-image {
-			text-align: left;
-			padding: 0;
-		}
 
 		blockquote {
 			margin: 0 !important;
@@ -144,10 +139,6 @@
 				footer {
 					justify-content: center;
 				}
-			}
-
-			.elementor-image {
-				text-align: center;
 			}
 		}
 

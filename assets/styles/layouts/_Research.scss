@@ -104,7 +104,7 @@ $maxWidth: 71.125em;
 		@include color(color, font-color-dark);
 		padding: 0 1.25em;
 
-		.checklist .elementor-text-editor.elementor-text-editor ul:not([class]) {
+		.checklist ul:not([class]) {
 
 			@include color(color, font-color-dark);
 			color: currentColor;

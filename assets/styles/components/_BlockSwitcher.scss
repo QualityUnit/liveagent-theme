@@ -2,7 +2,6 @@
 
 .Block--switcher {
 
-
 	[data-targetid] {
 		opacity: 0;
 		transition: opacity 0.2s;
@@ -13,7 +12,7 @@
 		}
 	}
 
-	[class*="checklist"] .elementor-text-editor.elementor-text-editor ul:not([class]) li::before {
+	[class*="checklist"] .elementor-widget-text-editor.elementor-widget-text-editor ul:not([class]) li::before {
 		background: $medium-orange url(../images/icon-post-check.svg) center center no-repeat;
 		background-size: 50%;
 	}
@@ -28,14 +27,14 @@
 		}
 	}
 
-	@media (max-width: $breakpoint-tablet-landscape - 1px) {
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 		&.wrapper__wide > .elementor-container,
 		.elementor-top-column.wrapper__wide .elementor-inner-section {
 			padding: 2em !important;
 		}
 
-		.elementor-inner-section {
+		.elementor-container {
 			display: block;
 
 			.elementor-column.elementor-column {
@@ -50,44 +49,45 @@
 		&.wrapper__wide {
 			background: url(../images/switcherBlock_bg.jpg) center center no-repeat;
 			background-size: contain;
-		}
 
-		.elementor-inner-section {
-			align-items: center;
+			.elementor-container {
 
-			.elementor-column {
+				.elementor-column {
 
-				&:not(:last-of-type) {
-					width: 35%;
+					&:not(:last-of-type) {
+						width: 35%;
 
-					> * {
-						margin-left: -5em;
-						width: auto !important;
+						> * {
+							margin-left: -5em;
+							width: auto !important;
+						}
 					}
-				}
 
-				&:last-of-type {
-					width: 65%;
+					&:last-of-type {
+						width: 65%;
 
-					> * {
-						margin-right: -3em;
-						width: auto;
+						> * {
+							margin-right: -3em;
+							width: auto;
+						}
 					}
 				}
 			}
 		}
+
+
 	}
 
 	@media (min-width: $breakpoint-desktop-box) {
 
-		.elementor-image {
+		.elementor-widget-image .elementor-widget-container {
 			padding: 0 !important;
 			width: 120% !important;
 			max-width: none !important;
 			max-height: none;
 		}
 
-		.elementor-inner-section {
+		.elementor-container {
 
 			.elementor-column.elementor-column {
 				padding-left: 2.5em !important;
