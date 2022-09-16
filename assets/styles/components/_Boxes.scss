@@ -55,6 +55,29 @@
 				padding: 0 40px 30px !important;
 			}
 		}
+		//learnmore align to bottom on home
+		body.home & {
+
+			.wrapper .elementor-column {
+
+				.elementor-widget-wrap {
+					position: relative;
+					padding-bottom: 4em !important;
+				}
+
+				.learn-more {
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 2.3em;
+					padding-bottom: 0 !important;
+
+					p {
+						margin: 0;
+					}
+				}
+			}
+		}
 	}
 
 	&--shadow.Block--redesign {
@@ -93,13 +116,16 @@
 			padding: 0;
 		}
 
+		.elementor-inner-section > .elementor-container {
+			display: flex;
+			justify-content: center;
+		}
+
 		.elementor-inner-section .elementor-column {
 
 			+.elementor-column {
 				margin-top: 1.5em;
-
 			}
-
 
 			@media (min-width: $breakpoint-tablet) {
 
@@ -128,6 +154,10 @@
 				}
 			}
 
+			.elementor-column-wrap {
+				position: relative;
+			}
+
 			.elementor-widget-wrap {
 				display: flex;
 				align-content: flex-end;
@@ -135,7 +165,7 @@
 				text-align: center;
 				border: 5px solid $pricing-gray;
 				border-radius: 1.875rem;
-				padding-top: 3em !important;
+				padding-top: 1em;
 				transition: border-color 0.2s;
 
 				&:hover {
@@ -143,6 +173,7 @@
 				}
 
 				.elementor-widget-image {
+					margin-top: 1.5rem;
 					position: static;
 
 					a {
@@ -159,7 +190,6 @@
 						padding: 0;
 					}
 				}
-
 
 				.elementor-widget-heading {
 					margin-bottom: 0;
@@ -180,6 +210,10 @@
 				}
 
 				@media (min-width: $breakpoint-desktop) {
+
+					.elementor-widget-image {
+						margin-top: 4rem;
+					}
 
 					p {
 						padding: 0 22.5%;
