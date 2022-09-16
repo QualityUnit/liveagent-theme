@@ -22,6 +22,18 @@ if ( videoVertical.length > 0 ) {
 
 const body = document.querySelector( 'body' );
 
+// Removing preinserted data-ytid attribute from URLslab due to iFrame conflict - we don't want to insert iFrame to replace image
+const blockVideos = document.querySelectorAll( '[class*="Block--video"] .youtube_urlslab_loader[data-ytid]' );
+
+if ( blockVideos.length ) {
+	blockVideos.forEach( ( video ) => {
+		const dataVideo = video.dataset.ytid;
+
+		video.closest( '.elementor-widget-video' ).dataset.ytid = dataVideo;
+		video.removeAttribute( 'data-ytid' );
+	} );
+}
+
 const modalVideo = document.querySelectorAll(
 	'[data-lightbox="youtube"], [class*="Block--video"] [data-ytid]'
 );
