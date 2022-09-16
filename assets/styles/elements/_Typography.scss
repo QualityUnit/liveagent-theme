@@ -715,6 +715,25 @@ video {
 			top: 0.16em;
 		}
 	}
+
+	&.grey {
+
+		a {
+
+			@include color(color, font-color-level3, !important);
+
+			&::after {
+				filter: brightness(30);
+			}
+		}
+	}
+
+	&.small {
+
+		a {
+			font-size: 0.875rem;
+		}
+	}
 }
 
 .tag {
