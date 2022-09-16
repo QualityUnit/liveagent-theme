@@ -13,19 +13,19 @@
 		<div class="slider splide">
 			<div class="splide__track">
 				<div class="splide__list">
-					<div class="splide__slide FullScreen__sidebar__item FullScreen__sidebar__item--demo" style="background-image: url(https://cdn.liveagent.com/app/uploads/2020/01/bg_demo_michaela.jpg);">
+					<div class="splide__slide FullScreen__sidebar__item FullScreen__sidebar__item--demo" style="background-image: url(https://www.liveagent.com/app/uploads/2020/01/bg_demo_michaela.jpg);">
 						<div class="FullScreen__sidebar__item__text">
 						<?php _e( '<p>"Do you know what is best about LiveAgent? All the live chat benefits? Providing real-time support? Having all the communication under the same roof...? Maybe I could go on and on about all the features we have but let me show you what we have during our demo presentation and decide for yourself!"</p><p>Michael Gombarova, <strong>Sales Manager</strong></p>', 'ms' ); ?>
 						</div>
 					</div>
 
-					<div class="splide__slide FullScreen__sidebar__item FullScreen__sidebar__item--demo" style="background-image: url(https://cdn.liveagent.com/app/uploads/2020/01/bg_demo_tomas.jpg);">
+					<div class="splide__slide FullScreen__sidebar__item FullScreen__sidebar__item--demo" style="background-image: url(https://www.liveagent.com/app/uploads/2020/01/bg_demo_tomas.jpg);">
 						<div class="FullScreen__sidebar__item__text">
 						<?php _e( '<p>"Lumberjack shirt? Check! Laptop for the demo? Check! Notepad for ideas? Check! Are you ready?"</p><p>Tomas Varga, <strong>Sales Manager</strong></p>', 'ms' ); ?>
 						</div>
 					</div>
 
-					<div class="splide__slide FullScreen__sidebar__item FullScreen__sidebar__item--demo" style="background-image: url(https://cdn.liveagent.com/app/uploads/2020/01/bg_demo_andrej.jpg);">
+					<div class="splide__slide FullScreen__sidebar__item FullScreen__sidebar__item--demo" style="background-image: url(https://www.liveagent.com/app/uploads/2020/01/bg_demo_andrej.jpg);">
 						<div class="FullScreen__sidebar__item__text">
 						<?php _e( '<p>"Approach each customer with the idea of helping him or her to solve a problem or achieve a goal, not of selling a product or service." – Brian Tracy</p><p>Andrej Saxon, <strong>Sales Manager</strong></p>', 'ms' ); ?>
 						</div>
