@@ -80,6 +80,12 @@ body {
 			display: flex;
 		}
 	}
+
+	&__narrow {
+		max-width: 650px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .grecaptcha-badge {

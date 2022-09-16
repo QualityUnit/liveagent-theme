@@ -28,10 +28,22 @@ function add_reviews_pricing( $pricing ) {
 		'post_type' => 'ms_reviews',
 		'fields'    => array(
 			array(
+				'id'      => 'currency',
+				'label'   => 'Currency',
+				'type'    => 'text',
+				'default' => '$',
+			),
+			array(
 				'id'        => 'price',
 				'label'     => 'Price',
 				'type'      => 'text',
 				'maxlength' => 10,
+			),
+			array(
+				'id'      => 'period',
+				'label'   => 'Payment period',
+				'type'    => 'text',
+				'default' => 'per month',
 			),
 			array(
 				'id'    => 'note',
