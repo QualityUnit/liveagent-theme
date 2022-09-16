@@ -1,0 +1,26 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.Reviews {
+
+	&__header {
+		position: relative;
+
+		&-level1 {
+			background: url(../../images/reviews_1st_level_header_bg.jpg) center center no-repeat;
+			background-size: cover;
+
+			&::after {
+
+				@include posZero();
+				position: absolute;
+				content: "";
+				background: url(../../images/reviews_1st_level_header_img.png) calc(100% - 1em) calc(100% - 2em) no-repeat;
+				background-size: contain;
+			}
+		}
+	}
+}
+

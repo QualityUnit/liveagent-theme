@@ -93,6 +93,17 @@ body {
 		flex-wrap: wrap;
 	}
 
+	&-direction {
+
+		&-row {
+			flex-direction: row;
+		}
+
+		&-column {
+			flex-direction: column;
+		}
+	}
+
 	&-align-center {
 		align-content: center;
 

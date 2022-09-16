@@ -135,3 +135,24 @@ function success_stories_category_redirect() {
 	}
 }
 add_action( 'template_redirect', 'success_stories_category_redirect' );
+
+/**
+	* Reviews
+	*/
+// function reviews_category_redirect() {
+	
+// 	if ( is_tax( 'ms_reviews_categories' ) ) {
+// 		if ( ! is_category() ) {
+//         return;
+//     }
+//     $category = get_queried_object();
+//     if ( $category->slug ) {
+//         wp_safe_redirect( '/reviews/' . $category->slug, 301 );
+// 				exit;
+//     } else {
+// 			wp_safe_redirect( '/reviews/', 301 );
+// 			exit;
+// 		}
+// 	}
+// }
+// add_action( 'template_redirect', 'reviews_category_redirect' );
