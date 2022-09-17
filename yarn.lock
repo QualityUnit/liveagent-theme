@@ -1576,10 +1576,10 @@
   resolved "https://registry.yarnpkg.com/@wordpress/babel-plugin-import-jsx-pragma/-/babel-plugin-import-jsx-pragma-4.0.0.tgz#1fea56965581a3eb0a98cea87f73411f629ca12d"
   integrity sha512-AVbFAWjzzdLN+UUOa+fwgIejqg6Az03lihavdxRK2WEeEpd9N4SkaBUXtTiV8t9LAbDYnpLFx22mUvmD0/4+pw==
 
-"@wordpress/babel-preset-default@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/babel-preset-default/-/babel-preset-default-7.0.0.tgz#bfa5a98cca174ffafbb2273186ce2ddec5e10cad"
-  integrity sha512-04acr8KW8nZCaoTr+f4MNxwhxYjzHM2KRAYOrGt3gP5WkM1GWj4f7s56oo9aaJJUywjYcgtHTfNIjUsle+svZA==
+"@wordpress/babel-preset-default@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/babel-preset-default/-/babel-preset-default-7.1.0.tgz#4a12f8f195f3fc2c1d24ebedf58ad796b2752b4e"
+  integrity sha512-o64Pt89PVnu32KImfB9HWS0r8kQOxSJyazfI5rBoHJQXCfpsM3+NxPOB9cczk68LvBiza3BHrqdea3LobHDSVQ==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/plugin-transform-react-jsx" "^7.16.0"
@@ -1589,8 +1589,8 @@
     "@babel/runtime" "^7.16.0"
     "@wordpress/babel-plugin-import-jsx-pragma" "^4.0.0"
     "@wordpress/browserslist-config" "^5.0.0"
-    "@wordpress/element" "^4.14.0"
-    "@wordpress/warning" "^2.16.0"
+    "@wordpress/element" "^4.15.0"
+    "@wordpress/warning" "^2.17.0"
     browserslist "^4.17.6"
     core-js "^3.19.1"
 
@@ -1599,36 +1599,36 @@
   resolved "https://registry.yarnpkg.com/@wordpress/browserslist-config/-/browserslist-config-5.0.0.tgz#678b973d09172d1d9d9345e859321dca512aa237"
   integrity sha512-YitgByVHIBP7IscrhHVuUkZ6+qnMfATln2b3ItdyUT2gLlUmZJfqrt7UNiT6YiaArypKwkklpFw5NNtFpyvZVw==
 
-"@wordpress/element@^4.14.0":
-  version "4.14.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/element/-/element-4.14.0.tgz#12732cbb713a8ec980acbe0067a4b62920d60f09"
-  integrity sha512-puH6E1sY5HYcU9MTnwpvwmlGqs0prxNd0JuT2/WcHAd/qwDC2wQPB/7fDaffjB0+gIYUt6WBl8kCWkqQ7g6cbQ==
+"@wordpress/element@^4.15.0":
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/element/-/element-4.15.0.tgz#bf97657198a13e71858505db757e52df2f21cb67"
+  integrity sha512-Lf5q9oU8k/4ry79oCsC0AN6PpDU/BM0z00hmUUmQIciz6MPnov+47oT/Wbrm8fXXHuW2cPquWGWbib+IrOb26g==
   dependencies:
     "@babel/runtime" "^7.16.0"
     "@types/react" "^17.0.37"
     "@types/react-dom" "^17.0.11"
-    "@wordpress/escape-html" "^2.16.0"
+    "@wordpress/escape-html" "^2.17.0"
     change-case "^4.1.2"
     is-plain-object "^5.0.0"
     react "^17.0.2"
     react-dom "^17.0.2"
 
-"@wordpress/escape-html@^2.16.0":
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/escape-html/-/escape-html-2.16.0.tgz#c88f0b08cc9b5f2e8cdc8bff4127ee73cf8c2f6d"
-  integrity sha512-63SfsnkGTIFBXQWy+vAjlb2PJp9A59R0wsTv4TIS/DBJq6EtAox9GjBbswGzX6l0VksobUcga1FqOua9+i3EyA==
+"@wordpress/escape-html@^2.17.0":
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/escape-html/-/escape-html-2.17.0.tgz#29a2c52eb3a28f82d2cd424b30a7a1e0e9feccca"
+  integrity sha512-CmJMBiSBW+KNHEV8DZFRkzJH+U1tpkaIKpRBRISduBZGXqf35kvkJsXXbyQ9WVnMrh8DClT7YEzeX3HUGyyyew==
   dependencies:
     "@babel/runtime" "^7.16.0"
 
 "@wordpress/eslint-plugin@^13":
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/eslint-plugin/-/eslint-plugin-13.0.0.tgz#4d942ae1762569d463e9dda7c7792a612fc81200"
-  integrity sha512-rOM8wSy+EgsvloB1ypSascLqkEtvqEpanpMvkX35Z/C4wvs81EqqoRGmeWzmtbcmiNkDZ/ZT34PdwE0R3DHPFg==
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/eslint-plugin/-/eslint-plugin-13.1.0.tgz#67b3bf52185e32831d6d5e6c914536c6aec8b24d"
+  integrity sha512-ruj6UW+wiXupm43SzCiIrc0aYI77ES4Njz/nRfSlUWfU/twMVyeE1a8EWkxDbHvkXFo6H0zP5Dhj0F0B2WEYiA==
   dependencies:
     "@babel/eslint-parser" "^7.16.0"
     "@typescript-eslint/eslint-plugin" "^5.3.0"
     "@typescript-eslint/parser" "^5.3.0"
-    "@wordpress/babel-preset-default" "^7.0.0"
+    "@wordpress/babel-preset-default" "^7.1.0"
     "@wordpress/prettier-config" "^2.0.0"
     cosmiconfig "^7.0.0"
     eslint-config-prettier "^8.3.0"
@@ -1655,10 +1655,10 @@
     stylelint-config-recommended "^6.0.0"
     stylelint-config-recommended-scss "^5.0.2"
 
-"@wordpress/warning@^2.16.0":
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-2.16.0.tgz#2f651afb67284c55e584922bfa0029d462a0cab0"
-  integrity sha512-n2djVSyjMqJYQ1Lh0UDfm5TXUSGtjmoKwHbvW04PIv3DgDbKLVbdCC9xpK0SupaDR/dPx4OkvfXIXIuuySjC/Q==
+"@wordpress/warning@^2.17.0":
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-2.17.0.tgz#c8d99621ccd654172abe0035dcab0bc4d567088d"
+  integrity sha512-QZ444GtDShbrgtNPGlIGQTSEo/8Fxk2qyNH3ZtktCv3RmjsJI2u35ldquia9PsFqcaTjqZ4Y9+IxbeanrR/RTg==
 
 "@xmldom/xmldom@^0.7.5":
   version "0.7.5"
