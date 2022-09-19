@@ -1,4 +1,5 @@
 <?php // @codingStandardsIgnoreLine
+	set_custom_source( 'pages/Reviews', 'css' );
 	$current_lang    = apply_filters( 'wpml_current_language', null );
 	$header_category = get_en_category( 'ms_features', $post->ID );
 	do_action( 'wpml_switch_language', $current_lang );
@@ -13,83 +14,9 @@
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
 
-	<div class="Post__header <?= esc_attr( $header_category ); ?>">
-		<div class="wrapper__wide"></div>
-	</div>
-
-	
-
-	<div class="wrapper">
-		<ul class="Post__sidebar__categories__labels">
-			<?php
-			$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_reviews' );
-			$categories = get_the_terms( $current_id, 'ms_reviews_categories' );
-
-			if ( $categories ) {
-				foreach ( $categories as $category ) {
-					?>
-			<li class="Post__sidebar__link">
-				<a href="../#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
-			</li>
-					<?php
-				}
-			}
-			?>
-		</ul>
-		<?php 
-			$gallery = meta( 'gallery' );
-
-			foreach ( $gallery as $image ) {
-				echo wp_get_attachment_image( $image );
-			}
-		?>
-	<br/>
-
-	<?= esc_html( meta( 'note' ) ); ?>
-		<div>
-			<?= esc_html( meta( 'currecy' ) ); ?>
-			<?= esc_html( meta( 'price' ) ); ?>
-			<?= esc_html( meta( 'period' ) ); ?>
-		</div>
-		<div class="flex">
-			<strong><?php _e( 'Free trial', 'reviews' ); ?>:</strong> <?= meta( 'free_trial' ); ?>
-		</div>
-		<div>
-			<strong><?php _e( 'Free version', 'reviews' ); ?>:</strong> <?= meta( 'free_version' ); ?>
-		</div>
-	</div>
-
-	<div class="Block--background">
-		<div class="wrapper__narrow">
-			<h3><?php _e( "Editor's rating", 'reviews' ); ?>: </h3>
-			<?php 
-				$first_rating  = meta( 'first_rating' );
-				$first  = meta( 'first_rating_value' );
-				$second_rating = meta( 'second_rating' );
-				$second = meta( 'second_rating_value' );
-				$third_rating  = meta( 'third_rating' );
-				$third  = meta( 'third_rating_value' );
-
-				$average = round( ( $first + $second + $third ) / 3, 1 );
-
-				function progressbar( $rating, $color ) {
-				?>
-					<div class="progressBar">
-						<div class="progressBar__inn" style="background-color: <?= esc_attr( $color ); ?>; width:<?= esc_attr( ( $rating / 5 * 100 ) . '%' ); ?>"></div>
-					</div>
-				<?php
-				}
-			?>
-
-			Editor's overall Rating
-			<?= esc_html( $average ); ?>
-
-			<?php progressbar( $first, '#FFB928' ); ?>
-			<?php progressbar( $second, '#48C6CE' ); ?>
-			<?php progressbar( $third, '#FF492B' ); ?>
-		</div>
-	</div>
-
+	<?php
+	require_once get_template_directory() . '/templates/content-single-ms_reviews-top.php';
+	?>
 
 	<div class="wrapper__wide Post__container">
 		<div class="Post__sidebar">
@@ -116,17 +43,71 @@
 
 		<div class="Post__content">
 
-			<div class="Post__content__breadcrumbs">
-				<ul>
-					<li><a href="<?php _e( '/features/', 'ms' ); ?>"><?php _e( 'Features', 'ms' ); ?></a></li>
-					<li><?php the_title(); ?></li>
-				</ul>
-			</div>
-
-			<h1 itemprop="name"><?php the_title(); ?></h1>
-
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
+
+				<div class="wp-block-columns">
+				<?php
+				if ( ! empty( meta( 'pros' ) ) ) {
+				?>
+				<div class="wp-block-column checklist checklist--pros">
+					<h4><?php _e( 'Pros', 'reviews' ); ?></h4>
+					<ul>
+						<?= preg_replace( "/(.+?)(\n|$)/", '<li>$1</li>', meta( 'pros' ) ); ?>
+					</ul>
+				</div>
+				<?php
+				}
+				if ( ! empty( meta( 'cons' ) ) ) {
+					?>
+					<div class="wp-block-column checklist checklist--cons">
+						<h4><?php _e( 'Cons', 'reviews' ); ?></h4>
+						<ul>
+							<?= preg_replace( "/(.+?)(\n|$)/", '<li>$1</li>', meta( 'cons' ) ); ?>
+						</ul>
+					</div>
+				<?php
+				}
+				?>
+								</div>
+				<?php
+				if ( ! empty( get_the_author() ) ) {
+					$avatar = get_avatar_url( get_the_author_meta( 'ID' ), 220, 'gravatar_default', get_the_author() );
+					?>
+				<br />
+				<br />
+				<div class="AuthorCard Post__m__negative--small" itemscope itemprop="author" itemtype="https://schema.org/Person">
+					<div class="AuthorCard__image--wrapper">
+						<?php
+						if ( ! empty( $avatar ) ) {
+							?>
+						<meta itemprop="image" content="<?= esc_url( $avatar ); ?>"></meta>
+							<?php
+						}
+						?>
+						<img class="AuthorCard__image" src="<?=  esc_url( empty( $avatar ) ? get_template_directory_uri() . '/assets/images/author_avatar.svg' : esc_url( $avatar ) ); ?>" alt="<?php the_author(); ?>" />
+					</div>
+					<div class="AuthorCard__content">
+						<h3 class="AuthorCard__name" itemprop="name"><?php the_author(); ?></h3>
+						<p class="AuthorCard__company" itemprop="jobTitle"><?php _e( 'LiveAgent', 'ms' ); ?></p>
+						<p class="AuthorCard__desc" itemprop="text"><?php the_author_meta( 'description' ); ?></p>
+
+						<ul class="AuthorCard__contacts">
+							<?php if ( ! empty( get_the_author_meta( 'email' ) ) ) { ?>
+							<li class="AuthorCard__contact AuthorCard__contact--email fontello-mail">
+								<?php
+									$mail_text = __( 'Contact ${author} from LiveAgent by mail', 'use-case' );
+									$mail_text = str_replace( '${author}', get_the_author(), $mail_text );
+								?>
+								<a href="mailto:<?= esc_url( get_the_author_meta( 'email' ) ); ?>" title="<?= esc_attr( $mail_text ); ?>" itemprop="email"><?php _e( 'Mail', 'use-case' ); ?></a>
+							</li>
+							<?php } ?>
+						</ul>
+					</div>
+				</div>
+					<?php
+				}
+				?>
 
 				<div class="Post__content__resources Post__m__negative">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
