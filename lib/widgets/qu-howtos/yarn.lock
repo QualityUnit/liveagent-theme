@@ -2965,7 +2965,7 @@
   dependencies:
     "@babel/runtime" "^7.16.0"
 
-"@wordpress/block-editor@^10":
+"@wordpress/block-editor@^10", "@wordpress/block-editor@^10.0.0":
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-10.0.0.tgz#65c1d2de492a67326f41dad60a09e862336d907b"
   integrity sha512-lFsLG+iTSrTCDJnghO5zGVNiZzt7NkHttREWA7/C/fAbr9wtBez6jJLtpmq2naC5bpx2RnBvypt+AUK//c8xnQ==
@@ -3055,7 +3055,7 @@
     rememo "^3.0.0"
     traverse "^0.6.6"
 
-"@wordpress/block-editor@^9.2.0", "@wordpress/block-editor@^9.8.0":
+"@wordpress/block-editor@^9.2.0":
   version "9.8.0"
   resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-9.8.0.tgz#2565cf19f38a74c78e8f96b8f97c9c909a2ac2da"
   integrity sha512-zIPqEysaLFJMnVKU/yCoCEBT3Co9xsa4Ow91T/LI94ll3LeWG/pyiX4PSSQNTx74AqbcNO2p79LVON4FLdu+mQ==
@@ -3490,23 +3490,22 @@
     requireindex "^1.2.0"
 
 "@wordpress/format-library@^3":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/format-library/-/format-library-3.14.0.tgz#bfd0517f043412c86e027a76d0cb9df45d1a5d50"
-  integrity sha512-kJtswqrUE2OxFUNp1bI2gZjtCwWO9Sjw1Kn1y9Pl4SLy//aBAjAhdiw/e9gYcIzH1ZTS57rGbzKMRk/84X99RA==
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/format-library/-/format-library-3.15.0.tgz#35868d2265e9156acc78879616a3c9a5734f77fa"
+  integrity sha512-9YgzIdidv6gMI18AF8kq/7wbpXiwJAOX1IA53jk1LDpwbMv5Yra9lE/Bw4IzOuPP9h4f309Z/NMUr+Z5E8epVw==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@wordpress/a11y" "^3.16.0"
-    "@wordpress/block-editor" "^9.8.0"
-    "@wordpress/components" "^20.0.0"
-    "@wordpress/compose" "^5.14.0"
-    "@wordpress/data" "^7.0.0"
-    "@wordpress/element" "^4.14.0"
-    "@wordpress/html-entities" "^3.16.0"
-    "@wordpress/i18n" "^4.16.0"
-    "@wordpress/icons" "^9.7.0"
-    "@wordpress/rich-text" "^5.14.0"
-    "@wordpress/url" "^3.17.0"
-    lodash "^4.17.21"
+    "@wordpress/a11y" "^3.17.0"
+    "@wordpress/block-editor" "^10.0.0"
+    "@wordpress/components" "^21.0.0"
+    "@wordpress/compose" "^5.15.0"
+    "@wordpress/data" "^7.1.0"
+    "@wordpress/element" "^4.15.0"
+    "@wordpress/html-entities" "^3.17.0"
+    "@wordpress/i18n" "^4.17.0"
+    "@wordpress/icons" "^9.8.0"
+    "@wordpress/rich-text" "^5.15.0"
+    "@wordpress/url" "^3.18.0"
 
 "@wordpress/hooks@^3.15.0", "@wordpress/hooks@^3.16.0", "@wordpress/hooks@^3.17.0", "@wordpress/hooks@^3.3.1", "@wordpress/hooks@^3.7.0":
   version "3.17.0"
