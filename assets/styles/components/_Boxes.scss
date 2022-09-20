@@ -106,18 +106,9 @@
 
 			.elementor-inner-section {
 
-				.elementor-widget-text-editor {
+				.elementor-widget-text-editor p {
 
-					p {
-
-						@include color(color, font-color-dark);
-						font-size: 1rem;
-					}
-
-					&.learn-more a {
-
-						font-size: 1rem;
-					}
+					@include color(color, font-color-dark);
 				}
 			}
 		}
