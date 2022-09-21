@@ -1,3 +1,7 @@
+### 1.0.32: September 21st, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.0.31: September 19th, 2022
 
 - Bug Fixes and Improvements
