@@ -6,7 +6,7 @@
 		$borderRad: 0.8125em;
 		border-radius: $borderRad 7.5em $border-radius-16 $border-radius-16;
 		overflow: hidden;
-		padding: 0;
+		padding: 0 !important;
 
 		&--headline {
 			background: url(../images/block_success_bg.jpg?v22) center bottom no-repeat;
@@ -36,7 +36,7 @@
 		}
 
 		&--quote {
-			padding-top: 3.5em;
+			padding-top: 3.5em !important;
 			background: url(../images/block_success_quote.svg) 2em 2em no-repeat;
 			background-size: 4.5em;
 
