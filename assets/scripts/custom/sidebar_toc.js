@@ -50,11 +50,11 @@ function activateSidebars() {
 
 	if ( sidebarTOC !== null ) {
 		window.addEventListener( 'load', () => {
-			if ( queryAll( '[data-lasrc]' ) !== null ) {
-				const unloaded = document.querySelectorAll( '[data-lasrc]' );
+			if ( queryAll( '[data-src]' ) !== null ) {
+				const unloaded = document.querySelectorAll( '[data-src]' );
 				unloaded.forEach( ( elem ) => {
 					const el = elem;
-					const datasrc = el.getAttribute( 'data-lasrc' );
+					const datasrc = el.getAttribute( 'data-src' );
 					el.setAttribute( 'src', datasrc );
 					el.style.opacity = '1';
 				} );
