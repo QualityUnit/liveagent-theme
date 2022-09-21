@@ -1,4 +1,4 @@
-/* global fetch, IntersectionObserver, customLazyLoad */
+/* global fetch, IntersectionObserver */
 /* eslint-disable camelcase */
 
 /*
@@ -167,3 +167,59 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 
 	blogPostsObserver.observe( document.querySelector( '.Footer' ) ); // Binding observer on the Footer newsletter element
 }
+
+const customLazyLoad = () => {
+	const media = document.querySelectorAll(
+		'img[data-src], img[data-srcset], video[data-src]'
+	);
+
+	const eventType = ( element ) => {
+		const elemType = element.tagName;
+		if ( elemType === 'VIDEO' ) {
+			return 'loadeddata';
+		}
+		return 'load';
+	};
+
+	if ( 'IntersectionObserver' in window && media.length > 0 ) {
+		const mediaObserver = new IntersectionObserver( ( entries ) => {
+			entries.forEach( ( entry ) => {
+				if ( entry.isIntersecting ) {
+					const datasrc = entry.target.getAttribute( 'data-src' );
+					const datasrcset = entry.target.getAttribute( 'data-srcset' );
+					const mediaObject = entry.target;
+
+					if ( datasrcset !== null ) {
+						mediaObject.setAttribute( 'srcset', datasrcset );
+						mediaObject.removeAttribute( 'data-srcset' );
+						mediaObject.addEventListener(
+							eventType( mediaObject ),
+							() => {
+								const e = mediaObject;
+								e.style.opacity = '1';
+							}
+						);
+					}
+
+					if ( datasrc !== null ) {
+						mediaObject.setAttribute( 'src', datasrc );
+						mediaObject.removeAttribute( 'data-src' );
+						mediaObject.addEventListener(
+							eventType( mediaObject ),
+							() => {
+								const e = mediaObject;
+								e.style.opacity = '1';
+							}
+						);
+					}
+
+					mediaObserver.unobserve( mediaObject );
+				}
+			} );
+		} );
+
+		media.forEach( ( mediaObject ) => {
+			mediaObserver.observe( mediaObject );
+		} );
+	}
+};
