@@ -4,10 +4,10 @@
 	$header_category = get_en_category( 'ms_features', $post->ID );
 	do_action( 'wpml_switch_language', $current_lang );
 
-	function meta( $metabox_id ) {
-			global $post;
-		 return get_post_meta( $post->ID, $metabox_id, true );
-	}
+function meta( $metabox_id ) {
+		global $post;
+	 return get_post_meta( $post->ID, $metabox_id, true );
+}
 ?>
 
 <div class="Post" itemscope itemtype="http://schema.org/TechArticle">
@@ -49,14 +49,14 @@
 				<div class="wp-block-columns">
 				<?php
 				if ( ! empty( meta( 'pros' ) ) ) {
-				?>
+					?>
 				<div class="wp-block-column checklist checklist--pros">
 					<h4><?php _e( 'Pros', 'reviews' ); ?></h4>
 					<ul>
 						<?= preg_replace( "/(.+?)(\n|$)/", '<li>$1</li>', meta( 'pros' ) ); ?>
 					</ul>
 				</div>
-				<?php
+					<?php
 				}
 				if ( ! empty( meta( 'cons' ) ) ) {
 					?>
@@ -66,7 +66,7 @@
 							<?= preg_replace( "/(.+?)(\n|$)/", '<li>$1</li>', meta( 'cons' ) ); ?>
 						</ul>
 					</div>
-				<?php
+					<?php
 				}
 				?>
 								</div>

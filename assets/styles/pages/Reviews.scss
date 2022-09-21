@@ -2,6 +2,7 @@
 
 @import "../common/mixins";
 @import "../common/variables";
+@import "../components/ReviewsGallery";
 @import "../layouts/BlogPost";
 
 .Reviews {
@@ -20,6 +21,128 @@
 				content: "";
 				background: url(../../images/reviews_1st_level_header_img.png) calc(100% - 1em) calc(100% - 2em) no-repeat;
 				background-size: contain;
+			}
+		}
+	}
+
+	&__rating {
+
+		&--rating {
+			font-weight: 700;
+			font-size: 2rem;
+			padding-right: 0.5em;
+		}
+
+		&--desc {
+			display: block;
+			font-weight: 600;
+			font-size: 0.875rem;
+			margin-top: 1em;
+		}
+
+		&--stars {
+			position: relative;
+			width: 8.25rem;
+			height: 1.48rem;
+			background: url(../../images/reviews/stars_gradient-outline.svg) left center no-repeat;
+			background-size: auto 100%;
+
+			&__fill {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				background: url(../../images/reviews/stars_gradient.svg) left center no-repeat;
+				background-size: auto 100%;
+				overflow: hidden;
+			}
+		}
+
+		&--portals {
+			background-color: $lightest-gray;
+			border-radius: 10px 60px 60px 10px;
+			width: 55%;
+			padding: 2em;
+
+			.ComparePlans__tooltip {
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		&--editor {
+
+			background: var(--background);
+			border-radius: 66px $border-radius-16 $border-radius-16 66px;
+			display: flex;
+			align-items: center;
+			padding: 1em 1em 1em 0;
+
+			&__avatar {
+
+				@include square(3.75em);
+				flex: 1;
+				border: 0.25em solid $white;
+				border-radius: 50%;
+				margin-left: 0.75em;
+				margin-right: 0.75em;
+				overflow: hidden;
+
+				img {
+
+					@include square(100%);
+					object-fit: cover;
+				}
+			}
+
+			.Reviews__rating {
+
+				&--desc,
+				&--rating {
+					margin-top: 0;
+					color: $white;
+				}
+
+				&--rating {
+					font-size: 1.5rem;
+				}
+
+				&--stars {
+					background: url(../../images/reviews/stars_white-outline.svg) left center no-repeat;
+					background-size: auto 100%;
+
+					&__fill {
+						background: url(../../images/reviews/stars_white.svg) left center no-repeat;
+						background-size: auto 100%;
+					}
+				}
+			}
+		}
+	}
+
+	&__editor {
+		margin-bottom: 3em;
+
+		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+
+			&--titles {
+				margin-top: auto;
+				width: 50%;
+
+				.tag {
+					text-transform: uppercase;
+				}
+
+				h3 {
+					font-size: 2rem;
+					margin-bottom: 0;
+				}
+			}
+
+			.Reviews__rating {
+				max-width: 18.375em;
+				margin-left: auto;
 			}
 		}
 	}

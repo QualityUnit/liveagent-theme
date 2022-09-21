@@ -1,0 +1,83 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Reviews__Gallery {
+
+	.splide__slide {
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+
+		img {
+
+			@include square(100%);
+			max-width: 100%;
+			object-fit: cover;
+			object-position: center top;
+		}
+	}
+
+	&--main {
+
+		.splide__slide {
+			width: 100%;
+			border-radius: $border-radius-16;
+		}
+
+		.splide__inn {
+			display: block;
+			position: relative;
+			height: 22.5em;
+
+			&::after {
+
+				@include posZero;
+				content: "";
+				position: absolute;
+				background: linear-gradient(to bottom, transparent, rgba($black-real, 0.4) 65%, rgba($black-real, 0.6) 75%, rgba($black-real, 1) 85%);
+			}
+		}
+
+		&__desc {
+			position: absolute;
+			text-align: center;
+			bottom: 0;
+			padding: 1em;
+			width: 100%;
+			z-index: 1;
+
+			p {
+				color: $white;
+				margin-bottom: 0;
+				font-family: $font-secondary;
+			}
+		}
+	}
+
+	&--thumbs {
+
+		visibility: visible !important;
+		margin-top: 1.5em;
+
+		.splide__slide {
+			width: 5.3125rem;
+			height: 5rem;
+			border-radius: $border-radius;
+
+			+ .splide__slide {
+				margin-left: 0.75em;
+			}
+
+			&::after {
+
+				@include posZero;
+				content: "";
+				position: absolute;
+				background: linear-gradient(to bottom, transparent, rgba($black-real, 0.6));
+			}
+		}
+
+		img {
+			cursor: pointer;
+		}
+	}
+}

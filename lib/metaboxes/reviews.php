@@ -96,7 +96,7 @@ function add_reviews_reviews( $reviews ) {
 			array(
 				'id'    => 'last_update',
 				'label' => 'Last update',
-				'type'  => 'text',
+				'type'  => 'date',
 			),
 		),
 	);
@@ -200,23 +200,3 @@ function add_reviews_media( $media ) {
 
 	return $media;
 }
-
-function reviews_metaboxes_assets() {
-	wp_enqueue_style(
-		'ms_reviews_metaboxes',
-		get_template_directory_uri() . '/assets/dist/editor/reviews_metaboxes.min.css',
-		array(),
-		THEME_VERSION,
-		false
-	);
-
-	wp_enqueue_script(
-		'ms_reviews_metaboxes',
-		get_template_directory_uri() . '/assets/dist/reviews_metaboxes.min.js',
-		array( 'wp-blocks', 'wp-editor', 'wp-element', 'wp-components', 'wp-i18n', 'wp-data' ),
-		THEME_VERSION,
-		true
-	);
-}
-
-add_action( 'enqueue_block_editor_assets', 'reviews_metaboxes_assets' );

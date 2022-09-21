@@ -20,4 +20,22 @@
 			transform: translateX(0);
 		}
 	}
+
+	@media (min-width: $breakpoint-tablet) {
+		width: 65%;
+
+		&__wrapper {
+			display: flex;
+			align-items: center;
+		}
+
+		&__desc {
+			width: 25%;
+		}
+
+		&__rating {
+			width: 10%;
+			text-align: right;
+		}
+	}
 }

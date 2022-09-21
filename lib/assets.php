@@ -1,6 +1,30 @@
 <?php
 
 /**
+ * Editor styles
+ */
+
+function editor_assets() {
+	wp_enqueue_style(
+		'editor-custom',
+		get_template_directory_uri() . '/assets/dist/editor/editor.min.css',
+		array(),
+		THEME_VERSION,
+		false
+	);
+
+	wp_enqueue_script(
+		'editor-custom',
+		get_template_directory_uri() . '/assets/dist/editor.min.js',
+		array( 'wp-blocks', 'wp-editor', 'wp-element', 'wp-components', 'wp-i18n', 'wp-data' ),
+		THEME_VERSION,
+		true
+	);
+}
+
+add_action( 'enqueue_block_editor_assets', 'editor_assets' );
+
+/**
   * Styles
   */
 
