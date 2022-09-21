@@ -65,7 +65,7 @@
 										<?php _e( 'TOP POST', 'ms' ); ?>
 									</div>
 									<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
-									<img data-lasrc="<?= esc_url( get_the_post_thumbnail_url( '', 'box_archive_thumbnail' ) ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
+									<img data-src="<?= esc_url( get_the_post_thumbnail_url( '', 'box_archive_thumbnail' ) ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
 								</div>
 								<div class="SliderCutted__content Blog__item__content">
 									<div class="Blog__item__meta">
@@ -160,7 +160,7 @@
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
 						<div class="Blog__item__thumbnail">
 							<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
-							<img style="opacity: 0; transition: opacity 0.2s;" data-lasrc="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
+							<img style="opacity: 0; transition: opacity 0.2s;" data-src="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
 						</div>
 						<div class="Blog__item__content">
 							<div class="Blog__item__meta">

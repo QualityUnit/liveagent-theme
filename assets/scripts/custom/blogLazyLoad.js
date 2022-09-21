@@ -61,7 +61,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 					<a href="${ url }" title=${ title }" itemprop="url">
 						<div class="Blog__item__thumbnail">
 							<meta itemprop="image" content="${ image }">
-							<img data-lasrc="${ image }" alt="${ title }" />
+							<img data-src="${ image }" alt="${ title }" />
 						</div>
 						<div class="Blog__item__content">
 							<div class="Blog__item__meta">

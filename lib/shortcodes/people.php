@@ -41,7 +41,7 @@ function ms_people( $atts ) {
 			<li <?php post_class( 'Archive__container__content__item' ); ?>>
 				<article>
 					<div class="Archive__container__content__item__thumbnail">
-						<img style="opacity: 0; transition: opacity 0.5s ease 0s;" data-lasrc="<?php the_post_thumbnail_url( 'person_thumbnail' ); ?>" alt="<?php the_title(); ?>" />
+						<img style="opacity: 0; transition: opacity 0.5s ease 0s;" data-src="<?php the_post_thumbnail_url( 'person_thumbnail' ); ?>" alt="<?php the_title(); ?>" />
 					</div>
 
 					<div class="Archive__container__content__item__text Archive__container__content__item__text--visible">
