@@ -52,6 +52,18 @@ function add_reviews_pricing( $pricing ) {
 				'cols'  => 50,
 			),
 			array(
+				'id'          => 'equal_la_plan',
+				'label'       => 'Equal to LiveAgent plan',
+				'type'        => 'select',
+				'placeholder' => 'Select equal LA plan',
+				'options'     => array(
+					'free'        => 'Free',
+					'ticket'      => 'Ticket',
+					'ticket_chat' => 'Ticket + Chat',
+					'all'         => 'All inclusive',
+				),
+			),
+			array(
 				'id'    => 'free_trial',
 				'label' => 'Free Trial',
 				'type'  => 'checkbox',

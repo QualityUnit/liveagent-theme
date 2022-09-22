@@ -44,78 +44,79 @@ function meta( $metabox_id ) {
 		<div class="Post__content">
 
 			<div class="Content" itemprop="articleBody">
+				<div class="wp-block-columns">
+					<?php
+					if ( ! empty( meta( 'pros' ) ) ) {
+						?>
+					<div class="wp-block-column checklist checklist--pros">
+						<h4><?php _e( 'Pros', 'reviews' ); ?></h4>
+						<ul>
+							<?= preg_replace( "/(.+?)(\n|$)/", '<li>$1</li>', meta( 'pros' ) ); ?>
+						</ul>
+					</div>
+						<?php
+					}
+					if ( ! empty( meta( 'cons' ) ) ) {
+						?>
+						<div class="wp-block-column checklist checklist--cons">
+							<h4><?php _e( 'Cons', 'reviews' ); ?></h4>
+							<ul>
+								<?= preg_replace( "/(.+?)(\n|$)/", '<li>$1</li>', meta( 'cons' ) ); ?>
+							</ul>
+						</div>
+						<?php
+					}
+					?>
+				</div>
+
 				<?php the_content(); ?>
 
-				<div class="wp-block-columns">
-				<?php
-				if ( ! empty( meta( 'pros' ) ) ) {
+			</div>
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<?php
+			if ( ! empty( get_the_author() ) ) {
+				$avatar = get_avatar_url( get_the_author_meta( 'ID' ), 220, 'gravatar_default', get_the_author() );
+				?>
+			<div class="AuthorCard Post__m__negative--small" itemscope itemprop="author" itemtype="https://schema.org/Person">
+				<div class="AuthorCard__image--wrapper">
+					<?php
+					if ( ! empty( $avatar ) ) {
+						?>
+					<meta itemprop="image" content="<?= esc_url( $avatar ); ?>"></meta>
+						<?php
+					}
 					?>
-				<div class="wp-block-column checklist checklist--pros">
-					<h4><?php _e( 'Pros', 'reviews' ); ?></h4>
-					<ul>
-						<?= preg_replace( "/(.+?)(\n|$)/", '<li>$1</li>', meta( 'pros' ) ); ?>
+					<img class="AuthorCard__image" src="<?=  esc_url( empty( $avatar ) ? get_template_directory_uri() . '/assets/images/author_avatar.svg' : esc_url( $avatar ) ); ?>" alt="<?php the_author(); ?>" />
+				</div>
+				<div class="AuthorCard__content">
+					<h3 class="AuthorCard__name" itemprop="name"><?php the_author(); ?></h3>
+					<p class="AuthorCard__company" itemprop="jobTitle"><?php _e( 'LiveAgent', 'ms' ); ?></p>
+					<p class="AuthorCard__desc" itemprop="text"><?php the_author_meta( 'description' ); ?></p>
+	
+					<ul class="AuthorCard__contacts">
+						<?php if ( ! empty( get_the_author_meta( 'email' ) ) ) { ?>
+						<li class="AuthorCard__contact AuthorCard__contact--email fontello-mail">
+							<?php
+								$mail_text = __( 'Contact ${author} from LiveAgent by mail', 'use-case' );
+								$mail_text = str_replace( '${author}', get_the_author(), $mail_text );
+							?>
+							<a href="mailto:<?= esc_url( get_the_author_meta( 'email' ) ); ?>" title="<?= esc_attr( $mail_text ); ?>" itemprop="email"><?php _e( 'Mail', 'use-case' ); ?></a>
+						</li>
+						<?php } ?>
 					</ul>
 				</div>
-					<?php
-				}
-				if ( ! empty( meta( 'cons' ) ) ) {
-					?>
-					<div class="wp-block-column checklist checklist--cons">
-						<h4><?php _e( 'Cons', 'reviews' ); ?></h4>
-						<ul>
-							<?= preg_replace( "/(.+?)(\n|$)/", '<li>$1</li>', meta( 'cons' ) ); ?>
-						</ul>
-					</div>
-					<?php
-				}
-				?>
-								</div>
+			</div>
 				<?php
-				if ( ! empty( get_the_author() ) ) {
-					$avatar = get_avatar_url( get_the_author_meta( 'ID' ), 220, 'gravatar_default', get_the_author() );
-					?>
-				<br />
-				<br />
-				<div class="AuthorCard Post__m__negative--small" itemscope itemprop="author" itemtype="https://schema.org/Person">
-					<div class="AuthorCard__image--wrapper">
-						<?php
-						if ( ! empty( $avatar ) ) {
-							?>
-						<meta itemprop="image" content="<?= esc_url( $avatar ); ?>"></meta>
-							<?php
-						}
-						?>
-						<img class="AuthorCard__image" src="<?=  esc_url( empty( $avatar ) ? get_template_directory_uri() . '/assets/images/author_avatar.svg' : esc_url( $avatar ) ); ?>" alt="<?php the_author(); ?>" />
-					</div>
-					<div class="AuthorCard__content">
-						<h3 class="AuthorCard__name" itemprop="name"><?php the_author(); ?></h3>
-						<p class="AuthorCard__company" itemprop="jobTitle"><?php _e( 'LiveAgent', 'ms' ); ?></p>
-						<p class="AuthorCard__desc" itemprop="text"><?php the_author_meta( 'description' ); ?></p>
-
-						<ul class="AuthorCard__contacts">
-							<?php if ( ! empty( get_the_author_meta( 'email' ) ) ) { ?>
-							<li class="AuthorCard__contact AuthorCard__contact--email fontello-mail">
-								<?php
-									$mail_text = __( 'Contact ${author} from LiveAgent by mail', 'use-case' );
-									$mail_text = str_replace( '${author}', get_the_author(), $mail_text );
-								?>
-								<a href="mailto:<?= esc_url( get_the_author_meta( 'email' ) ); ?>" title="<?= esc_attr( $mail_text ); ?>" itemprop="email"><?php _e( 'Mail', 'use-case' ); ?></a>
-							</li>
-							<?php } ?>
-						</ul>
-					</div>
-				</div>
-					<?php
-				}
-				?>
-
-				<div class="Post__content__resources Post__m__negative">
-					<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
-
-					<div class="SimilarSources">
-						<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
-					</div>
-				</div>
+			}
+			?>
+		<div class="Post__content__resources Post__m__negative">
+			<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
+	
+			<div class="SimilarSources">
+				<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
 			</div>
 		</div>
 	</div>

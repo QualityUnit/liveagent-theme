@@ -5,6 +5,8 @@
 
 	$average = round( ( $first + $second + $third ) / 3, 1 );
 
+	$rating_update = new DateTime( meta( 'last_update' ) );
+
 function progressbar( $text, $rating, $color ) {
 	?>
 		<div class="progressBar__wrapper">
@@ -18,8 +20,8 @@ function progressbar( $text, $rating, $color ) {
 }
 ?>
 
-	<div class="Post__header <?= esc_attr( $header_category ); ?>">
-		<div class="wrapper__wide">
+	<div class="Post__header  Reviews__header Reviews__header--post <?= esc_attr( $header_category ); ?>">
+		<div class="wrapper flex flex-direction-column">
 			<div class="Post__content__breadcrumbs">
 				<ul>
 					<li><a href="<?php _e( '/reviews/', 'ms' ); ?>"><?php _e( 'Reviews', 'ms' ); ?></a></li>
@@ -27,17 +29,22 @@ function progressbar( $text, $rating, $color ) {
 				</ul>
 			</div>
 
-			<div class="flex">
-				<h1 itemprop="name"><?php the_title(); ?></h1>
-				<span itemprop="dateModified" content="<?= esc_html( get_the_modified_time( 'F j, Y' ) ); ?>"> 
-					<?= esc_html( __( 'Last modified on', 'ms' ) . ' ' . get_the_modified_time( 'F j, Y' ) ); ?>
-				</span>
+			<div class="flex flex-align-center Reviews__header--post__bottom">
+				<h1 class="Reviews__header--post__title" itemprop="name"><?php the_title(); ?></h1>
+				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_html( get_the_modified_time( 'F j, Y' ) ); ?>"> 
+					<?= esc_html( __( 'Review Last update:', 'reviews' ) . ' ' ); ?>
+					<em><?= get_the_modified_time( 'F j, Y' ); ?></em>
+				</time>
 			</div>
 		</div>
 	</div>
 
-	<div class="wrapper flex">
+	<div class="wrapper flex-tablet-landscape mb-extreme">
 		<div class="col-50">
+			<?php
+			$review_in = __( '${product} review is included in:', 'reviews' );
+			?>
+			<small class="text-light"><?= esc_html( str_replace( '${product}', get_the_title(), $review_in ) ); ?></small>
 			<ul class="Post__sidebar__categories__labels">
 				<?php
 				$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_reviews' );
@@ -56,8 +63,9 @@ function progressbar( $text, $rating, $color ) {
 			</ul>
 			<?php
 				$how = __( 'How ${product} is doing on review portals', 'reviews' );
-				echo esc_html( str_replace( '${product}', get_the_title(), $how ) );
-			?>
+				?>
+			<small class="text-light"><?= esc_html( str_replace( '${product}', get_the_title(), $how ) ); ?></small>
+
 			<div class="Reviews__rating Reviews__rating--portals">
 				<div class="flex flex-align-center">
 					<span class="Reviews__rating--rating">
@@ -71,7 +79,11 @@ function progressbar( $text, $rating, $color ) {
 						<div class="info-icon"></div>
 						<span class="ComparePlans__tooltip__text Pricing__currency__tooltip">
 							<?php _e( 'Average rating based on data from trusted review portals', 'reviews' ); ?>
-							<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . meta( 'last_update' ) ); ?>
+
+							<time class="Reviews__update fit" itemprop="dateModified" content="<?= esc_html( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_html( $rating_update->format( 'F j, Y' ) ); ?>"> 
+
+								<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . $rating_update->format( 'F j, Y' ) ); ?>
+							</time>
 						</span>
 					</div>
 				</div>
@@ -81,22 +93,61 @@ function progressbar( $text, $rating, $color ) {
 			</div>
 
 			<p><?= esc_html( wp_trim_words( meta( 'note' ), 42 ) ); ?></p>
-			<h3><?php _e( 'Pricing', 'reviews' ); ?></h3>
-			<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . meta( 'last_update' ) ); ?>
 
-			<div>
-				<?= esc_html( meta( 'currency' ) ); ?>
-				<?= esc_html( meta( 'price' ) ); ?>
-				<?= esc_html( meta( 'period' ) ); ?>
-			</div>
 			<div class="flex">
-				<strong><?php _e( 'Free trial', 'reviews' ); ?>:</strong> <?= meta( 'free_trial' ); ?>
+				<h3 class="no-margin mr-s"><?php _e( 'Pricing', 'reviews' ); ?></h3>
+				<time class="Reviews__update small text-light" itemprop="dateModified" content="<?= esc_html( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_html( $rating_update->format( 'F j, Y' ) ); ?>"> 
+					<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . $rating_update->format( 'F j, Y' ) ); ?>
+				</time>
 			</div>
-			<div>
-				<strong><?php _e( 'Free version', 'reviews' ); ?>:</strong> <?= meta( 'free_version' ); ?>
+
+			<div class="flex-tablet Reviews__info mt-xs">
+				<strong class="Reviews__info--desc mt-s"><?php _e( 'Starting from', 'reviews' ); ?>:</strong>
+				<div>
+					<div class="Reviews__info--pricing">
+						<strong class="currency"><?= esc_html( meta( 'currency' ) ); ?></strong>
+						<strong class="price"><?= esc_html( meta( 'price' ) ); ?></strong>
+						<span class="text-light">
+							&nbsp;
+							<?= esc_html( meta( 'period' ) ); ?>
+						</span>
+					</div>
+
+					<?php 
+							$plan = meta( 'equal_la_plan' );
+
+							$free        = __( "Equal to LiveAgent's Free plan", 'reviews' );
+							$ticket      = __( "Equal to LiveAgent's Ticket plan", 'reviews' );
+							$ticket_chat = __( "Equal to LiveAgent's Ticket + Chat plan", 'reviews' );
+							$all         = __( "Equal to LiveAgent's All Inclusive plan", 'reviews' );
+							$la_pricing  = __( 'Liveagent pricing', 'reviews' );
+
+							$la_pricing_url = __( '/pricing', 'reviews' );
+
+					if ( isset( $plan ) ) {
+						?>
+					<div class="Reviews__equalPlan mt-m">
+						<div class="alert-icon"></div>
+						<div class="Reviews__equalPlan--text">
+							<?= esc_html( ${$plan} ); ?>
+							<a class="Reviews__equalPlan--pricing" href="<?= esc_url( $la_pricing_url ); ?>"><?= esc_html( $la_pricing ); ?></a>
+						</div>
+					</div>
+						<?php
+					}
+					?>
+				</div>
+			</div>
+
+
+			<div class="flex-tablet Reviews__info mt-xs">
+				<strong class="Reviews__info--desc"><?php _e( 'Free trial', 'reviews' ); ?>:</strong> <span class="text-light"><?= meta( 'free_trial' ) ? ucfirst( meta( 'free_trial' ) ) : __( 'No', 'reviews' ); ?></span>
+			</div>
+			<div class="flex-tablet Reviews__info mt-xs">
+				<strong class="Reviews__info--desc"><?php _e( 'Free version', 'reviews' ); ?>:</strong> <span class="text-light"><?= meta( 'free_version' ) ? ucfirst( meta( 'free_version' ) ) : __( 'No', 'reviews' ); ?></span>
 			</div>
 		</div>
-		<div class="col-50 Reviews__Gallery">
+		<div class="col-50 ml-xxxl-tablet-landscape Reviews__Gallery">
 			<div class="splide Reviews__Gallery--main">
 				<div class="splide__track">
 					<ul class="splide__list">
@@ -147,10 +198,10 @@ function progressbar( $text, $rating, $color ) {
 		</div>
 	</div>
 
-	<div class="Block--background--glassy">
+	<div class="Reviews__editor">
 		<div class="wrapper__narrow">
 
-		<div class="Reviews__editor">
+		<div class="Reviews__editor--top">
 			<div class="Reviews__editor--titles">
 				<div class="tag"><p><?php _e( "Editor's rating", 'reviews' ); ?>: </p></div>
 				<h3 class="Reviews__editor--title"><?php _e( "Editor's rating", 'reviews' ); ?></h3>

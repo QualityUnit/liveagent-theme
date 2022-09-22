@@ -2,6 +2,7 @@
 
 @import "../common/mixins";
 @import "../common/variables";
+@import "../elements/ReviewsRating";
 @import "../components/ReviewsGallery";
 @import "../layouts/BlogPost";
 
@@ -9,6 +10,8 @@
 
 	&__header {
 		position: relative;
+		max-width: $breakpoint-desktop-hd;
+		margin: 0 auto;
 
 		&-level1 {
 			background: url(../../images/reviews_1st_level_header_bg.jpg) center center no-repeat;
@@ -23,108 +26,145 @@
 				background-size: contain;
 			}
 		}
+
+		&--post {
+			background: url(../../images/reviews_header_post_bg.jpg) center top no-repeat;
+			background-size: cover;
+			padding: 1.5em 0;
+			margin-bottom: 3em;
+
+			.wrapper {
+				height: 13em;
+			}
+
+			&__title {
+				margin-bottom: 0;
+				margin-right: 0.5em;
+				max-width: 50%;
+			}
+
+			&__bottom {
+				margin-top: auto;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				&__title {
+					font-size: 2rem;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-hd) {
+			border-radius: $border-radius-16;
+		}
 	}
 
-	&__rating {
+	&__update {
+		display: flex;
+		align-items: center;
+		line-height: 1;
+		color: $dark-gray;
+		font-size: 0.75rem;
 
-		&--rating {
-			font-weight: 700;
-			font-size: 2rem;
-			padding-right: 0.5em;
+		em {
+			color: $black;
+			font-style: normal;
+			margin-left: 0.5em;
+		}
+
+		&.small {
+
+			&::before {
+
+				@include square(1em);
+			}
+		}
+
+		&.fit {
+			font-size: 1em;
+			font-family: inherit;
+			color: currentcolor;
+
+			&::before {
+
+				@include square(1em);
+			}
+		}
+
+		&::before {
+
+			@include square(1.5em);
+			content: "";
+			background: url(../../images/update_icon.svg) center center no-repeat;
+			background-size: contain;
+			margin-right: 0.5em;
+		}
+	}
+
+	&__info {
+		font-size: 0.875rem;
+
+		.currency {
+			font-style: 1.143em;
+		}
+
+		.price {
+			font-size: 2.285em;
 		}
 
 		&--desc {
+
+			@media (min-width: $breakpoint-tablet) {
+				display: inline-block;
+				width: 25%;
+			}
+		}
+	}
+
+	&__equalPlan {
+		display: flex;
+		align-items: center;
+		background: linear-gradient(to right, #c04297, #ff4c6c, #ff7b6c);
+		color: $white;
+		font-family: $font-secondary;
+		font-size: 0.875rem;
+		font-weight: 600;
+		line-height: 1.3;
+		border-radius: 0.714em;
+		width: fit-content;
+		padding: 0.75em 1em;
+
+		.alert-icon {
+
+			@include square(2em);
+			background: url(../../images/icon-alert.svg) no-repeat;
+			margin-right: 0.5em;
+		}
+
+		a {
 			display: block;
-			font-weight: 600;
-			font-size: 0.875rem;
-			margin-top: 1em;
-		}
-
-		&--stars {
-			position: relative;
-			width: 8.25rem;
-			height: 1.48rem;
-			background: url(../../images/reviews/stars_gradient-outline.svg) left center no-repeat;
-			background-size: auto 100%;
-
-			&__fill {
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 100%;
-				background: url(../../images/reviews/stars_gradient.svg) left center no-repeat;
-				background-size: auto 100%;
-				overflow: hidden;
-			}
-		}
-
-		&--portals {
-			background-color: $lightest-gray;
-			border-radius: 10px 60px 60px 10px;
-			width: 55%;
-			padding: 2em;
-
-			.ComparePlans__tooltip {
-				display: flex;
-				align-items: center;
-			}
-		}
-
-		&--editor {
-
-			background: var(--background);
-			border-radius: 66px $border-radius-16 $border-radius-16 66px;
-			display: flex;
-			align-items: center;
-			padding: 1em 1em 1em 0;
-
-			&__avatar {
-
-				@include square(3.75em);
-				flex: 1;
-				border: 0.25em solid $white;
-				border-radius: 50%;
-				margin-left: 0.75em;
-				margin-right: 0.75em;
-				overflow: hidden;
-
-				img {
-
-					@include square(100%);
-					object-fit: cover;
-				}
-			}
-
-			.Reviews__rating {
-
-				&--desc,
-				&--rating {
-					margin-top: 0;
-					color: $white;
-				}
-
-				&--rating {
-					font-size: 1.5rem;
-				}
-
-				&--stars {
-					background: url(../../images/reviews/stars_white-outline.svg) left center no-repeat;
-					background-size: auto 100%;
-
-					&__fill {
-						background: url(../../images/reviews/stars_white.svg) left center no-repeat;
-						background-size: auto 100%;
-					}
-				}
-			}
+			color: currentcolor;
+			text-decoration: underline;
 		}
 	}
 
 	&__editor {
-		margin-bottom: 3em;
+		background: url(../../images/reviews_editor_bg.jpg) center center no-repeat;
+		background-size: cover;
+		max-width: $breakpoint-desktop-hd;
+		margin: 0 auto;
+
+		&--top {
+			margin-bottom: 3em;
+		}
 
 		@media (min-width: $breakpoint-tablet) {
-			display: flex;
+			padding: 4em 0 3em;
+
+			&--top {
+				display: flex;
+			}
 
 			&--titles {
 				margin-top: auto;
@@ -140,10 +180,18 @@
 				}
 			}
 
+			.progressBar__wrapper + .progressBar__wrapper {
+				margin-top: 0.75em;
+			}
+
 			.Reviews__rating {
 				max-width: 18.375em;
 				margin-left: auto;
 			}
+		}
+
+		@media (min-width: $breakpoint-desktop-hd) {
+			border-radius: $border-radius-16;
 		}
 	}
 }

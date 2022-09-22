@@ -1,0 +1,34 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Split__title {
+	position: relative;
+	padding: 4em 0;
+
+	&__bg {
+		position: absolute;
+		content: "";
+		background: url(../images/reviews_editor_bg.jpg) center center no-repeat;
+		background-size: cover;
+		top: 0;
+		// left: -50vw;
+		// transform: translateX(-25%);
+		width: 100vw;
+		height: 100%;
+	}
+
+	h2 {
+		position: relative;
+		z-index: 1;
+	}
+
+	@media (min-width: $breakpoint-desktop-hd) {
+
+		&__bg {
+			width: $breakpoint-desktop-hd;
+			border-radius: $border-radius-16;
+
+			// left: -600px;
+			// transform: translateX(calc(-50vw - 960px));
+		}
+	}
+}
