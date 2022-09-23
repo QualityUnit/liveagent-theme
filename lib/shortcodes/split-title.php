@@ -20,13 +20,23 @@ function ms_splittitle( $atts ) {
 	</div>
 
 	<script>
-		const splitTitle = document.querySelector('.Split__title h2')
-		const splitTitleBg = document.querySelector('.Split__title__bg')
+		const splitTitle = document.querySelectorAll('.Split__title h2').item(0);
+		const splitTitleBg = document.querySelectorAll('.Split__title__bg');
 
 		const setTitleOffset = () => {
 			const posTitle = splitTitle.getBoundingClientRect().left;
+			const hdQuery = window.matchMedia('(max-width: 1920px)');
 
-			splitTitleBg.style.transform = `translateX(-${posTitle}px)`;
+			if(hdQuery.matches) {
+				splitTitleBg.forEach(bg => {
+					bg.style.transform = `translateX(-${posTitle}px)`
+				});
+			}
+			if(! hdQuery.matches) {
+				splitTitleBg.forEach(bg => {
+					bg.style.transform = `translateX(calc(50vw - ${posTitle}px - 960px))`;
+				});
+			}
 		};
 
 		const resizeObserver = new ResizeObserver((entries) => {
