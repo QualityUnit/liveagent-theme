@@ -107,7 +107,7 @@ function callback( $buffer ) {
 	$buffer = preg_replace( '/<script[^\^]+elementor\/[^\^]+frontend[^\^]+<\/script>/', '', $buffer );
 
 	// WP block style
-	$buffer = preg_replace( '/<link[^\^]+dist\/block-library\/style[^\^]+>/', '', $buffer );
+	// $buffer = preg_replace( '/<link[^\^]+dist\/block-library\/style[^\^]+>/', '', $buffer );
 
 	// WP Scripts
 	$buffer = preg_replace( '/<script[^\^]+dist\/vendor\/wp-polyfill[^\^]+>/', '', $buffer );
