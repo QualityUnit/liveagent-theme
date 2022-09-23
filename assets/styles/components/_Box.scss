@@ -144,7 +144,8 @@
 
 			img {
 
-				@include square(100%);
+				@include square(100% !important);
+				object-fit: contain;
 			}
 		}
 
