@@ -40,3 +40,20 @@ remove_action( 'wp_head', 'wlwmanifest_link' );
   */
 
 add_filter( 'xmlrpc_enabled', '__return_false' );
+
+
+/**
+ * Disable RSS
+ */
+
+function custom_disable_feed() {
+	wp_die( esc_html( __( 'Nothing here!' ) ) );
+}
+
+add_action( 'do_feed', 'custom_disable_feed', 1 );
+add_action( 'do_feed_rdf', 'custom_disable_feed', 1 );
+add_action( 'do_feed_rss', 'custom_disable_feed', 1 );
+add_action( 'do_feed_rss2', 'custom_disable_feed', 1 );
+add_action( 'do_feed_atom', 'custom_disable_feed', 1 );
+add_action( 'do_feed_rss2_comments', 'custom_disable_feed', 1 );
+add_action( 'do_feed_atom_comments', 'custom_disable_feed', 1 );
