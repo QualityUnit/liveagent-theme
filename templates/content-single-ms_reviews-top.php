@@ -10,11 +10,11 @@
 function progressbar( $text, $rating, $color ) {
 	?>
 		<div class="progressBar__wrapper">
-			<strong class="progressBar__desc"><?= meta( $text ); ?></strong>
+			<strong class="progressBar__desc"><?= esc_html( meta( $text ) ); ?></strong>
 			<div class="progressBar">
 				<div class="progressBar__inn" style="background-color: <?= esc_attr( $color ); ?>; width:<?= esc_attr( ( $rating / 5 * 100 ) . '%' ); ?>"></div>
 			</div>
-			<strong class="progressBar__rating"><?= $rating; ?></strong>
+			<strong class="progressBar__rating"><?= esc_html( $rating ); ?></strong>
 		</div>
 	<?php
 }
@@ -33,7 +33,7 @@ function progressbar( $text, $rating, $color ) {
 				<h1 class="Reviews__header--post__title" itemprop="name"><?php the_title(); ?></h1>
 				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_html( get_the_modified_time( 'F j, Y' ) ); ?>"> 
 					<?= esc_html( __( 'Review Last update:', 'reviews' ) . ' ' ); ?>
-					<em><?= get_the_modified_time( 'F j, Y' ); ?></em>
+					<em><?= esc_html( get_the_modified_time( 'F j, Y' ) ); ?></em>
 				</time>
 			</div>
 		</div>
@@ -53,7 +53,7 @@ function progressbar( $text, $rating, $color ) {
 				if ( $categories ) {
 					foreach ( $categories as $category ) {
 						?>
-				<li class="Post__sidebar__link">
+				<li class="Post__sidebar__link mr-s">
 					<a href="../<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
 				</li>
 						<?php
@@ -63,7 +63,7 @@ function progressbar( $text, $rating, $color ) {
 			</ul>
 			<?php
 				$how = __( 'How ${product} is doing on review portals', 'reviews' );
-				?>
+			?>
 			<small class="text-light"><?= esc_html( str_replace( '${product}', get_the_title(), $how ) ); ?></small>
 
 			<div class="Reviews__rating Reviews__rating--portals">
@@ -141,10 +141,10 @@ function progressbar( $text, $rating, $color ) {
 
 
 			<div class="flex-tablet Reviews__info mt-xs">
-				<strong class="Reviews__info--desc"><?php _e( 'Free trial', 'reviews' ); ?>:</strong> <span class="text-light"><?= meta( 'free_trial' ) ? ucfirst( meta( 'free_trial' ) ) : __( 'No', 'reviews' ); ?></span>
+				<strong class="Reviews__info--desc"><?php _e( 'Free trial', 'reviews' ); ?>:</strong> <span class="text-light"><?= esc_html( meta( 'free_trial' ) ? ucfirst( meta( 'free_trial' ) ) : __( 'No', 'reviews' ) ); ?></span>
 			</div>
 			<div class="flex-tablet Reviews__info mt-xs">
-				<strong class="Reviews__info--desc"><?php _e( 'Free version', 'reviews' ); ?>:</strong> <span class="text-light"><?= meta( 'free_version' ) ? ucfirst( meta( 'free_version' ) ) : __( 'No', 'reviews' ); ?></span>
+				<strong class="Reviews__info--desc"><?php _e( 'Free version', 'reviews' ); ?>:</strong> <span class="text-light"><?= esc_html( meta( 'free_version' ) ? ucfirst( meta( 'free_version' ) ) : __( 'No', 'reviews' ) ); ?></span>
 			</div>
 		</div>
 		<div class="col-50 ml-xxxl-tablet-landscape Reviews__Gallery">
@@ -161,7 +161,7 @@ function progressbar( $text, $rating, $color ) {
 								<div class="Reviews__Gallery--main__desc">
 									<h5 class="highlight">
 									<?= esc_html( get_post_meta( $main_img, '_wp_attachment_image_alt', true ) ); ?>
-									<?= ( $index + 1 ) . '/' . $total_img; ?>
+									<?= esc_html( ( $index + 1 ) . '/' . $total_img ); ?>
 									</h5>
 									<p><?= esc_html( get_post( $main_img )->post_content ); ?></p>
 								</div>
@@ -219,7 +219,7 @@ function progressbar( $text, $rating, $color ) {
 						<span class="Reviews__rating--rating">
 							<?= esc_html( $average ); ?>
 						</span>
-						<div class="Reviews__rating--stars">
+						<div class="Reviews__rating--stars white">
 							<div class="Reviews__rating--stars__fill" 
 							style="width:<?= esc_attr( ( $average / 5 * 100 ) . '%' ); ?>"></div>
 						</div>

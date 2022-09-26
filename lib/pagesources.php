@@ -23,7 +23,7 @@ set_source( 'post', 'custom_lightbox', 'js' );
 set_source( 'single-ms_success-stories', 'pages/SuccessStoriesArticle', 'css' );
 
 // Features, Academy, Integrations, Templates
-$category_pages = array( 'features', 'glossary', 'academy', 'integrations', 'templates' );
+$category_pages = array( 'features', 'glossary', 'academy', 'integrations', 'reviews', 'templates' );
 
 foreach ( $category_pages as $pagename ) {
 	set_source( 'single-ms_' . $pagename, 'common/splide', 'css' );

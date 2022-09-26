@@ -2,7 +2,7 @@
 
 .Split__title {
 	position: relative;
-	padding: 4em 0;
+	padding: 4em 0 2em;
 
 	&__bg {
 		position: absolute;
@@ -10,15 +10,19 @@
 		background: url(../images/reviews_editor_bg.jpg) center center no-repeat;
 		background-size: cover;
 		top: 0;
-		// left: -50vw;
-		// transform: translateX(-25%);
 		width: 100vw;
 		height: 100%;
 	}
 
-	h2 {
+	h2,
+	&__bulb {
 		position: relative;
 		z-index: 1;
+		margin: 0;
+	}
+
+	&__bulb {
+		margin-bottom: 1em;
 	}
 
 	@media (min-width: $breakpoint-desktop-hd) {

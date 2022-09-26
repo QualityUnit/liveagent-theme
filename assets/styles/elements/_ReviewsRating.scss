@@ -31,6 +31,23 @@
 			background-size: auto 100%;
 			overflow: hidden;
 		}
+
+		&.white,
+		&.grey {
+			background: url(../../images/reviews/stars_white-outline.svg) left center no-repeat;
+			background-size: auto 100%;
+
+
+			.Reviews__rating--stars__fill {
+				background: url(../../images/reviews/stars_white.svg) left center no-repeat;
+				background-size: auto 100%;
+			}
+		}
+
+		&.grey {
+
+			filter: brightness(0.75);
+		}
 	}
 
 	&--portals {
@@ -85,16 +102,6 @@
 
 			&--rating {
 				font-size: 1.5rem;
-			}
-
-			&--stars {
-				background: url(../../images/reviews/stars_white-outline.svg) left center no-repeat;
-				background-size: auto 100%;
-
-				&__fill {
-					background: url(../../images/reviews/stars_white.svg) left center no-repeat;
-					background-size: auto 100%;
-				}
 			}
 		}
 	}

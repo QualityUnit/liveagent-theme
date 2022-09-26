@@ -14,7 +14,8 @@ function ms_splittitle( $atts ) {
 	$title = preg_replace( '/\^(.+?)\^/', '<span class="highlight-gradient">$1</span>', $atts['title'] );
 	?>
 
-	<div class="Split__title">
+	<div class="Split__title" data-scrollsidebars="true">
+		<img class="Split__title__bulb" src="<?= esc_url( get_template_directory_uri() . '/assets/images/split_title_lightbulb.svg' ); ?>" />
 		<h2><?= $title; // @codingStandardsIgnoreLine ?></h2>
 		<div class="Split__title__bg"></div>
 	</div>
