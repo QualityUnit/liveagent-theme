@@ -133,6 +133,23 @@
 	}
 
 	&__icon {
+		transition: transform 0.2s;
+
+		@media (hover: hover) {
+			transform: translateY(0);
+
+			&:hover {
+				transform: translateY(-1em);
+			}
+		}
+
+		* {
+			position: static;
+		}
+
+		.elementor-widget-heading .elementor-heading-title {
+			margin-bottom: 1em;
+		}
 
 		div[data-widget_type*="image"] {
 
@@ -153,11 +170,19 @@
 
 			a {
 
-				@include color(color, font-color-level3, !important);
+				color: $light-gray-icon !important;
 				font-size: 0.875rem;
 
 				&::after {
-					filter: brightness(30);
+					filter: brightness(40);
+				}
+
+				&::before {
+					content: "";
+					position: absolute;
+
+					@include posZero;
+					z-index: 1;
 				}
 			}
 		}
