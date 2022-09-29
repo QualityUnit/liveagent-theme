@@ -27,10 +27,8 @@
 	if ( ! isset( $subpage->slug ) ) {
 			require_once get_template_directory() . '/templates/content-archive-ms_reviews-categories.php';
 		?>
-	<div class="wrapper">
-		<h2>
-			<?= $post_title // @codingStandardsIgnoreLine ?>
-		</h2>
+	<div class="wrapper mt-xxl">
+		<?= do_shortcode( '[split-title title="' . $post_title . '"]' ); ?>
 		<div class="Content">
 			<?php
 				$content = apply_filters( 'the_content', $post_content );
@@ -43,20 +41,46 @@
 
 	// Category page level 2
 	if ( isset( $subpage->slug ) ) {
-		// require_once get_template_directory() . '/templates/content-archive-ms_reviews-sorting.php';
 		?>
-		<div class="Reviews__header Reviews__header-level2 FullHeadline">
+		<div class="Reviews__header Reviews__header-level2">
 			<div class="wrapper text-align-center">
+				<div class="Post__content__breadcrumbs ma-bottom">
+					<ul>
+						<li><a href="<?php _e( '/reviews/', 'ms' ); ?>"><?php _e( 'Reviews', 'ms' ); ?></a></li>
+						<li><?= esc_html( $subpage->name ); ?></li>
+					</ul>
+				</div>
 				<h2 class="FullHeadline__title">
 					<?= esc_html( $subpage->name ); ?>
 				</h2>
 				<h3 class="FullHeadline__subtitle">
 					<?= esc_html( $subpage->description ); ?>
 				</h3>
+				<?php require_once get_template_directory() . '/templates/content-archive-ms_reviews-sorting.php'; ?>
 			</div>
 		</div>
-		<div class="wrapper__wide flex-direction-column">
-			<?php require_once get_template_directory() . '/templates/content-archive-ms_reviews-posts.php'; ?>
+		<?php require_once get_template_directory() . '/templates/content-archive-ms_reviews-posts.php'; ?>
+
+		<div class="wrapper">
+			<div class="Reviews__categoryAbout">
+				<img 
+					class="Reviews__categoryAbout--bulb"
+					src="<?= esc_url( get_template_directory_uri() . '/assets/images/reviews_bulb_big.svg' ); ?>"
+					alt="<?= esc_html( get_term_meta( $subpage->term_id, 'description_title', true ) ); ?>"
+				/>
+				<div class="Reviews__categoryAbout--description">
+					<h2 class="Reviews__categoryAbout--title"><?= esc_html( get_term_meta( $subpage->term_id, 'category_description_title', true ) ); ?></h2>
+					<p class="Reviews__categoryAbout--text">
+						<?= esc_html( get_term_meta( $subpage->term_id, 'category_description', true ) ); ?>
+					</p>
+					<span class="learn-more">
+						<a href="<?= esc_url( get_term_meta( $subpage->term_id, 'category_learn_more_url', true ) ); ?>"
+						>
+							<?= esc_html( get_term_meta( $subpage->term_id, 'category_learn_more', true ) ); ?>
+						</a>
+					</span>
+				</div>
+			</div>
 		</div>
 		<?php
 	}

@@ -4,7 +4,9 @@
 @import "../common/variables";
 @import "../elements/ReviewsRating";
 @import "../components/ReviewsGallery";
-@import "../layouts/BlogPost";
+@import "../components/ReviewsCategoryAbout";
+@import "../layouts/ReviewsCategories";
+@import "../layouts/ReviewsPosts";
 
 .Reviews {
 
@@ -12,18 +14,47 @@
 		position: relative;
 		max-width: $breakpoint-desktop-hd;
 		margin: 0 auto;
+		background: url(../../images/reviews_header_bg.jpg) center center no-repeat;
+		background-size: cover;
 
 		&-level1 {
 			background: url(../../images/reviews_1st_level_header_bg.jpg) center center no-repeat;
 			background-size: cover;
 
-			&::after {
+			@media (min-width: $breakpoint-desktop-box) {
 
-				@include posZero();
-				position: absolute;
-				content: "";
-				background: url(../../images/reviews_1st_level_header_img.png) calc(100% - 1em) calc(100% - 2em) no-repeat;
-				background-size: contain;
+				&::after {
+
+					@include posZero();
+					position: absolute;
+					content: "";
+					background: url(../../images/reviews_1st_level_header_img.png) calc(100% - 1em) calc(100% - 2em) no-repeat;
+					background-size: contain;
+				}
+			}
+		}
+
+		&-level2 {
+			margin-bottom: 4.5em;
+
+			.wrapper {
+				padding: 1.5em;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				.wrapper {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					min-height: 28.125em;
+					padding-top: 2em;
+					padding-bottom: 3em;
+				}
+
+				.Filter {
+					margin: 0;
+				}
 			}
 		}
 
@@ -103,7 +134,14 @@
 	}
 
 	&__info {
-		font-size: 0.875rem;
+
+		@media (max-width: $breakpoint-tablet-landscape) {
+			margin-bottom: 3em;
+		}
+
+		&--details {
+			font-size: 0.875rem;
+		}
 
 		.currency {
 			font-style: 1.143em;
@@ -154,6 +192,7 @@
 		background-size: cover;
 		max-width: $breakpoint-desktop-hd;
 		margin: 0 auto;
+		padding: 1.5em;
 
 		&--top {
 			margin-bottom: 3em;
@@ -195,99 +234,35 @@
 		}
 	}
 
-	&__relatedReviews {
+	.checklist {
 
-		&--post {
-			display: block;
-			background-color: $white;
-			border-radius: $border-radius-16;
-			box-shadow: 0 1em 66px 0 rgba($black-real, 0.12);
-			margin-top: 0.75em;
-			overflow: hidden;
+		h4 {
+			color: inherit;
+			font-style: italic;
+		}
 
-			&:not(.active) {
-				border-bottom-right-radius: 0;
+		&--pros {
+
+			li::before {
+				background-color: $desaturated-green !important;
+				background-image: url(../../images/icon-post-pros.svg) !important;
 			}
+		}
 
-			@media (hover: hover) {
+		&--cons {
 
-				&:hover {
+			li::before {
 
-					.Reviews__relatedReviews--post {
-
-						&__inn[class] {
-							color: $black;
-						}
-
-						&__arrow {
-							background: var(--background);
-						}
-					}
-				}
+				background-color: $desaturated-red !important;
+				background-image: url(../../images/icon-post-cons.svg) !important;
 			}
+		}
+	}
 
-			&__number {
-				font-size: 1.5rem;
+	.col-50 {
 
-				.active & {
-					color: $dark-orange;
-				}
-			}
-
-			&__title {
-				font-size: inherit;
-				font-weight: 700;
-				margin: 0;
-				color: currentcolor;
-
-				@media (min-width: $breakpoint-tablet) {
-					margin-right: auto;
-				}
-			}
-
-			&__arrow {
-				position: absolute;
-				display: none;
-				width: 2.75em;
-				height: 100%;
-				top: 0;
-				right: 0;
-				background-color: $light-gray-icon;
-				border-bottom-left-radius: $border-radius-16;
-
-				svg {
-					flex: 0 0 0.75em;
-				}
-
-				@media (min-width: $breakpoint-tablet) {
-
-					.Reviews__relatedReviews--post:not(.active) & {
-						display: flex;
-						align-items: center;
-						justify-content: center;
-					}
-				}
-			}
-
-			&__inn[class] {
-				position: relative;
-				padding: 1.125em;
-				flex-direction: column;
-				font-size: 1.125rem;
-				font-weight: 600;
-				line-height: 1;
-				color: $medium-gray-quotes;
-
-				.active & {
-					color: $black;
-					pointer-events: none;
-				}
-
-				@media (min-width: $breakpoint-tablet) {
-					flex-direction: row;
-					align-items: center;
-				}
-			}
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 50%;
 		}
 	}
 }

@@ -17,7 +17,8 @@ add_action(
 			'show_in_nav_menus' => true,
 			'show_tagcloud'     => false,
 			'rewrite'           => array(
-				'slug' => 'reviews',
+				'slug'       => 'reviews',
+				'with_front' => false,
 			),
 			'show_in_rest'      => true,
 		);

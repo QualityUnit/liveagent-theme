@@ -1,4 +1,4 @@
-/* stylelint-disable selector-class-pattern, value-keyword-case */
+/* stylelint-disable selector-class-pattern, no-descending-specificity, value-keyword-case */
 
 input[type="text"],
 input[type="email"],
@@ -106,6 +106,44 @@ textarea {
 
 			&::before {
 				background-image: url(../images/checkbox-active.svg);
+			}
+		}
+	}
+}
+
+.sorting {
+	color: $dark-gray;
+	font-size: 0.875rem;
+	margin-bottom: 0.75em;
+
+	input {
+		display: none;
+	}
+
+	label {
+		display: flex;
+		align-items: center;
+		align-content: center;
+		width: 100%;
+		cursor: pointer;
+
+		&::before {
+			content: "";
+
+			@include square(0.85em);
+			background: url(../images/icon-sorting-check.svg) center center no-repeat;
+			background-size: contain;
+			margin-right: 0.75em;
+			opacity: 0;
+		}
+	}
+
+	[type="radio"]:checked {
+
+		+ label {
+
+			&::before {
+				opacity: 1;
 			}
 		}
 	}

@@ -127,9 +127,11 @@ body {
 
 	&-align-center {
 		align-content: center;
+		align-items: center;
 
 		.elementor-widget-wrap {
 			align-content: center;
+			align-items: center;
 		}
 	}
 
@@ -298,9 +300,4 @@ $sizes: (
 			margin-left: $val;
 		}
 	}
-}
-
-
-.col-50 {
-	width: 50%;
 }

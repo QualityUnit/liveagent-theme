@@ -10,9 +10,9 @@ add_action(
 			'name_admin_bar' => __( 'Review', 'ms' ),
 		);
 		$rewrite = array(
-			'slug'       => 'reviews',
-			'with_front' => true,
-			'pages'      => true,
+			'slug'       => 'reviews/%ms_reviews_categories%',
+			'with_front' => false,
+			'pages'      => false,
 			'feeds'      => false,
 		);
 		$args    = array(
@@ -28,12 +28,13 @@ add_action(
 			'show_in_admin_bar'   => true,
 			'show_in_nav_menus'   => true,
 			'can_export'          => true,
-			'has_archive'         => true,
+			'has_archive'         => 'reviews',
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'rewrite'             => $rewrite,
 			'capability_type'     => 'post',
 			'show_in_rest'        => true,
+			'taxonomies'          => array( 'ms_reviews_categories' ),
 		);
 		register_post_type( 'ms_reviews', $args );
 	},

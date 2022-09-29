@@ -40,7 +40,7 @@ function progressbar( $text, $rating, $color ) {
 	</div>
 
 	<div class="wrapper flex-tablet-landscape mb-extreme">
-		<div class="col-50">
+		<div class="col-50 Reviews__info">
 			<?php
 			$review_in = __( '${product} review is included in:', 'reviews' );
 			?>
@@ -54,7 +54,7 @@ function progressbar( $text, $rating, $color ) {
 					foreach ( $categories as $category ) {
 						?>
 				<li class="Post__sidebar__link mr-s">
-					<a href="../<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
+					<a href="../../<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
 				</li>
 						<?php
 					}
@@ -101,7 +101,7 @@ function progressbar( $text, $rating, $color ) {
 				</time>
 			</div>
 
-			<div class="flex-tablet Reviews__info mt-xs">
+			<div class="flex-tablet Reviews__info--details mt-xs">
 				<strong class="Reviews__info--desc mt-s"><?php _e( 'Starting from', 'reviews' ); ?>:</strong>
 				<div>
 					<div class="Reviews__info--pricing">
@@ -140,10 +140,10 @@ function progressbar( $text, $rating, $color ) {
 			</div>
 
 
-			<div class="flex-tablet Reviews__info mt-xs">
+			<div class="flex-tablet Reviews__info--details mt-xs">
 				<strong class="Reviews__info--desc"><?php _e( 'Free trial', 'reviews' ); ?>:</strong> <span class="text-light"><?= esc_html( meta( 'free_trial' ) ? ucfirst( meta( 'free_trial' ) ) : __( 'No', 'reviews' ) ); ?></span>
 			</div>
-			<div class="flex-tablet Reviews__info mt-xs">
+			<div class="flex-tablet Reviews__info--details mt-xs">
 				<strong class="Reviews__info--desc"><?php _e( 'Free version', 'reviews' ); ?>:</strong> <span class="text-light"><?= esc_html( meta( 'free_version' ) ? ucfirst( meta( 'free_version' ) ) : __( 'No', 'reviews' ) ); ?></span>
 			</div>
 		</div>

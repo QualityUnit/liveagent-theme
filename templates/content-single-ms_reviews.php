@@ -18,7 +18,7 @@ function meta( $metabox_id ) {
 }
 ?>
 
-<div class="Post" itemscope itemtype="http://schema.org/TechArticle">
+<div class="Post Reviews" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
 
@@ -85,7 +85,7 @@ function meta( $metabox_id ) {
 
 	<div class="wrapper">
 		<?php if ( $categories ) { ?>
-			<h2 class="text-align-center"><?php _e( 'Product reviews', 'reviews' ); ?></h2>
+			<h2 class="text-align-center larger mb-m"><?php _e( 'Product reviews', 'reviews' ); ?></h2>
 				<ul class="Reviews__relatedReviews">
 				<?php
 				$counter              = 0;
