@@ -1,6 +1,5 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
-
 .Box {
 
 	.wrapper,
@@ -116,6 +115,54 @@
 
 	padding: 1.5em;
 
+	&.padding-narrow {
+		padding: 0.35em;
+
+		.elementor-widget-image {
+			border-radius: $border-radius-16;
+			overflow: hidden;
+		}
+
+		.learn-more {
+
+			a {
+
+				font-size: 0.875rem;
+			}
+		}
+	}
+
+	&__icon {
+
+		div[data-widget_type*="image"] {
+
+			@include square(3.75em);
+			background-color: $pricing-gray;
+			border-radius: 0.875rem;
+			padding: 1em;
+			margin-bottom: 1.5em !important;
+
+			img {
+
+				@include square(100% !important);
+				object-fit: contain;
+			}
+		}
+
+		.learn-more {
+
+			a {
+
+				@include color(color, font-color-level3, !important);
+				font-size: 0.875rem;
+
+				&::after {
+					filter: brightness(30);
+				}
+			}
+		}
+	}
+
 	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 		margin-top: 2.5em;
 	}
@@ -130,6 +177,14 @@
 
 	@media (min-width: $breakpoint-desktop) {
 		padding: 2.625em;
+
+		&.padding-narrow {
+			padding: 0.75em;
+		}
+
+		&__icon {
+			padding: 2em;
+		}
 	}
 
 	[class*="Block"] & {

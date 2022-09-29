@@ -10,10 +10,10 @@
 	</a>
 
 	<div class="FullScreen__sidebar">
-		<div class="FullScreen__sidebar__item" style="background-image: url(https://cdn.liveagent.com/app/uploads/2020/01/bg_trial.jpg);">
+		<div class="FullScreen__sidebar__item" style="background-image: url(https://www.liveagent.com/app/uploads/2020/01/bg_trial.jpg);">
 			<div class="FullScreen__sidebar__item__text">
 				<?php _e( '<p>"LiveAgent combines excellent live chat, ticketing and automation that allow us to provide exceptional support to our customers."</p><p>Peter Komornik, <strong>CEO</strong></p>', 'ms' ); ?>
-				<img src="https://cdn.liveagent.com/app/uploads/2019/11/logo_slido_white.svg" alt="<?php _e( 'Review', 'ms' ); ?>">
+				<img src="https://www.liveagent.com/app/uploads/2019/11/logo_slido_white.svg" alt="<?php _e( 'Review', 'ms' ); ?>">
 			</div>
 		</div>
 	</div>
