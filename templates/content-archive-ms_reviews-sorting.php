@@ -4,7 +4,7 @@
 
 	$filters = array(
 		'reviews'   => __( 'Most reviews from external portals', 'reviews' ),
-		'rating'   => __( 'Best ratings from external portals', 'reviews' ),
+		'rating'    => __( 'Best ratings from external portals', 'reviews' ),
 		'ourrating' => __( 'Our best rating', 'reviews' ),
 		'updated'   => __( 'Recently updated', 'reviews' ),
 	);
@@ -41,10 +41,10 @@
 					foreach ( $filters as $key => $filter ) {
 						++$counter;
 						?>
-	
+
 							<div class="sorting FilterMenu__item SortingMenu__item">
 								<input class="sorting-item" type="radio" id="<?= esc_attr( $key ); ?>" value="<?= esc_attr( $key ); ?>" name="relatedReviews" data-sortBy="<?= esc_attr( $filter ); ?>" <?= esc_attr( 1 === $counter ? 'checked' : '' ); ?> />
-	
+
 								<label for="<?= esc_attr( $key ); ?>">
 									<span onclick="_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - <?= esc_html( $filter ); ?>'])"><?= esc_html( $filter ); ?></span>
 								</label>
