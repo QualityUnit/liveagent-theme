@@ -85,7 +85,7 @@ function meta( $metabox_id ) {
 
 	<div class="wrapper">
 		<?php if ( $categories ) { ?>
-			<h2 class="text-align-center larger mb-m"><?php _e( 'Product reviews', 'reviews' ); ?></h2>
+			<h2 class="text-align-center larger mb-l"><?php _e( 'Product reviews', 'reviews' ); ?></h2>
 				<ul class="Reviews__relatedReviews">
 				<?php
 				$counter              = 0;

@@ -1,10 +1,6 @@
 /* global Splide, IntersectionObserver */
 
 document.addEventListener( 'DOMContentLoaded', function() {
-	const direction = () => {
-		return document.documentElement.dir;
-	};
-
 	const reviewsGalleryMain = document.querySelector(
 		'.Reviews__Gallery--main'
 	);

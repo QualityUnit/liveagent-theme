@@ -1,4 +1,5 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
+
 @import "../common/mixins";
 @import "../common/variables";
 
@@ -41,14 +42,14 @@
 		text-align: right;
 
 		&.ui-datepicker-today {
-			font-weight: bold;
+			font-weight: 700;
 		}
 	}
 
 	&-header {
 		display: flex;
 		align-items: center;
-		font-weight: bold;
+		font-weight: 700;
 		margin-bottom: 1.5em;
 
 		.ui-icon {
