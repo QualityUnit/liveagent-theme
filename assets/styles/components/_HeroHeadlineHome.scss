@@ -114,7 +114,9 @@
 		}
 
 		.Button--inaction {
+			padding: 0;
 			margin-bottom: 1rem;
+			margin-left: 0;
 		}
 
 		@media (max-width: $breakpoint-tablet) {
@@ -129,6 +131,11 @@
 			.Button {
 				margin-left: 0;
 				margin-right: 0;
+			}
+
+			.Button--inaction {
+				padding-left: 0.5em;
+				padding-right: 0.5em;
 			}
 
 			.Clients {
