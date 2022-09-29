@@ -31,7 +31,7 @@ function progressbar( $text, $rating, $color ) {
 
 			<div class="flex flex-align-center Reviews__header--post__bottom">
 				<h1 class="Reviews__header--post__title" itemprop="name"><?php the_title(); ?></h1>
-				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_html( get_the_modified_time( 'F j, Y' ) ); ?>"> 
+				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_attr( get_the_modified_time( 'F j, Y' ) ); ?>"> 
 					<?= esc_html( __( 'Review Last update:', 'reviews' ) . ' ' ); ?>
 					<em><?= esc_html( get_the_modified_time( 'F j, Y' ) ); ?></em>
 				</time>
@@ -80,7 +80,7 @@ function progressbar( $text, $rating, $color ) {
 						<span class="ComparePlans__tooltip__text Pricing__currency__tooltip">
 							<?php _e( 'Average rating based on data from trusted review portals', 'reviews' ); ?>
 
-							<time class="Reviews__update fit" itemprop="dateModified" content="<?= esc_html( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_html( $rating_update->format( 'F j, Y' ) ); ?>"> 
+							<time class="Reviews__update fit" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>"> 
 
 								<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . $rating_update->format( 'F j, Y' ) ); ?>
 							</time>
@@ -96,7 +96,7 @@ function progressbar( $text, $rating, $color ) {
 
 			<div class="flex">
 				<h3 class="no-margin mr-s"><?php _e( 'Pricing', 'reviews' ); ?></h3>
-				<time class="Reviews__update small text-light" itemprop="dateModified" content="<?= esc_html( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_html( $rating_update->format( 'F j, Y' ) ); ?>"> 
+				<time class="Reviews__update small text-light" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>"> 
 					<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . $rating_update->format( 'F j, Y' ) ); ?>
 				</time>
 			</div>

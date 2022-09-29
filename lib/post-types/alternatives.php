@@ -35,6 +35,6 @@ add_action(
 );
 
 function add_author_support_to_reviews() {
-   add_post_type_support( 'ms_reviews', 'author' ); 
+	add_post_type_support( 'ms_reviews', 'author' ); 
 }
 add_action( 'init', 'add_author_support_to_reviews' );
