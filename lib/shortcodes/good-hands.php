@@ -1,6 +1,14 @@
 <?php
 
-function ms_good_hands() {
+function ms_good_hands( $atts ) {
+	$atts = shortcode_atts(
+		array(
+			'clients' => 0,
+		),
+		$atts,
+		'good-hands'
+	);
+
 	ob_start();
 	?>
 
@@ -24,6 +32,9 @@ function ms_good_hands() {
 								</div>
 							</div>
 
+							<?php
+							if ( 0 === $atts['clients'] ) {
+								?>
 							<div class="elementor-element elementor-widget elementor-widget-html">
 								<div class="elementor-widget-container">
 									<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--medium Button--full"><span><?php _e( 'Try it now for free', 'ms' ); ?></span></a>
@@ -32,7 +43,7 @@ function ms_good_hands() {
 									<div class="Reviews__items">
 										<div class="Reviews__items__item">
 											<a href="<?php _e( '/awards/', 'ms' ); ?>" title="G2 Crowd">
-												<img style="opacity: 0; transition: opacity .5s" data-lasrc="https://cdn.liveagent.com/app/uploads/2019/11/logo_g2.svg" alt="G2 Crowd">
+												<img style="opacity: 0; transition: opacity .5s" data-src="https://www.liveagent.com/app/uploads/2019/11/logo_g2.svg" alt="G2 Crowd">
 											</a>
 											<div class="Reviews__items__item__stars">
 												<span class="Reviews__items__item__stars__item"></span>
@@ -44,7 +55,7 @@ function ms_good_hands() {
 										</div>
 										<div class="Reviews__items__item">
 											<a href="<?php _e( '/awards/', 'ms' ); ?>" title="Trustpilot">
-												<img style="opacity: 0; transition: opacity .5s" data-lasrc="https://cdn.liveagent.com/app/uploads/2019/11/logo_trustpilot.svg" alt="Trustpilot">
+												<img style="opacity: 0; transition: opacity .5s" data-src="https://www.liveagent.com/app/uploads/2019/11/logo_trustpilot.svg" alt="Trustpilot">
 											</a>
 											<div class="Reviews__items__item__stars">
 												<span class="Reviews__items__item__stars__item"></span>
@@ -56,7 +67,7 @@ function ms_good_hands() {
 										</div>
 										<div class="Reviews__items__item">
 											<a href="<?php _e( '/awards/', 'ms' ); ?>" title="GetApp">
-												<img style="opacity: 0; transition: opacity .5s" data-lasrc="https://cdn.liveagent.com/app/uploads/2019/11/logo_getapp.svg" alt="GetApp">
+												<img style="opacity: 0; transition: opacity .5s" data-src="https://www.liveagent.com/app/uploads/2019/11/logo_getapp.svg" alt="GetApp">
 											</a>
 											<div class="Reviews__items__item__stars">
 												<span class="Reviews__items__item__stars__item"></span>
@@ -69,6 +80,12 @@ function ms_good_hands() {
 									</div>
 								</div>
 							</div>
+								<?php
+							}
+							if ( $atts['clients'] > 0 ) {
+								echo do_shortcode( '[clients posts=' . $atts['clients'] . ']' );
+							}
+							?>
 						</div>
 					</div>
 				</div>

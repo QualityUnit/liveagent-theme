@@ -104,7 +104,7 @@
 									<div class="elementor-image">
 										<img style="opacity: 0; transition: opacity 0.5s ease 0s;" class="attachment-large size-large"
 											alt="<?php _e( 'Header Animation', 'ms' ); ?>" loading="lazy" height="100" width="100"
-											data-lasrc="https://cdn.liveagent.com/app/uploads/2021/06/helpdesk-2.svg">
+											data-src="https://www.liveagent.com/app/uploads/2021/06/helpdesk-2.svg">
 									</div>
 								</div>
 							</div>
@@ -113,7 +113,7 @@
 									<div class="elementor-image">
 										<img width="970" height="1024" style="opacity:0; transition: opacity 0.5s ease 0s;"
 											class="attachment-large size-large" alt="<?php _e( 'Helpdesk software', 'ms' ); ?>" loading="lazy"
-											data-lasrc="https://cdn.liveagent.com/app/uploads/2021/06/helpdesk_bg-970x1024.jpg"> </div>
+											data-src="https://www.liveagent.com/app/uploads/2021/06/helpdesk_bg-970x1024.jpg"> </div>
 								</div>
 							</div>
 						</div>
