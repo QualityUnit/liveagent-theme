@@ -2,6 +2,32 @@
 
 .Reviews__relatedReviews {
 
+	&:not([data-sortedBy*="ourrating"]) {
+
+		.Reviews__rating.editor {
+			display: none;
+		}
+	}
+
+	&[data-sortedBy*="ourrating"] {
+
+		.Reviews__rating:not(.editor) {
+			display: none;
+		}
+	}
+
+	.Reviews__rating--avatar {
+
+		@include square(3.25em);
+		border: none;
+		box-shadow: 0 0 0 0.25em $dark-orange;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			position: absolute;
+			left: -2.35em;
+		}
+	}
+
 	&--post {
 		display: block;
 		background-color: $white;
@@ -121,11 +147,12 @@
 
 			.Reviews__rating {
 				display: flex;
-				flex-wrap: wrap;
+				flex-direction: column;
 				justify-content: flex-end;
 				align-items: center;
 				align-content: center;
 				align-self: stretch;
+				font-size: 1rem;
 
 				&--rating {
 					padding-right: 0;
@@ -133,8 +160,8 @@
 
 				&--count {
 					width: 100%;
-					text-align: right;
 					font-weight: 700;
+					text-align: center;
 				}
 			}
 
@@ -146,13 +173,18 @@
 					&__inn[class] {
 						min-height: 9.125em;
 					}
+
+					&__main {
+						padding-right: 1.5em;
+						max-width: 28em;
+					}
 				}
 
 				.Reviews__rating {
 					justify-content: center;
 					margin: -1.125em;
 					margin-left: auto;
-					max-width: 19em;
+					max-width: 14em;
 					padding-left: 2.5em;
 					padding-right: 4.5em;
 					background: url(../../images/reviews/reviews_rating_bg.jpg) center center no-repeat;
@@ -163,9 +195,17 @@
 			@media (min-width: $breakpoint-tablet-landscape) {
 
 				.Reviews__rating {
+					flex-direction: row;
+					flex-wrap: wrap;
 					justify-content: flex-end;
 					padding-left: 0;
 					padding-right: 5.5em;
+					max-width: 19em;
+					font-size: 1.125rem;
+
+					&--count {
+						text-align: right;
+					}
 				}
 			}
 

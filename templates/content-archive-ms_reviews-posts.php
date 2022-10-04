@@ -49,15 +49,26 @@ while ( $query_reviews_posts->have_posts() ) :
 				</div>
 			<?php
 				$rating_post = meta( 'rating' );
-			if ( $rating_post ) {
+			if ( $rating_post || $average ) {
 				?>
 					<div class="Reviews__rating">
-						<span class="Reviews__rating--rating mr-s-tablet"><?= esc_html( $rating_post ); ?></span>
+						<span class="Reviews__rating--rating mr-s-tablet-landscape"><?= esc_html( $rating_post ); ?></span>
 						<div class="Reviews__rating--stars">
 							<div class="Reviews__rating--stars__fill" 
 							style="width:<?= esc_attr( ( $rating_post / 5 * 100 ) . '%' ); ?>"></div>
 						</div>
 						<div class="Reviews__rating--count"><?= esc_html( meta( 'reviews_count' ) . ' ' . __( 'reviews', 'reviews' ) ); ?></div>
+					</div>
+					<div class="Reviews__rating editor">
+						<div class="Reviews__rating--avatar">
+							<?= get_avatar( get_the_author_meta( 'ID' ), 220, 'mystery', get_the_author() ); ?>
+						</div>
+						<span class="Reviews__rating--rating mr-s-tablet-landscape"><?= esc_html( $average ); ?></span>
+						<div class="Reviews__rating--stars">
+							<div class="Reviews__rating--stars__fill" 
+							style="width:<?= esc_attr( ( $average / 5 * 100 ) . '%' ); ?>"></div>
+						</div>
+						<div class="Reviews__rating--count"><?php _e( "Editor's overall Rating", 'reviews' ); ?></div>
 					</div>
 					<?php
 			}

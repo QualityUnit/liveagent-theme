@@ -5,6 +5,8 @@
 
 	$average = round( ( $first + $second + $third ) / 3, 1 );
 
+	$avatar_image = get_template_directory_uri() . '/assets/images/author_avatar.svg';
+
 	$rating_update = new DateTime( meta( 'last_update' ) );
 
 function progressbar( $text, $rating, $color ) {
@@ -208,8 +210,8 @@ function progressbar( $text, $rating, $color ) {
 			</div>
 
 			<div class="Reviews__rating Reviews__rating--editor">
-				<div class="Reviews__rating--editor__avatar">
-					<?= get_avatar( get_the_author_meta( 'ID' ), 220, 'gravatar_default', get_the_author() ); ?>
+				<div class="Reviews__rating--avatar">
+					<?= get_avatar( get_the_author_meta( 'ID' ), 220, 'mystery', get_the_author() ); ?>
 				</div>
 				<div class="Reviews__rating--editor__info">
 					<strong class="Reviews__rating--desc">

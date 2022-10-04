@@ -116,7 +116,7 @@ function meta( $metabox_id ) {
 									$rating_post = get_post_meta( get_the_ID(), 'rating', true );
 								if ( $rating_post ) {
 									?>
-									<span class="mr-s-tablet"><?= esc_html( $rating_post ); ?></span>
+									<span class="mr-s-tablet-landscape"><?= esc_html( $rating_post ); ?></span>
 									<div class="Reviews__rating--stars <?= ( get_the_ID() === $current_id ) ? '' : 'grey' ?>">
 										<div class="Reviews__rating--stars__fill" 
 										style="width:<?= esc_attr( ( $rating_post / 5 * 100 ) . '%' ); ?>"></div>
