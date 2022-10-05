@@ -18,7 +18,7 @@ add_action(
 		$args    = array(
 			'label'               => __( 'Review', 'ms' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
+			'supports'            => array( 'title', 'editor', 'author', 'excerpt', 'thumbnail', 'revisions' ),
 			'hierarchical'        => true,
 			'public'              => true,
 			'show_ui'             => true,
