@@ -5,8 +5,6 @@
 .heroHeadline__home,
 .heroHeadline {
 	margin-top: 1em;
-	margin-bottom: 3em;
-	overflow-x: hidden;
 
 	.wrapper,
 	.elementor-column-wrap,
@@ -33,7 +31,6 @@
 	}
 
 	@media (min-width: $breakpoint-tablet) {
-		margin-bottom: 7em;
 
 		.wrapper {
 			padding-right: 0 !important;
@@ -63,7 +60,6 @@
 
 	@media (max-width: $breakpoint-desktop-big) {
 		width: calc(100vw - 1rem) !important;
-		overflow: hidden;
 	}
 
 	@media (min-width: $breakpoint-desktop-big) {
@@ -118,7 +114,9 @@
 		}
 
 		.Button--inaction {
+			padding: 0;
 			margin-bottom: 1rem;
+			margin-left: 0;
 		}
 
 		@media (max-width: $breakpoint-tablet) {
@@ -133,6 +131,11 @@
 			.Button {
 				margin-left: 0;
 				margin-right: 0;
+			}
+
+			.Button--inaction {
+				padding-left: 0.5em;
+				padding-right: 0.5em;
 			}
 
 			.Clients {
@@ -328,7 +331,7 @@
 			bottom: 0;
 
 			.elementor-widget-container,
-			.elementor-widget-image .elementor-widget-container {
+			.elementor-image {
 				padding: 0;
 				height: 100%;
 
@@ -356,10 +359,13 @@
 		}
 
 		.elementor-widget-image:not(.animation) {
-			position: relative;
-			height: 100%;
 
 			.elementor-widget-container {
+				position: relative;
+				height: 100%;
+			}
+
+			.elementor-image {
 				position: absolute;
 				padding: 0;
 				width: 100% !important;
@@ -389,6 +395,9 @@
 
 			.elementor-widget-container {
 				height: 100%;
+			}
+
+			.elementor-image {
 				overflow: hidden;
 
 				img {
@@ -414,10 +423,6 @@
 			padding-bottom: 49%;
 			top: 0;
 			right: -2%;
-		}
-
-		.elementor-column-wrap {
-			margin: auto auto 3em 2em;
 		}
 
 		&.align-center .elementor-widget-wrap {
@@ -446,8 +451,8 @@
 				@include color(color, font-color-light);
 				align-items: center;
 
-				[class*="elementor"],
-				[class*="elementor"] p {
+				.elementor-widget-container,
+				.elementor-widget-container p {
 					display: flex !important;
 					font-size: 1rem !important;
 					padding: 0 !important;
@@ -676,7 +681,7 @@
 			height: 40rem;
 
 			&::before,
-			.elementor-widget-image:not(.animation) img {
+			.elementor-widget-image:not(.animation) .elementor-image img {
 				border-radius: 5em 0 0 5em;
 			}
 		}
@@ -685,7 +690,7 @@
 			height: calc(100vh - 7.5em);
 
 			&::before,
-			.elementor-widget-image:not(.animation) img {
+			.elementor-widget-image:not(.animation) .elementor-image img {
 				border-radius: 5em 0 0 5em;
 			}
 
@@ -715,10 +720,11 @@
 		@media (min-width: 1921px) {
 
 			&::before,
-			.elementor-widget-image:not(.animation) img {
+			.elementor-widget-image:not(.animation) .elementor-image img {
 				border-radius: 5em;
 			}
 		}
+
 	}
 
 	&.heroHeadline--scroll & {
@@ -728,15 +734,9 @@
 			@media (min-width: $breakpoint-tablet) {
 
 				&:first-child {
-					position: relative;
-					height: 100%;
 
-					> .elementor-column-wrap,
-					> .elementor-column-wrap > .elementor-widget-wrap {
+					> .elementor-widget-wrap {
 						position: initial;
-					}
-
-					> .elementor-column-wrap > .elementor-widget-wrap {
 						padding-bottom: 6.5em !important;
 					}
 				}

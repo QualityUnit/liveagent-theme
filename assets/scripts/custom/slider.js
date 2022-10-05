@@ -289,7 +289,7 @@ if ( successStories.length > 0 ) {
 		const horizontalSlider = new Splide( slider, {
 			type: 'loop',
 			lazyLoad: 'sequential',
-			autoplay: false,
+			autoplay: true,
 			autoHeight: false,
 			speed: 500,
 			interval: 5000,

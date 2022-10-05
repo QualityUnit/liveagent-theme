@@ -5,6 +5,14 @@
 	margin-top: $block-space;
 	margin-bottom: $block-space;
 
+	&.sm-margin-top {
+		margin-top: $block-space-sm !important;
+	}
+
+	&.sm-margin-bottom {
+		margin-bottom: $block-space-sm !important;
+	}
+
 	&.no-margin-top {
 		margin-top: 0;
 	}
