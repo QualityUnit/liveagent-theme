@@ -63,7 +63,7 @@ function ms_extrafaq( $atts ) {
 		if ( $atts['subheadline'] ) {
 			?>
 			<div class="subhead--wrapper">
-				<p class="subhead"><?= esc_html( $atts['subheadline'] ); ?></p>
+				<p class="subhead"><?= $atts['subheadline']; //@codingStandardsIgnoreLine ?></p>
 			</div>
 			<?php
 		} 

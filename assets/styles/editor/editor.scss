@@ -1,0 +1,86 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.showMetaboxes {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: var(--wp-admin-theme-color);
+	color: #fff;
+	cursor: pointer;
+	font-size: 1rem;
+	padding: 0.5em 1em;
+	outline: none;
+	border: none;
+}
+
+.edit-post-layout__metaboxes {
+	position: absolute;
+	overflow-y: auto;
+	top: 0;
+	width: 100%;
+	transform: translateY(-100%);
+	transition: all 0.5s;
+
+	&.visible {
+		transform: translateY(0);
+	}
+}
+
+.ui-datepicker {
+	background-color: $white;
+	z-index: 999999;
+	font-size: 1rem;
+	padding: 1.5em;
+	box-shadow: 0 0 0.25em 0 rgba($black-real, 0.6);
+
+	th,
+	td {
+		text-align: right;
+
+		&.ui-datepicker-today {
+			font-weight: 700;
+		}
+	}
+
+	&-header {
+		display: flex;
+		align-items: center;
+		font-weight: 700;
+		margin-bottom: 1.5em;
+
+		.ui-icon {
+			display: none;
+		}
+	}
+
+	&-title {
+		margin: 0 auto;
+	}
+
+
+	&-prev,
+	&-next {
+		cursor: pointer;
+		font-size: 2em;
+		transform: scaleX(0.8);
+	}
+
+	&-prev {
+
+		&::before {
+			content: "<";
+		}
+	}
+
+	&-next {
+		order: 2;
+
+		&::before {
+			content: ">";
+		}
+	}
+}

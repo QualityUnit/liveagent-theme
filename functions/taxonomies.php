@@ -12,4 +12,5 @@
 	require_once get_template_directory() . '/lib/taxonomies/awards-years.php';
 	require_once get_template_directory() . '/lib/taxonomies/checklists-categories.php';
 	require_once get_template_directory() . '/lib/taxonomies/success-stories-categories.php';
+	require_once get_template_directory() . '/lib/taxonomies/reviews-categories.php';
 

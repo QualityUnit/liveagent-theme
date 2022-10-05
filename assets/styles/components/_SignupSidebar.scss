@@ -8,6 +8,11 @@
 	background: url(../images/signup_sidebar_bg.svg) center top no-repeat;
 	background-size: cover;
 	border-radius: $border-radius-16;
+	transition: transform 0.5s;
+
+	&.scrolled {
+		transform: translateY(-100%);
+	}
 
 	&__title,
 	&__subtitle {

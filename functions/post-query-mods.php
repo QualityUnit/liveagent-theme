@@ -71,6 +71,10 @@ function set_posts_per_page( $query ) {
 		$query->set( 'posts_per_page', 999 );
 	}
 
+	if ( ( $query === $wp_the_query ) && $query->is_main_query() && ( $query->is_post_type_archive( 'ms_reviews' ) ) ) {
+		$query->set( 'posts_per_page', 999 );
+	}
+
 	return $query;
 }
 add_action( 'pre_get_posts', 'set_posts_per_page' );

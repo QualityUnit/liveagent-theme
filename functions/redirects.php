@@ -135,3 +135,17 @@ function success_stories_category_redirect() {
 	}
 }
 add_action( 'template_redirect', 'success_stories_category_redirect' );
+
+/**
+	* Reviews
+	*/
+function reviews_category_redirect( $post_link, $post ) {
+	if ( $post->post_type ) {
+		$terms = wp_get_object_terms( $post->ID, 'ms_reviews_categories' );
+		if ( $terms ) {
+			return str_replace( '%ms_reviews_categories%', $terms[0]->slug, $post_link );
+		}
+	}
+	return $post_link;
+}
+add_action( 'post_type_link', 'reviews_category_redirect', 1, 2 );

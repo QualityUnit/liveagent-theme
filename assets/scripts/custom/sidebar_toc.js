@@ -6,6 +6,7 @@ const queryAll = document.querySelectorAll.bind( document );
 const headerFaq = query( '.Content h2#faq' );
 const tocFaq = query( '.SidebarTOC__item a[href*=faq]' );
 const sidebarTOC = query( '.SidebarTOC' );
+const signupSidebar = query( '.Signup__sidebar' );
 
 if (
 	headerFaq !== null &&
@@ -32,7 +33,7 @@ const content = query( '.Content' );
 const treshold = 96; // about height of regular <p> paragraph to delay the highlight of toc item
 const headerHeight = query( '.Header' ).clientHeight + treshold;
 const shareIcons = query( '.BlogPost__share-sidebar' );
-const footer = query( '.Footer' );
+const scrollSidebarsElement = queryAll( '[data-scrollsidebars]' );
 
 const tocSlider = query( '.SidebarTOC__slider' );
 let slider = null;
@@ -198,12 +199,14 @@ function activateSidebars() {
 				shareIcons.classList.add( 'inactive' );
 
 				shareIcons.classList.remove( 'scrolled' );
-				if (
-					footer.getBoundingClientRect().top - 217 <
+				scrollSidebarsElement.forEach( ( scrollOutElem ) => {
+					if (
+						scrollOutElem.getBoundingClientRect().top - 217 <
 					window.innerHeight
-				) {
-					shareIcons.classList.add( 'scrolled' );
-				}
+					) {
+						shareIcons.classList.add( 'scrolled' );
+					}
+				} );
 			}
 
 			if ( sidebarTOC !== null ) {
@@ -220,12 +223,17 @@ function activateSidebars() {
 				} );
 
 				sidebarTOC.classList.remove( 'scrolled' );
-				if (
-					footer.getBoundingClientRect().top - 217 <
-					window.innerHeight
-				) {
-					sidebarTOC.classList.add( 'scrolled' );
-				}
+				signupSidebar.classList.remove( 'scrolled' );
+
+				scrollSidebarsElement.forEach( ( scrollOutElem ) => {
+					if (
+						scrollOutElem.getBoundingClientRect().top - 217 <
+						window.innerHeight
+					) {
+						sidebarTOC.classList.add( 'scrolled' );
+						signupSidebar.classList.add( 'scrolled' );
+					}
+				} );
 			}
 
 			// Set a timeout to run after scrolling ends

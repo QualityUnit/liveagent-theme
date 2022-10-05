@@ -1,0 +1,155 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Reviews__categories {
+
+	.wrapper__wide {
+		background: url(../../images/bg_glassy.jpg) center center no-repeat;
+		background-size: cover;
+		border-radius: $border-radius-16;
+		padding: 1.5em;
+	}
+
+	&--inn {
+		width: 100%;
+		margin: 0;
+	}
+
+	&--category {
+		position: relative;
+		border-radius: 1em 2.5em;
+		margin-bottom: 1.5em;
+		background-color: $white;
+		box-shadow: 0 1em 66px 0 rgba($black-real, 0.12);
+
+		&__link {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			padding: 1.5em;
+		}
+
+		&__reviewsCount {
+			position: absolute;
+			color: $white;
+			background: var(--background);
+			font-size: 0.875rem;
+			font-family: $font-secondary;
+			font-weight: 600;
+			top: 50%;
+			right: -0.75em;
+			transform: translateY(-50%);
+			padding: 0.25em 1.5em 0.25em 0.5em;
+			border-radius: 0 0.25em 0.125em 0;
+			z-index: 1;
+
+			&::after {
+
+				@include triangle(1em, $dark-orange, up);
+				content: "";
+				position: absolute;
+				bottom: -0.5em;
+				right: 0.25em;
+				transform: rotate(-45deg);
+			}
+
+			svg {
+				position: absolute;
+				fill: $light-orange;
+				height: 100%;
+				top: 0;
+				right: calc(100% - 3px);
+				z-index: -1;
+			}
+		}
+
+		&__image {
+
+			@include square(2em);
+
+			img {
+
+				@include square(100%);
+				object-fit: contain;
+			}
+		}
+
+		&__title {
+			position: relative;
+			margin-left: 1.5em;
+			margin-bottom: 0;
+			padding-right: 25%;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		.wrapper__wide {
+			padding: 4.5em;
+			margin: 6em auto;
+		}
+
+		&--inn {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 2em;
+		}
+
+		&--category {
+			margin-bottom: 0;
+
+			&__link {
+				align-items: flex-start;
+				padding: 1.5em 2.5em;
+				flex-direction: column;
+			}
+
+			&__image {
+
+				@include square(4em);
+				margin-bottom: 1.5em;
+			}
+
+			&__title {
+				font-size: 1.25rem;
+				line-height: 1.5;
+				margin-top: auto;
+				margin-left: 0;
+
+				&::after {
+
+					@include square(1.25em);
+					content: "";
+					position: absolute;
+					bottom: 0.25em;
+					right: -0.5em;
+					background: url(../../images/icon-arrow.svg) center center no-repeat;
+					background-size: contain;
+				}
+			}
+
+			&__reviewsCount {
+				top: 3em;
+				transform: none;
+			}
+
+			@media (hover: hover) {
+				transition: transform 0.2s;
+
+				&:hover {
+					transform: translateY(-1.25em);
+				}
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper__wide {
+			padding: 4.5em 7em;
+		}
+
+		&--inn {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+}

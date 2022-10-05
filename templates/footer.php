@@ -1,4 +1,4 @@
-<footer class="Footer">
+<footer class="Footer" data-scrollsidebars="true">
 	<div class="Footer__top">
 		<div class="wrapper">
 			<div class="Footer__top__row">
