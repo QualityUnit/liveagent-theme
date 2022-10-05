@@ -236,6 +236,7 @@ $positions: ("left", "right");
 			position: absolute;
 			z-index: 5;// safari image overflow fix
 			overflow: hidden;
+			padding: 0;
 			border-radius: $border-radius-16;
 
 			&::after {
@@ -329,6 +330,12 @@ $positions: ("left", "right");
 
 		.wrapper {
 			max-width: none;
+		}
+	}
+
+	@media (min-width: ($breakpoint-desktop-big + 1px)) {
+
+		.wrapper {
 			padding-right: 0;
 			padding-left: 0;
 		}

@@ -103,6 +103,23 @@
 	margin-bottom: $default-element-margin;
 }
 
+@media (min-width: $breakpoint-desktop + 1) {
+
+	.elementor-column-gap-wider {
+
+		.elementor-col-50 {
+
+			&:first-of-type {
+				padding-right: 2em;
+			}
+
+			&:last-of-type {
+				padding-left: 2em;
+			}
+		}
+	}
+}
+
 @media (max-width: $breakpoint-desktop) {
 
 	.elementor-container {

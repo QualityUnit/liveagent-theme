@@ -9,7 +9,10 @@
 
 	.business-solution-wrapper {
 		max-width: $breakpoint-desktop-box;
-		padding: 4.5em 7.5em 3.7em !important;
+
+		@media (min-width: $breakpoint-desktop) {
+			padding: 4.5em 7.5em 3.7em !important;
+		}
 	}
 
 	.elementor-row {
@@ -23,24 +26,33 @@
 
 	.elementor-container {
 		display: flex;
-		flex-flow: wrap column;
+		flex-flow: row wrap;
 
 		@media (min-width: $breakpoint-desktop) {
-			flex-flow: row;
+			flex-wrap: nowrap;
+		}
+
+		@media (max-width: $breakpoint-tablet-small + 1) {
+			justify-content: center;
 		}
 	}
-
 
 	.column--solution {
 		position: relative;
 		width: 18.75rem !important;
-		margin-top: 2em;
 		align-self: flex-start;
 		flex-shrink: 0;
 
 		@media (min-width: $breakpoint-desktop) {
-			margin: 0;
-			margin-left: 1em;
+			margin: 2em 0 0 1em;
+		}
+
+		@media (max-width: $breakpoint-desktop + 1) {
+			margin: 2em 1em 0 0;
+		}
+
+		@media (max-width: $breakpoint-tablet-small + 1) {
+			margin: 2em 0 0 0;
 		}
 
 		&::after {
@@ -54,12 +66,20 @@
 		}
 
 		&-main-text {
-			max-width: 430px;
 			width: 100%;
 
 			@media (min-width: $breakpoint-desktop) {
 				margin-right: 8%;
-				min-width: none;
+				max-width: 26.875em;
+				min-width: auto;
+			}
+
+			@media (max-width: $breakpoint-desktop + 1) {
+				max-width: 48em;
+			}
+
+			@media (max-width: $breakpoint-tablet-small + 1) {
+				text-align: center;
 			}
 
 			.tag {
@@ -75,10 +95,13 @@
 				h2 {
 					font-size: 1.875rem;
 					line-height: 1.4;
-					max-width: 80%;
 					font-weight: $font-weight-bold;
 					font-family: $font-secondary;
 					margin-bottom: 0;
+
+					@media (min-width: $breakpoint-tablet-small) {
+						max-width: 80%;
+					}
 				}
 			}
 		}
@@ -96,6 +119,12 @@
 			padding-left: 2.5em;
 			margin: 0;
 			margin-top: 6em;
+
+			&,
+			* {
+
+				@include color(color, font-color-light);
+			}
 		}
 
 		&--text {
