@@ -1,12 +1,15 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
-@import "../common/variables";
-@import "../common/mixins";
 @import "./menuArrow";
 
 .FilterMenu {
 	position: relative;
 	z-index: 3;
+
+	&__desc {
+		font-size: 0.875rem;
+		line-height: 1;
+	}
 
 	&__title {
 
@@ -25,6 +28,8 @@
 		filter: none;
 
 		&::after { // aka menuArrow
+
+			@include square(0.65em);
 			border-color: $black;
 			border-width: 2px;
 		}
@@ -34,7 +39,7 @@
 			border-color: currentcolor;
 
 			&::after { // aka menuArrow
-				top: 0.35em;
+				top: 0.15em;
 				border-color: currentcolor;
 			}
 		}
@@ -116,7 +121,7 @@
 		@media (hover: hover) {
 
 			&:hover {
-				background-color: $lightest-gray;
+				background-color: $pricing-gray;
 			}
 		}
 	}

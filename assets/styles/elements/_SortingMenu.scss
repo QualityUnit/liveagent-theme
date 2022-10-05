@@ -1,0 +1,52 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.SortingMenu {
+
+	&__title {
+
+		&::before {
+
+			@include square(1.125em);
+			content: "";
+			background: url(../../images/icon-sorting.svg) center center no-repeat;
+			background-size: contain;
+			margin-right: 0.5em;
+			filter: grayscale(100%) brightness(0);
+		}
+
+		&.active {
+
+			&::before {
+				filter: grayscale(0);
+			}
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+
+				&::before {
+					filter: none;
+				}
+			}
+
+			&.active {
+
+				&:hover::before {
+					filter: grayscale(100%) brightness(0);
+				}
+			}
+		}
+	}
+
+	&__items {
+		width: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+
+		&::before {
+			left: auto;
+			right: 1em;
+		}
+	}
+}

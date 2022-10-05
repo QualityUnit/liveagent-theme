@@ -3,6 +3,7 @@
 @import "../common/mixins";
 @import "../elements/SearchField";
 @import "../elements/FilterMenu";
+@import "../elements/SortingMenu";
 
 .Filter {
 	max-width: $wrapper-width;
@@ -36,7 +37,7 @@
 		font-family: $font-primary;
 	}
 
-	@media (min-width: $breakpoint-tablet-landscape) {
+	@media (min-width: $breakpoint-tablet) {
 		display: flex;
 		align-items: center;
 

@@ -1,0 +1,269 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@import "../common/mixins";
+@import "../common/variables";
+@import "../elements/ReviewsRating";
+@import "../components/ReviewsGallery";
+@import "../components/ReviewsCategoryAbout";
+@import "../layouts/ReviewsCategories";
+@import "../layouts/ReviewsPosts";
+
+.Reviews {
+
+	&__header {
+		position: relative;
+		max-width: $breakpoint-desktop-hd;
+		margin: 0 auto;
+		background: url(../../images/reviews_header_bg.jpg) center center no-repeat;
+		background-size: cover;
+
+		&-level1 {
+			background: url(../../images/reviews_1st_level_header_bg.jpg) center center no-repeat;
+			background-size: cover;
+
+			@media (min-width: $breakpoint-desktop-box) {
+
+				&::after {
+
+					@include posZero();
+					position: absolute;
+					content: "";
+					background: url(../../images/reviews_1st_level_header_img.png) calc(100% - 1em) calc(100% - 2em) no-repeat;
+					background-size: contain;
+				}
+			}
+		}
+
+		&-level2 {
+			margin-bottom: 4.5em;
+
+			.wrapper {
+				padding: 1.5em;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				.wrapper {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					min-height: 28.125em;
+					padding-top: 2em;
+					padding-bottom: 3em;
+				}
+
+				.Filter {
+					margin: 0;
+				}
+			}
+		}
+
+		&--post {
+			background: url(../../images/reviews_header_post_bg.jpg) center top no-repeat;
+			background-size: cover;
+			padding: 1.5em 0;
+			margin-bottom: 3em;
+
+			.wrapper {
+				height: 13em;
+			}
+
+			&__title {
+				margin-bottom: 0;
+				margin-right: 0.5em;
+				max-width: 50%;
+			}
+
+			&__bottom {
+				margin-top: auto;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				&__title {
+					font-size: 2rem;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-hd) {
+			border-radius: $border-radius-16;
+		}
+	}
+
+	&__update {
+		display: flex;
+		align-items: center;
+		line-height: 1;
+		color: $dark-gray;
+		font-size: 0.75rem;
+
+		em {
+			color: $black;
+			font-style: normal;
+			margin-left: 0.5em;
+		}
+
+		&.small {
+
+			&::before {
+
+				@include square(1em);
+			}
+		}
+
+		&.fit {
+			font-size: 1em;
+			font-family: inherit;
+			color: currentcolor;
+
+			&::before {
+
+				@include square(1em);
+			}
+		}
+
+		&::before {
+
+			@include square(1.5em);
+			content: "";
+			background: url(../../images/update_icon.svg) center center no-repeat;
+			background-size: contain;
+			margin-right: 0.5em;
+		}
+	}
+
+	&__info {
+
+		@media (max-width: $breakpoint-tablet-landscape) {
+			margin-bottom: 3em;
+		}
+
+		&--details {
+			font-size: 0.875rem;
+		}
+
+		.currency {
+			font-style: 1.143em;
+		}
+
+		.price {
+			font-size: 2.285em;
+		}
+
+		&--desc {
+
+			@media (min-width: $breakpoint-tablet) {
+				display: inline-block;
+				width: 25%;
+			}
+		}
+	}
+
+	&__equalPlan {
+		display: flex;
+		align-items: center;
+		background: linear-gradient(to right, #c04297, #ff4c6c, #ff7b6c);
+		color: $white;
+		font-family: $font-secondary;
+		font-size: 0.875rem;
+		font-weight: 600;
+		line-height: 1.3;
+		border-radius: 0.714em;
+		width: fit-content;
+		padding: 0.75em 1em;
+
+		.alert-icon {
+
+			@include square(2em);
+			background: url(../../images/icon-alert.svg) no-repeat;
+			margin-right: 0.5em;
+		}
+
+		a {
+			display: block;
+			color: currentcolor;
+			text-decoration: underline;
+		}
+	}
+
+	&__editor {
+		background: url(../../images/reviews_editor_bg.jpg) center center no-repeat;
+		background-size: cover;
+		max-width: $breakpoint-desktop-hd;
+		margin: 0 auto;
+		padding: 1.5em;
+
+		&--top {
+			margin-bottom: 3em;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 4em 0 3em;
+
+			&--top {
+				display: flex;
+			}
+
+			&--titles {
+				margin-top: auto;
+				width: 50%;
+
+				.tag {
+					text-transform: uppercase;
+				}
+
+				h3 {
+					font-size: 2rem;
+					margin-bottom: 0;
+				}
+			}
+
+			.progressBar__wrapper + .progressBar__wrapper {
+				margin-top: 0.75em;
+			}
+
+			.Reviews__rating {
+				max-width: 18.375em;
+				margin-left: auto;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-hd) {
+			border-radius: $border-radius-16;
+		}
+	}
+
+	.checklist {
+
+		h4 {
+			color: inherit;
+			font-style: italic;
+		}
+
+		&--pros {
+
+			li::before {
+				background-color: $desaturated-green !important;
+				background-image: url(../../images/icon-post-pros.svg) !important;
+			}
+		}
+
+		&--cons {
+
+			li::before {
+
+				background-color: $desaturated-red !important;
+				background-image: url(../../images/icon-post-cons.svg) !important;
+			}
+		}
+	}
+
+	.col-50 {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 50%;
+		}
+	}
+}
+

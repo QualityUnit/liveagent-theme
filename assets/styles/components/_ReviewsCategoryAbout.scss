@@ -1,0 +1,26 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Reviews__categoryAbout {
+	background: url(../../images/bg_glassy_second.jpg) center center no-repeat;
+	background-size: cover;
+	border-radius: $border-radius-16;
+	padding: 1.5em;
+	margin-top: 6em;
+
+	&--bulb {
+		max-width: 5em;
+		margin-bottom: 1.5em;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: flex;
+		align-items: flex-end;
+		padding: 4.5em 4.5em 1.5em;
+
+		&--bulb {
+			max-width: 11em;
+			margin-right: 8em;
+			margin-bottom: -1.5em;
+		}
+	}
+}
