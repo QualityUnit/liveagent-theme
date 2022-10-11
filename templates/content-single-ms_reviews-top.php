@@ -192,11 +192,6 @@ function progressbar( $text, $rating, $color ) {
 					</ul>
 				</div>
 			</div>
-
-			<?php
-				set_custom_source( 'common/splide' );
-				set_custom_source( 'reviewsGallery', 'js' );
-			?>
 		</div>
 	</div>
 
