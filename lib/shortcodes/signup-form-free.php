@@ -73,6 +73,8 @@ function ms_signup_form_free() {
 			if (mailValue) {
 				const mailSecondary = new RegExp('@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex.com|gmx.us|@gmx.com)$').test(mailValue);
 
+				gtag('event', 'conversion', {'send_to': 'AW-966671101/wm4uCIGl0eQDEP31-MwD'});
+
 				if(mailSecondary) {
 					gtag( 'event', 'Trial Signup', {
 						'event_category': 'SignUp',
