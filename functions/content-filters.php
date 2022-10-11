@@ -96,15 +96,22 @@ function insert_svg_icons( $content ) {
 	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
 	libxml_clear_errors();
 	$xpath  = new DOMXPath( $dom );
-	$blocks = $xpath->query( ".//*[contains(@class, 'checklist')]" );
+	$blocks = $xpath->query( ".//*[contains(@class, 'icn-')]" );
 
 	// @codingStandardsIgnoreStart
 	foreach ( $blocks as $block ) {
+		$class = $block->getAttribute('class');
+		preg_match( '/icn-(after-)?([^ ]+)/i', $class, $class_fragment );
+		$fragment = $class_fragment[2];
 		$svg = $dom->createDocumentFragment();
-		$svg->appendXML( '<svg class="icon"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#twitter-brands"></use></svg>' );
-		if( $block !== $svg ) {
+		$svg->appendXML( '<svg class="icon"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#' . $fragment . '"></use></svg>' );
+		if ( str_contains( $class, 'icn-after' ) and $block !== $svg ) {
 			$block->insertBefore( $svg, $block->firstChild );
 		}
+		if ( ! str_contains( $class, 'icn-after' ) and $block !== $svg ) {
+			$block->appendChild( $svg );
+		}
+		
 	}
 	// @codingStandardsIgnoreEnd
 
