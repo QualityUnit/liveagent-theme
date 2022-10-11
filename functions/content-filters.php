@@ -15,28 +15,39 @@ add_action( 'after_setup_theme', 'enable_old_widget_editor' );
 	*/
 
 function show_description_header_nav( $item_output, $item, $depth, $args ) {
+	$item_classes = $item->classes;
 	if ( ! empty( $item->description ) ) {
 		$item_output = str_replace( $args->link_after . '</a>', '<div class="menu-item-description">' . $item->description . '</div>' . $args->link_after . '</a>', $item_output );
 
-		if ( in_array( 'fontello-menu-take-a-tour', $item->classes ) ) {
+		if ( in_array( 'fontello-menu-take-a-tour', $item_classes ) ) {
 			$item_output .= '
 			<div data-ytid="3zYfDwqNj0U" data-lightbox="youtube" class="Header__navigation__promo">
 				<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="LiveAgent Tour Video" />' . '
 			</div>';
+			?>
+		<script>
+			(
+				() => {
+					const tourVideo = document.querySelector('li > .Header__navigation__promo');
+					if(tourVideo) {
+						const parent = tourVideo.closest('li');
+						parent.insertAdjacentElement('afterend', tourVideo);
+					}
+				}
+			)();
+		</script>
+			<?php
+		}
+
+		foreach ( $item_classes as $class ) {
+			if ( str_contains( $class, 'fontello' ) ) {
+				$fragment    = preg_replace( '/^fontello-(.+?)/', '$1', $class );
+				$item_output = '<svg class="icon"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#' . $fragment . '"></use></svg>' . $item_output;
+			}
 		}
 	}
 	?>
-	<script>
-		(
-			() => {
-				const tourVideo = document.querySelector('li > .Header__navigation__promo');
-				if(tourVideo) {
-					const parent = tourVideo.closest('li');
-					parent.insertAdjacentElement('afterend', tourVideo);
-				}
-			}
-		)();
-	</script>
+
 	<?php
 	return $item_output;
 }

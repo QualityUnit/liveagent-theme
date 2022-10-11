@@ -53,6 +53,10 @@ gulp.task( 'browser-sync', () => {
 		'./assets/images/flags/*.svg',
 		gulp.series( 'langFlagsSprite' )
 	);
+	gulp.watch(
+		'./assets/images/icons-common/*.svg',
+		gulp.series( 'iconsSprite' )
+	);
 } );
 
 gulp.task( 'styles', () =>
@@ -82,6 +86,23 @@ gulp.task( 'styles', () =>
 		.pipe( browserSync.reload( { stream: true } ) )
 );
 
+const iconsConfig = {
+	shape: {
+		id: {
+			generator: '%s',
+		},
+	},
+	mode: {
+		symbol: {
+			dest: '.',
+			sprite: 'icons.svg',
+			prefix: '%s',
+			dimensions: '',
+			inline: true,
+		},
+	},
+};
+
 const langFlagsConfig = {
 	shape: {
 		id: {
@@ -98,6 +119,14 @@ const langFlagsConfig = {
 		},
 	},
 };
+
+gulp.task( 'iconsSprite', () =>
+	gulp
+		.src( [ './assets/images/icons-common/*.svg' ] )
+		.pipe( svgSprites( iconsConfig ) )
+		.pipe( gulp.dest( './assets/images' ) )
+		.pipe( browserSync.reload( { stream: true } ) )
+);
 
 gulp.task( 'langFlagsSprite', () =>
 	gulp
@@ -195,6 +224,7 @@ gulp.task(
 		'app-js',
 		'custom-js',
 		'langFlagsSprite',
+		'iconsSprite',
 		'browser-sync'
 	)
 );

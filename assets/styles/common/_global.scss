@@ -360,3 +360,9 @@ $sizes: (
 		padding-left: $val;
 	}
 }
+
+.icon[class] {
+
+	@include square(6em);
+	fill: $dark-orange;
+}

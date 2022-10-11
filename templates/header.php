@@ -59,3 +59,8 @@
 
 	</div>
 </header>
+<div class="wrapper">
+	<svg class="icon">
+		<use xlink:href="<?= get_template_directory_uri(); ?>/assets/images/icons.svg#calendar-regular"></use>
+	</svg>
+</div>
