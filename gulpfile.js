@@ -15,6 +15,7 @@ const uglifycss = require( 'gulp-uglifycss' );
 const revertPath = require( 'gulp-revert-path' );
 const rtlcss = require( 'gulp-rtlcss' );
 const svgSprites = require( 'gulp-svg-sprite' );
+// const { outlineFile } = require( '@davestewart/outliner' );
 
 gulp.task( 'browser-reload', ( done ) => {
 	browserSync.reload();

@@ -85,6 +85,38 @@ function add_lightbox_rel( $content ) {
 
 add_filter( 'the_content', 'add_lightbox_rel' );
 
+function insert_svg_icons( $content ) {
+
+	if ( ! $content ) {
+		return $content;
+	}
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath  = new DOMXPath( $dom );
+	$blocks = $xpath->query( ".//*[contains(@class, 'checklist')]" );
+
+	// @codingStandardsIgnoreStart
+	foreach ( $blocks as $block ) {
+		$svg = $dom->createDocumentFragment();
+		$svg->appendXML( '<svg class="icon"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#twitter-brands"></use></svg>' );
+		if( $block !== $svg ) {
+			$block->insertBefore( $svg, $block->firstChild );
+		}
+	}
+	// @codingStandardsIgnoreEnd
+
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
+}
+
+add_filter( 'the_content', 'insert_svg_icons' );
+
 
 /**
  * IconTabs block CSS and JS importer
