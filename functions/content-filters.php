@@ -40,9 +40,9 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 		}
 
 		foreach ( $item_classes as $class ) {
-			if ( str_contains( $class, 'fontello' ) ) {
-				$fragment    = preg_replace( '/^fontello-(.+?)/', '$1', $class );
-				$item_output = '<svg class="icon"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#' . $fragment . '"></use></svg>' . $item_output;
+			if ( str_contains( $class, 'icn-' ) ) {
+				$fragment    = preg_replace( '/^icn-(.+?)/', '$1', $class );
+				$item_output = '<svg class="icon icon-' . $fragment . '"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#' . $fragment . '"></use></svg>' . $item_output;
 			}
 		}
 	}
@@ -104,14 +104,13 @@ function insert_svg_icons( $content ) {
 		preg_match( '/icn-(after-)?([^ ]+)/i', $class, $class_fragment );
 		$fragment = $class_fragment[2];
 		$svg = $dom->createDocumentFragment();
-		$svg->appendXML( '<svg class="icon"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#' . $fragment . '"></use></svg>' );
+		$svg->appendXML( '<svg class="icon icon-' . $fragment . '"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#' . $fragment . '"></use></svg>' );
 		if ( str_contains( $class, 'icn-after' ) and $block !== $svg ) {
 			$block->insertBefore( $svg, $block->firstChild );
 		}
 		if ( ! str_contains( $class, 'icn-after' ) and $block !== $svg ) {
 			$block->appendChild( $svg );
 		}
-		
 	}
 	// @codingStandardsIgnoreEnd
 
