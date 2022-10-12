@@ -53,6 +53,7 @@
 					<ul>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-257-8754', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__whatsapp"><a href="<?php _e( 'https://wa.me/17862041375', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-786-204-1375', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__calendar"><a href="<?php _e( '/demo/', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s demo', 'ms' ); ?>"><?php _e( 'Schedule a demo', 'ms' ); ?></a></li>
 					</ul>
 				</div>
@@ -63,35 +64,35 @@
 						<?php if ( get_option( 'ms_theme_ms_footer_instagram_link' ) ) { ?>
 							<li>
 								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Instagram', 'ms' ); ?>">
-                                    <?= QualityUnit\Extras\load_inline_svg( 'icon_social_instagram' ); // @codingStandardsIgnoreLine ?>
+									<?= QualityUnit\Extras\load_inline_svg( 'icon_social_instagram' ); // @codingStandardsIgnoreLine ?>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_facebook_link' ) ) { ?>
 							<li>
 								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Facebook', 'ms' ); ?>">
-                                    <?= QualityUnit\Extras\load_inline_svg( 'icon_social_facebook' ); // @codingStandardsIgnoreLine ?>
+									<?= QualityUnit\Extras\load_inline_svg( 'icon_social_facebook' ); // @codingStandardsIgnoreLine ?>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_twitter_link' ) ) { ?>
 							<li>
 								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Twitter', 'ms' ); ?>">
-                                    <?= QualityUnit\Extras\load_inline_svg( 'icon_social_twitter' ); // @codingStandardsIgnoreLine ?>
+									<?= QualityUnit\Extras\load_inline_svg( 'icon_social_twitter' ); // @codingStandardsIgnoreLine ?>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_linkedin_link' ) ) { ?>
 							<li>
 								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>">
-                                    <?= QualityUnit\Extras\load_inline_svg( 'icon_social_linkedin' ); // @codingStandardsIgnoreLine ?>
+									<?= QualityUnit\Extras\load_inline_svg( 'icon_social_linkedin' ); // @codingStandardsIgnoreLine ?>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_youtube_link' ) ) { ?>
 							<li>
 								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>">
-                                    <?= QualityUnit\Extras\load_inline_svg( 'icon_social_youtube' ); // @codingStandardsIgnoreLine ?>
+									<?= QualityUnit\Extras\load_inline_svg( 'icon_social_youtube' ); // @codingStandardsIgnoreLine ?>
 								</a>
 							</li>
 						<?php } ?>
@@ -124,10 +125,10 @@
 					<?php
 					if ( has_nav_menu( 'footer_bottom_navigation' ) ) :
 						wp_nav_menu(
-							array(
-								'theme_location' => 'footer_bottom_navigation',
-								'menu_class'     => 'nav',
-							)
+								array(
+										'theme_location' => 'footer_bottom_navigation',
+										'menu_class'     => 'nav',
+								)
 						);
 					endif;
 					?>
@@ -155,10 +156,10 @@
 				<span class="percentage">0%</span>
 				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
 					<path fill-opacity="0" stroke-width="1" stroke="#f4f4f4"
-						d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z">
+								d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z">
 					</path>
 					<path id="heart-1" fill-opacity="0" stroke-width="3" stroke="#ED6A5A"
-						d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z">
+								d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z">
 					</path>
 				</svg>
 			</div>
@@ -200,200 +201,200 @@
 function show_demo_bar() {
 	$disabled_urls = array(
 		/* EN */'/demo',
-		'/trial',
-		'/login',
-		'/pricing',
-		'/about',
-		'/new-york-office',
-		'/blog',
-		'/directory',
-		'/academy',
-		'/templates',
-		'/request-for-proposal',
-		'/partner-with-us',
-		'/affiliate-program',
-		'/typing-test',
-		'/customer-support-glossary',
-		'/terms-and-conditions',
-		'/privacy-policy',
-		'/security-privacy-policy',
-		'/bug-bounty-program',
+			'/trial',
+			'/login',
+			'/pricing',
+			'/about',
+			'/new-york-office',
+			'/blog',
+			'/directory',
+			'/academy',
+			'/templates',
+			'/request-for-proposal',
+			'/partner-with-us',
+			'/affiliate-program',
+			'/typing-test',
+			'/customer-support-glossary',
+			'/terms-and-conditions',
+			'/privacy-policy',
+			'/security-privacy-policy',
+			'/bug-bounty-program',
 		/* DE */ '/testversion/',
-		'/preise/',
-		'/ueber-uns/',
-		'/buero-in-new-york/',
-		'/verzeichnis/',
-		'/akademie/',
-		'/email-vorlagen/',
-		'/anfrage-stellen/',
-		'/moechten-sie-partner-werden/',
-		'/affiliateprogramm/',
-		'/tipptest/',
-		'/glossar/',
-		'/geschaeftsbedingungen/',
-		'/sicherheits-und-datenschutzrichtlinien/',
-		'/bug-bounty-programm/',
+			'/preise/',
+			'/ueber-uns/',
+			'/buero-in-new-york/',
+			'/verzeichnis/',
+			'/akademie/',
+			'/email-vorlagen/',
+			'/anfrage-stellen/',
+			'/moechten-sie-partner-werden/',
+			'/affiliateprogramm/',
+			'/tipptest/',
+			'/glossar/',
+			'/geschaeftsbedingungen/',
+			'/sicherheits-und-datenschutzrichtlinien/',
+			'/bug-bounty-programm/',
 		/* FR */ '/essai/',
-		'/identifiant/',
-		'/prix/',
-		'/a-propos-de-nous/',
-		'/bureau-de-new-york/',
-		'/repertoire/',
-		'/education/',
-		'/modeles-email/',
-		'/demande-doffre/',
-		'/devenir-partenaire/',
-		'/programme-daffiliation/',
-		'/test-de-saisie/',
-		'/glossaire-de-l-assistance-client/',
-		'/termes-conditions/',
-		'/politique-de-confidentialite/',
-		'/politique-de-securite-et-de-confidentialite/',
-		'/programme-prime-bug/',
+			'/identifiant/',
+			'/prix/',
+			'/a-propos-de-nous/',
+			'/bureau-de-new-york/',
+			'/repertoire/',
+			'/education/',
+			'/modeles-email/',
+			'/demande-doffre/',
+			'/devenir-partenaire/',
+			'/programme-daffiliation/',
+			'/test-de-saisie/',
+			'/glossaire-de-l-assistance-client/',
+			'/termes-conditions/',
+			'/politique-de-confidentialite/',
+			'/politique-de-securite-et-de-confidentialite/',
+			'/programme-prime-bug/',
 		/* IT */ '/prova/',
-		'/prezzi/',
-		'/chi-siamo/',
-		'/ufficio-di-new-york/',
-		'/accademia/',
-		'/template-email/',
-		'/richiesta-di-proposta/',
-		'/collabora-con-noi/',
-		'/programma-di-affiliazione/',
-		'/test-di-digitazione/',
-		'/glossario/',
-		'/termini-condizioni/',
-		'/informativa-privacy/',
-		'/informativa-sulla-privacy/',
-		'/programma-bug-bounty/',
+			'/prezzi/',
+			'/chi-siamo/',
+			'/ufficio-di-new-york/',
+			'/accademia/',
+			'/template-email/',
+			'/richiesta-di-proposta/',
+			'/collabora-con-noi/',
+			'/programma-di-affiliazione/',
+			'/test-di-digitazione/',
+			'/glossario/',
+			'/termini-condizioni/',
+			'/informativa-privacy/',
+			'/informativa-sulla-privacy/',
+			'/programma-bug-bounty/',
 		/* NL */ '/proef/',
-		'/prijzen/',
-		'/over/',
-		'/kantoor-in-new-york/',
-		'/adresboek/',
-		'/academie/',
-		'/email-sjablonen/',
-		'/verzoek-om-voorstel/',
-		'/wilt-u-samenwerken/',
-		'/partner-programma/',
-		'/typetest/',
-		'/klantenondersteuning-woordenlijst/',
-		'/algemene-voorwaarden/',
-		'/veiligheid-privacy-beleid/',
-		'/bug-bounty-programma/',
+			'/prijzen/',
+			'/over/',
+			'/kantoor-in-new-york/',
+			'/adresboek/',
+			'/academie/',
+			'/email-sjablonen/',
+			'/verzoek-om-voorstel/',
+			'/wilt-u-samenwerken/',
+			'/partner-programma/',
+			'/typetest/',
+			'/klantenondersteuning-woordenlijst/',
+			'/algemene-voorwaarden/',
+			'/veiligheid-privacy-beleid/',
+			'/bug-bounty-programma/',
 		/* ES */ '/prueba/',
-		'/iniciar-sesion/',
-		'/tarifas/',
-		'/sobre-nosotros/',
-		'/oficina-de-nueva-york/',
-		'/directorio/',
-		'/academia/',
-		'/plantillas-correo-electronico/',
-		'/solicitud-de-propuesta/',
-		'/quiere-asociarse/',
-		'/programa-de-afiliados/',
-		'/prueba-de-tipeo/',
-		'/glosario/',
-		'/terminos-y-condiciones/',
-		'/politica-de-privacidad/',
-		'/politica-de-privacidad-y-de-seguridad/',
-		'/programa-bug-bounty/',
+			'/iniciar-sesion/',
+			'/tarifas/',
+			'/sobre-nosotros/',
+			'/oficina-de-nueva-york/',
+			'/directorio/',
+			'/academia/',
+			'/plantillas-correo-electronico/',
+			'/solicitud-de-propuesta/',
+			'/quiere-asociarse/',
+			'/programa-de-afiliados/',
+			'/prueba-de-tipeo/',
+			'/glosario/',
+			'/terminos-y-condiciones/',
+			'/politica-de-privacidad/',
+			'/politica-de-privacidad-y-de-seguridad/',
+			'/programa-bug-bounty/',
 		/* PT */ '/demonstracao/',
-		'/teste-gratuito/',
-		'/precos/',
-		'/sobre-nos/',
-		'/escritorio-em-nova-york/',
-		'/diretorio/',
-		'/academia/',
-		'/modelos-de-e-mail/',
-		'/solicitacao-de-proposta/',
-		'/quer-ser-parceiro/',
-		'/programa-de-afiliados/',
-		'/teste-de-digitacao/',
-		'/glossario/',
-		'/termos-e-condicoes/',
-		'/politica-de-privacidade/',
-		'/politica-de-privacidade-e-seguranca/',
-		'/programa-caca-aos-bugs/',
+			'/teste-gratuito/',
+			'/precos/',
+			'/sobre-nos/',
+			'/escritorio-em-nova-york/',
+			'/diretorio/',
+			'/academia/',
+			'/modelos-de-e-mail/',
+			'/solicitacao-de-proposta/',
+			'/quer-ser-parceiro/',
+			'/programa-de-afiliados/',
+			'/teste-de-digitacao/',
+			'/glossario/',
+			'/termos-e-condicoes/',
+			'/politica-de-privacidade/',
+			'/politica-de-privacidade-e-seguranca/',
+			'/programa-caca-aos-bugs/',
 		/* RU */ '/demonstraciya/',
-		'/oznakomitelniy-period/',
-		'/vkhod/',
-		'/tsenovaya-politika/',
-		'/kompania/',
-		'/ofis-v-nyu-yorke/',
-		'/katalog/',
-		'/akademija/',
-		'/shablony-elektronnoj-pochty/',
-		'/zapros-predlozheniya/',
-		'/khotite-sotrudnichat/',
-		'/partnerskaya-programma/',
-		'/test-na-umenie-nabirat-tekst/',
-		'/glossarij/',
-		'/polozheniya-i-usloviya/',
-		'/politika-konfidencialnosti/',
-		'/politika-konfidencialnosti-i-bezopasnosti/',
-		'/programma-bag-baunti/',
+			'/oznakomitelniy-period/',
+			'/vkhod/',
+			'/tsenovaya-politika/',
+			'/kompania/',
+			'/ofis-v-nyu-yorke/',
+			'/katalog/',
+			'/akademija/',
+			'/shablony-elektronnoj-pochty/',
+			'/zapros-predlozheniya/',
+			'/khotite-sotrudnichat/',
+			'/partnerskaya-programma/',
+			'/test-na-umenie-nabirat-tekst/',
+			'/glossarij/',
+			'/polozheniya-i-usloviya/',
+			'/politika-konfidencialnosti/',
+			'/politika-konfidencialnosti-i-bezopasnosti/',
+			'/programma-bag-baunti/',
 		/* CN */ '/yan-shi/',
-		'/mian-fei-shi-yong/',
-		'/login/',
-		'/dingjia/',
-		'/guanyuwomen/',
-		'/niuyue-bangongshi/',
-		'/mu-lu/',
-		'/xuehui/',
-		'/dianzi-youjian-muban/',
-		'/xuqiu-jianyi-shu/',
-		'/yu-women-hezuo/',
-		'/jiameng-jihua/',
-		'/dazi-ceshi/',
-		'/kehu-zhichi-biaodan/',
-		'/tiaojian-he-tiaokuan/',
-		'/yinsi-zhengce/',
-		'/anquan-yinsi-zhengce/',
-		'/lou-dong-bao-gao-jiang-li/',
+			'/mian-fei-shi-yong/',
+			'/login/',
+			'/dingjia/',
+			'/guanyuwomen/',
+			'/niuyue-bangongshi/',
+			'/mu-lu/',
+			'/xuehui/',
+			'/dianzi-youjian-muban/',
+			'/xuqiu-jianyi-shu/',
+			'/yu-women-hezuo/',
+			'/jiameng-jihua/',
+			'/dazi-ceshi/',
+			'/kehu-zhichi-biaodan/',
+			'/tiaojian-he-tiaokuan/',
+			'/yinsi-zhengce/',
+			'/anquan-yinsi-zhengce/',
+			'/lou-dong-bao-gao-jiang-li/',
 		/* PL */ '/wersja-probna/',
-		'/zaloguj-sie/',
-		'/cennik/',
-		'/o-nas/',
-		'/biuro-w-nowym-jorku/',
-		'/katalog/',
-		'/akademia/',
-		'/szablony-e-maili/',
-		'/prosba-o-propozycje/',
-		'/rozpocznij-wspolprace/',
-		'/program-partnerski/',
-		'/test-pisania/',
-		'/slowniczek/',
-		'/regulamin/',
-		'/polityka-prywatnosci/',
-		'/polityka-bezpieczenstwa-i-prywatnosci/',
-		'/program-bug-bounty/',
+			'/zaloguj-sie/',
+			'/cennik/',
+			'/o-nas/',
+			'/biuro-w-nowym-jorku/',
+			'/katalog/',
+			'/akademia/',
+			'/szablony-e-maili/',
+			'/prosba-o-propozycje/',
+			'/rozpocznij-wspolprace/',
+			'/program-partnerski/',
+			'/test-pisania/',
+			'/slowniczek/',
+			'/regulamin/',
+			'/polityka-prywatnosci/',
+			'/polityka-bezpieczenstwa-i-prywatnosci/',
+			'/program-bug-bounty/',
 		/* HU */ '/proba/',
-		'/belepes/',
-		'/arazas/',
-		'/rolunk/',
-		'/new-york-iroda/',
-		'/konyvtar/',
-		'/akademia/',
-		'/email-sablonok/',
-		'/ajanlatkeres/',
-		'/tarsuljon-velunk/',
-		'/partnerprogram/',
-		'/gepelesi-teszt/',
-		'/szojegyzek/',
-		'/altalanos-szerzodesi-feltetelek/',
-		'/adatvedelmi-szabalyzat/',
-		'/biztonsagi-adatvedelmi-politika/',
-		'/bug-bounty-program/',
+			'/belepes/',
+			'/arazas/',
+			'/rolunk/',
+			'/new-york-iroda/',
+			'/konyvtar/',
+			'/akademia/',
+			'/email-sablonok/',
+			'/ajanlatkeres/',
+			'/tarsuljon-velunk/',
+			'/partnerprogram/',
+			'/gepelesi-teszt/',
+			'/szojegyzek/',
+			'/altalanos-szerzodesi-feltetelek/',
+			'/adatvedelmi-szabalyzat/',
+			'/biztonsagi-adatvedelmi-politika/',
+			'/bug-bounty-program/',
 		/* SK */ '/ukazka-softveru/',
-		'/skusobna-verzia/',
-		'/prihlasenie/',
-		'/cennik/',
-		'/o-nas/',
-		'/adresar/',
-		'/akademia/',
-		'/sablony/',
-		'/test-pisania/',
-		'/slovnik-zakaznickej-podpory/',
+			'/skusobna-verzia/',
+			'/prihlasenie/',
+			'/cennik/',
+			'/o-nas/',
+			'/adresar/',
+			'/akademia/',
+			'/sablony/',
+			'/test-pisania/',
+			'/slovnik-zakaznickej-podpory/',
 	);
 
 	foreach ( $disabled_urls as $url ) {
@@ -410,20 +411,20 @@ function show_demo_bar() {
 if ( show_demo_bar() !== false ) {
 	?>
 	<div id="demobar" class="DemoBar__wrapper wrapper">
-	<div class="DemoBar">
-		<div class="DemoBar__close" id="demobar-close">&times;</div>
-		<div class="DemoBar__main">
-			<div class="DemoBar__title h3">
-				<?php _e( '<strong>Schedule a one-on-one call</strong> and discover how LiveAgent can benefit your business.', 'ms' ); ?>
+		<div class="DemoBar">
+			<div class="DemoBar__close" id="demobar-close">&times;</div>
+			<div class="DemoBar__main">
+				<div class="DemoBar__title h3">
+					<?php _e( '<strong>Schedule a one-on-one call</strong> and discover how LiveAgent can benefit your business.', 'ms' ); ?>
+				</div>
+				<div class="DemoBar__dates">
+					<svg class=DemoBar__dates--icon" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg"><path d="m14.9678 17.7c1.3807 0 2.5-1.1193 2.5-2.5s-1.1193-2.5-2.5-2.5-2.5 1.1193-2.5 2.5 1.1193 2.5 2.5 2.5z" fill="#1ac65f"/><g fill="#fff"><path d="m16.4678 1v2h-8.00003v-2h-2v2h-1c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14.00003c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2h-1v-2zm3 18h-14.00003v-11h14.00003z"/><path d="m10.7676 14.2h-2.00002v2h2.00002z"/><path d="m10.7676 9.29999h-2.00002v2.00001h2.00002z"/><path d="m15.9678 9.29999h-2v2.00001h2z"/></g></svg>
+					<p class="DemoBar__dates--text"><?php _e( 'We’re available on multiple dates', 'ms' ); ?></p>
+				</div>
 			</div>
-			<div class="DemoBar__dates">
-				<svg class=DemoBar__dates--icon" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg"><path d="m14.9678 17.7c1.3807 0 2.5-1.1193 2.5-2.5s-1.1193-2.5-2.5-2.5-2.5 1.1193-2.5 2.5 1.1193 2.5 2.5 2.5z" fill="#1ac65f"/><g fill="#fff"><path d="m16.4678 1v2h-8.00003v-2h-2v2h-1c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14.00003c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2h-1v-2zm3 18h-14.00003v-11h14.00003z"/><path d="m10.7676 14.2h-2.00002v2h2.00002z"/><path d="m10.7676 9.29999h-2.00002v2.00001h2.00002z"/><path d="m15.9678 9.29999h-2v2.00001h2z"/></g></svg>
-				<p class="DemoBar__dates--text"><?php _e( 'We’re available on multiple dates', 'ms' ); ?></p>
-			</div>
+			<a href="<?php _e( '/demo/', 'ms' ); ?>" onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a demo' )" class="DemoBar__button Button Button--full">
+				<span><?php _e( 'Schedule a demo', 'ms' ); ?></span>
+			</a>
 		</div>
-		<a href="<?php _e( '/demo/', 'ms' ); ?>" onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a demo' )" class="DemoBar__button Button Button--full">
-			<span><?php _e( 'Schedule a demo', 'ms' ); ?></span>
-		</a>
 	</div>
-</div>
 <?php } ?>
