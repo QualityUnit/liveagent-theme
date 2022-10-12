@@ -95,6 +95,11 @@
 								</a>
 							</li>
 						<?php } ?>
+						<li>
+							<a href="<?php _e( 'https://wa.me/17862041375', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
+								<?= QualityUnit\Extras\load_inline_svg( 'icon_social_whatsapp' ); ?>
+							</a>
+						</li>
 					</ul>
 				</div>
 
