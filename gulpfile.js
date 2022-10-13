@@ -15,7 +15,6 @@ const uglifycss = require( 'gulp-uglifycss' );
 const revertPath = require( 'gulp-revert-path' );
 const rtlcss = require( 'gulp-rtlcss' );
 const svgSprites = require( 'gulp-svg-sprite' );
-// const { outlineFile } = require( '@davestewart/outliner' );
 
 gulp.task( 'browser-reload', ( done ) => {
 	browserSync.reload();
@@ -93,13 +92,17 @@ const iconsConfig = {
 			generator: '%s',
 		},
 	},
+	svg: {
+		xmlDeclaration: false,
+	},
 	mode: {
 		symbol: {
 			dest: '.',
 			sprite: 'icons.svg',
 			prefix: '%s',
 			dimensions: '',
-			inline: true,
+			inline: false,
+			rootviewbox: false,
 		},
 	},
 };
@@ -123,7 +126,7 @@ const langFlagsConfig = {
 
 gulp.task( 'iconsSprite', () =>
 	gulp
-		.src( [ './assets/images/icons-common/*.svg' ] )
+		.src( [ './vendor/qualityunit/wordpress-icons/icons/common/**/*.svg', './vendor/qualityunit/wordpress-icons/icons/liveagent/**/*.svg' ] )
 		.pipe( svgSprites( iconsConfig ) )
 		.pipe( gulp.dest( './assets/images' ) )
 		.pipe( browserSync.reload( { stream: true } ) )

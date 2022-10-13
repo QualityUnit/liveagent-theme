@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "890c991087fba1539c74747af4825ff3",
+    "content-hash": "8b50fe214f8fe2e27779702f2e3d12b3",
     "packages": [
         {
             "name": "composer/installers",
@@ -338,6 +338,16 @@
                 }
             ],
             "time": "2021-12-04T23:24:31+00:00"
+        },
+        {
+            "name": "qualityunit/wordpress-icons",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/QualityUnit/wordpress-icons.git",
+                "reference": "main"
+            },
+            "type": "wordpress-icons"
         },
         {
             "name": "symfony/polyfill-ctype",
