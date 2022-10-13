@@ -32,14 +32,13 @@
 			box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.5);
 		}
 
-		&-link {
+		&-link[class] {
 
 			@include color(color, font-color-level3);
 			position: relative;
 			display: flex;
 			align-items: center;
 			padding: 0.5em 0;
-			// left: 3px;
 			font-size: 0.75rem;
 			line-height: 1;
 			text-decoration: none;
