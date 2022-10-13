@@ -1,9 +1,9 @@
 @font-face {
 	font-family: fontello;
 	src:
-		url(../webfonts/fontello.woff2?2022022201) format("woff2"),
-		url(../webfonts/fontello.woff?2022022201) format("woff"),
-		url(../webfonts/fontello.ttf?2022022201) format("truetype");
+		url(../webfonts/fontello.woff2?2022101301) format("woff2"),
+		url(../webfonts/fontello.woff?2022101301) format("woff"),
+		url(../webfonts/fontello.ttf?2022101301) format("truetype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -335,4 +335,8 @@
 
 .fontello-menu-checklists::before {
 	content: "\e835" !important;
+}
+
+.fontello-whatsapp-brands::before {
+	content: "\e836";
 }

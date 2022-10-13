@@ -202,6 +202,11 @@
 
 		a {
 
+			position: relative;
+			display: inline-flex;
+			align-items: center;
+			padding-left: 1.5em;
+
 			&:active,
 			&:focus,
 			&:hover {
@@ -209,12 +214,17 @@
 			}
 
 			&::before {
+
+				@include square(0.875rem);
+				position: absolute;
+				left: 0;
 				content: "\e828";
+				display: flex;
+				justify-content: center;
+				align-items: center;
 				font-family: fontello, sans-serif;
 				font-weight: 900;
-				display: inline-block;
-				margin-right: em(10);
-				text-decoration: none;
+				text-decoration: none !important;
 			}
 		}
 
@@ -225,6 +235,11 @@
 
 		ul &__calendar a::before {
 			content: "\e813";
+		}
+
+		ul &__whatsapp a::before {
+			content: "\e836";
+			font-size: 1.1em;
 		}
 	}
 
