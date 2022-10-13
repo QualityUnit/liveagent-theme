@@ -55,6 +55,7 @@
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-257-8754', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__whatsapp"><a href="<?php _e( 'https://wa.me/17862041375', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-786-204-1375', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__calendar"><a href="<?php _e( '/demo/', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s demo', 'ms' ); ?>"><?php _e( 'Schedule a demo', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__whatsapp"><a href="<?php _e( 'https://wa.me/17862041375', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-786-204-1375', 'ms' ); ?></a></li>
 					</ul>
 				</div>
 
