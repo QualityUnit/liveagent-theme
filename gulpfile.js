@@ -218,7 +218,8 @@ gulp.task(
 		'splide-js',
 		'app-js',
 		'custom-js',
-		'langFlagsSprite'
+		'langFlagsSprite',
+		'iconsSprite'
 	)
 );
 
