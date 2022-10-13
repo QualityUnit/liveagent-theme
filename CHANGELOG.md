@@ -1,3 +1,7 @@
+### 1.0.38: October 13th, 2022
+
+- NEW: Add WhatsApp Icon to Footer
+
 ### 1.0.37: October 11th, 2022
 
 - Bug Fixes and Improvements
