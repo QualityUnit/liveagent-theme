@@ -2,7 +2,7 @@
 .BlockPricing {
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
-	max-width: 1380px;
+	max-width: $breakpoint-desktop-box;
 	margin: 0 auto;
 	position: relative;
 
@@ -25,8 +25,11 @@
 		display: flex;
 		flex-direction: column;
 		background: none !important;
-		max-width: 1380px;
-		padding-left: 10em;
+		max-width: $breakpoint-desktop-box;
+
+		@media (min-width: 1300px) {
+			padding-left: 10em;
+		}
 
 		.elementor-container {
 			align-items: center;
@@ -63,14 +66,23 @@
 	}
 
 	.elementor-element.elementor-widget-text-editor {
-		width: 60%;
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 60%;
+		}
 	}
 
 	.pricing__tags {
+		$gutter: 1em;
 
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: flex-start;
+		margin: (-$gutter / 2);
+
+		> * {
+			padding: ($gutter / 2);
+		}
 
 		div:first-of-type {
 
@@ -84,14 +96,12 @@
 			span {
 				color: $medium-gray;
 				background-color: $lightest-gray;
-				padding-left: 0;
 			}
 		}
 
 		&__label {
 			color: $black;
 			background-color: #e3f2ff;
-			margin: 0 1em 1em 0;
 			padding: 0.5em 1.5em;
 			border-radius: 50px;
 			font-size: 12px;
