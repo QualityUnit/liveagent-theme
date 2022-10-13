@@ -1,5 +1,7 @@
 <?php // @codingStandardsIgnoreLine
 	set_custom_source( 'pages/Reviews', 'css' );
+	set_custom_source( 'common/splide' );
+	set_custom_source( 'reviewsGallery', 'js' );
 	$current_lang    = apply_filters( 'wpml_current_language', null );
 	$header_category = get_en_category( 'ms_reviews', $post->ID );
 	do_action( 'wpml_switch_language', $current_lang );
