@@ -44,7 +44,7 @@ while ( $query_reviews_posts->have_posts() ) :
 			<a class="flex Reviews__relatedReviews--post__inn" href="<?= get_post()->post_name; // @codingStandardsIgnoreLine ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>">
 				<span class="Reviews__relatedReviews--post__number mr-xl-tablet" data-order><?= esc_html( ++$counter ); ?></span>
 				<div class="Reviews__relatedReviews--post__main">
-					<h3 class="Reviews__relatedReviews--post__title"><?= esc_html( str_replace( '^', '', get_the_title() ) . ' ' . $category_name ); ?></h3>
+					<h3 class="Reviews__relatedReviews--post__title"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></h3>
 					<div class="Reviews__relatedReviews--post__excerpt"><?= esc_html( wp_trim_words( get_the_excerpt(), 25 ) ); ?></div>
 				</div>
 			<?php
