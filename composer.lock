@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b50fe214f8fe2e27779702f2e3d12b3",
+    "content-hash": "11f1c842e00b92566039b02b3fc38bb7",
     "packages": [
         {
             "name": "composer/installers",
@@ -341,13 +341,19 @@
         },
         {
             "name": "qualityunit/wordpress-icons",
-            "version": "1.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/QualityUnit/wordpress-icons.git",
-                "reference": "main"
+                "reference": "a79de47c46739a381565cdf162f21e948a01f628"
             },
-            "type": "wordpress-icons"
+            "default-branch": true,
+            "type": "wordpress-icons",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "description": "QU WordPress Themes icons",
+            "time": "2022-10-14T05:43:24+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1441,6 +1447,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "qualityunit/wordpress-icons": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
