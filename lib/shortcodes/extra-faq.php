@@ -44,7 +44,7 @@ function ms_extrafaq( $atts ) {
 
 	ob_start();
 	?>
-	<div class="Faq <?= esc_html( $atts['is-wide'] === 'true' ? 'Post__m__negative':'' ); //@codingStandardsIgnoreLine ?>" itemscope itemtype="https://schema.org/FAQPage">
+	<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
 		<h2 id="faq">
 		<?php
 			$headline = esc_html( $atts['headline'] );

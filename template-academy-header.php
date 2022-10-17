@@ -166,13 +166,13 @@
 			<div class="Content">
 				<?php the_content(); ?>
 
-				<div class="Post__m__negative Post__buttons">
+				<div class="Post__buttons">
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Page', 'Sign Up Trial'])">
 						<span><?php _e( 'Try It Now', 'ms' ); ?></span>
 					</a>
 				</div>
 
-				<div class="Post__content__resources Post__m__negative">
+				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h3"><?php _e( 'Related Resources', 'ms' ); ?></div>
 
 					<div class="SimilarSources">
