@@ -167,28 +167,28 @@ jobs:
           body: See changes in the [CHANGELOG.md](CHANGELOG.md)
           files: ./liveagent_${{ steps.version.outputs.group1 }}.zip
 
-#  deploy:
-#    name: Deploy
-#    needs: release
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Version
-#        id: version
-#        uses: actions-ecosystem/action-regex-match@v2
-#        with:
-#          text: ${{ github.ref }}
-#          regex: ".*/([^/]+)$"
-#
-#      - name: Trigger downstream pipeline
-#        id: trigger
-#        uses: aurelien-baudet/workflow-dispatch@v2
-#        with:
-#          workflow: update.yml
-#          repo: QualityUnit/liveagent-wp
-#          ref: dev
-#          token: ${{ secrets.TEST_CICD_USER_PAT }}
-#          wait-for-completion-interval: 5s
-#          inputs: '{
-#                  "repository":"liveagent-wp",
-#                  "version":"${{ steps.version.outputs.group1 }}"
-#                }'
+  deploy:
+    name: Deploy
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Version
+        id: version
+        uses: actions-ecosystem/action-regex-match@v2
+        with:
+          text: ${{ github.ref }}
+          regex: ".*/([^/]+)$"
+
+      - name: Trigger downstream pipeline
+        id: trigger
+        uses: aurelien-baudet/workflow-dispatch@v2
+        with:
+          workflow: update.yml
+          repo: QualityUnit/liveagent-wp
+          ref: dev
+          token: ${{ secrets.TEST_CICD_USER_PAT }}
+          wait-for-completion-interval: 5s
+          inputs: '{
+                  "repository":"liveagent-wp",
+                  "version":"${{ steps.version.outputs.group1 }}"
+                }'
