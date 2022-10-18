@@ -148,6 +148,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Get the Version
+        id: version
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.ref }}
@@ -174,12 +175,14 @@ jobs:
 
     steps:
       - name: Get the Version
+        id: version
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.ref }}
           regex: ".*/([^/]+)$"
 
       - name: Trigger the Update Pipeline
+        id: trigger
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
           workflow: update.yml
@@ -187,4 +190,7 @@ jobs:
           ref: dev
           token: ${{ secrets.CICD_PAT }}
           wait-for-completion-interval: 5s
-          inputs: '{ "version":"${{ steps.version.outputs.group1 }}" }'
+          inputs: '{
+                  "repository":"liveagent-wp",
+                  "version":"${{ steps.version.outputs.group1 }}"
+                }'
