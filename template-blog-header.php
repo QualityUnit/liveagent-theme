@@ -30,98 +30,92 @@
 	}
 </style>
 
-<section class="heroHeadline">
-		<div class="elementor-container elementor-column-gap-default">
-			<div class="wrapper">
-				<div class="elementor-row">
-					<div class="elementor-column heroHeadline__home--info">
-						<div class="elementor-widget-wrap">
-							<div
-								class="heroHeadline__title elementor-widget elementor-widget-heading"
-								data-widget_type="heading.default">
-								<div class="elementor-widget-container">
-									<h1 class="elementor-heading-title elementor-size-default">
-
-										<?php
-											$pagetitle = explode( '^', get_the_title() );
-										if ( isset( $pagetitle[1] ) ) {
-											?>
-											<?= esc_html( $pagetitle[0] ) . ' ' ?>
-											<span class="highlight-gradient"><?= esc_html( $pagetitle[1] ); ?></span>
-											<?= esc_html( ' ' . $pagetitle[2] ) ?>
+<section class="elementor-section elementor-top-section elementor-element heroHeadline elementor-section-full_width elementor-section-height-default elementor-section-height-default">
+	<div class="elementor-container elementor-column-gap-default">
+		<div class="elementor-column elementor-col-100 elementor-top-column elementor-element wrapper">
+			<div class="elementor-widget-wrap elementor-element-populated">
+				<section class="elementor-section elementor-inner-section elementor-element elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+					<div class="elementor-container elementor-column-gap-default">
+						<div class="elementor-column heroHeadline__home--info">
+							<div class="elementor-widget-wrap">
+								<div class="heroHeadline__title elementor-widget elementor-widget-heading" data-widget_type="heading.default">
+									<div class="elementor-widget-container">
+										<h1 class="elementor-heading-title elementor-size-default">
 											<?php
-										} else {
-											the_title();
-										}
-										?>
-									</h1>
-								</div>
-							</div>
-							<div
-								class="heroHeadline__home--subtitle elementor-widget elementor-widget-text-editor">
-								<div class="elementor-widget-container">
-									<div class="elementor-text-editor elementor-clearfix">
-										<div class="h3"><?php _e( 'Impress your customers and increase their satisfaction.', 'ms' ); ?></div>
+											$pagetitle = explode( '^', get_the_title() );
+											if ( isset( $pagetitle[1] ) ) {
+												?>
+												<?= esc_html( $pagetitle[0] ) . ' ' ?>
+												<span class="highlight-gradient"><?= esc_html( $pagetitle[1] ); ?></span>
+												<?= esc_html( ' ' . $pagetitle[2] ) ?>
+												<?php
+											} else {
+												the_title();
+											}
+											?>
+										</h1>
 									</div>
 								</div>
-							</div>
-							<div class="elementor-widget elementor-widget-html">
-								<div class="elementor-widget-container">
-
-									<ul class="no-cc">
-										<li>✓ <?php _e( 'No setup fee', 'ms' ); ?>&nbsp;&nbsp;&nbsp;</li>
-										<li>✓ <?php _e( 'Customer service 24/7', 'ms' ); ?> &nbsp;&nbsp;&nbsp;</li>
-
-										<li>✓ <?php _e( 'No credit card required', 'ms' ); ?> &nbsp;&nbsp;&nbsp;</li>
-										<li>✓ <?php _e( 'Cancel any time', 'ms' ); ?></li>
-									</ul>
-									<div class="flex flex-wrap">
-										<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
-											<span><?php _e( 'Get Started | 14 days free', 'ms' ); ?> </span>
-										</a>
-
+								<div class="heroHeadline__home--subtitle elementor-widget elementor-widget-text-editor">
+									<div class="elementor-widget-container">
+										<div class="elementor-text-editor elementor-clearfix">
+											<div class="h3"><?php _e( 'Impress your customers and increase their satisfaction.', 'ms' ); ?></div>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="heroHeadline__home--usedby elementor-widget elementor-widget-heading">
-								<div class="elementor-widget-container">
-									<div class="elementor-heading-title elementor-size-default h6"><?php _e( 'Used by', 'ms' ); ?></div>
-								</div>
-							</div>
-							<div class="elementor-widget elementor-widget-shortcode" data-widget_type="shortcode.default">
-								<div class="elementor-widget-container">
-									<div class="elementor-shortcode">
+								<div class="elementor-widget elementor-widget-html">
+									<div class="elementor-widget-container">
+										<ul class="no-cc">
+											<li>✓ <?php _e( 'No setup fee', 'ms' ); ?>&nbsp;&nbsp;&nbsp;</li>
+											<li>✓ <?php _e( 'Customer service 24/7', 'ms' ); ?> &nbsp;&nbsp;&nbsp;</li>
 
-										<?php echo do_shortcode( '[clients posts=4]' ); ?>
+											<li>✓ <?php _e( 'No credit card required', 'ms' ); ?> &nbsp;&nbsp;&nbsp;</li>
+											<li>✓ <?php _e( 'Cancel any time', 'ms' ); ?></li>
+										</ul>
+										<div class="flex flex-wrap">
+											<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
+												<span><?php _e( 'Get Started | 14 days free', 'ms' ); ?> </span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="heroHeadline__home--usedby elementor-widget elementor-widget-heading">
+									<div class="elementor-widget-container">
+										<div class="elementor-heading-title elementor-size-default h6"><?php _e( 'Used by', 'ms' ); ?></div>
+									</div>
+								</div>
+								<div class="elementor-widget elementor-widget-shortcode" data-widget_type="shortcode.default">
+									<div class="elementor-widget-container">
+										<div class="elementor-shortcode">
+											<?php echo do_shortcode( '[clients posts=4]' ); ?>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="elementor-column heroHeadline--bg">
-						<div class="elementor-widget-wrap">
-							<div class="animation elementor-widget elementor-widget-image">
-								<div class="elementor-widget-container">
-									<div class="elementor-image">
+						<div class="elementor-column heroHeadline--bg">
+							<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="animation elementor-widget elementor-widget-image">
+									<div class="elementor-widget-container">
 										<img style="opacity: 0; transition: opacity 0.5s ease 0s;" class="attachment-large size-large"
-											alt="<?php _e( 'Header Animation', 'ms' ); ?>" loading="lazy" height="100" width="100"
-											data-src="https://www.liveagent.com/app/uploads/2021/06/helpdesk-2.svg">
+											 alt="<?php _e( 'Header Animation', 'ms' ); ?>" loading="lazy" height="100" width="100"
+											 data-src="https://www.liveagent.com/app/uploads/2021/06/helpdesk-2.svg">
 									</div>
 								</div>
-							</div>
-							<div class="elementor-widget-image">
-								<div class="elementor-widget-container">
-									<div class="elementor-image">
+								<div class="elementor-widget-image">
+									<div class="elementor-widget-container">
 										<img width="970" height="1024" style="opacity:0; transition: opacity 0.5s ease 0s;"
-											class="attachment-large size-large" alt="<?php _e( 'Helpdesk software', 'ms' ); ?>" loading="lazy"
-											data-src="https://www.liveagent.com/app/uploads/2021/06/helpdesk_bg-970x1024.jpg"> </div>
+											 class="attachment-large size-large" alt="<?php _e( 'Helpdesk software', 'ms' ); ?>" loading="lazy"
+											 data-src="https://www.liveagent.com/app/uploads/2021/06/helpdesk_bg-970x1024.jpg">
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 			</div>
 		</div>
+	</div>
 </section>
 
 <div class="Post">
