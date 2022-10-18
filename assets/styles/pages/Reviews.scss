@@ -9,6 +9,7 @@
 @import "../layouts/ReviewsPosts";
 
 .Reviews {
+	overflow-x: hidden;
 
 	&__header {
 		position: relative;
@@ -28,8 +29,8 @@
 					@include posZero();
 					position: absolute;
 					content: "";
-					background: url(../../images/reviews_1st_level_header_img.png) calc(100% - 1em) calc(100% - 2em) no-repeat;
-					background-size: contain;
+					background: url(../../images/reviews_1st_level_header_img.png?v2) calc(100% - 1em) calc(100% - 2.5em) no-repeat;
+					background-size: auto 100%;
 				}
 			}
 		}
@@ -42,6 +43,18 @@
 			}
 
 			@media (min-width: $breakpoint-tablet) {
+
+				.FullHeadline {
+
+					&__title {
+						font-size: 2.5rem;
+					}
+
+					&__subtitle {
+						max-width: 40.625rem;
+						margin: 0 auto 1em;
+					}
+				}
 
 				.wrapper {
 					display: flex;
@@ -63,9 +76,10 @@
 			background-size: cover;
 			padding: 1.5em 0;
 			margin-bottom: 3em;
+			height: 13rem;
 
 			.wrapper {
-				height: 13em;
+				height: 100%;
 			}
 
 			&__title {
