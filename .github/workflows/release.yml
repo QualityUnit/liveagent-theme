@@ -7,16 +7,16 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+-nightly'
   workflow_call:
     secrets:
-      CICD_USER_PAT:
+      CICD_PAT:
         required: true
 
 jobs:
   build:
-    name: Build
+    name: 1️⃣ Build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout the code
         uses: actions/checkout@v3
 
       - name: Setup PHP 7.4
@@ -28,20 +28,21 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
+          cache: 'yarn'
 
-      - name: Install Composer dependencies
+      - name: Install Composer Dependencies
         run: composer install
 
-      - name: Install Yarn dependencies [theme]
+      - name: Install Yarn Dependencies [theme]
         run: yarn
 
       - name: Build CSS and JS [theme]
         run: yarn build
 
-      - name: Remove unnecessary files [theme]
+      - name: Remove Unnecessary Files [theme]
         run: rm -rf node_modules vendor .git .idea .github .husky *.md *.lock .editorconfig .eslintignore .eslintrc .gitignore .stylelintrc composer.json gulpfile.js commitlint.config.js package.json phpcs.xml
 
-      - name: Install Yarn dependencies [web-calc]
+      - name: Install Yarn Dependencies [web-calc]
         working-directory: ./apps/web-calc/
         run: yarn
 
@@ -49,11 +50,11 @@ jobs:
         working-directory: ./apps/web-calc/
         run: yarn build
 
-      - name: Remove unnecessary files [web-calc]
+      - name: Remove Unnecessary Files [web-calc]
         working-directory: ./apps/web-calc/
         run: rm -rf node_modules public src build.js package.json README.md yarn.lock
 
-      - name: Install Yarn dependencies [web-calc-featured]
+      - name: Install Yarn Dependencies [web-calc-featured]
         working-directory: ./apps/web-calc-featured/
         run: yarn
 
@@ -61,11 +62,11 @@ jobs:
         working-directory: ./apps/web-calc-featured/
         run: yarn build
 
-      - name: Remove unnecessary files [web-calc-featured]
+      - name: Remove Unnecessary Files [web-calc-featured]
         working-directory: ./apps/web-calc-featured/
         run: rm -rf node_modules public src build.js package.json README.md yarn.lock
 
-      - name: Install Yarn dependencies [typing-test]
+      - name: Install Yarn Dependencies [typing-test]
         working-directory: ./apps/typing-test/
         run: yarn
 
@@ -73,11 +74,11 @@ jobs:
         working-directory: ./apps/typing-test/
         run: yarn build
 
-      - name: Remove unnecessary files [typing-test]
+      - name: Remove Unnecessary Files [typing-test]
         working-directory: ./apps/typing-test/
         run: rm -rf node_modules public src .babelrc package.json README.md tsconfig.json webpack.config.js yarn.lock
 
-      - name: Install Yarn dependencies [qu-checklists]
+      - name: Install Yarn Dependencies [qu-checklists]
         working-directory: ./lib/widgets/qu-checklists/
         run: yarn
 
@@ -85,11 +86,11 @@ jobs:
         working-directory: ./lib/widgets/qu-checklists/
         run: yarn build
 
-      - name: Remove unnecessary files [qu-checklists]
+      - name: Remove Unnecessary Files [qu-checklists]
         working-directory: ./lib/widgets/qu-checklists/
         run: rm -rf node_modules package.json yarn.lock webpack.config.js
 
-      - name: Install Yarn dependencies [qu-howtos]
+      - name: Install Yarn Dependencies [qu-howtos]
         working-directory: ./lib/widgets/qu-howtos/
         run: yarn
 
@@ -97,11 +98,11 @@ jobs:
         working-directory: ./lib/widgets/qu-howtos/
         run: yarn build
 
-      - name: Remove unnecessary files [qu-howtos]
+      - name: Remove Unnecessary Files [qu-howtos]
         working-directory: ./lib/widgets/qu-howtos/
         run: rm -rf node_modules package.json yarn.lock webpack.config.js
 
-      - name: Install Yarn dependencies [qu-expertnote]
+      - name: Install Yarn Dependencies [qu-expertnote]
         working-directory: ./lib/widgets/qu-expertnote/
         run: yarn
 
@@ -109,11 +110,11 @@ jobs:
         working-directory: ./lib/widgets/qu-expertnote/
         run: yarn build
 
-      - name: Remove unnecessary files [qu-expertnote]
+      - name: Remove Unnecessary Files [qu-expertnote]
         working-directory: ./lib/widgets/qu-expertnote/
         run: rm -rf node_modules package.json yarn.lock webpack.config.js
 
-      - name: Install Yarn dependencies [qu-usecase]
+      - name: Install Yarn Dependencies [qu-usecase]
         working-directory: ./lib/widgets/qu-usecase/
         run: yarn
 
@@ -121,11 +122,11 @@ jobs:
         working-directory: ./lib/widgets/qu-usecase/
         run: yarn build
 
-      - name: Remove unnecessary files [qu-usecase]
+      - name: Remove Unnecessary Files [qu-usecase]
         working-directory: ./lib/widgets/qu-usecase/
         run: rm -rf node_modules package.json yarn.lock webpack.config.js
 
-      - name: Install Yarn dependencies [statistics]
+      - name: Install Yarn Dependencies [statistics]
         working-directory: ./lib/widgets/statistics/
         run: yarn
 
@@ -133,27 +134,26 @@ jobs:
         working-directory: ./lib/widgets/statistics/
         run: yarn build
 
-      - name: Remove unnecessary files [statistics]
+      - name: Remove Unnecessary Files [statistics]
         working-directory: ./lib/widgets/statistics/
         run: rm -rf node_modules package.json yarn.lock
 
   release:
-    name: Release
+    name: 2️⃣ Release
     needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout the code
         uses: actions/checkout@v3
 
-      - name: Version
-        id: version
+      - name: Get the Version
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.ref }}
           regex: ".*/([^/]+)$"
 
-      - name: Create a zip file
+      - name: Create a ZIP File
         run: zip -r liveagent_${{ steps.version.outputs.group1 }}.zip .
 
       - name: Create Release
@@ -168,27 +168,23 @@ jobs:
           files: ./liveagent_${{ steps.version.outputs.group1 }}.zip
 
   deploy:
-    name: Deploy
+    name: 3️⃣ Deploy
     needs: release
     runs-on: ubuntu-latest
+
     steps:
-      - name: Version
-        id: version
+      - name: Get the Version
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.ref }}
           regex: ".*/([^/]+)$"
 
-      - name: Trigger downstream pipeline
-        id: trigger
+      - name: Trigger the Update Pipeline
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
           workflow: update.yml
           repo: QualityUnit/liveagent-wp
           ref: dev
-          token: ${{ secrets.TEST_CICD_USER_PAT }}
+          token: ${{ secrets.CICD_PAT }}
           wait-for-completion-interval: 5s
-          inputs: '{
-                  "repository":"liveagent-wp",
-                  "version":"${{ steps.version.outputs.group1 }}"
-                }'
+          inputs: '{ "version":"${{ steps.version.outputs.group1 }}" }'
