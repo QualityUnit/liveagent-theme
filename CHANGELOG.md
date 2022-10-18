@@ -1,3 +1,7 @@
+### 1.1.1: October 18th, 2022
+
+- Fix Issues Related to New Releasing GitHub Action
+
 ### 1.1.0: October 18th, 2022
 
 - New Releasing GitHub Action
