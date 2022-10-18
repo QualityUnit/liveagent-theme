@@ -40,6 +40,31 @@
 			left: -660%;
 		}
 
+		&--top {
+			top: auto;
+			bottom: 100%;
+			left: auto;
+			right: -3em;
+
+			&::after {
+				bottom: auto;
+				top: 100%;
+				left: auto !important;
+				right: 3em;
+				border-color: #000 transparent transparent !important;
+			}
+		}
+
+		&.wide {
+			text-align: left;
+
+			@media (min-width: $breakpoint-tablet) {
+
+				width: 47.5em;
+			}
+		}
+
+
 		a,
 		a:visited {
 
@@ -91,12 +116,19 @@
 
 	@include square(1rem);
 	background: url(../images/info-icon.svg) no-repeat;
+	background-size: contain;
 	margin: 0 0 0 5px;
 	position: relative;
 	top: -1px;
+
+	&.big {
+
+		@include square(1.5rem);
+	}
 
 	@media (max-width: $breakpoint-desktop) {
 
 		display: none !important;
 	}
+
 }

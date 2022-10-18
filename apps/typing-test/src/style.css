@@ -1,650 +1,697 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 body {
-  background-color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
+	background-color: #fff;
+	font-family: Poppins, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
 }
 
 a {
-  box-shadow: none;
-  text-decoration: none;
+	box-shadow: none;
+	text-decoration: none;
 }
 
 .button {
-  position: relative;
-  display: inline-block;
-  width: auto;
-  height: 48px;
-  padding: 0 35px;
-  border: 0;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
+	position: relative;
+	display: inline-block;
+	width: auto;
+	height: 48px;
+	padding: 0 35px;
+	border: 0;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 700;
+	cursor: pointer;
 }
 
 .button span {
-  line-height: 44px;
+	line-height: 44px;
 }
 
 .button__fill {
-  background: -webkit-gradient(linear, left top, right top, from(#feba1d), to(#f5912c));
-  background: -o-linear-gradient(left, #feba1d 0, #f5912c 100%);
-  background: linear-gradient(90deg, #feba1d 0, #f5912c 100%);
-  color: #fff;
-  overflow: hidden;
+	background: -webkit-gradient(linear, left top, right top, from(#feba1d), to(#f5912c));
+	background: -o-linear-gradient(left, #feba1d 0, #f5912c 100%);
+	background: linear-gradient(90deg, #feba1d 0, #f5912c 100%);
+	color: #fff;
+	overflow: hidden;
 }
 
 
-.button__fill:before {
-  background: -webkit-gradient(linear, left top, right top, from(#feba1d), to(#f5912c));
-  background: -o-linear-gradient(left, #feba1d 0, #f5912c 100%);
-  background: linear-gradient(90deg, #feba1d 0, #f5912c 100%);
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  opacity: 1;
-  -webkit-transition: opacity .75s;
-  -o-transition: opacity .75s;
-  transition: opacity .75s;
-  z-index: 1;
+.button__fill::before {
+	background: -webkit-gradient(linear, left top, right top, from(#feba1d), to(#f5912c));
+	background: -o-linear-gradient(left, #feba1d 0, #f5912c 100%);
+	background: linear-gradient(90deg, #feba1d 0, #f5912c 100%);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	opacity: 1;
+	-webkit-transition: opacity 0.75s;
+	-o-transition: opacity 0.75s;
+	transition: opacity 0.75s;
+	z-index: 1;
 }
 
-.button__fill:after {
-  background: -webkit-gradient(linear, left top, right top, from(#f5912c), to(#feba1d));
-  background: -o-linear-gradient(left, #f5912c 0, #feba1d 100%);
-  background: linear-gradient(90deg, #f5912c 0, #feba1d 100%);
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  opacity: 0;
-  -webkit-transition: opacity .75s;
-  -o-transition: opacity .75s;
-  transition: opacity .75s;
-  z-index: 1;
+.button__fill::after {
+	background: -webkit-gradient(linear, left top, right top, from(#f5912c), to(#feba1d));
+	background: -o-linear-gradient(left, #f5912c 0, #feba1d 100%);
+	background: linear-gradient(90deg, #f5912c 0, #feba1d 100%);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	opacity: 0;
+	-webkit-transition: opacity 0.75s;
+	-o-transition: opacity 0.75s;
+	transition: opacity 0.75s;
+	z-index: 1;
 }
 
 .button__fill:hover::after {
-  opacity: 1;
+	opacity: 1;
 }
 
 .button__fill:hover::before {
-  opacity: 0;
+	opacity: 0;
 }
 
 .button__fill span {
-  position: relative;
-  z-index: 2;
-  line-height: 50px;
+	position: relative;
+	z-index: 2;
+	line-height: 50px;
 }
 
 .TypingTest__letter--correct {
-  color: #0EAD69;
-  direction: ltr;
+	color: #0ead69;
+	direction: ltr;
 }
 
 .TypingTest__letter--upcoming {
-  direction: ltr;
+	direction: ltr;
 }
 
 .TypingTest__letter--incorrect {
-  color: #EE4266;
-  background-color: #f4abbb;
+	color: #ee4266;
+	background-color: #f4abbb;
 }
 
 .TypingTest__word--complete {
-  color: #0EAD69;
-  margin: 0 0.5rem;
+	color: #0ead69;
+	margin: 0 0.5rem;
 }
 
 .TypingTest__word--incorrect {
-  color: #EE4266;
-  background-color: #f4abbb;
+	color: #ee4266;
+	background-color: #f4abbb;
 }
 
 .TypingTest__scrolling--main {
-  width: 100%;
-  height: 3rem;
-  display: -webkit-flex;
-  overflow: hidden;
+	width: 100%;
+	height: 3rem;
+	display: -webkit-flex;
+	overflow: hidden;
 
-  font-family: "Open Sans", sans-serif;
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 47px;
-  color: lightgray;
+	font-family: "Open Sans", sans-serif;
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 47px;
+	color: lightgray;
 }
 
 .TypingTest__scrolling--left {
-  width: 50%;
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  direction: rtl;
+	width: 50%;
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	direction: rtl;
 }
 
 .TypingTest__scrolling--left span {
-  direction: ltr;
-  unicode-bidi: bidi-override;
+	direction: ltr;
+	unicode-bidi: bidi-override;
 }
 
 .TypingTest__scrolling--right {
-  width: 50%;
-  display: inline-block;
-  overflow: hidden;
-  white-space: pre;
+	width: 50%;
+	display: inline-block;
+	overflow: hidden;
+	white-space: pre;
 }
 
 @keyframes cursor-flashing {
-  0% {
-    opacity: 1
-  }
-  50% {
-    opacity: 0
-  }
-  100% {
-    opacity: 1
-  }
+
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
 
 .TypingTest__fake-cursor {
-  background-color: #000000;
-  width: 0.2rem;
-  height: 3rem;
-  display: inline-block;
-  animation: cursor-flashing 1s infinite step-end;
-  position: absolute;
-  direction: ltr;
+	background-color: #000;
+	width: 0.2rem;
+	height: 3rem;
+	display: inline-block;
+	animation: cursor-flashing 1s infinite step-end;
+	position: absolute;
+	direction: ltr;
 }
 
 .TypingTest__fake-cursor__text {
-  margin-left: -5px;
+	margin-left: -5px;
 }
 
 .TypingTest__text-field {
-  resize: none;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: transparent;
-  background-color: transparent;
-  text-align: center;
+	resize: none;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: transparent;
+	background-color: transparent;
+	text-align: center;
 }
 
 textarea {
-  border: none;
-  text-decoration: none;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
-  color: lightgray;
+	border: none;
+	text-decoration: none;
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	color: lightgray;
 }
 
 textarea:focus,
 :active {
-  border: none;
-  text-decoration: none;
-  outline: none;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  caret-color: transparent;
-  cursor: none;
+	border: none;
+	text-decoration: none;
+	outline: none;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	caret-color: transparent;
+	cursor: none;
 }
 
 .TypingTest {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin: 3rem 0 1rem;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin: 3rem 0 1rem;
 }
 
 
 .TypingTest__icon {
-  display: block;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 65px;
-  height: 80px;
-  background-size: 60px !important;
+	display: block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 65px;
+	height: 80px;
+	background-size: 60px !important;
+}
+
+.TypingTest__statistic__item-active .TypingTest__icon {
+	width: 73px;
+	background-size: 72px !important;
 }
 
 .TypingTest__icon__test-difficulty__easy {
-  background: url("../public/assets/baby.png") no-repeat;
+	background: url("../public/assets/difficulty_easy.svg") no-repeat;
+}
+
+.TypingTest__statistic__item-active .TypingTest__icon__test-difficulty__easy {
+	background-image: url("../public/assets/difficulty_easy-active.svg");
 }
 
 .TypingTest__icon__test-difficulty__normal {
-  background: url("../public/assets/man.png") no-repeat;
+	background: url("../public/assets/difficulty_normal.svg") no-repeat;
+}
+
+.TypingTest__statistic__item-active .TypingTest__icon__test-difficulty__normal {
+	background-image: url("../public/assets/difficulty_normal-active.svg");
 }
 
 .TypingTest__icon__test-difficulty__hard {
-  background: url("../public/assets/ninja.png") no-repeat;
+	background: url("../public/assets/difficulty_hard.svg") no-repeat;
+}
+
+.TypingTest__statistic__item-active .TypingTest__icon__test-difficulty__hard {
+	background-image: url("../public/assets/difficulty_hard-active.svg");
 }
 
 .TypingTest__icon__test-duration__1min {
-  background: url("https://www.liveagent.com/app/themes/liveagent/apps/typing-test/build/public/assets/1min.png") no-repeat;
+	background: url("../public/assets/1min.svg") no-repeat;
+}
+
+.TypingTest__statistic__item-active .TypingTest__icon__test-duration__1min {
+	background-image: url("../public/assets/1min-active.svg");
 }
 
 .TypingTest__icon__test-duration__3min {
-  background: url("https://www.liveagent.com/app/themes/liveagent/apps/typing-test/build/public/assets/3min.png") no-repeat;
+	background: url("../public/assets/3min.svg") no-repeat;
+}
+
+.TypingTest__statistic__item-active .TypingTest__icon__test-duration__3min {
+	background-image: url("../public/assets/3min-active.svg");
 }
 
 .TypingTest__icon__test-duration__5min {
-  background: url("https://www.liveagent.com/app/themes/liveagent/apps/typing-test/build/public/assets/5min.png") no-repeat;
+	background: url("../public/assets/5min.svg") no-repeat;
+}
+
+.TypingTest__statistic__item-active .TypingTest__icon__test-duration__5min {
+	background-image: url("../public/assets/5min-active.svg");
 }
 
 .TypingTest__statistic__graph {
-  width: 600px;
-  height: 470px;
-  background: #FFFFFF;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  margin: 5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	width: 600px;
+	height: 470px;
+	background: #fff;
+	box-shadow: 0 15px 66px -15px rgba(9, 0, 44, 0.12);
+	border-radius: 16px;
+	margin: 5rem 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .TypingTest__statistic {
-  display: flex;
-  margin: 2rem 0;
+	display: flex;
+	margin: 2rem 0;
 }
 
 .TypingTest__statistic__item {
-  width: 190px;
-  height: 190px;
-  background: #FFFFFF;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  margin: 0 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0 0;
+	width: 190px;
+	height: 190px;
+	background: #fff;
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+	border: 3px solid transparent;
+	border-radius: 10px;
+	margin: 0 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 0 0;
+	transition: all 0.2s;
+	cursor: pointer;
 }
 
 .TypingTest__statistic__item--test {
-  width: 190px;
-  height: 190px;
-  background: #FFFFFF;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  margin: 0 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0 0;
+	width: 190px;
+	height: 190px;
+	background: #fff;
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	margin: 0 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 0 0;
+	cursor: pointer;
 }
 
 .TypingTest__statistic__item:hover {
-  border: 3px solid #ffa522;
+	border: 3px solid #ffa522;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+	transform: translateY(-10px);
 }
 
 .TypingTest__statistic__item-active {
-  border: 3px solid #ffa522;
+	border: 3px solid #ffa522;
 }
 
 .TypingTest__statistic__item__image--word {
-  background: url("../public/assets/word.png") no-repeat;
-  display: block;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 90px;
-  height: 65px;
-  background-size: 90px;
+	background: url("../public/assets/word.png") no-repeat;
+	display: block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 90px;
+	height: 65px;
+	background-size: 90px;
 }
 
 .TypingTest__statistic__item__image--character {
-  width: 60px;
-  background: url("../public/assets/character.png") no-repeat;
-  display: block;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 65px;
-  background-size: 60px;
+	width: 60px;
+	background: url("../public/assets/character.png") no-repeat;
+	display: block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 65px;
+	background-size: 60px;
 }
 
 .TypingTest__statistic__item__image--mistake {
-  width: 40px;
-  background: url("../public/assets/mistake.png") no-repeat;
-  display: block;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 65px;
-  background-size: 40px;
+	width: 40px;
+	background: url("../public/assets/mistake.png") no-repeat;
+	display: block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 65px;
+	background-size: 40px;
 }
 
 .TypingTest__statistic__item__state--cpm {
-  font-family: "Poppins", sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: #F69320;
-  padding: 0.875rem 0 0;
+	font-family: Poppins, sans-serif;
+	font-size: 32px;
+	font-weight: 700;
+	color: #f69320;
+	padding: 0.875rem 0 0;
 }
 
 .TypingTest__statistic__item__state--wpm {
-  font-family: "Poppins", sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: #4AC65C;
-  padding: 0.875rem 0 0;
+	font-family: Poppins, sans-serif;
+	font-size: 32px;
+	font-weight: 700;
+	color: #4ac65c;
+	padding: 0.875rem 0 0;
 }
 
 .TypingTest__statistic__item__state--mpm {
-  font-family: "Poppins", sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: red;
-  padding: 0.875rem 0 0;
+	font-family: Poppins, sans-serif;
+	font-size: 32px;
+	font-weight: 700;
+	color: red;
+	padding: 0.875rem 0 0;
 }
 
 .TypingTest__statistic__item__state__name {
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24px;
-  color: #697075;
-  padding: 0.625rem 0;
+	font-family: Poppins, sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 24px;
+	color: #697075;
+	padding: 0.625rem 0;
 }
 
 .TypingTest__statistic__item__state__name--test {
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24px;
-  color: #b9b7b7;
-  padding: 0.625rem 0;
+	font-family: Poppins, sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 24px;
+	color: #b9b7b7;
+	padding: 0.625rem 0;
 }
 
 .TypingTest__text {
-  font-family: "Open Sans", sans-serif;
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 47px;
-  color: lightgray;
+	font-family: "Open Sans", sans-serif;
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 47px;
+	color: lightgray;
 }
 
 .TypingTest__text span {
-  word-break: keep-all;
+	word-break: keep-all;
 }
 
 .TypingTest__text-area {
-  width: 100%;
-  margin: 3rem 0 0;
-  position: relative;
+	width: 100%;
+	margin: 3rem 0 0;
+	position: relative;
 }
 
 .TypingTest__timer {
-  font-family: "Open Sans", sans-serif;
-  font-size: 25px;
-  font-weight: 400;
-  line-height: 25px;
-  color: lightgray;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 3rem 0 0.5rem;
+	font-family: "Open Sans", sans-serif;
+	font-size: 25px;
+	font-weight: 400;
+	line-height: 25px;
+	color: lightgray;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 3rem 0 0.5rem;
 }
 
 .TypingTest__timer--seconds {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: lightgray;
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	color: lightgray;
 }
 
 .TypingTest__timer--number {
-  font-family: "Open Sans", sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  color: lightgray;
+	font-family: "Open Sans", sans-serif;
+	font-size: 30px;
+	font-weight: 400;
+	color: lightgray;
 }
 
 .TypingTest__title {
-  font-family: "Poppins", sans-serif;
-  font-size: 40px;
-  font-weight: 800;
-  line-height: 25px;
-  margin: 3rem 0;
+	font-family: Poppins, sans-serif;
+	font-size: 40px;
+	font-weight: 800;
+	line-height: 25px;
+	margin: 3rem 0;
 }
 
 .TypingTest__statistic__graph__box {
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  width: 1000px;
-  height: 400px;
-  margin: 2rem 0;
-  padding: 1rem 0 0;
+	box-shadow: 0 15px 66px -15px rgba(9, 0, 44, 0.12);
+	border-radius: 16px;
+	width: 1000px;
+	height: 400px;
+	margin: 2rem 0;
+	padding: 1rem 0 0;
 }
 
 .StaticGraph {
-  font-family: "Poppins", sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 25px;
+	font-family: Poppins, sans-serif;
+	font-size: 24px;
+	font-weight: 800;
+	line-height: 25px;
 }
 
 .TypingTest__text--mistake {
-  font-family: "Open Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: gray;
-  margin: 3rem 0;
-  line-height: 35px;
-  width: 70%;
-  text-align: center;
+	font-family: "Open Sans", sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+	color: gray;
+	margin: 3rem 0;
+	line-height: 35px;
+	width: 70%;
+	text-align: center;
 }
 
 .TypingTest__information {
-  display: flex;
-  margin: 5rem 11rem;
+	display: flex;
+	margin: 5rem 11rem;
 }
 
 .TypingTest__information__title {
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  line-height: 30px;
-  padding: 0 0 10px;
+	font-family: Poppins, sans-serif;
+	font-size: 20px;
+	font-weight: 800;
+	line-height: 30px;
+	padding: 0 0 10px;
 }
 
 .TypingTest__information__text {
-  font-family: "Open Sans", sans-serif;
-  font-size: 17px;
-  line-height: 30px;
-  color: darkgray;
-  text-align: justify;
+	font-family: "Open Sans", sans-serif;
+	font-size: 17px;
+	line-height: 30px;
+	color: darkgray;
+	text-align: justify;
 }
 
 .TypingTest__information__section {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  padding: 0 2rem;
-  margin: 0 0 20px;
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	padding: 0 2rem;
+	margin: 0 0 20px;
 }
 
 
 .TypingTest__select {
-  margin: 0 0 20px;
+	margin: 0 0 20px;
 }
 
 .TypingTest__select select {
-  padding: 10px;
-  border: 2px solid gray;
-  border-radius: 4px;
-  outline: none;
-  appearance: auto;
+	padding: 10px;
+	border: 2px solid gray;
+	border-radius: 4px;
+	outline: none;
+	appearance: auto;
 }
 
 .TypingTest__select select:focus {
-  padding: 10px;
-  border: 2px solid orange;
-  border-radius: 4px;
+	padding: 10px;
+	border: 2px solid orange;
+	border-radius: 4px;
 }
 
 .TypingTest__select > select > option {
-  padding: 10px;
+	padding: 10px;
 }
 
 @media screen and (max-width: 1080px) {
-  .TypingTest__statistic__graph__box {
-    width: 950px;
-  }
 
-  .TypingTest__information {
-    margin: 5rem 4rem;
-  }
+	.TypingTest__statistic__graph__box {
+		width: 950px;
+	}
+
+	.TypingTest__information {
+		margin: 5rem 4rem;
+	}
 }
 
 @media screen and (max-width: 990px) {
-  .TypingTest__statistic__graph__box {
-    width: 700px;
-    height: 290px;
-  }
 
-  .TypingTest__information {
-    margin: 5rem 3rem;
-  }
+	.TypingTest__statistic__graph__box {
+		width: 700px;
+		height: 290px;
+	}
 
-  .TypingTest__information__section {
-    padding: 0 1rem;
-  }
+	.TypingTest__information {
+		margin: 5rem 3rem;
+	}
 
-  .TypingTest__text--mistake {
-    font-size: 18px;
-  }
+	.TypingTest__information__section {
+		padding: 0 1rem;
+	}
 
-  .TypingTest__statistic__item {
-    margin: 0 1rem;
-  }
+	.TypingTest__text--mistake {
+		font-size: 18px;
+	}
+
+	.TypingTest__statistic__item {
+		margin: 0 1rem;
+	}
 }
 
 @media screen and (max-width: 720px) {
-  .TypingTest__statistic__graph__box {
-    width: 600px;
-    height: 250px;
-  }
+
+	.TypingTest__statistic__graph__box {
+		width: 600px;
+		height: 250px;
+	}
 }
 
 @media screen and (max-width: 665px) {
-  .TypingTest__statistic__item {
-    width: 165px;
-    height: 169px;
-  }
 
-  .TypingTest__statistic__item__state {
-    padding: 0.5rem 0;
-  }
+	.TypingTest__statistic__item {
+		width: 165px;
+		height: 169px;
+	}
 
-  .TypingTest__statistic__item__state__name {
-    font-size: 12px;
-  }
+	.TypingTest__statistic__item__state {
+		padding: 0.5rem 0;
+	}
 
-  .TypingTest__text--mistake {
-    margin: 2rem 0;
-  }
+	.TypingTest__statistic__item__state__name {
+		font-size: 12px;
+	}
+
+	.TypingTest__text--mistake {
+		margin: 2rem 0;
+	}
 }
 
 @media screen and (max-width: 625px) {
-  .TypingTest__statistic__graph__box {
-    width: 500px;
-    height: 200px;
-  }
 
-  .TypingTest__information {
-    display: flex;
-    flex-direction: column;
-  }
+	.TypingTest__statistic__graph__box {
+		width: 500px;
+		height: 200px;
+	}
 
-  .TypingTest__information__section {
-    padding: 0 1rem 3rem;
-  }
+	.TypingTest__information {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.TypingTest__information__section {
+		padding: 0 1rem 3rem;
+	}
 }
 
 @media screen and (max-width: 586px) {
-  .TypingTest__statistic {
-    flex-direction: column;
-  }
 
-  .TypingTest__statistic__item {
-    margin: 0 0 1rem;
-  }
+	.TypingTest__statistic {
+		flex-direction: column;
+	}
 
-  .TypingTest__statistic__item__image--word {
-    width: 75px;
-    height: 53px;
-    background-size: 75px;
-  }
+	.TypingTest__statistic__item {
+		margin: 0 0 1rem;
+	}
 
-  .TypingTest__statistic__item__image--mistake {
-    width: 34px;
-    height: 51px;
-    background-size: 34px;
-  }
+	.TypingTest__statistic__item__image--word {
+		width: 75px;
+		height: 53px;
+		background-size: 75px;
+	}
 
-  .TypingTest__statistic__item__image--character {
-    width: 55px;
-    height: 51px;
-    background-size: 55px;
-  }
+	.TypingTest__statistic__item__image--mistake {
+		width: 34px;
+		height: 51px;
+		background-size: 34px;
+	}
+
+	.TypingTest__statistic__item__image--character {
+		width: 55px;
+		height: 51px;
+		background-size: 55px;
+	}
 }
 
 @media screen and (max-width: 514px) {
-  .TypingTest__statistic__graph__box {
-    width: 400px;
-    height: 175px;
-  }
 
-  .TypingTest__scrolling--main {
-    font-size: 24px;
-  }
+	.TypingTest__statistic__graph__box {
+		width: 400px;
+		height: 175px;
+	}
+
+	.TypingTest__scrolling--main {
+		font-size: 24px;
+	}
 }
 
 @media screen and (max-width: 425px) {
-  .StaticGraph {
-    display: none;
-  }
 
-  .TypingTest__title {
-    font-size: 35px;
-  }
+	.StaticGraph {
+		display: none;
+	}
+
+	.TypingTest__title {
+		font-size: 35px;
+	}
 
 }
 
 @media screen and (max-width: 350px) {
-  .TypingTest__title {
-    font-size: 30px;
-  }
 
-  .TypingTest__information__section {
-    padding: 0 0 3rem;
-  }
+	.TypingTest__title {
+		font-size: 30px;
+	}
 
-  .TypingTest {
-    margin: 3rem 0 0;
-  }
+	.TypingTest__information__section {
+		padding: 0 0 3rem;
+	}
+
+	.TypingTest {
+		margin: 3rem 0 0;
+	}
 }
