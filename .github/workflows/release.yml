@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: 1️⃣ Build
+    name: 1️⃣ Build and Release
     runs-on: ubuntu-latest
 
     steps:
@@ -70,15 +70,6 @@ jobs:
         working-directory: ./lib/widgets/statistics/
         run: rm -rf node_modules package.json yarn.lock
 
-  release:
-    name: 2️⃣ Release
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v3
-
       - name: Get the Version
         id: version
         uses: actions-ecosystem/action-regex-match@v2
@@ -101,8 +92,8 @@ jobs:
           files: ./liveagent_${{ steps.version.outputs.group1 }}.zip
 
   deploy:
-    name: 3️⃣ Deploy
-    needs: release
+    name: 2️⃣ Deploy
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
