@@ -23,10 +23,8 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 			<div data-ytid="3zYfDwqNj0U" data-lightbox="youtube" class="Header__navigation__promo">
 				<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="LiveAgent Tour Video" />' . '
 			</div>';
-		}
-	}
-	?>
-	<script>
+			?>
+			<script>
 		(
 			() => {
 				const tourVideo = document.querySelector('li > .Header__navigation__promo');
@@ -37,6 +35,10 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 			}
 		)();
 	</script>
+			<?php
+		}
+	}
+	?>
 	<?php
 	return $item_output;
 }
