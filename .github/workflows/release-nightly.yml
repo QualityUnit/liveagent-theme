@@ -85,4 +85,6 @@ jobs:
           draft: false
           prerelease: true
           body: See changes in the [CHANGELOG.md](CHANGELOG.md)
+          generate_release_notes: true
+          append_body: true
           files: ./liveagent_${{ steps.version.outputs.group1 }}.zip
