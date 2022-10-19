@@ -76,6 +76,10 @@ jobs:
       - name: Create a ZIP File
         run: zip -r liveagent_${{ steps.version.outputs.group1 }}.zip .
 
+      - name: Create a Changelog
+        uses: scottbrenner/generate-changelog-action@master
+        id: changelog
+
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v0.1.14
@@ -84,7 +88,8 @@ jobs:
         with:
           draft: false
           prerelease: true
-          body: See changes in the [CHANGELOG.md](CHANGELOG.md)
+          body: |
+            ${{ steps.changelog.outputs.changelog }}
           generate_release_notes: true
           append_body: true
           files: ./liveagent_${{ steps.version.outputs.group1 }}.zip
