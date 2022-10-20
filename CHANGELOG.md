@@ -1,3 +1,7 @@
+### 1.2.1: October 20th, 2022
+
+- Bug Fixes
+
 ### 1.2.0: October 20th, 2022
 
 - New SVG Icons Sprite

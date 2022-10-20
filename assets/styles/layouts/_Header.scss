@@ -440,17 +440,30 @@
 						}
 					}
 
+
+					&::before,
+					.icon {
+
+						display: block;
+						position: absolute;
+						pointer-events: none;
+						z-index: 1;
+					}
+
 					&::before {
 
 						@include square(1.5rem);
 						content: "";
-						display: block;
-						position: absolute;
 						font-size: 20px;
 						left: 0;
 						top: 2px;
-						pointer-events: none;
-						z-index: 1;
+					}
+
+					.icon {
+
+						@include square(1.25rem);
+						left: 0.15em;
+						top: 0.25em;
 					}
 
 					&::after {
@@ -531,7 +544,8 @@
 	.label-overview {
 
 		a[href="#"],
-		.icon {
+		.icon,
+		li::before {
 			color: $saturated-violet !important;
 		}
 
@@ -547,6 +561,7 @@
 	.label-product {
 
 		a[href="#"],
+		li::before,
 		.icon {
 			color: $dark-orange !important;
 		}
@@ -559,6 +574,7 @@
 	.label-use-for {
 
 		a[href="#"],
+		li::before,
 		.icon {
 			color: $saturated-blue !important;
 		}
@@ -605,6 +621,7 @@
 	.label-learn {
 
 		a[href="#"],
+		li::before,
 		.icon {
 			color: $saturated-green !important;
 		}
@@ -617,6 +634,7 @@
 	.label-company {
 
 		a[href="#"],
+		li::before,
 		.icon {
 			color: $saturated-red !important;
 		}
@@ -629,6 +647,7 @@
 	.label-liveagent {
 
 		a[href="#"],
+		li::before,
 		.icon {
 			color: $saturated-cyan !important;
 		}
