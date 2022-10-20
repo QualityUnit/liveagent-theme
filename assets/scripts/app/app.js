@@ -1,41 +1,72 @@
 ( () => {
+	const mobileTablet = window.matchMedia( '(max-width: 1380px)' );
 	const query = document.querySelector.bind( document );
 	const queryAll = document.querySelectorAll.bind( document );
 
-	/* Header Mobile Menu */
-	if ( query( '.Header__mobileNavigation' ) !== null ) {
-		query( '.Header__mobileNavigation' ).addEventListener( 'click', () => {
-			query( '.Header__mobileNavigation' ).classList.toggle( 'active' );
-			query( '.Header__navigation' ).classList.toggle( 'active' );
-		} );
-	}
+	const activateMenuClick = () => {
+		/* Header Mobile Menu */
+		if ( query( '.Header__mobileNavigation' ) !== null ) {
+			query( '.Header__mobileNavigation' ).addEventListener(
+				'click',
+				() => {
+					query( '.Header__mobileNavigation' ).classList.toggle(
+						'active'
+					);
+					query( '.Header__navigation' ).classList.toggle( 'active' );
+				}
+			);
+		}
 
-	if (
-		queryAll( '.Header__navigation ul > .menu-item-has-children' ).length >
-		0
-	) {
-		queryAll( '.Header__navigation ul > .menu-item-has-children' ).forEach(
-			( element ) => {
+		if (
+			queryAll( '.Header__navigation ul > .menu-item-has-children' )
+				.length > 0
+		) {
+			queryAll(
+				'.Header__navigation ul > .menu-item-has-children'
+			).forEach( ( element ) => {
 				const link = element.querySelector( "a[href='#']" );
 				const sub = element.querySelector( 'ul' );
 
 				if ( link !== null ) {
 					link.addEventListener( 'click', () => {
+						if (
+							! link.parentElement.classList.contains( 'active' )
+						) {
+							queryAll( '.Header__navigation .active' ).forEach(
+								( activated ) => {
+									activated.classList.remove( 'active' );
+								}
+							);
+						}
+						link.parentElement.classList.toggle( 'active' );
 						sub.classList.toggle( 'active' );
 					} );
 				}
-			}
-		);
+			} );
+		}
+
+		/* Main Navigation */
+		if ( query( '.Header__navigation' ) !== null ) {
+			queryAll( ".Header__navigation a[href='#']" ).forEach(
+				( element ) => {
+					element.addEventListener( 'click', ( event ) => {
+						event.preventDefault();
+					} );
+				}
+			);
+		}
+	};
+
+	if ( mobileTablet.matches ) {
+		activateMenuClick();
 	}
 
-	/* Main Navigation */
-	if ( query( '.Header__navigation' ) !== null ) {
-		queryAll( ".Header__navigation a[href='#']" ).forEach( ( element ) => {
-			element.addEventListener( 'click', ( event ) => {
-				event.preventDefault();
-			} );
-		} );
-	}
+	// Handles case when user changes orientation of device from portrait > landscape, ie. iPad Pro
+	mobileTablet.addEventListener( 'change', ( event ) => {
+		if ( event.matches ) {
+			activateMenuClick();
+		}
+	} );
 
 	/* Language switcher */
 	function hideLanguageSwitcher( target ) {

@@ -18,39 +18,34 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 	$item_classes = $item->classes;
 	if ( ! empty( $item->description ) ) {
 		$item_output = str_replace( $args->link_after . '</a>', '<div class="menu-item-description">' . $item->description . '</div>' . $args->link_after . '</a>', $item_output );
+	}
 
-		// Adds Tour banner into menu
-		if ( in_array( 'fontello-menu-take-a-tour', $item_classes ) ) {
-			$item_output .= '
-			<div data-ytid="3zYfDwqNj0U" data-lightbox="youtube" class="Header__navigation__promo">
-				<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="LiveAgent Tour Video" />' . '
-			</div>';
-			?>
+	if ( in_array( 'fontello-menu-take-a-tour', $item->classes ) ) {
+		$item_output .= '
+		<div data-ytid="3zYfDwqNj0U" data-lightbox="youtube" class="Header__navigation__promo">
+			<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="LiveAgent Tour Video" />' . '
+		</div>
 		<script>
 			(
 				() => {
-					const tourVideo = document.querySelector('li > .Header__navigation__promo');
+					const tourVideo = document.querySelector("li > .Header__navigation__promo");
 					if(tourVideo) {
-						const parent = tourVideo.closest('li');
-						parent.insertAdjacentElement('afterend', tourVideo);
+						const parent = tourVideo.closest("li");
+						parent.insertAdjacentElement("afterend", tourVideo);
 					}
 				}
 			)();
-		</script>
-			<?php
-		}
+		</script>';
+	}
 
-		// Adds SVG icons to the menu instead of :before
-		foreach ( $item_classes as $class ) {
-			if ( str_contains( $class, 'icn-' ) ) {
-				$fragment    = preg_replace( '/^icn-(.+?)/', '$1', $class );
-				$item_output = '<svg class="icon icon-' . $fragment . '"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#' . $fragment . '"></use></svg>' . $item_output;
-			}
+	// Adds SVG icons to the menu instead of :before
+	foreach ( $item_classes as $class ) {
+		if ( str_contains( $class, 'icn-' ) ) {
+			$fragment    = preg_replace( '/^icn-(.+?)/', '$1', $class );
+			$item_output = '<svg class="icon icon-' . $fragment . '"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#' . $fragment . '"></use></svg>' . $item_output;
 		}
 	}
-	?>
 
-	<?php
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
