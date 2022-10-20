@@ -32,6 +32,7 @@
 		display: block;
 		font-weight: 600;
 		font-size: 0.875rem;
+		line-height: 1;
 		margin-top: 1em;
 	}
 
@@ -70,20 +71,40 @@
 		}
 	}
 
+	&--tooltip {
+		display: flex;
+		align-items: center;
+
+		&__text {
+			width: 23em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&__text {
+				left: calc(100% + 0.5em);
+				margin-left: auto;
+				top: -1em;
+				// transform: translateY(-50%);
+				text-align: left;
+
+				&::after {
+					display: none;
+				}
+
+				time {
+					margin-top: 0.5em;
+				}
+			}
+
+		}
+	}
+
 	&--portals {
 		background-color: $lightest-gray;
 		border-radius: 10px 60px 60px 10px;
 		padding: 2em;
 		margin-bottom: 1.5em;
-
-		.ComparePlans__tooltip {
-			display: flex;
-			align-items: center;
-
-			&__text {
-				width: 24em;
-			}
-		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 			width: 55%;
