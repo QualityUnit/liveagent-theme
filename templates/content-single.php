@@ -144,7 +144,7 @@
 					<?php wp_reset_postdata(); ?>
 				</div>
 
-				<div class="Post__content__resources Post__m__negative">
+				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
 					<div class="SimilarSources">
 						<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>

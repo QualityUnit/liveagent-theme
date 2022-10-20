@@ -60,6 +60,10 @@
 		overflow: hidden;
 		width: 45%;
 
+		.Content & {
+			width: 100%;
+		}
+
 		@media (max-width: $breakpoint-tablet) {
 			width: 100%;
 		}

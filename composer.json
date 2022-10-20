@@ -13,11 +13,18 @@
 			"roots/wordpress-core-installer": true
 		}
 	},
+	"repositories": [
+		{
+			"type": "git",
+			"url": "https://github.com/QualityUnit/wordpress-icons.git"
+		}
+	],
 	"require": {
 		"php": ">=7.4",
 		"composer/installers": "^2.2",
 		"vlucas/phpdotenv": "^5.4",
-		"oscarotero/env": "^2.1"
+		"oscarotero/env": "^2.1",
+		"qualityunit/wordpress-icons": "dev-main"
 	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "^3.7",

@@ -10,7 +10,8 @@ if ( iconTabs.length > 0 ) {
 		const blocks = thisSection.querySelectorAll( '.IconTabs__block' );
 		const svgAnims = thisSection.querySelectorAll( '.IconTabs__block img[data-src*=".svg"]' );
 		svgAnims.forEach( ( animation, index ) => {
-			animation.dataset.lasrc = animation.dataset.lasrc + '-' + index;
+			const anim = animation;
+			anim.dataset.src = `${ anim.dataset.src }?${ index }`;
 		} );
 
 		const percentCounter = ( thisBlock ) => {

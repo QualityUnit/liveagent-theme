@@ -531,8 +531,7 @@
 	.label-overview {
 
 		a[href="#"],
-		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		.icon {
 			color: $saturated-violet !important;
 		}
 
@@ -548,8 +547,7 @@
 	.label-product {
 
 		a[href="#"],
-		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		.icon {
 			color: $dark-orange !important;
 		}
 
@@ -561,8 +559,7 @@
 	.label-use-for {
 
 		a[href="#"],
-		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		.icon {
 			color: $saturated-blue !important;
 		}
 
@@ -608,8 +605,7 @@
 	.label-learn {
 
 		a[href="#"],
-		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		.icon {
 			color: $saturated-green !important;
 		}
 
@@ -621,8 +617,7 @@
 	.label-company {
 
 		a[href="#"],
-		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		.icon {
 			color: $saturated-red !important;
 		}
 
@@ -634,8 +629,7 @@
 	.label-liveagent {
 
 		a[href="#"],
-		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		.icon {
 			color: $saturated-cyan !important;
 		}
 

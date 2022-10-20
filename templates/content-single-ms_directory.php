@@ -586,7 +586,7 @@
 					</div>
 				<?php } ?>
 				<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q1', true ) ) ) { ?>
-						<div class="Post__m__negative Faq" itemscope itemtype="https://schema.org/FAQPage">
+						<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
 							<h2 id="faq"><?php _e( '<span class="highlight">Frequently</span> asked questions', 'ms' ); ?></h2>
 							<?php
 							if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-text', true ) ) {
@@ -614,7 +614,7 @@
 						</div>
 					<?php } ?>
 
-					<div class="Post__m__negative Post__buttons">
+					<div class="Post__buttons">
 						<a href="<?php _e( '/directory/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Back to Directory'])"><span><?php _e( 'Back to Directory', 'ms' ); ?></span></a>
 						<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">
 							<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>

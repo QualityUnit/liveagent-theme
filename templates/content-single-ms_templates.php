@@ -110,7 +110,7 @@
 			<div class="Content" itemprop="text">
 				<?php the_content(); ?>
 
-				<div class="Post__m__negative Post__buttons">
+				<div class="Post__buttons">
 					<a href="<?php _e( '/templates/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Back to Templates'])"><span><?php _e( 'Back to Templates', 'ms' ); ?></span></a>
 
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">
@@ -118,7 +118,7 @@
 					</a>
 				</div>
 
-				<div class="Post__content__resources Post__m__negative">
+				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
 
 					<div class="SimilarSources">

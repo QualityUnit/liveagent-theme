@@ -15,6 +15,7 @@ add_action( 'after_setup_theme', 'enable_old_widget_editor' );
 	*/
 
 function show_description_header_nav( $item_output, $item, $depth, $args ) {
+	$item_classes = $item->classes;
 	if ( ! empty( $item->description ) ) {
 		$item_output = str_replace( $args->link_after . '</a>', '<div class="menu-item-description">' . $item->description . '</div>' . $args->link_after . '</a>', $item_output );
 	}
@@ -36,10 +37,61 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 			)();
 		</script>';
 	}
+
+	// Adds SVG icons to the menu instead of :before
+	foreach ( $item_classes as $class ) {
+		if ( str_contains( $class, 'icn-' ) ) {
+			$fragment    = preg_replace( '/^icn-(.+?)/', '$1', $class );
+			$item_output = '<svg class="icon icon-' . $fragment . '"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#' . $fragment . '"></use></svg>' . $item_output;
+		}
+	}
+
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
 
+/**
+	* Inserts SVG icons before first child or at the end (icn-after-fragment selector) of the selector (icn-)
+	*/
+function insert_svg_icons( $content ) {
+
+	if ( ! $content ) {
+		return $content;
+	}
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath      = new DOMXPath( $dom );
+	$iconblocks = $xpath->query( ".//*[contains(@class, 'icn-')]" );
+
+	// @codingStandardsIgnoreStart
+	foreach ( $iconblocks as $icon ) {
+		$class = $icon->getAttribute('class');
+		preg_match( '/icn-(after-)?([^ ]+)/i', $class, $class_fragment );
+		if ( isset ( $class_fragment[2] ) ) {
+			$fragment = $class_fragment[2];
+			$svg = $dom->createDocumentFragment();
+			$svg->appendXML( '<svg class="icon icon-' . $fragment . '"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg?'. THEME_VERSION . '#' . $fragment . '"></use></svg>' );
+			if ( ! str_contains( $class, 'icn-after' ) and $icon !== $svg ) {
+				$icon->insertBefore( $svg, $icon->firstChild );
+			}
+			if ( str_contains( $class, 'icn-after' ) and $icon !== $svg ) {
+				$icon->appendChild( $svg );
+			}
+		}
+	}
+	// @codingStandardsIgnoreEnd
+
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
+}
+
+add_filter( 'the_content', 'insert_svg_icons' );
 
 /**
 	* Lightbox Rel
@@ -71,7 +123,6 @@ function add_lightbox_rel( $content ) {
 }
 
 add_filter( 'the_content', 'add_lightbox_rel' );
-
 
 /**
  * IconTabs block CSS and JS importer
@@ -153,26 +204,6 @@ function km_add_unfiltered_html_capability_to_editors( $caps, $cap, $user_id ) {
 	return $caps;
 }
 add_filter( 'map_meta_cap', 'km_add_unfiltered_html_capability_to_editors', 1, 3 );
-
-/**
-	* Drop cap first letter of each post
-	*/
-
-function add_drop_caps( $content ) {
-	global $post;
-
-	if ( ! empty( $post ) && 'post' === $post->post_type ) {
-		$match = '/\<p\>(\<a.+?\>)?([A-Z])([^<]+)(\<\/a\>)?/i';
-		if ( ! empty( $match ) ) {
-			$dropcap = '<p>$1<span class="dropcap">$2</span>$3$4';
-			$content = preg_replace( $match, $dropcap, $content, 1 );
-		}
-	}
-
-	return $content;
-}
-// add_filter( 'the_content', 'add_drop_caps', 30 );
-// add_filter( 'the_excerpt', 'add_drop_caps', 30 );
 
 /**
  * Changes default WordPress gutenberg button to LA style buttn
