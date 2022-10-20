@@ -113,7 +113,7 @@ function meta( $metabox_id ) {
 						<li class="Reviews__relatedReviews--post <?= ( get_the_ID() === $current_id ) ? 'active' : '' ?>">
 							<a class="flex Reviews__relatedReviews--post__inn" href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>">
 								<span class="Reviews__relatedReviews--post__number mr-xl-tablet"><?= esc_html( ++$counter ); ?></span>
-								<h3 class="Reviews__relatedReviews--post__title"><?= esc_html( str_replace( '^', '', get_the_title() ) . ' ' . $category_name ); ?></h3>
+								<h3 class="Reviews__relatedReviews--post__title"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></h3>
 								<?php
 									$rating_post = get_post_meta( get_the_ID(), 'rating', true );
 								if ( $rating_post ) {
