@@ -307,16 +307,15 @@
 			}
 
 			li {
-				padding: 0 30px;
-				overflow: hidden;
+				padding: 0 0 0 30px;
 				width: 100%;
 
-				&:first-of-type {
-					padding-right: 30px;
+				.sub-menu {
+					width: calc(100% + 30px);
 				}
 
 				@media (min-width: $breakpoint-tablet-landscape) {
-					width: 25%;
+					width: 20%;
 				}
 			}
 
@@ -468,7 +467,7 @@
 					&:hover {
 
 						&::after {
-							width: calc(100% + 120px);
+							width: 100%;
 						}
 					}
 
@@ -535,6 +534,10 @@
 		[class^="fontello-"]::before,
 		[class*="fontello-"]::before {
 			color: $saturated-violet !important;
+		}
+
+		.sub-menu {
+			width: 100%;
 		}
 
 		::after {
