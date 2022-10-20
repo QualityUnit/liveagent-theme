@@ -1,0 +1,25 @@
+{
+  "name": "reviews",
+  "version": "1.0.0",
+  "description": "Reviews post widget",
+  "main": "./src/index.js",
+  "author": "Jozef Remen, Quality Unit",
+  "license": "MIT",
+  "scripts": {
+    "build": "wp-scripts build",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "start": "wp-scripts start",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "devDependencies": {
+    "@wordpress/base-styles": "^4",
+    "@wordpress/block-editor": "^10",
+    "@wordpress/block-library": "^7",
+    "@wordpress/components": "^21",
+    "@wordpress/format-library": "^3",
+    "@wordpress/media-utils": "^4",
+    "@wordpress/scripts": "^22"
+  }
+}
