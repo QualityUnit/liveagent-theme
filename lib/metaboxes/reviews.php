@@ -1,5 +1,6 @@
 <?php
 
+
 add_filter( 'simple_register_taxonomy_settings', 'add_reviews_taxonomy_metaboxes' );
 
 function add_reviews_taxonomy_metaboxes( $settings ) {
@@ -231,6 +232,19 @@ function add_reviews_media( $media ) {
 			),
 		),
 	);
+
+	foreach ( $media as $fields ) {
+		foreach ( $fields['fields'] as $field ) {
+			register_post_meta(
+				'ms_reviews', 
+				$field['id'], 
+				array( 
+					'single'       => true,
+					'show_in_rest' => true,
+				)
+			);
+		}
+	}
 
 	return $media;
 }

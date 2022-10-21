@@ -89,10 +89,13 @@ function qu_reviews_init() {
 			'render_callback'          => 'render_reviews',
 			'attributes'               => array(
 				'categoryId' => array(
-					'type'    => 'string',
+					'type' => 'string',
 				),
-				'reviewId' => array(
-					'type'    => 'string',
+				'reviewId'   => array(
+					'type' => 'string',
+				),
+				'reviewMeta' => array(
+					'type' => 'object',
 				),
 			),
 		),
