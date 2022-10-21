@@ -74,28 +74,7 @@ function qu_reviews_init() {
 	function render_reviews( $attr ) {
 		return '
 			<div class="qu-expertNote" itemscope itemtype="https://schema.org/Claim">
-				<div class="qu-expertNote__top">
-					<strong class="qu-expertNote__note">' . esc_html( $attr['expertNote'] ) . '</strong>' .
-					( ! empty( $attr['reviewId'] )
-					? '
-					<div class="qu-expertNote__expert" itemscope itemprop="author" itemtype="https://schema.org/Person">
-						<div class="qu-expertNote__expert--image">
-						<meta itemprop="image" content="' . esc_url( get_the_post_thumbnail_url( $attr['reviewId'], 'logo_thumbnail' ) ) . '"></meta>
-							' . get_the_post_thumbnail( $attr['reviewId'], 'logo_thumbnail' ) . // @codingStandardsIgnoreLine
-							'
-						</div>
-						<div class="qu-expertNote__expert--info">
-							<p class="qu-expertNote__expert--name" itemprop="name">' . esc_html( get_the_title( $attr['reviewId'] ) ) . '</p>
-							<strong class="qu-expertNote__expert--position" itemprop="jobtitle">' . esc_html( $attr['expertPosition'] ) . '</strong>
-						</div>
-					</div>'
-					: '' )
-				. '
-				</div>
-				<h2 class="qu-expertNote__title" itemprop="headline">' . esc_html( $attr['header'] ) . '</h2>
-				<div class="qu-expertNote__content" itemprop="text">' .
-					$attr['content'] //@codingStandardsIgnoreLine
-				. '</div>
+				
 			</div>
 		';
 		// @codingStandardsIgnoreEnd
@@ -109,17 +88,11 @@ function qu_reviews_init() {
 			'qu_reviews_style'         => 'qu_reviews_frontend_style',
 			'render_callback'          => 'render_reviews',
 			'attributes'               => array(
+				'categoryId' => array(
+					'type'    => 'string',
+				),
 				'reviewId' => array(
 					'type'    => 'string',
-					'default' => '3647',
-				),
-				'header'    => array(
-					'type'    => 'string',
-					'default' => 'Enter title here…',
-				),
-				'content'   => array(
-					'type'    => 'string',
-					'default' => '',
 				),
 			),
 		),
