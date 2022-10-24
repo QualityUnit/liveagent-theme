@@ -6307,10 +6307,10 @@ memfs@^3.1.2, memfs@^3.4.3:
   dependencies:
     fs-monkey "^1.0.3"
 
-memoize-one@^5.0.0:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
-  integrity sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==
+memoize-one@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-6.0.0.tgz#b2591b871ed82948aee4727dc6abceeeac8c1045"
+  integrity sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==
 
 meow@^9.0.0:
   version "9.0.0"
@@ -7756,17 +7756,17 @@ react-scripts@5:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react-select@^5.5.0:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/react-select/-/react-select-5.5.0.tgz#c82286e20b26194738186ada54cc8a0c677dfc6e"
-  integrity sha512-yzA+eavdxpF5Onf0u9KZ84qxr8r/CwPPn777bRkslbDtEUYx2+m13OrhP3WVa30+aWYxwkO/pkLcZ7q7r/6OhQ==
+react-select@^5.5.4:
+  version "5.5.4"
+  resolved "https://registry.yarnpkg.com/react-select/-/react-select-5.5.4.tgz#da05b8b66d33f6fc1f92fdccd0fa50d7f4418554"
+  integrity sha512-lyr19joBUm/CNJgjZMBSnFvJ/MeHCmBYvQ050qYAP3EPa7Oenlnx9guhU+SW0goYgxLQyqwRvkFllQpFAp8tmQ==
   dependencies:
     "@babel/runtime" "^7.12.0"
     "@emotion/cache" "^11.4.0"
     "@emotion/react" "^11.8.1"
     "@floating-ui/dom" "^1.0.1"
     "@types/react-transition-group" "^4.4.0"
-    memoize-one "^5.0.0"
+    memoize-one "^6.0.0"
     prop-types "^15.6.0"
     react-transition-group "^4.3.0"
     use-isomorphic-layout-effect "^1.1.2"
