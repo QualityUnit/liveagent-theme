@@ -1,0 +1,120 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Reviews__rating {
+	position: relative;
+	color: $black;
+
+	&--rating {
+		font-weight: 700;
+		font-size: 1.777em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding-right: 0.5em;
+		}
+	}
+
+	&--desc {
+		display: block;
+		font-weight: 600;
+		font-size: 0.875rem;
+		line-height: 1;
+		margin-top: 1em;
+	}
+
+	&--stars {
+		position: relative;
+		width: 8.25rem;
+		height: 1.48rem;
+		background: url(../images/stars_gradient-outline.svg) left center no-repeat;
+		background-size: auto 100%;
+
+		&__fill {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			background: url(../images/stars_gradient.svg) left center no-repeat;
+			background-size: auto 100%;
+			overflow: hidden;
+		}
+
+		&.white,
+		&.grey {
+			background: url(../images/stars_white-outline.svg) left center no-repeat;
+			background-size: auto 100%;
+
+
+			.Reviews__rating--stars__fill {
+				background: url(../images/stars_white.svg) left center no-repeat;
+				background-size: auto 100%;
+			}
+		}
+
+		&.grey {
+
+			filter: brightness(0.75);
+		}
+	}
+
+	&--tooltip {
+		display: flex;
+		align-items: center;
+
+		&__text {
+			width: 23em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&__text {
+				left: calc(100% + 0.5em);
+				margin-left: auto;
+				top: -1em;
+				// transform: translateY(-50%);
+				text-align: left;
+
+				&::after {
+					display: none;
+				}
+
+				time {
+					margin-top: 0.5em;
+				}
+			}
+
+		}
+	}
+
+	&--portals {
+		background-color: $lightest-gray;
+		border-radius: 10px 60px 60px 10px;
+		padding: 2em;
+		margin-bottom: 1.5em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: 55%;
+		}
+	}
+
+	&--editor {
+
+		background: var(--background);
+		border-radius: 66px $border-radius-16 $border-radius-16 66px;
+		display: flex;
+		align-items: center;
+		padding: 1em 1em 1em 0;
+
+		.Reviews__rating {
+
+			&--desc,
+			&--rating {
+				margin-top: 0;
+				color: $white;
+			}
+
+			&--rating {
+				font-size: 1.5rem;
+			}
+		}
+	}
+}

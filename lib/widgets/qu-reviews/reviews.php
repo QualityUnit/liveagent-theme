@@ -91,11 +91,15 @@ function qu_reviews_init() {
 				'categoryId' => array(
 					'type' => 'string',
 				),
-				'reviewId'   => array(
-					'type' => 'string',
-				),
-				'reviewMeta' => array(
+				'reviewData' => array(
 					'type' => 'object',
+				),
+				'reviewsSorted' => array(
+					'type' => 'array',
+				),
+				'layout' => array(
+					'type'    => 'string',
+					'default' => '',
 				),
 			),
 		),
