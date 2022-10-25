@@ -11,6 +11,28 @@ let slider = null;
 
 const mql = window.matchMedia( '(min-width: 1024px)' );
 
+function loadImg( element ) {
+	if ( element.tagName == 'IMG' && element.hasAttribute( 'urlslab-lazy' ) && element.parentElement.tagName == 'PICTURE' ) {
+		element.removeAttribute( 'urlslab-lazy' );
+		element.parentElement.childNodes.forEach( ( childNode ) => { loadImg( childNode ); } )
+	}
+
+	if (element.hasAttribute( 'urlslab-lazy' )) {
+		element.removeAttribute('urlslab-lazy');
+	}
+
+	if ( element.hasAttribute( 'data-srcset' ) ) {
+		element.setAttribute( 'srcset', element.getAttribute( 'data-srcset' ) );
+		element.removeAttribute( 'data-srcset' );
+	}
+
+	if ( element.hasAttribute( 'data-src' ) ) {
+		element.setAttribute( 'src', element.getAttribute( 'data-src' ) );
+		element.removeAttribute( 'data-src' );
+	}
+	element.style.opacity = '1';
+}
+
 function activateSidebars() {
 	//let isScrolling;
 	if ( sidebarSlider !== null ) {
@@ -19,9 +41,7 @@ function activateSidebars() {
 				const unloaded = document.querySelectorAll( '[data-src]' );
 				unloaded.forEach( ( elem ) => {
 					const el = elem;
-					const datasrc = el.getAttribute( 'data-src' );
-					el.setAttribute( 'src', datasrc );
-					el.style.opacity = '1';
+					loadImg(el);
 				} );
 			}
 		} );
