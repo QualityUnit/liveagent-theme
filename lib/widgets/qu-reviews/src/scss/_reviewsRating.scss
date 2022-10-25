@@ -4,7 +4,22 @@
 	position: relative;
 	color: $black;
 
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+	align-self: stretch;
+	font-size: 1rem;
+
+	&--count {
+		width: 100%;
+		font-weight: 700;
+		text-align: center;
+	}
+
 	&--rating {
+		padding-right: 0;
 		font-weight: 700;
 		font-size: 1.777em;
 
@@ -37,84 +52,31 @@
 			background-size: auto 100%;
 			overflow: hidden;
 		}
-
-		&.white,
-		&.grey {
-			background: url(../images/stars_white-outline.svg) left center no-repeat;
-			background-size: auto 100%;
-
-
-			.Reviews__rating--stars__fill {
-				background: url(../images/stars_white.svg) left center no-repeat;
-				background-size: auto 100%;
-			}
-		}
-
-		&.grey {
-
-			filter: brightness(0.75);
-		}
 	}
 
-	&--tooltip {
-		display: flex;
-		align-items: center;
-
-		&__text {
-			width: 23em;
-		}
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-
-			&__text {
-				left: calc(100% + 0.5em);
-				margin-left: auto;
-				top: -1em;
-				// transform: translateY(-50%);
-				text-align: left;
-
-				&::after {
-					display: none;
-				}
-
-				time {
-					margin-top: 0.5em;
-				}
-			}
-
-		}
+	@media (min-width: $breakpoint-tablet) {
+		justify-content: center;
+		margin: -1.125em;
+		margin-left: auto;
+		max-width: 14em;
+		padding-left: 2.5em;
+		padding-right: 4.5em;
+		background: url(../images/reviews_rating_bg.jpg) center center no-repeat;
+		background-size: cover;
 	}
 
-	&--portals {
-		background-color: $lightest-gray;
-		border-radius: 10px 60px 60px 10px;
-		padding: 2em;
-		margin-bottom: 1.5em;
+	@media (min-width: $breakpoint-tablet-landscape) {
 
-		@media (min-width: $breakpoint-tablet-landscape) {
-			width: 55%;
-		}
-	}
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		padding-left: 0;
+		padding-right: 5.5em;
+		max-width: 19em;
+		font-size: 1.125rem;
 
-	&--editor {
-
-		background: var(--background);
-		border-radius: 66px $border-radius-16 $border-radius-16 66px;
-		display: flex;
-		align-items: center;
-		padding: 1em 1em 1em 0;
-
-		.Reviews__rating {
-
-			&--desc,
-			&--rating {
-				margin-top: 0;
-				color: $white;
-			}
-
-			&--rating {
-				font-size: 1.5rem;
-			}
+		&--count {
+			text-align: right;
 		}
 	}
 }
