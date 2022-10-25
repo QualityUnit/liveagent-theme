@@ -12,7 +12,7 @@ let slider = null;
 const mql = window.matchMedia( '(min-width: 1024px)' );
 
 function loadImg( element ) {
-	if ( element.tagName == 'IMG' && element.parentElement.tagName == 'PICTURE' && ! element.hasAttribute( 'laprocessing' ) ) {
+	if ( element.tagName === 'IMG' && element.parentElement.tagName === 'PICTURE' && ! element.hasAttribute( 'laprocessing' ) ) {
 		element.setAttribute('laprocessing', 'y');
 		element.parentElement.childNodes.forEach( ( childNode ) => { loadImg( childNode ); } );
 		element.removeAttribute( 'laprocessing' );
@@ -38,7 +38,7 @@ function activateSidebars() {
 				const unloaded = document.querySelectorAll( '[data-src]' );
 				unloaded.forEach( ( elem ) => {
 					const el = elem;
-					loadImg(el);
+					loadImg( el );
 				} );
 			}
 		} );
