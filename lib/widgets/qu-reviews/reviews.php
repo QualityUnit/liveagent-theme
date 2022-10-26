@@ -143,6 +143,10 @@ function qu_reviews_init() {
 					'type'    => 'string',
 					'default' => '',
 				),
+				'maxReviews'    => array(
+					'type'    => 'number',
+					'default' => 10,
+				),
 			),
 		),
 	);

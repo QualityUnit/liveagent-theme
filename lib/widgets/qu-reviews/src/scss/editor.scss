@@ -1,8 +1,24 @@
 @use "sass:math";
 @import "../../../../../assets/styles/common/variables";
 
+
+// .qu-Reviews__edit {
+
+// 	.components-base-control__field {
+// 		margin: 0 !important;
+// 	}
+
+// 	label {
+// 		all: unset !important;
+// 		line-height: 1;
+// 		display: block;
+// 		font-weight: 600;
+// 		padding-bottom: 0.5em;
+// 	}
+// }
+
 .selectExpert {
-	padding: 0em 2em;
+	padding: 0 2em;
 
 	.loading {
 		display: flex;
@@ -10,86 +26,15 @@
 		height: 100%;
 	}
 
-	label, select {
+	label,
+	select {
 		font-weight: 600;
 	}
 
 	.components-input-control__container {
+
 		.components-input-control__backdrop {
 			border-color: #2271b1 !important;
 		}
 	}
 }
-
-.qu-expertNote {
-
-	&__title {
-		display: block !important;
-		margin-top: 1em;
-
-		input, textarea {
-			font-family: $font-secondary !important;
-			font-weight: 700 !important;
-			font-size: 2rem !important;
-			line-height: 1.43 !important;
-			background: transparent;
-		}
-	}
-
-	&__expert {
-
-		&--position {
-			input {
-				font-family: $font-primary;
-				font-weight: 700;
-			}
-		}
-	}
-
-	&__content {
-		.editor-styles-wrapper {
-			background-color: transparent !important;
-			padding: 0 !important;
-
-			p {
-				font-size: 1rem !important;
-			}
-		}
-
-		ul li {
-			margin-bottom: 0.5em !important;
-	
-			&::before {
-				font-size: 1rem !important;
-				top: -2px !important;
-			}
-		}
-	}
-
-	.block-library-heading-level-toolbar {
-
-		[aria-label="Heading 1"],
-		[aria-label="Heading 2"] {
-			display: none !important;
-		}
-	}
-
-	/**
-	 * Animations
-	 */
-
-	// These keyframes should not be part of the _animations.scss mixins file.
-	// Because keyframe animations can't be defined as mixins properly.
-	// Since hey are intended only for the editor, we add them here instead.
-	@keyframes edit-post__fade-in-animation {
-
-		from {
-			opacity: 0;
-		}
-
-		to {
-			opacity: 1;
-		}
-	}
-}
-
