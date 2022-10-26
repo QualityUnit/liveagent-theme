@@ -74,44 +74,51 @@ function qu_reviews_init() {
 		$layout = $attr['layout'];
 		$post   = '';
 
-		foreach ( $attr['reviewsSorted'] as $order => $review ) {
-			$number  = $order + 1;
-			$review  = (object) $review;
-			$url     = $review->link;
-			$title   = str_replace( '^', '', $review->title['rendered'] );
-			$excerpt = wp_trim_words( $review->excerpt['rendered'], 25 );
-			$meta    = (object) $review->meta;
-
-			require_once __DIR__ . '/includes/rating.php';
-			require_once __DIR__ . '/includes/pricing.php';
-			require_once __DIR__ . '/includes/pros-cons.php';
-			
-			$post .= '<div class="qu-Reviews__post">
-				<a href="' . $url . '" title="' . $title . '">
-				<div class="qu-Reviews__post--inn">
-					<span class="qu-Reviews__post--number mr-xl-tablet">' . $number . '</span>
-					<div class="qu-Reviews__post--main">
-						<h3 class="qu-Reviews__post--title">' . $title . '</h3>
-						<div class="qu-Reviews__post--excerpt">' . $excerpt . '</div>
-					</div>' .
-						rating( $layout, $meta ) . '
-					<div class="qu-Reviews__post--arrow">
-						<svg class="arrow">
-							<use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#chevron-right"></use>
-						</svg>
-					</div>
-				</div>' .
-					( 'pricing' === $layout
-						? pricing( $meta )
-						: ''
-					) . ( 'proscons' === $layout
-						? pros_cons( $meta )
-						: ''
-					) . '
-				</a>
+		if ( ! empty( $attr['reviewsSorted'] ) ) {
+			foreach ( $attr['reviewsSorted'] as $order => $review ) {
+				$number  = $order + 1;
+				$review  = (object) $review;
+				$url     = $review->link;
+				$title   = str_replace( '^', '', $review->title['rendered'] );
+				$excerpt = wp_trim_words( $review->excerpt['rendered'], 25 );
+				$meta    = (object) $review->meta;
+	
+				require_once __DIR__ . '/includes/rating.php';
+				require_once __DIR__ . '/includes/pricing.php';
+				require_once __DIR__ . '/includes/pros-cons.php';
 				
-		</div>';
+				$post .= '<div class="qu-Reviews__post">
+					<a href="' . $url . '" title="' . $title . '">
+						<div class="qu-Reviews__post--inn">
+							<span class="qu-Reviews__post--number mr-xl-tablet">' . $number . '</span>
+							<div class="qu-Reviews__post--main">
+								<h3 class="qu-Reviews__post--title">' . $title . '</h3>
+								<div class="qu-Reviews__post--excerpt">' . $excerpt . '</div>
+							</div>' .
+								rating( $layout, $meta ) . '
+							<div class="qu-Reviews__post--arrow">
+								<svg class="arrow">
+									<use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#chevron-right"></use>
+								</svg>
+							</div>
+						</div>' .
+						( ( 'pricing' === $layout || 'proscons' === $layout ) ?
+						'<div class="qu-Reviews__post--data">' .
+							( 'pricing' === $layout
+								? pricing( $meta )
+								: ''
+							) . ( 'proscons' === $layout
+								? pros_cons( $meta )
+								: ''
+							) . '
+						</div>'
+						: '' ) . '
+					</a>
+					
+			</div>';
+			}
 		}
+
 		return $post;
 	}
 

@@ -82,12 +82,21 @@
 		}
 	}
 
+	&--data {
+		border-top: 1px solid $light-gray;
+	}
+
+	&--inn[class],
+	&--data {
+		padding: 1.125em;
+		font-size: 1.125rem;
+		color: $black;
+	}
+
 	&--inn[class] {
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		padding: 1.125em;
-		font-size: 1.125rem;
 		font-weight: 600;
 		line-height: 1;
 

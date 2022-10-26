@@ -6,7 +6,7 @@ function pricing( $meta ) {
 		<h3 class="no-margin">' . __( 'Pricing', 'reviews' ) . '</h3>
 	
 		<div class="flex-tablet Reviews__info--details mt-xs">
-			<strong class="Reviews__info--desc mt-s">' . __( 'Starting from', 'reviews' ) . '</strong>
+			<strong class="Reviews__info--desc mt-s">' . __( 'Starting from:', 'reviews' ) . '</strong>
 			<div>
 				<div class="Reviews__info--pricing">
 					<strong class="currency">' . $meta->currency . '</strong>
@@ -15,7 +15,8 @@ function pricing( $meta ) {
 						&nbsp;' .
 						$meta->period . '
 					</span>
-				</div>	
+				</div>
+				<div class="text-light">' . $meta->note . '</div>
 			</div>
 		</div>
 	

@@ -1,0 +1,28 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Reviews__info {
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+		margin-bottom: 3em;
+	}
+
+	&--details {
+		font-size: 0.875rem;
+	}
+
+	.currency {
+		font-style: 1.143em;
+	}
+
+	.price {
+		font-size: 2.285em;
+	}
+
+	&--desc {
+
+		@media (min-width: $breakpoint-tablet) {
+			display: inline-block;
+			width: 25%;
+		}
+	}
+}
