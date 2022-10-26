@@ -11,8 +11,3 @@ const textInvalidField = 'Neveljavno polje';
 const textValidDomain = 'Domena je veljavna';
 const textFailedDomain = 'Ta račun ne obstaja';
 
-const productDomain = 'ladesk.com';
-
-const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
-
-const loginName = localStorage.getItem( 'la_login' );

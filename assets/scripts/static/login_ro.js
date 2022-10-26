@@ -11,8 +11,3 @@ const textInvalidField = 'Câmp nevalid';
 const textValidDomain = 'Domeniul este valid';
 const textFailedDomain = 'Acest cont nu există';
 
-const productDomain = 'ladesk.com';
-
-const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
-
-const loginName = localStorage.getItem( 'la_login' );

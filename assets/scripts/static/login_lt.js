@@ -11,8 +11,3 @@ const textInvalidField = 'Netinkamas laukelis';
 const textValidDomain = 'Netinkamas domenas';
 const textFailedDomain = 'Ši paskyra negalioja';
 
-const productDomain = 'ladesk.com';
-
-const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
-
-const loginName = localStorage.getItem( 'la_login' );

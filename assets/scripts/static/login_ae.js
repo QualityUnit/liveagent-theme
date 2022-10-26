@@ -11,8 +11,3 @@ const textInvalidField = 'الحقل غير صالح';
 const textValidDomain = 'النطاق غير صالح';
 const textFailedDomain = 'هذا الحساب غير موجود';
 
-const productDomain = 'ladesk.com';
-
-const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
-
-const loginName = localStorage.getItem( 'la_login' );

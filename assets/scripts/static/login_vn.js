@@ -11,8 +11,3 @@ const textInvalidField = 'Một số trường thông tin không hợp lệ';
 const textValidDomain = 'Tên miền hợp lệ';
 const textFailedDomain = 'Tài khoản này không tồn tại';
 
-const productDomain = 'ladesk.com';
-
-const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
-
-const loginName = localStorage.getItem( 'la_login' );

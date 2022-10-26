@@ -1,10 +1,25 @@
 /* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-mixed-operators, no-redeclare */
 /* global $, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha */
 /* global progressStep, newProgress, btoa */
-/* global debug, textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, productDomain, authTokenName, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, papAccount, papAction, papCampaign, googleScript, capterraScript, textStart, textInvalid, textCreating, recaptchaId, variationId */
+/* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, textStart, textInvalid, textCreating, variationId */
 
 ( function main() {
+	const debug = false; // Set true for display console.log
+
+	const productDomain = 'ladesk.com';
+	const authTokenName = 'AuthToken';
+
+	const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
+	const papAccount = 'default1';
+	const papAction = 'LATrial';
+	const papCampaign = 'cc052a4f';
+	const googleScript =
+	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' />";
+	const capterraScript =
+	"<script src='https://ct.capterra.com/capterra_tracker.js?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b'></script>";
 	const g2crowdTracking = '<img src="https://tracking.g2crowd.com/funnels/938455d7-8e96-4676-9ae2-427524d169d9.gif?stage=finish&stype=offer">';
+
+	const redditTracking = '<script>!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt("init","t2_an9rcu5x", {"optOut":false,"useDecimalCurrencyValues":true});rdt("track", "PageVisit");</script>';
 
 	function sendApiRequest( options ) {
 		const opt = options;
@@ -789,6 +804,7 @@
 			);
 		}
 		$( g2crowdTracking ).appendTo( '#signup' );
+		$( redditTracking ).appendTo( '#signup' );
 
 		if ( typeof _paq !== 'undefined' ) {
 			_paq.push( [ 'setObjectId', subscription.account_id ] );
