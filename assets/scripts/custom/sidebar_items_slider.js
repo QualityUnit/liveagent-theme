@@ -13,8 +13,10 @@ const mql = window.matchMedia( '(min-width: 1024px)' );
 
 function loadImg( element ) {
 	if ( element.tagName === 'IMG' && element.parentElement.tagName === 'PICTURE' && ! element.hasAttribute( 'laprocessing' ) ) {
-		element.setAttribute('laprocessing', 'y');
-		element.parentElement.childNodes.forEach( ( childNode ) => { loadImg( childNode ); } );
+		element.setAttribute( 'laprocessing', 'y' );
+		element.parentElement.childNodes.forEach( ( childNode ) => {
+			loadImg( childNode );
+		} );
 		element.removeAttribute( 'laprocessing' );
 	}
 

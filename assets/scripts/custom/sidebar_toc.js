@@ -48,8 +48,10 @@ function tocRemoveActive() {
 
 function loadImg( element ) {
 	if ( element.tagName === 'IMG' && element.parentElement.tagName === 'PICTURE' && ! element.hasAttribute( 'laprocessing' ) ) {
-		element.setAttribute('laprocessing', 'y');
-		element.parentElement.childNodes.forEach( ( childNode ) => { loadImg( childNode ); } );
+		element.setAttribute( 'laprocessing', 'y' );
+		element.parentElement.childNodes.forEach( ( childNode ) => {
+			loadImg( childNode );
+		} );
 		element.removeAttribute( 'laprocessing' );
 	}
 
@@ -65,7 +67,6 @@ function loadImg( element ) {
 	element.style.opacity = '1';
 }
 
-
 function activateSidebars() {
 	let isScrolling;
 	if ( sidebarTOC !== null ) {
@@ -74,7 +75,7 @@ function activateSidebars() {
 				const unloaded = document.querySelectorAll( '[data-src]' );
 				unloaded.forEach( ( elem ) => {
 					const el = elem;
-                    loadImg( el );
+					loadImg( el );
 				} );
 			}
 		} );
