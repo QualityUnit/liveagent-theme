@@ -51,8 +51,8 @@ function activateSidebars() {
 
 	if ( sidebarTOC !== null ) {
 		window.addEventListener( 'load', () => {
-			if ( queryAll( '[data-src]' ) !== null ) {
-				const unloaded = document.querySelectorAll( '[data-src]' );
+			if ( queryAll( '[data-src]:not(script)' ) !== null ) {
+				const unloaded = document.querySelectorAll( '[data-src]:not(script)' );
 				unloaded.forEach( ( elem ) => {
 					const el = elem;
 					const datasrc = el.getAttribute( 'data-src' );
