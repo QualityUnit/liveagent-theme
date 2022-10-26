@@ -83,16 +83,16 @@ function qu_reviews_init() {
 				$excerpt = wp_trim_words( $review->excerpt['rendered'], 25 );
 				$meta    = (object) $review->meta;
 	
-				require_once __DIR__ . '/includes/rating.php';
-				require_once __DIR__ . '/includes/pricing.php';
-				require_once __DIR__ . '/includes/pros-cons.php';
+				require_once __DIR__ . '/components/rating.php';
+				require_once __DIR__ . '/components/pricing.php';
+				require_once __DIR__ . '/components/pros-cons.php';
 				
 				$post .= '<div class="qu-Reviews__post">
 					<a href="' . $url . '" title="' . $title . '">
 						<div class="qu-Reviews__post--inn">
 							<span class="qu-Reviews__post--number mr-xl-tablet">' . $number . '</span>
 							<div class="qu-Reviews__post--main">
-								<h3 class="qu-Reviews__post--title">' . $title . '</h3>
+								<h3 class="qu-Reviews__post--title no-margin">' . $title . '</h3>
 								<div class="qu-Reviews__post--excerpt">' . $excerpt . '</div>
 							</div>' .
 								rating( $layout, $meta ) . '

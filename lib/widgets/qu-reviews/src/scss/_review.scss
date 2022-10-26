@@ -144,3 +144,10 @@
 		}
 	}
 }
+
+.col-50 {
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		width: 50%;
+	}
+}
