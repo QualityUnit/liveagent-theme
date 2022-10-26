@@ -66,7 +66,7 @@ module.exports = {
             //     ]
             // },
             {
-                test: /\.(png|jpe?g|gif|ico|webp)$/,
+                test: /\.(png|jpe?g|gif|ico|svg|webp)$/,
                 loader: 'url-loader?limit=10000&name=img/[name].[ext]'
             }
         ]

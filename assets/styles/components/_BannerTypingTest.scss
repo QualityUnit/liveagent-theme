@@ -1,0 +1,81 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.BannerTypingTest {
+
+	.wrapper__wide {
+		display: block;
+		background: linear-gradient(90.24deg, #483ff0 1.93%, #9d3cf9 98.49%);
+		border-radius: $border-radius-16;
+		padding: 1.5em;
+
+		* {
+			position: relative;
+			z-index: 1;
+		}
+
+		.elementor-widget-text-editor *,
+		.elementor-widget-heading * {
+			color: $white;
+		}
+
+		.elementor-heading-title {
+			line-height: 1.375 !important;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		.wrapper__wide[class] {
+
+			&::before {
+				content: "";
+				display: block;
+				background: url(../images/banner_typingtest.png) center center no-repeat;
+				background-size: contain;
+				width: 100%;
+				height: 0;
+				padding-bottom: 55%;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper__wide[class] {
+			display: flex;
+
+			&::before {
+
+				@include posZero();
+				position: absolute;
+				background-position: calc(100% + 4em) bottom;
+				background-size: 65%;
+				height: auto;
+				padding-bottom: 0;
+			}
+		}
+
+		&__text[class] {
+			width: 55%;
+
+			.elementor-heading-title {
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop-box) {
+
+		.wrapper__wide[class] {
+
+			&::before {
+				background-position: right bottom;
+				background-size: contain;
+			}
+		}
+
+		&__text[class] {
+			width: 45%;
+		}
+	}
+}
