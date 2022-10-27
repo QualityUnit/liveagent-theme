@@ -1,28 +1,64 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
-.Reviews__info {
+.qu-Reviews__post--data {
 
-	@media (max-width: $breakpoint-tablet-landscape) {
-		margin-bottom: 3em;
+	.wp-block-columns,
+	ul {
+		margin-bottom: 0;
 	}
 
-	&--details {
-		font-size: 0.875rem;
+	.checklist {
+
+		li::before {
+			display: flex !important;
+			align-items: center;
+			justify-content: center;
+			padding: 0 !important;
+		}
+
+		&--pros {
+
+			li::before {
+				content: "+" !important;
+				color: $green;
+				background: $desaturated-green !important;
+			}
+		}
+
+		&--cons {
+
+			li::before {
+				content: "-" !important;
+				color: $red;
+				background: $desaturated-red !important;
+			}
+		}
 	}
 
-	.currency {
-		font-style: 1.143em;
-	}
+	.Reviews__info {
 
-	.price {
-		font-size: 2.285em;
-	}
+		@media (max-width: $breakpoint-tablet-landscape) {
+			margin-bottom: 3em;
+		}
 
-	&--desc {
+		&--details {
+			font-size: 0.875rem;
+		}
 
-		@media (min-width: $breakpoint-tablet) {
-			display: inline-block;
-			width: 25%;
+		.currency {
+			font-style: 1.143em;
+		}
+
+		.price {
+			font-size: 2.285em;
+		}
+
+		&--desc {
+
+			@media (min-width: $breakpoint-tablet) {
+				display: inline-block;
+				width: 25%;
+			}
 		}
 	}
 }

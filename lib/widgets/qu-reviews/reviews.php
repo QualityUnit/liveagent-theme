@@ -82,6 +82,12 @@ function qu_reviews_init() {
 				$title   = str_replace( '^', '', $review->title['rendered'] );
 				$excerpt = wp_trim_words( $review->excerpt['rendered'], 25 );
 				$meta    = (object) $review->meta;
+
+				$first  = $meta->first_rating_value;
+				$second = $meta->second_rating_value;
+				$third  = $meta->third_rating_value;
+
+				$editor_average = round( ( $first + $second + $third ) / 3, 1 );
 	
 				require_once __DIR__ . '/includes/rating.php';
 				require_once __DIR__ . '/includes/pricing.php';
@@ -95,7 +101,7 @@ function qu_reviews_init() {
 								<h3 class="qu-Reviews__post--title">' . $title . '</h3>
 								<div class="qu-Reviews__post--excerpt">' . $excerpt . '</div>
 							</div>' .
-								rating( $layout, $meta ) . '
+								rating( $editor_average, $layout, $meta ) . '
 							<div class="qu-Reviews__post--arrow">
 								<svg class="arrow">
 									<use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#chevron-right"></use>
@@ -108,7 +114,7 @@ function qu_reviews_init() {
 								? pricing( $meta )
 								: ''
 							) . ( 'proscons' === $layout
-								? pros_cons( $meta )
+								? pros_cons( $editor_average, $meta )
 								: ''
 							) . '
 						</div>'
