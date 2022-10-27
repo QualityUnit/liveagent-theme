@@ -64,41 +64,54 @@
 						<?php if ( get_option( 'ms_theme_ms_footer_instagram_link' ) ) { ?>
 							<li>
 								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Instagram', 'ms' ); ?>">
-									<?= QualityUnit\Extras\load_inline_svg( 'icon_social_instagram' ); // @codingStandardsIgnoreLine ?>
+									<svg>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-instagram' ) ?>"></use>
+									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_facebook_link' ) ) { ?>
 							<li>
 								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Facebook', 'ms' ); ?>">
-									<?= QualityUnit\Extras\load_inline_svg( 'icon_social_facebook' ); // @codingStandardsIgnoreLine ?>
+									<svg>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-facebook' )
+										?>"></use>
+									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_twitter_link' ) ) { ?>
 							<li>
 								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Twitter', 'ms' ); ?>">
-									<?= QualityUnit\Extras\load_inline_svg( 'icon_social_twitter' ); // @codingStandardsIgnoreLine ?>
+									<svg>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-twitter' ) ?>"></use>
+									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_linkedin_link' ) ) { ?>
 							<li>
 								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>">
-									<?= QualityUnit\Extras\load_inline_svg( 'icon_social_linkedin' ); // @codingStandardsIgnoreLine ?>
+									<svg>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-linkedin' ) ?>"></use>
+									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_youtube_link' ) ) { ?>
 							<li>
 								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>">
-									<?= QualityUnit\Extras\load_inline_svg( 'icon_social_youtube' ); // @codingStandardsIgnoreLine ?>
+									<svg>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-youtube' ) ?>"></use>
+									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<li>
 							<a href="<?php _e( 'https://wa.me/17862041375', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
-								<?= QualityUnit\Extras\load_inline_svg( 'icon_social_whatsapp' ); // @codingStandardsIgnoreLine ?>
+								<svg>
+									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-whatsapp' ) ?>"></use>
+								</svg>
 							</a>
 						</li>
 					</ul>
