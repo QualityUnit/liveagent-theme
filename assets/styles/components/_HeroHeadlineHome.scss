@@ -8,7 +8,8 @@
 
 	.wrapper,
 	.elementor-column-wrap,
-	.elementor-container.elementor-container {
+	.elementor-container.elementor-container,
+	.elementor-section.elementor-section-boxed > .elementor-container {
 		max-width: $breakpoint-desktop-big;
 		padding: 0;
 	}
