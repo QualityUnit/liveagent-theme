@@ -2,6 +2,10 @@
 
 .qu-Reviews__post--data {
 
+	.Reviews__rating--rating {
+		font-size: 1.25rem;
+	}
+
 	.wp-block-columns,
 	ul {
 		margin-bottom: 0;
@@ -9,9 +13,16 @@
 
 	.checklist {
 
+		h4 {
+			color: $black;
+			font-style: italic;
+		}
+
 		li::before {
+
 			display: flex !important;
 			align-items: center;
+			align-content: center;
 			justify-content: center;
 			padding: 0 !important;
 		}
@@ -28,7 +39,7 @@
 		&--cons {
 
 			li::before {
-				content: "-" !important;
+				content: "–" !important;
 				color: $red;
 				background: $desaturated-red !important;
 			}
@@ -37,27 +48,59 @@
 
 	.Reviews__info {
 
-		@media (max-width: $breakpoint-tablet-landscape) {
-			margin-bottom: 3em;
-		}
-
 		&--details {
+			display: flex;
+			flex-wrap: wrap;
 			font-size: 0.875rem;
+
+			.currency {
+				font-style: 1.143em;
+			}
+
+			.price {
+				font-size: 2.285em;
+			}
+
+			dt {
+				font-weight: 700;
+				align-self: flex-end;
+				width: 35%;
+				white-space: nowrap;
+			}
+
+			dd {
+				margin-left: 0.5em;
+				width: calc(65% - 0.5em);
+			}
+
+			&.second {
+
+				dt {
+					width: 50%;
+				}
+
+				dd {
+					width: calc(50% - 0.5em);
+				}
+			}
 		}
 
-		.currency {
-			font-style: 1.143em;
-		}
+		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+			align-items: flex-start;
+			flex-wrap: wrap;
+			width: 100%;
 
-		.price {
-			font-size: 2.285em;
-		}
+			&--details {
 
-		&--desc {
+				&.first {
+					width: calc(70% - 3em);
+					margin-right: 3em;
+				}
 
-			@media (min-width: $breakpoint-tablet) {
-				display: inline-block;
-				width: 25%;
+				&.second {
+					width: 30%;
+				}
 			}
 		}
 	}

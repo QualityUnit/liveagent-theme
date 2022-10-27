@@ -1,82 +1,147 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
-.Reviews__rating {
-	position: relative;
-	color: $black;
+.qu-Reviews__post {
 
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
-	align-content: center;
-	align-self: stretch;
-	font-size: 1rem;
-
-	&--count {
-		width: 100%;
-		font-weight: 700;
-		text-align: center;
-	}
-
-	&--rating {
-		padding-right: 0;
-		font-weight: 700;
-		font-size: 1.777em;
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-			padding-right: 0.5em;
-		}
-	}
-
-	&--desc {
-		display: block;
-		font-weight: 600;
-		font-size: 0.875rem;
-		line-height: 1;
-		margin-top: 1em;
-	}
-
-	&--stars {
+	.Reviews__rating {
 		position: relative;
-		width: 8.25rem;
-		height: 1.48rem;
-		background: url(../images/stars_gradient-outline.svg) left center no-repeat;
-		background-size: auto 100%;
+		color: $black;
 
-		&__fill {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			background: url(../images/stars_gradient.svg) left center no-repeat;
-			background-size: auto 100%;
-			overflow: hidden;
-		}
-	}
-
-	@media (min-width: $breakpoint-tablet) {
-		justify-content: center;
-		margin: -1.125em;
-		margin-left: auto;
-		max-width: 14em;
-		padding-left: 2.5em;
-		padding-right: 4.5em;
-		background: url(../images/reviews_rating_bg.jpg) center center no-repeat;
-		background-size: cover;
-	}
-
-	@media (min-width: $breakpoint-tablet-landscape) {
-
-		flex-direction: row;
-		flex-wrap: wrap;
+		display: flex;
+		flex-direction: column;
 		justify-content: flex-end;
-		padding-left: 0;
-		padding-right: 5.5em;
-		max-width: 19em;
-		font-size: 1.125rem;
+		align-items: center;
+		align-content: center;
+		align-self: stretch;
+		font-size: 1rem;
+
+		&.editor[class] {
+			flex-direction: column;
+			align-items: flex-start;
+
+			.Reviews__rating {
+
+				&--count {
+					text-align: left;
+				}
+
+				&--rating,
+				&--stars {
+					font-size: 0.875rem;
+				}
+
+				&--stars {
+					width: 5.85em;
+					height: 1em;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				align-items: flex-end;
+				justify-content: center;
+
+				.Reviews__rating {
+
+					&--count {
+						text-align: right;
+					}
+				}
+			}
+		}
 
 		&--count {
-			text-align: right;
+			width: 100%;
+			font-weight: 700;
+			text-align: center;
+			margin-top: 0.5em;
+		}
+
+		&--rating {
+			padding-right: 0;
+			font-weight: 700;
+			font-size: 1.3333em;
+		}
+
+		&--progress {
+			width: 100%;
+			font-size: 0.75rem;
+			margin-top: 1em;
+
+			.progressBar {
+
+				height: 6px;
+				width: 40%;
+
+				&__wrapper {
+					width: 100%;
+				}
+
+				&__desc {
+					width: calc(50% - 1em);
+					margin-right: 1em;
+					text-align: right;
+					word-break: normal;
+				}
+
+				@media (max-width: $breakpoint-tablet) {
+					margin: 0.15em 0;
+
+					&__wrapper {
+						margin: 0.5em 0;
+					}
+				}
+			}
+		}
+
+		&--desc {
+			display: block;
+			font-weight: 600;
+			font-size: 0.875rem;
+			line-height: 1;
+			margin-top: 1em;
+		}
+
+		&--stars {
+			position: relative;
+			width: 8.25rem;
+			height: 1.48rem;
+			background: url(../images/stars_gradient-outline.svg) left center no-repeat;
+			background-size: auto 100%;
+
+			&__fill {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				background: url(../images/stars_gradient.svg) left center no-repeat;
+				background-size: auto 100%;
+				overflow: hidden;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			justify-content: center;
+			margin: -1.125em;
+			margin-left: auto;
+			width: calc(45% + 2em);
+			max-width: none;
+			padding-left: 2.5em;
+			padding-right: 4.5em;
+			background: url(../images/reviews_rating_bg.jpg) center center no-repeat;
+			background-size: cover;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+			padding-left: 0;
+			padding-right: 3.5em;
+			font-size: 1.125rem;
+
+			&--count {
+				text-align: right;
+			}
 		}
 	}
 }

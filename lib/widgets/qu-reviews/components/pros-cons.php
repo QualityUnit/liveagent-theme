@@ -6,7 +6,7 @@ function pros_cons( $editor_avg, $meta ) {
 
 	return '
 	<div class="flex flex-align-center">
-		<div class="Reviews__rating--count">' . __( "Editor's Rating", 'reviews' ) . ' ' . $editor_avg . '</div>
+		<div class="Reviews__rating--rating mr-s">' . __( "Editor's Rating", 'reviews' ) . '<span class="ml-m">' . $editor_avg . '</span></div>
 		<div class="Reviews__rating--stars">
 			<div class="Reviews__rating--stars__fill" 
 			style="width:' . ( $editor_avg / 5 * 100 ) . '%"></div>

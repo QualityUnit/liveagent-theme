@@ -704,7 +704,8 @@ video {
 .elementor-widget-text-editor.learn-more,
 .learn-more {
 
-	a {
+	a,
+	span {
 
 		@include color(color, font-color-dark, !important);
 		display: flex;

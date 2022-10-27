@@ -55,7 +55,7 @@ while ( $query_reviews_posts->have_posts() ) :
 						<span class="Reviews__rating--rating mr-s-tablet-landscape"><?= esc_html( $rating_post ); ?></span>
 						<div class="Reviews__rating--stars">
 							<div class="Reviews__rating--stars__fill" 
-							style="width:<?= esc_attr( ( $rating_post / 5 * 100 ) . '%' ); ?>"></div>
+							style="width:<?= esc_attr( ( $rating_post / 5 * 103.3 ) . '%' ); ?>"></div>
 						</div>
 						<div class="Reviews__rating--count"><?= esc_html( meta( 'reviews_count' ) . ' ' . __( 'reviews', 'reviews' ) ); ?></div>
 					</div>
@@ -66,7 +66,7 @@ while ( $query_reviews_posts->have_posts() ) :
 						<span class="Reviews__rating--rating mr-s-tablet-landscape"><?= esc_html( $average ); ?></span>
 						<div class="Reviews__rating--stars">
 							<div class="Reviews__rating--stars__fill" 
-							style="width:<?= esc_attr( ( $average / 5 * 100 ) . '%' ); ?>"></div>
+							style="width:<?= esc_attr( ( $average / 5 * 103.3 ) . '%' ); ?>"></div>
 						</div>
 						<div class="Reviews__rating--count"><?php _e( "Editor's overall Rating", 'reviews' ); ?></div>
 					</div>

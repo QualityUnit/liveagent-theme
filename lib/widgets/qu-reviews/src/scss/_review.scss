@@ -111,10 +111,6 @@
 		}
 	}
 
-	&--main {
-		max-width: 33.125em;
-	}
-
 	@media (min-width: $breakpoint-tablet) {
 		margin-top: 1.25em;
 
@@ -124,7 +120,7 @@
 
 		&--main {
 			padding-right: 1.5em;
-			max-width: 28em;
+			width: calc(55% - 1em);
 		}
 	}
 

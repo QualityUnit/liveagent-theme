@@ -80,7 +80,7 @@ function qu_reviews_init() {
 				$review  = (object) $review;
 				$url     = $review->link;
 				$title   = str_replace( '^', '', $review->title['rendered'] );
-				$excerpt = wp_trim_words( $review->excerpt['rendered'], 25 );
+				$excerpt = wp_trim_words( $review->excerpt['rendered'], 20 );
 				$meta    = (object) $review->meta;
 
 				$first  = $meta->first_rating_value;
@@ -96,7 +96,7 @@ function qu_reviews_init() {
 				$post .= '<div class="qu-Reviews__post">
 					<a href="' . $url . '" title="' . $title . '">
 						<div class="qu-Reviews__post--inn">
-							<span class="qu-Reviews__post--number mr-xl-tablet">' . $number . '</span>
+							<span class="qu-Reviews__post--number mr-m-tablet">' . $number . '</span>
 							<div class="qu-Reviews__post--main">
 								<h3 class="qu-Reviews__post--title no-margin">' . $title . '</h3>
 								<div class="qu-Reviews__post--excerpt">' . $excerpt . '</div>

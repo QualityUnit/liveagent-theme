@@ -14,7 +14,7 @@ function progressbar( $text, $rating, $color ) {
 		<div class="progressBar__wrapper">
 			<strong class="progressBar__desc"><?= esc_html( meta( $text ) ); ?></strong>
 			<div class="progressBar">
-				<div class="progressBar__inn" style="background-color: <?= esc_attr( $color ); ?>; width:<?= esc_attr( ( $rating / 5 * 100 ) . '%' ); ?>"></div>
+				<div class="progressBar__inn" style="background-color: <?= esc_attr( $color ); ?>; width:<?= esc_attr( ( $rating / 5 * 103.3 ) . '%' ); ?>"></div>
 			</div>
 			<strong class="progressBar__rating"><?= esc_html( $rating ); ?></strong>
 		</div>
@@ -218,7 +218,7 @@ function progressbar( $text, $rating, $color ) {
 						</span>
 						<div class="Reviews__rating--stars white">
 							<div class="Reviews__rating--stars__fill" 
-							style="width:<?= esc_attr( ( $average / 5 * 100 ) . '%' ); ?>"></div>
+							style="width:<?= esc_attr( ( $average / 5 * 103.3 ) . '%' ); ?>"></div>
 						</div>
 					</div>
 				</div>
