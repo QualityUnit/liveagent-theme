@@ -1,9 +1,16 @@
 <?php // @codingStandardsIgnoreLine
-	$first  = meta( 'first_rating_value' );
-	$second = meta( 'second_rating_value' );
-	$third  = meta( 'third_rating_value' );
 
+	$posttitle  = preg_replace( '/\^(.+?)\^/', '<span class="highlight-gradient">$1</span>', get_the_title() );
+	$titleplain = str_replace( '^', '', get_the_title() );
+	$first      = meta( 'first_rating_value' );
+	$second     = meta( 'second_rating_value' );
+	$third      = meta( 'third_rating_value' );
+
+	$average = 3;
+
+if ( ! empty( $first ) && ! empty( $second ) && ! empty( $third ) ) {
 	$average = round( ( $first + $second + $third ) / 3, 1 );
+}
 
 	$avatar_image = get_template_directory_uri() . '/assets/images/author_avatar.svg';
 
@@ -27,12 +34,12 @@ function progressbar( $text, $rating, $color ) {
 			<div class="Post__content__breadcrumbs">
 				<ul>
 					<li><a href="<?php _e( '/reviews/', 'ms' ); ?>"><?php _e( 'Reviews', 'ms' ); ?></a></li>
-					<li><?php the_title(); ?></li>
+					<li><?= esc_html( $titleplain ); ?></li>
 				</ul>
 			</div>
 
 			<div class="flex flex-align-center Reviews__header--post__bottom">
-				<h1 class="Reviews__header--post__title" itemprop="name"><?php the_title(); ?></h1>
+				<h1 class="Reviews__header--post__title" itemprop="name"><?= $posttitle; // @codingStandardsIgnoreLine ?></h1>
 				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_attr( get_the_modified_time( 'F j, Y' ) ); ?>"> 
 					<?= esc_html( __( 'Review Last update:', 'reviews' ) . ' ' ); ?>
 					<em><?= esc_html( get_the_modified_time( 'F j, Y' ) ); ?></em>
@@ -46,7 +53,7 @@ function progressbar( $text, $rating, $color ) {
 			<?php
 			$review_in = __( '${product} review is included in:', 'reviews' );
 			?>
-			<small class="text-light"><?= esc_html( str_replace( '${product}', get_the_title(), $review_in ) ); ?></small>
+			<small class="text-light"><?= esc_html( str_replace( '${product}', $titleplain, $review_in ) ); ?></small>
 			<ul class="Post__sidebar__categories__labels">
 				<?php
 				$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_reviews' );
@@ -66,7 +73,7 @@ function progressbar( $text, $rating, $color ) {
 			<?php
 				$how = __( 'How ${product} is doing on review portals', 'reviews' );
 			?>
-			<small class="text-light"><?= esc_html( str_replace( '${product}', get_the_title(), $how ) ); ?></small>
+			<small class="text-light"><?= esc_html( str_replace( '${product}', $titleplain, $how ) ); ?></small>
 
 			<div class="Reviews__rating Reviews__rating--portals">
 				<div class="flex flex-align-center">
@@ -126,7 +133,7 @@ function progressbar( $text, $rating, $color ) {
 
 							$la_pricing_url = __( '/pricing', 'reviews' );
 
-					if ( isset( $plan ) ) {
+					if ( ! empty( $plan ) ) {
 						?>
 					<div class="Reviews__equalPlan mt-m">
 						<div class="alert-icon"></div>
@@ -153,8 +160,10 @@ function progressbar( $text, $rating, $color ) {
 			<div class="splide Reviews__Gallery--main">
 				<div class="splide__track">
 					<ul class="splide__list">
-						<?php
-							$gallery   = meta( 'gallery' );
+
+					<?php
+							$gallery = meta( 'gallery' );
+					if ( ! empty( $gallery ) ) {
 							$total_img = count( $gallery );
 						foreach ( $gallery as $index => $main_img ) {
 							?>
@@ -170,9 +179,10 @@ function progressbar( $text, $rating, $color ) {
 								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $main_img, 'blog_archive_thumbnail' ) ) ?>" alt=""/>
 							</a>
 						</li>
-							<?php
+								<?php
 						}
-						?>
+					}
+					?>
 					</ul>
 				</div>
 			</div>
@@ -180,13 +190,16 @@ function progressbar( $text, $rating, $color ) {
 			<div class="splide Reviews__Gallery--thumbs">
 				<div class="splide__track">
 					<ul class="splide__list">
-						<?php 
-						foreach ( $gallery as $thumbnail ) {
-							?>
+
+						<?php
+						if ( ! empty( $gallery ) ) { 
+							foreach ( $gallery as $thumbnail ) {
+								?>
 						<li class="splide__slide Reviews__Gallery--thumbnail">
 							<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $thumbnail, 'blog_thumbnail' ) ) ?>" alt=""/>
 						</li>
-							<?php
+								<?php
+							}
 						}
 						?>
 					</ul>
