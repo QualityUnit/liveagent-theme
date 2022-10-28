@@ -7,17 +7,17 @@
 
 <div class="Trial FullScreen">
 	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Trial Logo'])">
-		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" alt="<?php bloginfo( 'name' ); ?>">
+		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
 	</a>
 
 	<div class="Trial__container">
 		<div class="Trial__sidebar" style="background-image: url(https://www.liveagent.com/app/uploads/2020/01/bg_trial.jpg);">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top--inn" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Trial Logo'])">
-				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent_black.svg" alt="<?php bloginfo( 'name' ); ?>">
+				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent_black.svg" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
 			</a>
 			<div class="Trial__sidebar__text">
 				<?php _e( '<p><em>"LiveAgent combines excellent live chat, ticketing and automation that allow us to provide exceptional support to our customers."</em></p><p>Peter Komornik, <strong>CEO</strong></p>', 'ms' ); ?>
-				<img class="Trial__sidebar__logo" src="https://www.liveagent.com/app/uploads/2019/11/logo_slido_white.svg" alt="<?php _e( 'Review', 'ms' ); ?>">
+				<img class="Trial__sidebar__logo" src="https://www.liveagent.com/app/uploads/2019/11/logo_slido_white.svg" alt="<?php _e( 'Review', 'ms' ); ?>" class="urlslab-skip-lazy">
 			</div>
 		</div>
 		<div class="Trial__main">
@@ -33,19 +33,19 @@
 			<div class="Trial__main__logos">
 				<div class="Trial__main__logo">
 					<a href="<?php _e( '/awards/', 'ms' ); ?>">
-						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_g2_black.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>">
+						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_g2_black.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
 					</a>
 				</div>
 
 				<div class="Trial__main__logo">
 					<a href="<?php _e( '/awards/', 'ms' ); ?>">
-						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_trustpilot_black.svg" alt="<?php _e( 'Trustpilot', 'ms' ); ?>">
+						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_trustpilot_black.svg" alt="<?php _e( 'Trustpilot', 'ms' ); ?>" class="urlslab-skip-lazy">
 					</a>
 				</div>
 
 				<div class="Trial__main__logo">
 					<a href="<?php _e( '/awards/', 'ms' ); ?>">
-						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_getapp_black.svg" alt="<?php _e( 'GetApp', 'ms' ); ?>">
+						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_getapp_black.svg" alt="<?php _e( 'GetApp', 'ms' ); ?>" class="urlslab-skip-lazy">
 					</a>
 				</div>
 			</div>
