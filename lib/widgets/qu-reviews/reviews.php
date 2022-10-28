@@ -93,12 +93,12 @@ function qu_reviews_init() {
 				require_once __DIR__ . '/components/pricing.php';
 				require_once __DIR__ . '/components/pros-cons.php';
 				
-				$post .= '<div class="qu-Reviews__post">
+				$post .= '<div class="qu-Reviews__post' . ' ' . ( 'editorrating' === $layout ? 'editor' : null ) . '">
 					<a href="' . $url . '" title="' . $title . '">
 						<div class="qu-Reviews__post--inn">
 							<span class="qu-Reviews__post--number mr-m-tablet">' . $number . '</span>
 							<div class="qu-Reviews__post--main">
-								<h3 class="qu-Reviews__post--title no-margin">' . $title . '</h3>
+								<h3 class="qu-Reviews__post--title no-margin mb-s">' . $title . '</h3>
 								<div class="qu-Reviews__post--excerpt">' . $excerpt . '</div>
 							</div>' .
 								rating( $editor_average, $layout, $meta ) . '
@@ -108,19 +108,21 @@ function qu_reviews_init() {
 								</svg>
 							</div>
 						</div>' .
-						( ( 'pricing' === $layout || 'proscons' === $layout ) ?
+						( ! empty( $layout ) ?
 						'<div class="qu-Reviews__post--data">' .
 							( 'pricing' === $layout
 								? pricing( $meta )
-								: ''
+								: null
 							) . ( 'proscons' === $layout
 								? pros_cons( $editor_average, $meta )
-								: ''
+								: null
+							) . ( 'editorrating' === $layout
+								? rating( $editor_average, $layout, $meta )
+								: null
 							) . '
 						</div>'
 						: '' ) . '
 					</a>
-					
 			</div>';
 			}
 		}

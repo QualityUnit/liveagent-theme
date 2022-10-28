@@ -31,7 +31,7 @@ function progressbar( $text, $rating, $color ) {
 				</ul>
 			</div>
 
-			<div class="flex flex-align-center Reviews__header--post__bottom">
+			<div class="flex-tablet flex-align-center Reviews__header--post__bottom">
 				<h1 class="Reviews__header--post__title" itemprop="name"><?php the_title(); ?></h1>
 				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_attr( get_the_modified_time( 'F j, Y' ) ); ?>"> 
 					<?= esc_html( __( 'Review Last update:', 'reviews' ) . ' ' ); ?>

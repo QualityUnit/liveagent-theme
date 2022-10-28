@@ -14,21 +14,19 @@ function rating( $editor_avg, $layout, $meta ) {
 
 	$output = '';
 
-	if ( 'editorrating' !== $layout ) {
-		return '<div class="Reviews__rating">
-		<div class="flex">
-			<span class="Reviews__rating--rating mr-s-tablet-landscape">' . $rating . '</span>
-			<div class="Reviews__rating--stars">
-				<div class="Reviews__rating--stars__fill"
-					style="width: ' . $stars . '%"></div>
-			</div>
+	return '<div class="Reviews__rating">
+	<div class="flex flex-align-center">
+		<span class="Reviews__rating--rating mr-s">' . $rating . '</span>
+		<div class="Reviews__rating--stars">
+			<div class="Reviews__rating--stars__fill"
+				style="width: ' . $stars . '%"></div>
 		</div>
-			<div class="Reviews__rating--count">' . $reviews_count . ' ' . __( 'reviews', 'reviews' ) . '</div>
-		</div>';
-	}
+	</div>
+		<div class="Reviews__rating--count">' . $reviews_count . ' ' . __( 'reviews', 'reviews' ) . '</div>
+	</div>' .
 	
-	if ( 'editorrating' === $layout ) {
-		return '
+	( ( 'editorrating' === $layout )
+		? '
 		<div class="Reviews__rating editor">
 			<div class="Reviews__rating--count mb-s">' . __( "Editor's Rating", 'reviews' ) . '</div>
 			<div class="flex flex-align-center">
@@ -44,6 +42,6 @@ function rating( $editor_avg, $layout, $meta ) {
 					progressbar( $meta->second_rating, $second, $colors[1] ) .
 					progressbar( $meta->third_rating, $third, $colors[2] ) . '
 			</div>
-		</div>';
-	}
+		</div>'
+		: '' );
 }
