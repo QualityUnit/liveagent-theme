@@ -1,4 +1,4 @@
-<footer class="Footer" data-scrollsidebars="true">
+<footer class="Footer urlslab-skip-keywords" data-scrollsidebars="true">
 	<div class="Footer__top">
 		<div class="wrapper">
 			<div class="Footer__top__row">
@@ -179,7 +179,7 @@
 	</div>
 </div>
 
-<div class="Kolaciky">
+<div class="Kolaciky urlslab-skip">
 	<div class="wrapper">
 		<p><?php _e( 'Our website uses cookies. By continuing we assume your permission to deploy cookies as detailed in our', 'ms' ); ?> <a href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'privacy and cookies policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 

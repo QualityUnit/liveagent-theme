@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar">
+		<div class="Post__sidebar urlslab-skip-keywords">
 			<div class="Post__sidebar__categories">
 				<div class="Post__sidebar__title h4"><?php _e( 'Categories', 'ms' ); ?></div>
 				<ul class="Post__sidebar__categories__labels">

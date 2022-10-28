@@ -13,7 +13,7 @@
 	</div>
 
 	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar">
+		<div class="Post__sidebar urlslab-skip-keywords">
 			<div class="Post__sidebar__buttons">
 				<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ) ) { ?>
 					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ) ) ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - Native Integration'])" target="_blank">
