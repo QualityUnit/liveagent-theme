@@ -17,23 +17,12 @@
 		background-size: auto 100%;
 	}
 
-	.elementor-widget-image .elementor-widget-container {
-		padding-left: 0;
-		padding-right: 0;
-		overflow: visible;
+	.elementor-widget-image {
+		position: relative;
 
-		&::before {
-			content: "";
-			display: block;
-			background: url(../images/badges.png) center center no-repeat;
-			background-size: 90% auto;
-			width: 100%;
-			height: 0;
-			padding-bottom: 76.25%;
-		}
-
-		img {
-			display: none !important;
+		.elementor-widget-container {
+			padding-left: 0;
+			padding-right: 0;
 		}
 	}
 
@@ -52,6 +41,28 @@
 		max-width: 85%;
 		font-size: $font-size-default;
 		line-height: $line-height-default;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		background-color: transparent;
+
+		.elementor-widget-image {
+			position: relative;
+			width: 100%;
+			height: 0;
+			padding-bottom: 76.25%;
+
+			.elementor-widget-container {
+
+				@include posZero;
+				position: absolute;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
 	}
 
 	@media (max-width: $breakpoint-desktop-box) {

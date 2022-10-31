@@ -48,7 +48,7 @@
 	</div>
 
 	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar">
+		<div class="Post__sidebar urlslab-skip-keywords">
 			<?php
 			if ( ! empty( $details->website ) ) {
 				?>

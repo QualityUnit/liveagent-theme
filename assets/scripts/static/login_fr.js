@@ -11,8 +11,3 @@ const textInvalidField = 'Champ non valide';
 const textValidDomain = 'Domaine valide';
 const textFailedDomain = "Ce compte n'existe pas";
 
-const productDomain = 'ladesk.com';
-
-const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
-
-const loginName = localStorage.getItem( 'la_login' );

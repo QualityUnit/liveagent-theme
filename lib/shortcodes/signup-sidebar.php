@@ -48,7 +48,7 @@ function ms_signup_sidebar( $atts ) {
 
 			<div id="signUpError" class="signUpError"></div>
 
-			<div class="Signup__sidebar__submit">
+			<div class="Signup__sidebar__submit urlslab-skip-keywords">
 				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Start your free account', 'Sidebar Signup']); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'}); handleSend();">
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>
@@ -134,8 +134,6 @@ function ms_signup_sidebar( $atts ) {
 		}
 	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/jquery.cookie.js' ?>"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/jquery.alphanum.js' ?>"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
 	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
 		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_en.js' ?>"></script>
@@ -204,6 +202,9 @@ function ms_signup_sidebar( $atts ) {
 	<?php // @codingStandardsIgnoreEnd ?>
 
 	<?php
+	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js', array( 'jquery' ), THEME_VERSION, true );
+	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
+
 	return ob_get_clean();
 }
 add_shortcode( 'signup-sidebar', 'ms_signup_sidebar' );

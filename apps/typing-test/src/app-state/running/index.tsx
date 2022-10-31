@@ -18,7 +18,7 @@ class Running extends React.Component<Props, State> {
     return (
        <div className="TypingTest">
         <div>
-          <a onClick={this.onRestart} className="button button__fill">
+          <a onClick={this.onRestart} className="Button Button--full">
             <span>{this.props.localization.i_dont_want_this_text}</span>
           </a>
         </div>

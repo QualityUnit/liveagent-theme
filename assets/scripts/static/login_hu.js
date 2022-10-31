@@ -11,8 +11,3 @@ const textInvalidField = 'A mező érvénytelen';
 const textValidDomain = 'A domain érvényes';
 const textFailedDomain = 'Ez a fiók nem létezik';
 
-const productDomain = 'ladesk.com';
-
-const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
-
-const loginName = localStorage.getItem( 'la_login' );

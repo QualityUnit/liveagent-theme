@@ -1,8 +1,12 @@
 /* eslint-disable no-unused-vars, prefer-rest-params, consistent-return, new-cap */
 /* global $, jQuery, grecaptcha, localStorage */
-/* global textValidating, textInvalidField, textEmpty, textFailedDomain, textValidDomain, textRedirecting, loginName, productId, recaptchaId, productDomain */
+/* global textValidating, textInvalidField, textEmpty, textFailedDomain, textValidDomain, textRedirecting, productId */
 
 ( function main() {
+	const productDomain = 'ladesk.com';
+	const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
+	const loginName = localStorage.getItem( 'la_login' );
+
 	const query = document.querySelector.bind( document );
 
 	if ( loginName ) {
