@@ -4,7 +4,7 @@ require_once __DIR__ . '/progress-bar.php';
 function rating( $editor_avg, $layout, $meta ) {
 	$rating        = $meta->rating;
 	$reviews_count = $meta->reviews_count;
-	$stars         = $rating / 5 * 103.3;
+	$stars         = $rating / 5 * 103;
 
 	$first  = $meta->first_rating_value;
 	$second = $meta->second_rating_value;
@@ -33,7 +33,7 @@ function rating( $editor_avg, $layout, $meta ) {
 				<span class="Reviews__rating--rating mr-s-tablet-landscape">' . $editor_avg . '</span>
 				<div class="Reviews__rating--stars">
 					<div class="Reviews__rating--stars__fill" 
-					style="width:' . ( $editor_avg / 5 * 103.3 ) . '%"></div>
+					style="width:' . ( $editor_avg / 5 * 103 ) . '%"></div>
 				</div>
 			</div>
 

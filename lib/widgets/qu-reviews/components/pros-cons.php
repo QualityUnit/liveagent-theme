@@ -11,7 +11,7 @@ function pros_cons( $editor_avg, $meta ) {
 			<span class="Reviews__rating--rating mr-s-tablet-landscape">' . $editor_avg . '</span>
 			<div class="Reviews__rating--stars">
 				<div class="Reviews__rating--stars__fill" 
-				style="width:' . ( $editor_avg / 5 * 103.3 ) . '%"></div>
+				style="width:' . ( $editor_avg / 5 * 103 ) . '%"></div>
 			</div>
 		</div>
 	</div
