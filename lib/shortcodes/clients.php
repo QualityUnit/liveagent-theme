@@ -27,7 +27,7 @@ function ms_clients( $atts ) {
 			?>
 
 		<div class="Clients__item">
-			<?php the_post_thumbnail( 'archive_small_thumbnail' ); ?>
+			<?php the_post_thumbnail( 'archive_small_thumbnail', array( 'class' => 'urlslab-skip-lazy' ) ); ?>
 		</div>
 
 	<?php endwhile; ?>

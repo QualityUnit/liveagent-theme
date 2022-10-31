@@ -1,39 +1,41 @@
 <?php
 
 function ms_languages( $atts ) {
-	$regions = array(
-		'europe'  => __( 'Europe', 'ms' ),
-		'asia'    => __( 'Asia', 'ms' ),
-		'mideast' => __( 'Middle East', 'ms' ),
-		'america' => __( 'America', 'ms' ),
-	);
+	if ( function_exists( 'icl_get_languages' ) ) {
 
-	$atts      = shortcode_atts(
-		array(
-			'europe_from'  => '0',
-			'europe_to'    => '22',
-			'asia_from'    => '23',
-			'asia_to'      => '27',
-			'mideast_from' => '22',
-			'mideast_to'   => '23',
-			'america_from' => '27',
-			'america_to'   => '29',
-		),
-		$atts,
-		'languages'
-	);
-	$flags     = get_template_directory_uri() . '/assets/images/flags.svg?' . THEME_VERSION . '#';
-	$languages = icl_get_languages();
-	foreach ( $languages as $lang ) {
+		$regions = array(
+			'europe'  => __( 'Europe', 'ms' ),
+			'asia'    => __( 'Asia', 'ms' ),
+			'mideast' => __( 'Middle East', 'ms' ),
+			'america' => __( 'America', 'ms' ),
+		);
+
+		$atts      = shortcode_atts(
+			array(
+				'europe_from'  => '0',
+				'europe_to'    => '22',
+				'asia_from'    => '23',
+				'asia_to'      => '27',
+				'mideast_from' => '22',
+				'mideast_to'   => '23',
+				'america_from' => '27',
+				'america_to'   => '29',
+			),
+			$atts,
+			'languages'
+		);
+		$flags     = get_template_directory_uri() . '/assets/images/flags.svg?' . THEME_VERSION . '#';
+		$languages = icl_get_languages();
+		foreach ( $languages as $lang ) {
 			$lang_codes[]  = $lang['language_code'];
 			$lang_flags[]  = strtolower( preg_replace( '/.+?_/', '', $lang['default_locale'] ) );
 			$lang_urls[]   = $lang['url'];
 			$lang_names[]  = $lang['native_name'];
 			$lang_active[] = $lang['active'];
-	}
-	function create_menu( $region, $atts, $lang_urls, $lang_flags, $lang_codes, $lang_names, $lang_active ) {
-		$flags = get_template_directory_uri() . '/assets/images/flags.svg?' . THEME_VERSION . '#';
-		?>
+		}
+		function create_menu( $region, $atts, $lang_urls, $lang_flags, $lang_codes, $lang_names, $lang_active ) {
+			$flags = get_template_directory_uri() . '/assets/images/flags.svg?' . THEME_VERSION . '#';
+			?>
 		<ul>
 			<?php
 			for ( $i = $atts[ $region . '_from' ]; $i < $atts[ $region . '_to' ]; $i++ ) {
@@ -42,14 +44,14 @@ function ms_languages( $atts ) {
 				<?php
 				if ( ! $lang_active[ $i ] ) {
 					?>
-				<a class="Header__flags--item-link" href="<?= esc_url( $lang_urls[ $i ] ); ?>">
+				<a class="Header__flags--item-link urlslab-skip-lazy" href="<?= esc_url( $lang_urls[ $i ] ); ?>">
 					<svg class="Header__flags--item-flag" aria-label="<?= esc_attr( $lang_codes[ $i ] ) ?>"><use xlink:href="<?= esc_url( $flags ); ?>flag-<?= esc_html( $lang_flags[ $i ] ) ?>"></use></svg>
 					<?= esc_html( $lang_names[ $i ] ) ?>
 				</a>
 					<?php
 				} else {
 					?>
-				<span class="Header__flags--item-link active">
+				<span class="Header__flags--item-link active urlslab-skip-lazy">
 					<svg class="Header__flags--item-flag" aria-label="<?= esc_attr( $lang_codes[ $i ] ) ?>"><use xlink:href="<?= esc_url( $flags ); ?>flag-<?= esc_html( $lang_flags[ $i ] ) ?>"></use></svg>
 					<?= esc_html( $lang_names[ $i ] ) ?>
 				</span>
@@ -61,10 +63,10 @@ function ms_languages( $atts ) {
 			}
 			?>
 		</ul>
-		<?php
-	}
-	ob_start();
-	?>
+			<?php
+		}
+		ob_start();
+		?>
 <div class="Header__flags--main">
 	<ul>
 		<?php
@@ -119,7 +121,8 @@ function ms_languages( $atts ) {
 		<!-- END OF LANGUAGE MENU -->
 	</ul>
 </div>
-	<?php
+		<?php
 		return ob_get_clean();
+	}
 }
 add_shortcode( 'languages', 'ms_languages' );
