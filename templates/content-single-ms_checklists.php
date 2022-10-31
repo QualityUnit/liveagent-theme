@@ -53,7 +53,7 @@ if ( $categories ) {
 
 	<div class="wrapper__wide Post__container">
 		<div class="Post__sidebar__wrapper">
-			<div class="Post__sidebar">
+			<div class="Post__sidebar urlslab-skip-keywords">
 				<div class="SidebarItemsSlider__wrapper">
 					<div class="SidebarItemsSlider">
 						<?php if ( $categories ) { ?>

@@ -33,7 +33,7 @@
 
 
 	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar">
+		<div class="Post__sidebar urlslab-skip-keywords">
 			<?php if ( sidebar_toc() !== false ) { ?>
 				<div class="SidebarTOC-wrapper">
 					<div class="SidebarTOC">
@@ -118,7 +118,7 @@
 					</div>
 				</div>
 
-				<div class="BlogPost__articles">
+				<div class="BlogPost__articles urlslab-skip-keywords">
 					<?php
 					$query_blog_posts = new WP_Query(
 						array(

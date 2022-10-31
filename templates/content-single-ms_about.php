@@ -17,7 +17,7 @@ if ( ! empty( $header_category ) ) {
 	</div>
 
 	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar">
+		<div class="Post__sidebar urlslab-skip-keywords">
 				<ul class="Post__sidebar__links">
 					<?php $categories = get_categories( array( 'taxonomy' => 'ms_about_categories' ) ); ?>
 

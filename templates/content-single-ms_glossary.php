@@ -8,7 +8,7 @@
 	</div>
 
 	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar">
+		<div class="Post__sidebar urlslab-skip-keywords">
 
 			<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_related-articles', true ) ) ) { ?>
 				<div class="Post__sidebar__related">
