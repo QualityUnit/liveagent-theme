@@ -432,25 +432,3 @@ function elementor_pros_cons( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'elementor_pros_cons', 9999 );
-
-function change_schema_hostname( $data ) {
-	$protocol = 'http:\/\/';
-	$hostname = 'www.liveagent.com';
-	
-	if ( isset( $_SERVER['HTTPS'] ) &&
-			( $_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1 ) || //@codingStandardsIgnoreLine
-			isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) &&
-			$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ) { //@codingStandardsIgnoreLine
-		$protocol = 'https:\/\/';
-	}
-
-	if ( isset( $_SERVER['SERVER_NAME'] ) ) {
-		$hostname = $_SERVER['SERVER_NAME']; //@codingStandardsIgnoreLine
-	}
-
-	$json   = wp_json_encode( $data );
-	$output = preg_replace( '/http(s?):\\\\\/\\\\\/(www\.)?live.?agent\.(.+?)\//', $protocol . $hostname . '\/', $json );
-	return $output;
-}
-
-add_filter( 'wpseo_schema_graph', 'change_schema_hostname', 10, 2 );
