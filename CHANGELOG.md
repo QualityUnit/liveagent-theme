@@ -1,3 +1,7 @@
+### 1.3.1: October 31st, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.3.0: October 26th, 2022
 
 - Redesign of Typing Test
