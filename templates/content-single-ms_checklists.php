@@ -22,7 +22,7 @@ if ( $categories ) {
 	<div class="Post__header">
 		<div class="wrapper__wide">
 			<div class="Post__header__image">
-				<?php the_post_thumbnail(); ?>
+				<?php the_post_thumbnail( 'blog_thumbnail', array( 'class' => 'urlslab-skip-lazy' ) ); ?>
 			</div>
 			<div class="Post__header__text">
 				<div class="Post__content__breadcrumbs Post__header__breadcrumbs">
