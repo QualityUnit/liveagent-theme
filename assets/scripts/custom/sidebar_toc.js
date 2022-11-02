@@ -241,7 +241,10 @@ function activateSidebars() {
 				} );
 
 				sidebarTOC.classList.remove( 'scrolled' );
-				signupSidebar.classList.remove( 'scrolled' );
+
+				if ( signupSidebar ) {
+					signupSidebar.classList.remove( 'scrolled' );
+				}
 
 				scrollSidebarsElement.forEach( ( scrollOutElem ) => {
 					if (
