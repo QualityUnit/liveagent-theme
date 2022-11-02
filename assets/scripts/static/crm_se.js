@@ -7,6 +7,11 @@ const variationId = 'seLaTria';
 
 const languageCode = 'sv';
 
+const textValidating = 'Bekräftar...';
+const textCreating = 'Skapar...';
+const textInstalling = 'Installerar';
+const textLaunching = 'Lanserar';
+const textRedirecting = 'Omdirigerar';
 const textFinalizing = 'Slutför';
 const textStart = 'Börja nu';
 const textError = 'Något gick fel.';
@@ -24,4 +29,3 @@ const textReadyApp = 'Din LiveAgent är redo';
 const textDoneAppTitle = 'Din LiveAgent är redo';
 const textDoneAppText =
 	'Inloggnings uppgifterna har skickats till din inbox. Vänligen kolla den för att fortsätta till LiveAgent..';
-
