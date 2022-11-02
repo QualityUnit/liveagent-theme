@@ -252,7 +252,9 @@ function activateSidebars() {
 						window.innerHeight
 					) {
 						sidebarTOC.classList.add( 'scrolled' );
-						signupSidebar.classList.add( 'scrolled' );
+						if ( signupSidebar ) {
+							signupSidebar.classList.add( 'scrolled' );
+						}
 					}
 				} );
 			}
