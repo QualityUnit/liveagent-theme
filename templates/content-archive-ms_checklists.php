@@ -21,7 +21,7 @@
 	</div>
 
 	<div class="wrapper Category__container">
-		<div class="Category__sidebar" id="notFloating">
+		<div class="Category__sidebar urlslab-skip-keywords" id="notFloating">
 			<input class="Category__sidebar__showfilter" type="checkbox" id="showfilter">
 			<label class="Button Button--outline Category__sidebar__showfilter--label" for="showfilter" data-hidden="<?php _e( 'Hide filters', 'ms' ); ?>">
 				<img class="Category__sidebar__showfilter--icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-filter.svg" alt="<?php _e( 'Filters', 'ms' ); ?>">
