@@ -17,7 +17,7 @@ function ms_signup_sidebar( $atts ) {
 	ob_start();
 	?>
 
-	<div class="Signup__sidebar">
+	<div class="Signup__sidebar urlslab-skip-keywords">
 		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] ); ?></div>
 		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
 
@@ -48,7 +48,7 @@ function ms_signup_sidebar( $atts ) {
 
 			<div id="signUpError" class="signUpError"></div>
 
-			<div class="Signup__sidebar__submit urlslab-skip-keywords">
+			<div class="Signup__sidebar__submit">
 				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Start your free account', 'Sidebar Signup']); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'}); handleSend();">
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>
