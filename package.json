@@ -13,12 +13,13 @@
 		"build:web-calc": "cd ./apps/web-calc/ && yarn && yarn build",
 		"build:web-calc-featured": "cd ./apps/web-calc-featured/ && yarn && yarn build",
 		"build:typing-test": "cd ./apps/typing-test/ && yarn && yarn build",
+		"build:qu-reviews": "cd ./lib/widgets/qu-reviews/ && yarn && yarn build",
 		"build:qu-checklists": "cd ./lib/widgets/qu-checklists/ && yarn && yarn build",
 		"build:qu-howtos": "cd ./lib/widgets/qu-howtos/ && yarn && yarn build",
 		"build:qu-expertnote": "cd ./lib/widgets/qu-expertnote/ && yarn && yarn build",
 		"build:qu-usecase": "cd ./lib/widgets/qu-usecase/ && yarn && yarn build",
 		"build:statistics": "cd ./lib/widgets/statistics/ && yarn && yarn build",
-		"build:all": "yarn && yarn build && yarn build:qu-checklists && yarn build:qu-howtos && yarn build:qu-expertnote && yarn build:qu-usecase && yarn build:statistics && yarn build:web-calc && yarn build:web-calc-featured && yarn build:typing-test"
+		"build:all": "yarn && yarn build && yarn build:qu-reviews && yarn build:qu-checklists && yarn build:qu-howtos && yarn build:qu-expertnote && yarn build:qu-usecase && yarn build:statistics && yarn build:web-calc && yarn build:web-calc-featured && yarn build:typing-test"
 	},
 	"engines": {
 		"node": ">= 14"
