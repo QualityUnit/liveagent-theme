@@ -192,7 +192,7 @@
 	</div>
 </div>
 
-<div class="Kolaciky urlslab-skip">
+<div class="Kolaciky urlslab-skip-all">
 	<div class="wrapper">
 		<p><?php _e( 'Our website uses cookies. By continuing we assume your permission to deploy cookies as detailed in our', 'ms' ); ?> <a href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'privacy and cookies policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 
