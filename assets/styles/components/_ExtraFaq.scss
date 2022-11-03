@@ -62,6 +62,8 @@
 
 		.Content & {
 			width: 100%;
+			max-width: $wrapper-aside;
+			margin: 0 auto;
 		}
 
 		@media (max-width: $breakpoint-tablet) {
