@@ -21,21 +21,21 @@ function ms_signup_sidebar( $atts ) {
 		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] ); ?></div>
 		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
 
-		<div id="signup">
-			<input id="plan" type="hidden" value="FreeTrial" autocomplete="off">
-			<input id="variation" type="hidden" value="freedesk" autocomplete="off">
+		<div data-id="signup">
+			<input data-id="plan" type="hidden" value="FreeTrial" autocomplete="off">
+			<input data-id="variation" type="hidden" value="freedesk" autocomplete="off">
 
-			<div id="nameFieldmain" class="Signup__sidebar__item">
+			<div data-id="nameFieldmain" class="Signup__sidebar__item">
 				<input type="text" name="Full name" placeholder="<?= esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off">
 				<div class="ErrorMessage"></div>
 			</div>
 
-			<div id="mailFieldmain" class="Signup__sidebar__item">
+			<div data-id="mailFieldmain" class="Signup__sidebar__item">
 				<input type="email" name="Email" placeholder="<?= esc_attr( $atts['email'] ); ?>" value="" required="required" autocomplete="off">
 				<div class="ErrorMessage"></div>
 			</div>
 
-			<div id="domainFieldmain" class="Signup__sidebar__item Signup__sidebar__item domain">
+			<div data-id="domainFieldmain" class="Signup__sidebar__item Signup__sidebar__item domain">
 				<input type="url" name="Domain" placeholder="<?= esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
 				<div class="Signup__sidebar__item__domain"><?php _e( '.ladesk.com', 'ms' ); ?>
 				<div class="Signup__sidebar__item__info ComparePlans__tooltip">
@@ -46,10 +46,10 @@ function ms_signup_sidebar( $atts ) {
 				<div class="ErrorMessage"></div>
 			</div>
 
-			<div id="signUpError" class="signUpError"></div>
+			<div data-id="signUpError" class="signUpError"></div>
 
 			<div class="Signup__sidebar__submit urlslab-skip-keywords">
-				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Start your free account', 'Sidebar Signup']); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'}); handleSend();">
+				<div data-id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Start your free account', 'Sidebar Signup']); dataLayer.push({'Click data-id': 'startYourfreeAccountBtn'}); handleSend();">
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>
 

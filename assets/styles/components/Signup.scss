@@ -81,7 +81,7 @@
 			text-align: center;
 		}
 
-		#signUpError {
+		[data-id="signUpError"] {
 			position: relative;
 			font-size: 14px;
 			text-align: center;
@@ -95,7 +95,7 @@
 			}
 		}
 
-		#domainFieldmain {
+		[data-id="domainFieldmain"] {
 
 			input[type="url"],
 			input[type="text"] {
@@ -103,7 +103,7 @@
 			}
 		}
 
-		#promoFieldmain {
+		[data-id="promoFieldmain"] {
 
 			@include color(color, font-color-normal);
 			text-align: center;

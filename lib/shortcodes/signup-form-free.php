@@ -8,22 +8,22 @@ function ms_signup_form_free() {
 		<div class="Signup__form__title h3"><?php _e( 'Create Free Account', 'ms' ); ?></div>
 		<p class="Signup__form__subtitle"><?php _e( 'Enjoy Forever Free Account', 'ms' ); ?></p>
 
-		<div id="signup">
-			<input id="plan" type="hidden" value="FreeTrial" autocomplete="off">
-			<input id="variation" type="hidden" value="freedesk" autocomplete="off">
+		<div data-id="signup">
+			<input data-id="plan" type="hidden" value="FreeTrial" autocomplete="off">
+			<input data-id="variation" type="hidden" value="freedesk" autocomplete="off">
 
-			<div id="nameFieldmain" class="Signup__form__item has-svg">
+			<div data-id="nameFieldmain" class="Signup__form__item has-svg">
 				<svg width="18" height="20" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M18 19v-2c0-2.743-2.257-5-5-5H5c-2.743 0-5 2.257-5 5v2a1 1 0 0 0 2 0v-2c0-1.646 1.354-3 3-3h8c1.646 0 3 1.354 3 3v2a1 1 0 0 0 2 0Zm-9-9c2.743 0 5-2.257 5-5s-2.257-5-5-5-5 2.257-5 5 2.257 5 5 5Zm0-2C7.354 8 6 6.646 6 5s1.354-3 3-3 3 1.354 3 3-1.354 3-3 3Z"/></svg>
 				<input type="text" name="Full name" placeholder="<?php _e( 'Full name', 'ms' ); ?>" value="" required="required" autocomplete="off">
 				<div class="ErrorMessage"></div>
 			</div>
 
-			<div id="mailFieldmain" class="Signup__form__item fontello-mail">
+			<div data-id="mailFieldmain" class="Signup__form__item fontello-mail">
 				<input type="email" name="Email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off">
 				<div class="ErrorMessage"></div>
 			</div>
 
-			<div id="domainFieldmain" class="Signup__form__item has-svg">
+			<div data-id="domainFieldmain" class="Signup__form__item has-svg">
 				<svg width="22" height="20" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M19 4H3a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm0 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h16Z"/><path d="M16 19V3c0-.796-.316-1.559-.879-2.121A2.996 2.996 0 0 0 13 0H9c-.796 0-1.559.316-2.121.879A2.996 2.996 0 0 0 6 3v16a1 1 0 0 0 2 0V3a.997.997 0 0 1 1-1h4a.997.997 0 0 1 1 1v16a1 1 0 0 0 2 0Z"/></svg>
 				<input type="url" name="Domain" placeholder="<?php _e( 'Company name', 'ms' ); ?>" required="required" autocomplete="off" maxlength="30">
 				<div class="Signup__form__item__domain"><?php _e( '.ladesk.com', 'ms' ); ?></div>
@@ -35,15 +35,15 @@ function ms_signup_form_free() {
 				</div>
 			</div>
 
-			<div id="promoFieldmain" class="Signup__form__item">
-				<input type="checkbox" name="Promo" id="sendOffers">
-				<label for="sendOffers"><p><?php _e( 'Send me product updates and other promotional offers.', 'ms' ); ?></p></label>
+			<div data-id="promoFieldmain" class="Signup__form__item">
+				<input type="checkbox" name="Promo" id="sendOffersSignup" data-id="sendOffers">
+				<label for="sendOffersSignup"><p><?php _e( 'Send me product updates and other promotional offers.', 'ms' ); ?></p></label>
 			</div>
 
-			<div id="signUpError"></div>
+			<div data-id="signUpError"></div>
 
 			<div class="Signup__form__submit">
-				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form Free', 'Signup']); handleSend();">
+				<div data-id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form Free', 'Signup']); handleSend();">
 					<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 				</div>
 

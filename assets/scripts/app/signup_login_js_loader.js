@@ -27,7 +27,7 @@ const signuplogin = () => {
 
 	if ( document.querySelectorAll( 'script[data-src]' ).length ) {
 		const scriptParent = document.querySelectorAll(
-			'#signup input:not([type="hidden"])'
+			'[data-id="signup"] input:not([type="hidden"])'
 		);
 
 		scriptParent.forEach( ( input ) => {
