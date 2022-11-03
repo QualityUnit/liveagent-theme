@@ -33,17 +33,17 @@ class Running extends React.Component<Props, State> {
         <div className="TypingTest__statistic">
           <div className="TypingTest__statistic__item--test">
             <div className="TypingTest__statistic__item__image--word" />
-            <p className="TypingTest__statistic__item__state--wpm">{this.props.current_wpm}</p>
+            <p className="TypingTest__statistic__item__state TypingTest__statistic__item__state--wpm">{this.props.current_wpm}</p>
             <p className="TypingTest__statistic__item__state__name--test">{this.props.localization.wpm}</p>
           </div>
           <div className="TypingTest__statistic__item--test">
             <div className="TypingTest__statistic__item__image--character"/>
-            <p className="TypingTest__statistic__item__state--cpm">{this.props.current_cpm}</p>
+            <p className="TypingTest__statistic__item__state TypingTest__statistic__item__state--cpm">{this.props.current_cpm}</p>
             <p className="TypingTest__statistic__item__state__name--test">{this.props.localization.cpm}</p>
           </div>
           <div className="TypingTest__statistic__item--test">
             <div className="TypingTest__statistic__item__image--mistake"/>
-            <p className="TypingTest__statistic__item__state--mpm">{this.props.current_mpm}</p>
+            <p className="TypingTest__statistic__item__state TypingTest__statistic__item__state--mpm">{this.props.current_mpm}</p>
             <p className="TypingTest__statistic__item__state__name--test">{this.props.localization.mpm}</p>
           </div>
         </div>
