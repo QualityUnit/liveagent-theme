@@ -21,7 +21,7 @@ function progressbar( $text, $rating, $color ) {
 		<div class="progressBar__wrapper">
 			<strong class="progressBar__desc"><?= esc_html( meta( $text ) ); ?></strong>
 			<div class="progressBar">
-				<div class="progressBar__inn" style="background-color: <?= esc_attr( $color ); ?>; width:<?= esc_attr( ( $rating / 5 * 100 ) . '%' ); ?>"></div>
+				<div class="progressBar__inn" style="background-color: <?= esc_attr( $color ); ?>; width:<?= esc_attr( ( $rating / 5 * 103.3 ) . '%' ); ?>"></div>
 			</div>
 			<strong class="progressBar__rating"><?= esc_html( $rating ); ?></strong>
 		</div>
@@ -38,7 +38,7 @@ function progressbar( $text, $rating, $color ) {
 				</ul>
 			</div>
 
-			<div class="flex flex-align-center Reviews__header--post__bottom">
+			<div class="flex-tablet flex-align-center Reviews__header--post__bottom">
 				<h1 class="Reviews__header--post__title" itemprop="name"><?= $posttitle; // @codingStandardsIgnoreLine ?></h1>
 				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_attr( get_the_modified_time( 'F j, Y' ) ); ?>"> 
 					<?= esc_html( __( 'Review Last update:', 'reviews' ) . ' ' ); ?>
@@ -231,7 +231,7 @@ function progressbar( $text, $rating, $color ) {
 						</span>
 						<div class="Reviews__rating--stars white">
 							<div class="Reviews__rating--stars__fill" 
-							style="width:<?= esc_attr( ( $average / 5 * 100 ) . '%' ); ?>"></div>
+							style="width:<?= esc_attr( ( $average / 5 * 103.3 ) . '%' ); ?>"></div>
 						</div>
 					</div>
 				</div>

@@ -50,6 +50,10 @@ jobs:
         working-directory: ./apps/typing-test/
         run: rm -rf node_modules public src .babelrc package.json README.md tsconfig.json webpack.config.js yarn.lock
 
+      - name: Remove Unnecessary Files [qu-reviews]
+        working-directory: ./lib/widgets/qu-reviews/
+        run: rm -rf node_modules package.json yarn.lock webpack.config.js
+
       - name: Remove Unnecessary Files [qu-checklists]
         working-directory: ./lib/widgets/qu-checklists/
         run: rm -rf node_modules package.json yarn.lock webpack.config.js

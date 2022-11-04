@@ -1,0 +1,145 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.qu-Reviews__post--data[class] {
+
+	.editor & {
+
+		@media (min-width: $breakpoint-tablet) {
+			display: none;
+		}
+	}
+
+	.Reviews__rating {
+		flex-direction: row !important;
+		flex-wrap: wrap;
+		align-items: center !important;
+		justify-content: flex-start !important;
+		background: none;
+		width: auto;
+		margin: 0;
+		padding: 0;
+
+		&:not(.editor) {
+			display: none;
+		}
+
+		&--count {
+			margin: 0;
+			margin-right: 1em;
+			width: auto;
+			text-align: left;
+		}
+
+		&--rating {
+			font-size: 1rem !important;
+			margin-right: 0.5em;
+		}
+
+		&--stars[class] {
+			font-size: 1rem !important;
+
+			@media (min-width: $breakpoint-tablet) {
+				font-size: 1.25rem !important;
+			}
+		}
+	}
+
+	.wp-block-columns,
+	ul {
+		margin-bottom: 0;
+	}
+
+	.checklist {
+
+		h4 {
+			color: $black;
+			font-style: italic;
+		}
+
+		li::before {
+
+			display: flex !important;
+			align-items: center;
+			align-content: center;
+			justify-content: center;
+			padding: 0 !important;
+		}
+
+		&--pros {
+
+			li::before {
+				content: "+" !important;
+				color: $green;
+				background: $desaturated-green !important;
+				padding-bottom: 0.1em !important;
+			}
+		}
+
+		&--cons {
+
+			li::before {
+				content: "–" !important;
+				color: $red;
+				background: $desaturated-red !important;
+				padding-bottom: 0.25em !important;
+			}
+		}
+	}
+
+	.Reviews__info {
+
+		&--details {
+			display: flex;
+			flex-wrap: wrap;
+			font-size: 0.875rem;
+
+			.currency {
+				font-style: 1.143em;
+			}
+
+			.price {
+				font-size: 2.285em;
+			}
+
+			dt {
+				font-weight: 700;
+				align-self: flex-end;
+				width: 35%;
+				white-space: nowrap;
+			}
+
+			dd {
+				margin-left: 1em;
+				width: calc(65% - 1em);
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+			align-items: flex-start;
+			flex-wrap: wrap;
+			width: 100%;
+
+			&--details {
+
+				&.first {
+					width: calc(70% - 3em);
+					margin-right: 3em;
+				}
+
+				&.second {
+					width: 30%;
+
+					dt {
+						width: 50%;
+					}
+
+					dd {
+						margin-left: 0.5em;
+						width: calc(50% - 0.5em);
+					}
+				}
+			}
+		}
+	}
+}

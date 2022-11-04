@@ -2,7 +2,7 @@
 @import "../../../../../assets/styles/common/variables";
 
 .selectExpert {
-	padding: 0em 2em;
+	padding: 0 2em;
 
 	.loading {
 		display: flex;
@@ -10,11 +10,13 @@
 		height: 100%;
 	}
 
-	label, select {
+	label,
+	select {
 		font-weight: 600;
 	}
 
 	.components-input-control__container {
+
 		.components-input-control__backdrop {
 			border-color: #2271b1 !important;
 		}
@@ -27,7 +29,8 @@
 		display: block !important;
 		margin-top: 1em;
 
-		input, textarea {
+		input,
+		textarea {
 			font-family: $font-secondary !important;
 			font-weight: 700 !important;
 			font-size: 2rem !important;
@@ -39,6 +42,7 @@
 	&__expert {
 
 		&--position {
+
 			input {
 				font-family: $font-primary;
 				font-weight: 700;
@@ -47,6 +51,7 @@
 	}
 
 	&__content {
+
 		.editor-styles-wrapper {
 			background-color: transparent !important;
 			padding: 0 !important;
@@ -58,7 +63,7 @@
 
 		ul li {
 			margin-bottom: 0.5em !important;
-	
+
 			&::before {
 				font-size: 1rem !important;
 				top: -2px !important;

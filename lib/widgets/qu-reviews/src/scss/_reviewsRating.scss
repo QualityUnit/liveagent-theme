@@ -1,0 +1,187 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.qu-Reviews__post {
+
+	&.editor &--inn .Reviews__rating {
+
+		&.editor {
+			display: none;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			&.editor {
+				display: flex;
+			}
+
+			&:not(.editor) {
+				display: none;
+			}
+		}
+	}
+
+	.Reviews__rating {
+		position: relative;
+		color: $black;
+		display: flex;
+		align-items: center;
+		align-content: center;
+		align-self: stretch;
+		font-size: 0.875rem;
+		margin-top: 1em;
+
+		&.editor[class] {
+			flex-direction: column;
+			align-items: flex-start;
+
+			.Reviews__rating {
+
+				&--count {
+					text-align: left;
+				}
+
+				&--rating,
+				&--stars {
+					font-size: 0.875rem;
+				}
+
+				&--stars {
+					width: 5.85em;
+					height: 1em;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				align-items: flex-end;
+				justify-content: center;
+
+				.Reviews__rating {
+
+					&--count {
+						text-align: right;
+					}
+				}
+			}
+		}
+
+		&--count {
+			font-weight: 700;
+		}
+
+		&--rating {
+			padding-right: 0;
+			font-weight: 700;
+		}
+
+		&--desc {
+			display: block;
+			font-weight: 600;
+			font-size: 0.875rem;
+			line-height: 1;
+			margin-top: 1em;
+		}
+
+		&--stars {
+			position: relative;
+			width: 5.85em;
+			height: 1em;
+			font-size: 1rem;
+			background: url(../images/stars_gradient-outline.svg) left center no-repeat;
+			background-size: auto 100%;
+
+			&__fill {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				background: url(../images/stars_gradient.svg) left center no-repeat;
+				background-size: auto 100%;
+				overflow: hidden;
+			}
+		}
+
+		&--progress {
+			width: 100%;
+			font-size: 0.75rem;
+			margin-top: 1em;
+
+			.progressBar {
+				height: 7px;
+				width: 40%;
+
+				&__wrapper {
+					display: flex;
+					align-items: center;
+					width: 100%;
+				}
+
+				&__desc {
+					width: calc(50% - 1em);
+					margin-right: 1em;
+					word-break: normal;
+					text-align: right;
+				}
+
+				&__rating {
+					margin-left: 0.5em;
+					text-align: right;
+				}
+
+				@media (max-width: ($breakpoint-tablet - 1px)) {
+					margin: 0.15em 0;
+
+					&__desc {
+						text-align: left;
+						width: 35%;
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			flex-direction: column;
+			align-items: flex-end;
+			justify-content: center;
+			font-size: 1rem;
+			margin: -1.125em;
+			margin-left: auto;
+			width: calc(40% + 1em);
+			max-width: none;
+			padding-left: 1.5em;
+			padding-right: 4.5em;
+			background: url(../images/reviews_rating_bg.jpg) center center no-repeat;
+			background-size: cover;
+
+			&.editor {
+				width: calc(50% + 2em);
+			}
+
+			&--rating {
+				font-size: 1.3333em;
+			}
+
+			&--stars {
+				width: 8.25rem;
+				height: 1.48rem;
+			}
+
+			&--count {
+				width: 100%;
+				text-align: right;
+				margin-top: 0.5em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			flex-wrap: wrap;
+			padding-left: 0;
+			padding-right: 3.5em;
+			font-size: 1.125rem;
+
+			&--count {
+				text-align: right;
+			}
+		}
+	}
+}

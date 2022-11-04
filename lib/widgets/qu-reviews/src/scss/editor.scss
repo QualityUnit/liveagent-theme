@@ -1,0 +1,63 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "sass:math";
+@import "../../../../../assets/styles/common/variables";
+@import "../../../../../assets/styles/common/mixins";
+@import "../../../../../assets/styles/elements/progressBar";
+
+.flex {
+	display: flex;
+
+	&-align-center {
+		align-items: center;
+		align-content: center;
+	}
+}
+
+.qu-Reviews__post {
+
+	.checklist {
+
+		ul {
+			list-style: none;
+			padding: 0;
+
+			li {
+				position: relative;
+				padding-left: 1.5em;
+
+				&::before {
+
+					@include square(1em);
+					position: absolute;
+					border-radius: 50%;
+					top: 2px;
+					left: 0;
+				}
+			}
+		}
+	}
+}
+
+.selectExpert {
+	max-width: 850px;
+	margin: 0 auto;
+	padding: 0 2em;
+
+	.loading {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	label,
+	select {
+		font-weight: 600;
+	}
+
+	.components-input-control__container {
+
+		.components-input-control__backdrop {
+			border-color: #2271b1 !important;
+		}
+	}
+}
