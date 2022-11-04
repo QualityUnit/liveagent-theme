@@ -29,4 +29,3 @@ const textReadyApp = 'Your LiveAgent is ready';
 const textDoneAppTitle = 'Your LiveAgent is ready';
 const textDoneAppText =
 	'The login credentials have been sent to your inbox. Please check it to continue to LiveAgent.';
-

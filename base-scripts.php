@@ -221,35 +221,53 @@ if (
 			timeout = 5000;
 		}
 
-		setTimeout( function() {
-			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
-			'//support.qualityunit.com/scripts/track.js',
-			function(e){
-			<?php if ( ICL_LANGUAGE_CODE === 'de' ) { ?>
-					LiveAgent.createButton('a8xw4r0d', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'fr' ) { ?>
-					LiveAgent.createButton('ojy731wl', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'es' ) { ?>
-					LiveAgent.createButton('ryv7oyvn', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'pt-br' ) { ?>
-					LiveAgent.createButton('y7aecte9', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'hu' ) { ?>
-					LiveAgent.createButton('9hrzq40p', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'nl' ) { ?>
-					LiveAgent.createButton('o1zypcx0', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'pl' ) { ?>
-					LiveAgent.createButton('keus4mm5', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'it' ) { ?>
-					LiveAgent.createButton('28bwor7y', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'ru' ) { ?>
-					LiveAgent.createButton('k88ai80o', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'zh-hans' ) { ?>
-					LiveAgent.createButton('49v7ehwf', e);
-				<?php } else { ?>
-					LiveAgent.createButton('443a9d07', e);
-				<?php } ?>
-			});
-		}, timeout );
+		<?php if ( ICL_LANGUAGE_CODE === 'sv' ) { ?>
+			setTimeout( function() {
+				(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
+					'https://support.liveagent.se/scripts/track.js',
+					function(e){
+						LiveAgent.createButton('67a82a6b', e);
+					});
+			}, timeout );
+		<?php } elseif ( ICL_LANGUAGE_CODE === 'ja' ) { ?>
+			setTimeout( function() {
+				(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
+					'//support.intwk.co.jp/liveagent/scripts/track.js',
+					function(e){
+						LiveAgent.createButton('fadd3dc5', e);
+					});
+			}, timeout );
+		<?php } else { ?>
+			setTimeout( function() {
+				(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
+				'//support.qualityunit.com/scripts/track.js',
+				function(e){
+					<?php if ( ICL_LANGUAGE_CODE === 'de' ) { ?>
+						LiveAgent.createButton('a8xw4r0d', e);
+					<?php } elseif ( ICL_LANGUAGE_CODE === 'fr' ) { ?>
+						LiveAgent.createButton('ojy731wl', e);
+					<?php } elseif ( ICL_LANGUAGE_CODE === 'es' ) { ?>
+						LiveAgent.createButton('ryv7oyvn', e);
+					<?php } elseif ( ICL_LANGUAGE_CODE === 'pt-br' ) { ?>
+						LiveAgent.createButton('y7aecte9', e);
+					<?php } elseif ( ICL_LANGUAGE_CODE === 'hu' ) { ?>
+						LiveAgent.createButton('9hrzq40p', e);
+					<?php } elseif ( ICL_LANGUAGE_CODE === 'nl' ) { ?>
+						LiveAgent.createButton('o1zypcx0', e);
+					<?php } elseif ( ICL_LANGUAGE_CODE === 'pl' ) { ?>
+						LiveAgent.createButton('keus4mm5', e);
+					<?php } elseif ( ICL_LANGUAGE_CODE === 'it' ) { ?>
+						LiveAgent.createButton('28bwor7y', e);
+					<?php } elseif ( ICL_LANGUAGE_CODE === 'ru' ) { ?>
+						LiveAgent.createButton('k88ai80o', e);
+					<?php } elseif ( ICL_LANGUAGE_CODE === 'zh-hans' ) { ?>
+						LiveAgent.createButton('49v7ehwf', e);
+					<?php } else { ?>
+						LiveAgent.createButton('443a9d07', e);
+					<?php } ?>
+				});
+			}, timeout );
+		<?php } ?>
 	}
 		if ( getCookieFrontend( "cookieLaw" ) ) {
 			createButton()
