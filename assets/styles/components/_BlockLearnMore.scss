@@ -103,7 +103,7 @@
 			display: block !important;
 
 			.elementor-element:not(.Block--learnMore__header) {
-				max-width: 41em;
+				max-width: $wrapper-aside;
 				margin: 0 auto;
 			}
 		}
@@ -113,7 +113,7 @@
 			padding: 3em 0;
 
 			.elementor-widget-container {
-				max-width: 41em;
+				max-width: $wrapper-aside;
 				margin: 0 auto;
 			}
 		}
