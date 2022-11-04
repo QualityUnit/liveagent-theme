@@ -37,10 +37,10 @@
 
 	<div class="Post__header <?= esc_attr( $header_category ); ?>">
 		<div class="wrapper__wide has-image">
-			<?php 
+			<?php
 			if ( has_post_thumbnail() ) {
 				?>
-				<img src="<?php the_post_thumbnail_url( 'wide_image' ); ?>" alt="<?php the_title(); ?>" />
+				<img src="<?php the_post_thumbnail_url( 'wide_image', array( 'class' => 'urlslab-skip-lazy' ) ); ?>" alt="<?php the_title(); ?>" />
 				<?php
 			}
 			?>
@@ -55,7 +55,7 @@
 			<div class="Post__sidebar__buttons mb-m">
 				<a href="<?= esc_url( $details->website ); ?>" class="Button Button--outline" target="_blank" title="<?= esc_attr( str_replace( '${company}', $company, __( '${company}\'s website', 'use-case' ) ) ); ?>">
 					<span>
-					<?php 
+					<?php
 						the_title();
 						echo ' ';
 						_e( 'website', 'use-case' );

@@ -10,7 +10,7 @@
 	<div class="BlogPost__header Research__header">
 		<div class="Research__thumbnail">
 			<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ) ); ?>"></meta>
-			<?php the_post_thumbnail( 'blog_post_thumbnail' ); ?>
+			<?php the_post_thumbnail( 'blog_post_thumbnail', array( 'class' => 'urlslab-skip-lazy' ) ); ?>
 		</div>
 		<div class="Research__intro">
 			<h1 data-id="<?php echo get_the_ID(); ?>" class="Research__title" itemprop="name">
