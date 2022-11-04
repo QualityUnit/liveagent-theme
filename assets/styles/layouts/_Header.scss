@@ -689,13 +689,6 @@ html[lang="ru-RU"],
 html[lang="sk-SK"],
 html[lang="vi-VN"] {
 
-	@media (min-width: $breakpoint-desktop) {
-
-		.Header__navigation ul.nav li {
-			padding: 0 14px !important;
-		}
-	}
-
 	.Header__navigation .icon-header-menu {
 		left: 0;
 		width: 24px !important;
