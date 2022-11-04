@@ -2,6 +2,10 @@
 
 .BannerTypingTest {
 
+	&[class] {
+		margin-top: 1rem;
+	}
+
 	.wrapper__wide {
 		display: block;
 		background: linear-gradient(90.24deg, #483ff0 1.93%, #9d3cf9 98.49%);

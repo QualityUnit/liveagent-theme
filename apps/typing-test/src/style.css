@@ -219,17 +219,18 @@ textarea:focus,
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	margin: 3rem 0 1rem;
+	margin: 2rem 0 1rem;
 }
 
 
-.TypingTest__icon {
+.TypingTest__icon[class] {
 	display: block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	width: 65px;
 	height: 80px;
-	background-size: 60px !important;
+	background-position: center center;
+	background-size: contain !important;
 }
 
 .TypingTest__statistic__item-active .TypingTest__icon {
@@ -300,12 +301,12 @@ textarea:focus,
 
 .TypingTest__statistic {
 	display: flex;
-	margin: 2rem 0;
+	margin: 1rem 0 2rem;
 }
 
 .TypingTest__statistic__item {
-	width: 190px;
-	height: 190px;
+	width: 150px;
+	height: 150px;
 	background: #fff;
 	box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 	border: 3px solid transparent;
@@ -345,6 +346,11 @@ textarea:focus,
 	border: 3px solid #ffa522;
 }
 
+[class*="TypingTest__statistic__item__image"] {
+	margin-bottom: 1em;
+	background-position: center center !important;
+}
+
 .TypingTest__statistic__item__image--word {
 	background: url("../public/assets/word.png") no-repeat;
 	display: block;
@@ -352,7 +358,7 @@ textarea:focus,
 	box-sizing: border-box;
 	width: 90px;
 	height: 65px;
-	background-size: 90px;
+	background-size: contain;
 }
 
 .TypingTest__statistic__item__image--character {
@@ -362,7 +368,7 @@ textarea:focus,
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	height: 65px;
-	background-size: 60px;
+	background-size: contain;
 }
 
 .TypingTest__statistic__item__image--mistake {
@@ -372,7 +378,13 @@ textarea:focus,
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	height: 65px;
-	background-size: 40px;
+	background-size: contain;
+}
+
+.TypingTest__statistic__item__state {
+	padding: 0 0 0.5rem;
+	margin-bottom: 0;
+	line-height: 1;
 }
 
 .TypingTest__statistic__item__state--cpm {
@@ -380,7 +392,6 @@ textarea:focus,
 	font-size: 32px;
 	font-weight: 700;
 	color: #f69320;
-	padding: 0.875rem 0 0;
 }
 
 .TypingTest__statistic__item__state--wpm {
@@ -388,7 +399,6 @@ textarea:focus,
 	font-size: 32px;
 	font-weight: 700;
 	color: #4ac65c;
-	padding: 0.875rem 0 0;
 }
 
 .TypingTest__statistic__item__state--mpm {
@@ -396,7 +406,6 @@ textarea:focus,
 	font-size: 32px;
 	font-weight: 700;
 	color: red;
-	padding: 0.875rem 0 0;
 }
 
 .TypingTest__statistic__item__state__name {
@@ -600,6 +609,7 @@ textarea:focus,
 
 	.TypingTest__statistic__item__state {
 		padding: 0.5rem 0;
+		line-height: 1;
 	}
 
 	.TypingTest__statistic__item__state__name {
@@ -692,6 +702,6 @@ textarea:focus,
 	}
 
 	.TypingTest {
-		margin: 3rem 0 0;
+		margin: 2rem 0 0;
 	}
 }

@@ -6,7 +6,7 @@ function ms_typing_test() {
 
 	<div id="root" dir="ltr"></div>
 	<?php // @codingStandardsIgnoreStart ?>
-	<script src="<?= esc_url( get_template_directory_uri() ); ?>/apps/typing-test/build/bundle.js?ver=1.0"></script>
+	<script src='<?= esc_url( get_template_directory_uri() ); ?>/apps/typing-test/build/bundle.js?ver=<?= THEME_VERSION ?>'></script>
 	<?php // @codingStandardsIgnoreEnd ?>
 
 	<?php
