@@ -1,9 +1,10 @@
 /* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-mixed-operators, no-redeclare */
-/* global $, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha */
+/* global jQuery, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha */
 /* global progressStep, newProgress, btoa */
 /* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, textStart, textInvalid, textCreating, variationId */
 
 ( function main() {
+	const $ = jQuery;
 	const debug = false; // Set true for display console.log
 
 	const productDomain = 'ladesk.com';
@@ -99,7 +100,7 @@
 		} ),
 
 		main: generateAccessor( '_main', function m() {
-			return $( `#${ this.name }main` );
+			return $( `[data-id="${ this.name }main"]` );
 		} ),
 
 		input: generateAccessor( '_input', function i( reset ) {
@@ -272,6 +273,14 @@
 				this.main().on( event, runValidate );
 			}
 
+			this.main().on( event, function() {
+				const thisId = $( this ).data( 'id' );
+				const thisVal = $( this ).find( 'input' ).val();
+				document.querySelectorAll( `[data-id="${ thisId }"] input` ).forEach( ( item ) => {
+					item.value = thisVal;
+				} );
+			} );
+
 			return this;
 		},
 	};
@@ -341,14 +350,14 @@
 		validator.message = em;
 
 		validator.validate = function validate( formField, notifyResult ) {
-			const input = formField.main().find( sel ).val();
+			const input = formField.main().find( sel );
+			const inputValue = input.val();
 
-			if ( input && input.length >= min ) {
+			if ( inputValue && inputValue.length >= min ) {
 				validator.valid();
 			} else {
 				validator.error( em );
 			}
-
 			notifyResult( this );
 		};
 
@@ -437,7 +446,7 @@
 				}
 			},
 
-			main: generateAccessor( '_main', () => $( '#createButtonmain' ) ),
+			main: generateAccessor( '_main', () => $( '[data-id="createButtonmain"]' ) ),
 			text: generateAccessor( '_text', () =>
 				$( '#createButtontextSpan' )
 			),
@@ -452,14 +461,14 @@
 				}
 			},
 
-			main: generateAccessor( '_main', () => $( '#signUpError' ) ),
+			main: generateAccessor( '_main', () => $( '[data-id="signUpError"]' ) ),
 		};
 	}
 
 	SignupForm.prototype = {
 		constructor: SignupForm,
 
-		block: generateAccessor( '_block', () => $( '#signup' ) ),
+		block: generateAccessor( '_block', () => $( '[data-id="signup"]' ) ),
 
 		getField( name ) {
 			if ( ! this.formFields[ name ] ) {
@@ -791,20 +800,20 @@
 		);
 
 		if ( typeof gtag !== 'undefined' ) {
-			gtag( 'event', $( '#plan' ).val(), {
+			gtag( 'event', $( '[data-id="plan"]' ).val(), {
 				event_category: 'SignUp',
 			} );
 		}
 
-		$( googleScript ).appendTo( '#signup' );
-		$( capterraScript ).appendTo( '#signup' );
+		$( googleScript ).appendTo( '[data-id="signup"]' );
+		$( capterraScript ).appendTo( '[data-id="signup"]' );
 		if ( typeof fbq !== 'undefined' ) {
 			$( "<script>fbq('track', 'StartTrial')</script>" ).appendTo(
-				'#signup'
+				'[data-id="signup"]'
 			);
 		}
-		$( g2crowdTracking ).appendTo( '#signup' );
-		$( redditTracking ).appendTo( '#signup' );
+		$( g2crowdTracking ).appendTo( '[data-id="signup"]' );
+		$( redditTracking ).appendTo( '[data-id="signup"]' );
 
 		if ( typeof _paq !== 'undefined' ) {
 			_paq.push( [ 'setObjectId', subscription.account_id ] );

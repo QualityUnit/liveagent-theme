@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const $ = jQuery;
-
 const productId = 'intwkla1';
 const variationId = 'iwkTrial';
 

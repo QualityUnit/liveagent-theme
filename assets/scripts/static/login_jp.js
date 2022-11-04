@@ -1,7 +1,5 @@
 /* eslint-disable no-undef, no-unused-vars */
 
-const $ = jQuery;
-
 const productId = 'intwkla1';
 
 const textValidating = 'Validating...';

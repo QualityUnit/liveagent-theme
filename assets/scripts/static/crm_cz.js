@@ -1,8 +1,6 @@
 /* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-undef, no-unused-vars, no-mixed-operators */
 /* global $, jQuery, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha */
 
-const $ = jQuery;
-
 const productId = 'b229622b';
 const variationId = '3513230f';
 

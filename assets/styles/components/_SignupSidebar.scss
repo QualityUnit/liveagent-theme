@@ -203,7 +203,7 @@
 		}
 	}
 
-	#createButtonmain[disabled] + .WorkingPanel {
+	[data-id="createButtonmain"][disabled] + .WorkingPanel {
 
 		@include posZero;
 		position: fixed;

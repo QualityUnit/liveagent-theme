@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const $ = jQuery;
-
 const productId = 'spinla01';
 const variationId = 'seLaTria';
 
