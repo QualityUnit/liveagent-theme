@@ -20,7 +20,7 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 		$item_output = str_replace( $args->link_after . '</a>', '<div class="menu-item-description">' . $item->description . '</div>' . $args->link_after . '</a>', $item_output );
 	}
 
-	if ( in_array( 'fontello-menu-take-a-tour', $item->classes ) ) {
+	if ( in_array( 'icn-menu-tour', $item->classes ) ) {
 		$item_output .= '
 		<div data-ytid="3zYfDwqNj0U" data-lightbox="youtube" class="Header__navigation__promo">
 			<img src="' . get_template_directory_uri() . '/assets/images/tour_video.png" alt="LiveAgent Tour Video" />' . '
