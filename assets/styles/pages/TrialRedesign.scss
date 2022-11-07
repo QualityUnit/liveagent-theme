@@ -17,7 +17,7 @@
 		padding-top: 0;
 	}
 
-	#createButtonmain[disabled] + .WorkingPanel {
+	[data-id="createButtonmain"][disabled] + .WorkingPanel {
 		top: -5px;
 	}
 }
