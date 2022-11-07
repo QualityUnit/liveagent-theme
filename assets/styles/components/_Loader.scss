@@ -229,17 +229,21 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		width: 105%;
-		height: 105%;
-		position: absolute;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
 		top: 0;
 		left: 0;
 		border-radius: $border-radius;
 		z-index: 5;
 
-		.animation {
+		.animation[class] {
 			position: relative;
-			display: block;
+			display: flex;
+			justify-content: center;
+			width: auto !important;
+			left: auto !important;
+			padding: 0 !important;
 
 			.one,
 			.three,
