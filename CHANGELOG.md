@@ -1,3 +1,7 @@
+### 1.4.1: November 7th, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.4.0: November 4th, 2022
 
 - Review Widget
