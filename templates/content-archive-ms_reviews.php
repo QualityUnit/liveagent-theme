@@ -12,7 +12,7 @@
 		)
 	);
 
-	if ( $main_page ) {
+	if ( ! empty( $main_page ) ) {
 		$main_page_id  = $main_page[0]->ID;
 		$translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
 
@@ -26,6 +26,8 @@
 	// Main page level 1
 	if ( ! isset( $subpage->slug ) ) {
 			require_once get_template_directory() . '/templates/content-archive-ms_reviews-categories.php';
+	}
+	if ( ! empty( $main_page ) ) {
 		?>
 	<div class="wrapper mt-xxl">
 		<?= do_shortcode( '[split-title title="' . $post_title . '"]' ); ?>

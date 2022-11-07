@@ -15,7 +15,6 @@
 	<div class="wrapper__wide">
 		<ul class="Reviews__categories--inn">
 			<?php
-			$current_id = apply_filters( 'wpml_object_id', $translated_id, 'ms_reviews' );
 			$cat_args   = array(
 				'taxonomy'   => 'ms_reviews_categories',
 				'hide_empty' => 0,
