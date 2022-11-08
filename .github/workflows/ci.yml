@@ -9,19 +9,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php_version: ["7.4", "8.1"]
 
     steps:
       - uses: actions/checkout@v3
         with:
           lfs: true
 
-      - name: Setup PHP
+      - name: Setup PHP 8.0
         uses: shivammathur/setup-php@v2
         with:
-          php_version: ${{ matrix.php_version }}
+          php-version: "8.0"
 
       - name: Cache Composer dependencies
         id: composer-cache
