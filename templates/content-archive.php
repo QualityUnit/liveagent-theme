@@ -137,7 +137,7 @@
 					'no_found_rows'       => true,
 				);
 
-        if ( 0 != $this_category->parent ) { // @codingStandardsIgnoreLine
+        if ( $this_category && 0 != $this_category->parent ) { // @codingStandardsIgnoreLine
 					$query_args = array(
 						'ignore_sticky_posts' => true,
 						'posts_per_page'      => 9,

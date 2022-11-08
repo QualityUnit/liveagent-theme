@@ -6,16 +6,19 @@
 	set_source( 'checklists', 'postHeaderSmallLocking', 'js' );
 	set_source( 'checklists', 'splide', 'js' );
 	set_source( 'checklists', 'sidebar_items_slider', 'js' );
+	
+	$posttitle          = get_the_title();
+	$posttitle_filtered = str_replace( '^', '', get_the_title() );
 
-	$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_checklists' );
-	$categories = get_the_terms( $current_id, 'ms_checklists_categories' );
+	$current_id    = apply_filters( 'wpml_object_id', $post->ID, 'ms_checklists' );
+	$categories    = get_the_terms( $current_id, 'ms_checklists_categories' );
+	$category_slug = '';
+
 if ( $categories ) {
 	$category_id   = $categories[0]->term_id;
 	$category_name = $categories[0]->name;
 	$category_slug = $categories[0]->slug;
 };
-	$posttitle          = get_the_title();
-	$posttitle_filtered = str_replace( '^', '', get_the_title() );
 ?>
 
 <div class="Post Checklists">
