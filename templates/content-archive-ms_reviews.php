@@ -27,7 +27,7 @@
 	if ( ! isset( $subpage->slug ) ) {
 			require_once get_template_directory() . '/templates/content-archive-ms_reviews-categories.php';
 	}
-	if ( ! empty( $main_page ) ) {
+	if ( ! empty( $main_page ) && ! isset( $subpage->slug ) ) {
 		?>
 	<div class="wrapper mt-xxl">
 		<?= do_shortcode( '[split-title title="' . $post_title . '"]' ); ?>
