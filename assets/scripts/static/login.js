@@ -3,15 +3,14 @@
 /* global textValidating, textInvalidField, textEmpty, textFailedDomain, textValidDomain, textRedirecting, productId */
 
 ( function main() {
+	const $ = jQuery;
 	const productDomain = 'ladesk.com';
 	const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
 	const loginName = localStorage.getItem( 'la_login' );
 
-	const query = document.querySelector.bind( document );
-
 	if ( loginName ) {
-		query( '#domainFieldmain input' ).value = loginName;
-		query( '#domainFieldmain' ).classList.add( 'Valid' );
+		document.querySelector( '#domainFieldmain input' ).value = loginName;
+		document.querySelector( '#domainFieldmain' ).classList.add( 'Valid' );
 	}
 
 	function sendApiRequest( options ) {
@@ -385,7 +384,7 @@
 	SignupForm.prototype = {
 		constructor: SignupForm,
 
-		block: generateAccessor( '_block', () => $( '#signup' ) ),
+		block: generateAccessor( '_block', () => $( '[data-id]="signup"' ) ),
 
 		getField( name ) {
 			if ( ! this.formFields[ name ] ) {
