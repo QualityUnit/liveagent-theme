@@ -169,14 +169,16 @@ function progressbar( $text, $rating, $color ) {
 							?>
 						<li class="splide__slide">
 							<a class="splide__inn" href="<?= esc_url( wp_get_attachment_image_url( $main_img, 'full' ) ) ?>" data-lightbox="gallery">
-								<div class="Reviews__Gallery--main__desc">
-									<h5 class="highlight">
+							<div class="Reviews__Gallery--main__image">
+								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $main_img, 'blog_archive_thumbnail' ) ) ?>" alt=""/>
+							</div>
+							<div class="Reviews__Gallery--main__desc">
+									<h5>
 									<?= esc_html( get_post_meta( $main_img, '_wp_attachment_image_alt', true ) ); ?>
 									<?= esc_html( ( $index + 1 ) . '/' . $total_img ); ?>
 									</h5>
 									<p><?= esc_html( get_post( $main_img )->post_content ); ?></p>
 								</div>
-								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $main_img, 'blog_archive_thumbnail' ) ) ?>" alt=""/>
 							</a>
 						</li>
 								<?php
