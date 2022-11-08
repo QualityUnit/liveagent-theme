@@ -59,6 +59,8 @@
 
 		&__number {
 			font-size: 1.5rem;
+			margin-left: 0.25rem;
+			text-align: right;
 			color: $medium-gray-quotes;
 
 			.active & {
@@ -79,6 +81,7 @@
 
 		&__excerpt {
 			font-size: 1rem;
+			line-height: 1.4;
 			font-family: $font-primary;
 			font-weight: 400;
 			color: $medium-gray-quotes;
@@ -162,6 +165,7 @@
 					width: 100%;
 					font-weight: 700;
 					text-align: center;
+					margin-top: 0.5em;
 				}
 			}
 

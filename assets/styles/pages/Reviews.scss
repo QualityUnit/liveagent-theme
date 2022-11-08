@@ -8,6 +8,8 @@
 @import "../layouts/ReviewsCategories";
 @import "../layouts/ReviewsPosts";
 
+$version: "3.0";
+
 .Reviews {
 	overflow-x: hidden;
 
@@ -29,7 +31,7 @@
 					@include posZero();
 					position: absolute;
 					content: "";
-					background: url(../../images/reviews_1st_level_header_img.png?v2) calc(100% - 1em) calc(100% - 2.5em) no-repeat;
+					background: url(../../images/reviews_1st_level_header_img.png?v=#{$version}) calc(100% - 1em) calc(100% - 2.5em) no-repeat;
 					background-size: auto 100%;
 				}
 			}
@@ -40,6 +42,7 @@
 
 			.wrapper {
 				padding: 1.5em;
+				z-index: 2;
 			}
 
 			@media (min-width: $breakpoint-tablet) {
@@ -62,11 +65,23 @@
 					justify-content: center;
 					min-height: 28.125em;
 					padding-top: 2em;
-					padding-bottom: 3em;
+					padding-bottom: 4em;
 				}
 
 				.Filter {
 					margin: 0;
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+
+				&::after {
+
+					@include posZero();
+					position: absolute;
+					content: "";
+					background: url(../../images/reviews_2nd_level_header_img.png?v=#{$version}) calc(100% - 1em) top no-repeat;
+					background-size: auto 100%;
 				}
 			}
 		}
@@ -90,6 +105,11 @@
 
 			&__bottom {
 				margin-top: auto;
+
+				.Reviews__update {
+					margin-top: auto;
+					padding-bottom: 1em;
+				}
 			}
 
 			@media (min-width: $breakpoint-tablet) {
@@ -100,9 +120,21 @@
 					margin-bottom: 0;
 				}
 			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+
+				&::after {
+
+					@include posZero();
+					position: absolute;
+					content: "";
+					background: url(../../images/reviews_header_post_img.png?v=#{$version}) calc(100% - 1em) top no-repeat;
+					background-size: auto 100%;
+				}
+			}
 		}
 
-		@media (min-width: $breakpoint-desktop-hd) {
+		@media (min-width: ($breakpoint-desktop-hd + 1px)) {
 			border-radius: $border-radius-16;
 		}
 	}
@@ -153,6 +185,10 @@
 
 		@media (max-width: $breakpoint-tablet-landscape) {
 			margin-bottom: 3em;
+		}
+
+		&--title {
+			font-size: 1.25rem;
 		}
 
 		&--details {
