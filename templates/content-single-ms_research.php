@@ -65,7 +65,6 @@
 													'ms_research_categories' => $category->slug,
 													// @codingStandardsIgnoreLine
 													'posts_per_page' => 500,
-													'fields'  => 'ids',
 													'orderby' => 'menu_order',
 													'order'   => 'ASC',
 												)
