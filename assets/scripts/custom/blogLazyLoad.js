@@ -1,4 +1,4 @@
-/* global fetch, IntersectionObserver */
+/* global IntersectionObserver */
 /* eslint-disable camelcase */
 
 /*

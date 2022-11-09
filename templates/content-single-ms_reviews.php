@@ -2,12 +2,20 @@
 	set_custom_source( 'pages/Reviews', 'css' );
 	set_custom_source( 'common/splide' );
 	set_custom_source( 'reviewsGallery', 'js' );
-	$current_lang    = apply_filters( 'wpml_current_language', null );
-	$header_category = get_en_category( 'ms_reviews', $post->ID );
+	$current_lang       = apply_filters( 'wpml_current_language', null );
+	$header_en_category = get_en_category( 'ms_reviews', $post->ID );
+	$header_category    = get_the_terms( $post->ID, 'ms_reviews_categories' );
+
+if ( ! empty( $header_category ) ) {
+	$header_category      = array_shift( $header_category );
+	$header_category_name = $header_category->name;
+	$header_category_slug = $header_category->slug;
+}
+
 	do_action( 'wpml_switch_language', $current_lang );
 
-	$current_id     = apply_filters( 'wpml_object_id', $post->ID, 'ms_reviews' );
-		$categories = get_the_terms( $current_id, 'ms_reviews_categories' );
+	$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_reviews' );
+	$categories = get_the_terms( $current_id, 'ms_reviews_categories' );
 if ( $categories ) {
 	$category_id   = $categories[0]->term_id;
 	$category_name = $categories[0]->name;
@@ -20,9 +28,10 @@ function meta( $metabox_id ) {
 }
 ?>
 
-<div class="Post Reviews" itemscope itemtype="http://schema.org/TechArticle">
+<div class="Post Reviews" itemscope itemtype="http://schema.org/SoftwareApplication">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+	<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="BusinessApplication"></span>
 
 	<?php
 	require_once get_template_directory() . '/templates/content-single-ms_reviews-top.php';
@@ -48,12 +57,16 @@ function meta( $metabox_id ) {
 		</div>
 
 		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
+			<?= do_shortcode( '[signup-sidebar title="' . __( 'Start your free LiveAgent trial!', 'reviews' ) . '"]' ); ?>
 		</div>
 
 		<div class="Post__content">
 
 			<div class="Content" itemprop="articleBody">
+				<?php 
+				if ( ! empty( meta( 'pros' ) ) || ! empty( meta( 'cons' ) ) ) {
+					?>
+				<h2><?php _e( 'Key takeaways', 'reviews' ); ?></h2>
 				<div class="wp-block-columns">
 					<?php
 					if ( ! empty( meta( 'pros' ) ) ) {
@@ -78,6 +91,9 @@ function meta( $metabox_id ) {
 					}
 					?>
 				</div>
+					<?php
+				}
+				?>
 
 				<?php the_content(); ?>
 

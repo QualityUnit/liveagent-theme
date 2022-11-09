@@ -170,20 +170,6 @@
 				font-size: 0.75rem;
 				line-height: 1.26;
 
-				span {
-					font-weight: $font-weight-bold;
-
-					&::before {
-						content: ">";
-						margin-right: 1em;
-					}
-
-					&::after {
-						content: ">";
-						margin: 0 1em;
-					}
-				}
-
 				li {
 					display: inline-block;
 					margin-right: 1em;

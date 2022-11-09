@@ -18,23 +18,34 @@ if ( ! empty( $first ) && ! empty( $second ) && ! empty( $third ) ) {
 
 function progressbar( $text, $rating, $color ) {
 	?>
-		<div class="progressBar__wrapper">
-			<strong class="progressBar__desc"><?= esc_html( meta( $text ) ); ?></strong>
+		<div class="progressBar__wrapper" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+			<strong class="progressBar__desc" itemprop="description"><?= esc_html( meta( $text ) ); ?></strong>
 			<div class="progressBar">
 				<div class="progressBar__inn" style="background-color: <?= esc_attr( $color ); ?>; width:<?= esc_attr( ( $rating / 5 * 103.3 ) . '%' ); ?>"></div>
 			</div>
-			<strong class="progressBar__rating"><?= esc_html( $rating ); ?></strong>
+			<strong class="progressBar__rating" itemprop="ratingValue"><?= esc_html( $rating ); ?></strong>
 		</div>
 	<?php
 }
 ?>
 
-	<div class="Post__header  Reviews__header Reviews__header--post <?= esc_attr( $header_category ); ?>">
+	<div class="Post__header  Reviews__header Reviews__header--post <?= esc_attr( $header_en_category ); ?>">
 		<div class="wrapper flex flex-direction-column">
 			<div class="Post__content__breadcrumbs">
-				<ul>
-					<li><a href="<?php _e( '/reviews/', 'ms' ); ?>"><?php _e( 'Reviews', 'ms' ); ?></a></li>
-					<li><?= esc_html( $titleplain ); ?></li>
+				<ul itemscope itemtype="https://schema.org/BreadcrumbList">
+					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" href="<?php _e( '/reviews/', 'ms' ); ?>">
+							<span itemprop="name"><?php _e( 'Reviews', 'ms' ); ?></span>
+						</a>
+					</li>
+					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" href="<?= esc_url( __( '/reviews/', 'ms' ) . $header_category_slug ); ?>">
+							<span itemprop="name"><?= esc_html( $header_category_name ); ?></span>
+						</a>
+					</li>
+					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<span itemprop="name"><?= esc_html( $titleplain ); ?></span>
+					</li>
 				</ul>
 			</div>
 
@@ -51,7 +62,7 @@ function progressbar( $text, $rating, $color ) {
 	<div class="wrapper flex-tablet-landscape mb-extreme">
 		<div class="col-50 Reviews__info">
 			<?php
-			$review_in = __( '${product} review is included in:', 'reviews' );
+			$review_in = __( 'Compare ${product} with other in:', 'reviews' );
 			?>
 			<small class="text-light"><?= esc_html( str_replace( '${product}', $titleplain, $review_in ) ); ?></small>
 			<ul class="Post__sidebar__categories__labels">
@@ -104,18 +115,18 @@ function progressbar( $text, $rating, $color ) {
 			<p><?= esc_html( wp_trim_words( meta( 'note' ), 42 ) ); ?></p>
 
 			<div class="flex">
-				<h3 class="no-margin mr-s"><?php _e( 'Pricing', 'reviews' ); ?></h3>
+				<span class="h3 no-margin mr-s"><?php _e( 'Pricing', 'reviews' ); ?></span>
 				<time class="Reviews__update small text-light" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>"> 
 					<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . $rating_update->format( 'F j, Y' ) ); ?>
 				</time>
 			</div>
 
-			<div class="flex-tablet Reviews__info--details mt-xs">
+			<div class="flex-tablet Reviews__info--details mt-xs" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 				<strong class="Reviews__info--desc mt-s"><?php _e( 'Starting from', 'reviews' ); ?>:</strong>
 				<div>
 					<div class="Reviews__info--pricing">
-						<strong class="currency"><?= esc_html( meta( 'currency' ) ); ?></strong>
-						<strong class="price"><?= esc_html( meta( 'price' ) ); ?></strong>
+						<strong class="currency" itemprop="priceCurrency" content="USD"><?= esc_html( meta( 'currency' ) ); ?></strong>
+						<strong class="price" itemprop="price"><?= esc_html( meta( 'price' ) ); ?></strong>
 						<span class="text-light">
 							&nbsp;
 							<?= esc_html( meta( 'period' ) ); ?>
@@ -208,12 +219,12 @@ function progressbar( $text, $rating, $color ) {
 		</div>
 	</div>
 
-	<div class="Reviews__editor">
+	<div class="Reviews__editor" itemprop="review" itemscope itemtype="https://schema.org/Review">
 		<div class="wrapper__narrow">
 
 		<div class="Reviews__editor--top">
 			<div class="Reviews__editor--titles">
-				<div class="tag"><p><?php _e( "Editor's rating", 'reviews' ); ?>: </p></div>
+				<h2 class="tag mb-s"><span><?php _e( "Editor's rating", 'reviews' ); ?>:</span></h2>
 				<h3 class="Reviews__editor--title"><?php _e( "Editor's rating", 'reviews' ); ?></h3>
 			</div>
 
@@ -221,12 +232,9 @@ function progressbar( $text, $rating, $color ) {
 				<div class="Reviews__rating--avatar">
 					<?= get_avatar( get_the_author_meta( 'ID' ), 220, 'mystery', get_the_author() ); ?>
 				</div>
-				<div class="Reviews__rating--editor__info">
-					<strong class="Reviews__rating--desc">
-						<?php _e( "Editor's overall Rating", 'reviews' ); ?>
-					</strong>
+				<div class="Reviews__rating--editor__info" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
 					<div class="flex flex-align-center">
-						<span class="Reviews__rating--rating">
+						<span class="Reviews__rating--rating" itemprop="ratingValue">
 							<?= esc_html( $average ); ?>
 						</span>
 						<div class="Reviews__rating--stars white">
