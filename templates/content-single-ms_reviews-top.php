@@ -38,7 +38,7 @@ function progressbar( $text, $rating, $color ) {
 				</ul>
 			</div>
 
-			<div class="flex-tablet flex-align-center Reviews__header--post__bottom">
+			<div class="flex-tablet Reviews__header--post__bottom">
 				<h1 class="Reviews__header--post__title" itemprop="name"><?= $posttitle; // @codingStandardsIgnoreLine ?></h1>
 				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_attr( get_the_modified_time( 'F j, Y' ) ); ?>"> 
 					<?= esc_html( __( 'Review Last update:', 'reviews' ) . ' ' ); ?>
@@ -54,7 +54,7 @@ function progressbar( $text, $rating, $color ) {
 			$review_in = __( '${product} review is included in:', 'reviews' );
 			?>
 			<small class="text-light"><?= esc_html( str_replace( '${product}', $titleplain, $review_in ) ); ?></small>
-			<ul class="Post__sidebar__categories__labels">
+			<ul class="Post__sidebar__categories__labels mt-xs">
 				<?php
 				$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_reviews' );
 				$categories = get_the_terms( $current_id, 'ms_reviews_categories' );
@@ -75,7 +75,7 @@ function progressbar( $text, $rating, $color ) {
 			?>
 			<small class="text-light"><?= esc_html( str_replace( '${product}', $titleplain, $how ) ); ?></small>
 
-			<div class="Reviews__rating Reviews__rating--portals">
+			<div class="Reviews__rating Reviews__rating--portals mt-m">
 				<div class="flex flex-align-center">
 					<span class="Reviews__rating--rating">
 						<?= esc_html( meta( 'rating' ) ); ?>
@@ -104,7 +104,7 @@ function progressbar( $text, $rating, $color ) {
 			<p><?= esc_html( wp_trim_words( meta( 'note' ), 42 ) ); ?></p>
 
 			<div class="flex">
-				<h3 class="no-margin mr-s"><?php _e( 'Pricing', 'reviews' ); ?></h3>
+				<h3 class="no-margin mr-s Reviews__info--title"><?php _e( 'Pricing', 'reviews' ); ?></h3>
 				<time class="Reviews__update small text-light" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>"> 
 					<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . $rating_update->format( 'F j, Y' ) ); ?>
 				</time>
@@ -169,14 +169,16 @@ function progressbar( $text, $rating, $color ) {
 							?>
 						<li class="splide__slide">
 							<a class="splide__inn" href="<?= esc_url( wp_get_attachment_image_url( $main_img, 'full' ) ) ?>" data-lightbox="gallery">
-								<div class="Reviews__Gallery--main__desc">
-									<h5 class="highlight">
+							<div class="Reviews__Gallery--main__image">
+								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $main_img, 'blog_archive_thumbnail' ) ) ?>" alt=""/>
+							</div>
+							<div class="Reviews__Gallery--main__desc">
+									<h5>
 									<?= esc_html( get_post_meta( $main_img, '_wp_attachment_image_alt', true ) ); ?>
 									<?= esc_html( ( $index + 1 ) . '/' . $total_img ); ?>
 									</h5>
 									<p><?= esc_html( get_post( $main_img )->post_content ); ?></p>
 								</div>
-								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $main_img, 'blog_archive_thumbnail' ) ) ?>" alt=""/>
 							</a>
 						</li>
 								<?php

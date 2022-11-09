@@ -65,11 +65,13 @@
 
 		<div class="wrapper">
 			<div class="Reviews__categoryAbout">
-				<img 
-					class="Reviews__categoryAbout--bulb"
-					src="<?= esc_url( get_template_directory_uri() . '/assets/images/reviews_bulb_big.svg' ); ?>"
-					alt="<?= esc_attr( get_term_meta( $subpage->term_id, 'description_title', true ) ); ?>"
-				/>
+				<div class="Reviews__categoryAbout--image__wrapper">
+					<img 
+						class="Reviews__categoryAbout--image"
+						src="<?= esc_url( get_template_directory_uri() . '/assets/images/reviews_2nd_level_footer.png' ); ?>"
+						alt="<?= esc_attr( get_term_meta( $subpage->term_id, 'description_title', true ) ); ?>"
+					/>
+				</div>
 				<div class="Reviews__categoryAbout--description">
 					<h2 class="Reviews__categoryAbout--title"><?= esc_html( get_term_meta( $subpage->term_id, 'category_description_title', true ) ); ?></h2>
 					<p class="Reviews__categoryAbout--text">
