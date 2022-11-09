@@ -155,7 +155,7 @@
 	<div class="loaderIn">
 
 		<div class="BuildingApp">
-			<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" alt="<?php bloginfo( 'name' ); ?>" class="BuildingApp__logo">
+			<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" width="201" height="50" alt="<?php bloginfo( 'name' ); ?>" class="BuildingApp__logo">
 
 			<div class="BuildingHeader BuildingApp__title BuildingApp--desktop h2"><?php _e( 'Building Your LiveAgent...', 'ms' ); ?></div>
 			<p class="BuildingText BuildingApp__text BuildingApp--desktop"><?php _e( 'We appreciate your recent sign up for a LiveAgent. <br>A message will be sent to your email address containing login details, right after your account is installed. <br>If you wait for a while, after installation is complete you will be able to access your account directly from here.', 'ms' ); ?></p>

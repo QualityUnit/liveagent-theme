@@ -1,14 +1,5 @@
 <?php
 
-/**
-	* Remove srcset from images
-	*/
-
-function disable_srcset_images( $sources ) {
-	return false;
-}
-add_filter( 'wp_calculate_image_srcset', 'disable_srcset_images' );
-
 
 /**
 	* Remove Not Used Sizes

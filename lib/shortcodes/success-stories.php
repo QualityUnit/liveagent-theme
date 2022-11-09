@@ -64,7 +64,7 @@ function ms_success_stories( $atts ) {
 				<a href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>">
 					<div class="Blog__item__thumbnail Category__item--blogLike__thumbnail">
 						<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
-						<img style="opacity: 0; transition: opacity 0.2s;" data-src="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>" />
+						<img src="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>" />
 
 						<?php
 						$categories = get_the_terms( 0, 'ms_success-stories_categories' );
