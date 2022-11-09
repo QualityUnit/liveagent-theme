@@ -1,10 +1,12 @@
-.qu-enhancedFAQ {
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
 
-	@media (min-width: $breakpoint-tablet) {
-		display: flex;
-		flex-flow: wrap row;
-		justify-content: space-between;
-	}
+.qu-CommonProblems {
+
+	// @media (min-width: $breakpoint-tablet) {
+	// 	display: flex;
+	// 	flex-flow: wrap row;
+	// 	justify-content: space-between;
+	// }
 
 	&__title {
 		margin-bottom: 1em;

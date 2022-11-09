@@ -25,18 +25,16 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 function qu_commonproblems_init() {
-	$path = get_parent_theme_file_path( '/lib/widgets/' . __DIR__ );
-
-	require_once $path . 'includes/cp-item.php';
+	$path = get_parent_theme_file_path( '/lib/widgets/' . basename( __DIR__ ) );
 
 	// Resources for editor/admin part
 	function commonproblems_editor_assets() {
-		$path_uri = get_template_directory_uri() . '/lib/widgets/' . __DIR__;
+		$path_uri = get_template_directory_uri() . '/lib/widgets/' . basename( __DIR__ );
 		$version  = THEME_VERSION;
 
 		wp_enqueue_style(
 			'qu_commonproblems_editor_style',
-			$path_uri . 'build/qu_commonproblems_edit.css',
+			$path_uri . '/build/qu_commonproblems_edit.css',
 			array(),
 			$version,
 			false
@@ -44,7 +42,7 @@ function qu_commonproblems_init() {
 
 		wp_enqueue_style(
 			'qu_commonproblems_frontend_style',
-			$path_uri . 'build/qu_commonproblems_frontend.css',
+			$path_uri . '/build/qu_commonproblems_frontend.css',
 			array(),
 			$version,
 			false
@@ -52,7 +50,7 @@ function qu_commonproblems_init() {
 
 		wp_enqueue_script(
 			'qu_commonproblems_item_editor_script',
-			$path_uri . 'build/qu_commonproblems_edit_item.js',
+			$path_uri . '/build/qu_commonproblems_edit_item.js',
 			array( 'wp-blocks', 'wp-editor', 'wp-element', 'wp-components', 'wp-i18n', 'wp-data' ),
 			$version,
 			true
@@ -60,7 +58,7 @@ function qu_commonproblems_init() {
 
 		wp_enqueue_script(
 			'qu_commonproblems_editor_script',
-			$path_uri . 'build/qu_commonproblems_edit.js',
+			$path_uri . '/build/qu_commonproblems_edit.js',
 			array( 'wp-blocks' ),
 			$version,
 			true
@@ -69,7 +67,7 @@ function qu_commonproblems_init() {
 
 	// Resources for User visible part
 	function commonproblems_assets() {
-		$path_uri = get_template_directory_uri() . '/lib/widgets/' . __DIR__;
+		$path_uri = get_template_directory_uri() . '/lib/widgets/' . basename( __DIR__ );
 		$version  = THEME_VERSION;
 
 		if ( is_singular() ) {
@@ -77,7 +75,7 @@ function qu_commonproblems_init() {
 			if ( has_block( 'qu/commonproblems', $id ) ) {
 				wp_enqueue_style(
 					'qu_commonproblems_frontend_style',
-					$path_uri . 'build/qu_commonproblems_frontend.css',
+					$path_uri . '/build/qu_commonproblems_frontend.css',
 					array(),
 					$version,
 					false
@@ -89,37 +87,14 @@ function qu_commonproblems_init() {
 	add_action( 'enqueue_block_assets', 'commonproblems_assets' );
 	add_action( 'enqueue_block_editor_assets', 'commonproblems_editor_assets' );
 
-
-	function render_commonproblems_item( $attr ) {
-		return commonproblems_item( $attr );
-	}
-
-	register_block_type(
-		'qu/commonproblems-item',
-		array(
-			'qu_commonproblems_editor_style'  => 'qu_commonproblems_editor_style',
-			'qu_commonproblems_editor_script' => 'qu_commonproblems_item_editor_script',
-			'qu_commonproblems_style'         => 'qu_commonproblems_frontend_style',
-			'render_callback'                 => 'render_commonproblems_item',
-			'attributes'                      => array(
-				'commonproblemsId'     => array(
-					'type' => 'string',
-				),
-				'header'      => array(
-					'type'    => 'string',
-					'default' => 'Enter problem here…',
-				),
-				'content'     => array(
-					'type'    => 'string',
-					'default' => 'Enter solution…',
-				),
-			),
-		),
-	);
+	require_once $path . '/includes/cp-item.php';
 
 	function render_commonproblems( $attr, $content ) {
-		return '<div class="qu-CommonProblems">							
-							<span itemprop="name" style="display:none">' . $pagetitle . '</span>' .
+		$title = $attr['title'];
+		$title = preg_replace( '/\^(.+?)\^/', '<span class="highlight-gradient">$1</span>', $title );
+
+		return '<div class="qu-CommonProblems">
+							<div class="h2" itemprop="name">' . $title . '</div>' .
 								apply_filters( 'the_content', $content )
 						. '</div>';
 	}
@@ -127,18 +102,30 @@ function qu_commonproblems_init() {
 	register_block_type(
 		'qu/commonproblems',
 		array(
-			'qu_commonproblems_editor_style'  => 'qu_commonproblems_editor_style',
-			'qu_commonproblems_editor_script' => 'qu_commonproblems_editor_script',
-			'qu_commonproblems_style'         => 'qu_commonproblems_frontend_style',
-			'render_callback'                 => 'render_commonproblems',
-			'attributes'                      => array(
+			'qu_commonproblems_editor_style'       => 'qu_commonproblems_editor_style',
+			'qu_commonproblems_item_editor_script' => 'qu_commonproblems_item_editor_script',
+			'qu_commonproblems_editor_script'      => 'qu_commonproblems_editor_script',
+			'qu_commonproblems_style'              => 'qu_commonproblems_frontend_style',
+			'render_callback'                      => 'render_commonproblems',
+			'attributes'                           => array(
 				'commonproblemsId'   => array(
 					'type' => 'string',
+				),
+				'title'   => array(
+					'type' => 'string',
+					'default' => 'Common ^problems and solutions^',
+				),
+				'subtitle'   => array(
+					'type' => 'string',
+					'default' => 'Experiencing problems with this software?',
+				),
+				'subtitle2'   => array(
+					'type' => 'string',
+					'default' => 'Take a look at our list of the most common problems and find out how you can solve them.',
 				),
 			),
 		),
 	);
 }
-
 
 add_action( 'init', 'qu_commonproblems_init' );
