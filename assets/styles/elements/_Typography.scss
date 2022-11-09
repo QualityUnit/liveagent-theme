@@ -745,7 +745,8 @@ video {
 
 .tag {
 
-	p {
+	p,
+	> span {
 
 		@include color(color, primary-color);
 		font-size: 0.875rem;
