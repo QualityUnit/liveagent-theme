@@ -1,3 +1,7 @@
+### 1.4.5: November 9th, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.4.4: November 8th, 2022
 
 - Bug Fixes and Improvements
