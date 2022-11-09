@@ -12,7 +12,7 @@ function ms_gutenberg_reference() {
 						<div class="elementor-widget-image">
 							<div class="elementor-widget-container">
 								<div class="elementor-image">
-									<img src="https://www.liveagent.com/app/uploads/2019/11/komora.png" alt="<?php _e( 'Peter Komornik', 'ms' ); ?>" loading="lazy">
+									<img src="https://www.liveagent.com/app/uploads/2019/11/komora.png" alt="<?php _e( 'Peter Komornik', 'ms' ); ?>">
 								</div>
 							</div>
 						</div>
@@ -29,7 +29,7 @@ function ms_gutenberg_reference() {
 							</div>
 							<div class="elementor-widget-image">
 								<div class="elementor-image">
-									<img src="https://www.liveagent.com/app/uploads/2019/11/logo_slido_black.svg" alt="logo slido black" loading="lazy">
+									<img src="https://www.liveagent.com/app/uploads/2019/11/logo_slido_black.svg" alt="logo slido black">
 								</div>
 							</div>
 						</div>

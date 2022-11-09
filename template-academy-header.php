@@ -102,18 +102,18 @@
 							<div class="animation elementor-widget elementor-widget-image">
 								<div class="elementor-widget-container">
 									<div class="elementor-image">
-										<img style="opacity: 0; transition: opacity 0.5s ease 0s;" class="attachment-large size-large"
-											alt="<?php _e( 'Header Animation', 'ms' ); ?>" loading="lazy" height="100" width="100"
-											data-src="https://www.liveagent.com/app/uploads/2021/06/helpdesk-2.svg">
+										<img class="attachment-large size-large"
+											alt="<?php _e( 'Header Animation', 'ms' ); ?>" height="100" width="100"
+											src="https://www.liveagent.com/app/uploads/2021/06/helpdesk-2.svg">
 									</div>
 								</div>
 							</div>
 							<div class="elementor-widget-image">
 								<div class="elementor-widget-container">
 									<div class="elementor-image">
-										<img width="970" height="1024" style="opacity:0; transition: opacity 0.5s ease 0s;"
-											class="attachment-large size-large" alt="<?php _e( 'Helpdesk software', 'ms' ); ?>" loading="lazy"
-											data-src="https://www.liveagent.com/app/uploads/2021/06/helpdesk_bg-970x1024.jpg"> </div>
+										<img width="970" height="1024"
+											class="attachment-large size-large" alt="<?php _e( 'Helpdesk software', 'ms' ); ?>"
+											src="https://www.liveagent.com/app/uploads/2021/06/helpdesk_bg-970x1024.jpg"> </div>
 								</div>
 							</div>
 						</div>

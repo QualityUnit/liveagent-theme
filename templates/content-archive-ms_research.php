@@ -7,7 +7,7 @@
 	<div class="Research">
 		<div class="BlogPost__header Research__header">
 			<div class="Research__thumbnail">
-				<img style="opacity: 0; transition: opacity .5s" data-src="<?php echo esc_url( wp_upload_dir()['baseurl'] . '/2021/08/research_archive_illustration.svg' ); ?>" alt="Research archive illustration" />
+				<img src="<?php echo esc_url( wp_upload_dir()['baseurl'] . '/2021/08/research_archive_illustration.svg' ); ?>" alt="Research archive illustration" />
 			</div>
 			<div class="Research__intro">
 				<h1 class="Research__title"><?php _e( 'Customer service <span class="highlight-gradient">Benchmark</span> Report', 'ms' ); ?></h1>
