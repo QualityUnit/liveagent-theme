@@ -35,29 +35,31 @@
 					<?php
 						$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_research_categories' ) ), SORT_REGULAR );
 						$counter    = 0;
-					foreach ( $categories as $category ) {
-						?>
+					if ( ! empty( $categories ) ) {
+						foreach ( $categories as $category ) {
+							?>
 						<div class="<?php echo esc_attr( $category->slug ); ?> Research--category">
 
-						<h2 class="Research--category__title">
+							<h2 class="Research--category__title">
 								<span class="Research--category__image">
 								<?php // @codingStandardsIgnoreStart
-                  echo preg_replace( '/\<a.+\>(.+)\<\/a>/', '$1', $category->category_description );
+									echo preg_replace( '/\<a.+\>(.+)\<\/a>/', '$1', $category->category_description );
 									// @codingStandardsIgnoreEnd
 								?>
 								</span>
 								<?php echo esc_html( $category->name ); ?>
 							</h2>
+
 							<ul class="Research--post__blocks">
 									<?php
 									$query_research_posts = new WP_Query(
 										array(
 											'ms_research_categories' => $category->slug,
-										// @codingStandardsIgnoreLine
-										'posts_per_page' => 500,
-											'fields'     => 'ids',
-											'orderby'    => 'menu_order',
-											'order'      => 'ASC',
+											// @codingStandardsIgnoreLine
+											'posts_per_page' => 500,
+											'post_type' => 'ms_research',
+											'orderby'   => 'menu_order',
+											'order'     => 'ASC',
 										)
 									);
 
@@ -89,7 +91,10 @@
 									<?php wp_reset_postdata(); ?>
 							</ul>
 						</div>
-					<?php } ?>
+							<?php 
+						}
+					}
+					?>
 			</div>
 		</div>
 
