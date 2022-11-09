@@ -1,0 +1,109 @@
+.qu-enhancedFAQ {
+
+	@media (min-width: $breakpoint-tablet) {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: space-between;
+	}
+
+	&__title {
+		margin-bottom: 1em;
+		line-height: 1.5;
+		text-align: center;
+		width: 100%;
+
+		span:first-child {
+			font-family: $font-secondary;
+			color: $light-orange;
+		}
+	}
+
+	&__item {
+		padding: 0 0.5em;
+		margin-bottom: 2em;
+		overflow: hidden;
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 47%;
+		}
+
+		&--question[class*="question"] {
+			position: relative;
+			margin: 0 0 0.25em;
+			font-size: 1.125rem;
+			line-height: 1.33;
+			padding-left: 1.5em;
+
+			svg {
+				position: absolute;
+				left: -8px;
+				top: 2px;
+			}
+		}
+
+		&--answer[class*="answer"] {
+			position: relative;
+			font-size: 0.875rem;
+			padding: 0.825rem 1.825em 0;
+
+			*:not(h2,h3,h4,h5) {
+				font-size: inherit;
+			}
+
+			&::before,
+			&::after {
+				position: absolute;
+				content: "";
+				height: 100%;
+				width: 1px;
+				top: 1rem;
+				left: 0;
+			}
+
+			&::before {
+				border-left: 1px dashed var(--qu-faq-color);
+			}
+
+			&::after {
+				background: linear-gradient(to bottom, rgba($white, 0), rgba($white, 1));
+				z-index: 1;
+				left: -1px;
+				width: 0.5em;
+			}
+
+			p {
+				margin: 1em 0 0;
+				font-size: 1rem;
+				color: $dark-gray;
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:empty {
+					display: none;
+				}
+			}
+
+			ul {
+				list-style: disc;
+				padding-left: 1.5em;
+				margin-top: 1em;
+				margin-bottom: 1em;
+				font-size: 1rem;
+				color: $dark-gray;
+
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+
+		}
+
+		&--arrow {
+			margin-left: auto;
+			transform: scaleY(-1);
+			transition: transform 0.2s;
+		}
+	}
+}
