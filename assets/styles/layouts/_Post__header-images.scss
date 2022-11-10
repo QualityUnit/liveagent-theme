@@ -264,7 +264,7 @@ body.single-ms_integrations {
 	&.customer-support-glossary {
 
 		.wrapper__wide {
-			background-image: url(../../images/bg_customer-support-glossary-image.png?v3);
+			background-image: url(../../images/bg_customer-support-glossary-image.png?ver=3);
 			background-position: right top;
 
 			@media (max-width: $breakpoint-desktop-box) {
@@ -289,23 +289,23 @@ body.single-ms_integrations {
 	&.directory {
 
 		.wrapper__wide {
-			background-image: url(../../images/bg_category_directory.jpg?v3);
+			background-image: url(../../images/bg_category_directory.jpg?ver=3);
 		}
 	}
 
 	&.about {
 
 		.wrapper__wide {
-			background: url(../../images/bg_category_about.jpg?v2) center center no-repeat;
+			background: url(../../images/bg_category_about.jpg?ver=2) center center no-repeat;
 			background-size: contain;
 
 			@media (min-width: $breakpoint-tablet) {
-				background-image: url(../../images/bg_category_about_tablet.jpg?v2);
+				background-image: url(../../images/bg_category_about_tablet.jpg?ver=2);
 				background-size: cover;
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
-				background-image: url(../../images/bg_category_about_desktop.jpg?v2);
+				background-image: url(../../images/bg_category_about_desktop.jpg?ver=2);
 			}
 		}
 	}

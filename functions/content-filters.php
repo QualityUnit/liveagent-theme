@@ -283,7 +283,7 @@ function svg_version( $html ) {
 	$html = preg_replace_callback(
 		'/(\<img.+)(src=".+?svg)/',
 		function ( $m ) {
-				return $m[1] . $m[2] . '?v=2021-06-25';
+				return $m[1] . $m[2] . '?ver=2021-06-25';
 		},
 		$html
 	);

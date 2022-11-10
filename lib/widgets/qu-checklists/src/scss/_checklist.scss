@@ -36,7 +36,7 @@
 			color: $saturated-green;
 
 			&::before {
-				background-image: url(../../../../../assets/images/checkbox-checklist-active.svg?v2) !important;
+				background-image: url(../../../../../assets/images/checkbox-checklist-active.svg?ver=2) !important;
 			}
 		}
 	}
@@ -70,7 +70,7 @@
 			content: "";
 			margin-left: -2.75em;
 			margin-right: 0.75em;
-			background: transparent url(../../../../../assets/images/checkbox-checklist-inactive.svg?v2) center center no-repeat;
+			background: transparent url(../../../../../assets/images/checkbox-checklist-inactive.svg?ver=2) center center no-repeat;
 			background-size: contain;
 			transition: all 0.2s;
 			flex: 0 0 auto;
@@ -87,7 +87,7 @@
 				text-decoration: underline;
 
 				&::before {
-					background-image: url(../../../../../assets/images/checkbox-checklist-inactive-hover.svg?v2);
+					background-image: url(../../../../../assets/images/checkbox-checklist-inactive-hover.svg?ver=2);
 				}
 			}
 		}
@@ -155,7 +155,7 @@
 			label {
 
 				&::before {
-					background-image: url(../../../../../assets/images/checkbox-checklist-active.svg?v2) !important;
+					background-image: url(../../../../../assets/images/checkbox-checklist-active.svg?ver=2) !important;
 				}
 			}
 		}
