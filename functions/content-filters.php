@@ -279,18 +279,18 @@ add_action( 'wp_head', 'end_wp_head_buffer', PHP_INT_MAX );
  * Change version of SVG images
  */
 
-function svg_version( $html ) {
-	$html = preg_replace_callback(
-		'/(\<img.+)(src=".+?svg)/',
-		function ( $m ) {
-				return $m[1] . $m[2] . '?ver=2021-06-25';
-		},
-		$html
-	);
-
-	return $html;
-}
-add_filter( 'the_content', 'svg_version', 10 );
+//function svg_version( $html ) {
+//	$html = preg_replace_callback(
+//		'/(\<img.+)(src=".+?svg)/',
+//		function ( $m ) {
+//				return $m[1] . $m[2] . '?ver=2021-06-25';
+//		},
+//		$html
+//	);
+//
+//	return $html;
+//}
+//add_filter( 'the_content', 'svg_version', 10 );
 
 	// Get WP_ENV
 function wpenv() {

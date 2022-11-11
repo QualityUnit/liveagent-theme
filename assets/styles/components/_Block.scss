@@ -195,7 +195,7 @@
 		&__testimonials {
 
 			.wrapper {
-				background: $lightest-gray url(../images/earth.png?ver=2) left center no-repeat;
+				background: $lightest-gray url(../images/earth.png?ver=#{$version}) left center no-repeat;
 			}
 
 			.Button--full {

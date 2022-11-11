@@ -9,7 +9,7 @@
 		padding: 0 !important;
 
 		&--headline {
-			background: url(../images/block_success_bg.jpg?ver=2) center bottom no-repeat;
+			background: url(../images/block_success_bg.jpg?ver=#{$version}) center bottom no-repeat;
 			background-size: 100% auto;
 			padding: 1.5em;
 			color: $white;
