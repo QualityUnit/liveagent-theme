@@ -65,26 +65,6 @@ function qu_commonproblems_init() {
 		);
 	}
 
-	// Resources for User visible part
-	function commonproblems_assets() {
-		$path_uri = get_template_directory_uri() . '/lib/widgets/' . basename( __DIR__ );
-		$version  = THEME_VERSION;
-
-		if ( is_singular() ) {
-			$id = get_the_ID();
-			if ( has_block( 'qu/commonproblems', $id ) ) {
-				wp_enqueue_style(
-					'qu_commonproblems_frontend_style',
-					$path_uri . '/build/qu_commonproblems_frontend.css',
-					array(),
-					$version,
-					false
-				);
-			}
-		}
-	}
-
-	add_action( 'enqueue_block_assets', 'commonproblems_assets' );
 	add_action( 'enqueue_block_editor_assets', 'commonproblems_editor_assets' );
 
 	require_once $path . '/includes/cp-item.php';
@@ -93,8 +73,12 @@ function qu_commonproblems_init() {
 		$title = $attr['title'];
 		$title = preg_replace( '/\^(.+?)\^/', '<span class="highlight-gradient">$1</span>', $title );
 
-		return '<div class="qu-CommonProblems">
-							<div class="h2" itemprop="name">' . $title . '</div>' .
+		return '<div class="qu-CommonProblems Faq">
+							<h2 class="qu-CommonProblems__title">' . $title . '</h2>
+							<p class="qu-CommonProblems__subtitle text-align-center">' .
+							 $attr['subtitle'] . '<br />' .
+							 $attr['subtitle2']
+						. '</p>' .
 								apply_filters( 'the_content', $content )
 						. '</div>';
 	}
@@ -105,7 +89,6 @@ function qu_commonproblems_init() {
 			'qu_commonproblems_editor_style'       => 'qu_commonproblems_editor_style',
 			'qu_commonproblems_item_editor_script' => 'qu_commonproblems_item_editor_script',
 			'qu_commonproblems_editor_script'      => 'qu_commonproblems_editor_script',
-			'qu_commonproblems_style'              => 'qu_commonproblems_frontend_style',
 			'render_callback'                      => 'render_commonproblems',
 			'attributes'                           => array(
 				'commonproblemsId'   => array(
