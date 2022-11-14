@@ -1,3 +1,7 @@
+### 1.4.8: November 14th, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.4.7: November 10th, 2022
 
 - Bug Fixes and Improvements
