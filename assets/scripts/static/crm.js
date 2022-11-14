@@ -626,7 +626,7 @@
 			return options;
 		};
 
-		const domainRegex = /^((?!http|www))[^A-Z][a-z0-9]*$/;
+		const domainRegex = /^((?!http|www))[^A-Z][-a-z0-9]*$/;
 		const regexDomainValidator = FieldValidator.regex(
 			domainRegex,
 			textDomainNoHttp
