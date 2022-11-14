@@ -31,7 +31,7 @@ $version: "3.0";
 					@include posZero();
 					position: absolute;
 					content: "";
-					background: url(../../images/reviews_1st_level_header_img.png?v=#{$version}) calc(100% - 1em) calc(100% - 2.5em) no-repeat;
+					background: url(../../images/reviews_1st_level_header_img.png?ver=#{$version}) calc(100% - 1em) calc(100% - 2.5em) no-repeat;
 					background-size: auto 100%;
 				}
 			}
@@ -80,7 +80,7 @@ $version: "3.0";
 					@include posZero();
 					position: absolute;
 					content: "";
-					background: url(../../images/reviews_2nd_level_header_img.png?v=#{$version}) calc(100% - 1em) top no-repeat;
+					background: url(../../images/reviews_2nd_level_header_img.png?ver=#{$version}) calc(100% - 1em) top no-repeat;
 					background-size: auto 100%;
 				}
 			}
@@ -128,7 +128,7 @@ $version: "3.0";
 					@include posZero();
 					position: absolute;
 					content: "";
-					background: url(../../images/reviews_header_post_img.png?v=#{$version}) calc(100% - 1em) top no-repeat;
+					background: url(../../images/reviews_header_post_img.png?ver=#{$version}) calc(100% - 1em) top no-repeat;
 					background-size: auto 100%;
 				}
 			}
@@ -318,4 +318,3 @@ $version: "3.0";
 		}
 	}
 }
-

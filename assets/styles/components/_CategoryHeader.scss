@@ -24,14 +24,14 @@
 		background-color: transparent;
 
 		.wrapper {
-			background: rgba(199, 196, 201, 0.259) url(../../images/integrations-category.svg?v=3) center no-repeat;
+			background: rgba(199, 196, 201, 0.259) url(../../images/integrations-category.svg?ver=#{$version}) center no-repeat;
 			background-size: auto 100%;
 		}
 
 		&--features {
 
 			.wrapper {
-				background: url(../../images/bg_category_features.svg?v=3) center no-repeat;
+				background: url(../../images/bg_category_features.svg?ver=#{$version}) center no-repeat;
 				background-size: cover;
 			}
 		}
@@ -39,7 +39,7 @@
 		&--academy {
 
 			.wrapper {
-				background: url(../../images/bg_category_academy.svg?v=2) center no-repeat;
+				background: url(../../images/bg_category_academy.svg?ver=#{$version}) center no-repeat;
 				background-size: cover;
 			}
 		}
@@ -47,7 +47,7 @@
 		&--templates {
 
 			.wrapper {
-				background: rgba(78, 196, 204, 0.141) url(../../images/templates-category.svg?v=3) center no-repeat;
+				background: rgba(78, 196, 204, 0.141) url(../../images/templates-category.svg?ver=#{$version}) center no-repeat;
 				background-size: auto 100%;
 			}
 		}
