@@ -17,4 +17,6 @@
 	<meta name="theme-color" content="#ffffff">
 
 	<?php wp_head(); ?>
+
+	<?php get_template_part( 'lib/pagesources' ); ?>
 </head>
