@@ -1,9 +1,9 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
 @use "sass:math";
-@import "./common/mixins";
-@import "./common/variables";
-@import "./common/global";
+@import "../../../../../assets/styles/common/variables";
+@import "../../../../../assets/styles/common/mixins";
+// @import "./common/global";
 @import "./qu-commonProblems";
 
 .qu-CommonProblems {/* stylelint-disable-line */

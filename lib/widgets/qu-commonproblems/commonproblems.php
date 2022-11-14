@@ -91,9 +91,6 @@ function qu_commonproblems_init() {
 			'qu_commonproblems_editor_script'      => 'qu_commonproblems_editor_script',
 			'render_callback'                      => 'render_commonproblems',
 			'attributes'                           => array(
-				'commonproblemsId'   => array(
-					'type' => 'string',
-				),
 				'title'   => array(
 					'type' => 'string',
 					'default' => 'Common ^problems and solutions^',
