@@ -26,12 +26,12 @@ function ms_signup_sidebar( $atts ) {
 			<input data-id="variation" type="hidden" value="freedesk" autocomplete="off">
 
 			<div data-id="nameFieldmain" class="Signup__sidebar__item">
-				<input type="text" name="Full name" placeholder="<?= esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off">
+				<input type="text" name="Full name" placeholder="<?= esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off" maxlength="100">
 				<div class="ErrorMessage"></div>
 			</div>
 
 			<div data-id="mailFieldmain" class="Signup__sidebar__item">
-				<input type="email" name="Email" placeholder="<?= esc_attr( $atts['email'] ); ?>" value="" required="required" autocomplete="off">
+				<input type="email" name="Email" placeholder="<?= esc_attr( $atts['email'] ); ?>" value="" required="required" autocomplete="off" maxlength="255">
 				<div class="ErrorMessage"></div>
 			</div>
 

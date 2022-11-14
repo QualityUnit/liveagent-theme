@@ -593,6 +593,17 @@
 		const { nameField } = sF;
 		nameField.registerValidator( FieldValidator.textLength() );
 		setEvents( nameField );
+
+		nameField.input().alphanum( {
+			disallow: '.', // Disallow extra characters
+			allowSpace: true, // Allow the space character
+			allowNumeric: true, // Allow digits 0-9
+			allowUpper: true, // Allow upper case characters
+			allowLower: true, // Allow lower case characters
+			allowCaseless: true, // Allow characters that don't have both upper & lower variants - eg Arabic or Chinese
+			allowLatin: true, // a-z A-Z
+			allowOtherCharSets: true, // eg ? ? Arabic, Chinese etc
+		} );
 	}
 
 	function initMailField() {
@@ -626,7 +637,7 @@
 			return options;
 		};
 
-		const domainRegex = /^((?!http|www))[^A-Z][a-z0-9]*$/;
+		const domainRegex = /^((?!http|www))[^A-Z][-a-z0-9]*$/;
 		const regexDomainValidator = FieldValidator.regex(
 			domainRegex,
 			textDomainNoHttp
