@@ -1,4 +1,8 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 .BlockPricing {
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
@@ -78,10 +82,10 @@
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: flex-start;
-		margin: (-$gutter / 2);
+		margin: math.div(-$gutter, 2);
 
 		> * {
-			padding: ($gutter / 2);
+			padding: math.div($gutter, 2);
 		}
 
 		div:first-of-type {

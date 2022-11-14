@@ -1,5 +1,10 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/Button" as *;
+
+
 .Boxes {
 	margin-top: $block-space !important;
 	margin-bottom: $block-space !important;

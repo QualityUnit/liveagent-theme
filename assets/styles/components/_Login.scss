@@ -1,7 +1,9 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
-@import "../common/mixins";
-@import "../common/variables";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../common/mixins" as *;
+@use "../common/variables" as *;
 
 .LoginBlock {
 	margin-bottom: 0 !important;

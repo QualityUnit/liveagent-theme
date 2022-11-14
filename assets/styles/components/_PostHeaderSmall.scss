@@ -1,7 +1,9 @@
 /* stylelint-disable selector-class-pattern */
 
-@import "../components/ChecklistsToc";
-@import "../elements/CircleProgressBar";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../components/ChecklistsToc" as *;
+@use "../elements/CircleProgressBar" as *;
 
 .Post__header__small {
 

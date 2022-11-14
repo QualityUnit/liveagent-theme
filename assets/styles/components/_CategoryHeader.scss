@@ -1,6 +1,8 @@
 /* stylelint-disable selector-class-pattern */
 
-@import "../elements/SearchField";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/SearchField" as *;
 
 .Category__header {
 	background-color: #e3f2ff;

@@ -1,4 +1,7 @@
 /* stylelint-disable */
+@use "sass:map";
+@use "sass:math";
+@use "variables" as *;
 
 @mixin color($property, $varName, $important: "") {
 	#{$property}: map-get($vars, $varName) #{$important};
@@ -37,11 +40,11 @@
         $n: $n * 10;
     }
     @if $mode == round {
-        @return round($number * $n) / $n;
+        @return math.div(math.round($number * $n), $n);
     } @else if $mode == ceil {
-        @return ceil($number * $n) / $n;
+        @return math.div(math.ceil($number * $n), $n);
     } @else if $mode == floor {
-        @return floor($number * $n) / $n;
+        @return math.div(math.floor($number * $n), $n);
     } @else {
         @warn '#{ $mode } is undefined keyword.';
         @return $number;
@@ -54,7 +57,7 @@
 
 @function strip-unit($number) {
     @if type-of($number) == 'number' and not unitless($number) {
-        @return $number / ($number * 0 + 1);
+        @return math.div( $number, ($number * 0 + 1) );
     }
 
     @return $number;
@@ -69,7 +72,7 @@
         @return 0;
     }
 
-    $result: strip-unit($target) / strip-unit($context);
+    $result: math.div( strip-unit($target), strip-unit($context) );
 
 	@return decimal-round($result, 3)+unquote($unit);
 }
@@ -154,7 +157,7 @@
 	width: 0;
 	border-color: transparent;
 	border-style: solid;
-	border-width: $size / 2;
+	border-width: math.div( $size, 2 );
 
 	@if $direction == up {
 		border-bottom-color: $color;
@@ -189,8 +192,8 @@
 		@for $r from 1 through $w {
 
 			@for $c from 1 through $w {
-				$x: $c - ceil($w / 2);
-				$y: $r - ceil($w / 2);
+				$x: $c - ceil(math.div($w, 2) );
+				$y: $r - ceil(math.div($w, 2) );
 
 				$shadow: #{$shadow}, #{$x}px #{$y}px 0 $color;
 			}

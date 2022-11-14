@@ -1,7 +1,8 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
-@import "../common/mixins";
-@import "../common/variables";
+@use "sass:math";
+@use "../common/mixins" as *;
+@use "../common/variables" as *;
 
 .NiceFaq {
 	position: relative;
@@ -34,7 +35,7 @@
 			@include color(color, font-color-dark);
 			font-size: 0.875rem;
 			padding: 0.15em 1.5em;
-			border-radius: $border-radius-16 / 2;
+			border-radius: math.div($border-radius-16, 2);
 			cursor: pointer;
 			transition: all 0.2s;
 

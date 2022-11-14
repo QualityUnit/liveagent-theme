@@ -1,5 +1,8 @@
 /* stylelint-disable selector-class-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 body.free-live-chat-software,
 body.free-call-center-software,
 body.free-ticketing-software,

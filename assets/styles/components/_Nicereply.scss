@@ -1,5 +1,9 @@
 /* stylelint-disable selector-class-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
 .Nicereply {
 	display: flex;
 	background: $medium-orange url(../images/nicereply_bubbles.svg) right center no-repeat;

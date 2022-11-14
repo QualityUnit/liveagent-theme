@@ -1,5 +1,9 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 @mixin footerGrid() {
 	$h-gutter: 20;
 
@@ -9,13 +13,13 @@
 		flex-flow: wrap row;
 		justify-content: center;
 		width: initial;
-		margin-left: em(-$h-gutter / 2);
-		margin-right: em(-$h-gutter / 2);
+		margin-left: em(math.div(-$h-gutter, 2));
+		margin-right: em(math.div(-$h-gutter, 2));
 
 		> * {
 			position: relative;
-			padding-left: em($h-gutter / 2);
-			padding-right: em($h-gutter / 2);
+			padding-left: em(math.div($h-gutter, 2));
+			padding-right: em(math.div($h-gutter, 2));
 		}
 	}
 }

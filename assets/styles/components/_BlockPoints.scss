@@ -1,5 +1,10 @@
-/* stylelint-disable selector-class-pattern */
-/* stylelint-disable scss/at-extend-no-missing-placeholder */
+/* stylelint-disable selector-class-pattern,
+scss/at-extend-no-missing-placeholder*/
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/Typography" as *;
+@use "Box" as *;
 
 .BlockPoints {
 	margin-top: $block-space !important;

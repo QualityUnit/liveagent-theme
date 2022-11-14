@@ -1,8 +1,8 @@
 /* stylelint-disable selector-class-pattern */
 
-@import "../layouts/Research";
-@import "../layouts/ResearchPost";
-@import "../elements/ResearchBlock";
+@use "../layouts/Research" as *;
+@use "../layouts/ResearchPost" as *;
+@use "../elements/ResearchBlock" as *;
 
 .Research--block {
 

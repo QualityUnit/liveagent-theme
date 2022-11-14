@@ -1,5 +1,9 @@
 /* stylelint-disable selector-class-pattern, selector-id-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
 .SoftphoneTable {
 
 	&#SoftphoneTable__desktop {

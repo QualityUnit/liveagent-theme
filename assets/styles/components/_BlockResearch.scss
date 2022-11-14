@@ -1,6 +1,8 @@
 /* stylelint-disable selector-class-pattern */
 
-@import "../elements/ResearchBlock";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/ResearchBlock" as *;
 
 .Block--research {
 	--post-color: #46a6ff !important;
@@ -38,7 +40,7 @@
 			color: var(--post-color);
 		}
 
-		@media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-tablet-landscape - 1px) {
+		@media (min-width: $breakpoint-tablet) and (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 			.elementor-widget-image {
 				margin-left: auto !important;

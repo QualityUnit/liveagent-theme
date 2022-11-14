@@ -1,4 +1,6 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "variables" as *;
+@use "mixins" as *;
 
 @media (max-width: $breakpoint-tablet) {
 
@@ -103,7 +105,7 @@
 	margin-bottom: $default-element-margin;
 }
 
-@media (min-width: $breakpoint-desktop + 1) {
+@media (min-width: ($breakpoint-desktop + 1)) {
 
 	.elementor-column-gap-wider {
 

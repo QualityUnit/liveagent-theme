@@ -1,6 +1,8 @@
 /* stylelint-disable selector-class-pattern,
 no-descending-specificity, value-keyword-case
 */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 input[type="text"],
 input[type="email"],

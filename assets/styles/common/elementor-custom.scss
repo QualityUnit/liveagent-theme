@@ -1,7 +1,7 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
-@import "variables";
-@import "mixins";
+@use "variables" as *;
+@use "mixins" as *;
 
 .elementor-element {
 	--flex-direction: initial;

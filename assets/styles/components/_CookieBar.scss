@@ -1,5 +1,10 @@
 /* stylelint-disable selector-class-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../common/animations" as *;
+
+
 .Kolaciky {
 
 	@include color(background-color, content-color-dark);

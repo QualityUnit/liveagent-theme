@@ -1,4 +1,6 @@
 /* stylelint-disable selector-class-pattern */
+@use "variables" as *;
+@use "mixins" as *;
 
 html {
 	scroll-behavior: smooth;

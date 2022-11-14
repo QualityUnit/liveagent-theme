@@ -62,6 +62,7 @@ function ms_short_pricing() {
 	</div>
 
 	<?php
+	set_custom_source( 'components/ShortPricing' );
 	return ob_get_clean();
 }
 add_shortcode( 'short-pricing', 'ms_short_pricing' );

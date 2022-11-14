@@ -1,5 +1,9 @@
 /* stylelint-disable selector-class-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
 .TourPageCTA {
 
 	section.elementor-section.elementor-inner-section.wrapper {
