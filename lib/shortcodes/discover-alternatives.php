@@ -32,6 +32,7 @@ function ms_discover_alternatives( $atts ) {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/InternalLinks' );
 	return ob_get_clean();
 }
 add_shortcode( 'discover_alternatives', 'ms_discover_alternatives' );

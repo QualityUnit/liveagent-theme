@@ -47,7 +47,7 @@ $sidebarWidth: 15.625rem;
 	&__showfilter {
 		display: none !important;
 
-		&--label {
+		&--label[class] {
 			display: none;
 		}
 	}
@@ -167,7 +167,7 @@ $sidebarWidth: 15.625rem;
 		&__showfilter {
 			margin-left: auto;
 
-			&--label {
+			&--label[class] {
 
 				@include color(color, font-color-normal);
 				display: flex;

@@ -123,3 +123,21 @@ function boxes_image( $content ) {
 
 add_filter( 'the_content', 'boxes_image' );
 add_action( 'admin_enqueue_scripts', 'boxes_image' );
+
+/* Demo blocks */
+
+function demo_blocks( $content ) {
+	$request_demo = preg_match( '/.+class=".+RequestDemo.+/', $content );
+	$schedule_demo = preg_match( '/.+class=".+ScheduleDemo.+/', $content );
+
+	if ( $request_demo || is_user_logged_in() ) {
+		wp_enqueue_style( 'requestdemo', get_template_directory_uri() . '/assets/dist/layouts/tests/RequestDemo' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+	}
+	if ( $schedule_demo || is_user_logged_in() ) {
+		wp_enqueue_style( 'scheduledemo', get_template_directory_uri() . '/assets/dist/layouts/tests/ScheduleDemo' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+	}
+		return $content;
+}
+
+add_filter( 'the_content', 'demo_blocks' );
+add_action( 'admin_enqueue_scripts', 'demo_blocks' );

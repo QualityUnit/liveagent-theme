@@ -11,6 +11,11 @@ const thisSliders = document.querySelectorAll(
 /* Testimonials Slider */
 if ( thisSliders.length > 0 ) {
 	thisSliders.forEach( ( slider ) => {
+		slider.querySelectorAll( '[data-src]' ).forEach( ( image ) => {
+			const img = image;
+			img.setAttribute( 'src', img.dataset.src );
+			img.style.cssText = null;
+		} );
 		const testimonialSlider = new Splide( slider, {
 			type: 'loop',
 			autoplay: true,

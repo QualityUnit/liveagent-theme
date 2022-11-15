@@ -36,9 +36,13 @@ body {
 }
 
 .RequestDemo.Block {
-	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 	padding: 0 !important;
+
+	body.demo & {
+		margin-top: 0 !important;
+		margin-bottom: 3em !important;
+	}
 
 	.elementor-widget-heading h2.elementor-heading-title {
 		margin-bottom: 10px !important;
@@ -49,7 +53,6 @@ body {
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		margin-top: 0 !important;
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
 
@@ -128,7 +131,7 @@ body {
 			flex: 0 0 auto;
 			margin-right: 8%;
 			border-radius: 50%;
-			background: url(../images/talkinghead_brian.jpg) center center no-repeat;
+			background: url(../../../images/talkinghead_brian.jpg) center center no-repeat;
 			background-size: cover;
 		}
 	}

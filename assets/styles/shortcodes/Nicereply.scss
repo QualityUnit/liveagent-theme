@@ -6,7 +6,7 @@
 
 .Nicereply {
 	display: flex;
-	background: $medium-orange url(../images/nicereply_bubbles.svg) right center no-repeat;
+	background: $medium-orange url(../../images/nicereply_bubbles.svg) right center no-repeat;
 	padding: 2em 3em;
 
 	&::before {
@@ -15,7 +15,7 @@
 		content: "";
 		width: 4em;
 		height: 4.5em;
-		background: url(../images/nicereply_crown.svg) center center no-repeat;
+		background: url(../../images/nicereply_crown.svg) center center no-repeat;
 		background-size: contain;
 		margin-right: 2.5em;
 		margin-top: -0.5em;

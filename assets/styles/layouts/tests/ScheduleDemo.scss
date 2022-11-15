@@ -107,7 +107,7 @@
 
 				//Icon calendar spacing
 				&::before {
-					content: url(../images/icon-calendar.svg);
+					content: url(../../../images/icon-calendar.svg);
 					float: left;
 					margin-left: -2.5em;
 				}
@@ -130,7 +130,7 @@
 				min-width: 34ch;
 				margin-bottom: auto !important;
 				padding: 0.45em 1em 1.5em 6em;
-				background: transparent url(../images/scheduledemo_shapetop.svg) calc(100% + 2rem) calc(100% - 0.75rem) no-repeat;
+				background: transparent url(../../../images/scheduledemo_shapetop.svg) calc(100% + 2rem) calc(100% - 0.75rem) no-repeat;
 				background-size: cover;
 			}
 		}
@@ -156,7 +156,7 @@
 				right: -7.375em;
 				left: 0;
 				background:
-					url(../images/scheduledemo_phone.svg) calc(100% + 2.5em)
+					url(../../../images/scheduledemo_phone.svg) calc(100% + 2.5em)
 					calc(100% + 2.5em) no-repeat;
 				background-size: 21.25em;
 			}

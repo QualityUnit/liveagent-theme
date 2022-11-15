@@ -103,7 +103,7 @@ function ms_nicefaq( $atts ) {
 		</div>
 
 	<?php
-	set_custom_source( 'components/NiceFaq' );
+	set_custom_source( 'shortcodes/NiceFaq' );
 	set_custom_source( 'nicefaq', 'js' );
 
 	return ob_get_clean();
