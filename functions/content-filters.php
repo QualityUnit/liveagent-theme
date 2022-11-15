@@ -276,21 +276,21 @@ function end_wp_head_buffer() {
 add_action( 'wp_head', 'end_wp_head_buffer', PHP_INT_MAX );
 
 /*
- * Change version of SVG images
+ * Add Trailing Slash at the end of a link
  */
 
-//function svg_version( $html ) {
-//	$html = preg_replace_callback(
-//		'/(\<img.+)(src=".+?svg)/',
-//		function ( $m ) {
-//				return $m[1] . $m[2] . '?ver=2021-06-25';
-//		},
-//		$html
-//	);
-//
-//	return $html;
-//}
-//add_filter( 'the_content', 'svg_version', 10 );
+function add_trailing_slash( $html ) {
+	$output = preg_replace_callback(
+		'/(href=\")([^"]{3,255}live[^"]{3,255}[^0-9|png|jpg|gif|svg|][^\/])(\")/i',
+		function ( $matches ) {
+			return $matches[1] . $matches[2] . '/' . $matches[3];
+		},
+		$html
+	);
+
+	return $output;
+}
+add_filter( 'the_content', 'add_trailing_slash', 1 );
 
 	// Get WP_ENV
 function wpenv() {
