@@ -39,8 +39,8 @@ function progressbar( $text, $rating, $color ) {
 						</a>
 					</li>
 					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" href="<?= esc_url( __( '/reviews/', 'ms' ) . $header_category_slug ); ?>">
-							<span itemprop="name"><?= esc_html( $header_category_name ); ?></span>
+						<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" href="<?= esc_url( __( '/reviews/', 'ms' ) . $category_slug ); ?>">
+							<span itemprop="name"><?= esc_html( $category_name ); ?></span>
 						</a>
 					</li>
 					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">

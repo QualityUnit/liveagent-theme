@@ -485,6 +485,11 @@ const smallPhotoSlider = document.querySelectorAll( '.SmallPhoto__slider' );
 
 if ( smallPhotoSlider.length > 0 ) {
 	smallPhotoSlider.forEach( ( slider ) => {
+		slider.querySelectorAll( '[data-src]' ).forEach( ( image ) => {
+			const img = image;
+			img.setAttribute( 'src', img.dataset.src );
+			img.style.cssText = null;
+		} );
 		const smallPhotos = new Splide( slider, {
 			type: 'loop',
 			autoplay: true,

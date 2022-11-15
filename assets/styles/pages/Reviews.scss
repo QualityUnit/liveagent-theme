@@ -20,6 +20,10 @@ $version: "3.0";
 		background: url(../../images/reviews_header_bg.jpg) center center no-repeat;
 		background-size: cover;
 
+		.wrapper {
+			z-index: 2;
+		}
+
 		&-level1 {
 			background: url(../../images/reviews_1st_level_header_bg.jpg) center center no-repeat;
 			background-size: cover;
@@ -31,8 +35,16 @@ $version: "3.0";
 					@include posZero();
 					position: absolute;
 					content: "";
-					background: url(../../images/reviews_1st_level_header_img.png?ver=#{$version}) calc(100% - 1em) calc(100% - 2.5em) no-repeat;
+					background: url(../../images/reviews_1st_level_header_img.png?ver=#{$version}) calc(100% - 1em) top no-repeat;
+					background-size: auto 75%;
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop-big) {
+
+				&::after {
 					background-size: auto 100%;
+					background-position: calc(100% - 1em) calc(100% - 2.5em);
 				}
 			}
 		}
@@ -42,7 +54,6 @@ $version: "3.0";
 
 			.wrapper {
 				padding: 1.5em;
-				z-index: 2;
 			}
 
 			@media (min-width: $breakpoint-tablet) {
