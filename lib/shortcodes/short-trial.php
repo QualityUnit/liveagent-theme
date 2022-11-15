@@ -31,6 +31,7 @@ function ms_short_trial() {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/ShortTrial' );
 	return ob_get_clean();
 }
 add_shortcode( 'short-trial', 'ms_short_trial' );

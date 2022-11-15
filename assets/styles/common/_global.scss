@@ -2,6 +2,26 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+:root {
+
+	@each $name, $var in $vars {
+		--#{$name}: #{$var};
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	$vars: (
+		header-background: #fff,
+	);
+
+	:root {
+
+		@each $name, $var in $vars {
+			--#{$name}: #{$var};
+		}
+	}
+}
+
 html {
 	scroll-behavior: smooth;
 

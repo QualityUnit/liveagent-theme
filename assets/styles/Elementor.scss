@@ -1,18 +1,32 @@
+/* Common */
+
 @use "common/reset" as *;
 @use "common/sanitize" as *;
 @use "common/variables" as *;
 @use "common/mixins" as *;
 @use "common/fontello" as *;
 @use "common/global" as *;
-@use "elements/Typography" as *;
 @use "common/elementor" as *;
+@use "common/elementor-cherrypick" as *;
 @use "common/lightbox" as *;
 @use "common/animations" as *;
 
 /* Elements */
+
+@use "elements/Typography" as *;
+@use "elements/Checklist" as *;
 @use "elements/Button" as *;
+@use "elements/Form" as *;
+@use "elements/Tooltip" as *;
+@use "elements/FakeChatButton" as *;
 @use "elements/YoutubeLoader" as *;
 @use "elements/progressBar" as *;
+@use "elements/menuArrow" as *;
+@use "elements/SideRibbon" as *;
+
+/* Components */
+@use "components/CookieBar" as *;
+@use "components/DemoBar" as *;
 @use "components/Box" as *;
 @use "components/Boxes" as *;
 @use "components/BoxesDotted" as *;
@@ -34,12 +48,24 @@
 @use "components/BlockVideo" as *;
 @use "components/BlockButtons" as *;
 @use "components/BlockPricing" as *;
+@use "components/Reference" as *;
+@use "components/Faq" as *;
 @use "components/FeaturesSlider" as *;
 @use "components/FeaturesTable-New" as *;
+@use "components/FullHeadline" as *;
+@use "components/ExtraFaq" as *;
+@use "components/ShortFaq" as *;
 @use "components/HeroBanner" as *;
 @use "components/HorizontalTabs" as *;
 @use "components/HeroHeadlineHome" as *;
 @use "components/IconList" as *;
+@use "components/Loader" as *;
+@use "components/Numbers" as *;
+@use "components/SimilarSources" as *;
 @use "components/Text" as *;
 @use "components/TourPageCTA" as *;
 @use "components/TourPageNumbers" as *;
+
+/* Shortcodes – use only if same layout is in Elementor as HTML */
+
+@use "shortcodes/Reviews" as *;

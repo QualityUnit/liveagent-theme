@@ -20,6 +20,8 @@ function learnmore_pre_block( $content ) {
 	if ( $blocks[0] ) {
 		set_custom_source( 'pages/post', 'css' );
 		set_custom_source( 'common/splide', 'css' );
+		set_custom_source( 'components/SidebarTOC' );
+		set_custom_source( 'components/SignupSidebar' );
 		set_custom_source( 'components/SmallPhotoSlider', 'css' );
 		set_custom_source( 'splide', 'js' );
 		set_custom_source( 'custom_lightbox', 'js' );

@@ -6,11 +6,11 @@
 @use "common/mixins" as *;
 @use "common/fontello" as *;
 @use "common/global" as *;
-@use "common/elementor" as *;
 @use "common/lightbox" as *;
 @use "common/animations" as *;
 
 /* Elements */
+
 @use "elements/Typography" as *;
 @use "elements/BulletLists" as *;
 @use "elements/Checklist" as *;
@@ -23,7 +23,6 @@
 @use "elements/FakeChatButton" as *;
 @use "elements/TextCopiedMessage" as *;
 @use "elements/menuArrow" as *;
-@use "elements/SideRibbon" as *;
 @use "elements/SplitTitle" as *;
 
 /* Components */
@@ -33,20 +32,13 @@
 @use "components/Box" as *;
 @use "components/BlogCTA" as *;
 @use "components/BlogShare" as *;
-@use "components/Newsletter" as *;
-@use "components/Clients" as *;
-@use "components/Portals" as *;
 @use "components/Reference" as *;
-@use "components/Reviews" as *;
 @use "components/BannerTypingTest" as *;
 @use "components/Faq" as *;
 @use "components/Loader" as *;
 @use "components/Logos" as *;
 @use "components/ExtraFaq" as *;
 @use "components/ShortFaq" as *;
-@use "components/ShortTrial" as *;
-@use "components/Numbers" as *;
-@use "components/Login" as *;
 @use "components/SimilarSources" as *;
 @use "components/Breadcrumb" as *;
 @use "components/AlternativeTable" as *;
@@ -54,19 +46,13 @@
 @use "components/WordCloud" as *;
 @use "components/InternalLinks" as *;
 @use "components/SidebarTOC" as *;
-@use "components/HeaderLanguageSwitcher" as *;
+@use "components/SignupSidebar" as *;
 @use "components/WhatIsHeadline" as *;
 @use "components/Nicereply" as *;
-@use "components/SignupSidebar" as *;
-@use "components/FullHeadline" as *;
 
 
 /* Layouts */
 
-@use "layouts/Header" as *;
-@use "layouts/HelpDesk" as *;
-@use "layouts/Footer" as *;
-@use "layouts/Page" as *;
 @use "layouts/Custom" as *;
 @use "layouts/FullScreen" as *;
 @use "layouts/ErrorPage" as *;

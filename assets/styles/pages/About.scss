@@ -1,7 +1,7 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
-@use "../common/mixins" as *;
 @use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 $sidebarWidth: 13.5em;
 
@@ -54,7 +54,7 @@ $sidebarWidth: 13.5em;
 				}
 			}
 
-			@media (max-width: $breakpoint-tablet-landscape - 1px) {
+			@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 				position: sticky;
 				top: $header-height;

@@ -2,6 +2,8 @@
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@use "../components/HeaderLanguageSwitcher" as *;
+@use "../components/Login" as *;
 
 #app {
 	padding-top: $header-height;
@@ -522,7 +524,7 @@
 
 	@each $icon, $pos in $iconHeader {
 		.icon-header-menu-#{$icon}:before {
-			background: url(../images/icons-menu-integrations.png) #{$pos};
+			background: url(../../images/icons-menu-integrations.png) #{$pos};
 			background-size: 176px;
 		}
 	}
@@ -677,11 +679,11 @@ html[lang="vi-VN"] {
 	}
 
 	.Header__navigation .icon-header-menu-wordpress {
-		background: url(../images/icons-menu-integrations.png) -19px 0;
+		background: url(../../images/icons-menu-integrations.png) -19px 0;
 	}
 
 	.Header__navigation .icon-header-menu-magento {
-		background: url(../images/icons-menu-integrations.png) 4px 0;
+		background: url(../../images/icons-menu-integrations.png) 4px 0;
 	}
 }
 

@@ -164,23 +164,3 @@ $vars: (
 	background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%),
 	background-invert: linear-gradient(90deg, $dark-orange 0%, $light-orange 100%),
 );
-
-:root {
-
-	@each $name, $var in $vars {
-		--#{$name}: #{$var};
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	$vars: (
-		header-background: #fff,
-	);
-
-	:root {
-
-		@each $name, $var in $vars {
-			--#{$name}: #{$var};
-		}
-	}
-}

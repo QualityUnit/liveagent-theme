@@ -1,3 +1,7 @@
+<?php
+wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+?>
+
 <footer class="Footer urlslab-skip-keywords" data-scrollsidebars="true">
 	<div class="Footer__top">
 		<div class="wrapper">

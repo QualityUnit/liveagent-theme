@@ -3,6 +3,8 @@
 @use "sass:math";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@use "../components/Portals" as *;
+@use "../components/Newsletter" as *;
 
 @mixin footerGrid() {
 	$h-gutter: 20;
@@ -32,7 +34,7 @@
 	padding-top: em(110);
 	padding-bottom: em(20);
 	margin-top: em(100);
-	background-image: url(../images/footer-bg.svg);
+	background-image: url(../../images/footer-bg.svg);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
