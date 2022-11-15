@@ -1,6 +1,3 @@
-<?php
-wp_enqueue_style( 'header', get_template_directory_uri() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-?>
 <header class="Header urlslab-skip-keywords">
 	<div class="wrapper">
 		<div class="Header__logo">

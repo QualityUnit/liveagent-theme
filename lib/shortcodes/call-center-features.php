@@ -9,6 +9,7 @@ function ms_call_center_features() {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/WordCloud' );
 	return ob_get_clean();
 }
 add_shortcode( 'call-center-features', 'ms_call_center_features' );

@@ -91,6 +91,14 @@
 					&.half {
 						background-image: url(../../mages/icon_star_half.svg);
 					}
+
+					.elementor-widget-html & {
+						background-image: url(../images/icon_star.svg);
+
+						&.half {
+							background-image: url(../mages/icon_star_half.svg);
+						}
+					}
 				}
 			}
 		}

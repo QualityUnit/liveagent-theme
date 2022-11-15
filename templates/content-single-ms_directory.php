@@ -1,6 +1,8 @@
 <?php // @codingStandardsIgnoreLine
 	set_source( 'directory', 'pages/Directory', 'css' );
 	set_custom_source( 'common/splide', 'css' );
+	set_custom_source( 'components/SidebarTOC' );
+	set_custom_source( 'components/SignupSidebar' );
 	set_custom_source( 'splide', 'js' );
 	set_custom_source( 'sidebar_toc', 'js' );
 

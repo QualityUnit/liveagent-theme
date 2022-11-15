@@ -17,7 +17,7 @@
 		border-radius: $border-radius-16;
 
 		@media (min-width: 1300px) {
-			content: url(../images/bg_pricing.svg);
+			content: url(../../images/bg_pricing.svg);
 			background-size: contain;
 			background-color: transparent;
 		}
@@ -193,7 +193,7 @@
 					&__price {
 
 						&::after {
-							content: url(../images/icon-crown.svg);
+							content: url(../../images/icon-crown.svg);
 							position: absolute;
 							top: -2em;
 							right: 0;
@@ -208,7 +208,7 @@
 
 									@include square(120%);
 									position: absolute;
-									background: url(../images/pricing_crossover.svg) center center no-repeat;
+									background: url(../../images/pricing_crossover.svg) center center no-repeat;
 									background-size: 100%;
 									top: -0.15em;
 									right: -0.125em;
@@ -219,7 +219,7 @@
 						}
 
 						&::before {
-							content: url(../images/pricing-banner-popular.svg);
+							content: url(../../images/pricing-banner-popular.svg);
 						}
 					}
 
@@ -257,7 +257,7 @@
 					&::before {
 						position: relative;
 						display: inline-block;
-						content: url(../images/pricing-banner.svg);
+						content: url(../../images/pricing-banner.svg);
 						margin-top: -1.4em;
 						margin-left: auto;
 						z-index: 0;
@@ -316,7 +316,7 @@
 							top: 2px;
 							left: -1.75em;
 							z-index: 4;
-							content: url(../images/icon_checkmark_circle.svg);
+							content: url(../../images/icon_checkmark_circle.svg);
 							background: none;
 						}
 					}

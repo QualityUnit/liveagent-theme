@@ -124,23 +124,6 @@ function add_lightbox_rel( $content ) {
 
 add_filter( 'the_content', 'add_lightbox_rel' );
 
-/**
- * IconTabs block CSS and JS importer
- */
-
-function icontabs_sources( $content ) {
-	$icontabs_block = preg_match( '/\<section.+class=".+IconTabs.+/', $content );
-
-	if ( $icontabs_block || is_user_logged_in() ) {
-		wp_enqueue_style( 'icontabs', get_template_directory_uri() . '/assets/dist/components/IconTabs' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-		wp_enqueue_script( 'icontabs', get_template_directory_uri() . '/assets/dist/IconTabs' . wpenv() . '.js', false, THEME_VERSION, true );
-	}
-		return $content;
-}
-
-add_filter( 'the_content', 'icontabs_sources' );
-add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
-
 
 /**
 	* Add X-DEFAULT Header

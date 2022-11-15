@@ -9,6 +9,7 @@ function ms_migrations() {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/WordCloud' );
 	return ob_get_clean();
 }
 add_shortcode( 'migrations', 'ms_migrations' );

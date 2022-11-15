@@ -39,7 +39,7 @@ no-descending-specificity, value-keyword-case */
 			margin-bottom: 1em;
 		}
 
-		a {
+		a[href] {
 
 			@include color(color, font-color-dark);
 			position: relative;

@@ -54,7 +54,7 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 				height: 11em;
 				padding-bottom: 0;
 				transform: translate(-50%, 27%);
-				background-image: url(../images/press_to_play_bottom.svg);
+				background-image: url(../../images/press_to_play_bottom.svg);
 				background-position: center bottom;
 			}
 
@@ -185,7 +185,7 @@ $positions: ("left", "right");
 
 			&::after {
 
-				content: url(../images/arrow_small_right.svg) !important;
+				content: url(../../images/arrow_small_right.svg) !important;
 				position: relative;
 				top: 0.16em;
 				display: inline-block !important;
@@ -411,13 +411,13 @@ $positions: ("left", "right");
 							@if $pos == left {
 
 								right: -10%;
-								background-image: url(../images/press_to_play.svg);
+								background-image: url(../../images/press_to_play.svg);
 							}
 
 							@if $pos == right {
 
 								left: -10%;
-								background-image: url(../images/press_to_play_right.svg);
+								background-image: url(../../images/press_to_play_right.svg);
 							}
 						}
 
@@ -617,7 +617,7 @@ $positions: ("left", "right");
 				width: 10em;
 				height: 0;
 				padding-bottom: 20%;
-				background: url(../images/play_videoHorizontal.svg) center center no-repeat;
+				background: url(../../images/play_videoHorizontal.svg) center center no-repeat;
 				background-size: contain;
 				bottom: 0;
 				left: 50%;

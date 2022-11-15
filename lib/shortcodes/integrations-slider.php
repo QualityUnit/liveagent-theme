@@ -77,6 +77,7 @@ function ms_integrations_slider() {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/FeaturesSlider' );
 	return ob_get_clean();
 }
 add_shortcode( 'integrations-slider', 'ms_integrations_slider' );

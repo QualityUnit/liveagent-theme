@@ -3,14 +3,14 @@ scss/at-extend-no-missing-placeholder */
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@use "Box" as *;
+@use "../components/Box" as *;
 
 .BlockDiscover {
 	position: relative;
 	margin: 2.5em auto;
 	padding: 40px !important;
 	border-radius: $border-radius-16;
-	background: url(../images/cta_new_bg.svg) left top no-repeat;
+	background: url(../../images/cta_new_bg.svg) left top no-repeat;
 	background-size: cover;
 
 	&::before {
@@ -21,7 +21,7 @@ scss/at-extend-no-missing-placeholder */
 			position: absolute;
 			content: "";
 			pointer-events: none;
-			background: url(../images/cta_new_chat.png) 100% bottom no-repeat;
+			background: url(../../images/cta_new_chat.png) 100% bottom no-repeat;
 			background-size: 50% auto;
 		}
 

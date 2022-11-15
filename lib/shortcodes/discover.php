@@ -34,6 +34,7 @@ function ms_discover( $atts ) {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/BlockDiscover' );
 	return ob_get_clean();
 }
 add_shortcode( 'discover', 'ms_discover' );
