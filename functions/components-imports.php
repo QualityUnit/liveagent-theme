@@ -77,7 +77,7 @@ function features_table( $content ) {
 		return $content;
 }
 
-add_filter( 'the_content', 'features_table');
+add_filter( 'the_content', 'features_table' );
 add_action( 'admin_enqueue_scripts', 'features_table' );
 
 /* Hero banner – to be removed*/
