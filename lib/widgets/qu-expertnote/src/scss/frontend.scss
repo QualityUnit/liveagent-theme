@@ -1,4 +1,4 @@
 //Our styles
-@import "../../../../../assets/styles/common/variables";
-@import "../../../../../assets/styles/common/mixins";
-@import "./expertNote";
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
+@use "./expertNote" as *;

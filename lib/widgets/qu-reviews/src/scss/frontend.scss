@@ -1,6 +1,6 @@
 //Our styles
-@import "../../../../../assets/styles/common/variables";
-@import "../../../../../assets/styles/common/mixins";
-@import "./review";
-@import "./reviewsRating";
-@import "./components/ReviewsData";
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
+@use "./review" as *;
+@use "./reviewsRating" as *;
+@use "./components/ReviewsData" as *;
