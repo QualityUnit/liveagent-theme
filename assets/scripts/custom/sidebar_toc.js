@@ -84,30 +84,13 @@ function activateSidebars() {
 			const el = element;
 			el.dataset.number = index;
 
-			el.addEventListener( 'click', ( e ) => {
-				e.preventDefault();
-				const elemHref = el.getAttribute( 'href' );
-				const toPosition = document
-					.querySelector( elemHref )
-					.getBoundingClientRect().top;
-
+			el.addEventListener( 'click', ( ) => {
 				tocRemoveActive();
 				el.classList.add( 'active' );
 
-				window.scroll( {
-					top:
-						toPosition +
-						document.documentElement.scrollTop -
-						treshold,
-					behavior: 'smooth',
-				} );
-
-				if ( content.classList.contains( 'BlogPost__content' ) ) {
-					window.scroll( {
-						top: toPosition - headerHeight + treshold,
-						behavior: 'smooth',
-					} );
-				}
+				setTimeout( () => {
+					window.scrollBy( 0, -treshold );
+				}, 1000 );
 			} );
 		} );
 

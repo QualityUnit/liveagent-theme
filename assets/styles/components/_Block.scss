@@ -3,7 +3,7 @@ scss/at-extend-no-missing-placeholder */
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@use "Box" as *;
+@forward "Box";
 
 .Block {
 	margin-top: $block-space;
