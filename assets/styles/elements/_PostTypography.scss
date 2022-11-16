@@ -197,7 +197,7 @@
 
 			a {
 
-				@include color(color, font-color-normal);
+				@include color(color, font-color-normal, !important);
 
 				&:active,
 				&:focus,

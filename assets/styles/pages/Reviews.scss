@@ -20,6 +20,10 @@ $version: "3.0";
 		background: url(../../images/reviews_header_bg.jpg) center center no-repeat;
 		background-size: cover;
 
+		.wrapper {
+			z-index: 2;
+		}
+
 		&-level1 {
 			background: url(../../images/reviews_1st_level_header_bg.jpg) center center no-repeat;
 			background-size: cover;
@@ -42,7 +46,6 @@ $version: "3.0";
 
 			.wrapper {
 				padding: 1.5em;
-				z-index: 2;
 			}
 
 			@media (min-width: $breakpoint-tablet) {

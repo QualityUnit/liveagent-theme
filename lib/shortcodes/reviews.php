@@ -44,7 +44,6 @@ function ms_reviews() {
 	</div>
 
 	<?php
-	set_custom_source( 'shortcodes/Reviews' );
 	return ob_get_clean();
 }
 add_shortcode( 'reviews', 'ms_reviews' );
