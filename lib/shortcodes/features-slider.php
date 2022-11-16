@@ -77,6 +77,7 @@ function ms_features_slider() {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/FeaturesSlider' );
 	return ob_get_clean();
 }
 add_shortcode( 'features-slider', 'ms_features_slider' );

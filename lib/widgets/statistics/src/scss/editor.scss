@@ -1,7 +1,9 @@
-@import "../../../../../assets/styles/common/variables";
-@import "../../../../../assets/styles/common/mixins";
-@import "../../../../../assets/styles/common/ResearchColors";
-@import "../../../../../assets/styles/elements/ResearchBlock";
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
+@use "../../../../../assets/styles/common/ResearchColors" as *;
+@use "../../../../../assets/styles/elements/ResearchBlock" as *;
 
 .wp-block.display-inline {
 	display: inline;

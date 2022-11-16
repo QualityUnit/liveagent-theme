@@ -1,8 +1,8 @@
 /* stylelint-disable selector-class-pattern */
 
-@import "../common/mixins";
-@import "../common/variables";
-@import "../components/PostHeaderSmall";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../components/PostHeaderSmall" as *;
 
 .Checklists {
 

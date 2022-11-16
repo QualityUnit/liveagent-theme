@@ -1,5 +1,9 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-/* stylelint-disable value-keyword-case */
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, value-keyword-case */
+
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .Blog {
 
@@ -171,11 +175,11 @@
 				animation: chatDots 1.5s linear infinite;
 
 				&:nth-child(2) {
-					animation-delay: $animationTime / 6;
+					animation-delay: math.div($animationTime, 6);
 				}
 
 				&:nth-child(3) {
-					animation-delay: $animationTime / 3;
+					animation-delay: math.div($animationTime, 3);
 				}
 			}
 		}

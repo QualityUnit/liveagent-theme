@@ -1,12 +1,12 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
-@import "../common/mixins";
-@import "../common/variables";
-@import "../elements/ReviewsRating";
-@import "../components/ReviewsGallery";
-@import "../components/ReviewsCategoryAbout";
-@import "../layouts/ReviewsCategories";
-@import "../layouts/ReviewsPosts";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/ReviewsRating" as *;
+@use "../components/ReviewsGallery" as *;
+@use "../components/ReviewsCategoryAbout" as *;
+@use "../layouts/ReviewsCategories" as *;
+@use "../layouts/ReviewsPosts" as *;
 
 $version: "3.0";
 
@@ -19,6 +19,10 @@ $version: "3.0";
 		margin: 0 auto;
 		background: url(../../images/reviews_header_bg.jpg) center center no-repeat;
 		background-size: cover;
+
+		.wrapper {
+			z-index: 2;
+		}
 
 		&-level1 {
 			background: url(../../images/reviews_1st_level_header_bg.jpg) center center no-repeat;
@@ -42,7 +46,6 @@ $version: "3.0";
 
 			.wrapper {
 				padding: 1.5em;
-				z-index: 2;
 			}
 
 			@media (min-width: $breakpoint-tablet) {

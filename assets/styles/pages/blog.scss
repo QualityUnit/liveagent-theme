@@ -1,4 +1,4 @@
-@import "../common/mixins";
-@import "../common/variables";
-@import "../layouts/Blog";
-@import "../layouts/BlogPost";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../layouts/Blog" as *;
+@use "../layouts/BlogPost" as *;

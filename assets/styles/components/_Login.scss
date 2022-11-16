@@ -1,7 +1,7 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
-@import "../common/mixins";
-@import "../common/variables";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .LoginBlock {
 	margin-bottom: 0 !important;
@@ -101,7 +101,7 @@
 		display: flex;
 		width: 25px;
 		height: 25px;
-		background-image: url(../images/icon-close.svg);
+		background-image: url(../../images/icon-close.svg);
 		background-repeat: no-repeat;
 		background-size: 100% auto;
 		background-position: center;
@@ -142,7 +142,7 @@
 			display: block;
 			width: 17px;
 			height: 100%;
-			background-image: url(../images/icon-login.svg);
+			background-image: url(../../images/icon-login.svg);
 			background-repeat: no-repeat;
 			background-size: 100% auto;
 			background-position: center;

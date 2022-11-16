@@ -1,5 +1,11 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-/* stylelint-disable value-keyword-case */
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, value-keyword-case */
+
+$sidebarWidth: 15.625rem;
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 
 .Category__sidebar {
 
@@ -41,7 +47,7 @@
 	&__showfilter {
 		display: none !important;
 
-		&--label {
+		&--label[class] {
 			display: none;
 		}
 	}
@@ -161,7 +167,7 @@
 		&__showfilter {
 			margin-left: auto;
 
-			&--label {
+			&--label[class] {
 
 				@include color(color, font-color-normal);
 				display: flex;

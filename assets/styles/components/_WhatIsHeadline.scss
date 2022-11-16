@@ -1,5 +1,9 @@
 /* stylelint-disable selector-class-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
 .Post__content__whatis-headline {
 
 	@include color(background-color, secondary-background);

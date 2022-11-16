@@ -1,4 +1,7 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, no-duplicate-selectors */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .Header__flags {
 	margin-left: 30px;
@@ -242,9 +245,9 @@
 }
 
 // Temporary disable flags for not finished languages
-/* stylelint-disable-next-line no-duplicate-selectors */
+
 .Header__flags--item {
-	/* stylelint-disable-next-line no-duplicate-selectors */
+
 	&-sv,
 	&-ja,
 	&-fi,

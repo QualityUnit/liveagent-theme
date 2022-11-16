@@ -55,7 +55,7 @@ function ms_slidertestimonials() {
 
 	<?php
 	set_custom_source( 'common/splide' );
-	set_custom_source( 'components/SliderTestimonials' );
+	set_custom_source( 'shortcodes/SliderTestimonials' );
 	set_custom_source( 'splide', 'js' );
 	set_custom_source( 'slider', 'js' );
 

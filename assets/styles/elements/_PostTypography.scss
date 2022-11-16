@@ -1,4 +1,7 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "Typography" as *;
 
 %resources {
 
@@ -194,7 +197,7 @@
 
 			a {
 
-				@include color(color, font-color-normal);
+				@include color(color, font-color-normal, !important);
 
 				&:active,
 				&:focus,

@@ -1,4 +1,5 @@
-@import "../common/variables";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 %menuArrow {
 

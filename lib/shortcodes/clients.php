@@ -36,6 +36,7 @@ function ms_clients( $atts ) {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/Clients' );
 	return ob_get_clean();
 }
 add_shortcode( 'clients', 'ms_clients' );

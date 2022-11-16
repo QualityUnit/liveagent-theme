@@ -1,5 +1,9 @@
 /* stylelint-disable selector-class-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
 .ShortFaq {
 
 	@include color(border-top-color, border-color-gray-icon);

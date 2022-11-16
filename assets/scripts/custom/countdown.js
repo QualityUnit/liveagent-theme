@@ -1,4 +1,4 @@
-const elCountdown = document.querySelectorAll( '.el-countdown' );
+const elCountdown = document.querySelectorAll( '.Countdown' );
 
 elCountdown.forEach( ( element ) => {
 	const el = element;
@@ -39,10 +39,10 @@ elCountdown.forEach( ( element ) => {
 				seconds = '00';
 			}
 
-			el.querySelector( '.el-countdown__digits--days' ).innerHTML = days;
-			el.querySelector( '.el-countdown__digits--hours' ).innerHTML = hours;
-			el.querySelector( '.el-countdown__digits--minutes' ).innerHTML = minutes;
-			el.querySelector( '.el-countdown__digits--seconds' ).innerHTML = seconds;
+			el.querySelector( '[data-days]' ).innerHTML = days;
+			el.querySelector( '[data-hours]' ).innerHTML = hours;
+			el.querySelector( '[data-minutes]' ).innerHTML = minutes;
+			el.querySelector( '[data-seconds]' ).innerHTML = seconds;
 		}, 1000 );
 	}
 } );

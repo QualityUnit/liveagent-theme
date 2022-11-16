@@ -1,5 +1,9 @@
 /* stylelint-disable selector-class-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
 .BlockQuote {
 	position: relative;
 	background-repeat: no-repeat;

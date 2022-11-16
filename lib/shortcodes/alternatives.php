@@ -8,6 +8,7 @@ function ms_alternatives() {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/WordCloud' );
 	return ob_get_clean();
 }
 add_shortcode( 'alternatives', 'ms_alternatives' );

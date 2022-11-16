@@ -1,5 +1,10 @@
 /* stylelint-disable selector-class-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../common/animations" as *;
+
+
 .Kolaciky {
 
 	@include color(background-color, content-color-dark);
@@ -52,14 +57,14 @@
 		}
 	}
 
-	&__buttons {
+	&__buttons[class] {
 		margin-top: 25px;
 		width: 100%;
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: space-between;
 
-		.Button--full {
+		.Button--full[class] {
 
 			@include color(background, main-background);
 			@include color(color, font-color-dark);
@@ -85,7 +90,7 @@
 
 	&__button {
 
-		&--more {
+		&--more[class] {
 
 			@include color(color, font-color-light);
 			border-color: transparent !important;

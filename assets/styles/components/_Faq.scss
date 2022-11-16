@@ -1,5 +1,9 @@
 /* stylelint-disable selector-class-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
 .Faq {
 	margin-bottom: $block-space !important;
 	padding-top: 0 !important;

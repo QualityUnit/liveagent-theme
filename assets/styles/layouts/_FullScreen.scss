@@ -1,5 +1,8 @@
 /* stylelint-disable selector-class-pattern, selector-id-pattern */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 body.page-template-template-free-account,
 body.page-template-template-trial,
 body.page-template-template-demo {

@@ -142,6 +142,7 @@ function ms_block_pricing( $atts ) {
 </div>
 
 	<?php
+	set_custom_source( 'shortcodes/BlockPricing' );
 	return ob_get_clean();
 }
 add_shortcode( 'block_pricing', 'ms_block_pricing' );

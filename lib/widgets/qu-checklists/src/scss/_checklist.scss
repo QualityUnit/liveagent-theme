@@ -1,3 +1,9 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
+
 .qu-Checklist {
 	margin-bottom: 3em;
 }
@@ -185,8 +191,8 @@
 
 			svg,
 			span {
-				color: currentColor;
-				fill: currentColor;
+				color: currentcolor;
+				fill: currentcolor;
 			}
 
 			@media (hover: hover) {
@@ -194,13 +200,13 @@
 				&:hover {
 
 					@include color(border-color, border-color-inputs);
-					color: currentColor;
+					color: currentcolor;
 					background-color: $light-gray;
 				}
 
 				.checked &:hover {
 					color: $saturated-green;
-					border-color: currentColor;
+					border-color: currentcolor;
 					background-color: rgba($saturated-green, 0.15);
 				}
 			}
@@ -294,7 +300,7 @@
 
 			span {
 
-				color: currentColor;
+				color: currentcolor;
 			}
 		}
 

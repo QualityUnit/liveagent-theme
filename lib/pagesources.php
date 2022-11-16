@@ -16,6 +16,8 @@ foreach ( $archive_type as $specific_page ) {
 
 // Post type page
 set_source( 'post', 'pages/post', 'css' );
+set_source( 'post', 'components/SidebarTOC', 'css' );
+set_source( 'post', 'components/SignupSidebar', 'css' );
 set_source( 'post', 'splide', 'js' );
 set_source( 'post', 'custom_lightbox', 'js' );
 

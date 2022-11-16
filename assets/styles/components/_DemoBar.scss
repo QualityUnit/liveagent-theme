@@ -1,5 +1,8 @@
 /* stylelint-disable selector-class-pattern, value-keyword-case */
 
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
 .DemoBar {
 
 	@include color(color, main-background);
@@ -20,7 +23,7 @@
 		transform: translate(-50%, 110%);
 		z-index: 5;
 
-		@media (min-width: $breakpoint-tablet - 1px) {
+		@media (min-width: ($breakpoint-tablet - 1px)) {
 			justify-content: center;
 			width: 85%;
 
@@ -53,7 +56,7 @@
 		z-index: 1;
 	}
 
-	&__title {
+	&__title[class] {
 		font-family: $font-primary;
 		font-weight: 400;
 		color: currentColor;

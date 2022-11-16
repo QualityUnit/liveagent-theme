@@ -1,5 +1,7 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity,
  scss/no-global-function-names */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .SideRibbon {
 	position: relative;

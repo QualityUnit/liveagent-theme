@@ -1,5 +1,7 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 /* stylelint-disable value-keyword-case */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 input[type="submit"],
 input[type="button"],
@@ -261,7 +263,7 @@ button,
 			width: 20px;
 			height: 20px;
 			margin-right: 10px;
-			background-image: url(../../assets/images/icon-copy.svg);
+			background-image: url(../../images/icon-copy.svg);
 			transition: opacity 0.3s;
 		}
 	}
@@ -273,7 +275,7 @@ button,
 		span {
 
 			&::before {
-				background-image: url(../../assets/images/icon-copy-hover.svg);
+				background-image: url(../../images/icon-copy-hover.svg);
 			}
 		}
 	}
@@ -338,7 +340,7 @@ button,
 	}
 
 	&::before {
-		content: url(../images/play_seeinaction.svg);
+		content: url(../../images/play_seeinaction.svg);
 		margin-right: 0.75em;
 		line-height: 0;
 	}

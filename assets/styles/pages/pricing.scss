@@ -1,4 +1,4 @@
-@import "../common/mixins";
-@import "../common/variables";
-@import "../layouts/Pricing";
-@import "../layouts/ComparePlans";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../layouts/Pricing" as *;
+@use "../layouts/ComparePlans" as *;

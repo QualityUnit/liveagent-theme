@@ -1,5 +1,8 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+
 //Our styles
-@import "../../../../../assets/styles/common/variables";
-@import "../../../../../assets/styles/common/mixins";
-@import "./editor-styles";
-@import "./howto";
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
+@use "./editor-styles" as *;
+@use "./howto" as *;

@@ -38,6 +38,7 @@ function ms_nicereply( $atts ) {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/Nicereply' );
 	return ob_get_clean();
 }
 add_shortcode( 'nicereply', 'ms_nicereply' );

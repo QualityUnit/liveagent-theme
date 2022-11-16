@@ -1,9 +1,8 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
 @use "sass:math";
-@import "../../../../../assets/styles/common/variables";
-@import "../../../../../assets/styles/common/mixins";
-@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"); /* stylelint-disable-line */
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
 
 .qu-UseCase {
 	max-width: 840px;

@@ -1,0 +1,54 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Countdown {
+
+	&__items {
+		display: flex;
+	}
+
+	&__item {
+		position: relative;
+		margin: 0 !important;
+		font-family: $font-secondary;
+		font-size: em(24);
+
+		@media (min-width: $breakpoint-tablet) {
+			font-size: em(32);
+		}
+
+		&:not(:last-child) {
+			padding-right: 0.75em;
+
+			&::after {
+				content: ":";
+				position: absolute;
+				right: 0;
+				top: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 0.75em;
+				height: 2em;
+			}
+		}
+	}
+
+	&__digits {
+
+		@include square(2em);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 0.5em;
+		color: $saturated-red;
+		background-color: $white;
+	}
+
+	&__label {
+		font-size: 0.4375em;
+		text-align: center;
+	}
+}

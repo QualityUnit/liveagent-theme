@@ -1,7 +1,7 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
-@import "../common/mixins";
-@import "../common/variables";
-@import "../components/BlockStartups";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../components/BlockStartups" as *;
 
 .Startups {
 

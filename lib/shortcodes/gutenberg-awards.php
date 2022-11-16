@@ -35,6 +35,7 @@ function ms_gutenberg_awards() {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/BlockBadges' );
 	return ob_get_clean();
 }
 add_shortcode( 'gutenberg-awards', 'ms_gutenberg_awards' );
