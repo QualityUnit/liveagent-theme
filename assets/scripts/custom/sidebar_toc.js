@@ -29,7 +29,6 @@ const headerItems = ( () => {
 } )();
 
 const tocItems = queryAll( '.SidebarTOC__item a' );
-const content = query( '.Content' );
 const treshold = 96; // about height of regular <p> paragraph to delay the highlight of toc item
 const headerHeight = query( '.Header' ).clientHeight + treshold;
 const shareIcons = query( '.BlogPost__share-sidebar' );
@@ -84,30 +83,13 @@ function activateSidebars() {
 			const el = element;
 			el.dataset.number = index;
 
-			el.addEventListener( 'click', ( e ) => {
-				e.preventDefault();
-				const elemHref = el.getAttribute( 'href' );
-				const toPosition = document
-					.querySelector( elemHref )
-					.getBoundingClientRect().top;
-
+			el.addEventListener( 'click', ( ) => {
 				tocRemoveActive();
 				el.classList.add( 'active' );
 
-				window.scroll( {
-					top:
-						toPosition +
-						document.documentElement.scrollTop -
-						treshold,
-					behavior: 'smooth',
-				} );
-
-				if ( content.classList.contains( 'BlogPost__content' ) ) {
-					window.scroll( {
-						top: toPosition - headerHeight + treshold,
-						behavior: 'smooth',
-					} );
-				}
+				setTimeout( () => {
+					window.scrollBy( 0, -treshold );
+				}, 1000 );
 			} );
 		} );
 
