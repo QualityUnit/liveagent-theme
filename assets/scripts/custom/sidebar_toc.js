@@ -29,7 +29,6 @@ const headerItems = ( () => {
 } )();
 
 const tocItems = queryAll( '.SidebarTOC__item a' );
-const content = query( '.Content' );
 const treshold = 96; // about height of regular <p> paragraph to delay the highlight of toc item
 const headerHeight = query( '.Header' ).clientHeight + treshold;
 const shareIcons = query( '.BlogPost__share-sidebar' );
