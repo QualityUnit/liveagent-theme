@@ -17,132 +17,46 @@ function icontabs_sources( $content ) {
 add_filter( 'the_content', 'icontabs_sources' );
 add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
-/**
- * Alternatives Table block CSS importer
- */
 
-function alternative_table( $content ) {
-	$alternativetable = preg_match( '/.+class=".+AlternativeTable.+/', $content );
+function components_imports( $content ) {
+	$blocks = array(
+		'AlternativeTable' => 'components/AlternativeTable',
+		'SoftphoneTable'   => 'components/SoftphoneTable',
+		'BlockPoints'      => 'components/BlockPoints',
+		'FeaturesTableNew' => 'components/FeaturesTable-New',
+		'HeroBanner'       => 'components/HeroBanner',
+		'Block--video'     => 'components/BlockVideo',
+		'Boxes--image'     => 'components/BoxesImage',
+		'RequestDemo'      => 'layouts/tests/RequestDemo',
+		'ScheduleDemo'     => 'layouts/tests/ScheduleDemo',
+		'BlockCoupon'      => 'components/BlockCoupon',
+	);
 
-	if ( $alternativetable || is_user_logged_in() ) {
-		wp_enqueue_style( 'alternativetable', get_template_directory_uri() . '/assets/dist/components/AlternativeTable' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-	}
+	if ( ! $content ) {
 		return $content;
+	}
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath       = new DOMXPath( $dom );
+	
+	foreach ( $blocks as $class => $csspath ) {
+		$id = strtolower( $class );
+		$found_blocks = $xpath->query( ".//*[contains(@class, " . $class . ")]" );
+	
+		if ( $found_blocks[0] || is_user_logged_in() ) {
+			wp_enqueue_style( $id, get_template_directory_uri() . '/assets/dist/' . $csspath . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
+	}
+
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
 }
 
-add_filter( 'the_content', 'alternative_table' );
-add_action( 'admin_enqueue_scripts', 'alternative_table' );
-
-
-/**
- * Softphone Table block CSS importer
- */
-
-function softphone_table( $content ) {
-	$softphonetable = preg_match( '/.+class=".+SoftphoneTable.+/', $content );
-
-	if ( $softphonetable || is_user_logged_in() ) {
-		wp_enqueue_style( 'softphonetable', get_template_directory_uri() . '/assets/dist/components/SoftphoneTable' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-	}
-		return $content;
-}
-
-add_filter( 'the_content', 'softphone_table' );
-add_action( 'admin_enqueue_scripts', 'softphone_table' );
-
-/**
- * Blockpoints Table block CSS importer
- */
-
-function blockpoints( $content ) {
-	$blockpoints = preg_match( '/.+class=".+BlockPoints.+/', $content );
-
-	if ( $blockpoints || is_user_logged_in() ) {
-		wp_enqueue_style( 'blockpoints', get_template_directory_uri() . '/assets/dist/components/BlockPoints' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-	}
-		return $content;
-}
-
-add_filter( 'the_content', 'blockpoints' );
-add_action( 'admin_enqueue_scripts', 'blockpoints' );
-
-/* Features table in Call center */
-
-function features_table( $content ) {
-	$features_table = preg_match( '/.+class=".+FeaturesTableNew.+/', $content );
-
-	if ( $features_table || is_user_logged_in() ) {
-		wp_enqueue_style( 'featurestable', get_template_directory_uri() . '/assets/dist/components/FeaturesTable-New' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-	}
-		return $content;
-}
-
-add_filter( 'the_content', 'features_table' );
-add_action( 'admin_enqueue_scripts', 'features_table' );
-
-/* Hero banner – to be removed*/
-
-function herobanner( $content ) {
-	$herobanner = preg_match( '/.+class=".+HeroBanner.+/', $content );
-
-	if ( $herobanner || is_user_logged_in() ) {
-		wp_enqueue_style( 'herobanner', get_template_directory_uri() . '/assets/dist/components/HeroBanner' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-	}
-		return $content;
-}
-
-add_filter( 'the_content', 'herobanner' );
-add_action( 'admin_enqueue_scripts', 'herobanner' );
-
-
-/* Block Video */
-
-function block_video( $content ) {
-	$block_video = preg_match( '/.+class=".+Block--video.+/', $content );
-
-	if ( $block_video || is_user_logged_in() ) {
-		wp_enqueue_style( 'blockvideo', get_template_directory_uri() . '/assets/dist/components/BlockVideo' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-	}
-		return $content;
-}
-
-add_filter( 'the_content', 'block_video' );
-add_action( 'admin_enqueue_scripts', 'block_video' );
-
-
-/* Boxes with image */
-
-function boxes_image( $content ) {
-	$boxes_image = preg_match( '/.+class=".+Boxes--image.+/', $content );
-
-	if ( $boxes_image || is_user_logged_in() ) {
-		wp_enqueue_style( 'blockvideo', get_template_directory_uri() . '/assets/dist/components/BoxesImage' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-	}
-		return $content;
-}
-
-add_filter( 'the_content', 'boxes_image' );
-add_action( 'admin_enqueue_scripts', 'boxes_image' );
-
-/* Demo blocks */
-
-function demo_blocks( $content ) {
-	$request_demo = preg_match( '/.+class=".+RequestDemo.+/', $content );
-	$schedule_demo = preg_match( '/.+class=".+ScheduleDemo.+/', $content );
-	$blockcoupon = preg_match( '/.+class=".+BlockCoupon.+/', $content );
-
-	if ( $request_demo || is_user_logged_in() ) {
-		wp_enqueue_style( 'requestdemo', get_template_directory_uri() . '/assets/dist/layouts/tests/RequestDemo' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-	}
-	if ( $schedule_demo || is_user_logged_in() ) {
-		wp_enqueue_style( 'scheduledemo', get_template_directory_uri() . '/assets/dist/layouts/tests/ScheduleDemo' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-	}
-
-	if ( $blockcoupon || is_user_logged_in() ) {
-		wp_enqueue_style( 'blockcoupon', get_template_directory_uri() . '/assets/dist/components/BlockCoupon' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-	}
-		return $content;
-}
-
-add_filter( 'the_content', 'demo_blocks' );
-add_action( 'admin_enqueue_scripts', 'demo_blocks' );
+add_filter( 'the_content', 'components_imports' );
+add_action( 'admin_enqueue_scripts', 'components_imports' );
