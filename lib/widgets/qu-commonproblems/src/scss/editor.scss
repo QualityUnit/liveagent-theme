@@ -1,10 +1,9 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
 @use "sass:math";
-@import "../../../../../assets/styles/common/variables";
-@import "../../../../../assets/styles/common/mixins";
-// @import "./common/global";
-@import "./qu-commonProblems";
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
+@forward "./qu-commonProblems";
 
 .qu-CommonProblems {/* stylelint-disable-line */
 	display: block;
@@ -13,13 +12,10 @@
 	max-width: 840px;
 	margin: 0 auto;
 
-	.popover-slot + div {
-		margin-left: 1em;
-	}
 
 	@media (min-width: $breakpoint-tablet) {
 
-		.block-editor-block-list__layout:not(.is-root-container) {
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
 			display: flex;
 			flex-flow: wrap row;
 			justify-content: space-between;
@@ -99,14 +95,6 @@
 		&--answer {
 			max-height: none;
 
-			+ .popover-slot {
-
-				.components-popover__content {
-					transform: translateX(-100%) !important;
-				}
-			}
-
-
 			.editor-styles-wrapper {
 				background-color: transparent !important;
 				padding: 0 0 1.25em !important;
@@ -127,23 +115,22 @@
 				}
 			}
 		}
-	}
 
-	&__addItemButton {
+		+ .block-list-appender {
 
-		button {
-			display: flex;
-			flex-direction: row;
-			position: relative;
-			margin: 0 auto;
+			button {
+				display: flex;
+				flex-direction: row;
+				position: relative;
+				margin: 0 auto;
 
-			&::after {
-				content: attr(aria-label);
-				margin-left: 1em;
+				&::after {
+					content: attr(aria-label);
+					margin-left: 1em;
+				}
 			}
 		}
 	}
-
 
 	.block-library-heading-level-toolbar {
 

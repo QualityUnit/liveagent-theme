@@ -1,53 +1,51 @@
 /* Common */
 
-@use "common/reset" as *;
-@use "common/sanitize" as *;
-@use "common/variables" as *;
-@use "common/mixins" as *;
-@use "common/fontello" as *;
-@use "common/global" as *;
-@use "common/lightbox" as *;
-@use "common/animations" as *;
+@forward "common/reset";
+@forward "common/sanitize";
+@forward "common/fontello";
+@forward "common/global";
+@forward "common/lightbox";
+@forward "common/animations";
 
 /* Elements */
 
-@use "elements/Typography" as *;
-@use "elements/BulletLists" as *;
-@use "elements/Checklist" as *;
-@use "elements/Button" as *;
-@use "elements/Form" as *;
-@use "elements/PostTag" as *;
-@use "elements/Pagination" as *;
-@use "elements/YoutubeLoader" as *;
-@use "elements/Tooltip" as *;
-@use "elements/FakeChatButton" as *;
-@use "elements/TextCopiedMessage" as *;
-@use "elements/menuArrow" as *;
-@use "elements/progressBar" as *;
-@use "elements/SplitTitle" as *;
+@forward "elements/Typography";
+@forward "elements/BulletLists";
+@forward "elements/Checklist";
+@forward "elements/Button";
+@forward "elements/Form";
+@forward "elements/PostTag";
+@forward "elements/Pagination";
+@forward "elements/YoutubeLoader";
+@forward "elements/Tooltip";
+@forward "elements/FakeChatButton";
+@forward "elements/TextCopiedMessage";
+@forward "elements/menuArrow";
+@forward "elements/progressBar";
+@forward "elements/SplitTitle";
 
 /* Components */
 
-@use "components/CookieBar" as *;
-@use "components/DemoBar" as *;
-@use "components/Box" as *;
-@use "components/BlogCTA" as *;
-@use "components/BlogShare" as *;
-@use "components/Reference" as *;
-@use "components/BannerTypingTest" as *;
-@use "components/Faq" as *;
-@use "components/FullHeadline" as *;
-@use "components/Loader" as *;
-@use "components/Logos" as *;
-@use "components/ExtraFaq" as *;
-@use "components/Reviews" as *;
-@use "components/ShortFaq" as *;
-@use "components/SimilarSources" as *;
-@use "components/WhatIsHeadline" as *;
+@forward "components/CookieBar";
+@forward "components/DemoBar";
+@forward "components/Box";
+@forward "components/BlogCTA";
+@forward "components/BlogShare";
+@forward "components/Reference";
+@forward "components/BannerTypingTest";
+@forward "components/Faq";
+@forward "components/FullHeadline";
+@forward "components/Loader";
+@forward "components/Logos";
+@forward "components/ExtraFaq";
+@forward "components/Reviews";
+@forward "components/ShortFaq";
+@forward "components/SimilarSources";
+@forward "components/WhatIsHeadline";
 
 /* Layouts */
 
-@use "layouts/Custom" as *;
-@use "layouts/FullScreen" as *;
-@use "layouts/ErrorPage" as *;
-@use "layouts/Gutenberg" as *;
+@forward "layouts/Custom";
+@forward "layouts/FullScreen";
+@forward "layouts/ErrorPage";
+@forward "layouts/Gutenberg";

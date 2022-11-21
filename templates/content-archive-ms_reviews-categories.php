@@ -2,9 +2,9 @@
 
 <div class="Reviews__header Reviews__header-level1 FullHeadline">
 	<div class="wrapper text-align-center">
-		<h2 class="FullHeadline__title">
+		<h1 class="FullHeadline__title">
 			<?php _e( '<span class="highlight__bubble">Reviews</span> categories', 'reviews' ); ?>
-		</h2>
+		</h1>
 		<h3 class="FullHeadline__subtitle">
 			<?php _e( 'Find out which software in any category is the best option<br />for your business.', 'reviews' ); ?>
 		</h3>

@@ -18,10 +18,10 @@ function render_commonproblems_item( $attr ) {
 
 	return '
 		<div class="qu-enhancedFAQ__item Faq__item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-			<h3 data-quTarget="' . $attr['targetId'] . '" class=""  itemprop="name" >' . 
+			<h3 class=""  itemprop="name" >' . 
 				esc_html( $attr['question'] ) . '
 			</h3>
-			<div data-quTargetId="' . $attr['targetId'] . '" class="Faq__outer-wrapper" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+			<div class="Faq__outer-wrapper" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
 			<div class="Faq__inner-wrapper" itemprop="text">' .
 					$attr['content'] //@codingStandardsIgnoreLine
 			. '</div>
@@ -36,10 +36,6 @@ register_block_type(
 		'render_callback' => 'render_commonproblems_item',
 		// Here goes attributes that are stored in React edit.js part
 		'attributes'      => array(
-			'targetId' => array(
-				'type'    => 'string',
-				'default' => '',
-			),
 			'question' => array(
 				'type'    => 'string',
 				'default' => __( 'Some default header name', 'qu-commonproblems' ),
