@@ -76,8 +76,8 @@ function qu_commonproblems_init() {
 		return '<div class="qu-CommonProblems Faq">
 							<h2 class="qu-CommonProblems__title">' . $title . '</h2>
 							<p class="qu-CommonProblems__subtitle text-align-center">' .
-							 $attr['subtitle'] . '<br />' .
-							 $attr['subtitle2']
+							$attr['subtitle'] . '<br />' .
+							$attr['subtitle2']
 						. '</p>' .
 								apply_filters( 'the_content', $content )
 						. '</div>';

@@ -54,6 +54,10 @@ jobs:
         working-directory: ./lib/widgets/qu-reviews/
         run: rm -rf node_modules package.json yarn.lock webpack.config.js
 
+      - name: Remove Unnecessary Files [qu-commonproblems]
+        working-directory: ./lib/widgets/qu-commonproblems/
+        run: rm -rf node_modules package.json yarn.lock webpack.config.js
+
       - name: Remove Unnecessary Files [qu-checklists]
         working-directory: ./lib/widgets/qu-checklists/
         run: rm -rf node_modules package.json yarn.lock webpack.config.js
