@@ -74,8 +74,10 @@ function meta( $metabox_id ) {
 					<div class="wp-block-column checklist checklist--pros">
 						<h4><?php _e( 'Pros', 'reviews' ); ?></h4>
 						<ul itemprop="positiveNotes" itemtype="https://schema.org/ItemList" itemscope>
-							<?= preg_replace( "/(.+?)(\n|$)/", '<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
-							<meta itemprop="name" content="$1" />$1</li>', meta( 'pros' ) ); // @codingStandardsIgnoreLine?>
+							<?= preg_replace(
+								"/(.+?)(\n|$)/",
+								'<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
+							<meta itemprop="name" content="$1" />$1</li>', meta( 'pros' ) ); // @codingStandardsIgnoreLine ?>
 						</ul>
 					</div>
 						<?php
@@ -85,8 +87,10 @@ function meta( $metabox_id ) {
 						<div class="wp-block-column checklist checklist--cons">
 							<h4><?php _e( 'Cons', 'reviews' ); ?></h4>
 							<ul itemprop="negativeNotes" itemtype="https://schema.org/ItemList" itemscope>
-								<?= preg_replace( "/(.+?)(\n|$)/", '<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
-								<meta itemprop="name" content="$1" />$1</li>', meta( 'cons' ) ); // @codingStandardsIgnoreLine?>
+								<?= preg_replace(
+									"/(.+?)(\n|$)/",
+									'<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
+								<meta itemprop="name" content="$1" />$1</li>', meta( 'cons' ) ); // @codingStandardsIgnoreLine ?>
 							</ul>
 						</div>
 						<?php
