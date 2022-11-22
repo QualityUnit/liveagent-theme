@@ -40,30 +40,30 @@ while ( $query_reviews_posts->have_posts() ) :
 	$rating_update = new DateTime( meta( 'last_update' ) );
 		
 	?>
-		<li class="Reviews__relatedReviews--post Reviews__relatedReviews--post__level2" data-id="<?= get_the_ID(); ?>" data-reviews="<?= esc_attr( meta( 'reviews_count' ) ? meta( 'reviews_count' ) : 0 ); ?>" data-rating="<?= esc_attr( meta( 'rating' ) ? meta( 'rating' ) : 1 ); ?>" data-ourrating="<?= esc_attr( $average ); ?>" data-updated="<?= esc_attr( $rating_update->format( 'Ymd' ) ); ?>">
-			<a class="flex Reviews__relatedReviews--post__inn" href="<?= get_post()->post_name; // @codingStandardsIgnoreLine ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>">
+		<li class="Reviews__relatedReviews--post Reviews__relatedReviews--post__level2" data-id="<?= get_the_ID(); ?>" data-reviews="<?= esc_attr( meta( 'reviews_count' ) ? meta( 'reviews_count' ) : 0 ); ?>" data-rating="<?= esc_attr( meta( 'rating' ) ? meta( 'rating' ) : 1 ); ?>" data-ourrating="<?= esc_attr( $average ); ?>" data-updated="<?= esc_attr( $rating_update->format( 'Ymd' ) ); ?>" itemscope itemtype="http://schema.org/SoftwareApplication">
+			<a class="flex Reviews__relatedReviews--post__inn" href="<?= get_post()->post_name; // @codingStandardsIgnoreLine ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" itemprop="url">
 				<span class="Reviews__relatedReviews--post__number mr-xl-tablet" data-order><?= esc_html( ++$counter ); ?></span>
 				<div class="Reviews__relatedReviews--post__main">
-					<h3 class="Reviews__relatedReviews--post__title"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></h3>
-					<div class="Reviews__relatedReviews--post__excerpt"><?= esc_html( wp_trim_words( get_the_excerpt(), 25 ) ); ?></div>
+					<h3 class="Reviews__relatedReviews--post__title" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></h3>
+					<div class="Reviews__relatedReviews--post__excerpt" itemprop="description"><?= esc_html( wp_trim_words( get_the_excerpt(), 25 ) ); ?></div>
 				</div>
 			<?php
 				$rating_post = meta( 'rating' );
 			if ( $rating_post || $average ) {
 				?>
-					<div class="Reviews__rating">
-						<span class="Reviews__rating--rating mr-s-tablet-landscape"><?= esc_html( $rating_post ); ?></span>
+					<div class="Reviews__rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+						<span class="Reviews__rating--rating mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>
 						<div class="Reviews__rating--stars">
 							<div class="Reviews__rating--stars__fill" 
 							style="width:<?= esc_attr( ( $rating_post / 5 * 103.3 ) . '%' ); ?>"></div>
 						</div>
-						<div class="Reviews__rating--count"><?= esc_html( meta( 'reviews_count' ) . ' ' . __( 'reviews', 'reviews' ) ); ?></div>
+						<div class="Reviews__rating--count" itemprop="reviewCount"><?= esc_html( meta( 'reviews_count' ) . ' ' . __( 'reviews', 'reviews' ) ); ?></div>
 					</div>
-					<div class="Reviews__rating editor">
+					<div class="Reviews__rating editor" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
 						<div class="Reviews__rating--avatar">
 							<?= get_avatar( get_the_author_meta( 'ID' ), 220, 'mystery', get_the_author() ); ?>
 						</div>
-						<span class="Reviews__rating--rating mr-s-tablet-landscape"><?= esc_html( $average ); ?></span>
+						<span class="Reviews__rating--rating mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $average ); ?></span>
 						<div class="Reviews__rating--stars">
 							<div class="Reviews__rating--stars__fill" 
 							style="width:<?= esc_attr( ( $average / 5 * 103.3 ) . '%' ); ?>"></div>

@@ -86,33 +86,35 @@ function progressbar( $text, $rating, $color ) {
 			?>
 			<small class="text-light"><?= esc_html( str_replace( '${product}', $titleplain, $how ) ); ?></small>
 
-			<div class="Reviews__rating Reviews__rating--portals mt-m">
-				<div class="flex flex-align-center">
-					<span class="Reviews__rating--rating">
-						<?= esc_html( meta( 'rating' ) ); ?>
-					</span>
-					<div class="Reviews__rating--stars">
-						<div class="Reviews__rating--stars__fill" style="width:<?= esc_attr( ( meta( 'rating' ) / 5 * 100 ) . '%' ); ?>"></div>
-					</div>
-
-					<div class="ComparePlans__tooltip Reviews__rating--tooltip">
-						<div class="info-icon"></div>
-						<span class="ComparePlans__tooltip__text Reviews__rating--tooltip__text">
-							<?php _e( 'Average rating based on data from trusted review portals', 'reviews' ); ?>
-
-							<time class="Reviews__update fit" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>"> 
-
-								<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . $rating_update->format( 'F j, Y' ) ); ?>
-							</time>
+			<div itemprop="review" itemscope itemtype="https://schema.org/Review">
+				<div class="Reviews__rating Reviews__rating--portals mt-m" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+					<div class="flex flex-align-center">
+						<span class="Reviews__rating--rating" itemprop="ratingValue">
+							<?= esc_html( meta( 'rating' ) ); ?>
 						</span>
+						<div class="Reviews__rating--stars">
+							<div class="Reviews__rating--stars__fill" style="width:<?= esc_attr( ( meta( 'rating' ) / 5 * 100 ) . '%' ); ?>"></div>
+						</div>
+	
+						<div class="ComparePlans__tooltip Reviews__rating--tooltip">
+							<div class="info-icon"></div>
+							<span class="ComparePlans__tooltip__text Reviews__rating--tooltip__text">
+								<?php _e( 'Average rating based on data from trusted review portals', 'reviews' ); ?>
+	
+								<time class="Reviews__update fit" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>"> 
+	
+									<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . $rating_update->format( 'F j, Y' ) ); ?>
+								</time>
+							</span>
+						</div>
 					</div>
+					<strong class="Reviews__rating--count Reviews__rating--desc">
+						<span itemprop="reviewCount"><?= esc_html( meta( 'reviews_count' ) ); ?></span><?= esc_html( '&nbsp;' . __( 'reviews', 'reviews' ) ); ?>
+					</strong>
 				</div>
-				<strong class="Reviews__rating--count Reviews__rating--desc">
-					<?= esc_html( meta( 'reviews_count' ) . '&nbsp;' . __( 'reviews', 'reviews' ) ); ?>
-				</strong>
 			</div>
 
-			<p><?= esc_html( wp_trim_words( meta( 'note' ), 42 ) ); ?></p>
+			<p itemprop="description"><?= esc_html( wp_trim_words( meta( 'note' ), 42 ) ); ?></p>
 
 			<div class="flex">
 				<span class="h3 no-margin mr-s Reviews__info--title"><?php _e( 'Pricing', 'reviews' ); ?></span>
@@ -181,7 +183,7 @@ function progressbar( $text, $rating, $color ) {
 						<li class="splide__slide">
 							<a class="splide__inn" href="<?= esc_url( wp_get_attachment_image_url( $main_img, 'full' ) ) ?>" data-lightbox="gallery">
 							<div class="Reviews__Gallery--main__image">
-								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $main_img, 'blog_archive_thumbnail' ) ) ?>" alt=""/>
+								<img name="screenshot" data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $main_img, 'blog_archive_thumbnail' ) ) ?>" alt=""/>
 							</div>
 							<div class="Reviews__Gallery--main__desc">
 									<h5>

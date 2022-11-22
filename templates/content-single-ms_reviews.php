@@ -73,8 +73,11 @@ function meta( $metabox_id ) {
 						?>
 					<div class="wp-block-column checklist checklist--pros">
 						<h4><?php _e( 'Pros', 'reviews' ); ?></h4>
-						<ul>
-							<?= preg_replace( "/(.+?)(\n|$)/", '<li>$1</li>', meta( 'pros' ) ); // @codingStandardsIgnoreLine?>
+						<ul itemprop="positiveNotes" itemtype="https://schema.org/ItemList" itemscope>
+							<?= preg_replace( "/(.+?)(\n|$)/", '<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
+							<meta itemprop="name" content="$1" />
+							$1
+							</li>', meta( 'pros' ) ); // @codingStandardsIgnoreLine?>
 						</ul>
 					</div>
 						<?php
@@ -83,8 +86,11 @@ function meta( $metabox_id ) {
 						?>
 						<div class="wp-block-column checklist checklist--cons">
 							<h4><?php _e( 'Cons', 'reviews' ); ?></h4>
-							<ul>
-								<?= preg_replace( "/(.+?)(\n|$)/", '<li>$1</li>', meta( 'cons' ) ); // @codingStandardsIgnoreLine?>
+							<ul itemprop="negativeNotes" itemtype="https://schema.org/ItemList" itemscope>
+								<?= preg_replace( "/(.+?)(\n|$)/", '<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
+								<meta itemprop="name" content="$1" />
+								$1
+								</li>', meta( 'cons' ) ); // @codingStandardsIgnoreLine?>
 							</ul>
 						</div>
 						<?php
@@ -126,20 +132,22 @@ function meta( $metabox_id ) {
 				while ( $query_glossary_posts->have_posts() ) :
 					$query_glossary_posts->the_post();
 					?>
-						<li class="Reviews__relatedReviews--post <?= ( get_the_ID() === $current_id ) ? 'active' : '' ?>">
-							<a class="flex Reviews__relatedReviews--post__inn" href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>">
+						<li class="Reviews__relatedReviews--post <?= ( get_the_ID() === $current_id ) ? 'active' : '' ?>" itemprop="review" itemscope itemtype="https://schema.org/Review">
+							<a class="flex Reviews__relatedReviews--post__inn" href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" itemprop="url">
 								<span class="Reviews__relatedReviews--post__number mr-xl-tablet"><?= esc_html( ++$counter ); ?></span>
-								<h3 class="Reviews__relatedReviews--post__title"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></h3>
+								<h3 class="Reviews__relatedReviews--post__title" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></h3>
 								<?php
 									$rating_post = get_post_meta( get_the_ID(), 'rating', true );
 								if ( $rating_post ) {
 									?>
-									<span class="mr-s-tablet-landscape"><?= esc_html( $rating_post ); ?></span>
-									<div class="Reviews__rating--stars <?= ( get_the_ID() === $current_id ) ? '' : 'grey' ?>">
-										<div class="Reviews__rating--stars__fill" 
-										style="width:<?= esc_attr( ( $rating_post / 5 * 100 ) . '%' ); ?>"></div>
+									<div class="ml-s-tablet mr-ultra-tablet flex flex-align-center" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+										<span class="mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>
+										<div class="Reviews__rating--stars mr-m <?= ( get_the_ID() === $current_id ) ? '' : 'grey' ?>">
+											<div class="Reviews__rating--stars__fill" 
+											style="width:<?= esc_attr( ( $rating_post / 5 * 100 ) . '%' ); ?>"></div>
+										</div>
+										<span itemprop="reviewCount" class="mr-xs"><?= esc_html( get_post_meta( get_the_ID(), 'reviews_count', true ) ); ?></span><span><?= esc_html( __( 'reviews', 'reviews' ) ); ?></span>
 									</div>
-									<span class="ml-s-tablet mr-ultra-tablet"><?= esc_html( get_post_meta( get_the_ID(), 'reviews_count', true ) . ' ' . __( 'reviews', 'reviews' ) ); ?></span>
 									<?php
 								}
 								?>
