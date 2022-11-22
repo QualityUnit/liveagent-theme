@@ -69,6 +69,7 @@ function meta( $metabox_id ) {
 				<h2><?php _e( 'Key takeaways', 'reviews' ); ?></h2>
 				<div class="wp-block-columns">
 					<?php
+					// @codingStandardsIgnoreStart
 					if ( ! empty( meta( 'pros' ) ) ) {
 						?>
 					<div class="wp-block-column checklist checklist--pros">
@@ -77,7 +78,7 @@ function meta( $metabox_id ) {
 							<?= preg_replace(
 								"/(.+?)(\n|$)/",
 								'<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
-							<meta itemprop="name" content="$1" />$1</li>', meta( 'pros' ) ); // @codingStandardsIgnoreLine ?>
+							<meta itemprop="name" content="$1" />$1</li>', meta( 'pros' ) ); ?>
 						</ul>
 					</div>
 						<?php
@@ -90,11 +91,12 @@ function meta( $metabox_id ) {
 								<?= preg_replace(
 									"/(.+?)(\n|$)/",
 									'<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
-								<meta itemprop="name" content="$1" />$1</li>', meta( 'cons' ) ); // @codingStandardsIgnoreLine ?>
+								<meta itemprop="name" content="$1" />$1</li>', meta( 'cons' ) ); ?>
 							</ul>
 						</div>
 						<?php
 					}
+					// @codingStandardsIgnoreEnd
 					?>
 				</div>
 					<?php
