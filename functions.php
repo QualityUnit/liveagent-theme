@@ -32,8 +32,8 @@ define( 'THEME_VERSION', '1.6.1' );
 		'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
 		'functions/import-functions.php', // Partials JS and SCSS import functions
 		'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
-		'functions/post-types.php', // Import Custom Post Types
 		'functions/taxonomies.php', // Import Custom Taxonomies
+		'functions/post-types.php', // Import Custom Post Types
 		'functions/metaboxes.php', // Import Metaboxes
 		'functions/shortcodes.php', // Import ShortCodes
 		'functions/widgets.php', // Import Widgets/Plugins

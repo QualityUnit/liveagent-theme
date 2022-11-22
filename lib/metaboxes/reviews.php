@@ -1,9 +1,25 @@
 <?php
 
-
 add_filter( 'simple_register_taxonomy_settings', 'add_reviews_taxonomy_metaboxes' );
 
 function add_reviews_taxonomy_metaboxes( $settings ) {
+
+	$query_args = array(
+	'post_type' => 'ms_reviews',
+	'posts_per_page' => 500,
+	'suppress_filters' => false
+	);
+
+	$show_posts    = new WP_Query( $query_args );
+
+	while ( $show_posts->have_posts() ) :
+		$show_posts->the_post();
+		$reviews_posts[get_the_id()] = str_replace( '^','', get_the_title() );
+	endwhile;
+
+	wp_reset_postdata();
+
+
 	$settings[] = array(
 		'id'       => 'ms_reviews_category',
 		'taxonomy' => array( 'ms_reviews_categories' ),
@@ -34,6 +50,13 @@ function add_reviews_taxonomy_metaboxes( $settings ) {
 				'id'    => 'category_learn_more_url',
 				'label' => 'Url to article',
 				'type'  => 'text',
+			),
+			array(
+				'id'          => 'category_whatis_article',
+				'label'       => 'Url to article',
+				'type'        => 'select',
+				'placeholder' => 'Select What is Article',
+				'options'     => $reviews_posts,
 			),
 		),
 	);
