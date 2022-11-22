@@ -21,20 +21,14 @@ function pros_cons( $editor_avg, $meta ) {
 		( ! empty( $pros ) ?
 		'<div class="wp-block-column checklist checklist--pros">
 			<h4>' . __( 'Pros', 'reviews' ) . '</h4>
-			<ul itemprop="positiveNotes" itemtype="https://schema.org/ItemList" itemscope>' . preg_replace( '/(.+?)(\n|$)/', '<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
-			<meta itemprop="name" content="$1" />
-			$1
-			</li>', $pros ) . '</ul>
+			<ul itemprop="positiveNotes" itemtype="https://schema.org/ItemList" itemscope>' . preg_replace( '/(.+?)(\n|$)/', '<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope><meta itemprop="name" content="$1" />$1</li>', $pros ) . '</ul>
 		</div>' 
 		: ''
 		) .
 		( ! empty( $cons ) ?
 			'<div class="wp-block-column checklist checklist--cons">
 				<h4>' . __( 'Cons', 'reviews' ) . '</h4>
-				<ul itemprop="negativeNotes" itemtype="https://schema.org/ItemList" itemscope>' . preg_replace( "/(.+?)(\n|$)/", '<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
-				<meta itemprop="name" content="$1" />
-				$1
-				</li>', $cons ) . '</ul>
+				<ul itemprop="negativeNotes" itemtype="https://schema.org/ItemList" itemscope>' . preg_replace( "/(.+?)(\n|$)/", '<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope><meta itemprop="name" content="$1" />$1</li>', $cons ) . '</ul>
 			</div>'
 			: ''
 		) . '
