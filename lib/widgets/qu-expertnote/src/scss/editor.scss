@@ -27,6 +27,15 @@
 
 .qu-expertNote {
 
+	&__edit {
+
+		select[class] {
+			position: relative !important;
+			font-weight: 600;
+			z-index: 1 !important;
+		}
+	}
+
 	&__title {
 		display: block !important;
 		margin-top: 1em;

@@ -1,0 +1,160 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "sass:math";
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
+@forward "./qu-commonProblems";
+
+.qu-CommonProblems {/* stylelint-disable-line */
+	display: block;
+	transition: opacity 0.2s;
+	opacity: 1;
+	max-width: 840px;
+	margin: 0 auto;
+
+
+	@media (min-width: $breakpoint-tablet) {
+
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: space-between;
+		}
+
+		.wp-block-qu-enhanced-faq-item {
+			width: 47%;
+			margin: 0 !important;
+
+			.qu-enhancedFAQ__item {
+				width: 100%;
+				padding: 1em;
+				border: 1px solid $black;
+			}
+		}
+	}
+
+	&.hiding {
+		opacity: 0;
+	}
+
+	%inputLimit {
+		background: rgba($black-real, 0.6);
+		color: $white;
+		border-radius: 8px;
+		text-align: center;
+		padding: 1em 2em;
+	}
+
+	.input__limit {
+
+		@extend %inputLimit;
+		position: absolute;
+
+		font-size: 0.875rem;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.input__limit--like {
+
+		@extend %inputLimit;
+		font-size: 1rem;
+	}
+
+	&__title {
+
+		input {
+			font-family: $font-secondary;
+			font-weight: 700;
+			font-size: 2rem !important;
+			line-height: 1.5 !important;
+			margin-top: 1em !important;
+		}
+	}
+
+	&__item {
+		background-color: #fff;
+
+		&--question {
+			display: block !important;
+			overflow: visible !important;
+			margin: 0 -2rem 0 !important;
+			padding: 0.25rem 2rem !important;
+
+			input,
+			textarea {
+				font-family: $font-secondary;
+				font-weight: 700;
+				font-size: 0.875rem;
+				line-height: 1.714;
+				background-color: transparent;
+			}
+		}
+
+		&--answer {
+			max-height: none;
+
+			.editor-styles-wrapper {
+				background-color: transparent !important;
+				padding: 0 0 1.25em !important;
+				font-size: 0.875rem !important;
+
+				p {
+					font-size: 0.875rem !important;
+				}
+			}
+
+			ul li {
+				margin-bottom: 0.5em !important;
+				font-size: 0.875rem !important;
+
+				&::before {
+					font-size: 1rem !important;
+					top: -2px !important;
+				}
+			}
+		}
+
+		+ .block-list-appender {
+
+			button {
+				display: flex;
+				flex-direction: row;
+				position: relative;
+				margin: 0 auto;
+
+				&::after {
+					content: attr(aria-label);
+					margin-left: 1em;
+				}
+			}
+		}
+	}
+
+	.block-library-heading-level-toolbar {
+
+		[aria-label="Heading 1"],
+		[aria-label="Heading 2"] {
+			display: none !important;
+		}
+	}
+
+	/**
+	 * Animations
+	 */
+
+	// These keyframes should not be part of the _animations.scss mixins file.
+	// Because keyframe animations can't be defined as mixins properly.
+	// Since hey are intended only for the editor, we add them here instead.
+	@keyframes edit-post__fade-in-animation {
+
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+}

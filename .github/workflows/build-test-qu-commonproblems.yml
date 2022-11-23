@@ -1,0 +1,33 @@
+name: Build Test - QU Common Problems
+
+on:
+  pull_request:
+    paths:
+      - 'lib/widgets/qu-commonproblems/**/*'
+  push:
+    paths:
+      - 'lib/widgets/qu-commonproblems/**/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./lib/widgets/qu-commonproblems/
+    strategy:
+      matrix:
+        node_version: [ '14', '16' ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+
+      - name: Install Yarn dependencies
+        run: yarn
+
+      - name: Run tests
+        run: yarn build

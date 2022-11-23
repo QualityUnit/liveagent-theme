@@ -47,7 +47,8 @@
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			margin-right: 2em;
+			width: 1.5em;
+			text-align: right;
 		}
 	}
 
@@ -146,7 +147,7 @@
 
 		&--data {
 			padding: 1.125em;
-			padding-left: 3em;
+			padding-left: 4.5em;
 		}
 
 		&--inn[class] {

@@ -14,15 +14,15 @@ function rating( $editor_avg, $layout, $meta ) {
 
 	$output = '';
 
-	return '<div class="Reviews__rating">
+	return '<div class="Reviews__rating" itemprop="review" itemscope itemtype="https://schema.org/Review">
 	<div class="flex flex-align-center">
-		<span class="Reviews__rating--rating mr-s">' . $rating . '</span>
+		<span class="Reviews__rating--rating mr-s" itemprop="ratingValue">' . $rating . '</span>
 		<div class="Reviews__rating--stars">
 			<div class="Reviews__rating--stars__fill"
 				style="width: ' . $stars . '%"></div>
 		</div>
 	</div>
-		<div class="Reviews__rating--count">' . $reviews_count . ' ' . __( 'reviews', 'reviews' ) . '</div>
+		<div class="Reviews__rating--count" itemprop="reviewCount">' . $reviews_count . ' ' . __( 'reviews', 'reviews' ) . '</div>
 	</div>' .
 	
 	( ( 'editorrating' === $layout )
@@ -30,7 +30,7 @@ function rating( $editor_avg, $layout, $meta ) {
 		<div class="Reviews__rating editor">
 			<div class="Reviews__rating--count mb-s">' . __( "Editor's Rating", 'reviews' ) . '</div>
 			<div class="flex flex-align-center">
-				<span class="Reviews__rating--rating mr-s-tablet-landscape">' . $editor_avg . '</span>
+				<span class="Reviews__rating--rating mr-s-tablet-landscape" itemprop="ratingValue">' . $editor_avg . '</span>
 				<div class="Reviews__rating--stars">
 					<div class="Reviews__rating--stars__fill" 
 					style="width:' . ( $editor_avg / 5 * 103 ) . '%"></div>

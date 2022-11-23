@@ -107,9 +107,17 @@ $signupSidebarWidth: 16.875em;
 
 				> {
 
-					.Post__m__negative--small {
-						margin-left: -1.5em;
-						margin-right: -1.5em;
+					.Post__m__negative {
+
+						&--small {
+							margin-left: -1.5em;
+							margin-right: -1.5em;
+						}
+
+						&--mid {
+							margin-left: -2.5em;
+							margin-right: -2.5em;
+						}
 					}
 
 					.Post__m__negative,

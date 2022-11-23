@@ -488,7 +488,7 @@ video {
 			position: absolute;
 			top: -0.65rem;
 			left: -0.75rem;
-			background: url(../images/quote.svg) center center no-repeat;
+			background: url(../../images/quote.svg) center center no-repeat;
 			background-size: contain;
 		}
 
@@ -721,7 +721,7 @@ video {
 
 		&::after {
 			position: relative;
-			content: url(../images/arrow_small_right.svg);
+			content: url(../../images/arrow_small_right.svg);
 			display: inline-block;
 			margin-left: 0.5em;
 			top: 0.16em;
@@ -794,7 +794,7 @@ video {
 			right: -0.25em;
 			// z-index: -2;
 			content: "";
-			background: url(../images/highlight_bubble.svg) center center no-repeat;
+			background: url(../../images/highlight_bubble.svg) center center no-repeat;
 			background-size: 100%;
 		}
 	}

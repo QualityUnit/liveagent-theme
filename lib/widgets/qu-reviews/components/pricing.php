@@ -3,13 +3,13 @@
 function pricing( $meta ) {
 	return '
 	<h3 class="no-margin">' . __( 'Pricing', 'reviews' ) . '</h3>
-	<div class="Reviews__info">
+	<div class="Reviews__info" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 		<dl class="Reviews__info--details first mt-xs">
 			<dt>' . __( 'Starting from:', 'reviews' ) . '</dt>
 			<dd>
 				<div class="Reviews__info--pricing">
-					<strong class="currency">' . $meta->currency . '</strong>
-					<strong class="price">' . $meta->price . '</strong>
+					<strong class="currency" itemprop="priceCurrency" content="USD">' . $meta->currency . '</strong>
+					<strong class="price" itemprop="price">' . $meta->price . '</strong>
 					<span class="text-light">
 					&nbsp;' .
 					$meta->period . '

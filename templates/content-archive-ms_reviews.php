@@ -52,9 +52,9 @@
 						<li><?= esc_html( $subpage->name ); ?></li>
 					</ul>
 				</div>
-				<h2 class="FullHeadline__title">
+				<h1 class="FullHeadline__title">
 					<?= esc_html( $subpage->name ); ?>
-				</h2>
+				</h1>
 				<h3 class="FullHeadline__subtitle">
 					<?= esc_html( $subpage->description ); ?>
 				</h3>

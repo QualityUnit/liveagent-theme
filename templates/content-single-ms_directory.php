@@ -586,7 +586,10 @@
 							) ?>
 						</div>
 					</div>
-				<?php } ?>
+					<?php 
+				}
+					the_content();
+				?>
 				<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_faq-q1', true ) ) ) { ?>
 						<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
 							<h2 id="faq"><?php _e( '<span class="highlight">Frequently</span> asked questions', 'ms' ); ?></h2>
