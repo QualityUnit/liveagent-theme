@@ -105,6 +105,12 @@ function meta( $metabox_id ) {
 
 				<?php the_content(); ?>
 
+				<?php
+					require_once get_template_directory() . '/templates/content-single-ms_reviews-contacts.php';
+
+					echo meta( 'how_it_works' );
+				?>
+
 			</div>
 		</div>
 	</div>
