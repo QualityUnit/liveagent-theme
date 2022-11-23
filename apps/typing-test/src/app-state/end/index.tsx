@@ -1,13 +1,13 @@
 import React from 'react';
-import {ConnectedProps, connect} from 'react-redux';
+import { ConnectedProps, connect } from 'react-redux';
 
 import StaticGraph from './static-graph';
-import {Store} from '../../redux';
+import { Store } from '../../redux';
 import DataAggregate from '../../data-aggregate';
-import LogItem, {Type} from '../../data-aggregate/log-item';
+import LogItem, { Type } from '../../data-aggregate/log-item';
 import ReportForm from './report-form';
 
-import {action} from '../../action';
+import { action } from '../../action';
 import LineGraph from "../running/line-graph";
 import SummaryText from './summary-text';
 
@@ -92,30 +92,30 @@ class End extends React.Component<Props, State> {
     return (
       <div className="TypingTest">
         <div className="TypingTest__statistic">
-          <div className="TypingTest__statistic__item">
-            <div className="TypingTest__statistic__item__image--word"/>
+          <div className="TypingTest__statistic__item--test">
+            <div className="TypingTest__statistic__item__image--word" />
             <p className="TypingTest__statistic__item__state--wpm">{this.props.stats.average_wpm}</p>
             <p className="TypingTest__statistic__item__state__name">{this.props.localization.wpm}</p>
           </div>
-          <div className="TypingTest__statistic__item">
-            <div className="TypingTest__statistic__item__image--character"/>
+          <div className="TypingTest__statistic__item--test">
+            <div className="TypingTest__statistic__item__image--character" />
             <p className="TypingTest__statistic__item__state--cpm">{this.props.stats.average_cpm}</p>
             <p className="TypingTest__statistic__item__state__name">{this.props.localization.cpm}</p>
           </div>
-          <div className="TypingTest__statistic__item">
-            <div className="TypingTest__statistic__item__image--mistake"/>
+          <div className="TypingTest__statistic__item--test">
+            <div className="TypingTest__statistic__item__image--mistake" />
             <p className="TypingTest__statistic__item__state--mpm">{this.props.stats.average_mpm}</p>
             <p className="TypingTest__statistic__item__state__name">{this.props.localization.mpm}</p>
           </div>
         </div>
-        <SummaryText/>
+        <SummaryText />
         <div className="StaticGraph">
-          <StaticGraph data={this.state.data} data2={this.state.data2} y_domain={[0, this.state.ymin]}/>
+          <StaticGraph data={this.state.data} data2={this.state.data2} y_domain={[0, this.state.ymin]} />
         </div>
         <div>
-          <a onClick={this.onRestart} className="button button__fill">
+          <button onClick={this.onRestart} className="Button Button--full">
             <span>{this.props.localization.lets_try_one_more_test}</span>
-          </a>
+          </button>
         </div>
         { /*<ReportForm/>*/}
       </div>
