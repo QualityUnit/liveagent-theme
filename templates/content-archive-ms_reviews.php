@@ -92,7 +92,6 @@
 				$whatis_post_title = get_post( $whatis_post_id )->post_title;
 				$whatis_post_title = preg_replace( '/\^(.+?)\^/', '<span class="highlight-gradient">$1</span>', $whatis_post_title );
 				$whatis_post       = apply_filters( 'the_content', $whatis_post );
-				
 			?>
 
 			<div class="Content">

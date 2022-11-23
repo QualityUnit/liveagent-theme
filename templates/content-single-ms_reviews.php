@@ -1,5 +1,6 @@
 <?php // @codingStandardsIgnoreLine
 	set_custom_source( 'pages/Reviews', 'css' );
+	set_custom_source( 'pages/Directory', 'css' );
 	set_custom_source( 'common/splide' );
 	set_custom_source( 'reviewsGallery', 'js' );
 	$current_lang       = apply_filters( 'wpml_current_language', null );
@@ -106,11 +107,23 @@ function meta( $metabox_id ) {
 				<?php the_content(); ?>
 
 				<?php
+				if ( ! empty( meta( 'details_contacts' ) ) ) {
 					require_once get_template_directory() . '/templates/content-single-ms_reviews-contacts.php';
+				}
 
-					echo meta( 'how_it_works' );
+				if ( ! empty( meta( 'how_it_works' ) ) ) {
+					$how_it_works_id    = meta( 'how_it_works' );
+					$how_it_works       = get_post( $how_it_works_id )->post_content;
+					$how_it_works_title = get_post( $how_it_works_id )->post_title;
+					$how_it_works       = apply_filters( 'the_content', $how_it_works );
+					?>
+
+					<?= do_shortcode( '[split-title title="' . $how_it_works_title . '"]' ); ?>
+					<div class="mt-xl"></div>
+					<?= $how_it_works; // @codingStandardsIgnoreLine ?>
+					<?php
+				}
 				?>
-
 			</div>
 		</div>
 	</div>
