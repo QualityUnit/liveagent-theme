@@ -90,6 +90,7 @@ gulp.task( 'styles', () =>
 const iconsConfig = {
 	shape: {
 		id: {
+			separator: '/',
 			generator: '%s',
 		},
 	},
