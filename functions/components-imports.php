@@ -44,9 +44,9 @@ function components_imports( $content ) {
 	
 	foreach ( $blocks as $class => $csspath ) {
 		$id = strtolower( $class );
-		$found_blocks = $xpath->query( './/*[contains(@class, ' . $class . ')]' );
+		$found_blocks = $xpath->query( './/*[contains(@class, "' . $class . '")]' );
 	
-		if ( $found_blocks[0] || is_user_logged_in() ) {
+		if ( isset( $found_blocks[0] ) || is_user_logged_in() ) {
 			wp_enqueue_style( $id, get_template_directory_uri() . '/assets/dist/' . $csspath . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
 	}
