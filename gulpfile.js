@@ -54,10 +54,10 @@ gulp.task( 'browser-sync', () => {
 		'./assets/images/flags/*.svg',
 		gulp.series( 'langFlagsSprite' )
 	);
-	// gulp.watch(
-	// 	'./assets/images/icons-common/*.svg',
-	// 	gulp.series( 'iconsSprite' )
-	// );
+	gulp.watch(
+		'./assets/images/icons-common/*.svg',
+		gulp.series( 'iconsSprite' )
+	);
 } );
 
 gulp.task( 'styles', () =>
@@ -230,7 +230,7 @@ gulp.task(
 		'app-js',
 		'custom-js',
 		'langFlagsSprite',
-		// 'iconsSprite'
+		'iconsSprite'
 	)
 );
 
@@ -244,7 +244,7 @@ gulp.task(
 		'custom-js',
 		'static-js',
 		'langFlagsSprite',
-		// 'iconsSprite',
+		'iconsSprite',
 		'browser-sync'
 	)
 );
