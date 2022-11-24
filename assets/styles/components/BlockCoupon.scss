@@ -18,6 +18,7 @@ scss/at-extend-no-missing-placeholder */
 	margin-right: auto !important;
 	padding-top: em(64);
 	padding-bottom: em(64);
+	background: linear-gradient(90deg, $gradient-1 2%, $gradient-2 50%, $gradient-3 98%) center center no-repeat;
 	background-size: cover;
 	color: $saturated-red;
 
