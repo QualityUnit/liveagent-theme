@@ -2,7 +2,8 @@
 	/**
 	 * Template Name: Page Like Blog Post
 	 */
-
+	set_custom_source( 'Components/SidebarTOC', 'css' );
+	set_custom_source( 'Components/SignupSidebar', 'css' );
 	set_custom_source( 'pages/post', 'css' );
 	set_custom_source( 'pages/blog', 'css' );
 	set_custom_source( 'common/splide', 'css' );

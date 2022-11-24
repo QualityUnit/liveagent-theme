@@ -54,10 +54,10 @@ gulp.task( 'browser-sync', () => {
 		'./assets/images/flags/*.svg',
 		gulp.series( 'langFlagsSprite' )
 	);
-	// gulp.watch(
-	// 	'./assets/images/icons-common/*.svg',
-	// 	gulp.series( 'iconsSprite' )
-	// );
+	gulp.watch(
+		'./assets/images/icons-common/*.svg',
+		gulp.series( 'iconsSprite' )
+	);
 } );
 
 gulp.task( 'styles', () =>
@@ -91,7 +91,10 @@ const iconsConfig = {
 	shape: {
 		id: {
 			separator: '/',
-			generator: '%s',
+			generator: ( name ) => {
+				const renamed = name.replace( '/', '-' ).replace( '.svg', '' );
+				return renamed;
+			},
 		},
 	},
 	svg: {
@@ -131,22 +134,7 @@ gulp.task( 'iconsSprite', () =>
 		.src( [
 			'./vendor/qualityunit/wordpress-icons/icons/common/**/*.svg',
 			'./vendor/qualityunit/wordpress-icons/icons/liveagent/**/*.svg',
-		], { base: './' } )
-		.pipe( rename( ( file ) => {
-			let myprefix = file.dirname;
-			myprefix = myprefix.replace( /.+?\/([^\\/]+)$/g, '$1' );
-
-			if ( myprefix !== 'common' && myprefix !== 'liveagent' ) {
-				myprefix = `${ myprefix }-`;
-			} else {
-				myprefix = '';
-			}
-			return {
-				dirname: file.dirname,
-				basename: `${ myprefix }${ file.basename }`,
-				extname: '.svg',
-			};
-		} ) )
+		] )
 		.pipe( svgSprites( iconsConfig ) )
 		.pipe( gulp.dest( './assets/images' ) )
 		.pipe( browserSync.reload( { stream: true } ) )
@@ -242,7 +230,7 @@ gulp.task(
 		'app-js',
 		'custom-js',
 		'langFlagsSprite',
-		// 'iconsSprite'
+		'iconsSprite'
 	)
 );
 
@@ -256,7 +244,7 @@ gulp.task(
 		'custom-js',
 		'static-js',
 		'langFlagsSprite',
-		// 'iconsSprite',
+		'iconsSprite',
 		'browser-sync'
 	)
 );
