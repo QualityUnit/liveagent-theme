@@ -3,8 +3,8 @@
 	 * Template Name: Page Like Academy Post
 	 */
 
-	set_custom_source( 'Components/SidebarTOC', 'css' );
-	set_custom_source( 'Components/SignupSidebar', 'css' );
+	set_custom_source( 'components/SidebarTOC', 'css' );
+	set_custom_source( 'components/SignupSidebar', 'css' );
 	set_custom_source( 'pages/post', 'css' );
 	set_custom_source( 'common/splide', 'css' );
 	set_custom_source( 'splide', 'js' );
