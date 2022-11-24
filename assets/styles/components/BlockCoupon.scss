@@ -6,6 +6,7 @@ scss/at-extend-no-missing-placeholder */
 @forward "../shortcodes/Countdown";
 
 .BlockCoupon {
+	--maxHeight: 500;
 	$gradient-1: #c04297;
 	$gradient-2: #ff4c6c;
 	$gradient-3: #ff7b6c;
@@ -19,6 +20,12 @@ scss/at-extend-no-missing-placeholder */
 	padding-bottom: em(64);
 	background-size: cover;
 	color: $saturated-red;
+
+	&--narrow {
+		max-height: var(--maxHeight);
+		padding-top: 1.5em;
+		padding-bottom: 1.5em;
+	}
 
 	&:not(:first-child) {
 		margin-top: em(40);
@@ -134,7 +141,7 @@ scss/at-extend-no-missing-placeholder */
 		margin: 0;
 		border: 0;
 		border-radius: $border-radius - 2;
-		color: $saturated-red;
+		color: currentcolor;
 		background-color: $white;
 		transition: all 0.3s;
 
@@ -176,6 +183,7 @@ scss/at-extend-no-missing-placeholder */
 			font-family: $font-secondary;
 			font-weight: $font-weight-semi;
 			background-color: rgba($white, 0.2);
+			color: $white;
 		}
 
 		&-btn[class] {
