@@ -3,19 +3,29 @@ scss/at-extend-no-missing-placeholder */
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@forward "../shortcodes/Countdown";
 
 .BlockCoupon {
+	--maxHeight: 500;
 	$gradient-1: #c04297;
 	$gradient-2: #ff4c6c;
 	$gradient-3: #ff7b6c;
 
 	text-align: center;
 	min-height: em(500);
+	max-width: $breakpoint-desktop-hd;
+	margin-left: auto !important;
+	margin-right: auto !important;
 	padding-top: em(64);
 	padding-bottom: em(64);
-	background: linear-gradient(90deg, $gradient-1 2%, $gradient-2 50%, $gradient-3 98%) center center no-repeat;
 	background-size: cover;
-	color: $white;
+	color: $saturated-red;
+
+	&--narrow {
+		max-height: var(--maxHeight);
+		padding-top: 1.5em;
+		padding-bottom: 1.5em;
+	}
 
 	&:not(:first-child) {
 		margin-top: em(40);
@@ -23,6 +33,11 @@ scss/at-extend-no-missing-placeholder */
 
 	&:not(:last-child) {
 		margin-bottom: em(40);
+	}
+
+	@media (min-width: ($breakpoint-desktop-hd - 1px)) {
+		border-radius: $border-radius-16;
+		overflow: hidden;
 	}
 
 	.elementor {
@@ -39,7 +54,7 @@ scss/at-extend-no-missing-placeholder */
 
 					font-size: em(32);
 					margin: 0;
-					color: currentcolor;
+					color: $white;
 
 					@media (min-width: $breakpoint-mobile) {
 						font-size: em(48);
@@ -52,7 +67,6 @@ scss/at-extend-no-missing-placeholder */
 			}
 
 			&-shortcode {
-				color: $white;
 
 				&:not(:last-child) {
 					margin-bottom: em(40);
@@ -68,7 +82,7 @@ scss/at-extend-no-missing-placeholder */
 				&,
 				* {
 					font-family: $font-secondary;
-					color: currentcolor;
+					color: $white;
 				}
 
 				&:not(:last-child) {
@@ -111,14 +125,12 @@ scss/at-extend-no-missing-placeholder */
 		}
 
 		&-background-overlay {
-			display: none;
+
+			@include posZero;
+			position: absolute;
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-size: cover;
-
-			@media (min-width: $breakpoint-tablet-landscape) {
-				display: block;
-			}
 		}
 	}
 
@@ -129,7 +141,7 @@ scss/at-extend-no-missing-placeholder */
 		margin: 0;
 		border: 0;
 		border-radius: $border-radius - 2;
-		color: $saturated-red;
+		color: currentcolor;
 		background-color: $white;
 		transition: all 0.3s;
 
@@ -171,6 +183,7 @@ scss/at-extend-no-missing-placeholder */
 			font-family: $font-secondary;
 			font-weight: $font-weight-semi;
 			background-color: rgba($white, 0.2);
+			color: $white;
 		}
 
 		&-btn[class] {

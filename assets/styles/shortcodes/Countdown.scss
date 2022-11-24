@@ -32,6 +32,7 @@
 				justify-content: center;
 				width: 0.75em;
 				height: 2em;
+				color: $white;
 			}
 		}
 	}
@@ -43,12 +44,13 @@
 		justify-content: center;
 		align-items: center;
 		border-radius: 0.5em;
-		color: $saturated-red;
+		color: currentcolor;
 		background-color: $white;
 	}
 
 	&__label {
 		font-size: 0.4375em;
 		text-align: center;
+		color: $white;
 	}
 }
