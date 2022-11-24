@@ -102,7 +102,7 @@
 					</div>
 					<div class="elementor-column heroHeadline--bg">
 						<div class="elementor-widget-wrap">
-							<div class="animation elementor-widget elementor-widget-image">
+							<div class="animation elementor-widget elementor-widget-image urlslab-min-width-1024">
 								<div class="elementor-widget-container">
 									<div class="elementor-image">
 										<img class="attachment-large size-large"
@@ -111,7 +111,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="elementor-widget-image">
+							<div class="elementor-widget-image urlslab-min-width-768">
 								<div class="elementor-widget-container">
 									<div class="elementor-image">
 										<img width="970" height="1024"
