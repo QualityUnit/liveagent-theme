@@ -94,6 +94,7 @@ function qu_reviews_init() {
 				require_once __DIR__ . '/components/pros-cons.php';
 				
 				$post .= '<div class="qu-Reviews__post' . ' ' . ( 'editorrating' === $layout ? 'editor' : null ) . '" itemscope itemtype="https://schema.org/SoftwareApplication">
+				<meta itemprop="operatingSystem" content="Any" />
 				<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="BusinessApplication"></span>
 					<a href="' . $url . '" title="' . $title . '" itemprop="url">
 						<div class="qu-Reviews__post--inn">

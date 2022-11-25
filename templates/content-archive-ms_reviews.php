@@ -44,7 +44,7 @@
 	// Category page level 2
 	if ( isset( $subpage->slug ) ) {
 		?>
-		<div class="Reviews__header Reviews__header-level2">
+		<div class="Reviews__header Reviews__header-level2 FullHeadline narrow">
 			<div class="wrapper text-align-center">
 				<div class="Post__content__breadcrumbs ma-bottom">
 					<ul>

@@ -29,11 +29,7 @@ function meta( $metabox_id ) {
 }
 ?>
 
-<div class="Post Reviews" itemscope itemtype="http://schema.org/SoftwareApplication">
-	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
-	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
-	<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="BusinessApplication"></span>
-
+<div class="Post Reviews">	
 	<?php
 	require_once get_template_directory() . '/templates/content-single-ms_reviews-top.php';
 	?>
@@ -153,22 +149,39 @@ function meta( $metabox_id ) {
 				while ( $query_glossary_posts->have_posts() ) :
 					$query_glossary_posts->the_post();
 					?>
-						<li class="Reviews__relatedReviews--post <?= ( get_the_ID() === $current_id ) ? 'active' : '' ?>" itemprop="review" itemscope itemtype="https://schema.org/Review">
-							<a class="flex Reviews__relatedReviews--post__inn" href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" itemprop="url">
+						<li class="Reviews__relatedReviews--post <?= ( get_the_ID() === $current_id ) ? 'active' : '' ?>" >
+							<a class="flex Reviews__relatedReviews--post__inn" href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" itemprop="review" itemscope itemtype="https://schema.org/Review">
+								
+								<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
+									<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
+									<meta itemprop="operatingSystem" content="Any" />
+									<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_html( str_replace( '^', '', get_the_title() ) ) ?>"></span>
+								</span>
+								<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
+									<span itemprop="name">LiveAgent</span>
+								</span>
+								
 								<span class="Reviews__relatedReviews--post__number mr-xl-tablet"><?= esc_html( ++$counter ); ?></span>
 								<h3 class="Reviews__relatedReviews--post__title" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></h3>
 								<?php
 									$rating_post = get_post_meta( get_the_ID(), 'rating', true );
 								if ( $rating_post ) {
 									?>
-									<div class="ml-s-tablet mr-ultra-tablet flex flex-align-center" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+									<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
+										<link itemprop="url" href="<?php the_permalink(); ?>" />
+										<meta itemprop="priceCurrency" content="USD" />
+										<meta itemprop="price" content="<?= esc_attr( get_post_meta( get_the_ID(), 'price', true ) ); ?>" />
+									</div>
+									<div class="ml-s-tablet mr-ultra-tablet flex flex-align-center" itemscope itemtype="https://schema.org/Rating">
 										<span class="mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>
+										<meta itemprop="reviewCount" content="<?= esc_attr( get_post_meta( get_the_ID(), 'reviews_count', true ) ); ?>" />
 										<div class="Reviews__rating--stars mr-m <?= ( get_the_ID() === $current_id ) ? '' : 'grey' ?>">
 											<div class="Reviews__rating--stars__fill" 
 											style="width:<?= esc_attr( ( $rating_post / 5 * 100 ) . '%' ); ?>"></div>
 										</div>
-										<span itemprop="reviewCount" class="mr-xs"><?= esc_html( get_post_meta( get_the_ID(), 'reviews_count', true ) ); ?></span><span><?= esc_html( __( 'reviews', 'reviews' ) ); ?></span>
+										<span class="mr-xs"><?= esc_html( get_post_meta( get_the_ID(), 'reviews_count', true ) ); ?></span><span><?= esc_html( __( 'reviews', 'reviews' ) ); ?></span>
 									</div>
+									
 									<?php
 								}
 								?>
