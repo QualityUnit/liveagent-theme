@@ -64,7 +64,7 @@ while ( $query_reviews_posts->have_posts() ) :
 						<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
 							<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
 							<meta itemprop="operatingSystem" content="Any" />
-							<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= escattr( str_replace( '^', '', get_the_title() ) ) ?>"></span>
+							<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>"></span>
 						</span>
 						<span class="Reviews__rating--rating mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>
 						<meta itemprop="reviewCount" content="<?= esc_attr( meta( 'reviews_count' ) ); ?>" />

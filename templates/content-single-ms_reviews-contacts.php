@@ -1,4 +1,4 @@
-<?php
+<?php  // @codingStandardsIgnoreLine
 	$screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( meta( 'details_contacts' ), 'mb_directory_mb_directory_company-name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( meta( 'details_contacts' ), 'mb_directory_mb_directory_website', true ) ) . "' ]" );
 
 	$csc_title = __( '${company_name} customer support', 'ms' );
