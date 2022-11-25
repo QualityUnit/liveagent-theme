@@ -14,7 +14,7 @@ add_action(
 			'public'            => true,
 			'show_ui'           => true,
 			'show_admin_column' => true,
-			"show_in_menu"      => true,
+			'show_in_menu'      => true,
 			'show_in_nav_menus' => true,
 			'show_tagcloud'     => false,
 			'query_var'         => true,

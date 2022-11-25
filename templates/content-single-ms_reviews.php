@@ -155,7 +155,7 @@ function meta( $metabox_id ) {
 								<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
 									<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
 									<meta itemprop="operatingSystem" content="Any" />
-									<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_html( str_replace( '^', '', get_the_title() ) ) ?>"></span>
+									<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>"></span>
 								</span>
 								<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
 									<span itemprop="name">LiveAgent</span>

@@ -5,17 +5,17 @@ add_filter( 'simple_register_taxonomy_settings', 'add_reviews_taxonomy_metaboxes
 function add_reviews_taxonomy_metaboxes( $settings ) {
 
 	$query_args = array(
-	'post_type' => 'ms_reviews',
-	'posts_per_page' => -1,
+		'post_type' => 'ms_reviews',
+		'posts_per_page' => -1,
 	);
 
 	$show_posts    = new WP_Query( $query_args );
 
 	while ( $show_posts->have_posts() ) :
 		$show_posts->the_post();
-		$post_lang = apply_filters( 'wpml_post_language_details', NULL, get_the_id() );
+		$post_lang = apply_filters( 'wpml_post_language_details', null, get_the_id() );
 		if ( 'en' === $post_lang['language_code'] ) {
-			$reviews_posts[get_the_id()] = str_replace( '^','', get_the_title() );
+			$reviews_posts[ get_the_id() ] = str_replace( '^', '', get_the_title() );
 		}
 	endwhile;
 
@@ -273,9 +273,9 @@ function add_reviews_details( $details ) {
 
 	while ( $show_posts->have_posts() ) :
 		$show_posts->the_post();
-		$post_lang = apply_filters( 'wpml_post_language_details', NULL, get_the_id() );
+		$post_lang = apply_filters( 'wpml_post_language_details', null, get_the_id() );
 		if ( 'en' === $post_lang['language_code'] ) {
-			$details_posts[get_the_id()] = str_replace( '^','', get_the_title() );
+			$details_posts[ get_the_id() ] = str_replace( '^', '', get_the_title() );
 		}
 	endwhile;
 	wp_reset_postdata();
@@ -289,9 +289,9 @@ function add_reviews_details( $details ) {
 
 	while ( $query_posts->have_posts() ) :
 		$query_posts->the_post();
-		$post_lang = apply_filters( 'wpml_post_language_details', NULL, get_the_id() );
+		$post_lang = apply_filters( 'wpml_post_language_details', null, get_the_id() );
 		if ( 'en' === $post_lang['language_code'] ) {
-			$howitworks_posts[get_the_id()] = str_replace( '^','', get_the_title() );
+			$howitworks_posts[ get_the_id() ] = str_replace( '^', '', get_the_title() );
 		}
 	endwhile;
 
