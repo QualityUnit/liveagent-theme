@@ -50,6 +50,7 @@ while ( $query_reviews_posts->have_posts() ) :
 				<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
 					<span itemprop="name">LiveAgent</span>
 				</span>
+
 				<span class="Reviews__relatedReviews--post__number mr-xl-tablet" data-order><?= esc_html( ++$counter ); ?></span>
 				<div class="Reviews__relatedReviews--post__main">
 					<h3 class="Reviews__relatedReviews--post__title" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></h3>
@@ -71,7 +72,7 @@ while ( $query_reviews_posts->have_posts() ) :
 							<div class="Reviews__rating--stars__fill" 
 							style="width:<?= esc_attr( ( $rating_post / 5 * 103.3 ) . '%' ); ?>"></div>
 						</div>
-						<div class="Reviews__rating--count"><?= esc_html( meta( 'reviews_count' ) . ' ' . __( 'reviews', 'reviews' ) ); ?></div>
+						<div class="Reviews__rating--count" itemprop="reviewCount"><?= esc_html( meta( 'reviews_count' ) . ' ' . __( 'reviews', 'reviews' ) ); ?></div>
 					</div>
 					<div class="Reviews__rating editor" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
 						<div class="Reviews__rating--avatar">

@@ -233,10 +233,10 @@ textarea:focus,
 	background-size: contain !important;
 }
 
-.TypingTest__statistic__item-active .TypingTest__icon {
+/* .TypingTest__statistic__item-active .TypingTest__icon {
 	width: 73px;
 	background-size: 72px !important;
-}
+} */
 
 .TypingTest__icon__test-difficulty__easy {
 	background: url("../public/assets/difficulty_easy.svg") no-repeat;
@@ -336,14 +336,11 @@ textarea:focus,
 	cursor: pointer;
 }
 
+.TypingTest__statistic__item-active,
 .TypingTest__statistic__item:hover {
 	border: 3px solid #ffa522;
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 	transform: translateY(-10px);
-}
-
-.TypingTest__statistic__item-active {
-	border: 3px solid #ffa522;
 }
 
 [class*="TypingTest__statistic__item__image"] {

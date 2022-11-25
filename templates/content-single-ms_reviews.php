@@ -160,7 +160,6 @@ function meta( $metabox_id ) {
 								<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
 									<span itemprop="name">LiveAgent</span>
 								</span>
-								
 								<span class="Reviews__relatedReviews--post__number mr-xl-tablet"><?= esc_html( ++$counter ); ?></span>
 								<h3 class="Reviews__relatedReviews--post__title" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></h3>
 								<?php
