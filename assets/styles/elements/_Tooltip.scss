@@ -57,6 +57,21 @@
 			}
 		}
 
+		&--bottom {
+			top: 100%;
+			bottom: auto;
+			left: auto;
+			right: -3em;
+
+			&::after {
+				top: auto;
+				bottom: 100%;
+				left: auto !important;
+				right: 3em;
+				border-color: #000 !important transparent transparent;
+			}
+		}
+
 		&.wide {
 			text-align: left;
 

@@ -1,8 +1,8 @@
-import React, {ReactElement} from 'react';
-import {connect, ConnectedProps} from 'react-redux';
+import React, { ReactElement } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
 
-import {Store} from '../../redux';
-import {action} from '../../action';
+import { Store } from '../../redux';
+import { action } from '../../action';
 
 
 type Props = ReduxProps & {}
@@ -29,15 +29,16 @@ class Start extends React.Component<Props, State> {
   submit(value: string, type: string) {
     switch (type) {
       case "difficulty":
-        this.setState({selected_difficulty: value});
+        this.setState({ selected_difficulty: value });
         break;
       case "timeout":
-        this.setState({selected_timeout: +value});
+        this.setState({ selected_timeout: +value });
         break;
     }
   }
 
   componentDidUpdate() {
+
     if (this.state.selected_difficulty !== null && this.state.selected_timeout !== null) {
       this.props.select_timer_difficulty(this.state.selected_difficulty, this.state.selected_timeout);
       this.props.new_race()
@@ -58,11 +59,11 @@ class Start extends React.Component<Props, State> {
             <p className="TypingTest__statistic__item__state__name">{this.props.difficulties.get("easy")?.display_name}</p>
           </div>
           <div className={this.state.selected_difficulty == "normal" ? "TypingTest__statistic__item TypingTest__statistic__item-active" : "TypingTest__statistic__item"} onClick={(event) => this.submit("normal", "difficulty")}>
-            <div className="TypingTest__icon TypingTest__icon__test-difficulty__normal"/>
+            <div className="TypingTest__icon TypingTest__icon__test-difficulty__normal" />
             <p className="TypingTest__statistic__item__state__name">{this.props.difficulties.get("normal")?.display_name}</p>
           </div>
           <div className={this.state.selected_difficulty == "hard" ? "TypingTest__statistic__item TypingTest__statistic__item-active" : "TypingTest__statistic__item"} onClick={(event) => this.submit("hard", "difficulty")}>
-            <div className="TypingTest__icon TypingTest__icon__test-difficulty__hard"/>
+            <div className="TypingTest__icon TypingTest__icon__test-difficulty__hard" />
             <p className="TypingTest__statistic__item__state__name">{this.props.difficulties.get("hard")?.display_name}</p>
           </div>
         </div>
@@ -73,11 +74,11 @@ class Start extends React.Component<Props, State> {
             <p className="TypingTest__statistic__item__state__name">{this.props.timeouts.get("60")?.display_name}</p>
           </div>
           <div className={this.state.selected_timeout == 180 ? "TypingTest__statistic__item TypingTest__statistic__item-active" : "TypingTest__statistic__item"} onClick={(event) => this.submit("180", "timeout")}>
-            <div className="TypingTest__icon TypingTest__icon__test-duration__3min"/>
+            <div className="TypingTest__icon TypingTest__icon__test-duration__3min" />
             <p className="TypingTest__statistic__item__state__name">{this.props.timeouts.get("180")?.display_name}</p>
           </div>
           <div className={this.state.selected_timeout == 300 ? "TypingTest__statistic__item TypingTest__statistic__item-active" : "TypingTest__statistic__item"} onClick={(event) => this.submit("300", "timeout")}>
-            <div className="TypingTest__icon TypingTest__icon__test-duration__5min"/>
+            <div className="TypingTest__icon TypingTest__icon__test-duration__5min" />
             <p className="TypingTest__statistic__item__state__name">{this.props.timeouts.get("300")?.display_name}</p>
           </div>
         </div>
