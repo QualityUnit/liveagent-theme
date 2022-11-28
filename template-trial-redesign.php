@@ -11,7 +11,7 @@
 	</a>
 
 	<div class="Trial__container">
-		<div class="Trial__sidebar" style="background-image: url(https://www.liveagent.com/app/uploads/2020/01/bg_trial.jpg);">
+		<div class="Trial__sidebar urlslab-min-width-1024" style="background-image: url(https://www.liveagent.com/app/uploads/2020/01/bg_trial.jpg);">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top--inn" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Trial Logo'])">
 				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent_black.svg" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
 			</a>

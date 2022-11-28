@@ -97,14 +97,14 @@
 						</div>
 						<div class="elementor-column heroHeadline--bg">
 							<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="animation elementor-widget elementor-widget-image">
+								<div class="animation elementor-widget elementor-widget-image urlslab-min-width-1024">
 									<div class="elementor-widget-container">
 										<img class="attachment-large size-large"
 											 alt="<?php _e( 'Header Animation', 'ms' ); ?>" height="100" width="100"
 											 src="https://www.liveagent.com/app/uploads/2021/06/helpdesk-2.svg">
 									</div>
 								</div>
-								<div class="elementor-widget-image">
+								<div class="elementor-widget-image urlslab-min-width-768">
 									<div class="elementor-widget-container">
 										<img width="970" height="1024"
 											 class="attachment-large size-large" alt="<?php _e( 'Helpdesk software', 'ms' ); ?>"
