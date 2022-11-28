@@ -4,24 +4,6 @@ add_filter( 'simple_register_taxonomy_settings', 'add_reviews_taxonomy_metaboxes
 
 function add_reviews_taxonomy_metaboxes( $settings ) {
 
-	$query_args = array(
-		'post_type' => 'ms_reviews',
-		'posts_per_page' => -1,
-	);
-
-	$show_posts    = new WP_Query( $query_args );
-
-	while ( $show_posts->have_posts() ) :
-		$show_posts->the_post();
-		$post_lang = apply_filters( 'wpml_post_language_details', null, get_the_id() );
-		if ( 'en' === $post_lang['language_code'] ) {
-			$reviews_posts[ get_the_id() ] = str_replace( '^', '', get_the_title() );
-		}
-	endwhile;
-
-	wp_reset_postdata();
-
-
 	$settings[] = array(
 		'id'       => 'ms_reviews_category',
 		'taxonomy' => array( 'ms_reviews_categories' ),
@@ -58,7 +40,7 @@ function add_reviews_taxonomy_metaboxes( $settings ) {
 				'label'       => 'What is article (bottom)',
 				'type'        => 'select',
 				'placeholder' => 'Select What is Article',
-				'options'     => $reviews_posts,
+				'options'     => get_reviews(),
 			),
 		),
 	);
@@ -264,40 +246,7 @@ function add_reviews_media( $media ) {
 add_filter( 'simple_register_metaboxes', 'add_reviews_details' );
 
 function add_reviews_details( $details ) {
-	$query_args = array(
-		'post_type' => 'ms_directory',
-		'posts_per_page' => -1,
-	);
 	
-	$show_posts    = new WP_Query( $query_args );
-
-	while ( $show_posts->have_posts() ) :
-		$show_posts->the_post();
-		$post_lang = apply_filters( 'wpml_post_language_details', null, get_the_id() );
-		if ( 'en' === $post_lang['language_code'] ) {
-			$details_posts[ get_the_id() ] = str_replace( '^', '', get_the_title() );
-		}
-	endwhile;
-	wp_reset_postdata();
-
-	$howitworks_args = array(
-		'post_type' => 'ms_reviews',
-		'posts_per_page' => -1,
-	);
-
-	$query_posts    = new WP_Query( $howitworks_args );
-
-	while ( $query_posts->have_posts() ) :
-		$query_posts->the_post();
-		$post_lang = apply_filters( 'wpml_post_language_details', null, get_the_id() );
-		if ( 'en' === $post_lang['language_code'] ) {
-			$howitworks_posts[ get_the_id() ] = str_replace( '^', '', get_the_title() );
-		}
-	endwhile;
-
-	wp_reset_postdata();
-
-
 	$details[] = array(
 		'id'        => 'ms_reviews_details',
 		'name'      => 'Details',
@@ -309,14 +258,14 @@ function add_reviews_details( $details ) {
 				'label'       => 'Directory Contacts',
 				'type'        => 'select',
 				'placeholder' => 'Select Directory post',
-				'options'     => $details_posts,
+				'options'     => get_directory_contacts(),
 			),
 			array(
 				'id'          => 'how_it_works',
 				'label'       => 'How it works post below',
 				'type'        => 'select',
 				'placeholder' => 'Select How it works post',
-				'options'     => $howitworks_posts,
+				'options'     => get_reviews(),
 			),
 		),
 	);

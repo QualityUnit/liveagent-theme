@@ -31,6 +31,7 @@ define( 'THEME_VERSION', '1.6.11' );
 		'functions/components-imports.php', // Import CSS and JS for blocks or components on page
 		'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
 		'functions/import-functions.php', // Partials JS and SCSS import functions
+		'functions/get-posts.php', // Function to get posts by ID (ie to be used in metaboxes functions)
 		'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
 		'functions/taxonomies.php', // Import Custom Taxonomies
 		'functions/post-types.php', // Import Custom Post Types
