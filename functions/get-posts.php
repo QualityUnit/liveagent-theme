@@ -23,7 +23,11 @@ function get_reviews() {
 		return $reviews_posts;
 }
 
-$reviews_posts = get_reviews();
+$reviews_posts = array();
+
+if ( is_admin() ) {
+	$reviews_posts = get_reviews();
+}
 
 	// Gets Directory posts IDs
 function get_directory_contacts() {
@@ -47,4 +51,8 @@ function get_directory_contacts() {
 	return $details_posts;
 }
 
-$details_posts = get_directory_contacts();
+$details_posts = array();
+
+if ( is_admin() ) {
+	$details_posts = get_directory_contacts();
+}
