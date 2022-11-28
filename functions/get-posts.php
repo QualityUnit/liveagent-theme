@@ -6,18 +6,17 @@ function get_reviews() {
 		$query_args = array(
 			'post_type' => 'ms_reviews',
 			'posts_per_page' => -1,
-			'fields'         => 'id',
+			'fields'         => 'ids',
 		);
 
 		$show_posts    = new WP_Query( $query_args );
 
-		while ( $show_posts->have_posts() ) :
-			$show_posts->the_post();
-			$post_lang = apply_filters( 'wpml_post_language_details', null, get_the_id() );
+		foreach ( $show_posts->posts as $post_id ) {
+			$post_lang = apply_filters( 'wpml_post_language_details', null, $post_id );
 			if ( is_array( $post_lang ) && 'en' === $post_lang['language_code'] ) {
-				$reviews_posts[ get_the_id() ] = str_replace( '^', '', get_the_title() );
+				$reviews_posts[ $post_id ] = str_replace( '^', '', get_the_title( $post_id ) );
 			}
-		endwhile;
+		}
 
 		wp_reset_query();
 
@@ -29,18 +28,17 @@ function get_directory_contacts() {
 	$query_args = array(
 		'post_type' => 'ms_directory',
 		'posts_per_page' => -1,
-		'fields'         => 'id',
+		'fields'         => 'ids',
 	);
 		
 	$show_posts    = new WP_Query( $query_args );
 
-	while ( $show_posts->have_posts() ) :
-		$show_posts->the_post();
-		$post_lang = apply_filters( 'wpml_post_language_details', null, get_the_id() );
+	foreach ( $show_posts->posts as $post_id ) {
+		$post_lang = apply_filters( 'wpml_post_language_details', null, $post_id );
 		if ( is_array( $post_lang ) && 'en' === $post_lang['language_code'] ) {
-			$details_posts[ get_the_id() ] = str_replace( '^', '', get_the_title() );
+			$details_posts[ $post_id ] = str_replace( '^', '', get_the_title( $post_id ) );
 		}
-		endwhile;
+	}
 
 	wp_reset_query();
 
