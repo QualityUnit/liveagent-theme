@@ -14,7 +14,7 @@ function get_reviews() {
 		while ( $show_posts->have_posts() ) :
 			$show_posts->the_post();
 			$post_lang = apply_filters( 'wpml_post_language_details', null, get_the_id() );
-			if ( 'en' === $post_lang['language_code'] ) {
+			if ( is_array( $post_lang ) && 'en' === $post_lang['language_code'] ) {
 				$reviews_posts[ get_the_id() ] = str_replace( '^', '', get_the_title() );
 			}
 		endwhile;
@@ -37,7 +37,7 @@ function get_directory_contacts() {
 	while ( $show_posts->have_posts() ) :
 		$show_posts->the_post();
 		$post_lang = apply_filters( 'wpml_post_language_details', null, get_the_id() );
-		if ( 'en' === $post_lang['language_code'] ) {
+		if ( is_array( $post_lang ) && 'en' === $post_lang['language_code'] ) {
 			$details_posts[ get_the_id() ] = str_replace( '^', '', get_the_title() );
 		}
 		endwhile;
