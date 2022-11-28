@@ -3,6 +3,7 @@
 add_filter( 'simple_register_taxonomy_settings', 'add_reviews_taxonomy_metaboxes' );
 
 function add_reviews_taxonomy_metaboxes( $settings ) {
+	global $reviews_posts;
 
 	$settings[] = array(
 		'id'       => 'ms_reviews_category',
@@ -40,7 +41,7 @@ function add_reviews_taxonomy_metaboxes( $settings ) {
 				'label'       => 'What is article (bottom)',
 				'type'        => 'select',
 				'placeholder' => 'Select What is Article',
-				'options'     => get_reviews(),
+				'options'     => $reviews_posts,
 			),
 		),
 	);
@@ -246,7 +247,9 @@ function add_reviews_media( $media ) {
 add_filter( 'simple_register_metaboxes', 'add_reviews_details' );
 
 function add_reviews_details( $details ) {
-	
+	global $reviews_posts;
+	global $details_posts;
+
 	$details[] = array(
 		'id'        => 'ms_reviews_details',
 		'name'      => 'Details',
@@ -258,14 +261,14 @@ function add_reviews_details( $details ) {
 				'label'       => 'Directory Contacts',
 				'type'        => 'select',
 				'placeholder' => 'Select Directory post',
-				'options'     => get_directory_contacts(),
+				'options'     => $details_posts,
 			),
 			array(
 				'id'          => 'how_it_works',
 				'label'       => 'How it works post below',
 				'type'        => 'select',
 				'placeholder' => 'Select How it works post',
-				'options'     => get_reviews(),
+				'options'     => $reviews_posts,
 			),
 		),
 	);
