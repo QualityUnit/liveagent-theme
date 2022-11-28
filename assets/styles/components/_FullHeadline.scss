@@ -94,17 +94,21 @@
 	@media (min-width: $breakpoint-tablet) {
 		padding: 8em 0 4em;
 
+		&.narrow {
+			padding: 4em 0 2em;
+		}
+
 		&.tall {
 
 			padding: 10em 0;
 		}
 
 		&__title {
-			font-size: 3.43rem;
+			font-size: 2.5rem;
 		}
 
 		&__subtitle {
-			font-size: 1.625rem;
+			font-size: 1.5rem;
 		}
 
 		.Buttons {

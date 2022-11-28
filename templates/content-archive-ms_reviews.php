@@ -44,7 +44,7 @@
 	// Category page level 2
 	if ( isset( $subpage->slug ) ) {
 		?>
-		<div class="Reviews__header Reviews__header-level2">
+		<div class="Reviews__header Reviews__header-level2 FullHeadline narrow">
 			<div class="wrapper text-align-center">
 				<div class="Post__content__breadcrumbs ma-bottom">
 					<ul>
@@ -84,6 +84,19 @@
 						</a>
 					</span>
 				</div>
+			</div>
+
+			<?php
+				$whatis_post_id    = get_term_meta( $subpage->term_id, 'category_whatis_article', true );
+				$whatis_post       = get_post( $whatis_post_id )->post_content;
+				$whatis_post_title = get_post( $whatis_post_id )->post_title;
+				$whatis_post_title = preg_replace( '/\^(.+?)\^/', '<span class="highlight-gradient">$1</span>', $whatis_post_title );
+				$whatis_post       = apply_filters( 'the_content', $whatis_post );
+			?>
+
+			<div class="Content">
+				<h2><?= $whatis_post_title; // @codingStandardsIgnoreLine ?></h2>
+				<?= $whatis_post; // @codingStandardsIgnoreLine ?>
 			</div>
 		</div>
 		<?php

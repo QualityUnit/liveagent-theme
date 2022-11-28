@@ -1,6 +1,6 @@
 <?php // @codingStandardsIgnoreLine ?>
 
-<div class="Reviews__header Reviews__header-level1 FullHeadline">
+<div class="Reviews__header Reviews__header-level1 FullHeadline narrow">
 	<div class="wrapper text-align-center">
 		<h1 class="FullHeadline__title">
 			<?php _e( '<span class="highlight__bubble">Reviews</span> categories', 'reviews' ); ?>

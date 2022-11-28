@@ -34,17 +34,23 @@ function progressbar( $text, $rating, $color ) {
 			<div class="Post__content__breadcrumbs">
 				<ul itemscope itemtype="https://schema.org/BreadcrumbList">
 					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" href="<?php _e( '/reviews/', 'ms' ); ?>">
-							<span itemprop="name"><?php _e( 'Reviews', 'ms' ); ?></span>
+						<meta itemprop="name" content="<?php _e( 'Reviews', 'ms' ); ?>" />
+						<meta itemprop="position" content="1" />
+						<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="<?php _e( '/reviews/', 'ms' ); ?>" href="<?php _e( '/reviews/', 'ms' ); ?>">
+							<?php _e( 'Reviews', 'ms' ); ?>
 						</a>
 					</li>
 					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" href="<?= esc_url( __( '/reviews/', 'ms' ) . $category_slug ); ?>">
-							<span itemprop="name"><?= esc_html( $category_name ); ?></span>
+						<meta itemprop="name" content="<?= esc_attr( $category_name ); ?>" />
+						<meta itemprop="position" content="2" />
+						<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="<?= esc_url( __( '/reviews/', 'ms' ) . $category_slug ); ?>" href="<?= esc_url( __( '/reviews/', 'ms' ) . $category_slug ); ?>">
+							<?= esc_html( $category_name ); ?>
 						</a>
 					</li>
 					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<span itemprop="name"><?= esc_html( $titleplain ); ?></span>
+						<meta itemprop="name" content="<?= esc_attr( $titleplain ); ?>" />
+						<meta itemprop="position" content="3" />
+						<?= esc_html( $titleplain ); ?>
 					</li>
 				</ul>
 			</div>
@@ -87,7 +93,23 @@ function progressbar( $text, $rating, $color ) {
 			<small class="text-light"><?= esc_html( str_replace( '${product}', $titleplain, $how ) ); ?></small>
 
 			<div itemprop="review" itemscope itemtype="https://schema.org/Review">
-				<div class="Reviews__rating Reviews__rating--portals mt-m" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+				<div class="hidden" itemprop="itemReviewed" itemscope itemtype="http://schema.org/SoftwareApplication">
+					<meta itemprop="name" content="<?= $posttitle; // @codingStandardsIgnoreLine ?>">
+					<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
+					<meta itemprop="operatingSystem" content="Any" />
+					<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+					<span itemprop="applicationCategory" content="BusinessApplication">
+						<meta itemprop="name" content="<?= $posttitle; // @codingStandardsIgnoreLine ?>">
+						<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
+							<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
+						</span>
+					</span>
+				</div>
+				<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
+					<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
+				</span>
+
+				<div class="Reviews__rating Reviews__rating--portals mt-m" itemscope itemtype="https://schema.org/Rating">
 					<div class="flex flex-align-center">
 						<span class="Reviews__rating--rating" itemprop="ratingValue">
 							<?= esc_html( meta( 'rating' ) ); ?>
@@ -224,8 +246,22 @@ function progressbar( $text, $rating, $color ) {
 	</div>
 
 	<div class="Reviews__editor" itemprop="review" itemscope itemtype="https://schema.org/Review">
-		<div class="wrapper__narrow">
-
+		<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
+			<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
+		</span>
+		<div class="wrapper__narrow" itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
+		<meta itemprop="operatingSystem" content="Any" />
+		<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+		<span  itemprop="applicationCategory" content="BusinessApplication">
+			<meta itemprop="name" content="<?= $posttitle; // @codingStandardsIgnoreLine ?>">
+			<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
+			</span>
+		</span>
+		<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
+			<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
+		</span>
+		
 		<div class="Reviews__editor--top">
 			<div class="Reviews__editor--titles">
 				<h2 class="tag mb-s"><span><?php _e( "Editor's rating", 'reviews' ); ?>:</span></h2>
@@ -237,6 +273,9 @@ function progressbar( $text, $rating, $color ) {
 					<?= get_avatar( get_the_author_meta( 'ID' ), 220, 'mystery', get_the_author() ); ?>
 				</div>
 				<div class="Reviews__rating--editor__info" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+					<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
+						<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
+					</span>
 					<div class="flex flex-align-center">
 						<span class="Reviews__rating--rating" itemprop="ratingValue">
 							<?= esc_html( $average ); ?>

@@ -40,8 +40,17 @@ while ( $query_reviews_posts->have_posts() ) :
 	$rating_update = new DateTime( meta( 'last_update' ) );
 		
 	?>
-		<li class="Reviews__relatedReviews--post Reviews__relatedReviews--post__level2" data-id="<?= get_the_ID(); ?>" data-reviews="<?= esc_attr( meta( 'reviews_count' ) ? meta( 'reviews_count' ) : 0 ); ?>" data-rating="<?= esc_attr( meta( 'rating' ) ? meta( 'rating' ) : 1 ); ?>" data-ourrating="<?= esc_attr( $average ); ?>" data-updated="<?= esc_attr( $rating_update->format( 'Ymd' ) ); ?>" itemscope itemtype="http://schema.org/SoftwareApplication">
-			<a class="flex Reviews__relatedReviews--post__inn" href="<?= get_post()->post_name; // @codingStandardsIgnoreLine ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" itemprop="url">
+		<li class="Reviews__relatedReviews--post Reviews__relatedReviews--post__level2" data-id="<?= get_the_ID(); ?>" data-reviews="<?= esc_attr( meta( 'reviews_count' ) ? meta( 'reviews_count' ) : 0 ); ?>" data-rating="<?= esc_attr( meta( 'rating' ) ? meta( 'rating' ) : 1 ); ?>" data-ourrating="<?= esc_attr( $average ); ?>" data-updated="<?= esc_attr( $rating_update->format( 'Ymd' ) ); ?>" >
+			<a class="flex Reviews__relatedReviews--post__inn" href="<?= get_post()->post_name; // @codingStandardsIgnoreLine ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" itemprop="aggregateRating" itemscope itemtype="https://schema.org/Review">
+				<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
+					<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
+					<meta itemprop="operatingSystem" content="Any" />
+					<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>"></span>
+				</span>
+				<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
+					<span itemprop="name">LiveAgent</span>
+				</span>
+
 				<span class="Reviews__relatedReviews--post__number mr-xl-tablet" data-order><?= esc_html( ++$counter ); ?></span>
 				<div class="Reviews__relatedReviews--post__main">
 					<h3 class="Reviews__relatedReviews--post__title" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></h3>
@@ -51,8 +60,14 @@ while ( $query_reviews_posts->have_posts() ) :
 				$rating_post = meta( 'rating' );
 			if ( $rating_post || $average ) {
 				?>
-					<div class="Reviews__rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+					<div class="Reviews__rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+						<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
+							<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
+							<meta itemprop="operatingSystem" content="Any" />
+							<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>"></span>
+						</span>
 						<span class="Reviews__rating--rating mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>
+						<meta itemprop="reviewCount" content="<?= esc_attr( meta( 'reviews_count' ) ); ?>" />
 						<div class="Reviews__rating--stars">
 							<div class="Reviews__rating--stars__fill" 
 							style="width:<?= esc_attr( ( $rating_post / 5 * 103.3 ) . '%' ); ?>"></div>

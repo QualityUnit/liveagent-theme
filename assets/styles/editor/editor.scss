@@ -24,9 +24,16 @@
 	width: 100%;
 	transform: translateY(-100%);
 	transition: all 0.5s;
+	filter: drop-shadow(0 0 1em rgba($black-real, 0.2));
+	backdrop-filter: blur(12px);
+	background-color: rgba($white, 0.8);
 
 	&.visible {
 		transform: translateY(0);
+	}
+
+	.postbox {
+		background: transparent;
 	}
 }
 
