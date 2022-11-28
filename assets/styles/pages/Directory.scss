@@ -23,14 +23,13 @@
 
 				.Directory__screenshot--url {
 					border-radius: $border-radius-16;
-					transform: translateY(0);
+					opacity: 1;
+					transform: scale(1) translate3d(-50%, -50%, 1px);
 				}
 			}
 		}
 
 		&--url {
-
-			@include posZero;
 			position: absolute;
 			display: flex;
 			align-items: center;
@@ -42,8 +41,13 @@
 			border-radius: $border-radius-16;
 			overflow: hidden;
 			z-index: 1;
-			transition: transform 0.2s;
-			transform: translateY(100%) translateZ(1px);
+			top: 50%;
+			left: 50%;
+			padding: 0.5em 1em;
+			transition: all 0.2s;
+			opacity: 0;
+			transform: scale(0) translate3d(-50%, -50%, 1px);
+			transform-origin: -25% -25%;
 
 			&::after {
 				content: "\e832" !important;
