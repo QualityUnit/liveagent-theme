@@ -264,7 +264,7 @@ add_action( 'wp_head', 'end_wp_head_buffer', PHP_INT_MAX );
 
 function add_trailing_slash( $html ) {
 	$output = preg_replace_callback(
-		'/(href=\")([^"]{3,255}live[^"]{3,255}[^0-9|png|jpg|gif|svg|][^\/])(\")/i',
+		'/(href=\")([^"]{3,255}live[^"]{3,255}[^0-9|png|jpg|gif|svg|pdf|][^\/])(\")/i',
 		function ( $matches ) {
 			return $matches[1] . $matches[2] . '/' . $matches[3];
 		},
