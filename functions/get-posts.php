@@ -23,6 +23,12 @@ function get_reviews() {
 		return $reviews_posts;
 }
 
+$reviews_posts = array();
+
+if ( is_admin() ) {
+	$reviews_posts = get_reviews();
+}
+
 	// Gets Directory posts IDs
 function get_directory_contacts() {
 	$query_args = array(
@@ -43,4 +49,10 @@ function get_directory_contacts() {
 	wp_reset_query();
 
 	return $details_posts;
+}
+
+$details_posts = array();
+
+if ( is_admin() ) {
+	$details_posts = get_directory_contacts();
 }
