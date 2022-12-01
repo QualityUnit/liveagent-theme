@@ -40,7 +40,7 @@
 
 		<p class="ContactUs__menu--text">
 			<?php _e( "We're available for you 24/7.", 'ms' ); ?><br />
-			<?php _e( "Feel free to contact us.", 'ms' ); ?>
+			<?php _e( 'Feel free to contact us.', 'ms' ); ?>
 		</p>
 
 		<ul class="ContactUs__menu">
@@ -52,7 +52,7 @@
 			</li>	
 			<li class="ContactUs__menu--item">
 				<a href="tel:+421233456826" class="ContactUs__menu--link green" data-close-target="contactUsMenu">
-					<?php _e ( 'Call in browser', 'ms' ); ?>
+					<?php _e( 'Call in browser', 'ms' ); ?>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>browser-call.svg" />
 				</a>
 			</li>	
