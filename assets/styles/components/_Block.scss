@@ -479,6 +479,15 @@ scss/at-extend-no-missing-placeholder */
 		margin-top: 0 !important;
 		margin-bottom: $block-space-sm !important;
 
+		&.image-left,
+		&.image-right {
+
+			.elementor-widget-image .elementor-widget-container {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
 		&.image-right {
 
 			.elementor-container {
