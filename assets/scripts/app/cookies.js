@@ -25,26 +25,26 @@ const getCookie = ( name ) => {
 	return null;
 };
 
-if ( document.querySelector( '.Kolaciky' ) !== null ) {
+if ( document.querySelector( '.Medovnicky' ) !== null ) {
 	document
-		.querySelector( '.Kolaciky__button--yes' )
+		.querySelector( '.Medovnicky__button--yes' )
 		.addEventListener( 'click', ( event ) => {
 			event.preventDefault();
 			setCookie( 'cookieLaw', 'yes', 14 );
-			document.querySelector( '.Kolaciky' ).classList.add( 'hide' );
-			document
-				.querySelector( '.fakeChatButton' )
-				.classList.add( 'hidden' );
+			document.querySelector( '.Medovnicky' ).classList.add( 'hide' );
+			document.querySelectorAll( '.fakeChatButton' ).forEach( ( fakeChatBtn ) => {
+				fakeChatBtn.classList.add( 'hidden' );
+			} );
 		} );
 
 	document
-		.querySelector( '.Kolaciky__button--no' )
+		.querySelector( '.Medovnicky__button--no' )
 		.addEventListener( 'click', ( event ) => {
 			event.preventDefault();
-			document.querySelector( '.Kolaciky' ).classList.add( 'hide' );
+			document.querySelector( '.Medovnicky' ).classList.add( 'hide' );
 		} );
 
 	if ( ! getCookie( 'cookieLaw' ) ) {
-		document.querySelector( '.Kolaciky' ).classList.add( 'show' );
+		document.querySelector( '.Medovnicky' ).classList.add( 'show' );
 	}
 }

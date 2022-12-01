@@ -3,23 +3,30 @@
 @use "../common/mixins" as *;
 
 .fakeChatButton {
+	position: relative;
 
-	@include square(4em);
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	z-index: 999997;
-	border-radius: 50%;
-	background: url(../images/fakeChatButton.svg) center center no-repeat;
-	background-size: 105%;
-	box-shadow: 0 4px 4px 0 rgba($black-real, 0.175);
 	cursor: pointer;
 
+	&:not(.hidden) + * {
+		display: none !important;
+	}
+
+	&__text,
+	img {
+		opacity: 0.5;
+	}
+
+	&__icon {
+		background: url(../images/fakeChatButton.svg) center center no-repeat;
+		border-radius: 50%;
+		background-size: 105%;
+	}
 
 	&.hover {
 
 		.fakeChatButton__msg {
 			opacity: 1;
+			transform: translateY(calc(-100% + 1em));
 		}
 	}
 
@@ -29,6 +36,7 @@
 
 			.fakeChatButton__msg {
 				opacity: 1;
+				transform: translateY(calc(-100% + 1em));
 			}
 		}
 	}
@@ -40,10 +48,10 @@
 		position: absolute;
 		display: block;
 		text-align: center;
-		min-width: 26em;
-		right: 0;
-		bottom: calc(100% + 1em);
+		right: 1em;
+		bottom: 0;
 		font-size: 0.75rem;
+		line-height: 1.35;
 		border-radius: 5px;
 		padding: 0.75em 1em;
 		opacity: 0;

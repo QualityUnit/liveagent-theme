@@ -114,8 +114,8 @@
 }
 
 @mixin square($size: 1.5em, $important: "") {
-	width: $size;
-	height: $size;
+	width: $size #{$important};
+	height: $size #{$important};
 }
 
 //Mixin for Placeholder input attribute, like input type="search" HTML5 element
