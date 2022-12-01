@@ -28,15 +28,17 @@ $colors: (
 		font-family: $font-secondary;
 		font-weight: 600;
 		color: $white;
-		background: rgba($light-orange, 0);
+		background: $light-orange;
 		box-shadow: 0 0.25em 2em rgba($black-real, 0.12);
 		border-radius: $border-radius-16;
 		transition: all 0.35s;
+		user-select: none;
 		cursor: pointer;
 
 		span {
 			position: relative;
 			z-index: 1;
+			user-select: none;
 		}
 
 		&::before,
@@ -204,32 +206,52 @@ $colors: (
 
 		&--wrap {
 			position: absolute;
+			border-radius: $border-radius-16;
 			bottom: calc(100% + 1em);
 			right: 0;
+			transition: all 0.25s;
 			text-align: right;
 			padding: 0.75em;
-			transition: all 0.5s;
-			transition-delay: $links * 0.15s;
 
+			&::before,
 			&::after {
 				content: "";
-
-				@include posZero;
 				position: absolute;
 				background-color: $white;
-				border-radius: $border-radius-16;
-				box-shadow: 0 0.25em 1.375em rgba($black-real, 0.12);
+			}
+
+			&::before {
+				width: 100%;
+				height: 1em;
+				left: 0;
+				bottom: 0;
+				border-radius: 0 0 $border-radius-16 $border-radius-16;
+				transition: opacity 0.15s $links * 0.075s;
+				opacity: 0;
+			}
+
+			&::after {
+
+				@include posZero;
+				bottom: 1em;
 				z-index: -1;
+				border-radius: $border-radius-16 $border-radius-16 0 0;
 				transform: scaleY(0);
 				transform-origin: 50% bottom;
-				transition: all 0.25s 0.35s;
+				transition: transform 0.25s 0.35s;
+				filter: drop-shadow(0 0.25em 1.375em rgba($black-real, 0.12));
 			}
 
 			&.visible {
 
+				&::before {
+					opacity: 1;
+					transition-delay: 0s;
+				}
+
 				&::after {
 					transform: scaleY(1);
-					transition-delay: 0;
+					transition-delay: 0s;
 				}
 
 				.ContactUs {
@@ -313,12 +335,17 @@ $colors: (
 
 			&.chat[class] {
 
-				.circleChatButtonWrap {
-
-					transform: scale(0.6115);
-					transform-origin: 0 0;
+				.circleChatButtonWrap.circleChatButtonWrap[class] {
 
 					position: relative;
+					transform: scale(0.6115);
+					transform-origin: 0 0;
+					box-shadow: none !important;
+					filter: drop-shadow(0 0.25em 1em rgba($black-real, 0.15));
+
+					&:hover {
+						box-shadow: none !important;
+					}
 
 					&::after {
 						content: "";
