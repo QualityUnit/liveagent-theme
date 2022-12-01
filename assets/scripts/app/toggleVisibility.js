@@ -1,61 +1,65 @@
-const activators = document.querySelectorAll( '[data-target]' );
-const targets = document.querySelectorAll( `[data-targetId]` );
+window.addEventListener( 'load', () => {
+	const activators = document.querySelectorAll( '[data-target]' );
+	const closers = document.querySelectorAll( `[data-close-target]` );
 
-// let isPaused = false;
+	const hideVisible = ( target ) => {
+		const activatorElem = document.querySelector( `[data-target="${ target }"]` );
+		const closeTarget = document.querySelectorAll( `[data-targetId="${ target }"]` );
 
-if ( activators.length > 0 ) {
-	activators.forEach( ( elem ) => {
-		const activator = elem;
+		if ( activatorElem && activatorElem.classList.contains( 'active' ) ) {
+			setTimeout( () => {
+				activatorElem.classList.remove( 'active' );
+			}, 10 );
+		}
+		closeTarget.forEach( ( targetElement ) => {
+			let hidedelay = targetElement.dataset.hideDelay;
+			if ( ! hidedelay ) {
+				hidedelay = 10;
+			}
+			targetElement.classList.remove( 'visible' );
 
-		const hideVisible = () => {
-			targets.forEach( ( targetElement ) => {
-				targetElement.classList.remove( 'visible' );
-				targetElement.classList.add( 'hidden' );
-			} );
-		};
-
-		activator.addEventListener( 'click', ( event ) => {
-			event.stopPropagation();
-			const thisActivator = event.target;
-			const thisTarget = document.querySelectorAll(
-				`[data-targetId="${ thisActivator.dataset.target }"]`
-			);
-
-			hideVisible();
-			// isPaused = true;
-
-			thisTarget.forEach( ( target ) => {
-				target.classList.remove( 'hidden' );
-				thisActivator.classList.add( 'active' );
-				setTimeout( () => {
-					target.classList.add( 'visible' );
-				}, 0 );
+			targetElement.addEventListener( 'transitionend', () => {
+				if ( activatorElem && ! activatorElem.classList.contains( 'active' ) ) {
+					setTimeout( () => {
+						targetElement.classList.add( 'hidden' );
+					}, hidedelay );
+				}
 			} );
 		} );
-	} );
-}
+	};
 
-// const switcher = document.querySelector( '.Block--switcher' );
-// ( function autoSwitch( interval = 5000 ) {
-// 	if ( ! isPaused && switcher ) {
-// 		const notCheckedInput = switcher.querySelector( '.switcher__input:not(:checked)' );
-// 		const isActive = switcher.querySelector( '.visible[data-targetid]' );
-// 		const isHidden = switcher.querySelector( '.hidden[data-targetid]' );
+	if ( activators.length > 0 ) {
+		activators.forEach( ( elem ) => {
+			const activator = elem;
 
-// 		notCheckedInput.checked = true;
+			activator.addEventListener( 'click', ( event ) => {
+				event.stopPropagation();
+				const thisActivator = activator;
+				const thisTarget = document.querySelectorAll(
+					`[data-targetId="${ thisActivator.dataset.target }"]`
+				);
 
-// 		isActive.classList.remove( 'visible' );
-// 		isActive.classList.add( 'hidden' );
+				if ( ! thisActivator.classList.contains( 'active' ) ) {
+					thisTarget.forEach( ( target ) => {
+						target.classList.remove( 'hidden' );
+						setTimeout( () => {
+							thisActivator.classList.add( 'active' );
+							target.classList.add( 'visible' );
+						}, 10 );
+					} );
+				}
+				hideVisible( thisActivator.dataset.target );
+			} );
+		} );
+	}
 
-// 		isHidden.classList.remove( 'hidden' );
-
-// 		setTimeout( () => {
-// 			isHidden.classList.add( 'visible' );
-// 		}, 200 );
-
-// 		setTimeout( () => {
-// 			autoSwitch();
-// 		}, interval );
-// 	}
-// }() );
+	if ( closers.length > 0 ) {
+		closers.forEach( ( closeBtn ) => {
+			closeBtn.addEventListener( 'click', () => {
+				const target = closeBtn.dataset.closeTarget;
+				hideVisible( target );
+			} );
+		} );
+	}
+} );
 

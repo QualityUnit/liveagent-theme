@@ -116,7 +116,7 @@ body {
 }
 
 .invisible {
-	visibility: none !important;
+	visibility: hidden !important;
 	opacity: 0 !important;
 	cursor: default;
 
@@ -125,6 +125,17 @@ body {
 		cursor: default !important;
 	}
 
+}
+
+.pos {
+
+	&-relative {
+		position: relative;
+	}
+
+	&-absolute {
+		position: absolute;
+	}
 }
 
 .flex {

@@ -196,18 +196,18 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 	</div>
 </div>
 
-<div class="Kolaciky urlslab-skip-all">
+<div class="Medovnicky urlslab-skip-all">
 	<div class="wrapper">
 		<p><?php _e( 'Our website uses cookies. By continuing we assume your permission to deploy cookies as detailed in our', 'ms' ); ?> <a href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'privacy and cookies policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 
-		<div class="Kolaciky__buttons">
-			<a href="<?php _e( '/privacy-policy/', 'ms' ); ?>" class="Kolaciky__button Kolaciky__button--more Button Button--outline">
+		<div class="Medovnicky__buttons">
+			<a href="<?php _e( '/privacy-policy/', 'ms' ); ?>" class="Medovnicky__button Medovnicky__button--more Button Button--outline">
 				<span><?php _e( 'More Information', 'ms' ); ?></span>
 			</a>
-			<a href="#" class="Kolaciky__button Kolaciky__button--no Kolaciky__button--more Button Button--outline">
+			<a href="#" class="Medovnicky__button Medovnicky__button--no Medovnicky__button--more Button Button--outline">
 				<span><?php _e( 'Decline', 'ms' ); ?></span>
 			</a>
-			<a href="#" class="Kolaciky__button Kolaciky__button--yes Button Button--full">
+			<a href="#" class="Medovnicky__button Medovnicky__button--yes Button Button--full">
 				<span><?php _e( 'Accept', 'ms' ); ?></span>
 			</a>
 		</div>
