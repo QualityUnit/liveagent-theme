@@ -233,7 +233,7 @@ $colors: (
 			&::after {
 
 				@include posZero;
-				bottom: 1em;
+				bottom: 0.9em;
 				z-index: -1;
 				border-radius: $border-radius-16 $border-radius-16 0 0;
 				transform: scaleY(0);
