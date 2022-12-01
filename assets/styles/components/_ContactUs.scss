@@ -97,6 +97,7 @@ $colors: (
 				margin-left: 0.75em;
 				border-radius: 50%;
 				overflow: hidden;
+				transform: translateZ(10px);
 				box-shadow: 0 0.25em 1em 0 rgba($black-real, 0.15);
 
 				&::after {
@@ -153,6 +154,7 @@ $colors: (
 		padding: 1.5em;
 		background-color: $white;
 		border-radius: $border-radius-16;
+		box-shadow: 0 0.25em 1.375em rgba($black-real, 0.12);
 		transform: translate(-50%, calc(100% + 1.125em));
 		transition: transform 0.2s;
 		width: 100%;
@@ -268,6 +270,7 @@ $colors: (
 			font-family: $font-secondary;
 			color: $black-real;
 			opacity: 0;
+			transform: translateZ(10px);
 			transition: all 0.25s 0.15s;
 			z-index: 1;
 			cursor: pointer;

@@ -3,27 +3,34 @@ window.addEventListener( 'load', () => {
 	const closers = document.querySelectorAll( `[data-close-target]` );
 
 	const hideVisible = ( target ) => {
-		const activatorElem = document.querySelector( `[data-target="${ target }"]` );
-		const closeTarget = document.querySelectorAll( `[data-targetId="${ target }"]` );
+		let activatorElements = document.querySelectorAll( `[data-target]` );
+		let closeTargets = document.querySelectorAll( `[data-targetId]` );
 
-		if ( activatorElem && activatorElem.classList.contains( 'active' ) ) {
-			setTimeout( () => {
-				activatorElem.classList.remove( 'active' );
-			}, 10 );
+		if ( target ) {
+			activatorElements = document.querySelectorAll( `[data-target="${ target }"]` );
+			closeTargets = document.querySelectorAll( `[data-targetId="${ target }"]` );
 		}
-		closeTarget.forEach( ( targetElement ) => {
-			let hidedelay = targetElement.dataset.hideDelay;
-			if ( ! hidedelay ) {
-				hidedelay = 10;
-			}
-			targetElement.classList.remove( 'visible' );
 
-			targetElement.addEventListener( 'transitionend', () => {
-				if ( activatorElem && ! activatorElem.classList.contains( 'active' ) ) {
-					setTimeout( () => {
-						targetElement.classList.add( 'hidden' );
-					}, hidedelay );
+		activatorElements.forEach( ( activatorElem ) => {
+			if ( activatorElem && activatorElem.classList.contains( 'active' ) ) {
+				setTimeout( () => {
+					activatorElem.classList.remove( 'active' );
+				}, 10 );
+			}
+			closeTargets.forEach( ( targetElement ) => {
+				let hidedelay = targetElement.dataset.hideDelay;
+				if ( ! hidedelay ) {
+					hidedelay = 10;
 				}
+
+				targetElement.classList.remove( 'visible' );
+				targetElement.addEventListener( 'transitionend', () => {
+					if ( targetElement && ! targetElement.classList.contains( 'visible' ) ) {
+						setTimeout( () => {
+							targetElement.classList.add( 'hidden' );
+						}, hidedelay );
+					}
+				} );
 			} );
 		} );
 	};
@@ -51,6 +58,21 @@ window.addEventListener( 'load', () => {
 				hideVisible( thisActivator.dataset.target );
 			} );
 		} );
+
+		document.querySelector( 'body' ).addEventListener( 'click', ( event ) => {
+			if ( ! event.target.closest( '[data-close-target]' ) && ! event.target.closest( '[data-target]' ) && ! event.target.closest( '[data-targetId]' ) ) {
+				hideVisible( null );
+			}
+		} );
+
+		document.querySelector( 'body' ).removeEventListener( 'click', hideVisible );
+
+		document.addEventListener( 'keyup', ( e ) => {
+			if ( e.key === 'Escape' ) {
+				hideVisible( null );
+			}
+		} );
+		document.removeEventListener( 'keyup', hideVisible );
 	}
 
 	if ( closers.length > 0 ) {

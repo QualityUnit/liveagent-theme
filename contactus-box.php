@@ -51,12 +51,6 @@
 				</a>
 			</li>	
 			<li class="ContactUs__menu--item">
-				<a href="tel:+421233456826" class="ContactUs__menu--link green" data-close-target="contactUsMenu">
-					<?php _e( 'Call in browser', 'ms' ); ?>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>browser-call.svg" />
-				</a>
-			</li>	
-			<li class="ContactUs__menu--item">
 				<div class="ContactUs__menu--link fakeChatButton no-icon hidden">
 					<span class="fakeChatButton__text"><?php _e( 'Contact form', 'ms' ); ?></span>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
