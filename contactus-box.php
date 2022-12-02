@@ -45,8 +45,8 @@
 
 		<ul class="ContactUs__menu">
 			<li class="ContactUs__menu--item">
-				<a href="tel:+421233456826" class="ContactUs__menu--link green" data-close-target="contactUsMenu">
-					+421 2 33 456 826
+				<a href="tel:+18882578754" class="ContactUs__menu--link green" data-close-target="contactUsMenu">
+					+1-888-257-8754
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>phone.svg" />
 				</a>
 			</li>	
