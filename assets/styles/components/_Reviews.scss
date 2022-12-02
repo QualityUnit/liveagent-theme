@@ -138,7 +138,7 @@
 				position: absolute;
 				z-index: 5;
 				opacity: 0;
-				background-color: rgba($white, 0);
+				background-color: transparent;
 				transition: all 0.3s;
 				cursor: pointer;
 
@@ -146,7 +146,6 @@
 				&:focus,
 				&:hover {
 					opacity: 1;
-					background-color: rgba($white, 0.6);
 				}
 
 				[class^="elementor"] {
@@ -156,12 +155,14 @@
 				}
 
 				a {
-
-					@include posZero();
 					position: absolute;
+					top: 50%;
+					left: 50%;
 					justify-content: center;
 					align-items: center;
 					display: flex;
+					margin: 0;
+					transform: translate3d(-50%, -50%, 0);
 				}
 			}
 		}

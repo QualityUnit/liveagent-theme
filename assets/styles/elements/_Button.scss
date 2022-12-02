@@ -26,6 +26,22 @@ button,
 	&:lang(ru) {
 		padding: 0 1em;
 	}
+
+	&[class*="icn-"] {
+
+		svg {
+
+			@include square(1.25em);
+
+			&:first-child {
+				margin-right: 0.625em;
+			}
+
+			&:last-child {
+				margin-left: 0.625em;
+			}
+		}
+	}
 }
 
 .Button + .Button {
@@ -224,6 +240,11 @@ button,
 
 		@include color(color, primary-color);
 		@include color(border-color, primary-color);
+	}
+
+	&-white {
+
+		@include color(background-color, main-background);
 	}
 
 	&__white {
