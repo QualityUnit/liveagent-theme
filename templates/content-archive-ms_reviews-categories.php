@@ -3,11 +3,11 @@
 <div class="Reviews__header Reviews__header-level1 FullHeadline narrow">
 	<div class="wrapper text-align-center">
 		<h1 class="FullHeadline__title">
-			<?php _e( '<span class="highlight__bubble">Reviews</span> categories', 'reviews' ); ?>
+			<?php _e( '<span class="highlight__bubble long">Software Reviews</span> To Help You Decide', 'reviews' ); ?>
 		</h1>
-		<h3 class="FullHeadline__subtitle">
-			<?php _e( 'Find out which software in any category is the best option<br />for your business.', 'reviews' ); ?>
-		</h3>
+		<h2 class="FullHeadline__subtitle">
+			<?php _e( 'Explore software categories and choose the right solution<br/> for your business.', 'reviews' ); ?>
+		</h2>
 	</div>
 </div>
 

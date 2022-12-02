@@ -792,10 +792,20 @@ video {
 			display: block;
 			position: absolute;
 			right: -0.25em;
-			// z-index: -2;
 			content: "";
 			background: url(../../images/highlight_bubble.svg) center center no-repeat;
 			background-size: 100%;
+		}
+
+		&.long {
+
+			&::after {
+
+				@include posCustom(-0.75em);
+				background-size: 100% 100%;
+				transform: scaleY(0.75);
+				z-index: -2;
+			}
 		}
 	}
 }
