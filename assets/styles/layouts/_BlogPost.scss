@@ -230,13 +230,15 @@ no-descending-specificity, value-keyword-case */
 		overflow: hidden;
 
 		&__image {
-			width: 220px;
+			width: 18em;
+			align-self: stretch;
 
+			picture,
 			img {
-				width: auto;
-				height: 200px;
-				max-width: 220px;
-				max-height: 200px;
+
+				@include square(100%, !important);
+				object-fit: cover;
+				max-width: auto;
 			}
 		}
 
