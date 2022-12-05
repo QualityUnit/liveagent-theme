@@ -44,12 +44,30 @@
 		</p>
 
 		<ul class="ContactUs__menu">
+			<?php 
+			$phone = '+421 2 33 456 826';
+			$current_id = apply_filters( 'wpml_object_id', $post->ID, 'page', false, 'en' );
+			if ( $current_id ) {
+				$en_slug = get_post_field( 'post_name', get_post( $current_id ) );
+			}
+
+			if ( ICL_LANGUAGE_CODE === 'en' || ICL_LANGUAGE_CODE === 'zh-hans' || ICL_LANGUAGE_CODE === 'ar' || ICL_LANGUAGE_CODE === 'ja' || ICL_LANGUAGE_CODE === 'tl' || ICL_LANGUAGE_CODE === 'vi' ) {
+				$phone = '+1-888-257-8754';
+			}
+			if ( ICL_LANGUAGE_CODE === 'es' || ICL_LANGUAGE_CODE === 'pt-br' ) {
+				$phone = '+34 886 000 035';
+			}
+			if ( 'pricing' === $en_slug ) {
+				?>
 			<li class="ContactUs__menu--item">
-				<a href="tel:+18882578754" class="ContactUs__menu--link green" data-close-target="contactUsMenu">
-					+1-888-257-8754
+				<a href="tel:<?= esc_attr( preg_replace( '/(\s|-)/', '', $phone ) ); ?>" class="ContactUs__menu--link green" data-close-target="contactUsMenu">
+					<?= esc_html( $phone ); ?>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>phone.svg" />
 				</a>
-			</li>	
+			</li>
+				<?php
+			}
+			?>
 			<li class="ContactUs__menu--item">
 				<div class="ContactUs__menu--link fakeChatButton no-icon hidden">
 					<span class="fakeChatButton__text"><?php _e( 'Contact form', 'ms' ); ?></span>
