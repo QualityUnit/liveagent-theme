@@ -14,6 +14,7 @@ require_once get_template_directory() . '/lib/shortcodes/small-photo-slider.php'
 	require_once get_template_directory() . '/lib/shortcodes/success-stories.php';
 	require_once get_template_directory() . '/lib/shortcodes/author.php';
 	require_once get_template_directory() . '/lib/shortcodes/awards.php';
+	require_once get_template_directory() . '/lib/shortcodes/awards-badges.php';
 	require_once get_template_directory() . '/lib/shortcodes/awards-year-switcher.php';
 	require_once get_template_directory() . '/lib/shortcodes/awards-small.php';
 	require_once get_template_directory() . '/lib/shortcodes/people.php';
