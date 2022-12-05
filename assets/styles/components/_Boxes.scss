@@ -297,6 +297,51 @@
 		}
 	}
 
+	&.Boxes--home {
+
+		.wrapper,
+		.elementor-container {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+
+		.elementor-widget {
+			margin: 0;
+		}
+
+		.wrapper .elementor-column {
+
+			.elementor-widget-wrap {
+
+				@include color(box-shadow, box-shadow);
+				@include color(background-color, main-background);
+			}
+
+			.elementor-image {
+				padding: 1.75em 1.75em 0;
+
+				a {
+					border-radius: $border-radius;
+					overflow: hidden;
+					max-height: 15em;
+				}
+			}
+
+			.elementor-widget-heading {
+				padding: 1.75em 1.75em 0;
+			}
+
+			.elementor-widget-text-editor {
+				width: 100%;
+				padding: 0 1.75em 1.75em;
+
+				p:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
 	.elementor-col-50,
 	.elementor-col-33 {
 		position: relative;
