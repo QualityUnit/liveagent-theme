@@ -47,8 +47,8 @@
 			<?php 
 			$phone = '+421 2 33 456 826';
 			$current_id = apply_filters( 'wpml_object_id', $post->ID, 'page', false, 'en' );
-			if ( $current_id  ) {
-			 $en_slug = get_post_field( 'post_name', get_post( $current_id ) );
+			if ( $current_id ) {
+				$en_slug = get_post_field( 'post_name', get_post( $current_id ) );
 			}
 
 			if ( ICL_LANGUAGE_CODE === 'en' || ICL_LANGUAGE_CODE === 'zh-hans' || ICL_LANGUAGE_CODE === 'ar' || ICL_LANGUAGE_CODE === 'ja' || ICL_LANGUAGE_CODE === 'tl' || ICL_LANGUAGE_CODE === 'vi' ) {
