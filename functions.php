@@ -37,6 +37,7 @@ define( 'THEME_VERSION', '1.7.2' );
 		'functions/post-types.php', // Import Custom Post Types
 		'functions/metaboxes.php', // Import Metaboxes
 		'functions/shortcodes.php', // Import ShortCodes
+		'functions/sitemap-filters.php', // Sitemap XML filters for YOAST SEO (https://developer.yoast.com/features/xml-sitemaps/api/)
 		'functions/widgets.php', // Import Widgets/Plugins
 	);
 
