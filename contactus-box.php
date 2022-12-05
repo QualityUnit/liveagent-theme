@@ -57,7 +57,7 @@
 			if ( ICL_LANGUAGE_CODE === 'es' || ICL_LANGUAGE_CODE === 'pt-br' ) {
 				$phone = '+34 886 000 035';
 			}
-			if ( $en_slug === 'pricing' ) {
+			if ( 'pricing' === $en_slug ) {
 				?>
 			<li class="ContactUs__menu--item">
 				<a href="tel:<?= esc_attr( preg_replace( '/(\s|-)/', '', $phone ) ); ?>" class="ContactUs__menu--link green" data-close-target="contactUsMenu">
