@@ -52,10 +52,10 @@ function research_buttons( $content ) {
 		$btn_wrapper = $dom->createElement( 'div' );
 		$btn_wrapper->setAttribute( 'class', 'Research--block__buttons' );
 		$twitter = $dom->createElement( 'a', 'Twitter' );
-		$twitter->setAttribute( 'class', 'Research--block__button__twitter' );
+		$twitter->setAttribute( 'class', 'Research--block__button__twitter urlslab-skip-all' );
 		$twitter->setAttribute( 'target', '_blank' );
 		$copy = $dom->createElement( 'a', 'Copy' );
-		$copy->setAttribute( 'class', 'Research--block__button__copy' );
+		$copy->setAttribute( 'class', 'Research--block__button__copy urlslab-skip-all' );
 		$copy->setAttribute( 'href', '#' );
 		$text = '';
 		

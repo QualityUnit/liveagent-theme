@@ -230,7 +230,8 @@ no-descending-specificity, value-keyword-case */
 		overflow: hidden;
 
 		&__image {
-			width: 18em;
+			width: 13.5em;
+			flex-shrink: 0;
 			align-self: stretch;
 
 			picture,
