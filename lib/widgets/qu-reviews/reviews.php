@@ -106,7 +106,7 @@ function qu_reviews_init() {
 								rating( $editor_average, $layout, $meta ) . '
 							<div class="qu-Reviews__post--arrow">
 								<svg class="arrow">
-									<use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg#chevron-right"></use>
+									<use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#chevron-right"></use>
 								</svg>
 							</div>
 						</div>' .
