@@ -73,7 +73,7 @@ function insert_svg_icons( $content ) {
 		if ( isset ( $class_fragment[2] ) ) {
 			$fragment = $class_fragment[2];
 			$svg = $dom->createDocumentFragment();
-			$svg->appendXML( '<svg class="icon icon-' . $fragment . '"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg?'. THEME_VERSION . '#' . $fragment . '"></use></svg>' );
+			$svg->appendXML( '<svg class="icon icon-' . $fragment . '"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#' . $fragment . '"></use></svg>' );
 			if ( ! str_contains( $class, 'icn-after' ) and $icon !== $svg ) {
 				$icon->insertBefore( $svg, $icon->firstChild );
 			}
