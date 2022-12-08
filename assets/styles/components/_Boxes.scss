@@ -317,8 +317,12 @@
 				@include color(background-color, main-background);
 			}
 
-			.elementor-image {
+			.elementor-widget-image {
 				padding: 1.75em 1.75em 0;
+
+				.elementor-widget-container {
+					padding: 0;
+				}
 
 				a {
 					border-radius: $border-radius;
