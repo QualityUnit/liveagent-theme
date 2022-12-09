@@ -69,7 +69,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<li>
 								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Instagram', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-instagram' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-instagram' ) ?>"></use>
 									</svg>
 								</a>
 							</li>
@@ -78,7 +78,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<li>
 								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Facebook', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-facebook' )
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-facebook' )
 										?>"></use>
 									</svg>
 								</a>
@@ -88,7 +88,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<li>
 								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Twitter', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-twitter' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-twitter' ) ?>"></use>
 									</svg>
 								</a>
 							</li>
@@ -97,7 +97,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<li>
 								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-linkedin' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-linkedin' ) ?>"></use>
 									</svg>
 								</a>
 							</li>
@@ -106,7 +106,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<li>
 								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-youtube' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-youtube' ) ?>"></use>
 									</svg>
 								</a>
 							</li>
@@ -114,7 +114,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 						<li>
 							<a href="<?php _e( 'https://wa.me/17862041375', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
 								<svg>
-									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-whatsapp' ) ?>"></use>
+									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ) ?>"></use>
 								</svg>
 							</a>
 						</li>

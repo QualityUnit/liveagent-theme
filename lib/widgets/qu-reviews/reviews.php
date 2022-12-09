@@ -88,11 +88,11 @@ function qu_reviews_init() {
 				$third  = $meta->third_rating_value;
 
 				$editor_average = round( ( $first + $second + $third ) / 3, 1 );
-	
+
 				require_once __DIR__ . '/components/rating.php';
 				require_once __DIR__ . '/components/pricing.php';
 				require_once __DIR__ . '/components/pros-cons.php';
-				
+
 				$post .= '<div class="qu-Reviews__post' . ' ' . ( 'editorrating' === $layout ? 'editor' : null ) . '" itemscope itemtype="https://schema.org/SoftwareApplication">
 				<meta itemprop="operatingSystem" content="Any" />
 				<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="BusinessApplication"></span>
@@ -106,7 +106,7 @@ function qu_reviews_init() {
 								rating( $editor_average, $layout, $meta ) . '
 							<div class="qu-Reviews__post--arrow">
 								<svg class="arrow">
-									<use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#chevron-right"></use>
+									<use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#chevron-right"></use>
 								</svg>
 							</div>
 						</div>' .
@@ -133,7 +133,7 @@ function qu_reviews_init() {
 	}
 
 	function render_reviews( $attr ) {
-		
+
 		return '
 			<div class="qu-Reviews Post__m__negative--mid" itemscope itemtype="https://schema.org/Product">' .
 					review( $attr ) . '
