@@ -3,10 +3,15 @@ window.addEventListener( 'load', () => {
 	const closers = document.querySelectorAll( `[data-close-target]` );
 
 	const hideVisible = ( target ) => {
-		let activatorElements = document.querySelectorAll( `[data-target]` );
-		let closeTargets = document.querySelectorAll( `[data-targetId]` );
+		let activatorElements = document.querySelectorAll( `[data-target]:not([data-target^="switcher"])` );
+		let closeTargets = document.querySelectorAll( `[data-targetId]:not([data-targetId^="switcher"])` );
 
-		if ( target ) {
+		if ( target && target.includes( 'switcher' ) ) {
+			activatorElements = document.querySelectorAll( `[data-target]:not([data-target="${ target }"])` );
+			closeTargets = document.querySelectorAll( `[data-targetId]:not([data-targetId="${ target }"]` );
+		}
+
+		if ( target && ! target.includes( 'switcher' ) ) {
 			activatorElements = document.querySelectorAll( `[data-target="${ target }"]` );
 			closeTargets = document.querySelectorAll( `[data-targetId="${ target }"]` );
 		}
@@ -17,20 +22,20 @@ window.addEventListener( 'load', () => {
 					activatorElem.classList.remove( 'active' );
 				}, 10 );
 			}
-			closeTargets.forEach( ( targetElement ) => {
-				let hidedelay = targetElement.dataset.hideDelay;
-				if ( ! hidedelay ) {
-					hidedelay = 10;
-				}
+		} );
+		closeTargets.forEach( ( targetElement ) => {
+			let hidedelay = targetElement.dataset.hideDelay;
+			if ( ! hidedelay ) {
+				hidedelay = 10;
+			}
 
-				targetElement.classList.remove( 'visible' );
-				targetElement.addEventListener( 'transitionend', () => {
-					if ( targetElement && ! targetElement.classList.contains( 'visible' ) ) {
-						setTimeout( () => {
-							targetElement.classList.add( 'hidden' );
-						}, hidedelay );
-					}
-				} );
+			targetElement.classList.remove( 'visible' );
+			targetElement.addEventListener( 'transitionend', () => {
+				if ( targetElement && ! targetElement.classList.contains( 'visible' ) ) {
+					setTimeout( () => {
+						targetElement.classList.add( 'hidden' );
+					}, hidedelay );
+				}
 			} );
 		} );
 	};

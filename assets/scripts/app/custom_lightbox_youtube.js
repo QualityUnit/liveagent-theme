@@ -57,12 +57,13 @@ function loadYouTubeModal( yt, target ) {
 
 function removeYouTubeModal( event, target ) {
 	event.stopPropagation();
-	target.classList.remove( 'active' );
+	if ( target ) {
+		target.classList.remove( 'active' );
+		setTimeout( () => {
+			target.remove();
+		}, 500 );
+	}
 	body.classList.remove( 'lb-disable-scrolling' );
-
-	setTimeout( () => {
-		target.remove();
-	}, 500 );
 }
 
 if ( modalVideo.length > 0 ) {
