@@ -96,7 +96,7 @@
 			</li>
 			<li class="ContactUs__menu--item">
 				<div class="ContactUs__menu--link fakeChatButton hidden">
-					<span class="fakeChatButton__text"><?php _e( 'Chat', 'ms' ); ?></span>
+					<span class="fakeChatButton__text"><?php _e( 'Live Chat', 'ms' ); ?></span>
 					<div class="ContactUs__icon fakeChatButton__icon"></div>
 					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before we start a chat.', 'ms' ); ?></span>
 				</div>
