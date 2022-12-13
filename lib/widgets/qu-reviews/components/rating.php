@@ -23,7 +23,7 @@ function rating( $editor_avg, $layout, $meta ) {
 					style="width: ' . $stars . '%"></div>
 			</div>
 		</div>
-			<div class="Reviews__rating--count" itemprop="reviewCount">' . $reviews_count . ' ' . __( 'reviews', 'reviews' ) . '</div>
+			<div class="Reviews__rating--count"><span itemprop="reviewCount">' . $reviews_count . '</span> ' . __( 'reviews', 'reviews' ) . '</div>
 		</div>
 	</div>' .
 	
