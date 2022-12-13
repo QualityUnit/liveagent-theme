@@ -285,3 +285,31 @@
 		border-top: 2px solid $color;
 	}
 }
+
+@mixin learn-more (){
+	display: inline-block !important;
+	font-family: $font-secondary;
+	font-size: em($target: $font-size-smaller, $unit: "rem");
+	font-weight: $font-weight-semi;
+	text-decoration: none;
+
+	&::after {
+		position: relative;
+		content: url(/app/themes/liveagent/assets/images/arrow_small_right.svg) !important;
+		display: inline-block !important;
+		margin-left: 0.5em;
+		top: 0.16em;
+		transform: translate(0, 0);
+		transition: transform 0.5s ease-in-out !important
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+		cursor: pointer;
+		text-decoration: none !important;
+		&::after{
+			transform: translate(30%, 0);
+		}
+	}
+}
