@@ -1,7 +1,6 @@
 <?php
 // Blog page
-set_source( 'blog', 'pages/blog', 'css' );
-set_source( 'search', 'pages/blog', 'css' );
+set_source( 'single-post', 'pages/blog', 'css' );
 set_source( 'single-post', 'common/splide', 'css' );
 set_source( 'single-post', 'splide', 'js' );
 set_source( 'single-post', 'sidebar_toc', 'js' );

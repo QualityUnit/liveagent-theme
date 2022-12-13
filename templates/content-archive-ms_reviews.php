@@ -63,7 +63,7 @@
 		</div>
 		<?php require_once get_template_directory() . '/templates/content-archive-ms_reviews-posts.php'; ?>
 
-		<div class="wrapper">
+		<div class="wrapper__wide">
 			<div class="Reviews__categoryAbout">
 				<div class="Reviews__categoryAbout--image__wrapper">
 					<img 
@@ -85,21 +85,56 @@
 					</span>
 				</div>
 			</div>
+		</div>
 
-			<?php
-				$whatis_post_id    = get_term_meta( $subpage->term_id, 'category_whatis_article', true );
-				$whatis_post       = get_post( $whatis_post_id )->post_content;
-				$whatis_post_title = get_post( $whatis_post_id )->post_title;
-				$whatis_post_title = preg_replace( '/\^(.+?)\^/', '<span class="highlight-gradient">$1</span>', $whatis_post_title );
-				$whatis_post       = apply_filters( 'the_content', $whatis_post );
+		<?php
+			$whatis_post_id    = get_term_meta( $subpage->term_id, 'category_whatis_article', true );
+			
+		if ( isset( $whatis_post_id ) ) {
+			$whatis_post       = get_post( $whatis_post_id )->post_content;
+			$whatis_post_title = get_post( $whatis_post_id )->post_title;
+			$whatis_post_title = preg_replace( '/\^(.+?)\^/', '<span class="highlight-gradient">$1</span>', $whatis_post_title );
+			$whatis_post       = apply_filters( 'the_content', $whatis_post );
+
+			set_custom_source( 'pages/post', 'css' );
+			set_custom_source( 'components/SidebarTOC', 'css' );
+			set_custom_source( 'components/SignupSidebar', 'css' );
+			set_custom_source( 'common/splide', 'css' );
+			set_custom_source( 'splide', 'js' );
+			set_custom_source( 'sidebar_toc', 'js' );
+			set_custom_source( 'custom_lightbox', 'js' );
 			?>
 
-			<div class="Content">
-				<h2><?= $whatis_post_title; // @codingStandardsIgnoreLine ?></h2>
-				<?= $whatis_post; // @codingStandardsIgnoreLine ?>
+		<div class="wrapper__wide Post__container">
+			<div class="Post__sidebar urlslab-skip-keywords">
+			<?php if ( sidebar_toc( $whatis_post ) !== false ) { ?>
+					<div class="SidebarTOC-wrapper">
+						<div class="SidebarTOC Post__SidebarTOC">
+							<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
+							<div class="SidebarTOC__slider slider splide">
+								<div class="splide__track">
+									<ul class="SidebarTOC__content splide__list">
+										<?= wp_kses_post( sidebar_toc( $whatis_post ) ); ?>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+			</div>
+
+			<div class="Signup__sidebar-wrapper">
+			<?= do_shortcode( '[signup-sidebar]' ); ?>
+			</div>
+			<div class="Post__content">
+				<div class="Content">
+					<h2><?= $whatis_post_title; // @codingStandardsIgnoreLine ?></h2>
+					<?= $whatis_post; // @codingStandardsIgnoreLine ?>
+				</div>
 			</div>
 		</div>
-		<?php
+			<?php
+		}
 	}
 	?>
 </div>
