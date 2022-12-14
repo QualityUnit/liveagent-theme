@@ -1,4 +1,5 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@use "../layouts/Blog" as *;
-@use "../layouts/BlogPost" as *;
+@forward "../components/BlogHeader";
+@forward "../layouts/Blog";
+@forward "../layouts/BlogPost";

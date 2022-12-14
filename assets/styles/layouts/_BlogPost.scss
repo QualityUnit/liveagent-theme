@@ -3,27 +3,9 @@ no-descending-specificity, value-keyword-case */
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@forward "../components/BlogPostHeader";
 
 .BlogPost {
-
-	&__header {
-
-		@include color(background-color, secondary-background);
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		border-radius: $border-radius-16;
-		padding: 2em;
-		width: 100%;
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-			flex-direction: row;
-		}
-
-		@media (min-width: $breakpoint-desktop) {
-			padding: 3em 4.25em;
-		}
-	}
 
 	&__thumbnail {
 		margin: 0;

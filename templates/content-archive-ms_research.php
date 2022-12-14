@@ -1,7 +1,7 @@
 <?php // @codingStandardsIgnoreLine
-	set_source( 'research', 'pages/Category', 'css' );
-	set_source( 'research', 'pages/Research', 'css' );
-	set_source( 'research', 'filter', 'js' );
+	set_custom_source( 'pages/Category', 'css' );
+	set_custom_source( 'pages/Research', 'css' );
+	set_custom_source( 'filter', 'js' );
 ?>
 
 	<div class="Research">
