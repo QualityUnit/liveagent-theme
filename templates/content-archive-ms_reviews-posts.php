@@ -72,7 +72,7 @@ while ( $query_reviews_posts->have_posts() ) :
 							<div class="Reviews__rating--stars__fill" 
 							style="width:<?= esc_attr( ( $rating_post / 5 * 103.3 ) . '%' ); ?>"></div>
 						</div>
-						<div class="Reviews__rating--count" itemprop="reviewCount"><?= esc_html( meta( 'reviews_count' ) . ' ' . __( 'reviews', 'reviews' ) ); ?></div>
+						<div class="Reviews__rating--count"><span itemprop="reviewCount"><?= esc_html( meta( 'reviews_count' ) ); ?></span><?= esc_html( ' ' . __( 'reviews', 'reviews' ) ); ?></div>
 					</div>
 					<div class="Reviews__rating editor" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
 						<div class="Reviews__rating--avatar">
