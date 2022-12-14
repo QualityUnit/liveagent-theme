@@ -49,14 +49,14 @@
 		text-align: right;
 
 		&.ui-datepicker-today {
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 		}
 	}
 
 	&-header {
 		display: flex;
 		align-items: center;
-		font-weight: 700;
+		font-weight: $font-weight-bold;
 		margin-bottom: 1.5em;
 
 		.ui-icon {

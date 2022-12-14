@@ -51,7 +51,7 @@ no-descending-specificity, value-keyword-case */
 			border-radius: 0.5rem;
 
 			strong {
-				font-weight: 400;
+				font-weight: $font-weight-normal;
 			}
 
 			&:hover,
@@ -133,7 +133,7 @@ no-descending-specificity, value-keyword-case */
 		position: relative;
 		z-index: 2;
 		font-family: $font-secondary;
-		font-weight: 700;
+		font-weight: $font-weight-bold;
 		font-size: 1.125rem;
 	}
 

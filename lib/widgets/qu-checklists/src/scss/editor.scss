@@ -92,7 +92,7 @@
 
 		input[type="text"].components-text-control__input {
 			font-family: $font-secondary;
-			font-weight: 400;
+			font-weight: $font-weight-normal;
 			font-size: 1.125rem;
 			border: none !important;
 			text-align: center;
@@ -145,4 +145,3 @@
 		}
 	}
 }
-

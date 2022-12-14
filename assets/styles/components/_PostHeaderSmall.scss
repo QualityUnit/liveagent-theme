@@ -70,7 +70,7 @@
 			@include color(background-color, button-outline-color);
 			font-family: $font-secondary;
 			font-size: 0.8125rem;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			border-radius: 6px;
 			text-align: center;
 			transition: all 0.2s;

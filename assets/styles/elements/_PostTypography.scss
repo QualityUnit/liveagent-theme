@@ -76,7 +76,7 @@
 					display: inline-block;
 					border-radius: 1em;
 					font-size: 0.75rem;
-					font-weight: 700;
+					font-weight: $font-weight-bold;
 					padding: 0 1em;
 					margin-bottom: 0.5em;
 					transition: all 0.2s;
@@ -123,7 +123,7 @@
 		.Post__subtitle {
 			font-family: $font-secondary;
 			font-size: 1.125rem;
-			font-weight: 400;
+			font-weight: $font-weight-normal;
 			line-height: 1.5;
 			margin-bottom: 2em;
 		}

@@ -68,7 +68,7 @@
 			.select__single-value {
 
 				@include color(color, font-color-dark);
-				font-weight: 700;
+				font-weight: $font-weight-bold;
 			}
 		}
 

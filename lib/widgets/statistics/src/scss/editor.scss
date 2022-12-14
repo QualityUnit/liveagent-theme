@@ -42,7 +42,7 @@
 
 	&__text input {
 		font-size: 0.875rem;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		float: right;
 		text-align: right;
 		color: var(--post-color) !important;
@@ -150,7 +150,7 @@
 				@include color(color, font-color-light);
 				font-size: 1.5rem !important;
 				line-height: 1 !important;
-				font-weight: 700;
+				font-weight: $font-weight-bold;
 			}
 
 			&--top {
@@ -203,7 +203,7 @@
 				float: none;
 				padding: 1em 2em;
 				text-align: center;
-				font-weight: 700;
+				font-weight: $font-weight-bold;
 				background-color: var(--post-color);
 				border-radius: 6px;
 				width: auto;

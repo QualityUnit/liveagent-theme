@@ -115,10 +115,10 @@ $maxWidth: 71.125em;
 			@include color(color, primary-color);
 			border-left: 1px solid $dark-orange;
 			padding: 0 1.5rem;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 
 			strong {
-				font-weight: 600;
+				font-weight: $font-weight-semi;
 			}
 		}
 
@@ -209,7 +209,7 @@ $maxWidth: 71.125em;
 				padding: 0.5rem 1rem;
 				min-height: 5.25em;
 				margin: 1rem 1.3rem 1rem 0;
-				font-weight: 600;
+				font-weight: $font-weight-semi;
 
 				&:hover {
 					border-color: var(--post-color);
@@ -239,7 +239,7 @@ $maxWidth: 71.125em;
 			&--title {
 				font-family: $font-secondary;
 				font-size: 1rem;
-				font-weight: 600;
+				font-weight: $font-weight-semi;
 				line-height: normal;
 				margin: 0.5rem 0 0.5rem 0 !important;
 				color: $black;

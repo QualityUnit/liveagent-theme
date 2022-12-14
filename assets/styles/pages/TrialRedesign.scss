@@ -120,7 +120,7 @@
 			}
 
 			em {
-				font-weight: 600;
+				font-weight: $font-weight-semi;
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
@@ -165,7 +165,7 @@
 				margin-bottom: 1em;
 
 				&__label {
-					font-weight: 600;
+					font-weight: $font-weight-semi;
 
 					&:first-of-type {
 						background-color: #efe6f8;
@@ -209,7 +209,7 @@
 					line-height: 1;
 					height: calc(100% - 2px);
 					font-family: $font-primary;
-					font-weight: 600;
+					font-weight: $font-weight-semi;
 				}
 
 				.ErrorMessage {

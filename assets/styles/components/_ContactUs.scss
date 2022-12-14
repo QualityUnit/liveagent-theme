@@ -26,7 +26,7 @@ $colors: (
 		position: relative;
 		padding: 0.625em 1em 0.625em 1.5em;
 		font-family: $font-secondary;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		color: $white;
 		background: $light-orange;
 		box-shadow: 0 0.25em 2em rgba($black-real, 0.12);
@@ -289,7 +289,7 @@ $colors: (
 			justify-content: flex-end;
 			padding: 0.25em 1em 0.25em 0.25em;
 			border-radius: $border-radius-16;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-family: $font-secondary;
 			color: $black-real;
 			opacity: 0;
