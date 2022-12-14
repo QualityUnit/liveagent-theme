@@ -62,7 +62,7 @@
 		width: 100%;
 		display: flex;
 		flex-flow: wrap row;
-		justify-content: space-between;
+		justify-content: flex-end;
 
 		.Button--full[class] {
 
@@ -129,6 +129,10 @@
 
 		.wrapper {
 			padding: 30px;
+		}
+
+		&__buttons[class] {
+			justify-content: center;
 		}
 	}
 }
