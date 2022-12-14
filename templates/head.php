@@ -16,6 +16,8 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="theme-color" content="#ffffff">
 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Patrick+Hand&family=Poppins:wght@400;700&display=swap">
+
 	<?php wp_head(); ?>
 
 	<?php get_template_part( 'lib/pagesources' ); ?>
