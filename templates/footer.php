@@ -201,9 +201,6 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 		<p><?php _e( 'Our website uses cookies. By continuing we assume your permission to deploy cookies as detailed in our', 'ms' ); ?> <a href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'privacy and cookies policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 
 		<div class="Medovnicky__buttons">
-			<a href="<?php _e( '/privacy-policy/', 'ms' ); ?>" class="Medovnicky__button Medovnicky__button--more Button Button--outline" title="<?php _e( 'Learn more about privacy policy and cookies on our website', 'ms' ); ?>">
-				<span><?php _e( 'More Information', 'ms' ); ?></span>
-			</a>
 			<a href="#" class="Medovnicky__button Medovnicky__button--no Medovnicky__button--more Button Button--outline">
 				<span><?php _e( 'Decline', 'ms' ); ?></span>
 			</a>

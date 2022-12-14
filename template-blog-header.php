@@ -95,7 +95,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="elementor-column heroHeadline--bg">
+						<div class="elementor-column heroHeadline--bg urlslab-skip-lazy">
 							<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="animation elementor-widget elementor-widget-image urlslab-min-width-1024">
 									<div class="elementor-widget-container">

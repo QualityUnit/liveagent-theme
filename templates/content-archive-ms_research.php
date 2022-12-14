@@ -7,7 +7,7 @@
 	<div class="Research">
 		<div class="BlogPost__header Research__header">
 			<div class="Research__thumbnail">
-				<img src="<?php echo esc_url( wp_upload_dir()['baseurl'] . '/2021/08/research_archive_illustration.svg' ); ?>" alt="Research archive illustration" />
+				<img src="/app/uploads/2021/10/research_15_illu.svg" alt="Research archive illustration" class="urlslab-skip-lazy" />
 			</div>
 			<div class="Research__intro">
 				<h1 class="Research__title"><?php _e( 'Customer service <span class="highlight-gradient">Benchmark</span> Report', 'ms' ); ?></h1>
@@ -91,7 +91,7 @@
 									<?php wp_reset_postdata(); ?>
 							</ul>
 						</div>
-							<?php 
+							<?php
 						}
 					}
 					?>
