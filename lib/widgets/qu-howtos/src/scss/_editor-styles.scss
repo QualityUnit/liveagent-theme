@@ -145,7 +145,7 @@
 				padding: 1.25em;
 
 				&:first-of-type {
-					font-weight: 700;
+					font-weight: $font-weight-bold;
 					text-align: left;
 				}
 
@@ -157,7 +157,7 @@
 			tr {
 
 				&:first-of-type {
-					font-weight: 700;
+					font-weight: $font-weight-bold;
 				}
 
 				+ tr {

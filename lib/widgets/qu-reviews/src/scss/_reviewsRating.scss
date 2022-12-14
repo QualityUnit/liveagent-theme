@@ -67,17 +67,17 @@
 		}
 
 		&--count {
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 		}
 
 		&--rating {
 			padding-right: 0;
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 		}
 
 		&--desc {
 			display: block;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-size: 0.875rem;
 			line-height: 1;
 			margin-top: 1em;

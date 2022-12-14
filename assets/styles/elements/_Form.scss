@@ -25,7 +25,7 @@ input[type="url"],
 	border-radius: ($border-radius - 2);
 	font-size: $input-font-size-normal;
 	font-family: $font-primary;
-	font-weight: 400;
+	font-weight: $font-weight-normal;
 
 	&:-ms-input-placeholder,
 	&::-ms-input-placeholder {

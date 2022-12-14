@@ -58,7 +58,7 @@
 
 				@include color(color, font-color-medium);
 				font-size: 0.8125rem;
-				font-weight: 600;
+				font-weight: $font-weight-semi;
 				text-transform: uppercase;
 			}
 
@@ -87,7 +87,7 @@
 			display: inline-block;
 			position: relative;
 			font-family: $font-secondary;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-size: 0.75rem;
 			border-radius: 1em;
 			padding: 0.25em 1em;

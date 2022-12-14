@@ -9,7 +9,7 @@
 		@include color(color, border-color-gray-icon);
 		background-color: $pricing-gray;
 		font-size: 0.75rem;
-		font-weight: 700;
+		font-weight: $font-weight-bold;
 		text-transform: uppercase;
 		padding: 0.25em 1em;
 		margin-bottom: 1em;

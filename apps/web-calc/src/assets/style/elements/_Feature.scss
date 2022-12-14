@@ -18,7 +18,7 @@
 	}
 
 	h4 {
-		font-weight: 400;
+		font-weight: $font-weight-normal;
 	}
 
 	&--wrapper {
@@ -32,7 +32,7 @@
 			background-color: $medium-orange;
 
 			h4 {
-				font-weight: 600;
+				font-weight: $font-weight-semi;
 			}
 
 			.info-icon {

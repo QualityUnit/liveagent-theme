@@ -22,7 +22,7 @@
 		.price {
 			display: block;
 			font-size: 0.875rem;
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 			white-space: nowrap;
 			margin: 0;
 		}
@@ -85,7 +85,7 @@
 					display: block;
 					font-size: 0.75rem;
 					line-height: 1.21;
-					font-weight: 400;
+					font-weight: $font-weight-normal;
 
 					a:not(:hover) {
 						color: currentColor;

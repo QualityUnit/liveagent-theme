@@ -498,7 +498,7 @@ video {
 
 		p {
 			font-family: $font-primary;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-style: italic;
 			font-size: 1rem;
 			line-height: 1.75;
@@ -717,7 +717,7 @@ video {
 		align-items: center;
 		font-family: $font-secondary;
 		font-size: em($target: $font-size-smaller, $unit: "rem");
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 
 		&::after {
 			position: relative;
@@ -755,7 +755,7 @@ video {
 
 		@include color(color, primary-color);
 		font-size: 0.875rem;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		letter-spacing: 0.12em;
 	}
 }
@@ -843,7 +843,7 @@ img.Screenshot,
 		color: #000;
 
 		&:nth-child(2n + 1) {
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 		}
 
 		&:active,
@@ -866,7 +866,7 @@ img.Screenshot,
 			content: "\e832" !important;
 			font-family: fontello, sans-serif;
 			font-style: normal;
-			font-weight: 400;
+			font-weight: $font-weight-normal;
 			display: inline-block;
 			width: 1em;
 			text-align: center;
@@ -896,7 +896,7 @@ img.Screenshot,
 				content: "\e832" !important;
 				font-family: fontello, sans-serif;
 				font-style: normal;
-				font-weight: 400;
+				font-weight: $font-weight-normal;
 				display: inline-block;
 				width: 1em;
 				text-align: center;

@@ -95,7 +95,7 @@
 			@include color(color, font-color-light);
 			border-color: transparent !important;
 			padding: 0;
-			font-weight: 400;
+			font-weight: $font-weight-normal;
 			text-decoration: underline;
 
 			&:active,
