@@ -26,6 +26,7 @@ function components_imports( $content ) {
 		'FeaturesTableNew' => 'components/FeaturesTable-New',
 		'HeroBanner'       => 'components/HeroBanner',
 		'Block--video'     => 'components/BlockVideo',
+		'BlockSuccess'     => 'components/BlockSuccess',
 		'Boxes--image'     => 'components/BoxesImage',
 		'RequestDemo'      => 'layouts/tests/RequestDemo',
 		'ScheduleDemo'     => 'layouts/tests/ScheduleDemo',
