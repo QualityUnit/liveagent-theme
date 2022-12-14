@@ -795,6 +795,11 @@ video {
 			content: "";
 			background: url(../../images/highlight_bubble.svg) center center no-repeat;
 			background-size: 100%;
+
+			[class*="elementor"] & {
+				background: url(../images/highlight_bubble.svg) center center no-repeat;
+				background-size: 100%;
+			}
 		}
 
 		&.long {
