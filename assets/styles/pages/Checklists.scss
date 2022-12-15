@@ -18,10 +18,22 @@
 
 				.wrapper__wide {
 					height: auto;
+					padding-top: 0;
+					padding-bottom: 0;
 				}
 
 				&__text {
 					padding: 0 1.5em;
+				}
+
+				&__title {
+					font-size: 1.8em;
+					line-height: 1.6;
+					margin-bottom: 0;
+				}
+
+				&__image {
+					display: none;
 				}
 			}
 
