@@ -25,7 +25,7 @@ function get_reviews() {
 
 $reviews_posts = array();
 
-if ( is_admin() && ( 'ms_reviews' === $_GET['post_type'] || ( 'post.php' === $pagenow && isset( $_GET['post'] ) && 'ms_reviews' === get_post_type( $_GET['post'] ) ) ) ) {
+if ( is_admin() && ( isset( $_GET['post_type'] ) && 'ms_reviews' === $_GET['post_type'] || ( 'post.php' === $pagenow && isset( $_GET['post'] ) && 'ms_reviews' === get_post_type( $_GET['post'] ) ) ) ) {
 	$reviews_posts = get_reviews();
 }
 
