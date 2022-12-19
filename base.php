@@ -8,6 +8,9 @@
 	<?php wp_body_open(); ?>
 
 		<div id="app">
+            <div class="urlslab-skip-keywords">
+			    <?php site_breadcrumb(); ?>
+            </div>
 			<?php
 				do_action( 'get_header' );
 				get_template_part( 'templates/header' );
