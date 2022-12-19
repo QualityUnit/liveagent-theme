@@ -21,4 +21,12 @@
 	<?php wp_head(); ?>
 
 	<?php get_template_part( 'lib/pagesources' ); ?>
+
+	<?php
+	if ( isset( $_GET['test'] ) ) {
+		?>
+		<script src="<?= esc_url( get_template_directory_uri() ); ?>/assets/scripts/static/perf.js"></script>
+		<?php
+	}
+	?>
 </head>
