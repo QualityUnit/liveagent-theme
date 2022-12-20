@@ -13,7 +13,6 @@ add_action(
 		add_theme_support(
 			'soil',
 			array(
-				'clean-up',
 				'disable-trackbacks',
 				'nice-search',
 			)
