@@ -1,0 +1,126 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/LabelTag" as *;
+
+.Pricing__programs {
+	position: relative;
+	padding: 3em 0;
+
+	> .elementor-container {
+		position: relative;
+		z-index: 1;
+	}
+
+	&::after {
+
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100vw;
+		height: 100%;
+		background-color: $lightest-gray;
+	}
+}
+
+.Pricing__program {
+	padding: 2.5em 1.5em 1.5em;
+	background-color: $white;
+	border-radius: $border-radius-16;
+
+	.elementor-widget {
+		margin-bottom: 0;
+	}
+
+	.LabelTag {
+		width: auto;
+		align-self: flex-start;
+		margin: 0.35em 0 1.5em auto;
+	}
+
+	.elementor-widget-image {
+		display: flex;
+		width: auto;
+		margin-bottom: 1.5em;
+
+		img,
+		picture {
+			width: auto;
+			height: 2.375em;
+		}
+	}
+
+	.elementor-heading-title {
+		font-size: 1.875rem;
+		margin-bottom: 0.5em;
+
+		small {
+			font-size: 50%;
+		}
+	}
+
+	.elementor-widget-text-editor {
+		margin-bottom: 1.5em;
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	.checklist.elementor-widget-text-editor {
+		padding-top: 1.5em;
+		margin-bottom: 1.5em;
+		border-top: 2px solid $lightest-gray;
+
+		ul {
+			margin-bottom: 0;
+		}
+
+		li {
+			margin-bottom: 0.45em;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.Pricing__price {
+		font-family: $font-secondary;
+		font-size: 2.5rem;
+		font-weight: 600;
+		margin: 0.5em 0 0.35em;
+
+		sup {
+			position: relative;
+			font-size: 0.4em;
+			font-weight: 400;
+			margin-right: -0.5em;
+			top: -0.25em;
+		}
+
+		small {
+			font-size: 0.6em;
+		}
+	}
+
+	+ .Pricing__program {
+		border: 2px solid $lightest-gray;
+	}
+
+	&.popular {
+		border-color: $dark-orange;
+		left: -2px;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&.free {
+			width: calc(25% - 1em);
+			margin-left: 1em;
+		}
+	}
+}

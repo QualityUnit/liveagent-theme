@@ -1,0 +1,92 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/LabelTag" as *;
+
+.Block {
+
+	h2[class] {
+		font-size: 2.5rem;
+		text-align: center;
+	}
+}
+
+.Pricing {
+
+	&__top {
+
+		h1 {
+			font-size: 2.5rem;
+			text-align: center;
+		}
+
+		.Pricing__tabs {
+			margin-bottom: 0;
+
+			svg {
+
+				@include square(0);
+				position: absolute;
+			}
+		}
+
+		.Tabs {
+			position: relative;
+			display: flex;
+			margin-top: 3em;
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+			}
+
+			&__tab {
+				position: relative;
+				font-family: $font-secondary;
+				font-size: 1.3125rem;
+				font-weight: 600;
+				background-color: $lightest-gray;
+				border-top-right-radius: $border-radius-16;
+				color: $black;
+				text-align: center;
+				padding: 1em 3.5em;
+
+				* {
+					position: relative;
+					z-index: 2;
+				}
+
+				&:not(.active) {
+
+					&::after {
+						content: "";
+						mask-image: url("../../images/tab_inactive.svg?ver=#{$version}");
+						mask-size: cover;
+						mask-repeat: no-repeat;
+						border-top-right-radius: $border-radius-16;
+						box-shadow: inset 1em -3px 0.5em 0 rgba($black-real, 0.12);
+
+						@include posZero;
+						position: absolute;
+						background-color: $medium-gray-inputs;
+
+					}
+				}
+
+				&.active {
+					border-top-left-radius: $border-radius-16;
+					background-color: $lightest-gray;
+					text-shadow: 0 2px 3px rgba($black-real, 0.12);
+				}
+			}
+
+			.LabelTag {
+				align-self: center;
+				margin-left: auto;
+			}
+		}
+	}
+}
+

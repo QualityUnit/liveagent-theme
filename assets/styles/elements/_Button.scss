@@ -27,6 +27,26 @@ button,
 		padding: 0 1em;
 	}
 
+	[class*="elementor"] {
+		all: unset;
+		display: block;
+
+		&.elementor-widget-container {
+			z-index: 3;
+		}
+
+		a {
+
+			&::before {
+				content: "";
+
+				@include posZero;
+				position: absolute;
+				cursor: pointer;
+			}
+		}
+	}
+
 	&[class*="icn-"] {
 
 		svg {
@@ -244,12 +264,12 @@ button,
 
 	&-white {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 	}
 
 	&__white {
 
-		@include color(color, font-color-light);
+		color: $white;
 		border-width: 1px;
 		padding: 0.5em 1.5em;
 
@@ -257,8 +277,8 @@ button,
 		&:focus,
 		&:hover {
 
-			@include color(background-color, main-background);
-			@include color(border-color, font-color-light);
+			background-color: $white;
+			border-color: $white;
 			color: $black-real;
 			mix-blend-mode: screen;
 		}
