@@ -23,8 +23,14 @@
 		<div class="Trial__main">
 			<h1 class="Trial__main__title"><?php _e( 'Get started <span class="highlight-gradient">absolutely free</span>', 'ms' ); ?></h1>
 			<div class="Signup__form__labels Trial__labels">
-				<span class="Signup__form__labels__label"><?php _e( '14 Day Trial', 'ms' ); ?></span>
-				<span class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></span>
+				<div class="Signup__form__labels__label">
+					<?php _e( '7 or 30 days free trial', 'ms' ); ?>&nbsp;
+					<div class="ComparePlans__tooltip">
+						<div class="fontello-info"></div>
+						<div class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?php _e( 'Free trial for 7 days with a free email, or 30 days with a company email', 'ms' ); ?></div>
+					</div>
+				</div>
+				<div class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></div>
 			</div>
 			<p class="Trial__main__text"><?php _e( "Sign up for LiveAgent in less than 60 seconds. Enjoy testing every feature from our All-Inclusive plan starting today. Once your trial expires, your account's features will be adjusted according to the plan you've selected.", 'ms' ); ?></p>
 
