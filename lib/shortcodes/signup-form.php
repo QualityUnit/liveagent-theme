@@ -52,9 +52,9 @@ function ms_signup_form( $atts ) {
 				<div class="Signup__form__item__domain"><?php _e( '.ladesk.com', 'ms' ); ?></div>
 				<div class="ErrorMessage"></div>
 
-				<div class="Signup__form__item__info ComparePlans__tooltip">
+				<div class="Signup__form__item__info Tooltip">
 					<div class="Signup__form__item__info__icon ComparePlans__info-icon fontello-info">
-						<div class="ComparePlans__tooltip__text ComparePlans__tooltip__text--left"><?php _e( 'Choose a name for your LiveAgent subdomain. Most people use their company or team name.', 'ms' ); ?></div>
+						<div class="Tooltip__text Tooltip__text--left"><?php _e( 'Choose a name for your LiveAgent subdomain. Most people use their company or team name.', 'ms' ); ?></div>
 					</div>
 				</div>
 			</div>

@@ -118,9 +118,9 @@ function progressbar( $text, $rating, $color ) {
 							<div class="Reviews__rating--stars__fill" style="width:<?= esc_attr( ( meta( 'rating' ) / 5 * 100 ) . '%' ); ?>"></div>
 						</div>
 	
-						<div class="ComparePlans__tooltip Reviews__rating--tooltip">
+						<div class="Tooltip Reviews__rating--tooltip">
 							<div class="info-icon"></div>
-							<span class="ComparePlans__tooltip__text Reviews__rating--tooltip__text">
+							<span class="Tooltip__text Reviews__rating--tooltip__text">
 								<?php _e( 'Average rating based on data from trusted review portals', 'reviews' ); ?>
 	
 								<time class="Reviews__update fit" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>"> 

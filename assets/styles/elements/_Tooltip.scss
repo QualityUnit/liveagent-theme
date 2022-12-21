@@ -2,14 +2,13 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-.ComparePlans {
+.ComparePlans__tooltip,
+.Tooltip {
 
-	&__tooltip {
-		position: relative;
-		display: inline-block;
-	}
+	position: relative;
+	display: inline-block;
 
-	&__tooltip__text {
+	&__text {
 
 		@include color(color, font-color-light);
 		position: absolute;
@@ -90,7 +89,7 @@
 		}
 	}
 
-	&__tooltip__text::after {
+	&__text::after {
 		content: "";
 		position: absolute;
 		bottom: 100%;
@@ -101,32 +100,40 @@
 		border-color: transparent transparent #000;
 	}
 
-	&__tooltip__text--center::after {
+	&__text--center::after {
 		left: 55% !important;
 	}
 
-	&__tooltip__text--right::after {
+	&__text--right::after {
 		left: 48% !important;
 	}
 
-	&__tooltip__text--left::after {
+	&__text--left::after {
 		left: 81% !important;
 	}
 
-	&__tooltip__text--left-icon::after {
+	&__text--left-icon::after {
 		left: 91.7% !important;
 	}
 
-	&__tooltip:hover &__tooltip__text {
+	&:hover &__text {
 		visibility: visible;
 	}
 
 	@media (max-width: $breakpoint-desktop) {
 
-		&__tooltip > span {
+		> span {
 			display: none !important;
 		}
 	}
+}
+
+.Tooltip .icon {
+
+	@include square(1rem);
+	margin-left: 0.25em;
+	position: relative;
+	top: -1px;
 }
 
 .info-icon {
@@ -147,5 +154,4 @@
 
 		display: none !important;
 	}
-
 }
