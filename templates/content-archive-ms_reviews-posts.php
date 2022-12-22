@@ -22,7 +22,7 @@ function meta( $metabox_id ) {
 		)
 	);
 	?>
-<ul class="wrapper flex-direction-column Reviews__relatedReviews" data-sortingList="relatedReviews" data-sortedBy="">
+<ul class="wrapper flex-direction-column Reviews__relatedReviews" data-sortingList="relatedReviews" data-sortedBy="" urlslab-skip-all>
 <?php
 while ( $query_reviews_posts->have_posts() ) :
 	$query_reviews_posts->the_post();
