@@ -6,9 +6,10 @@
 
 .Pricing__programs {
 	position: relative;
-	padding: 3em 0;
+	padding: 3em 0 0;
 
-	> .elementor-container {
+	> .elementor-container,
+	> .elementor-widget-container {
 		position: relative;
 		z-index: 1;
 	}
@@ -23,6 +24,33 @@
 		width: 100vw;
 		height: 100%;
 		background-color: $lightest-gray;
+	}
+
+	&.Deal__startups {
+
+		* {
+			color: $white;
+		}
+
+		> .elementor-container {
+			border-radius: $border-radius-16;
+			background-color: $saturated-green;
+		}
+
+		.elementor-widget-wrap {
+			flex-wrap: nowrap;
+			align-items: center;
+		}
+
+		&--note {
+			padding: 0 0 3em;
+
+			p {
+				text-align: right;
+				font-size: 0.75rem;
+				margin-bottom: 0;
+			}
+		}
 	}
 }
 
