@@ -6,21 +6,24 @@
 .ComparePlans {
 	$padding: 0.35em 0.75em;
 
+	.wrapper__wide {
+		padding: 0;
+	}
+
 	&__header {
+		position: sticky;
+		top: $header-height;
+		background-color: $white;
 		z-index: 1;
 
-		.elementor-container {
-			background-color: $white;
 
-			&[data-is-sticky="true"] {
-				top: 92px;
+		&.is-sticky {
 
-				.Pricing__program[class] {
+			.Pricing__program[class] {
 
-					.elementor-widget-image {
-						max-height: 0;
-						opacity: 0;
-					}
+				.elementor-widget-image {
+					max-height: 0;
+					opacity: 0;
 				}
 			}
 		}

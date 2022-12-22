@@ -1,0 +1,132 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, value-keyword-case
+*/
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.switcher {
+	display: flex;
+
+
+	@media (min-width: $breakpoint-tablet) {
+		justify-content: center;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		justify-content: flex-start;
+	}
+
+	.Block--switcher & {
+		margin: 2em 0;
+
+		@media (min-width: $breakpoint-desktop) {
+			margin: 2em 6em;
+		}
+	}
+
+	&__input {
+		display: none;
+
+		&:first-of-type:checked {
+
+			~ .switcher {
+
+
+				label:first-of-type {
+
+					color: $black;
+					cursor: default;
+				}
+
+				label:nth-of-type(2) {
+
+					&::before {
+						display: block;
+						left: -3.75em;
+					}
+				}
+			}
+		}
+
+		&:nth-of-type(2):checked {
+
+			~ .switcher {
+
+				.switcher__switch::before {
+					transform: translate(calc(1.5em + 2px), -50%);
+				}
+
+				label:first-of-type {
+
+					&::before {
+						display: block;
+						right: -3.75em;
+					}
+				}
+
+				label:nth-of-type(2) {
+
+					color: $black;
+					cursor: default;
+				}
+			}
+		}
+	}
+
+	label {
+
+		position: relative;
+		font-family: $font-secondary;
+		font-size: 0.875rem;
+		font-weight: $font-weight-semi;
+		color: $medium-gray;
+		cursor: pointer;
+		transition: color 0.2s;
+
+		&:hover {
+
+			color: $dark-orange;
+		}
+
+		&::before {
+			content: "";
+			display: none;
+			position: absolute;
+			width: 3em;
+			height: 100%;
+			z-index: 1;
+		}
+	}
+
+	&__switch {
+		position: relative;
+		width: 3em;
+		height: 1.5em;
+		background: linear-gradient(270deg, #2d2d30 0%, #2d2d30 19.27%, #696b70 100%);
+		box-shadow: inset 0 2px 2px 1px rgba(0, 0, 0, 0.25);
+		border-radius: $border-radius-16;
+		margin: 0 0.75em;
+		cursor: pointer;
+
+		&::before {
+			position: absolute;
+			content: "";
+			height: 0;
+			width: 1.25em;
+			padding-bottom: 1.25em;
+			top: 50%;
+			transform: translate(2px, -50%);
+			transition: transform 0.2s;
+			border-radius: 50%;
+			background: linear-gradient(to right, $white 0%, $pricing-gray 100%);
+			box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		label {
+			font-size: 1rem;
+		}
+	}
+}
