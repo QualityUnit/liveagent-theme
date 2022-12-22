@@ -128,8 +128,6 @@
 
 		@include color(background-color, main-background);
 		padding: 1.5em;
-		border-bottom-left-radius: 1.25em;
-		border-top-left-radius: 1.25em;
 
 		&__title {
 			font-size: 1.5rem;
@@ -297,6 +295,8 @@
 
 			width: 52.2%;
 			padding: 2.5em 4.5em;
+			border-bottom-left-radius: 1.25em;
+			border-top-left-radius: 1.25em;
 
 			&__title {
 				font-size: 1.5rem;
