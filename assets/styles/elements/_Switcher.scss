@@ -7,7 +7,6 @@ no-descending-specificity, value-keyword-case
 .switcher {
 	display: flex;
 
-
 	@media (min-width: $breakpoint-tablet) {
 		justify-content: center;
 	}
@@ -22,6 +21,10 @@ no-descending-specificity, value-keyword-case
 		@media (min-width: $breakpoint-desktop) {
 			margin: 2em 6em;
 		}
+	}
+
+	.Switcher__small & {
+		// font-size: ;
 	}
 
 	&__input {
