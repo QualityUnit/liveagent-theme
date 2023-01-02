@@ -1,4 +1,4 @@
-/* global Splide, IntersectionObserver */
+/* global Splide */
 
 const reviewsGalleryMain = document.querySelector(
 	'.Reviews__Gallery--main'

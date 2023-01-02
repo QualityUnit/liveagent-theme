@@ -23,8 +23,17 @@ no-descending-specificity, value-keyword-case
 		}
 	}
 
-	.Switcher__small & {
-		// font-size: ;
+	&__simple[class] {
+
+		.switcher__switch {
+			background: $medium-gray-inputs;
+			box-shadow: none;
+
+			&::before {
+				background: $white;
+				box-shadow: 0 2px 4px rgba($black-real, 0.25);
+			}
+		}
 	}
 
 	&__input {

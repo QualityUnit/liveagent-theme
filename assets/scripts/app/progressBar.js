@@ -1,5 +1,3 @@
-/* global IntersectionObserver */
-
 const progressBars = document.querySelectorAll( '.progressBar__inn' );
 
 if ( progressBars.length && 'IntersectionObserver' in window ) {
