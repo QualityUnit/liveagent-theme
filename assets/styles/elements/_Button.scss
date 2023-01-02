@@ -242,9 +242,7 @@ button,
 .Button--outline {
 
 	@include color(color, font-color-dark);
-	border-width: 1px;
-	border-style: solid;
-	border-color: currentColor;
+	border: 1px solid currentColor;
 	overflow: hidden;
 	transition: all 0.3s;
 
@@ -270,7 +268,6 @@ button,
 	&__white {
 
 		color: $white;
-		border-width: 1px;
 		padding: 0.5em 1.5em;
 
 		&:active,

@@ -21,25 +21,56 @@
 			text-align: center;
 		}
 
-		.Pricing__tabs {
-			margin-bottom: 0;
+		.Pricing__labels {
+			flex-wrap: wrap;
 
-			svg {
-
-				@include square(0);
-				position: absolute;
+			.LabelTag {
+				margin-top: 0.5em;
 			}
 		}
 
+		.Pricing__tabs {
+			margin-bottom: 0;
+		}
+
 		.Tabs {
-			position: relative;
+			$mask-inactive: url("../../images/tab_inactive.svg?ver=#{$version}");
 			display: flex;
+			flex-wrap: wrap;
 			margin-top: 3em;
 
-			&::before,
-			&::after {
-				content: "";
-				position: absolute;
+			&__inn {
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					width: 3em;
+					z-index: 2;
+					height: 100%;
+				}
+
+				&::before {
+					left: -2em;
+					mask-image: url("../../images/tab_left.svg?ver=#{$version}");
+					mask-size: auto 100%;
+					mask-position: right center;
+					mask-repeat: no-repeat;
+					background-color: $lightest-gray;
+				}
+
+				&::after {
+					right: -2em;
+					mask-image: url("../../images/tab_right.svg?ver=#{$version}");
+					mask-size: auto 100%;
+					mask-position: left center;
+					mask-repeat: no-repeat;
+					background-color: $medium-gray-inputs;
+					box-shadow: inset -1em -3px 0.5em 0 rgba($black-real, 0.1);
+				}
 			}
 
 			&__tab {
@@ -48,7 +79,6 @@
 				font-size: 1.3125rem;
 				font-weight: 600;
 				background-color: $lightest-gray;
-				border-top-right-radius: $border-radius-16;
 				color: $black;
 				text-align: center;
 				padding: 1em 3.5em;
@@ -60,18 +90,17 @@
 
 				&:not(.active) {
 
-					&::after {
-						content: "";
-						mask-image: url("../../images/tab_inactive.svg?ver=#{$version}");
-						mask-size: cover;
-						mask-repeat: no-repeat;
-						border-top-right-radius: $border-radius-16;
-						box-shadow: inset 1em -3px 0.5em 0 rgba($black-real, 0.12);
+					&::before {
 
 						@include posZero;
 						position: absolute;
+						content: "";
+						mask-image: $mask-inactive;
+						mask-size: cover;
+						mask-repeat: no-repeat;
+						border-top-right-radius: $border-radius-16;
 						background-color: $medium-gray-inputs;
-
+						box-shadow: inset 1em -3px 0.5em 0 rgba($black-real, 0.12);
 					}
 				}
 
@@ -86,7 +115,20 @@
 				align-self: center;
 				margin-left: auto;
 			}
+
+			@media (max-width: $breakpoint-tablet) {
+
+				&__tab {
+					width: 50%;
+					font-size: 1rem;
+					padding: 1em;
+				}
+
+				.LabelTag {
+					order: -1;
+					margin: 0 auto 1.5em;
+				}
+			}
 		}
 	}
 }
-

@@ -30,16 +30,75 @@
 
 		* {
 			color: $white;
+			margin-bottom: 0;
 		}
 
 		> .elementor-container {
+			padding: 1.5em;
 			border-radius: $border-radius-16;
 			background-color: $saturated-green;
+			overflow: hidden;
+
+			&::after {
+
+				@include posCustom(-1.5em);
+				content: "";
+				position: absolute;
+				background-color: rgba($white, 0.7);
+				opacity: 0.15;
+				transform: skewX(-45deg)  translateX(50%);
+
+				@media (min-width: $breakpoint-tablet) {
+
+					@include posCustom(-1.5em, 0, -1.5em, 50%);
+				}
+			}
 		}
 
-		.elementor-widget-wrap {
-			flex-wrap: nowrap;
-			align-items: center;
+		.elementor-widget {
+			width: auto;
+
+			&-wrap {
+				width: auto;
+				flex-wrap: nowrap;
+				align-items: center;
+			}
+
+			&-image {
+				margin-right: 0.5em;
+
+				img,
+				picture {
+					width: 3.85em;
+				}
+			}
+
+			&-heading {
+				margin-right: auto;
+			}
+		}
+
+		@media (max-width: $breakpoint-tablet-landscape) {
+
+			.elementor-heading-title {
+
+				font-size: 1.25rem;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			.elementor-col-50[class] {
+				width: 50%;
+			}
+		}
+
+		.Deal__startups--buttons {
+			justify-content: flex-end;
+
+			.Button {
+				margin-left: 1.5em;
+			}
 		}
 
 		&--note {
@@ -58,6 +117,22 @@
 	padding: 2.5em 1.5em 1.5em;
 	background-color: $white;
 	border-radius: $border-radius-16;
+	margin-bottom: 1.5em;
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&[class] {
+			width: 50%;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&[class] {
+			width: 25%;
+			margin-bottom: 0;
+		}
+	}
 
 	.elementor-widget {
 		margin-bottom: 0;
