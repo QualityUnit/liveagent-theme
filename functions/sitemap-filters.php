@@ -1,7 +1,7 @@
 <?php
 
 // Removes 404 links from ms_reviews-sitemap.xml
-function sitemap_exclude_posts_without_category( $exclude, ) {
+function sitemap_exclude_posts_without_category( $exclude ) {
 	$taxonomy = 'ms_reviews_categories';
 	$reviews = get_posts(
 		array(

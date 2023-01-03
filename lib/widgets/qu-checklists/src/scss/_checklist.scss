@@ -54,7 +54,7 @@
 		display: inline-flex;
 		align-items: center;
 		font-family: $font-secondary;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		font-size: 1.125rem;
 		transition: all 0.2s;
 
@@ -175,7 +175,7 @@
 			align-items: center;
 			background-color: rgba($saturated-green, 0);
 			font-family: $font-secondary;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			margin-left: auto;
 			margin-right: 0.75em;
 

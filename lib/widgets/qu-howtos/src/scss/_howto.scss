@@ -10,7 +10,7 @@
 	.Content > &:first-child > p:first-of-type::first-letter {
 		font-size: 100px;
 		line-height: 75px;
-		font-weight: 700;
+		font-weight: $font-weight-bold;
 		float: left;
 		margin-right: 10px;
 	}

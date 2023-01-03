@@ -54,7 +54,7 @@
 
 	&--title {
 		font-size: inherit;
-		font-weight: 700;
+		font-weight: $font-weight-bold;
 		margin: 0;
 		color: $black;
 
@@ -67,7 +67,7 @@
 		font-size: 1rem;
 		line-height: 1.3;
 		font-family: $font-primary;
-		font-weight: 400;
+		font-weight: $font-weight-normal;
 		color: $medium-gray-quotes;
 	}
 
@@ -117,7 +117,7 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		line-height: 1;
 
 		.active & {

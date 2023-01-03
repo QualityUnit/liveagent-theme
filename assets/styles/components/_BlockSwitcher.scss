@@ -17,7 +17,7 @@
 	}
 
 	[class*="checklist"] .elementor-widget-text-editor.elementor-widget-text-editor ul:not([class]) li::before {
-		background: $medium-orange url(../images/icon-post-check.svg) center center no-repeat;
+		background: $medium-orange url(/app/themes/liveagent/assets/images/icon-post-check.svg) center center no-repeat;
 		background-size: 50%;
 	}
 
@@ -168,7 +168,7 @@
 			position: relative;
 			font-family: $font-secondary;
 			font-size: 0.875rem;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			cursor: pointer;
 			transition: color 0.2s;
 

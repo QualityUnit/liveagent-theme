@@ -38,11 +38,6 @@
 			<svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use></svg>
 		</button>
 
-		<p class="ContactUs__menu--text">
-			<?php _e( "We're available for you 24/7.", 'ms' ); ?><br />
-			<?php _e( 'Feel free to contact us.', 'ms' ); ?>
-		</p>
-
 		<ul class="ContactUs__menu">
 			<?php
 			if ( is_page() ) {
@@ -89,7 +84,7 @@
 				</a>
 			</li>
 			<li class="ContactUs__menu--item">
-				<a href="https://wa.me/17862041375"  class="ContactUs__menu--link green" data-close-target="contactUsMenu">
+				<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?"  class="ContactUs__menu--link green" data-close-target="contactUsMenu">
 					Whatsapp
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" />
 				</a>

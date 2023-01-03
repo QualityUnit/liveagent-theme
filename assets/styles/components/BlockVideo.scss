@@ -124,7 +124,7 @@ $positions: ("left", "right");
 
 			@include color(color, font-color-light);
 			font-family: $font-secondary;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-size: 0.75rem;
 		}
 	}
@@ -569,7 +569,7 @@ $positions: ("left", "right");
 
 			@include color(color, font-color-light);
 			font-family: $font-secondary;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-size: 0.75rem;
 		}
 	}

@@ -20,114 +20,6 @@ no-descending-specificity, value-keyword-case */
 		}
 	}
 
-	&__header {
-		text-align: center;
-
-		&__title {
-			font-size: 2rem;
-			line-height: 1.5;
-		}
-
-		&__navigation {
-			margin: 1.5em auto 0;
-
-			.nav {
-				display: inline-block;
-				font-weight: 600;
-			}
-
-			.menu-item-description {
-				display: none;
-			}
-
-			.menu-item {
-				display: inline-block;
-
-				+ li {
-					margin-left: 1em;
-				}
-			}
-
-			a {
-
-				@include color(color, font-color-dark);
-			}
-
-			@mixin highlight() {
-
-				@include color(color, primary-color);
-				position: relative;
-
-				&::after {
-					content: "";
-					position: absolute;
-					width: 100%;
-					border-bottom: 2px solid $dark-orange;
-					bottom: -0.5em;
-					left: 0;
-				}
-			}
-
-			.current-menu-item {
-
-				a {
-
-					@include highlight;
-
-					&::after {
-						display: none;
-					}
-				}
-			}
-
-			@media (min-width: $breakpoint-tablet) {
-				margin: 4.5em auto 7em;
-
-				.Blog__searchResults & {
-					margin: 4.5em auto 2em;
-				}
-
-				.current-menu-item {
-
-					a {
-
-						&::after {
-							display: block;
-						}
-					}
-				}
-			}
-
-			@media (min-width: $breakpoint-desktop) {
-				margin: 4.5em auto 4em;
-
-				.menu-item {
-
-					+ li {
-						margin-left: 3.25em;
-					}
-				}
-
-				a {
-
-					&:hover {
-
-						@include highlight;
-					}
-				}
-			}
-		}
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-			margin-top: 2.5em;
-
-			&__title {
-
-				font-size: 3rem;
-			}
-		}
-	}
-
 	&__top.SliderCutted {
 
 		@media (min-width: $breakpoint-tablet) {
@@ -163,7 +55,7 @@ no-descending-specificity, value-keyword-case */
 			font-size: 1.5rem;
 			line-height: 1.5;
 			font-family: $font-secondary;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			margin-bottom: 1em;
 
 			span {
@@ -263,7 +155,7 @@ no-descending-specificity, value-keyword-case */
 					display: inline-block;
 					font-size: 0.75rem;
 					font-family: $font-secondary;
-					font-weight: 600;
+					font-weight: $font-weight-semi;
 					border-radius: 1.5em;
 					padding: 0.25em 1.16em;
 					margin-bottom: 0.5em;

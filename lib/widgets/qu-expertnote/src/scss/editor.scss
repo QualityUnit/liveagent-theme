@@ -14,7 +14,7 @@
 
 	label,
 	select {
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 	}
 
 	.components-input-control__container {
@@ -31,7 +31,7 @@
 
 		select[class] {
 			position: relative !important;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			z-index: 1 !important;
 		}
 	}
@@ -56,7 +56,7 @@
 
 			input {
 				font-family: $font-primary;
-				font-weight: 700;
+				font-weight: $font-weight-bold;
 			}
 		}
 	}
@@ -108,4 +108,3 @@
 		}
 	}
 }
-

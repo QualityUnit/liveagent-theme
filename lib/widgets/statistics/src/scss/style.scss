@@ -61,7 +61,7 @@
 			display: inline-flex;
 			align-items: center;
 			font-size: 0.875rem;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			float: right;
 			color: var(--post-color) !important;
 
@@ -124,7 +124,7 @@
 				@include color(color, font-color-light);
 				font-size: 1.5rem;
 				line-height: 1;
-				font-weight: 700;
+				font-weight: $font-weight-bold;
 				margin: -2.625rem -2.625rem 0 !important;
 				padding: 2.5rem 2.625rem;
 				background: var(--post-color) url(/images/wide_header_bg.svg) center center no-repeat;
@@ -164,7 +164,7 @@
 					float: none;
 					padding: 1em 2em;
 					text-align: center;
-					font-weight: 700;
+					font-weight: $font-weight-bold;
 					background-color: var(--post-color);
 					border-radius: 6px;
 					transition: all 0.2s;

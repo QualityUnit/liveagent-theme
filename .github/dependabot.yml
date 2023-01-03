@@ -3,8 +3,7 @@ updates:
   - package-ecosystem: composer
     directory: "/"
     schedule:
-      interval: weekly
-      day: saturday
+      interval: monthly
     open-pull-requests-limit: 25
     versioning-strategy: increase
     labels:
@@ -17,8 +16,7 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: weekly
-      day: saturday
+      interval: monthly
     open-pull-requests-limit: 25
     versioning-strategy: increase
     labels:
@@ -31,8 +29,7 @@ updates:
   - package-ecosystem: npm
     directory: "/apps/typing-test"
     schedule:
-      interval: weekly
-      day: saturday
+      interval: monthly
     open-pull-requests-limit: 25
     versioning-strategy: increase
     labels:
@@ -45,8 +42,7 @@ updates:
   - package-ecosystem: npm
     directory: "/apps/web-calc"
     schedule:
-      interval: weekly
-      day: saturday
+      interval: monthly
     open-pull-requests-limit: 25
     versioning-strategy: increase
     labels:
@@ -59,8 +55,7 @@ updates:
   - package-ecosystem: npm
     directory: "/apps/web-calc-featured"
     schedule:
-      interval: weekly
-      day: saturday
+      interval: monthly
     open-pull-requests-limit: 25
     versioning-strategy: increase
     labels:
@@ -73,8 +68,7 @@ updates:
   - package-ecosystem: npm
     directory: "/lib/widgets/qu-checklists"
     schedule:
-      interval: weekly
-      day: saturday
+      interval: monthly
     open-pull-requests-limit: 25
     versioning-strategy: increase
     labels:
@@ -87,8 +81,7 @@ updates:
   - package-ecosystem: npm
     directory: "/lib/widgets/qu-expertnote"
     schedule:
-      interval: weekly
-      day: saturday
+      interval: monthly
     open-pull-requests-limit: 25
     versioning-strategy: increase
     labels:
@@ -101,8 +94,7 @@ updates:
   - package-ecosystem: npm
     directory: "/lib/widgets/qu-howtos"
     schedule:
-      interval: weekly
-      day: saturday
+      interval: monthly
     open-pull-requests-limit: 25
     versioning-strategy: increase
     labels:
@@ -115,8 +107,7 @@ updates:
   - package-ecosystem: npm
     directory: "/lib/widgets/statistics"
     schedule:
-      interval: weekly
-      day: saturday
+      interval: monthly
     open-pull-requests-limit: 25
     versioning-strategy: increase
     labels:
@@ -129,8 +120,7 @@ updates:
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: weekly
-      day: saturday
+      interval: monthly
     open-pull-requests-limit: 25
     labels:
       - "type:dependencies"

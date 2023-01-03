@@ -145,7 +145,7 @@
 				font-size: $font-size-h6;
 				font-family: $font-secondary;
 				margin: 0 0 15px;
-				font-weight: 400;
+				font-weight: $font-weight-normal;
 				word-break: normal;
 
 				&:lang(nl) {
@@ -217,7 +217,7 @@
 
 		&--show-all {
 			font-family: $font-primary;
-			font-weight: 400;
+			font-weight: $font-weight-normal;
 			background: none;
 			padding: 0;
 			width: unset;
@@ -282,7 +282,7 @@
 		margin: auto;
 		color: #c7cfd9;
 		font-size: 9px;
-		font-weight: 700;
+		font-weight: $font-weight-bold;
 	}
 
 	&__table-title {
@@ -296,7 +296,7 @@
 		background-color: $light-gray;
 		font-size: $font-size-smaller;
 		font-family: $font-secondary;
-		font-weight: 700;
+		font-weight: $font-weight-bold;
 	}
 
 	&__table-icon {
@@ -419,7 +419,7 @@
 			border-top: 0;
 
 			&-bold {
-				font-weight: 700;
+				font-weight: $font-weight-bold;
 			}
 		}
 	}
@@ -440,7 +440,7 @@
 
 	&__table-text {
 		font-family: $font-secondary;
-		font-weight: 700;
+		font-weight: $font-weight-bold;
 		margin: 0;
 	}
 
@@ -500,7 +500,7 @@
 			line-height: 48px;
 			margin: 0 0 10px;
 			text-align: center;
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 		}
 
 		&__second-header {

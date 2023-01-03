@@ -98,7 +98,7 @@
 
 					@include color(background, background);
 					@include color(color, font-color-light);
-					font-weight: 700;
+					font-weight: $font-weight-bold;
 				}
 
 				&::after {

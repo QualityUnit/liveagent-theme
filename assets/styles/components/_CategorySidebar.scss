@@ -109,7 +109,7 @@ $sidebarWidth: 15.625rem;
 			}
 
 			input:checked + span {
-				font-weight: 600;
+				font-weight: $font-weight-semi;
 				background-color: $pricing-gray;
 			}
 		}
@@ -172,7 +172,7 @@ $sidebarWidth: 15.625rem;
 				@include color(color, font-color-normal);
 				display: flex;
 				align-items: center;
-				font-weight: 400;
+				font-weight: $font-weight-normal;
 				padding: 0 1em;
 			}
 

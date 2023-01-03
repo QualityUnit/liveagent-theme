@@ -127,6 +127,11 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 			overflow: hidden;
 		}
 
+		.elementor-widget-heading,
+		.elementor-widget-text-editor {
+			padding: 0 1.5em;
+		}
+
 		.learn-more {
 
 			a {
@@ -144,6 +149,14 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 
 			&:hover {
 				transform: translateY(-1em);
+
+				.learn-more a {
+					color: $black !important;
+
+					&::after {
+						filter: brightness(0);
+					}
+				}
 			}
 		}
 
@@ -160,14 +173,17 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 			@include square(3.75em);
 			background-color: $pricing-gray;
 			border-radius: 0.875rem;
-			padding: 1em;
+			padding: 1.125em;
 			margin-bottom: 1.5em !important;
 
-			img {
+			.elementor-widget-container {
 
-				@include square(100% !important);
-				object-fit: contain;
+				img {
+
+					height: 1.5rem !important;
+				}
 			}
+
 		}
 
 		.learn-more {
@@ -176,9 +192,11 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 
 				color: $light-gray-icon !important;
 				font-size: 0.875rem;
+				transition: all 0.2s;
 
 				&::after {
 					filter: brightness(40);
+					transition: all 0.2s;
 				}
 
 				&::before {
@@ -209,6 +227,11 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 
 		&.padding-narrow {
 			padding: 0.75em;
+
+			.elementor-widget-heading,
+			.elementor-widget-text-editor {
+				padding: 0 2.625em;
+			}
 		}
 
 		&__icon {
