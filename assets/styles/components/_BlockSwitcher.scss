@@ -8,11 +8,11 @@
 
 	[data-targetid] {
 		opacity: 0;
-		transition: opacity 0.2s;
+		transition: opacity 0.05s;
 
 		&.visible {
 			opacity: 1;
-			transition: opacity 0.2s;
+			transition: opacity 0.05s;
 		}
 	}
 

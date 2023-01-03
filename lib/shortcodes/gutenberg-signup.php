@@ -8,7 +8,7 @@ function ms_gutenberg_signup() {
 		<section class="ShortTrial Block Block--background">
 			<div class="wrapper">
 				<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-50 elementor-inner-column">
+					<div>
 						<div class="elementor-widget-heading">
 							<div class="elementor-widget-container">
 								<h2><?php _e( 'Try LiveAgent Today', 'ms' ); ?>​</h2>
@@ -20,7 +20,7 @@ function ms_gutenberg_signup() {
 							</div>
 						</div>
 					</div>
-					<div class="elementor-column elementor-col-50 elementor-inner-column">
+					<div class="elementor-column elementor-inner-column">
 						<?php echo do_shortcode( '[short-trial]' ); ?>
 					</div>
 				</div>
