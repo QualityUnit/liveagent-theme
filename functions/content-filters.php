@@ -54,7 +54,6 @@ add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
 	* Inserts SVG icons before first child or at the end (icn-after-fragment selector) of the selector (icn-)
 	*/
 function insert_svg_icons( $content ) {
-
 	if ( ! $content ) {
 		return $content;
 	}
@@ -64,12 +63,11 @@ function insert_svg_icons( $content ) {
 	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
 	libxml_clear_errors();
 	$xpath      = new DOMXPath( $dom );
-	$iconblocks = $xpath->query( ".//*[contains(@class, 'icn-')]" );
-
+	$iconblocks = $xpath->query( ".//*[contains(@class, 'icn-')][not(.//svg[contains(@class, 'icon-')])]" );
 	// @codingStandardsIgnoreStart
 	foreach ( $iconblocks as $icon ) {
 		$class = $icon->getAttribute('class');
-		preg_match( '/icn-(after-)?([^ ]+)/i', $class, $class_fragment );
+		preg_match( '/icn-(after-)?([^ ]+)/', $class, $class_fragment );
 		if ( isset ( $class_fragment[2] ) ) {
 			$fragment = $class_fragment[2];
 			$svg = $dom->createDocumentFragment();
@@ -83,11 +81,12 @@ function insert_svg_icons( $content ) {
 		}
 	}
 	// @codingStandardsIgnoreEnd
-
+	
 	$dom->removeChild( $dom->doctype );
 	$content = $dom->saveHtml();
 	$content = str_replace( '<html><body>', '', $content );
 	$content = str_replace( '</body></html>', '', $content );
+
 	return $content;
 }
 
