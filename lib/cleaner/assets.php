@@ -90,10 +90,10 @@ add_action(
 
 			wp_deregister_script( 'wp-embed' );
 		}
-		// if ( is_user_logged_in() ) {
-		// 	wp_enqueue_style( 'pricing', get_template_directory_uri() . '/assets/dist/pages/pricing' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-		// 	wp_enqueue_style( 'pricing-new', get_template_directory_uri() . '/assets/dist/pages/PricingNew' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-		// }
+		if ( is_user_logged_in() ) {
+			wp_enqueue_style( 'pricing', get_template_directory_uri() . '/assets/dist/pages/pricing' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+			wp_enqueue_style( 'pricing-new', get_template_directory_uri() . '/assets/dist/pages/PricingNew' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
 	},
 	1000
 );

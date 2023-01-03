@@ -34,9 +34,11 @@ foreach ( $category_pages as $pagename ) {
 
 // Pricing page
 set_source( 'pricing', 'pages/pricing', 'css' );
-set_source( 'pricing', 'pages/PricingNew', 'css' );
 set_source( 'pricing', 'pricing', 'js' );
+set_source( 'pricing', 'pages/PricingNew', 'css' );
 set_source( 'pricing', 'pricingNew', 'js' );
+set_source( 'pricing-enterprise', 'pages/PricingNew', 'css' );
+set_source( 'pricing-enterprise', 'pricingNew', 'js' );
 
 //Startups page
 set_source( 'startups', 'pages/Startups', 'css' );

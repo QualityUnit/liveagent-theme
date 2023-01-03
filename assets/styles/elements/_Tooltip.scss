@@ -50,9 +50,9 @@
 			&::after {
 				bottom: auto;
 				top: 100%;
-				left: auto !important;
+				left: auto;
 				right: 3em;
-				border-color: #000 transparent transparent !important;
+				border-color: #000 transparent transparent;
 			}
 		}
 
@@ -65,9 +65,9 @@
 			&::after {
 				top: auto;
 				bottom: 100%;
-				left: auto !important;
+				left: auto;
 				right: 3em;
-				border-color: #000 !important transparent transparent;
+				border-color: #000 transparent transparent;
 			}
 		}
 
@@ -101,19 +101,19 @@
 	}
 
 	&__text--center::after {
-		left: 55% !important;
+		left: 55%;
 	}
 
 	&__text--right::after {
-		left: 48% !important;
+		left: 48%;
 	}
 
 	&__text--left::after {
-		left: 81% !important;
+		left: 81%;
 	}
 
 	&__text--left-icon::after {
-		left: 91.7% !important;
+		left: 91.7%;
 	}
 
 	&:hover &__text {
@@ -123,7 +123,7 @@
 	@media (max-width: $breakpoint-desktop) {
 
 		> span {
-			display: none !important;
+			display: none;
 		}
 	}
 }
@@ -152,6 +152,6 @@
 
 	@media (max-width: $breakpoint-desktop) {
 
-		display: none !important;
+		display: none;
 	}
 }

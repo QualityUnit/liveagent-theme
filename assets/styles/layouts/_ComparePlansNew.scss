@@ -163,6 +163,10 @@
 					align-items: flex-end;
 					padding-bottom: 2em;
 
+					.enterprise & {
+						width: 30%;
+					}
+
 					label {
 						font-size: 0.875rem;
 					}
@@ -172,10 +176,15 @@
 			.Pricing__program[class] {
 				width: 19.42%;
 
+				.enterprise & {
+					width: 35%;
+				}
+
 				.Pricing__price {
 					display: block;
 				}
 			}
+
 		}
 	}
 
@@ -221,11 +230,37 @@
 		}
 	}
 
+	&.enterprise table {
+
+		td {
+
+			&:not(:first-of-type) {
+				display: none;
+			}
+
+			&:nth-of-type(4),
+			&:last-of-type {
+				display: table-cell;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				width: 35%;
+
+				&:first-of-type {
+					width: 30%;
+				}
+			}
+		}
+
+	}
+
 	table {
 		width: 100%;
 		table-layout: fixed;
+		border: none;
 
 		tr {
+			border: none;
 			border-bottom: 1px dashed $light-gray;
 
 			&.even {
@@ -235,11 +270,16 @@
 
 		td {
 			padding: $padding;
+			border: none;
 			border-right: 1px solid $light-gray;
 			width: 19.42%;
 
 			&:not(:first-of-type) {
 				text-align: center;
+			}
+
+			&:last-of-type {
+				display: none;
 			}
 
 			&[class^="icn-"] {
@@ -249,10 +289,6 @@
 
 					@include square(1.125em);
 					margin-left: 1ch;
-
-					&:not(:first-of-type) {
-						display: none;
-					}
 
 					&.icon-check {
 						fill: $dark-orange;
