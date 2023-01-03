@@ -51,6 +51,34 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
 
 /**
+	* add arrow icon class into link inside of learn-more
+	*/
+
+function elementor_learnmore( $content ) {
+	if ( ! $content ) {
+		return $content;
+	}
+	
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath    = new DOMXPath( $dom );
+	$elements = get_nodes( $xpath, 'learn-more' );
+	foreach ( $elements as $element ) {
+		foreach ( $element->getElementsByTagName( 'a' ) as $link ) {
+			add_class_to_node( $link, array( 'icn-after-arrow-right' ) );
+		}
+	}
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
+}
+add_filter( 'the_content', 'elementor_learnmore' );
+
+/**
 	* Inserts SVG icons before first child or at the end (icn-after-fragment selector) of the selector (icn-)
 	*/
 function insert_svg_icons( $content ) {

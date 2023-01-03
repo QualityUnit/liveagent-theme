@@ -293,12 +293,11 @@
 	font-weight: $font-weight-semi;
 	text-decoration: none;
 
-	&::after {
+	svg {
+		@include square(1.25em);
 		position: relative;
-		content: url(/app/themes/liveagent/assets/images/arrow_small_right.svg) !important;
 		display: inline-block !important;
 		margin-left: 0.5em;
-		top: 0.16em;
 		transform: translate(0, 0);
 		transition: transform 0.5s ease-in-out !important
 	}
@@ -308,7 +307,7 @@
 	&:hover {
 		cursor: pointer;
 		text-decoration: none !important;
-		&::after{
+		svg {
 			transform: translate(30%, 0);
 		}
 	}
