@@ -48,79 +48,93 @@ function set_custom_source( $source_file, $filetype = 'css', $depends = false ) 
 	}
 }
 
+function is_subcategory() {
+	$cat = get_query_var( 'cat' );
+	$category = get_category( $cat );
+	$category->parent;
+	return ( $category->parent == '0' ) ? false : true;
+}
 
 // Breadcrumb (BreadcrumbList) structured data
-function site_breadcrumb() {
+function site_breadcrumb( $output ) {
 	$breadcrumb = array();
 	$home_url = home_url( '/', 'relative' );
 	$home_title = __( 'Home' );
 	$home = array( $home_title, $home_url );
 	
-	if ( is_category() || is_single() ) {
-		$breadcrumb[] = array(get_the_title());
-		//print_r(get_the_terms());
-		if ( is_single() ) {
-			
-			$taxonomy_objects = get_object_taxonomies( get_post_type(), 'objects' );
-			$out = array();
-			foreach ( $taxonomy_objects as $taxonomy_slug => $taxonomy ) {
-				$terms = get_terms( $taxonomy_slug, 'hide_empty=0' );
-				if ( ! empty( $terms ) ) {
-					$out[] = '<strong>' . $taxonomy->label . "</strong>\n<ul>";
-					foreach ( $terms as $term ) {
-						$out[] =
-							'  <li>'
-							. $term->name
-							. "  </li>\n";
-					}
-					$out[] = "</ul>\n";
+	if ( is_single() ) {
+		$post_type = get_post_type_object( get_post_type() );
+		if ( $post_type ) {
+			$post_type_name = $post_type->labels->name;
+			if ( 'Posts' == $post_type_name ) {
+				$categories = get_the_category();
+				$cat = $categories[0];
+				if ( $cat ) {
+					$breadcrumb[] = array( $cat->name, get_category_link( $cat->term_id ) );
 				}
+			} else {
+				$post_type_url = get_post_type_archive_link( $post_type->name );
+				$post_type_path = array( $post_type_name, $post_type_url );
+				$breadcrumb[] = $post_type_path;
 			}
-			echo implode( '', $out );
-   
-   
-			$breadcrumb[] = array(get_the_title());
+		}
+		$breadcrumb[] = array( get_the_title() );
+	} elseif ( is_category() ) {
+		$cat = get_the_category()[0];
+		if ( is_subcategory() ) {
+			if ( $cat ) {
+				$breadcrumb[] = array( $cat->name, get_category_link( $cat->term_id ) );
+			}
+		} else {
+			$breadcrumb[] = $home;
+		}
+		$breadcrumb[] = array( single_cat_title( '', false ) );
+	} elseif ( is_archive() && ! is_category() ) {
+		$breadcrumb[] = $home;
+		$post_type = get_queried_object();
+		if ( $post_type ) {
+			$breadcrumb[] = array( $post_type->labels->name );
 		}
 	} elseif ( get_post_type() === '' ) {
-		array_push( $breadcrumb, $home );
+		$breadcrumb[] = $home;
 	} elseif ( is_front_page() ) {
-		array_push( $breadcrumb, $home );
+		$breadcrumb[] = $home;
 	} elseif ( is_page() ) {
-		array_push( $breadcrumb, $home );
-		array_push( $breadcrumb, array( get_the_title() ) );
+		$breadcrumb[] = $home;
+		$breadcrumb[] = array( get_the_title() );
 	} elseif ( is_search() ) {
-		array_push( $breadcrumb, $home );
-		array_push( $breadcrumb, array( get_search_query() ) );
+		$breadcrumb[] = $home;
+		$breadcrumb[] = array( get_search_query() );
 	}
-	print_r( $breadcrumb );
 	
-	
-	/*function site_breadcrumb() {
-	$breadcrumb = array();
-	$home_url = home_url( '/', 'relative' );
-	$home_title = __( 'Home' );
-	$home = array( $home_title, $home_url );
-	
-	if ( is_category() || is_single() ) {
-		if ( !is_single() ) {
-			array_push( $breadcrumb, $home );
+	if ( 'schema' == $output ) {
+		$page_schema = '';
+		$i = 1;
+		foreach ( $breadcrumb as $item ) {
+			$page_schema .= '{';
+			$page_schema .= '"@type": "ListItem",';
+			$page_schema .= "\"position\": $i,";
+			$page_schema .= "\"name\": $item[0],";
+			if ( count( $item ) == 2 ) {
+				$page_schema .= "\"item\": $item[1],";
+			}
+			$page_schema .= '},';
+			$i++;
 		}
-		$breadcrumb[] = array(__( 'Blog', 'ms' ), __( '/blog/', 'ms' ));
-		if ( is_single() ) {
-			$breadcrumb[] = array(get_the_title());
+		$page_schema = substr_replace( $page_schema, '', -2 );
+		echo '<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [' . $page_schema . '] } </script>';
+	} else {
+		echo '<div class="Post__content__breadcrumbs">';
+		echo '<ul>';
+		foreach ( $breadcrumb as $item ) {
+			$item_output = $item[0];
+			if ( count( $item ) == 2 ) {
+				$item_output = '<a href="' . esc_url( $item[1] ) . '">' . esc_html( $item_output ) . '</a>';
+			}
+			echo '<li>' . $item_output . '</li>';
 		}
-	} elseif ( get_post_type() === '' ) {
-	
-	} elseif ( is_front_page() ) {
-		array_push( $breadcrumb, $home );
-	} elseif ( is_page() ) {
-		array_push( $breadcrumb, $home );
-		array_push( $breadcrumb, array( get_the_title() ) );
-	} elseif ( is_search() ) {
-		array_push( $breadcrumb, $home );
-		array_push( $breadcrumb, array( get_search_query() ) );
+		echo '</ul>';
+		echo '</div>';
 	}
-	print_r( $breadcrumb );
-}*/
-
+	
 }
