@@ -36,6 +36,12 @@ function ms_signup_form( $atts ) {
 
 			<div data-id="mailFieldmain" class="Signup__form__item fontello-mail">
 				<input type="email" name="Email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+				<div data-id="messageTrial" class="InfoMessage hidden">
+					<svg class="InfoMessage__icon">
+						<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#info-solid' ) ?>"></use>
+					</svg>
+					<span class="InfoMessage__text"><?php _e( 'Use your company email to get a 30 day trial for free.', 'ms' ); ?></span>
+				</div>
 				<div class="ErrorMessage"></div>
 			</div>
 
