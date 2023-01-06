@@ -813,6 +813,11 @@ video {
 			}
 		}
 	}
+
+	&__underline {
+		background: url(../images/highlight_underline.png) left calc(100% - 1.5em) no-repeat;
+		background-size: contain;
+	}
 }
 
 

@@ -1,5 +1,6 @@
-@use "../common/variables" as *;
-@use "../common/mixins" as *;
-@use "../layouts/PricingTop" as *;
-@use "../layouts/PricingPrograms" as *;
-@use "../layouts/ComparePlansNew" as *;
+@forward "../common/variables";
+@forward "../common/mixins";
+@forward "../layouts/PricingEnterprise";
+@forward "../layouts/PricingTop";
+@forward "../layouts/PricingPrograms";
+@forward "../layouts/ComparePlansNew";

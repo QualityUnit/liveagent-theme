@@ -187,6 +187,14 @@ body {
 
 .text-align {
 
+	&-left {
+		text-align: left;
+
+		* {
+			text-align: left;
+		}
+	}
+
 	&-center {
 		text-align: center;
 	}
