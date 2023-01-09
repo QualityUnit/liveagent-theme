@@ -81,7 +81,7 @@
 
 				sup,
 				small {
-					font-weight: 400;
+					font-weight: $font-weight-normal;
 				}
 
 				sup {
@@ -190,12 +190,13 @@
 
 	.elementor-post {
 		margin-bottom: 0 !important;
+		overflow: visible;
 
 		&__title {
 			display: flex;
 			align-items: center;
 			font-family: $font-primary;
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 			color: $black;
 			background-color: $medium-gray-inputs;
 			padding: $padding;
@@ -208,7 +209,7 @@
 				display: inline-block;
 				transform: rotate(-90deg) scaleX(1);
 				margin-left: auto;
-				background: url(../../images/pricing/icon-arrow.svg) center center no-repeat;
+				background: url(../../images/icon-arrow.svg) center center no-repeat;
 				background-size: contain;
 			}
 
@@ -227,6 +228,10 @@
 					display: none;
 				}
 			}
+		}
+
+		.wp-block-table {
+			overflow: visible;
 		}
 	}
 
@@ -269,6 +274,7 @@
 		}
 
 		td {
+
 			padding: $padding;
 			border: none;
 			border-right: 1px solid $light-gray;

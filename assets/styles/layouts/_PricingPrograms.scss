@@ -213,13 +213,13 @@
 	.Pricing__price {
 		font-family: $font-secondary;
 		font-size: 2.5rem;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		margin: 0.5em 0 0.35em;
 
 		sup {
 			position: relative;
 			font-size: 0.4em;
-			font-weight: 400;
+			font-weight: $font-weight-normal;
 			margin-right: -0.15em;
 			top: -0.25em;
 		}

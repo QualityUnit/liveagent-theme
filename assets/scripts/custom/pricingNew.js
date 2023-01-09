@@ -25,19 +25,6 @@ const setOddEven = () => {
 	} );
 };
 
-// const comparePlansTableTitlesObserver = new IntersectionObserver(
-// 	( [ title ] ) => {
-// 		if ( title.isIntersecting ) {
-// 			title.target.classList.remove( 'is-sticky' );
-// 			return;
-// 		}
-// 		if ( title.boundingClientRect.top < 0 ) {
-// 			title.target.classList.add( 'is-sticky' );
-// 		}
-// 	},
-// 	{ rootMargin: '0px 0px -1000px 0px', threshold: 1 }
-// );
-
 // Setting tables header class when sticky to hide icons
 if ( comparePlansHeader ) {
 	const headerObserver = new IntersectionObserver(
@@ -48,9 +35,6 @@ if ( comparePlansHeader ) {
 			}
 			if ( entry.boundingClientRect.top < 0 ) {
 				comparePlansHeader.classList.add( 'is-sticky' );
-				// document.querySelectorAll( '.elementor-post.ms_pricing' ).forEach( ( table ) => {
-				// 	comparePlansTableTitlesObserver.observe( table );
-				// } );
 			}
 		},
 		{ rootMargin: '-92px 0px 0px 0px' }

@@ -30,7 +30,7 @@ no-descending-specificity, value-keyword-case
 	&--big {
 		font-size: 1rem;
 		font-family: $font-primary;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		padding: 0.25em 1.5em;
 	}
 
@@ -44,7 +44,7 @@ no-descending-specificity, value-keyword-case
 		margin: 0;
 		font-family: $font-secondary;
 		font-size: 0.875rem;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 	}
 
 }
