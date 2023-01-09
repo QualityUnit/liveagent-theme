@@ -7,6 +7,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<link rel="preload" fetchpriority="high" as="image" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icons.svg?ver=<?= esc_attr( THEME_VERSION ) ?>">
+	<link rel="preload" fetchpriority="high" as="image" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/flags.svg?ver=<?= esc_attr( THEME_VERSION ) ?>">
+	<link rel="preload" fetchpriority="high" as="image" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/footer-bg.svg?ver=<?= esc_attr( THEME_VERSION ) ?>">
 
 	<link rel="apple-touch-icon" sizes="180x180" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/favicon/favicon-32x32.png">
