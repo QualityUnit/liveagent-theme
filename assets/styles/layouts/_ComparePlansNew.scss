@@ -159,7 +159,7 @@
 
 				&[class] {
 					display: flex;
-					width: 22.32%;
+					width: 26%;
 					align-items: flex-end;
 					padding-bottom: 2em;
 
@@ -174,7 +174,7 @@
 			}
 
 			.Pricing__program[class] {
-				width: 19.42%;
+				width: 18.5%;
 
 				.enterprise & {
 					width: 35%;
@@ -278,7 +278,6 @@
 			padding: $padding;
 			border: none;
 			border-right: 1px solid $light-gray;
-			width: 19.42%;
 
 			&:not(:first-of-type) {
 				text-align: center;
@@ -294,7 +293,7 @@
 				svg {
 
 					@include square(1.125em);
-					margin-left: 1ch;
+					margin-left: 0.75ch;
 
 					&.icon-check {
 						fill: $dark-orange;
@@ -302,11 +301,17 @@
 				}
 			}
 
+			.Tooltip .icon {
+
+				margin-left: 0.15em;
+				fill: $light-gray-icon;
+			}
+
 			@media (min-width: $breakpoint-tablet-landscape) {
-				width: 19.42%;
+				width: 18.5%;
 
 				&:first-of-type {
-					width: 22.32%;
+					width: 26%;
 				}
 			}
 		}
