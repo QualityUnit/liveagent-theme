@@ -712,20 +712,8 @@ video {
 	a,
 	span {
 
+		@include learn-more();
 		@include color(color, font-color-dark, !important);
-		display: flex;
-		align-items: center;
-		font-family: $font-secondary;
-		font-size: em($target: $font-size-smaller, $unit: "rem");
-		font-weight: $font-weight-semi;
-
-		&::after {
-			position: relative;
-			content: url(/app/themes/liveagent/assets/images/arrow_small_right.svg);
-			display: inline-block;
-			margin-left: 0.5em;
-			top: 0.16em;
-		}
 	}
 
 	&.grey {

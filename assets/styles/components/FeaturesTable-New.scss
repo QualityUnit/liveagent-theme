@@ -26,11 +26,8 @@
 				font-family: inherit;
 
 				&:not([target*="_blank"]) {
-					display: flex;
-					font-family: $font-secondary;
-					font-weight: $font-weight-semi;
-					font-size: 0.875rem;
-					text-decoration: none;
+
+					@include learn-more();
 					margin-top: 0.5em;
 
 					&::before {
@@ -38,14 +35,6 @@
 						@include posZero;
 						position: absolute;
 						content: "";
-					}
-
-					&::after {
-						position: relative;
-						content: url(../../images/arrow_small_right.svg);
-						display: inline-block;
-						margin-left: 0.5em;
-						top: 0.25em;
 					}
 
 					&:hover::after {

@@ -183,16 +183,8 @@ $positions: ("left", "right");
 
 		a {
 
+			@include learn-more();
 			@include color(color, font-color-level3);
-
-			&::after {
-
-				content: url(../../images/arrow_small_right.svg) !important;
-				position: relative;
-				top: 0.16em;
-				display: inline-block !important;
-				margin-left: 0.5em;
-			}
 		}
 	}
 
