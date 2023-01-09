@@ -1,5 +1,3 @@
-/* global IntersectionObserver */
-
 const lazyResources = document.querySelectorAll( '[data-widget]' );
 
 if ( lazyResources.length && 'IntersectionObserver' in window ) {

@@ -1,0 +1,50 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, value-keyword-case
+*/
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.LabelTag {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $pricing-gray;
+	border-radius: 1.25em;
+	font-family: $font-secondary;
+	font-size: 0.75rem;
+	padding: 0.25em 1.166em;
+
+	&.popular {
+		background-color: $medium-orange;
+	}
+
+	&.green {
+		background-color: #7bdb30;
+		color: $white;
+	}
+
+	+ .LabelTag {
+		margin-left: 0.5em;
+	}
+
+	&--big {
+		font-size: 1rem;
+		font-family: $font-primary;
+		font-weight: $font-weight-semi;
+		padding: 0.25em 1.5em;
+	}
+
+	.icon {
+
+		@include square(1rem);
+		margin-right: 0.5em;
+	}
+
+	p {
+		margin: 0;
+		font-family: $font-secondary;
+		font-size: 0.875rem;
+		font-weight: $font-weight-semi;
+	}
+
+}

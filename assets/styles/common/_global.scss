@@ -1,4 +1,5 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, no-descending-specificity,
+scss/at-extend-no-missing-placeholder */
 @use "variables" as *;
 @use "mixins" as *;
 
@@ -186,6 +187,14 @@ body {
 }
 
 .text-align {
+
+	&-left {
+
+		* {
+			text-align: left;
+		}
+		text-align: left;
+	}
 
 	&-center {
 		text-align: center;

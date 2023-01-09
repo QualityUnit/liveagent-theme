@@ -431,7 +431,7 @@ $positions: ("left", "right");
 
 								&,
 								* {
-									text-align: right;
+									text-align: right !important;
 								}
 							}
 
@@ -441,7 +441,7 @@ $positions: ("left", "right");
 
 								&,
 								* {
-									text-align: left;
+									text-align: left !important;
 								}
 							}
 						}

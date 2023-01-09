@@ -1,4 +1,3 @@
-/* global IntersectionObserver */
 /* eslint-disable camelcase */
 
 /*
