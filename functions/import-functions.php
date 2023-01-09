@@ -58,9 +58,7 @@ function is_subcategory() {
 // Breadcrumb (BreadcrumbList) structured data
 function site_breadcrumb( $output ) {
 	$breadcrumb = array();
-	$home_url = home_url( '/', 'relative' );
-	$home_title = __( 'Home' );
-	$home = array( $home_title, $home_url );
+	$home = array( __( 'Home' ), home_url( '/', 'relative' ) );
 	
 	if ( is_single() ) {
 		$post_type = get_post_type_object( get_post_type() );
@@ -74,8 +72,7 @@ function site_breadcrumb( $output ) {
 				}
 			} else {
 				$post_type_url = get_post_type_archive_link( $post_type->name );
-				$post_type_path = array( $post_type_name, $post_type_url );
-				$breadcrumb[] = $post_type_path;
+				$breadcrumb[] = array( $post_type_name, $post_type_url );
 			}
 		}
 		$breadcrumb[] = array( get_the_title() );
@@ -108,33 +105,34 @@ function site_breadcrumb( $output ) {
 	}
 	
 	if ( 'schema' == $output ) {
-		$page_schema = '';
+		$output = '';
 		$i = 1;
 		foreach ( $breadcrumb as $item ) {
-			$page_schema .= '{';
-			$page_schema .= '"@type": "ListItem",';
-			$page_schema .= "\"position\": $i,";
-			$page_schema .= "\"name\": $item[0],";
+			$output .= '{';
+			$output .= '"@type": "ListItem",';
+			$output .= "\"position\": $i,";
+			$output .= "\"name\": $item[0],";
 			if ( count( $item ) == 2 ) {
-				$page_schema .= "\"item\": $item[1],";
+				$output .= "\"item\": $item[1],";
 			}
-			$page_schema .= '},';
+			$output .= '},';
 			$i++;
 		}
-		$page_schema = substr_replace( $page_schema, '', -2 );
-		echo '<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [' . $page_schema . '] } </script>';
+		$output = substr_replace( $output, '', -2 );
+		$output = '<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [' . $output . '] } </script>';
+		echo wp_kses( $output, array( 'script' => array( 'type' => array() ) ) );
 	} else {
-		echo '<div class="Post__content__breadcrumbs">';
-		echo '<ul>';
+		$output .= '<div class="breadcrumbs">';
+		$output .= '<ul>';
 		foreach ( $breadcrumb as $item ) {
 			$item_output = $item[0];
 			if ( count( $item ) == 2 ) {
-				$item_output = '<a href="' . esc_url( $item[1] ) . '">' . esc_html( $item_output ) . '</a>';
+				$item_output = '<a href="' . $item[1] . '">' . $item_output . '</a>';
 			}
-			echo '<li>' . $item_output . '</li>';
+			$output .= '<li>' . $item_output . '</li>';
 		}
-		echo '</ul>';
-		echo '</div>';
+		$output .= '</ul>';
+		$output .= '</div>';
+		echo wp_kses( $output, 'post' );
 	}
-	
 }
