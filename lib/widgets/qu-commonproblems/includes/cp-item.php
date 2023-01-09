@@ -17,12 +17,12 @@ function render_commonproblems_item( $attr ) {
 	// Always define proper Schema microdata at schema.org
 
 	return '
-		<div class="qu-enhancedFAQ__item Faq__item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-			<h3 class=""  itemprop="name" >' . 
+		<div class="qu-enhancedFAQ__item Faq__item">
+			<h3 class="">' . 
 				esc_html( $attr['question'] ) . '
 			</h3>
-			<div class="Faq__outer-wrapper" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-			<div class="Faq__inner-wrapper" itemprop="text">' .
+			<div class="Faq__outer-wrapper">
+			<div class="Faq__inner-wrapper">' .
 					$attr['content'] //@codingStandardsIgnoreLine
 			. '</div>
 			</div>
