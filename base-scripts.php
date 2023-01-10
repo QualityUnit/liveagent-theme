@@ -38,6 +38,9 @@
 		if ( typeof createButton == 'function' ) {
 			createButton();
 		}
+		<?php if ( ! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) ) ) { ?>
+		offlineContactForm();
+		<?php } ?>
 		postAffiliate();
 	});
 
@@ -198,7 +201,37 @@ if (
 		&& ! is_search()
 	) {
 	require_once get_template_directory() . '/contactus-box.php';
-} ?>
+} elseif (
+		! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) )
+	) {
+	?>
+	<script type="text/javascript">
+		function offlineContactForm() {
+			(function (d, src, c) {
+				var t = d.scripts[d.scripts.length - 1], s = d.createElement('script');
+				s.id = 'la_x2s6df8d';
+				s.defer = true;
+				s.src = src;
+				s.onload = s.onreadystatechange = function () {
+					var rs = this.readyState;
+					if (rs && (rs != 'complete') && (rs != 'loaded')) {
+						return;
+					}
+					c(this);
+				};
+				t.parentElement.insertBefore(s, t.nextSibling);
+			})(document, 'https://support.qualityunit.com/scripts/track.js', function (e) {
+				LiveAgent.createButton('mwkja3no', e);
+			});
+		}
+
+		if ( getCookieFrontend( "cookieLaw" ) ) {
+			offlineContactForm()
+		}
+	</script>
+	<?php
+}
+?>
 
 <!-- Post Affiliate Pro -->
 <script type="text/javascript">
