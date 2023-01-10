@@ -285,3 +285,17 @@
 		border-top: 2px solid $color;
 	}
 }
+
+// hover mixin
+
+@mixin hover {
+	&:active,
+	&:focus {
+		@content;
+	}
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}

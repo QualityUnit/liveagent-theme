@@ -310,6 +310,11 @@
 		}
 
 		.wrapper .elementor-column {
+			transition: all 0.3s ease-in-out;
+
+			@include hover() {
+				transform: translateY(-2em);
+			}
 
 			.elementor-widget-wrap {
 
