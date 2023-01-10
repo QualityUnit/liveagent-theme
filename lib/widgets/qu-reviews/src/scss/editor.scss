@@ -17,7 +17,7 @@
 
 	select[class] {
 		position: relative !important;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		z-index: 1 !important;
 	}
 }
@@ -61,7 +61,7 @@
 	label,
 	select {
 		position: relative;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		z-index: 1;
 	}
 

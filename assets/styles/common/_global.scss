@@ -1,4 +1,5 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, no-descending-specificity,
+scss/at-extend-no-missing-placeholder */
 @use "variables" as *;
 @use "mixins" as *;
 
@@ -116,7 +117,7 @@ body {
 }
 
 .invisible {
-	visibility: none !important;
+	visibility: hidden !important;
 	opacity: 0 !important;
 	cursor: default;
 
@@ -125,6 +126,17 @@ body {
 		cursor: default !important;
 	}
 
+}
+
+.pos {
+
+	&-relative {
+		position: relative;
+	}
+
+	&-absolute {
+		position: absolute;
+	}
 }
 
 .flex {
@@ -175,6 +187,14 @@ body {
 }
 
 .text-align {
+
+	&-left {
+
+		* {
+			text-align: left;
+		}
+		text-align: left;
+	}
 
 	&-center {
 		text-align: center;

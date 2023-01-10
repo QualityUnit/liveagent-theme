@@ -84,20 +84,14 @@
 		}
 	}
 
-	h3.elementor-heading-title {
-		line-height: $line-height-h3;
-	}
+	h3,
+	h4,
+	h5,
+	h6 {
 
-	h4.elementor-heading-title {
-		line-height: $line-height-h4;
-	}
-
-	h5.elementor-heading-title {
-		line-height: $line-height-h5;
-	}
-
-	h6.elementor-heading-title {
-		line-height: $line-height-h6;
+		&.elementor-heading-title {
+			line-height: 1.25;
+		}
 	}
 }
 
@@ -177,7 +171,7 @@ ul:not([class]) li::before {
 
 	.page-template-elementor &,
 	.page-template-elementor .checklist & {
-		background-image: url(../images/icon-post-check.svg);
+		background-image: url(/app/themes/liveagent/assets/images/icon-post-check.svg);
 	}
 
 	.page-template-elementor .checklist--pros & {
@@ -190,13 +184,13 @@ ul:not([class]) li::before {
 }
 
 
-.elementor-widget-image .elementor-widget-container {
-	width: auto !important;
-	max-width: 100% !important;
-	max-height: 100%;
-	padding-left: 50px;
-	padding-right: 50px;
-}
+// .elementor-widget-image .elementor-widget-container {
+// 	width: auto !important;
+// 	max-width: 100% !important;
+// 	max-height: 100%;
+// 	padding-left: 50px;
+// 	padding-right: 50px;
+// }
 
 .elementor-widget-video {
 	max-width: 100% !important;

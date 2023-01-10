@@ -124,7 +124,7 @@ $positions: ("left", "right");
 
 			@include color(color, font-color-light);
 			font-family: $font-secondary;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-size: 0.75rem;
 		}
 	}
@@ -183,16 +183,8 @@ $positions: ("left", "right");
 
 		a {
 
+			@include learn-more();
 			@include color(color, font-color-level3);
-
-			&::after {
-
-				content: url(../../images/arrow_small_right.svg) !important;
-				position: relative;
-				top: 0.16em;
-				display: inline-block !important;
-				margin-left: 0.5em;
-			}
 		}
 	}
 
@@ -431,7 +423,7 @@ $positions: ("left", "right");
 
 								&,
 								* {
-									text-align: right;
+									text-align: right !important;
 								}
 							}
 
@@ -441,7 +433,7 @@ $positions: ("left", "right");
 
 								&,
 								* {
-									text-align: left;
+									text-align: left !important;
 								}
 							}
 						}
@@ -577,7 +569,7 @@ $positions: ("left", "right");
 
 			@include color(color, font-color-light);
 			font-family: $font-secondary;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-size: 0.75rem;
 		}
 	}

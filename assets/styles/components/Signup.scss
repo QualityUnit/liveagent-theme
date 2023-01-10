@@ -46,15 +46,15 @@
 			flex-flow: wrap row;
 			justify-content: center;
 			align-items: center;
-			margin: 1.5em 0;
+			margin: 1em -0.5em;
 
 			&__label {
 				display: flex;
-				margin: 0 5px;
+				margin: 0.5em;
 				padding: 0 13px;
 				font-size: 12px;
 				line-height: 26px;
-				font-weight: 700;
+				font-weight: $font-weight-semi;
 				border-radius: 13px;
 				color: #1e1e1e;
 				background-color: #efe6f8;
@@ -209,7 +209,7 @@
 				top: 1px;
 				right: 1px;
 				font-size: 1rem;
-				font-weight: 600;
+				font-weight: $font-weight-semi;
 				height: calc(#{$input-height-normal} - 2px);
 				background-color: $lightest-gray;
 				padding: 0 20px;
@@ -368,7 +368,7 @@
 
 				@include color(color, font-color-normal);
 				text-decoration: none;
-				font-weight: 700;
+				font-weight: $font-weight-bold;
 
 				&:active,
 				&:focus,

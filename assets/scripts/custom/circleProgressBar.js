@@ -1,4 +1,3 @@
-/* global IntersectionObserver */
 /* eslint radix: ["error", "as-needed"] */
 /* eslint no-unused-vars: "off" */
 

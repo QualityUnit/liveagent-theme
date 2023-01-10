@@ -17,15 +17,9 @@ function get_en_category( $post_type, $post_id ) {
 
 // Function to get content of <head> to identify page for CSS/JS import
 function wp_head_content( $page ) {
-	ob_start();
-	wp_head();
-	$head = ob_get_contents();
-	ob_end_clean();
-	$head_alternate = preg_match( '/\<link rel="alternate" hreflang="en".+' . $page . '/', $head );
-	$meta_url       = preg_match( '/\<meta property="og:url" content=".+' . $page . '/', $head );
 	$body_class     = preg_match( '/.+' . $page . '.+/', implode( get_body_class() ) );
 
-	if ( $head_alternate || $meta_url || $body_class ) {
+	if ( $body_class ) {
 		return true;
 	}
 }

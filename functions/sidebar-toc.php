@@ -32,8 +32,11 @@ function add_id_to_h2( $html ) {
 add_filter( 'the_content', 'add_id_to_h2', 99 );
 
 // Generates Table of content from H2 titles in sidebar for Blog posts
-function sidebar_toc() {
+function sidebar_toc( $custom_content = null ) {
 	$content = apply_filters( 'the_content', strip_shortcodes( get_the_content() ) );
+	if ( isset( $custom_content ) ) {
+		$content = apply_filters( 'the_content', strip_shortcodes( $custom_content ) );
+	}
 
 	$content = wp_kses(
 		$content,

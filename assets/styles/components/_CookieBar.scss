@@ -5,7 +5,7 @@
 @use "../common/animations" as *;
 
 
-.Kolaciky {
+.Medovnicky { // Naming as Slovak “gingerbread“ due to adblocks
 
 	@include color(background-color, content-color-dark);
 	@include color(color, font-color-light);
@@ -62,7 +62,7 @@
 		width: 100%;
 		display: flex;
 		flex-flow: wrap row;
-		justify-content: space-between;
+		justify-content: flex-end;
 
 		.Button--full[class] {
 
@@ -95,7 +95,7 @@
 			@include color(color, font-color-light);
 			border-color: transparent !important;
 			padding: 0;
-			font-weight: 400;
+			font-weight: $font-weight-normal;
 			text-decoration: underline;
 
 			&:active,
@@ -129,6 +129,10 @@
 
 		.wrapper {
 			padding: 30px;
+		}
+
+		&__buttons[class] {
+			justify-content: center;
 		}
 	}
 }

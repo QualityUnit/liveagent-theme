@@ -114,8 +114,8 @@
 }
 
 @mixin square($size: 1.5em, $important: "") {
-	width: $size;
-	height: $size;
+	width: $size #{$important};
+	height: $size #{$important};
 }
 
 //Mixin for Placeholder input attribute, like input type="search" HTML5 element
@@ -296,6 +296,33 @@
 	@media (hover: hover) {
 		&:hover {
 			@content;
+		}
+	}
+}
+
+@mixin learn-more (){
+	display: inline-block !important;
+	font-family: $font-secondary;
+	font-size: em($target: $font-size-smaller, $unit: "rem");
+	font-weight: $font-weight-semi;
+	text-decoration: none;
+
+	svg {
+		@include square(1.25em);
+		position: relative;
+		display: inline-block !important;
+		margin-left: 0.5em;
+		transform: translate(0, 0);
+		transition: transform 0.5s ease-in-out !important
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+		cursor: pointer;
+		text-decoration: none !important;
+		svg {
+			transform: translate(30%, 0);
 		}
 	}
 }

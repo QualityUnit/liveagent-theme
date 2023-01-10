@@ -1,0 +1,151 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/PricingTabsMasks" as *;
+
+.Pricing__top.enterprise {
+
+	.Tabs {
+
+		&__inn {
+			border-top-left-radius: $border-radius-16;
+
+			&::before {
+				background-color: $medium-gray-inputs;
+				box-shadow: inset 1em -3px 0.5em 0 rgba($black-real, 0.1);
+				z-index: 2;
+			}
+
+			&::after {
+				background-color: $lightest-gray;
+				box-shadow: none;
+			}
+		}
+
+		&__tab {
+
+			&.active {
+				border-top-left-radius: 0;
+				border-top-right-radius: $border-radius-16;
+
+				&::before {
+					background: url(../../images/pricing/tab_enterprise_active.png) center center no-repeat;
+					background-size: contain;
+				}
+			}
+
+			&:not(.active) {
+				border-top-left-radius: $border-radius-16;
+
+				&::before {
+
+					background: url(../../images/pricing/tab_business.png) center center no-repeat;
+					background-size: contain;
+				}
+
+				&::after {
+					left: 0.5em;
+					right: -0.75em;
+					mask-position: top right;
+					box-shadow: inset -1em -3px 0.5em 0 rgb($black-real, 0.12);
+				}
+			}
+		}
+	}
+
+	.learn-more p {
+		text-align: right;
+
+		a {
+			display: inline-flex;
+			font-size: 1rem;
+
+			&::after {
+				top: 0;
+			}
+		}
+	}
+
+	.Main__title {
+		background-size: 80% 0.35em;
+
+		.elementor-heading-title[class] {
+			font-size: 2.5rem;
+		}
+	}
+
+	.elementor-heading-title[class] {
+		font-size: 1.375rem;
+	}
+
+	.Pricing__price {
+		margin: 0 0 0.35em;
+	}
+
+	.Woman {
+
+		img {
+			height: auto;
+		}
+	}
+
+	.Button + .Button {
+		margin-top: 1em;
+		margin-bottom: 3.5em;
+	}
+
+	.Clients {
+		justify-content: flex-start;
+		margin-top: 0;
+		margin-bottom: 2em;
+
+		&__item {
+			margin: 0;
+
+			+ .Clients__item {
+				margin-left: 1.5em;
+			}
+		}
+	}
+
+	.AwardsSmall__list {
+		justify-content: flex-start;
+		margin-bottom: 0;
+	}
+
+	.Pricing__program {
+
+		@media (min-width: $breakpoint-tablet) {
+
+			padding: 2.625em;
+
+			&:first-of-type {
+
+				.checklist li {
+
+					+ li {
+						margin-top: 2em;
+					}
+				}
+			}
+
+			.LabelTag,
+			.Main__title,
+			.Main__text,
+			.Button {
+				width: 50%;
+				margin-left: 0;
+				margin-right: 50%;
+			}
+
+			.Woman {
+				position: absolute;
+				top: 3em;
+				right: 1.5em;
+				width: 40%;
+				max-width: 14.5em;
+			}
+		}
+	}
+}

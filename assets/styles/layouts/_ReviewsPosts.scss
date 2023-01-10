@@ -73,7 +73,7 @@
 
 		&__title {
 			font-size: inherit;
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 			margin: 0;
 			color: currentcolor;
 
@@ -86,7 +86,7 @@
 			font-size: 1rem;
 			line-height: 1.4;
 			font-family: $font-primary;
-			font-weight: 400;
+			font-weight: $font-weight-normal;
 			color: $medium-gray-quotes;
 		}
 
@@ -119,7 +119,7 @@
 			flex-direction: column;
 			padding: 1.125em;
 			font-size: 1.125rem;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			line-height: 1;
 			color: $medium-gray-quotes;
 
@@ -166,7 +166,7 @@
 
 				&--count {
 					width: 100%;
-					font-weight: 700;
+					font-weight: $font-weight-bold;
 					text-align: center;
 					margin-top: 0.5em;
 				}

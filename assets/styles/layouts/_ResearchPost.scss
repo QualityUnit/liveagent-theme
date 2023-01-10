@@ -19,7 +19,7 @@
 
 		@include textStroke(1px, $dark-orange);
 		color: $white;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		font-size: 1.189em;
 	}
 
@@ -27,7 +27,7 @@
 		max-width: none;
 
 		ul:not([class]) li::before {
-			background-image: url(../../images/icon-post-check.svg);
+			background-image: url(/app/themes/liveagent/assets/images/icon-post-check.svg);
 		}
 	}
 
@@ -82,7 +82,7 @@
 		&__title {
 			display: none;
 			color: currentColor;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			margin: 2rem 3rem;
 
 			@media (min-width: $breakpoint-tablet) {
@@ -95,7 +95,7 @@
 
 			@include color(color, font-color-dark);
 			font-size: 0.875rem;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 
 			@media (min-width: $breakpoint-tablet) {
 				font-size: 1rem;
@@ -283,7 +283,7 @@
 		}
 
 		&__post {
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 
 			a.Research--toc__post__title {
 

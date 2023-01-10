@@ -152,19 +152,11 @@ function defer_parsing_of_js( $url ) {
 		return $url;
 	}
 
-	if ( strpos( $url, 'wp-polyfill.js' ) ) {
-		return $url;
-	}
-
 	if ( strpos( $url, 'hooks.js' ) ) {
 		return $url;
 	}
 
 	if ( strpos( $url, 'i18n.min.js' ) ) {
-		return $url;
-	}
-
-	if ( strpos( $url, 'wp-polyfill.min.js' ) ) {
 		return $url;
 	}
 

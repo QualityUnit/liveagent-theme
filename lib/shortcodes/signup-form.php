@@ -4,7 +4,8 @@ function ms_signup_form( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'title'  => __( 'Start Free Trial', 'ms' ),
-			'label1' => __( '14 Day Trial', 'ms' ),
+			'label1' => __( '7 or 30 days free trial', 'ms' ),
+			'tooltip1' => __( 'Free trial for 7 days with a free email, or 30 days with a company email', 'ms' ),
 			'label2' => __( 'No Credit Card required', 'ms' ),
 			'button' => __( 'Create account for FREE', 'ms' ),
 		),
@@ -19,7 +20,13 @@ function ms_signup_form( $atts ) {
 		<div class="Signup__form__title h3"><?= esc_html( $atts['title'] ); ?></div>
 
 		<div class="Signup__form__labels">
-			<span class="Signup__form__labels__label"><?= esc_html( $atts['label1'] ); ?></span>
+			<span class="Signup__form__labels__label">
+				<?= esc_html( $atts['label1'] ); ?>&nbsp;
+				<span class="ComparePlans__tooltip">
+					<span class="fontello-info"></span>
+					<span class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?= esc_html( $atts['tooltip1'] ); ?></span>
+				</span>
+			</span>
 			<span class="Signup__form__labels__label"><?= esc_html( $atts['label2'] ); ?></span>
 		</div>
 
@@ -45,9 +52,9 @@ function ms_signup_form( $atts ) {
 				<div class="Signup__form__item__domain"><?php _e( '.ladesk.com', 'ms' ); ?></div>
 				<div class="ErrorMessage"></div>
 
-				<div class="Signup__form__item__info ComparePlans__tooltip">
+				<div class="Signup__form__item__info Tooltip">
 					<div class="Signup__form__item__info__icon ComparePlans__info-icon fontello-info">
-						<div class="ComparePlans__tooltip__text ComparePlans__tooltip__text--left"><?php _e( 'Choose a name for your LiveAgent subdomain. Most people use their company or team name.', 'ms' ); ?></div>
+						<div class="Tooltip__text Tooltip__text--left"><?php _e( 'Choose a name for your LiveAgent subdomain. Most people use their company or team name.', 'ms' ); ?></div>
 					</div>
 				</div>
 			</div>

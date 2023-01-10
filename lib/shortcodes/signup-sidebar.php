@@ -38,9 +38,9 @@ function ms_signup_sidebar( $atts ) {
 			<div data-id="domainFieldmain" class="Signup__sidebar__item Signup__sidebar__item domain">
 				<input type="url" name="Domain" placeholder="<?= esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
 				<div class="Signup__sidebar__item__domain"><?php _e( '.ladesk.com', 'ms' ); ?>
-				<div class="Signup__sidebar__item__info ComparePlans__tooltip">
+				<div class="Signup__sidebar__item__info Tooltip">
 					<div class="Signup__sidebar__item__info__icon ComparePlans__info-icon fontello-info"></div>
-					<div class="ComparePlans__tooltip__text ComparePlans__tooltip__text--right"><?php _e( 'Choose a name for your LiveAgent subdomain. Most people use their company or team name.', 'ms' ); ?></div>
+					<div class="Tooltip__text Tooltip__text--right"><?php _e( 'Choose a name for your LiveAgent subdomain. Most people use their company or team name.', 'ms' ); ?></div>
 				</div>
 			</div>
 				<div class="ErrorMessage"></div>

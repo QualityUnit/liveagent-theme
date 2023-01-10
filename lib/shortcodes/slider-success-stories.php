@@ -32,7 +32,7 @@ function ms_slider_success_stories( $atts ) {
 					array(
 						'post_type'      => 'ms_success-stories',
 						'posts_per_page' => $atts['posts'],
-                        'tax_query'      => $tax_query, // @codingStandardsIgnoreLine
+						'tax_query'      => $tax_query, // @codingStandardsIgnoreLine
 					)
 				);
 

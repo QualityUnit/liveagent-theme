@@ -23,9 +23,6 @@
 			?>
 
 			<div id="papPlaceholder"></div>
-			<div class="fakeChatButton hidden">
-				<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before we start a chat.', 'ms' ); ?></span>
-			</div>
 		</div>
 
 		<?php

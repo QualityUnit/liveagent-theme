@@ -57,7 +57,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 					<ul>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-257-8754', 'ms' ); ?></a></li>
-						<li class="Footer__middle__contacts__whatsapp"><a href="<?php _e( 'https://wa.me/17862041375', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-786-204-1375', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__whatsapp"><a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-786-204-1375', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__calendar"><a href="<?php _e( '/demo/', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s demo', 'ms' ); ?>"><?php _e( 'Schedule a demo', 'ms' ); ?></a></li>
 					</ul>
 				</div>
@@ -69,7 +69,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<li>
 								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Instagram', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-instagram' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-instagram' ) ?>"></use>
 									</svg>
 								</a>
 							</li>
@@ -78,7 +78,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<li>
 								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Facebook', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-facebook' )
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-facebook' )
 										?>"></use>
 									</svg>
 								</a>
@@ -88,7 +88,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<li>
 								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Twitter', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-twitter' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-twitter' ) ?>"></use>
 									</svg>
 								</a>
 							</li>
@@ -97,7 +97,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<li>
 								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-linkedin' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-linkedin' ) ?>"></use>
 									</svg>
 								</a>
 							</li>
@@ -106,15 +106,15 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<li>
 								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-youtube' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-youtube' ) ?>"></use>
 									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<li>
-							<a href="<?php _e( 'https://wa.me/17862041375', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
+							<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?" target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
 								<svg>
-									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-whatsapp' ) ?>"></use>
+									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ) ?>"></use>
 								</svg>
 							</a>
 						</li>
@@ -196,18 +196,15 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 	</div>
 </div>
 
-<div class="Kolaciky urlslab-skip-all">
+<div class="Medovnicky urlslab-skip-all">
 	<div class="wrapper">
 		<p><?php _e( 'Our website uses cookies. By continuing we assume your permission to deploy cookies as detailed in our', 'ms' ); ?> <a href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'privacy and cookies policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 
-		<div class="Kolaciky__buttons">
-			<a href="<?php _e( '/privacy-policy/', 'ms' ); ?>" class="Kolaciky__button Kolaciky__button--more Button Button--outline">
-				<span><?php _e( 'More Information', 'ms' ); ?></span>
-			</a>
-			<a href="#" class="Kolaciky__button Kolaciky__button--no Kolaciky__button--more Button Button--outline">
+		<div class="Medovnicky__buttons">
+			<a href="#" class="Medovnicky__button Medovnicky__button--no Medovnicky__button--more Button Button--outline">
 				<span><?php _e( 'Decline', 'ms' ); ?></span>
 			</a>
-			<a href="#" class="Kolaciky__button Kolaciky__button--yes Button Button--full">
+			<a href="#" class="Medovnicky__button Medovnicky__button--yes Button Button--full">
 				<span><?php _e( 'Accept', 'ms' ); ?></span>
 			</a>
 		</div>

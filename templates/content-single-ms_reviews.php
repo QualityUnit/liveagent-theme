@@ -127,7 +127,7 @@ function meta( $metabox_id ) {
 	<div class="wrapper">
 		<?php if ( $categories ) { ?>
 			<h2 class="text-align-center larger mb-l"><?php _e( 'Product reviews', 'reviews' ); ?></h2>
-				<ul class="Reviews__relatedReviews">
+				<ul class="Reviews__relatedReviews urlslab-skip-all">
 				<?php
 				$counter              = 0;
 				$query_glossary_posts = new WP_Query(

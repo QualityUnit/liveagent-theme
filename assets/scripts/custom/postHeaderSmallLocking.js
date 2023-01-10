@@ -1,5 +1,3 @@
-/* global IntersectionObserver */
-
 const postHeader = document.querySelector( '.Post__header' );
 const postHeaderSmall = document.querySelector( '.Post__header__small' );
 

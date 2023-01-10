@@ -1,5 +1,3 @@
-/* global IntersectionObserver */
-
 const mainHeaderHeight = document.querySelector( '.Header' ).clientHeight;
 
 /* Expand table */

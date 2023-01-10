@@ -25,12 +25,12 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 	&__title {
 		font-size: 1.375rem;
-		font-weight: 700;
+		font-weight: $font-weight-bold;
 		margin-bottom: 0.5em;
 	}
 
 	&__subtitle {
-		font-weight: 400;
+		font-weight: $font-weight-normal;
 		font-size: 0.8125rem;
 		margin-bottom: 1rem;
 	}
@@ -154,7 +154,7 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 			a {
 
-				font-weight: 600;
+				font-weight: $font-weight-semi;
 				color: $medium-gray-quotes;
 
 				&:hover {
@@ -171,7 +171,7 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 		&__title {
 			text-align: center;
 			font-size: 0.75rem;
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 			margin-bottom: 0;
 		}
 

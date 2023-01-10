@@ -41,7 +41,7 @@
 		@include color(color, primary-color);
 		font-size: 0.875rem;
 		line-height: 1;
-		font-weight: 700;
+		font-weight: $font-weight-bold;
 		letter-spacing: 0.12em;
 		font-family: $font-secondary;
 		text-transform: uppercase;

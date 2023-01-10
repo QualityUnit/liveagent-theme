@@ -1,5 +1,3 @@
-/* global IntersectionObserver, ResizeObserver */
-
 const categorySidebar = document.querySelector(
 	'.Category__sidebar:not(#notFloating)'
 );
