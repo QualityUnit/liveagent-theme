@@ -51,8 +51,7 @@ function set_custom_source( $source_file, $filetype = 'css', $depends = false ) 
 function is_subcategory() {
 	$cat = get_query_var( 'cat' );
 	$category = get_category( $cat );
-	$category->parent;
-	return ( $category->parent == '0' ) ? false : true;
+	return ! ( ( '0' == $category->parent ) );
 }
 
 // Breadcrumb (BreadcrumbList) structured data
