@@ -17,7 +17,7 @@
 		span.number {
 			font-size: 225px;
 			line-height: 165px;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			position: absolute;
 			top: -88px;
 			left: -57px;
@@ -48,7 +48,7 @@
 
 			@include color(color, package-color-4);
 			font-family: $font-secondary;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-size: 14px;
 		}
 

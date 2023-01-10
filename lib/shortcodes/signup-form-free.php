@@ -29,9 +29,9 @@ function ms_signup_form_free() {
 				<div class="Signup__form__item__domain"><?php _e( '.ladesk.com', 'ms' ); ?></div>
 				<div class="ErrorMessage"></div>
 
-				<div class="Signup__form__item__info ComparePlans__tooltip">
+				<div class="Signup__form__item__info Tooltip">
 					<div class="Signup__form__item__info__icon ComparePlans__info-icon fontello-info"></div>
-					<div class="ComparePlans__tooltip__text"><?php _e( 'Choose a name for your LiveAgent subdomain. Most people use their company or team name.', 'ms' ); ?></div>
+					<div class="Tooltip__text"><?php _e( 'Choose a name for your LiveAgent subdomain. Most people use their company or team name.', 'ms' ); ?></div>
 				</div>
 			</div>
 

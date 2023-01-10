@@ -1,0 +1,103 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.BlockSuccess {
+
+	&__quote {
+		$borderRad: 0.8125em;
+		border-radius: $borderRad 7.5em $border-radius-16 $border-radius-16;
+		overflow: hidden;
+		padding: 0 !important;
+
+		&--headline {
+			background: url(../../images/block_success_bg.jpg?v22) center bottom no-repeat;
+			background-size: 100% auto;
+			padding: 1.5em;
+			color: $white;
+
+			~ * {
+				padding: 1.5em;
+			}
+
+			*,
+			a {
+				color: inherit;
+			}
+
+			a {
+				font-weight: $font-weight-bold;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			h3 {
+				font-size: 1.5rem;
+			}
+
+			p {
+				margin-bottom: 0;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				padding: 3.5em;
+
+				~ * {
+					padding: 0 3.5em;
+				}
+			}
+		}
+
+		&--quote {
+			padding-top: 3.5em !important;
+			background: url(../../images/block_success_quote.svg) 2em 2em no-repeat;
+			background-size: 4.5em;
+
+			p {
+				font-family: $font-secondary;
+				font-style: italic;
+				font-weight: $font-weight-semi;
+			}
+		}
+
+		&--guy[class] {
+			width: 75%;
+
+			img {
+				margin: 1.5em 0;
+			}
+		}
+	}
+
+	&__text {
+
+		[class*="checklist"] li::before {
+			background: $medium-orange url(../../images/icon-post-check.svg) center center no-repeat !important;
+			background-size: 50% !important;
+		}
+	}
+
+	.Button {
+		display: flex;
+		width: 100%;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper__wide {
+			padding-top: 6em;
+			padding-bottom: 6em;
+		}
+
+		&__text {
+			margin-right: 3em;
+		}
+
+		&__quote {
+			margin-left: 3em;
+		}
+	}
+}

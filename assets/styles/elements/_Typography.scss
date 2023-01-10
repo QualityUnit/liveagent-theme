@@ -253,7 +253,7 @@ video {
 		@extend %checklist;
 
 		li::before {
-			background-image: url(../../images/icon-post-check.svg);
+			background-image: url(/app/themes/liveagent/assets/images/icon-post-check.svg);
 		}
 	}
 
@@ -498,7 +498,7 @@ video {
 
 		p {
 			font-family: $font-primary;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-style: italic;
 			font-size: 1rem;
 			line-height: 1.75;
@@ -712,20 +712,8 @@ video {
 	a,
 	span {
 
+		@include learn-more();
 		@include color(color, font-color-dark, !important);
-		display: flex;
-		align-items: center;
-		font-family: $font-secondary;
-		font-size: em($target: $font-size-smaller, $unit: "rem");
-		font-weight: 600;
-
-		&::after {
-			position: relative;
-			content: url(/app/themes/liveagent/assets/images/arrow_small_right.svg);
-			display: inline-block;
-			margin-left: 0.5em;
-			top: 0.16em;
-		}
 	}
 
 	&.grey {
@@ -755,7 +743,7 @@ video {
 
 		@include color(color, primary-color);
 		font-size: 0.875rem;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		letter-spacing: 0.12em;
 	}
 }
@@ -795,6 +783,11 @@ video {
 			content: "";
 			background: url(../../images/highlight_bubble.svg) center center no-repeat;
 			background-size: 100%;
+
+			[class*="elementor"] & {
+				background: url(../images/highlight_bubble.svg) center center no-repeat;
+				background-size: 100%;
+			}
 		}
 
 		&.long {
@@ -807,6 +800,11 @@ video {
 				z-index: -2;
 			}
 		}
+	}
+
+	&__underline {
+		background: url(../images/highlight_underline.png) left calc(100% - 1.5em) no-repeat;
+		background-size: contain;
 	}
 }
 
@@ -838,7 +836,7 @@ img.Screenshot,
 		color: #000;
 
 		&:nth-child(2n + 1) {
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 		}
 
 		&:active,
@@ -861,7 +859,7 @@ img.Screenshot,
 			content: "\e832" !important;
 			font-family: fontello, sans-serif;
 			font-style: normal;
-			font-weight: 400;
+			font-weight: $font-weight-normal;
 			display: inline-block;
 			width: 1em;
 			text-align: center;
@@ -891,7 +889,7 @@ img.Screenshot,
 				content: "\e832" !important;
 				font-family: fontello, sans-serif;
 				font-style: normal;
-				font-weight: 400;
+				font-weight: $font-weight-normal;
 				display: inline-block;
 				width: 1em;
 				text-align: center;

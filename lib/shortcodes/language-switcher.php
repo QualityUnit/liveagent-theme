@@ -24,7 +24,7 @@ function ms_languages( $atts ) {
 			$atts,
 			'languages'
 		);
-		$flags     = get_template_directory_uri() . '/assets/images/flags.svg?' . THEME_VERSION . '#';
+		$flags     = get_template_directory_uri() . '/assets/images/flags.svg?ver=' . THEME_VERSION . '#';
 		$languages = icl_get_languages();
 		foreach ( $languages as $lang ) {
 			$lang_codes[]  = $lang['language_code'];
@@ -34,7 +34,7 @@ function ms_languages( $atts ) {
 			$lang_active[] = $lang['active'];
 		}
 		function create_menu( $region, $atts, $lang_urls, $lang_flags, $lang_codes, $lang_names, $lang_active ) {
-			$flags = get_template_directory_uri() . '/assets/images/flags.svg?' . THEME_VERSION . '#';
+			$flags = get_template_directory_uri() . '/assets/images/flags.svg?ver=' . THEME_VERSION . '#';
 			?>
 		<ul>
 			<?php

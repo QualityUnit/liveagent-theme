@@ -6,7 +6,7 @@
 	set_source( 'checklists', 'postHeaderSmallLocking', 'js' );
 	set_source( 'checklists', 'splide', 'js' );
 	set_source( 'checklists', 'sidebar_items_slider', 'js' );
-	
+
 	$posttitle          = get_the_title();
 	$posttitle_filtered = str_replace( '^', '', get_the_title() );
 
@@ -24,7 +24,7 @@ if ( $categories ) {
 <div class="Post Checklists">
 	<div class="Post__header">
 		<div class="wrapper__wide">
-			<div class="Post__header__image">
+			<div class="Post__header__image urlslab-min-width-1024">
 				<?php the_post_thumbnail( 'blog_thumbnail', array( 'class' => 'urlslab-skip-lazy' ) ); ?>
 			</div>
 			<div class="Post__header__text">

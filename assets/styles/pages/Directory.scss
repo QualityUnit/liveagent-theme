@@ -53,7 +53,7 @@
 				content: "\e832" !important;
 				font-family: fontello, sans-serif;
 				font-style: normal;
-				font-weight: 400;
+				font-weight: $font-weight-normal;
 				display: inline-block;
 				width: 1em;
 				text-align: center;
@@ -82,14 +82,14 @@
 					margin-top: 0;
 					margin-bottom: 0;
 					font-size: 16px;
-					font-weight: 700;
+					font-weight: $font-weight-bold;
 					max-width: 240px;
 				}
 
 				p {
 					font-size: 14px;
 					line-height: 21px;
-					font-weight: 400;
+					font-weight: $font-weight-normal;
 					color: #777;
 					margin: 0;
 					max-width: 240px;

@@ -52,7 +52,7 @@
 
 				@include color(color, primary-color);
 				@include color(background-color, third-color);
-				font-weight: 600;
+				font-weight: $font-weight-semi;
 				cursor: default;
 			}
 

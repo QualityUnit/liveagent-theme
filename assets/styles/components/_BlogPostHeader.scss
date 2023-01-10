@@ -1,0 +1,24 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, value-keyword-case */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.BlogPost__header {
+
+	@include color(background-color, secondary-background);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	border-radius: $border-radius-16;
+	padding: 2em;
+	width: 100%;
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		flex-direction: row;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		padding: 3em 4.25em;
+	}
+}

@@ -29,25 +29,9 @@
 
 			a {
 
+				@include learn-more();
 				@include color(color, font-color-dark);
-				display: flex;
-				align-items: center;
-				font-family: $font-secondary;
-				font-weight: 600;
 				margin-top: auto;
-
-				&:hover {
-					cursor: pointer;
-					text-decoration: none !important;
-				}
-
-				&::after {
-					position: relative;
-					content: url(../images/arrow_small_right.svg);
-					display: inline-block;
-					margin-left: 0.5em;
-					top: 0.16em;
-				}
 			}
 		}
 

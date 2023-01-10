@@ -1,5 +1,7 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
+@use "../common/variables" as *;
+
 .elementor {
 
 	&-flip-box {
@@ -63,7 +65,7 @@
 			font-size: 21px;
 			color: #fff;
 			line-height: 1;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 
 			&:not(:last-child) {
 				margin: 0 0 20px;

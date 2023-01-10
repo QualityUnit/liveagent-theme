@@ -1,4 +1,4 @@
-/* global Splide, IntersectionObserver */
+/* global Splide */
 
 const direction = () => {
 	return document.documentElement.dir;

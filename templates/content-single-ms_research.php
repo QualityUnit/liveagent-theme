@@ -8,7 +8,7 @@
 
 <div class="Research" itemscope itemtype="http://schema.org/Article">
 	<div class="BlogPost__header Research__header">
-		<div class="Research__thumbnail">
+		<div class="Research__thumbnail urlslab-min-width-1024">
 			<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ) ); ?>"></meta>
 			<?php the_post_thumbnail( 'blog_post_thumbnail', array( 'class' => 'urlslab-skip-lazy' ) ); ?>
 		</div>
