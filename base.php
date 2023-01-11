@@ -4,7 +4,6 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 	<?php get_template_part( 'templates/head' ); ?>
-	<?php site_breadcrumb( 'schema' ); ?>
 	<body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 

@@ -4,9 +4,10 @@
 
 .breadcrumbs {
 
-	ul {
+	ol {
 
 		@include color(color, font-color-normal);
+		list-style: none;
 		display: flex;
 		flex-flow: wrap row;
 		font-size: 0.75rem;
