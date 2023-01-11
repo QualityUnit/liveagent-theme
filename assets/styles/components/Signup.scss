@@ -10,10 +10,10 @@
 
 		@include color(background-color, main-background);
 		@include color(box-shadow, box-shadow);
+		overflow: hidden;
 		position: relative;
 		max-width: 425px;
-		margin: auto;
-		margin-right: 10px;
+		margin: auto 10px auto auto;
 		padding: 0.5em 2.5em 2em;
 		border-radius: $border-radius-16;
 
