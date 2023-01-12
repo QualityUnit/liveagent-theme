@@ -262,7 +262,7 @@ button,
 
 	&-white {
 
-		background-color: $white;
+		@include color(background-color, main-background);
 	}
 
 	&__white {

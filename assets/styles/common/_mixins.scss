@@ -286,6 +286,20 @@
 	}
 }
 
+// hover mixin
+
+@mixin hover {
+	&:active,
+	&:focus {
+		@content;
+	}
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
 @mixin learn-more (){
 	display: inline-block !important;
 	font-family: $font-secondary;

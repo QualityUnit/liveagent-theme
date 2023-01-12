@@ -310,6 +310,11 @@
 		}
 
 		.wrapper .elementor-column {
+			transition: all 0.3s ease-in-out;
+
+			@include hover() {
+				transform: translateY(-2em);
+			}
 
 			.elementor-widget-wrap {
 
@@ -317,8 +322,12 @@
 				@include color(background-color, main-background);
 			}
 
-			.elementor-image {
+			.elementor-widget-image {
 				padding: 1.75em 1.75em 0;
+
+				.elementor-widget-container {
+					padding: 0;
+				}
 
 				a {
 					border-radius: $border-radius;
