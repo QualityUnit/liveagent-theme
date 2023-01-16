@@ -990,7 +990,6 @@
 			console.log( '---------------------------------' );
 		}
 
-		$( '[data-id="messageTrial"]' ).removeClass( 'hidden' );
 		errorField.display( '' );
 		button.text().html( textCreating );
 		const papVisitorId =
