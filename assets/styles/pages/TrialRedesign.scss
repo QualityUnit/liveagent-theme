@@ -25,6 +25,8 @@
 }
 
 .Trial {
+
+	@include color(color, secondary-background);
 	display: block;
 
 	&__logo__top {

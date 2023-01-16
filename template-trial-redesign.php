@@ -5,7 +5,7 @@
 	set_source( 'trial', 'pages/TrialRedesign', 'css' );
 ?>
 
-<div class="Trial FullScreen">
+<div class="Trial">
 	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Trial Logo'])">
 		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
 	</a>
