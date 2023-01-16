@@ -9,19 +9,19 @@
 	</button>
 	<script type="text/javascript">
 		<?php
-		$formId = '99c3idgr';
+		$form_id = '99c3idgr';
 		if ( ICL_LANGUAGE_CODE === 'de' ) {
-			$formId = 't5cdrehd';
+			$form_id = 't5cdrehd';
 		}
 		if ( ICL_LANGUAGE_CODE === 'es' ) {
-			$formId = 'trnxlhl1';
+			$form_id = 'trnxlhl1';
 		}
 		if ( ICL_LANGUAGE_CODE === 'pt-br' ) {
-			$formId = 'vs0r77ju';
+			$form_id = 'vs0r77ju';
 		}
 		?>
 		function showContactForm() {
-			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('<?= esc_attr( $formId ); ?>', e); });
+			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('<?= esc_attr( $form_id ); ?>', e); });
 		}
 
 		if ( getCookieFrontend( "cookieLaw" ) ) {
