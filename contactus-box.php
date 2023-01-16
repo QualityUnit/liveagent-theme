@@ -8,8 +8,20 @@
 		<svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use></svg>
 	</button>
 	<script type="text/javascript">
+		<?php
+		$form_id = '99c3idgr';
+		if ( ICL_LANGUAGE_CODE === 'de' ) {
+			$form_id = 't5cdrehd';
+		}
+		if ( ICL_LANGUAGE_CODE === 'es' ) {
+			$form_id = 'trnxlhl1';
+		}
+		if ( ICL_LANGUAGE_CODE === 'pt-br' ) {
+			$form_id = 'vs0r77ju';
+		}
+		?>
 		function showContactForm() {
-			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('99c3idgr', e); });
+			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('<?= esc_attr( $form_id ); ?>', e); });
 		}
 
 		if ( getCookieFrontend( "cookieLaw" ) ) {
@@ -66,11 +78,11 @@
 				}
 			}
 			?>
-			<li class="ContactUs__menu--item">
+			<li class="ContactUs__menu--item top">
 				<div class="ContactUs__menu--link fakeChatButton no-icon hidden">
 					<span class="fakeChatButton__text"><?php _e( 'Contact form', 'ms' ); ?></span>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
-					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before sending contact form.', 'ms' ); ?></span>
+					<span class="fakeChatButton__msg bottom"><?php _e( 'Please accept our cookies before sending contact form.', 'ms' ); ?></span>
 				</div>
 				<span class="ContactUs__menu--link ContactUs__menu--link__form red" data-target="contactUsForm" data-close-target="contactUsMenu">
 					<?php _e( 'Contact form', 'ms' ); ?>
