@@ -15,6 +15,10 @@ scss/at-extend-no-missing-placeholder */
 
 	&.sm-margin-bottom {
 		margin-bottom: $block-space-sm !important;
+
+		+ .Block {
+			margin-top: $block-space-sm !important;
+		}
 	}
 
 	&.no-margin-bottom {
