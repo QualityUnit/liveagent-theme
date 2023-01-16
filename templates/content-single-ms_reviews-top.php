@@ -40,6 +40,9 @@ function progressbar( $text, $rating, $color ) {
 							<?php _e( 'Reviews', 'ms' ); ?>
 						</a>
 					</li>
+					<?php
+					if ( isset( $category_slug ) ) {
+						?>
 					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
 						<meta itemprop="name" content="<?= esc_attr( $category_name ); ?>" />
 						<meta itemprop="position" content="2" />
@@ -47,6 +50,9 @@ function progressbar( $text, $rating, $color ) {
 							<?= esc_html( $category_name ); ?>
 						</a>
 					</li>
+						<?php
+					}
+					?>
 					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
 						<meta itemprop="name" content="<?= esc_attr( $titleplain ); ?>" />
 						<meta itemprop="position" content="3" />

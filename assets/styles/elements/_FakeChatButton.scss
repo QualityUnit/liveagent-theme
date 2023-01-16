@@ -27,6 +27,11 @@
 		.fakeChatButton__msg {
 			opacity: 1;
 			transform: translateY(calc(-100% + 1em));
+
+			&.bottom {
+				display: block;
+				transform: translateY(0);
+			}
 		}
 	}
 
@@ -37,6 +42,11 @@
 			.fakeChatButton__msg {
 				opacity: 1;
 				transform: translateY(calc(-100% + 1em));
+
+				&.bottom {
+					display: block;
+					transform: translateY(0);
+				}
 			}
 		}
 	}
@@ -56,6 +66,20 @@
 		padding: 0.75em 1em;
 		opacity: 0;
 		transition: opacity 0.2s;
+		z-index: 10;
+
+		&.bottom {
+			display: none;
+			top: 100%;
+			bottom: auto;
+
+			&::after {
+
+				@include triangle(1em, $black, up);
+				top: auto;
+				bottom: 100%;
+			}
+		}
 
 		&::after {
 

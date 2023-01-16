@@ -280,6 +280,11 @@ $colors: (
 
 		&--item {
 			margin-bottom: 0.625em;
+
+			&.top {
+				position: relative;
+				z-index: 2;
+			}
 		}
 
 		&--link[class] {
