@@ -3,16 +3,19 @@
 	// Get English Category slug of localized Post Type
 function get_en_category( $post_type, $post_id ) {
 	global $sitepress;
-	$orig_lang = ICL_LANGUAGE_CODE;
-	$sitepress->switch_lang( 'en' );
-	$postid_en       = icl_object_id( $post_id, $post_type, false, 'ICL_LANGUAGE_CODE' );
-	$header_category = get_the_terms( $postid_en, $post_type . '_categories' );
-	if ( ! empty( $header_category ) ) {
-		$header_category = array_shift( $header_category );
-		$header_category = $header_category->slug;
-		return $header_category;
+	if (is_object($sitepress)) {
+		$orig_lang = ICL_LANGUAGE_CODE;
+		$sitepress->switch_lang( 'en' );
+		$postid_en       = icl_object_id( $post_id, $post_type, false, 'ICL_LANGUAGE_CODE' );
+		$header_category = get_the_terms( $postid_en, $post_type . '_categories' );
+		if ( ! empty( $header_category ) ) {
+			$header_category = array_shift( $header_category );
+			$header_category = $header_category->slug;
+
+			return $header_category;
+		}
+		$sitepress->switch_lang( $orig_lang );
 	}
-	$sitepress->switch_lang( $orig_lang );
 }
 
 // Function to get content of <head> to identify page for CSS/JS import
