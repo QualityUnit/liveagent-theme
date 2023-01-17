@@ -27,6 +27,26 @@ button,
 		padding: 0 1em;
 	}
 
+	[class*="elementor"] {
+		all: unset;
+		display: block;
+
+		&.elementor-widget-container {
+			z-index: 3;
+		}
+
+		a {
+
+			&::before {
+				content: "";
+
+				@include posZero;
+				position: absolute;
+				cursor: pointer;
+			}
+		}
+	}
+
 	&[class*="icn-"] {
 
 		svg {
@@ -222,9 +242,7 @@ button,
 .Button--outline {
 
 	@include color(color, font-color-dark);
-	border-width: 1px;
-	border-style: solid;
-	border-color: currentColor;
+	border: 1px solid currentColor;
 	overflow: hidden;
 	transition: all 0.3s;
 
@@ -249,16 +267,15 @@ button,
 
 	&__white {
 
-		@include color(color, font-color-light);
-		border-width: 1px;
+		color: $white;
 		padding: 0.5em 1.5em;
 
 		&:active,
 		&:focus,
 		&:hover {
 
-			@include color(background-color, main-background);
-			@include color(border-color, font-color-light);
+			background-color: $white;
+			border-color: $white;
 			color: $black-real;
 			mix-blend-mode: screen;
 		}

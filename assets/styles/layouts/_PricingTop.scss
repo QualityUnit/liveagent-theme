@@ -1,0 +1,160 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/LabelTag" as *;
+@use "../elements/PricingTabsMasks" as *;
+
+.Block {
+
+	h2[class] {
+		font-size: 2.5rem;
+		text-align: center;
+	}
+}
+
+.Pricing {
+
+	&__top {
+
+		h1 {
+			font-size: 2.5rem;
+			text-align: center;
+		}
+
+		.Pricing__labels {
+			flex-wrap: wrap;
+
+			.LabelTag {
+				margin-top: 0.5em;
+			}
+		}
+
+		.Pricing__tabs {
+			margin-bottom: 0;
+		}
+
+		.Tabs {
+			$mask-inactive: $mask-tab-inactive;
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 3em;
+
+			&__inn {
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					width: 3em;
+					z-index: 2;
+					height: 100%;
+				}
+
+				&::before {
+					left: -2em;
+					mask-image: $mask-tab-left;
+					mask-size: auto 100%;
+					mask-position: right center;
+					mask-repeat: no-repeat;
+					background-color: $lightest-gray;
+				}
+
+				&::after {
+					right: -2em;
+					mask-image: $mask-tab-right;
+					mask-size: auto 100%;
+					mask-position: left center;
+					mask-repeat: no-repeat;
+					background-color: $medium-gray-inputs;
+					box-shadow: inset -1em -3px 0.5em 0 rgba($black-real, 0.1);
+				}
+			}
+
+			&__tab {
+				display: flex;
+				align-items: center;
+				align-content: center;
+				position: relative;
+				font-family: $font-secondary;
+				font-size: 1.3125rem;
+				font-weight: $font-weight-semi;
+				background-color: $lightest-gray;
+				color: $black;
+				text-align: center;
+				padding: 0.5em 3.5em;
+
+				* {
+					position: relative;
+					z-index: 2;
+				}
+
+				&::before {
+
+					@include square(1.55em);
+					content: "";
+					position: relative;
+					z-index: 2;
+					margin-right: 1em;
+				}
+
+				&:not(.active) {
+					color: $dark-gray;
+
+					&::before {
+						background: url(../../images/pricing/tab_enterprise.png) center center no-repeat;
+						background-size: contain;
+					}
+
+					&::after {
+
+						@include posZero;
+						position: absolute;
+						content: "";
+						mask-image: $mask-inactive;
+						mask-size: cover;
+						mask-repeat: no-repeat;
+						border-top-right-radius: $border-radius-16;
+						background-color: $medium-gray-inputs;
+						box-shadow: inset 1em -3px 0.5em 0 rgba($black-real, 0.12);
+					}
+				}
+
+				&.active {
+					border-top-left-radius: $border-radius-16;
+					background-color: $lightest-gray;
+					text-shadow: 0 2px 3px rgba($black-real, 0.12);
+
+					&::before {
+
+						@include square(1.75em);
+						background: url(../../images/pricing/tab_business_active.png) center center no-repeat;
+						background-size: contain;
+					}
+				}
+			}
+
+			.LabelTag {
+				align-self: center;
+				margin-left: auto;
+			}
+
+			@media (max-width: $breakpoint-tablet) {
+
+				&__tab {
+					width: 50%;
+					font-size: 1rem;
+					padding: 1em;
+				}
+
+				.LabelTag {
+					order: -1;
+					margin: 0 auto 1.5em;
+				}
+			}
+		}
+	}
+}

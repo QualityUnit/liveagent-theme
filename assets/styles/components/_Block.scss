@@ -122,16 +122,8 @@ scss/at-extend-no-missing-placeholder */
 
 			a {
 
+				@include learn-more();
 				@include color(color, font-color-level3);
-
-				&::after {
-
-					content: url(../images/arrow_small_right.svg) !important;
-					position: relative;
-					top: 0.16em;
-					display: inline-block !important;
-					margin-left: 0.5em;
-				}
 			}
 		}
 
@@ -254,16 +246,16 @@ scss/at-extend-no-missing-placeholder */
 			@media (min-width: $breakpoint-desktop) {
 
 				.wrapper {
-					background-image: url(../images/earth.svg);
+					background-image: url(../images/earth.png);
 					background-repeat: no-repeat;
-					background-position: left top;
-					background-size: cover;
+					background-position: left bottom;
+					background-size: 100%;
 				}
 			}
 
 			@media (max-width: ($breakpoint-desktop - 1px)) {
 
-				background-image: url(../images/earth.svg);
+				background-image: url(../images/earth.png);
 				background-repeat: no-repeat;
 				background-position: left top;
 				background-size: cover;
