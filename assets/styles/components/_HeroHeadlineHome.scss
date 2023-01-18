@@ -406,7 +406,10 @@ value-keyword-case */
 
 		&::before {
 			content: "";
-			background: url(../images/heroHeadline_bg.jpg?ver=#{$version}) center top no-repeat;
+			background-image: url(../images/heroHeadline_bg.jpg?ver=#{$version});
+			background-image: url(../images/heroHeadline_bg.webp?ver=#{$version});
+			background-position: center top;
+			background-repeat: no-repeat;
 			background-size: cover;
 		}
 
