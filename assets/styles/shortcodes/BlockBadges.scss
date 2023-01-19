@@ -14,7 +14,10 @@
 			z-index: 1;
 			display: block;
 			overflow: hidden;
-			background: url(../../images/bg_glassy.jpg) no-repeat center center;
+			background-image: url(../../images/bg_glassy.jpg?ver=#{$version});
+			background-image: url(../../images/bg_glassy.webp?ver=#{$version});
+			background-position: center center;
+			background-repeat: no-repeat;
 			background-size: cover;
 		}
 	}
