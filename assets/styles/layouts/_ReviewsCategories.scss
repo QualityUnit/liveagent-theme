@@ -6,7 +6,10 @@
 .Reviews__categories {
 
 	.wrapper__wide {
-		background: url(../../images/bg_glassy.jpg) center center no-repeat;
+		background-image: url(../../images/bg_glassy.jpg?ver=#{$version});
+		background-image: url(../../images/bg_glassy.webp?ver=#{$version});
+		background-position: center center;
+		background-repeat: no-repeat;
 		background-size: cover;
 		border-radius: $border-radius-16;
 		padding: 1.5em;

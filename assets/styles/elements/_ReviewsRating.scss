@@ -21,6 +21,15 @@
 		}
 	}
 
+	&--overall {
+		display: block;
+		font-family: $font-secondary;
+		font-weight: 600;
+		font-size: 0.875rem;
+		margin-bottom: 0.25em;
+		color: $white;
+	}
+
 	&--rating {
 		font-weight: $font-weight-bold;
 		font-size: 1.777em;
