@@ -282,7 +282,7 @@ function progressbar( $text, $rating, $color ) {
 					<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
 						<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
 					</span>
-					<strong class="Reviews__rating--overall">Overall rating</strong>
+					<strong class="Reviews__rating--overall"><?php _e( 'Overall rating', 'reviews' ); ?></strong>
 					<div class="flex flex-align-center">
 						<span class="Reviews__rating--rating" itemprop="ratingValue">
 							<?= esc_html( $average ); ?>
