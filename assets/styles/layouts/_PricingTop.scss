@@ -17,9 +17,10 @@
 
 	&__top {
 
-		h1 {
-			font-size: 2.5rem;
+		h1[class] {
+			font-size: 2.5rem !important;
 			text-align: center;
+			margin: 1em auto 0;
 		}
 
 		.Pricing__labels {
@@ -103,6 +104,7 @@
 
 				&:not(.active) {
 					color: $dark-gray;
+					border-radius: $border-radius-16 $border-radius-16 0 0;
 
 					&::before {
 						background: url(../../images/pricing/tab_enterprise.png) center center no-repeat;
