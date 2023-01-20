@@ -2,16 +2,48 @@
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@use "../elements/ReviewsRating" as *;
-@use "../components/ReviewsGallery" as *;
-@use "../components/ReviewsCategoryAbout" as *;
-@use "../layouts/ReviewsCategories" as *;
-@use "../layouts/ReviewsPosts" as *;
+@forward "../elements/ReviewsRating";
+@forward "../components/ReviewsGallery";
+@forward "../components/ReviewsCategoryAbout";
+@forward "../layouts/ReviewsCategories";
+@forward "../layouts/ReviewsPosts";
+@forward "../layouts/ReviewsPosts";
 
 $version: "3.0";
 
 .Reviews {
 	overflow-x: hidden;
+
+	&__how {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.Split__title,
+			.Content > *:not([class*="FAQ"]) {
+				max-width: 40.625rem;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.Content {
+
+				.Post__m__negative[class*="FAQ"] {
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				.Post__m__negative,
+				.BlockDiscover,
+				.BlockQuote--discover,
+				.wide,
+				.wp-block-embed,
+				.youtube__loader {
+					margin-left: -3.125em;
+					margin-right: -3.125em;
+				}
+			}
+		}
+	}
 
 	&__header {
 		position: relative;

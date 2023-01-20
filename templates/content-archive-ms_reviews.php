@@ -29,7 +29,7 @@
 	}
 	if ( ! empty( $main_page ) && ! isset( $subpage->slug ) ) {
 		?>
-	<div class="wrapper mt-xxl">
+	<div class="wrapper mt-xxl Reviews__how">
 		<?= do_shortcode( '[split-title title="' . $post_title . '"]' ); ?>
 		<div class="Content">
 			<?php
