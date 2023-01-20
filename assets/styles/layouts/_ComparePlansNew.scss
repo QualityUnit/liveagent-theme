@@ -10,6 +10,11 @@
 		padding: 0;
 	}
 
+	&__sectionTitle {
+		margin-top: 4em;
+		margin-bottom: 2em !important;
+	}
+
 	&__header {
 		position: sticky;
 		top: $header-height;

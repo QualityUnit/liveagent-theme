@@ -44,7 +44,7 @@
 				@include posCustom(-1.5em);
 				content: "";
 				position: absolute;
-				background-color: rgba($white, 0.7);
+				background-color: rgba($white, 0.5);
 				opacity: 0.15;
 				transform: skewX(-45deg)  translateX(50%);
 
@@ -76,6 +76,10 @@
 			&-heading {
 				margin-right: auto;
 			}
+		}
+
+		.Button--outline {
+			padding: 0.5em 2em;
 		}
 
 		@media (max-width: $breakpoint-tablet-landscape) {
@@ -171,7 +175,7 @@
 		img,
 		picture {
 			width: auto;
-			height: 2.375em;
+			height: 2.875em;
 		}
 	}
 
