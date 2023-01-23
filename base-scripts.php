@@ -270,22 +270,28 @@ if (
 	}
 </script>
 
-<script type="module" defer>
-	import { onCLS, onFCP, onFID, onINP, onLCP, onTTFB } from 'https://unpkg.com/web-vitals@3.1.1/dist/web-vitals.js?module';
+<?php
+if ( WP_ENV === 'production' ) {
+	?>
+	<script type="module" defer>
+		import { onCLS, onFCP, onFID, onINP, onLCP, onTTFB } from 'https://unpkg.com/web-vitals@3.1.1/dist/web-vitals.js?module';
 
-	function sendToGoogleAnalytics( { name, delta, id } ) {
-		gtag('event', name, {
-			event_category: 'Web Vitals',
-			event_label: id,
-			value: Math.round( name === 'CLS' ? delta * 1000 : delta ),
-			non_interaction: true,
-		});
-	}
+		function sendToGoogleAnalytics( { name, delta, id } ) {
+			gtag('event', name, {
+				event_category: 'Web Vitals',
+				event_label: id,
+				value: Math.round( name === 'CLS' ? delta * 1000 : delta ),
+				non_interaction: true,
+			});
+		}
 
-	onCLS( sendToGoogleAnalytics );
-	onFCP( sendToGoogleAnalytics );
-	onFID( sendToGoogleAnalytics );
-	onINP( sendToGoogleAnalytics );
-	onLCP( sendToGoogleAnalytics );
-	onTTFB( sendToGoogleAnalytics );
-</script>
+		onCLS( sendToGoogleAnalytics );
+		onFCP( sendToGoogleAnalytics );
+		onFID( sendToGoogleAnalytics );
+		onINP( sendToGoogleAnalytics );
+		onLCP( sendToGoogleAnalytics );
+		onTTFB( sendToGoogleAnalytics );
+	</script>
+	<?php
+}
+?>
