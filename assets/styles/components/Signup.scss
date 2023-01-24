@@ -3,6 +3,7 @@
 
 @use "../common/mixins" as *;
 @use "../common/variables" as *;
+@forward "./SignupFormSimple";
 
 .Signup {
 
@@ -173,6 +174,33 @@
 
 			input {
 				padding-left: 60px;
+			}
+
+			.Button {
+				position: absolute;
+				right: 0;
+				height: 100%;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				width: auto;
+				z-index: 2;
+				transition: opacity 0.2s;
+
+				span {
+					pointer-events: none;
+				}
+
+				&[disabled] {
+					opacity: 0.6;
+
+					&:hover {
+						cursor: default;
+
+						&::before {
+							opacity: 1;
+						}
+					}
+				}
 			}
 
 			&.has-svg {

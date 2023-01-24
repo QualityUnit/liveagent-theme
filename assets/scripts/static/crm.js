@@ -141,12 +141,19 @@
 			let msg = message;
 			msg = typeof msg !== 'undefined' ? msg : '';
 			const field = this.main();
+			const btn = field.find( '.Button' );
 
 			Object.keys( FormField.states ).forEach( ( s ) => {
 				if ( FormField.states[ s ] === state ) {
 					field.addClass( FormField.states[ s ] );
+					if ( state === 'Valid' && btn ) {
+						btn.prop( 'disabled', false );
+					}
 				} else {
 					field.removeClass( FormField.states[ s ] );
+					if ( btn ) {
+						btn.prop( 'disabled', true );
+					}
 				}
 			} );
 
