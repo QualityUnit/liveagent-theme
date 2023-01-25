@@ -60,6 +60,7 @@ add_action(
 				wp_deregister_style( 'elementor-icons' );
 				wp_deregister_style( 'elementor-icons-fa-brands' );
 				wp_deregister_style( 'elementor-animations' );
+				wp_deregister_style( 'elementor-lazyload' );
 				wp_deregister_style( 'wp-nux' );
 				wp_deregister_style( 'wpml-legacy-horizontal-list-0' );
 
@@ -105,9 +106,6 @@ function callback( $buffer ) {
 	$buffer = preg_replace( '/<script[^\^]+preloaded-elements[^\^]+<\/script>/', '', $buffer );
 	$buffer = preg_replace( '/<script[^\^]+elementor-pro\/[^\^]+frontend[^\^]+<\/script>/', '', $buffer );
 	$buffer = preg_replace( '/<script[^\^]+elementor\/[^\^]+frontend[^\^]+<\/script>/', '', $buffer );
-
-	// WP block style
-	// $buffer = preg_replace( '/<link[^\^]+dist\/block-library\/style[^\^]+>/', '', $buffer );
 
 	// WP Scripts
 	$buffer = preg_replace( '/<script[^\^]+dist\/vendor\/wp-polyfill[^\^]+>/', '', $buffer );
