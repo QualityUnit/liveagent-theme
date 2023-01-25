@@ -35,7 +35,7 @@ function ms_signup_form_simple( $atts ) {
 				<div class="Signup__form__step--text">
 					<div class="CircleProgressBar">
 						<div class="CircleProgressBar__middle"></div>
-						<div class="CircleProgressBar__spinner"></div>
+						<div class="CircleProgressBar__spinner" data-circlebar></div>
 					</div>
 					1<em>/2</em> <span class="ml-s"><?php _e( 'You are almost there!', 'ms' ); ?></span>
 					<img class="emoji" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/emoji_wink.png" alt="emoji wink" />
@@ -61,7 +61,7 @@ function ms_signup_form_simple( $atts ) {
 				<div class="Signup__form__step--text">
 					<div class="CircleProgressBar">
 						<div class="CircleProgressBar__middle"></div>
-						<div class="CircleProgressBar__spinner"></div>
+						<div class="CircleProgressBar__spinner" data-circlebar></div>
 					</div>
 					2/2 <span class="ml-s"><?php _e( 'Just two more and account is yours!', 'ms' ); ?></span>
 					<img class="emoji" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/emoji_glasses.png" alt="emoji glasses" />
@@ -123,7 +123,7 @@ function ms_signup_form_simple( $atts ) {
 				const stepsWrapper = document.querySelector('[data-id="signup"]');
 				const stepsWrapperWidth = stepsWrapper.getBoundingClientRect().width;
 				const buttonsContinue = document.querySelectorAll('[data-change-steps]');
-				const progressBars = document.querySelectorAll('.CircleProgressBar__spinner');
+				const progressBars = document.querySelectorAll('[data-circlebar]');
 				const progressBarsTotal = progressBars.length;
 				let currentStep = stepsWrapper.dataset.step;
 	
@@ -136,7 +136,6 @@ function ms_signup_form_simple( $atts ) {
 	
 				for( let circle = 1; circle <= progressBarsTotal; circle++ ) {
 					const progress = (100 * circle) / progressBarsTotal ;
-					console.log(progress);
 					progressBars[circle - 1].style.background = `conic-gradient(var(--successful-color) ${ progress }%,var(--border-color-gray-icon) ${ progress }%)`;
 				};
 			}
