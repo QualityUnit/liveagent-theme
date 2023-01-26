@@ -1,0 +1,25 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.TrustedReviews {
+	display: flex;
+	align-items: center;
+	margin-top: 1em;
+
+	* {
+		font-family: $font-secondary;
+		font-size: 0.875rem;
+		font-weight: 600;
+		margin-bottom: 0;
+	}
+
+	&::after {
+		content: "";
+		height: 1.428em;
+		flex: 1 1 auto;
+		margin-left: 1em;
+		background: url(../../images/trusted_reviews.png) right center no-repeat;
+		background-size: contain;
+	}
+}

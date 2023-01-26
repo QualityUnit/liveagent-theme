@@ -1,0 +1,91 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "./BlockSignUpForm";
+@forward "../elements/CircleProgressBar";
+
+.Signup__form--simple {
+
+	&[class] {
+		max-width: none;
+		overflow: hidden;
+		padding: 0;
+		margin: 0;
+		box-shadow: 5px 10px 90px rgba($black-real, 0.1);
+
+		@media (min-width: $breakpoint-tablet) {
+			border-radius: 20px 30px 30px 20px;
+		}
+	}
+
+	*:not(.Button) {
+		text-align: left !important;
+		justify-content: flex-start !important;
+	}
+
+	&__title.h2 {
+		margin-bottom: 0;
+	}
+
+	[data-id="promoFieldmain"][class] {
+		padding: 0;
+		margin: 0;
+	}
+
+	.Signup__form {
+
+		&__labels {
+			margin: 0 0 1.5em -0.5em;
+		}
+
+		&__item {
+			margin-bottom: 0.75em;
+
+			&__domain {
+				height: calc(50px - 2px);
+			}
+
+			input {
+				height: 50px;
+			}
+		}
+
+		&__steps {
+			transition: transform 0.2s;
+		}
+
+		&__step {
+			font-size: 0.875rem;
+			padding: 3em 2.5em;
+			flex: 0 0 100%;
+
+			&--text {
+				display: flex;
+				align-items: center;
+				color: $saturated-green;
+				margin-bottom: 1em;
+
+				.emoji {
+					height: 1.42em;
+					margin-left: 0.75em;
+				}
+
+				.CircleProgressBar {
+
+					@include square(1.7145em);
+					margin-right: 0.5em;
+
+					&__middle {
+						transform: scale(0.75);
+					}
+				}
+
+				em {
+					font-style: normal;
+					color: $medium-gray-quotes;
+				}
+			}
+		}
+	}
+}
