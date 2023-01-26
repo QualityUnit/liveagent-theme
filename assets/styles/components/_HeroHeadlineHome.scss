@@ -82,6 +82,14 @@ value-keyword-case */
 
 	}
 
+	@media (max-width: $breakpoint-tablet-small) {
+		.heroHeadline__home--usedby,
+		.heroHeadline--usedby,
+		.Clients {
+			display: none;
+		}
+	}
+
 	&--info.elementor-column {
 		width: 100%;
 		text-align: center;

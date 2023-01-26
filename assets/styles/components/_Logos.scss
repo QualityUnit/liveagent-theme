@@ -40,6 +40,10 @@
 		}
 	}
 
+	@media (max-width: $breakpoint-tablet-small) {
+		display: none;
+	}
+
 	&.Logos--home {
 
 		.Clients {
