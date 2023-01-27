@@ -95,6 +95,13 @@ $signupSidebarWidth: 16.875em;
 		}
 	}
 
+	.Signup__sidebar-wrapper {
+
+		@media (min-width: $breakpoint-desktop-box) {
+			padding-right: 0.25em;
+		}
+	}
+
 	&__content {
 		padding: 0 1.5em;
 		margin: 0 auto;
