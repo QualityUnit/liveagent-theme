@@ -53,7 +53,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 		<div class="wrapper">
 			<div class="Footer__middle__row">
 				<div class="Footer__middle__contacts">
-					<div class="Footer__middle__title h5"><?php _e( 'Sales and support', 'ms' ); ?></div>
+					<div class="Footer__middle__title h5"><?php _e( 'Sales contacts', 'ms' ); ?></div>
 					<ul>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-257-8754', 'ms' ); ?></a></li>
