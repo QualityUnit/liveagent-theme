@@ -7,8 +7,6 @@
 
 	@include color(color, main-background);
 	position: relative;
-	display: flex;
-	align-items: center;
 	background-color: $dark-gray;
 	padding: 1.25em 3.5em 1.25em 2em;
 	border-radius: 1em 1em 0 0;
@@ -22,10 +20,13 @@
 		transition: transform 0.5s;
 		transform: translate(-50%, 110%);
 		z-index: 5;
+		width: 100%;
+	}
 
-		@media (min-width: ($breakpoint-tablet - 1px)) {
+	@media (min-width: ($breakpoint-tablet - 1px)) {
+
+		&__wrapper {
 			justify-content: center;
-			width: 85%;
 
 			&.visible {
 				display: flex;
@@ -39,6 +40,23 @@
 				transform: translate(-50%, 110%);
 			}
 		}
+
+		&__button {
+			margin-top: 1.5em;
+		}
+	}
+
+	@media (min-width: ($breakpoint-desktop-box - 1px)) {
+		display: flex;
+		align-items: center;
+
+		&__wrapper {
+			width: 70%;
+		}
+
+		&__button {
+			margin-top: auto;
+		}
 	}
 
 	&__main {
@@ -47,8 +65,7 @@
 
 	&__close {
 		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
+		top: 0;
 		right: 0.15em;
 		font-size: 2rem;
 		padding: 0.5em;
