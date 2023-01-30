@@ -92,9 +92,9 @@ function ms_success_stories( $atts ) {
 						?>
 					</div>
 					<div class="Blog__item__content">
-						<h3 class="Blog__item__title item-title ">
+						<h2 class="Blog__item__title item-title h3">
 							<?php the_title(); ?>
-						</h3>
+						</h2>
 						<div class="Blog__item__excerpt">
 							<p itemprop="abstract" class="item-excerpt">
 								<?= esc_html( wp_trim_words( get_the_excerpt(), 30 ) ); ?>
