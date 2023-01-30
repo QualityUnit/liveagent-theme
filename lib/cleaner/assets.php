@@ -116,7 +116,7 @@ function callback( $buffer ) {
 	// Removing unique character for final output
 	$buffer = str_replace( '^<script', '<script', $buffer );
 	$buffer = str_replace( '^<link', '<link', $buffer );
-	$buffer = str_replace( '^', '', $buffer );
+	//	$buffer = str_replace( '^', '', $buffer );
 	return $buffer;
 }
 
