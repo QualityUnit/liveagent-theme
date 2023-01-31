@@ -98,25 +98,25 @@ add_action(
 // Removes unwanted CSS and JS files which are loaded without hook
 function callback( $buffer ) {
 	// Adding unique character to allow non greedy regex
-	$buffer = str_replace( '<script', '^<script', $buffer );
-	$buffer = str_replace( '<link', '^<link', $buffer );
+	$buffer = str_replace( '<script', '≤<script', $buffer );
+	$buffer = str_replace( '<link', '≤<link', $buffer );
 
 	// Elementor plugin JS
-	$buffer = preg_replace( '/<script[^\^]+preloaded-modules[^\^]+<\/script>/', '', $buffer );
-	$buffer = preg_replace( '/<script[^\^]+preloaded-elements[^\^]+<\/script>/', '', $buffer );
-	$buffer = preg_replace( '/<script[^\^]+elementor-pro\/[^\^]+frontend[^\^]+<\/script>/', '', $buffer );
-	$buffer = preg_replace( '/<script[^\^]+elementor\/[^\^]+frontend[^\^]+<\/script>/', '', $buffer );
+	$buffer = preg_replace( '/<script[^\≤]+preloaded-modules[^\≤]+<\/script>/', '', $buffer );
+	$buffer = preg_replace( '/<script[^\≤]+preloaded-elements[^\≤]+<\/script>/', '', $buffer );
+	$buffer = preg_replace( '/<script[^\≤]+elementor-pro\/[^\≤]+frontend[^\≤]+<\/script>/', '', $buffer );
+	$buffer = preg_replace( '/<script[^\≤]+elementor\/[^\≤]+frontend[^\≤]+<\/script>/', '', $buffer );
 
 	// WP Scripts
-	$buffer = preg_replace( '/<script[^\^]+dist\/vendor\/wp-polyfill[^\^]+>/', '', $buffer );
+	$buffer = preg_replace( '/<script[^\≤]+dist\/vendor\/wp-polyfill[^\≤]+>/', '', $buffer );
 
 	// JS for Babel async transpiling for old browsers like IE
-	$buffer = preg_replace( '/<script[^\^]+dist\/vendor\/regenerator-runtime[^\^]+>/', '', $buffer );
+	$buffer = preg_replace( '/<script[^\≤]+dist\/vendor\/regenerator-runtime[^\≤]+>/', '', $buffer );
 
 	// Removing unique character for final output
-	$buffer = str_replace( '^<script', '<script', $buffer );
-	$buffer = str_replace( '^<link', '<link', $buffer );
-	//	$buffer = str_replace( '^', '', $buffer );
+	$buffer = str_replace( '≤<script', '<script', $buffer );
+	$buffer = str_replace( '≤<link', '<link', $buffer );
+	$buffer = str_replace( '≤', '', $buffer );
 	return $buffer;
 }
 
