@@ -25,42 +25,54 @@
 }
 
 .Trial {
+	$width-left: 45em;
+	$width-left-sm: 34em;
+	$bg-radius: 1.25em;
 
 	@include color(color, secondary-background);
 	display: block;
 
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: flex;
+	}
+
 	&__logo__top {
+		position: relative;
 		display: block;
 		z-index: 1;
-		margin: 1.5em;
+		margin: 0;
 
 		img {
 			height: 2em;
 		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			position: absolute;
+			top: 1.875em;
+			left: 1.875em;
+		}
+
+		@media (max-width: ($breakpoint-tablet-landscape - 1)) {
+			padding: $wrapper-padding;
+		}
 	}
 
-	@media (min-width: $breakpoint-tablet-landscape) {
-		display: flex;
+	&__awards {
+		position: absolute;
+		z-index: 10;
+		top: 0;
+		right: 1em;
+		display: none;
 
-		&__logo__top {
-			display: none;
-
-			&--inn {
-				position: absolute;
-				margin: 0;
-				top: 1.875em;
-				left: 1.875em;
-
-				img {
-					height: 2em;
-				}
-			}
+		@media (min-width: $breakpoint-desktop-big) {
+			display: block;
 		}
 	}
 
 	&__container {
+		width: 100%;
+		padding: 0;
 		margin: 0 auto;
-		max-width: 94.25em;
 		border-radius: $border-radius-16;
 
 		* {
@@ -69,76 +81,107 @@
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 			display: flex;
-			padding: 0.75em 0 0.75em 0.75em;
+			padding: 2em 0;
+		}
+
+		@media (max-height: 63rem) and (min-width: $breakpoint-tablet-landscape) {
+			position: relative;
+			min-height: 100vh;
+			padding-top: 4em;
 		}
 	}
 
 	&__sidebar {
-		position: relative;
-		display: none;
-		flex-direction: column;
 
-		background-repeat: no-repeat;
-		background-size: cover;
-		padding: 3em;
-		border-radius: $border-radius-16;
-		overflow: hidden;
-
-		&::after {
-			position: absolute;
-			content: "";
-			background: url(../../images/trial_badges.svg) center top no-repeat;
-			background-size: contain;
-			z-index: 1;
-			width: 20%;
-			height: 0;
-			padding-bottom: 49%;
-			top: 0;
-			right: -2%;
-		}
-
-		&__text {
+		&__inner {
 			position: relative;
-			z-index: 1;
-			margin-top: auto;
+			z-index: 5;
+			width: 100%;
+		}
 
-			* {
+		&__content {
 
-				@include color(color, font-color-light);
-			}
-
-			em {
-				font-weight: $font-weight-semi;
-			}
-
-			@media (min-width: $breakpoint-tablet-landscape) {
-				width: 60%;
+			ul:not([class]) {
+				margin-bottom: 0;
 			}
 		}
 
-		&__logo {
-			height: 1.5em;
+		&__title {
+			font-weight: $font-weight-semi;
+			font-size: 1.5em;
+			line-height: 1.3;
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 			display: flex;
-			width: 47.8%;
+			width: $width-left-sm;
+
+			&::before {
+
+				@include posCustom(0, initial, 0, 0);
+				content: "";
+				position: absolute;
+				z-index: 1;
+				display: block;
+				width: $width-left-sm;
+				background: url(../../images/trial_sidebar_bg.png) 63% center no-repeat;
+			}
+
+			&__content {
+				position: absolute;
+				z-index: 5;
+				top: 0;
+				right: 2%;
+				width: 48%;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			width: $width-left;
+
+			&::before {
+				width: $width-left;
+				background-position: left center;
+			}
+		}
+
+		@media (max-width: ($breakpoint-tablet-landscape - 1)) {
+			padding: 2em $wrapper-padding 3em $wrapper-padding;
+
+			&__inner {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			&__content {
+				text-align: center;
+			}
 		}
 	}
 
 	&__main {
+		display: flex;
+		justify-content: center;
 
-		@include color(background-color, main-background);
-		padding: 1.5em;
+		&__inner {
+			position: relative;
+			z-index: 5;
+			width: 100%;
+			max-width: 35em;
+			padding: 0 $wrapper-padding;
+		}
 
 		&__title {
-			font-size: 1.5rem;
+			font-size: 1.5em;
 			line-height: 1.2;
-			margin-bottom: 0.25em;
+			margin: 0 0 0.25em 0;
 			text-align: center;
 		}
 
 		&__text {
+			margin-bottom: 0;
 			font-size: 0.875rem;
 			font-family: $font-primary;
 			text-align: center;
@@ -286,41 +329,64 @@
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			padding: 2.5em 6.5em;
 
-			&__title {
-				font-size: 2rem;
+			&__inner {
+				//padding: 2.5em 6.5em;
 			}
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
+			width: calc(100% - #{$width-left-sm});
 
-			width: 52.2%;
-			padding: 2.5em 4.5em;
-			border-bottom-left-radius: 1.25em;
-			border-top-left-radius: 1.25em;
+			&::before {
 
-			&__title {
-				font-size: 1.5rem;
+				@include posCustom(0);
+				@include color(background-color, main-background);
+				content: "";
+				position: absolute;
+				z-index: 1;
+				left: $width-left-sm;
+				display: block;
+				border-bottom-left-radius: $bg-radius;
+				border-top-left-radius: $bg-radius;
+			}
+
+			&__inner {
+				//padding: 2.5em 4.5em;
 			}
 		}
 
-
 		@media (min-width: $breakpoint-desktop-box) {
+			width: calc(100% - #{$width-left});
 
-			padding: 4.5em 8.5em;
+			&::before {
+
+				@include posCustom(0, 0, 0, $width-left);
+			}
+
+			&__inner {
+				//padding: 4.5em 8.5em;
+			}
 
 			&__title {
-				font-size: 2rem;
+				font-size: 2.375em;
 			}
 		}
 
 		@media (min-width: $breakpoint-desktop-box) and (max-height: 900px) {
-			padding: 3.5em;
+
+			&__inner {
+				//padding: 3.5em;
+			}
 		}
 
-		@media (min-width: $breakpoint-desktop-big) {
-			border-radius: 1.25em;
+		@media (max-width: ($breakpoint-tablet-landscape - 1)) {
+
+			@include color(background-color, main-background);
+			padding-top: 3em;
+			padding-bottom: 3em;
+			border-top-left-radius: $bg-radius;
+			border-top-right-radius: $bg-radius;
 		}
 	}
 }
