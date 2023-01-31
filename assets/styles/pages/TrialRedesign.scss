@@ -195,18 +195,18 @@
 			}
 
 			&__labels {
-				margin: 0.5em -0.5em;
+				margin: 0.8em -0.5em;
 
 				&__label {
 					margin: 0.5em;
-					font-weight: $font-weight-semi;
+					font-weight: $font-weight-normal;
 
 					&:first-of-type {
 						background-color: #efe6f8;
 					}
 
 					&:last-of-type {
-						background-color: #ebfae0;
+						background-color: #e3f2ff;
 					}
 				}
 
@@ -267,6 +267,7 @@
 					position: relative;
 					display: block;
 					padding: 0 0.8em;
+					margin: 0 !important;
 				}
 
 				&::before {
