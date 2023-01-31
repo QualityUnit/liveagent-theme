@@ -1,5 +1,5 @@
 /* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-mixed-operators, no-redeclare */
-/* global jQuery, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha */
+/* global jQuery, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha, analytics, twq */
 /* global progressStep, newProgress, btoa */
 /* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, textStart, textInvalid, textCreating, variationId */
 
@@ -728,6 +728,15 @@
 					} else {
 						pkvid = `?pk_vid=${ Piwik.getTracker().getVisitorId() }`;
 					}
+				}
+
+				if ( typeof analytics !== 'undefined' ) {
+					analytics.identify( null, { email: subscription.customer_email } );
+					analytics.track( 'formSubmitted' );
+				}
+
+				if ( typeof twq !== 'undefined' ) {
+					twq( 'event', 'tw-ocrty-odnh2', {} );
 				}
 
 				progressLoader.setProgress( 100 );
