@@ -30,6 +30,21 @@
 		img {
 			max-width: 100%;
 		}
+
+		@include hover {
+
+			.learn-more a {
+
+				@include learn-more-hover;
+			}
+		}
+	}
+
+	&__link {
+
+		@include posZero;
+		position: absolute;
+		z-index: 10;
 	}
 
 	&__thumbnail {
@@ -91,11 +106,8 @@
 	}
 
 	.learn-more {
-		display: block;
-		margin-top: 2em;
-		font-family: $font-secondary;
-		font-size: em(14);
-		font-weight: $font-weight-semi;
+
+		@include learn-more;
 	}
 
 	.splide {

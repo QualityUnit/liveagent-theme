@@ -102,12 +102,11 @@ function ms_slider_success_stories( $atts ) {
 									<div class="SliderSuccessStories__excerpt">
 										<p itemprop="abstract" class="item-excerpt">
 											<?= esc_html( wp_trim_words( get_the_excerpt(), 30 ) ); ?>
-											<span class="learn-more">
-												<?php _e( 'Read story', 'ms' ); ?>
-												<svg width="15" height="13" xmlns="http://www.w3.org/2000/svg">
-													<path d="M8.514 0 7.37 1.146l4.525 4.542H0v1.625h11.895L7.37 11.854 8.514 13 15 6.5 8.514 0Z" />
-												</svg>
-											</span>
+										</p>
+										<p class="learn-more">
+											<a href="<?php the_permalink(); ?>">
+												<?php _e( 'Read more about', 'ms' ); ?> <?php the_title(); ?>
+											</a>
 										</p>
 									</div>
 								</div>
