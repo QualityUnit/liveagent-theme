@@ -3,31 +3,31 @@
 function ms_block_pricing( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'title1'   => __( 'Ticket', 'ms' ),
-			'price1'   => __( '$15', 'ms' ),
+			'title1'   => __( 'Small', 'ms' ),
+			'price1'   => __( '$9', 'ms' ),
 			'text1-1'  => __( 'Unlimited ticket history', 'ms' ),
-			'text1-2'  => __( 'Unlimited email addresses', 'ms' ),
-			'text1-3'  => __( 'Advanced reporting', 'ms' ),
-			'text1-4'  => __( 'Customer portal + forum', 'ms' ),
-			'title2'   => __( 'Ticket+chat', 'ms' ),
+			'text1-2'  => __( '3 email addresses', 'ms' ),
+			'text1-3'  => __( '3 contact forms', 'ms' ),
+			'text1-4'  => __( '1 API key', 'ms' ),
+			'title2'   => __( 'Medium', 'ms' ),
 			'price2'   => __( '$29', 'ms' ),
-			'text2-1'  => __( 'Everything in Ticket, plus:', 'ms' ),
-			'text2-2'  => __( 'Unlimited chat buttons', 'ms' ),
-			'text2-3'  => __( 'Feedback management', 'ms' ),
-			'text2-4'  => __( 'Real time visitors monitor', 'ms' ),
-			'title3'   => __( 'All-Inclusive', 'ms' ),
+			'text2-1'  => __( 'Everything in Small, plus', 'ms' ),
+			'text2-2'  => __( '10 email addresses', 'ms' ),
+			'text2-3'  => __( '3 live chat buttons', 'ms' ),
+			'text2-4'  => __( 'Departments management', 'ms' ),
+			'title3'   => __( 'Large', 'ms' ),
 			'price3'   => __( '$49', 'ms' ),
-			'text3-1'  => __( 'Everything in Ticket + chat, plus:', 'ms' ),
-			'text3-2'  => __( 'Call center support', 'ms' ),
-			'text3-3'  => __( 'Video call', 'ms' ),
-			'text3-4'  => __( 'IVR', 'ms' ),
+			'text3-1'  => __( 'Everything in Medium plus', 'ms' ),
+			'text3-2'  => __( '40 email addresses', 'ms' ),
+			'text3-3'  => __( '10 live chat buttons', 'ms' ),
+			'text3-4'  => __( 'WhatsApp', 'ms' ),
 			'popular'  => __( 'Most Popular', 'ms' ),
 			'title4'   => __( 'Free', 'ms' ),
 			'price4'   => __( '$0', 'ms' ),
 			'text4-1'  => __( '7 days ticket history', 'ms' ),
-			'text4-2'  => __( '1 chat button', 'ms' ),
-			'text4-3'  => __( '1 phone number', 'ms' ),
-			'text4-4'  => __( '1 email address', 'ms' ),
+			'text4-2'  => __( '1 email address', 'ms' ),
+			'text4-3'  => __( '1 chat button', 'ms' ),
+			'text4-4'  => __( '1 contact form', 'ms' ),
 			'startups' => false,
 		),
 		$atts,
@@ -43,9 +43,9 @@ function ms_block_pricing( $atts ) {
 		<?php
 		for ( $i = 1; $i <= 4; ++$i ) {
 			?>
-		<div class="BlockPricing__container__item 
-			<?= esc_attr( 4 == $i ? 'BlockPricing__container__item--last' : '' ); ?> 
-			<?= esc_attr( ( 3 == $i && false !== $atts['startups'] ) ? 'BlockPricing__container__item--startups' : '' ); ?> 
+		<div class="BlockPricing__container__item
+			<?= esc_attr( 4 == $i ? 'BlockPricing__container__item--last' : '' ); ?>
+			<?= esc_attr( ( 3 == $i && false !== $atts['startups'] ) ? 'BlockPricing__container__item--startups' : '' ); ?>
 		">
 			<div class="PricingTable__header <?= esc_attr( 3 == $i ? 'popular' : '' ); ?>">
 				<div class="PricingTable__header__price">
@@ -62,7 +62,11 @@ function ms_block_pricing( $atts ) {
 				}
 				?>
 				<div class="PricingTable__header__title">
-					<h3><?= esc_html( $atts[ 'title' . $i ] ); ?></h3>
+					<h3><?= esc_html( $atts[ 'title' . $i ] ); ?>
+					<?php if ( 4 != $i ) { ?>
+						 <small><?php _e( 'business', 'ms' ); ?></small>
+					<?php } ?>
+					</h3>
 				</div>
 				<div class="PricingTable__header__description">
 					<ul>
@@ -129,9 +133,9 @@ function ms_block_pricing( $atts ) {
 				</div>
 			</div>
 		</div>
-				<?php 
-			} 
-		} 
+				<?php
+			}
+		}
 		?>
 </div>
 <div class="BlockPricing__button">
