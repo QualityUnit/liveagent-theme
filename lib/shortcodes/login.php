@@ -14,7 +14,7 @@ function ms_login() {
 			</div>
 
 			<div class="Signup__form__submit">
-				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Login', 'Login'])">
+				<div id="createButtonmain" class="Button Button--full createTrialButton" onclick="_paq.push(['trackEvent', 'Activity', 'Login', 'Login'])">
 					<span><?php _e( 'Login', 'ms' ); ?></span>
 				</div>
 			</div>

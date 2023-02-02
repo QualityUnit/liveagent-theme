@@ -15,7 +15,7 @@
 	}
 
 	const acceptButton = document.querySelector( ".Medovnicky__button--yes" );
-	const trialButton = document.querySelector( "#createButtonmain" );
+	const trialButton = document.querySelector( ".createTrialButton" );
 
 	const mobile = window.matchMedia('(max-width: 768px)');
 
