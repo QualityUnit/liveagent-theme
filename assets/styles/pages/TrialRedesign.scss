@@ -117,8 +117,8 @@
 			position: absolute;
 			z-index: 5;
 			top: 0;
-			right: 5%;
-			width: 55%;
+			right: 6%;
+			width: 53%;
 
 			ul:not([class]) {
 				margin-bottom: 0;
@@ -149,8 +149,8 @@
 			}
 
 			&__content {
-				right: 2%;
-				width: 48%;
+				right: 5%;
+				width: 46%;
 
 				ul:not([class]) li {
 					font-size: 1rem;
@@ -201,7 +201,6 @@
 
 				&__label {
 					margin: 0.5em;
-					font-weight: $font-weight-normal;
 
 					&:first-of-type {
 						background-color: #efe6f8;
