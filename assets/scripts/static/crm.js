@@ -141,6 +141,7 @@
 			let msg = message;
 			msg = typeof msg !== 'undefined' ? msg : '';
 			const field = this.main();
+
 			const btn = field.find( '.Button' );
 
 			Object.keys( FormField.states ).forEach( ( s ) => {
