@@ -20,7 +20,7 @@ function ms_signup_form_simple( $atts ) {
 		<div class="Signup__form__steps flex flex-align-center" data-step="1" data-id="signup">
 			<div class="Signup__form__step" data-step="1">
 				<div class="Signup__form--simple__title h2"><?= $atts['title']; // @codingStandardsIgnoreLine ?></div>
-	
+
 				<div class="Signup__form__labels">
 					<span class="Signup__form__labels__label">
 						<?= esc_html( $atts['label1'] ); ?>&nbsp;
@@ -31,7 +31,7 @@ function ms_signup_form_simple( $atts ) {
 					</span>
 					<span class="Signup__form__labels__label"><?= esc_html( $atts['label2'] ); ?></span>
 				</div>
-	
+
 				<div class="Signup__form__step--text">
 					<div class="CircleProgressBar">
 						<div class="CircleProgressBar__middle"></div>
@@ -40,10 +40,10 @@ function ms_signup_form_simple( $atts ) {
 					1<em>/2</em> <span class="ml-s"><?php _e( 'You are almost there!', 'ms' ); ?></span>
 					<img class="emoji" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/emoji_wink.png" alt="emoji wink" />
 				</div>
-	
+
 				<input data-id="plan" type="hidden" value="Trial" autocomplete="off">
 				<input data-id="variation" type="hidden" value="3513230f" autocomplete="off">
-	
+
 				<div class="Signup__form__step--fields">
 					<div data-id="mailFieldmain" class="Signup__form__item fontello-mail">
 						<input type="email" name="Email" tabindex="-1" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255">
@@ -56,7 +56,7 @@ function ms_signup_form_simple( $atts ) {
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="Signup__form__step" data-step="2">
 				<div class="Signup__form__step--text">
 					<div class="CircleProgressBar">
@@ -66,35 +66,35 @@ function ms_signup_form_simple( $atts ) {
 					2/2 <span class="ml-s"><?php _e( 'Just two more and account is yours!', 'ms' ); ?></span>
 					<img class="emoji" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/emoji_glasses.png" alt="emoji glasses" />
 				</div>
-	
+
 				<div class="Signup__form__step--fields">
 					<div data-id="nameFieldmain" class="Signup__form__item has-svg">
 						<svg width="18" height="20" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M18 19v-2c0-2.743-2.257-5-5-5H5c-2.743 0-5 2.257-5 5v2a1 1 0 0 0 2 0v-2c0-1.646 1.354-3 3-3h8c1.646 0 3 1.354 3 3v2a1 1 0 0 0 2 0Zm-9-9c2.743 0 5-2.257 5-5s-2.257-5-5-5-5 2.257-5 5 2.257 5 5 5Zm0-2C7.354 8 6 6.646 6 5s1.354-3 3-3 3 1.354 3 3-1.354 3-3 3Z"/></svg>
-		
+
 						<input type="text" name="Full name" placeholder="<?php _e( 'Full name', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="100">
 						<div class="ErrorMessage"></div>
 					</div>
-					
+
 					<div data-id="domainFieldmain" class="Signup__form__item has-svg">
 						<svg width="22" height="20" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M19 4H3a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm0 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h16Z"/><path d="M16 19V3c0-.796-.316-1.559-.879-2.121A2.996 2.996 0 0 0 13 0H9c-.796 0-1.559.316-2.121.879A2.996 2.996 0 0 0 6 3v16a1 1 0 0 0 2 0V3a.997.997 0 0 1 1-1h4a.997.997 0 0 1 1 1v16a1 1 0 0 0 2 0Z"/></svg>
 						<input type="url" name="Domain" placeholder="<?php _e( 'Company name', 'ms' ); ?>" required="required"  autocomplete="off" maxlength="30">
 						<div class="Signup__form__item__domain"><?php _e( '.ladesk.com', 'ms' ); ?></div>
 						<div class="ErrorMessage"></div>
-		
+
 						<div class="Signup__form__item__info Tooltip">
 							<div class="Signup__form__item__info__icon ComparePlans__info-icon fontello-info">
 								<div class="Tooltip__text Tooltip__text--left"><?php _e( 'Choose a name for your LiveAgent subdomain. Most people use their company or team name.', 'ms' ); ?></div>
 							</div>
 						</div>
 					</div>
-	
+
 					<div data-id="signUpError"></div>
-	
+
 					<div class="Signup__form__submit">
-						<div data-id="createButtonmain" class="Button Button--full" onclick="handleSend();">
+						<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="handleSend();">
 							<span><?= esc_html( $atts['button'] ); ?></span>
 						</div>
-	
+
 						<div class="WorkingPanel" style="display: none;">
 							<div class="animation">
 								<div class="one spin-one"></div>
@@ -110,7 +110,7 @@ function ms_signup_form_simple( $atts ) {
 				</div>
 			</div>
 		</div>
-			
+
 	</div>
 
 	<?php // @codingStandardsIgnoreStart ?>
@@ -132,7 +132,7 @@ function ms_signup_form_simple( $atts ) {
 						event.preventDefault();
 					}
 				})
-	
+
 				buttonsContinue.forEach(btn => {
 					btn.addEventListener('click', () => {
 						if (! btn.disabled ) {
@@ -141,7 +141,7 @@ function ms_signup_form_simple( $atts ) {
 						}
 					})
 				});
-	
+
 				for( let circle = 1; circle <= progressBarsTotal; circle++ ) {
 					const progress = (100 * circle) / progressBarsTotal ;
 					progressBars[circle - 1].style.background = `conic-gradient(var(--successful-color) ${ progress }%,var(--border-color-gray-icon) ${ progress }%)`;
