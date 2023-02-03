@@ -39,7 +39,9 @@
 			createButton();
 		}
 		<?php if ( ! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) ) ) { ?>
-		offlineContactForm();
+		if ( typeof offlineContactForm == 'function' ) {
+			offlineContactForm();
+		}
 		<?php } ?>
 		twitterTracking();
 		postAffiliate();
@@ -274,7 +276,6 @@ if (
 			}
 			var placeholder = document.getElementById('papPlaceholder');
 			placeholder.parentNode.insertBefore(script, placeholder);
-			placeholder.parentNode.removeChild(placeholder);
 		})(document, 'script');
 	}
 
