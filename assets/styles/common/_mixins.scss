@@ -316,13 +316,15 @@
 		transition: transform 0.5s ease-in-out !important
 	}
 
-	&:active,
-	&:focus,
-	&:hover {
-		cursor: pointer;
-		text-decoration: none !important;
-		svg {
-			transform: translate(30%, 0);
-		}
+	@include hover {
+		@include learn-more-hover;
+	}
+}
+
+@mixin learn-more-hover (){
+	cursor: pointer;
+	text-decoration: underline !important;
+	svg {
+		transform: translate(30%, 0);
 	}
 }
