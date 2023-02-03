@@ -24,9 +24,9 @@ function ms_signup_form_simple( $atts ) {
 				<div class="Signup__form__labels">
 					<span class="Signup__form__labels__label">
 						<?= esc_html( $atts['label1'] ); ?>&nbsp;
-						<span class="ComparePlans__tooltip">
+						<span class="Tooltip">
 							<span class="fontello-info"></span>
-							<span class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?= esc_html( $atts['tooltip1'] ); ?></span>
+							<span class="Tooltip__text Tooltip__text--left"><?= esc_html( $atts['tooltip1'] ); ?></span>
 						</span>
 					</span>
 					<span class="Signup__form__labels__label"><?= esc_html( $atts['label2'] ); ?></span>
@@ -46,7 +46,7 @@ function ms_signup_form_simple( $atts ) {
 
 				<div class="Signup__form__step--fields">
 					<div data-id="mailFieldmain" class="Signup__form__item fontello-mail">
-						<input type="email" name="Email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+						<input type="email" name="Email" tabindex="-1" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255">
 						<button type="button" class="Button Button--full" data-change-steps disabled><span><?php _e( 'Continue…', 'ms' ); ?></span></button>
 						<div class="ErrorMessage"></div>
 					</div>
@@ -127,10 +127,18 @@ function ms_signup_form_simple( $atts ) {
 				const progressBarsTotal = progressBars.length;
 				let currentStep = stepsWrapper.dataset.step;
 
+				stepsWrapper.addEventListener('keydown', (event) => {
+					if(event.keyCode === 9) {
+						event.preventDefault();
+					}
+				})
+
 				buttonsContinue.forEach(btn => {
 					btn.addEventListener('click', () => {
-						stepsWrapper.style.transform = `translateX(-${100 * currentStep}%`;
-						currentStep++;
+						if (! btn.disabled ) {
+							stepsWrapper.style.transform = `translateX(-${100 * currentStep}%`;
+							currentStep++;
+						}
 					})
 				});
 
