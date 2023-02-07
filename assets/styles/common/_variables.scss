@@ -1,10 +1,12 @@
+/* stylelint-disable value-keyword-case */
+
 // Variables
 @use "sass:map";
 $version: "3.1";
 
 // Fonts
-$font-primary: "Open Sans", sans-serif;
-$font-secondary: "Poppins", sans-serif;
+$font-primary: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-secondary: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-third: "Patrick Hand", cursive;
 
 // Font Sizes
