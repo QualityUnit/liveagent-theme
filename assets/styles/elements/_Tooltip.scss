@@ -1,10 +1,13 @@
 /* stylelint-disable selector-class-pattern */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@use "sass:math";
 
 .ComparePlans__tooltip,
 .Tooltip {
-
+	$width: 15.625rem;
+	$width-wide: 47.5rem;
+	$arrow: 0.313rem;
 	position: relative;
 	display: inline-block;
 
@@ -13,7 +16,7 @@
 		@include color(color, font-color-light);
 		position: absolute;
 		visibility: hidden;
-		width: 250px;
+		width: $width;
 		top: 125%;
 		left: 50%;
 		background-color: $black;
@@ -23,22 +26,73 @@
 		border-radius: 6px;
 		padding: 10px;
 		z-index: 1;
-		margin-left: -60px;
 
-		&--center {
-			left: -220%;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			border-width: $arrow;
+			border-style: solid;
+			border-color: transparent transparent #000;
+		}
+
+		&,
+		&--left {
+			margin-left: -(($width * 0.57) + math.div($arrow, 2));
+
+			&::after {
+				margin-left: (($width * 0.07) - math.div($arrow, 2));
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				&.wide {
+					margin-left: -(($width-wide * 0.57) + math.div($arrow, 2));
+
+					&::after {
+						margin-left: (($width-wide * 0.07) - math.div($arrow, 2));
+					}
+				}
+			}
 		}
 
 		&--right {
-			left: -223%;
+			margin-left: -(($width * 0.43) + math.div($arrow, 2));
+
+			&::after {
+				margin-left: -(($width * 0.07) + math.div($arrow, 2));
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				&.wide {
+					margin-left: -(($width-wide * 0.43) + math.div($arrow, 2));
+
+					&::after {
+						margin-left: -(($width-wide * 0.07) + math.div($arrow, 2));
+					}
+				}
+			}
 		}
 
-		&--left {
-			left: -70%;
-		}
+		&--center {
+			margin-left: -(math.div($width, 2) + math.div($arrow, 2));
 
-		&--left-icon {
-			left: -660%;
+			&::after {
+				margin-left: -(math.div($arrow, 2));
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				&.wide {
+					margin-left: -(math.div($width-wide, 2) + math.div($arrow, 2));
+
+					&::after {
+						margin-left: -(math.div($arrow, 2));
+					}
+				}
+			}
 		}
 
 		&--top {
@@ -46,28 +100,33 @@
 			bottom: 100%;
 			left: auto;
 			right: -3em;
+			margin-left: initial;
 
 			&::after {
 				bottom: auto;
 				top: 100%;
 				left: auto;
 				right: 3em;
+				margin-left: initial;
 				border-color: #000 transparent transparent;
 			}
 		}
 
+		&--left-icon,
 		&--bottom {
 			top: 100%;
 			bottom: auto;
 			left: auto;
 			right: -3em;
+			margin-left: initial;
 
 			&::after {
 				top: auto;
 				bottom: 100%;
 				left: auto;
 				right: 3em;
-				border-color: #000 transparent transparent;
+				margin-left: initial;
+				border-color: transparent transparent #000;
 			}
 		}
 
@@ -76,10 +135,9 @@
 
 			@media (min-width: $breakpoint-tablet) {
 
-				width: 47.5em;
+				width: $width-wide;
 			}
 		}
-
 
 		a,
 		a:visited {
@@ -87,33 +145,6 @@
 			@include color(color, font-color-light);
 			text-decoration: underline;
 		}
-	}
-
-	&__text::after {
-		content: "";
-		position: absolute;
-		bottom: 100%;
-		left: 31%;
-		margin-left: -20px;
-		border-width: 5px;
-		border-style: solid;
-		border-color: transparent transparent #000;
-	}
-
-	&__text--center::after {
-		left: 55%;
-	}
-
-	&__text--right::after {
-		left: 48%;
-	}
-
-	&__text--left::after {
-		left: 81%;
-	}
-
-	&__text--left-icon::after {
-		left: 91.7%;
 	}
 
 	&:hover &__text {
