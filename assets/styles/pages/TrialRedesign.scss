@@ -7,7 +7,12 @@
 .page-template-template-trialredesign,
 .page-template-template-trial-redesign {
 
-	@include color(background-color, secondary-background);
+	@include color(background-color, main-background);
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		@include color(background-color, secondary-background);
+	}
 
 	.Header,
 	.Newsletter,
@@ -28,13 +33,9 @@
 	$width-left: 45em;
 	$width-left-sm: 34em;
 	$bg-radius: 1.25em;
-
-	@include color(background-color, main-background);
 	display: block;
 
 	@media (min-width: $breakpoint-tablet-landscape) {
-
-		@include color(background-color, secondary-background);
 		display: flex;
 	}
 
