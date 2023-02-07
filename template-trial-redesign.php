@@ -6,6 +6,7 @@
 ?>
 
 <div class="Trial FullScreen">
+	
 	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Trial Logo'])">
 		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
 	</a>
@@ -22,9 +23,9 @@
 			<div class="Signup__form__labels Trial__labels">
 				<div class="Signup__form__labels__label">
 					<?php _e( '7 or 30 days free trial', 'ms' ); ?>&nbsp;
-					<div class="ComparePlans__tooltip">
+					<div class="Tooltip">
 						<div class="fontello-info"></div>
-						<div class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?php _e( 'Free trial for 7 days with a free email, or 30 days with a company email', 'ms' ); ?></div>
+						<div class="Tooltip__text Tooltip__text--top"><?php _e( 'Free trial for 7 days with a free email, or 30 days with a company email', 'ms' ); ?></div>
 					</div>
 				</div>
 				<div class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></div>

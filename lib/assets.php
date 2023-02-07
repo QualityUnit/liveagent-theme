@@ -70,6 +70,7 @@ add_action(
 	'wp_footer',
 	function () {
 		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'popper_js', get_template_directory_uri() . '/assets/dist/popper' . wpenv() . '.js', array( 'wp-i18n' ), THEME_VERSION, true );
 		wp_enqueue_script( 'app_js', get_template_directory_uri() . '/assets/dist/app' . wpenv() . '.js', array( 'wp-i18n' ), THEME_VERSION, true );
 	}
 );

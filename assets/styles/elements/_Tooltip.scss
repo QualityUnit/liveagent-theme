@@ -2,6 +2,7 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+/*
 .ComparePlans__tooltip,
 .Tooltip {
 
@@ -119,6 +120,98 @@
 
 		> span {
 			display: none;
+		}
+	}
+}
+
+.Tooltip .icon {
+
+	@include square(1rem);
+	margin-left: 0.25em;
+	position: relative;
+	top: -1px;
+}
+
+.info-icon {
+
+	@include square(1rem);
+	background: url(../images/info-icon.svg) no-repeat;
+	background-size: contain;
+	margin: 0 0 0 5px;
+	position: relative;
+	top: -1px;
+
+	&.big {
+
+		@include square(1.5rem);
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		display: none;
+	}
+}
+*/
+
+.Tooltip {
+	position: relative;
+	display: inline-block;
+
+	&__text {
+		display: none;
+		z-index: 1;
+		min-width: 250px;
+		padding: 10px;
+		border-radius: 6px;
+		color: $white;
+		font-size: 12px;
+		line-height: 1.56;
+		text-align: center;
+		background-color: $black;
+
+		a,
+		a:visited {
+
+			@include color(color, font-color-light);
+			text-decoration: underline;
+		}
+
+		&[data-show] {
+			display: block;
+		}
+
+		[data-popper-arrow] {
+			visibility: hidden;
+
+			&,
+			&::before {
+				position: absolute;
+				width: 8px;
+				height: 8px;
+				background: inherit;
+			}
+
+			&::before {
+				visibility: visible;
+				content: "";
+				transform: rotate(45deg);
+			}
+		}
+
+		&[data-popper-placement^="top"] > [data-popper-arrow] {
+			bottom: -4px;
+		}
+
+		&[data-popper-placement^="bottom"] > [data-popper-arrow] {
+			top: -4px;
+		}
+
+		&[data-popper-placement^="left"] > [data-popper-arrow] {
+			right: -4px;
+		}
+
+		&[data-popper-placement^="right"] > [data-popper-arrow] {
+			left: -4px;
 		}
 	}
 }

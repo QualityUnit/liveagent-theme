@@ -391,4 +391,63 @@
 			} );
 		} );
 	}
+
+	/* Tooltips */
+	if ( queryAll( '.Tooltip' ).length > 0 && typeof Popper !== 'undefined' ) {
+		queryAll( '.Tooltip' ).forEach( ( button ) => {
+			let defaultPlacement = 'bottom';
+			const tooltip = button.querySelector( '.Tooltip__text' );
+			const arrow = document.createElement( 'div' );
+			arrow.setAttribute( 'data-popper-arrow', '' );
+			tooltip.appendChild( arrow );
+			if ( tooltip.classList.contains( 'Tooltip__text--top' ) ) {
+				defaultPlacement = 'top';
+			}
+			const popperInstance = Popper.createPopper( button, tooltip, {
+				placement: defaultPlacement,
+				modifiers: [
+					{
+						name: 'offset',
+						options: {
+							offset: [ 0, 8 ],
+						},
+					},
+				],
+			} );
+
+			function show() {
+				tooltip.setAttribute( 'data-show', '' );
+				popperInstance.setOptions( ( options ) => ( {
+					...options,
+					modifiers: [
+						...options.modifiers,
+						{ name: 'eventListeners', enabled: true },
+					],
+				} ) );
+				popperInstance.update();
+			}
+
+			function hide() {
+				tooltip.removeAttribute( 'data-show' );
+				popperInstance.setOptions( ( options ) => ( {
+					...options,
+					modifiers: [
+						...options.modifiers,
+						{ name: 'eventListeners', enabled: false },
+					],
+				} ) );
+			}
+
+			const showEvents = [ 'mouseenter', 'focus' ];
+			const hideEvents = [ 'mouseleave', 'blur' ];
+
+			showEvents.forEach( ( event ) => {
+				button.addEventListener( event, show );
+			} );
+
+			hideEvents.forEach( ( event ) => {
+				button.addEventListener( event, hide );
+			} );
+		} );
+	}
 } )();
