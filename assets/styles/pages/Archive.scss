@@ -99,6 +99,7 @@
 				a {
 
 					@include color(color, font-color-normal);
+					text-decoration: none;
 				}
 
 				&.current-menu-item,
@@ -611,6 +612,7 @@
 			a:not(.Button) {
 
 				@include color(color, font-color-dark);
+				text-decoration: none;
 
 				&:active,
 				&:focus,
