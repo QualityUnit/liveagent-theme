@@ -55,9 +55,15 @@
 				<h1 class="FullHeadline__title">
 					<?= esc_html( $subpage->name ); ?>
 				</h1>
+				<?php
+				if ( isset( $subpage->description ) ) {
+					?>
 				<h3 class="FullHeadline__subtitle">
 					<?= esc_html( $subpage->description ); ?>
 				</h3>
+					<?php
+				}
+				?>
 				<?php require_once get_template_directory() . '/templates/content-archive-ms_reviews-sorting.php'; ?>
 			</div>
 		</div>
@@ -88,7 +94,7 @@
 		</div>
 
 		<?php
-			$whatis_post_id    = get_term_meta( $subpage->term_id, 'category_whatis_article', true );
+			$whatis_post_id = get_term_meta( $subpage->term_id, 'category_whatis_article', true );
 			
 		if ( isset( $whatis_post_id ) ) {
 			$whatis_post       = get_post( $whatis_post_id )->post_content;
