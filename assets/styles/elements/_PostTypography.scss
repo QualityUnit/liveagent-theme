@@ -198,6 +198,7 @@
 			a {
 
 				@include color(color, font-color-normal, !important);
+				text-decoration: none;
 
 				&:active,
 				&:focus,

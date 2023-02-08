@@ -157,7 +157,8 @@ a {
 
 	&:not(.Button) {
 
-		@include color(color, primary-color);
+		@include color(color, font-color-dark);
+		text-decoration: underline;
 
 		&:active,
 		&:focus,
@@ -745,6 +746,12 @@ video {
 		font-size: 0.875rem;
 		font-weight: $font-weight-semi;
 		letter-spacing: 0.12em;
+
+		a {
+
+			@include color(color, primary-color);
+			text-decoration: none;
+		}
 	}
 }
 

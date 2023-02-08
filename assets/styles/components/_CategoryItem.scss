@@ -52,6 +52,7 @@
 				a {
 
 					@include color(color, font-color-dark);
+					text-decoration: none;
 				}
 			}
 
@@ -63,6 +64,7 @@
 					@include color(color, font-color-level3);
 					font-size: $font-size-smaller;
 					line-height: $line-height-smaller;
+					text-decoration: none;
 				}
 			}
 		}

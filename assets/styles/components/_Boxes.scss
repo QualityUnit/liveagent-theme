@@ -423,7 +423,8 @@
 
 			a:not(.Button) {
 
-				@include color(color, primary-color);
+				@include color(color, font-color-dark);
+				text-decoration: none;
 
 				&:active,
 				&:focus,
