@@ -1,4 +1,4 @@
-<header class="Header urlslab-skip-keywords">
+<header class="Header urlslab-skip-keywords urlslab-skip-fragment urlslab-skip-all">
 	<div class="wrapper">
 		<div class="Header__logo">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Logo'])">

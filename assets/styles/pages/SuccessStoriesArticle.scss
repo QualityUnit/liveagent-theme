@@ -140,7 +140,10 @@
 				&:active,
 				&:focus,
 				&:hover {
-					text-decoration: none;
+
+					@include color(color, primary-color);
+
+					text-decoration: underline;
 				}
 			}
 

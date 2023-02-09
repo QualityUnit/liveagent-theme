@@ -35,6 +35,7 @@ no-descending-specificity, value-keyword-case */
 		a {
 
 			@include color(color, font-color-dark);
+			text-decoration: none !important;
 		}
 
 		@mixin highlight() {

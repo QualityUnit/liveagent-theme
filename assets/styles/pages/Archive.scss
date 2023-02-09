@@ -99,7 +99,7 @@
 				a {
 
 					@include color(color, font-color-normal);
-					text-decoration: none;
+					text-decoration: none !important;
 				}
 
 				&.current-menu-item,
@@ -617,6 +617,8 @@
 				&:active,
 				&:focus,
 				&:hover {
+
+					@include color(color, font-color-dark);
 					text-decoration: underline;
 				}
 			}
