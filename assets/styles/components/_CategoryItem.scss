@@ -8,6 +8,10 @@
 
 	position: relative;
 
+	a {
+		text-decoration: none !important;
+	}
+
 	&:not(.Category__item--blogLike) {
 
 		border: 1px solid $light-gray;

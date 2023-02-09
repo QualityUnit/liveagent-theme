@@ -44,7 +44,7 @@
 			padding: 0.5em 0;
 			font-size: 0.75rem;
 			line-height: 1;
-			text-decoration: none;
+			text-decoration: none !important;
 
 			&:not(.active)::before {
 
@@ -68,6 +68,8 @@
 			&:active,
 			&:focus,
 			&:hover {
+
+				@include color(color, font-color-level3);
 
 				&::before {
 					transform: scaleX(1);

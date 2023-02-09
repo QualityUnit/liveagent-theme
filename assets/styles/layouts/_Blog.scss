@@ -114,6 +114,10 @@ no-descending-specificity, value-keyword-case */
 			}
 		}
 
+		a {
+			text-decoration: none !important;
+		}
+
 		&__tag-top.post__tag-star {
 
 			position: absolute;
