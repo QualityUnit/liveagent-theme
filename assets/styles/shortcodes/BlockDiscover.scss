@@ -34,17 +34,17 @@ scss/at-extend-no-missing-placeholder */
 		top: 0;
 	}
 
-	h4 {
+	&__title {
 
-		@include color(color, font-color-light);
-		margin: 0;
+		@include color(color, font-color-light, !important);
+		margin: 0 0 1rem !important;
 		font-size: 1.75rem;
 		line-height: 1.285;
 		font-weight: $font-weight-semi;
 	}
 
-	p {
-		margin-bottom: 15px !important;
+	&__text {
+		margin-bottom: 1rem !important;
 		letter-spacing: 0 !important;
 
 		&,

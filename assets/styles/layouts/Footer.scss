@@ -82,6 +82,7 @@
 		a:not(.Button) {
 
 			@include color(color, content-color-light);
+			text-decoration: none;
 
 			&:active,
 			&:focus,
@@ -177,6 +178,7 @@
 	a {
 
 		@include color(color, font-color-light);
+		text-decoration: none;
 	}
 
 	&__contacts,

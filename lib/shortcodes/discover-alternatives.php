@@ -6,7 +6,7 @@ function ms_discover_alternatives( $atts ) {
 			'title'        => '',
 			'orange-title' => '',
 			'text'         => '',
-			'link'         => '',
+			'link'         => '/trial/',
 			'image-link'   => '',
 		),
 		$atts,

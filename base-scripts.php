@@ -15,7 +15,7 @@
 	}
 
 	const acceptButton = document.querySelector( ".Medovnicky__button--yes" );
-	const trialButton = document.querySelector( "#createButtonmain" );
+	const trialButton = document.querySelector( ".createTrialButton" );
 
 	const mobile = window.matchMedia('(max-width: 768px)');
 
@@ -39,7 +39,9 @@
 			createButton();
 		}
 		<?php if ( ! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) ) ) { ?>
-		offlineContactForm();
+		if ( typeof offlineContactForm == 'function' ) {
+			offlineContactForm();
+		}
 		<?php } ?>
 		twitterTracking();
 		postAffiliate();
@@ -274,7 +276,6 @@ if (
 			}
 			var placeholder = document.getElementById('papPlaceholder');
 			placeholder.parentNode.insertBefore(script, placeholder);
-			placeholder.parentNode.removeChild(placeholder);
 		})(document, 'script');
 	}
 
@@ -299,26 +300,26 @@ if (
 </script>
 
 <?php
-if ( WP_ENV === 'production' ) {
+if ( WP_ENV != 'production' ) {
 	?>
 	<script type="module" defer>
-		import { onCLS, onFCP, onFID, onINP, onLCP, onTTFB } from 'https://unpkg.com/web-vitals@3.1.1/dist/web-vitals.js?module';
-
-		function sendToGoogleAnalytics( { name, delta, id } ) {
-			gtag('event', name, {
-				event_category: 'Web Vitals',
-				event_label: id,
-				value: Math.round( name === 'CLS' ? delta * 1000 : delta ),
-				non_interaction: true,
-			});
-		}
-
-		onCLS( sendToGoogleAnalytics );
-		onFCP( sendToGoogleAnalytics );
-		onFID( sendToGoogleAnalytics );
-		onINP( sendToGoogleAnalytics );
-		onLCP( sendToGoogleAnalytics );
-		onTTFB( sendToGoogleAnalytics );
+		// import { onCLS, onFCP, onFID, onINP, onLCP, onTTFB } from 'https://unpkg.com/web-vitals@3.1.1/dist/web-vitals.js?module';
+		//
+		// function sendToGoogleAnalytics( { name, delta, id } ) {
+		// 	gtag('event', name, {
+		// 		event_category: 'Web Vitals',
+		// 		event_label: id,
+		// 		value: Math.round( name === 'CLS' ? delta * 1000 : delta ),
+		// 		non_interaction: true,
+		// 	});
+		// }
+		//
+		// onCLS( sendToGoogleAnalytics );
+		// onFCP( sendToGoogleAnalytics );
+		// onFID( sendToGoogleAnalytics );
+		// onINP( sendToGoogleAnalytics );
+		// onLCP( sendToGoogleAnalytics );
+		// onTTFB( sendToGoogleAnalytics );
 	</script>
 	<?php
 }

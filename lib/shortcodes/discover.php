@@ -7,7 +7,7 @@ function ms_discover( $atts ) {
 			'text'       => '',
 			'button'     => '',
 			'buttonDemo' => '',
-			'link'       => '',
+			'link'       => '/trial/',
 			'linkDemo'   => '/demo',
 			'type'       => 'discover',
 		),
@@ -19,8 +19,8 @@ function ms_discover( $atts ) {
 	?>
 
 	<div class="BlockDiscover BlockDiscover--<?= esc_attr( $atts['type'] ); ?>">
-		<h4><?= esc_html( $atts['title'] ); ?></h4>
-		<p><?= esc_html( $atts['text'] ); ?></p>
+		<p class="BlockDiscover__title"><?= esc_html( $atts['title'] ); ?></p>
+		<p class="BlockDiscover__text"><?= esc_html( $atts['text'] ); ?></p>
 
 		<div class="BlockDiscover__buttons">
 			<a href="<?= esc_url( $atts['link'] ); ?>" class="Button Button--knockout">

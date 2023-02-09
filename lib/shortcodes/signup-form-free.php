@@ -43,7 +43,7 @@ function ms_signup_form_free() {
 			<div data-id="signUpError"></div>
 
 			<div class="Signup__form__submit">
-				<div data-id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form Free', 'Signup']); handleSend();">
+				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form Free', 'Signup']); handleSend();">
 					<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 				</div>
 

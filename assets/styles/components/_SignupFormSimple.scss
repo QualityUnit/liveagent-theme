@@ -40,7 +40,7 @@
 		}
 
 		&__item {
-			margin-bottom: 0.75em;
+			margin-bottom: 1em;
 
 			&__domain {
 				height: calc(50px - 2px);
@@ -85,6 +85,10 @@
 					font-style: normal;
 					color: $medium-gray-quotes;
 				}
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+				padding-right: 8.75rem;
 			}
 		}
 	}

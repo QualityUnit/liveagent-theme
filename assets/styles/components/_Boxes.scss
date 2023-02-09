@@ -314,6 +314,22 @@
 
 			@include hover() {
 				transform: translateY(-2em);
+
+				.learn-more a {
+
+					@include learn-more-hover;
+				}
+			}
+
+			.box-link {
+				position: initial;
+
+				a {
+
+					@include posZero;
+					position: absolute;
+					z-index: 10;
+				}
 			}
 
 			.elementor-widget-wrap {
@@ -338,6 +354,13 @@
 
 			.elementor-widget-heading {
 				padding: 1.75em 1.75em 0;
+
+				.elementor-heading-title {
+					line-height: initial;
+					font-family: $font-secondary;
+					font-size: 1.25em;
+					font-weight: $font-weight-bold;
+				}
 			}
 
 			.elementor-widget-text-editor {
@@ -400,7 +423,8 @@
 
 			a:not(.Button) {
 
-				@include color(color, primary-color);
+				@include color(color, font-color-dark);
+				text-decoration: none;
 
 				&:active,
 				&:focus,

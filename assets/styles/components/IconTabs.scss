@@ -63,6 +63,7 @@
 					font-family: $font-secondary;
 					text-transform: none;
 					transition: all 0.3s;
+					text-decoration: none;
 
 					&::after {
 
@@ -130,6 +131,10 @@
 			> * {
 				flex: 1 0 100%;
 			}
+		}
+
+		a {
+			text-decoration: none !important;
 		}
 	}
 

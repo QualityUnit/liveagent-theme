@@ -45,6 +45,12 @@ if ( document.querySelector( '.Medovnicky' ) !== null ) {
 		} );
 
 	if ( ! getCookie( 'cookieLaw' ) ) {
-		document.querySelector( '.Medovnicky' ).classList.add( 'show' );
+		document.addEventListener( 'touchstart', () => {
+			document.querySelector( '.Medovnicky' ).classList.add( 'show' );
+		} );
+
+		document.addEventListener( 'mousemove', () => {
+			document.querySelector( '.Medovnicky' ).classList.add( 'show' );
+		} );
 	}
 }

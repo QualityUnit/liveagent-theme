@@ -80,6 +80,7 @@
 					padding: 0 1em;
 					margin-bottom: 0.5em;
 					transition: all 0.2s;
+					text-decoration: none !important;
 
 					&:active,
 					&:focus,
@@ -198,6 +199,7 @@
 			a {
 
 				@include color(color, font-color-normal, !important);
+				text-decoration: none;
 
 				&:active,
 				&:focus,

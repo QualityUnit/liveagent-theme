@@ -564,6 +564,10 @@ ul.elementor-icon-list-items {
 		position: relative;
 		padding: 14px;
 
+		a {
+			text-decoration: none !important;
+		}
+
 		.elementor-accordion-icon {
 			width: 24px;
 			height: 24px;
@@ -610,11 +614,15 @@ ul.elementor-icon-list-items {
 
 		a:not(.Button) {
 
-			@include color(color, primary-color);
+			@include color(color, font-color-dark);
+			text-decoration: underline;
 
 			&:active,
 			&:focus,
 			&:hover {
+
+				@include color(color, primary-color);
+
 				text-decoration: underline;
 			}
 		}
