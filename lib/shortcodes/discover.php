@@ -8,7 +8,7 @@ function ms_discover( $atts ) {
 			'button'     => '',
 			'buttonDemo' => '',
 			'link'       => '/trial/',
-			'linkDemo'   => '/demo',
+			'linkDemo'   => '/demo/',
 			'type'       => 'discover',
 		),
 		$atts,
