@@ -41,7 +41,7 @@ while ( $query_reviews_posts->have_posts() ) :
 
 	?>
 		<li class="Reviews__relatedReviews--post Reviews__relatedReviews--post__level2" data-id="<?= get_the_ID(); ?>" data-reviews="<?= esc_attr( meta( 'reviews_count' ) ? meta( 'reviews_count' ) : 0 ); ?>" data-rating="<?= esc_attr( meta( 'rating' ) ? meta( 'rating' ) : 1 ); ?>" data-ourrating="<?= esc_attr( $average ); ?>" data-updated="<?= esc_attr( $rating_update->format( 'Ymd' ) ); ?>" >
-			<a class="flex Reviews__relatedReviews--post__inn" href="<?= get_post()->post_name; // @codingStandardsIgnoreLine ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" itemscope itemtype="https://schema.org/Review">
+			<a class="flex Reviews__relatedReviews--post__inn" href="<?= get_post()->post_name; // @codingStandardsIgnoreLine ?>/" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" itemscope itemtype="https://schema.org/Review">
 				<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
 					<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
 					<meta itemprop="operatingSystem" content="Any" />

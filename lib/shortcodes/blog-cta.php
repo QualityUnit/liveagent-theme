@@ -7,7 +7,7 @@ function ms_blog_cta( $atts ) {
 			'button' => '',
 			'buttonDemo' => '',
 			'link'       => '',
-			'linkDemo'   => '/demo',
+			'linkDemo'   => '/demo/',
 			'link'   => '',
 			'type'   => 'discover',
 		),

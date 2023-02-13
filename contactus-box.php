@@ -90,13 +90,13 @@
 				</span>
 			</li>
 			<li class="ContactUs__menu--item">
-				<a href="http://m.me/LiveAgent/" class="ContactUs__menu--link violet" data-close-target="contactUsMenu" rel="nofollow noopener">
+				<a href="https://m.me/LiveAgent/" class="ContactUs__menu--link violet" data-close-target="contactUsMenu" rel="nofollow noopener external">
 					Messenger
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" />
 				</a>
 			</li>
 			<li class="ContactUs__menu--item">
-				<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?"  class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener">
+				<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?"  class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener external">
 					Whatsapp
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" />
 				</a>

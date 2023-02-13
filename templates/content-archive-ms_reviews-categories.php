@@ -22,14 +22,14 @@
 				'order'      => 'ASC',
 			);
 			$categories = array_unique( get_categories( $cat_args ), SORT_REGULAR );
-			
+
 			if ( $categories ) {
 				foreach ( $categories as $category ) {
 
 					$category_icon = get_term_meta( $category->term_id, 'icon', true );
 					?>
 			<li class="Reviews__categories--category">
-				<a class="Reviews__categories--category__link" href="/reviews/<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>">
+				<a class="Reviews__categories--category__link" href="/reviews/<?= esc_attr( $category->slug ); ?>/" title="<?= esc_attr( $category->name ); ?>">
 					<div class="Reviews__categories--category__image">
 						<?= wp_get_attachment_image( $category_icon ); ?>
 					</div>
