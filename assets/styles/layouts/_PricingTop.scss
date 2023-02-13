@@ -46,6 +46,10 @@
 				display: flex;
 				flex-wrap: wrap;
 
+				a {
+					text-decoration: none;
+				}
+
 				&::before,
 				&::after {
 					content: "";
@@ -79,13 +83,13 @@
 				display: flex;
 				align-items: center;
 				align-content: center;
+				justify-content: center;
 				position: relative;
 				font-family: $font-secondary;
 				font-size: 1.3125rem;
 				font-weight: $font-weight-semi;
 				background-color: $lightest-gray;
 				color: $black;
-				text-align: center;
 				padding: 0.5em 3.5em;
 
 				* {
@@ -146,10 +150,14 @@
 
 			@media (max-width: $breakpoint-tablet) {
 
+				&__inn {
+					width: 100%;
+				}
+
 				&__tab {
 					width: 50%;
-					font-size: 1rem;
-					padding: 1em;
+					font-size: 0.825rem;
+					padding: 0.5em;
 				}
 
 				.LabelTag {
