@@ -64,7 +64,6 @@ if ( comparePlansRows.length ) {
 		let cells = row.querySelectorAll( 'td:not(:first-of-type)' );
 		if ( row.closest( '.ComparePlans.enterprise' ) ) {
 			cells = row.querySelectorAll( 'td:nth-of-type(4), td:nth-of-type(6)' );
-			console.log( cells );
 		}
 		const firstValueCell = cells.item( 0 ).innerText;
 
