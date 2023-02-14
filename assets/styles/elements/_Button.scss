@@ -292,7 +292,10 @@ button,
 			background-color: $white;
 			border-color: $white;
 			color: $black-real;
-			mix-blend-mode: screen;
+
+			a {
+				color: inherit;
+			}
 		}
 	}
 }

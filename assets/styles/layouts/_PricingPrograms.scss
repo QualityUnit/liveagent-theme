@@ -33,6 +33,14 @@
 			margin-bottom: 0;
 		}
 
+		a {
+			text-decoration: none;
+
+			&:hover {
+				color: $black;
+			}
+		}
+
 		> .elementor-container {
 			padding: 1.5em;
 			border-radius: $border-radius-16;

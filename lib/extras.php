@@ -10,6 +10,7 @@ function body_class( $classes ) {
 	if ( is_single() || is_page() && ! is_front_page() ) {
 		if ( ! in_array( basename( get_permalink() ), $classes, true ) ) {
 			$permalink = apply_filters( 'wpml_permalink', get_the_permalink(), 'en', true );
+			$classes[] = preg_replace( '/^http(s)?:\/\/.+?\/([^\/]+)\/.+/', '$2', $permalink );
 			$classes[] = basename( get_permalink() );
 			$classes[] = basename( $permalink );
 		}
