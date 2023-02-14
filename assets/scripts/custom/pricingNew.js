@@ -61,7 +61,11 @@ if ( comparePlansRows.length ) {
 
 	comparePlansRows.forEach( ( row ) => {
 		// Selecting cells except first description one
-		const cells = row.querySelectorAll( 'td:not(:first-of-type' );
+		let cells = row.querySelectorAll( 'td:not(:first-of-type)' );
+		if ( row.closest( '.ComparePlans.enterprise' ) ) {
+			cells = row.querySelectorAll( 'td:nth-of-type(4), td:nth-of-type(6)' );
+			console.log( cells );
+		}
 		const firstValueCell = cells.item( 0 ).innerText;
 
 		// Filtering array of nodes with different values

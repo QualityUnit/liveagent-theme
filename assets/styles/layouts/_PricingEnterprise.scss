@@ -139,7 +139,9 @@
 
 		@media (min-width: $breakpoint-tablet) {
 
-			padding: 2.625em;
+			&[class] {
+				padding: 2.625em !important;
+			}
 
 			&:first-of-type {
 
