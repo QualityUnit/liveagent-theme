@@ -55,6 +55,10 @@
 			border-bottom: none;
 			border-radius: 0;
 
+			.enterprise & {
+				width: 50%;
+			}
+
 			&.first {
 				border-top-left-radius: $border-radius-16;
 			}
@@ -308,10 +312,17 @@
 				}
 			}
 
-			.Tooltip .icon {
+			.Tooltip {
 
-				margin-left: 0.15em;
-				fill: $light-gray-icon;
+				.icon {
+
+					margin-left: 0.25em;
+					fill: $light-gray-icon;
+				}
+
+				&__text {
+					left: -50%;
+				}
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
@@ -336,9 +347,13 @@
 			}
 
 			td {
-				display: block;
+				display: flex;
 				width: 25%;
 				background-color: $white;
+
+				.enterprise & {
+					width: 50%;
+				}
 
 				&:first-of-type {
 					width: 100%;

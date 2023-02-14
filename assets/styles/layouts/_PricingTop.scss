@@ -28,6 +28,11 @@
 
 			.LabelTag {
 				margin-top: 0.5em;
+
+				.icon {
+					margin-left: 0.5em;
+					margin-right: 0;
+				}
 			}
 		}
 
@@ -108,7 +113,7 @@
 
 				&:not(.active) {
 					color: $dark-gray;
-					border-radius: $border-radius-16 $border-radius-16 0 0;
+					border-radius: 0 $border-radius-16 0 0;
 
 					&::before {
 						background: url(../../images/pricing/tab_enterprise.png) center center no-repeat;
@@ -152,6 +157,10 @@
 
 				&__inn {
 					width: 100%;
+
+					&::after {
+						display: none;
+					}
 				}
 
 				&__tab {
