@@ -4,6 +4,7 @@
 @use "../common/mixins" as *;
 
 .FeaturesTableNew {
+	$transition: 0.3s ease;
 	padding: 2em 1.5em 0;
 
 	.elementor-row {
@@ -13,7 +14,7 @@
 	&__feature {
 		position: relative;
 
-		filter: drop-shadow(0 1em 1em rgba($black, 0.09));
+		filter: drop-shadow(0 0.625em 1.25em rgba(145, 145, 145, 0.28));
 
 		.elementor-widget-text-editor.elementor-element {
 
@@ -24,6 +25,7 @@
 			a {
 				font-size: inherit;
 				font-family: inherit;
+				transition: initial;
 
 				&:not([target*="_blank"]) {
 
@@ -56,15 +58,15 @@
 
 			p {
 				font-size: 0.875rem;
-				line-height: 2;
 				margin-bottom: 0;
 			}
-		}
 
-		&.elementor-col-100 .elementor-widget-text-editor.elementor-element {
+			h3 {
+				font-size: 1.875em !important;
+			}
 
 			h4 {
-				font-size: 1.625rem;
+				font-size: 1.5em !important;
 			}
 		}
 
@@ -74,7 +76,7 @@
 			content: "";
 			position: absolute;
 			background-color: $white;
-			box-shadow: inset 0 -15px 20px rgba($black-real, 0.06);
+			box-shadow: inset 0 -15px 20px rgba(157, 157, 157, 0.07);
 			border-radius: $border-radius-16;
 			z-index: -1;
 		}
@@ -84,6 +86,18 @@
 			&.elementor-column {
 				width: 100% !important;
 				padding: 1.5em !important;
+			}
+
+			.bg-right {
+				display: none;
+			}
+
+			.elementor-widget-text-editor {
+				order: 1;
+			}
+
+			.elementor-widget-image {
+				order: 2;
 			}
 		}
 
@@ -135,12 +149,14 @@
 
 					img {
 
-						@include square(calc(100% - 1em));
+						@include square(100%);
 						object-fit: contain;
 					}
 				}
 
 				.elementor-widget-text-editor {
+					position: relative;
+					z-index: 5;
 					width: 50% !important;
 					padding: 0 1.5em;
 				}
@@ -152,13 +168,23 @@
 					bottom: -1em;
 					width: 25%;
 					border-radius: 0;
+					padding: 0 !important;
+					margin: 0 !important;
 					z-index: 0;
 					max-width: none;
 					max-height: none;
 					background-color: transparent;
+					transition: opacity $transition;
 
 					*[class] {
-						max-height: 100%;
+
+						@include square(100%);
+						max-width: initial !important;
+						max-height: initial !important;
+					}
+
+					img {
+						object-fit: cover !important;
 					}
 				}
 
@@ -179,7 +205,6 @@
 		@media (min-width: $breakpoint-tablet-landscape) {
 			$featureRadius: 12em;
 			border-radius: $featureRadius $border-radius-16 $border-radius-16 $featureRadius;
-			filter: drop-shadow(0 1em 3em rgba($black, 0.14));
 
 			.FeaturesTableNew__section--rectangular & {
 				$featureRadius: 2.8125rem;
@@ -234,6 +259,7 @@
 				right: -1em;
 				top: 50%;
 				transform: translateY(-50%);
+				transition: all $transition;
 				z-index: -2;
 			}
 
@@ -247,6 +273,7 @@
 				mask-composite: exclude;
 				mask-composite: xor;
 				border-radius: $featureRadius $border-radius-16 $border-radius-16 $featureRadius;
+				transition: all $transition;
 			}
 
 			&:hover {
@@ -268,6 +295,7 @@
 				.elementor-widget-text-editor.elementor-element {
 
 					@include color(color, font-color-light);
+					transition: color $transition;
 				}
 
 				.elementor-widget-image img {
