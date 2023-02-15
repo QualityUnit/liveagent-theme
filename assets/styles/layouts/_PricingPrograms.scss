@@ -33,6 +33,14 @@
 			margin-bottom: 0;
 		}
 
+		a {
+			text-decoration: none;
+
+			&:hover {
+				color: $black;
+			}
+		}
+
 		> .elementor-container {
 			padding: 1.5em;
 			border-radius: $border-radius-16;
@@ -44,7 +52,7 @@
 				@include posCustom(-1.5em);
 				content: "";
 				position: absolute;
-				background-color: rgba($white, 0.7);
+				background-color: rgba($white, 0.5);
 				opacity: 0.15;
 				transform: skewX(-45deg)  translateX(50%);
 
@@ -76,6 +84,10 @@
 			&-heading {
 				margin-right: auto;
 			}
+		}
+
+		.Button--outline {
+			padding: 0.5em 2em;
 		}
 
 		@media (max-width: $breakpoint-tablet-landscape) {
@@ -133,7 +145,10 @@
 }
 
 .Pricing__program {
-	padding: 2.5em 1.5em 1.5em;
+
+	&[class] {
+		padding: 2.5em 1.5em 1.5em !important;
+	}
 	background-color: $white;
 	border-radius: $border-radius-16;
 	margin-bottom: 1.5em;
@@ -163,15 +178,17 @@
 		margin: 0.35em 0 1.5em auto;
 	}
 
-	.elementor-widget-image {
+	.elementor-widget-image:not(.Woman) {
 		display: flex;
-		width: auto;
 		margin-bottom: 1.5em;
+		width: auto;
+		height: 2.875em;
 
 		img,
 		picture {
-			width: auto;
-			height: 2.375em;
+
+			@include square(100%);
+			object-fit: contain;
 		}
 	}
 

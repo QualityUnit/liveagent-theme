@@ -1,11 +1,13 @@
+/* stylelint-disable value-keyword-case */
+
 // Variables
 @use "sass:map";
-$version: "3.0";
+$version: "3.1";
 
 // Fonts
-$font-primary: "Open Sans", sans-serif;
-$font-secondary: "Poppins", sans-serif;
-$font-third: "Patrick Hand", cursive;
+$font-primary: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-secondary: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-third: "Patrick Hand", "Brush Script MT", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Font Sizes
 $font-size-default: 16px;
@@ -83,7 +85,7 @@ $white: #fff;
 $gray: #231f20;
 $dark-gray: #65676b;
 $medium-gray: #b0b4bb;
-$medium-gray-quotes: #8c9097;
+$medium-gray-quotes: $dark-gray;
 $medium-gray-inputs: #ced0d4;
 $light-gray: #e4e5e9;
 $lighter-gray: #d8dadf;

@@ -237,11 +237,16 @@ const gutenSliders = document.querySelectorAll(
 );
 if ( gutenSliders.length > 0 ) {
 	gutenSliders.forEach( ( slider ) => {
+		slider.querySelectorAll( '[data-src]' ).forEach( ( image ) => {
+			const img = image;
+			img.setAttribute( 'src', img.dataset.src );
+			img.style.cssText = null;
+		} );
 		const gutenSlider = new Splide( slider, {
 			type: 'loop',
-			autoplay: false,
-			lazyload: 'sequential',
+			autoplay: true,
 			direction: direction(),
+			lazyLoad: 'sequential',
 			speed: 300,
 			easing: 'linear',
 			fixedWidth: 'calc(100% - 100px)',
@@ -261,20 +266,20 @@ if ( gutenSliders.length > 0 ) {
 		} );
 
 		if ( 'IntersectionObserver' in window && gutenSliders.length > 0 ) {
-			const gutenSliderObserver = new IntersectionObserver(
+			const testimonialSliderObserver = new IntersectionObserver(
 				( entries ) => {
 					entries.forEach( ( entry ) => {
 						if ( entry.isIntersecting ) {
 							gutenSlider.mount( );
 
 							const sliderObject = entry.target;
-							gutenSliderObserver.unobserve( sliderObject );
+							testimonialSliderObserver.unobserve( sliderObject );
 						}
 					} );
 				}
 			);
-			thisSliders.forEach( ( sliderObject ) => {
-				gutenSliderObserver.observe( sliderObject );
+			gutenSliders.forEach( ( sliderObject ) => {
+				testimonialSliderObserver.observe( sliderObject );
 			} );
 		}
 	} );

@@ -82,6 +82,15 @@ value-keyword-case */
 
 	}
 
+	@media (max-width: $breakpoint-tablet-small) {
+
+		.heroHeadline__home--usedby,
+		.heroHeadline--usedby,
+		.Clients {
+			display: none;
+		}
+	}
+
 	&--info.elementor-column {
 		width: 100%;
 		text-align: center;
@@ -124,6 +133,7 @@ value-keyword-case */
 			padding: 0;
 			margin-bottom: 1rem;
 			margin-left: 0;
+			text-decoration: none;
 		}
 
 		@media (max-width: $breakpoint-tablet) {
@@ -406,7 +416,10 @@ value-keyword-case */
 
 		&::before {
 			content: "";
-			background: url(../images/heroHeadline_bg.jpg?ver=#{$version}) center top no-repeat;
+			background-image: url(../images/heroHeadline_bg.jpg?ver=#{$version});
+			background-image: url(../images/heroHeadline_bg.webp?ver=#{$version});
+			background-position: center top;
+			background-repeat: no-repeat;
 			background-size: cover;
 		}
 

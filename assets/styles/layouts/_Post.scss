@@ -25,7 +25,8 @@ $signupSidebarWidth: 16.875em;
 				padding: 0;
 				overflow: hidden;
 
-				img {
+				img,
+				picture {
 
 					@include square(100%);
 					object-fit: cover;
@@ -92,6 +93,13 @@ $signupSidebarWidth: 16.875em;
 			display: block;
 			width: $sidebarWidth;
 			padding-left: 2em;
+		}
+	}
+
+	.Signup__sidebar-wrapper {
+
+		@media (min-width: $breakpoint-desktop-box) {
+			padding-right: 0.25em;
 		}
 	}
 
@@ -188,7 +196,7 @@ $signupSidebarWidth: 16.875em;
 			margin: 1em 1em 0 0;
 		}
 
-		@media (max-width: $breakpoint-mobile - 1px) {
+		@media (max-width: ($breakpoint-mobile - 1px)) {
 
 			.Button {
 				width: 100%;

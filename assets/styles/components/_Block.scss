@@ -15,6 +15,10 @@ scss/at-extend-no-missing-placeholder */
 
 	&.sm-margin-bottom {
 		margin-bottom: $block-space-sm !important;
+
+		+ .Block {
+			margin-top: $block-space-sm !important;
+		}
 	}
 
 	&.no-margin-bottom {
@@ -99,6 +103,7 @@ scss/at-extend-no-missing-placeholder */
 				color: inherit;
 				font-size: inherit;
 				line-height: inherit;
+				text-decoration: none;
 			}
 		}
 
@@ -636,7 +641,10 @@ scss/at-extend-no-missing-placeholder */
 		@include posCustom(-1em, 2em, -2em, 2em);
 		content: "";
 		position: absolute;
-		background: url(../images/bg_glassy.jpg) 0 0 no-repeat;
+		background-image: url(../../images/bg_glassy.jpg?ver=#{$version});
+		background-image: url(../../images/bg_glassy.webp?ver=#{$version});
+		background-position: 0 0;
+		background-repeat: no-repeat;
 		background-size: cover;
 		border-radius: $border-radius-16;
 		z-index: -1;

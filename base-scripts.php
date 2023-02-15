@@ -15,7 +15,7 @@
 	}
 
 	const acceptButton = document.querySelector( ".Medovnicky__button--yes" );
-	const trialButton = document.querySelector( "#createButtonmain" );
+	const trialButton = document.querySelector( ".createTrialButton" );
 
 	const mobile = window.matchMedia('(max-width: 768px)');
 
@@ -38,6 +38,12 @@
 		if ( typeof createButton == 'function' ) {
 			createButton();
 		}
+		<?php if ( ! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) ) ) { ?>
+		if ( typeof offlineContactForm == 'function' ) {
+			offlineContactForm();
+		}
+		<?php } ?>
+		twitterTracking();
 		postAffiliate();
 	});
 
@@ -51,6 +57,7 @@
 				consentGranted();
 				grafana();
 				gtm();
+				twitterTracking();
 			}
 		});
 	}
@@ -198,7 +205,52 @@ if (
 		&& ! is_search()
 	) {
 	require_once get_template_directory() . '/contactus-box.php';
-} ?>
+} elseif (
+		! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) )
+	) {
+	?>
+	<script type="text/javascript">
+		function offlineContactForm() {
+			(function (d, src, c) {
+				var t = d.scripts[d.scripts.length - 1], s = d.createElement('script');
+				s.id = 'la_x2s6df8d';
+				s.defer = true;
+				s.src = src;
+				s.onload = s.onreadystatechange = function () {
+					var rs = this.readyState;
+					if (rs && (rs != 'complete') && (rs != 'loaded')) {
+						return;
+					}
+					c(this);
+				};
+				t.parentElement.insertBefore(s, t.nextSibling);
+			})(document, 'https://support.qualityunit.com/scripts/track.js', function (e) {
+				LiveAgent.createButton('mwkja3no', e);
+			});
+		}
+
+		if ( getCookieFrontend( "cookieLaw" ) ) {
+			offlineContactForm()
+		}
+	</script>
+	<?php
+}
+?>
+
+
+<!-- Twitter Ads Tracking -->
+<script>
+	function twitterTracking() {
+		!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+		},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+			a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+		twq('config','ocrty');
+	}
+	if ( getCookieFrontend( "cookieLaw" ) ) {
+		twitterTracking()
+	}
+</script>
+
 
 <!-- Post Affiliate Pro -->
 <script type="text/javascript">
@@ -224,7 +276,6 @@ if (
 			}
 			var placeholder = document.getElementById('papPlaceholder');
 			placeholder.parentNode.insertBefore(script, placeholder);
-			placeholder.parentNode.removeChild(placeholder);
 		})(document, 'script');
 	}
 
@@ -236,3 +287,40 @@ if (
 		postAffiliate()
 	}
 </script>
+
+<!-- Dreamdata.io -->
+<script>
+	function dreamdata() {
+	!function(){window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(a){return function(){var t=Array.prototype.slice.call(arguments);return t.unshift(a),window.analytics.push(t),window.analytics}};for(var a=0;a<window.analytics.methods.length;a++){var t=window.analytics.methods[a];window.analytics[t]=window.analytics.factory(t)}analytics.load=function(a){if(!document.getElementById("dreamdata-analytics")){window.__DD_TEMP_ANALYTICS__=window.analytics;var t=document.createElement("script");t.async=!0,t.id="dreamdata-analytics",t.type="text/javascript",t.src="https://cdn.dreamdata.cloud/scripts/analytics/v1/dreamdata.min.js",t.addEventListener("load",function(t){if(analytics&&analytics.initialize)for(analytics.initialize({"Dreamdata.io":{apiKey:a}});window.__DD_TEMP_ANALYTICS__.length>0;){var i=window.__DD_TEMP_ANALYTICS__.shift(),n=i.shift();analytics[n]&&analytics[n].apply(analytics,i)}},!1);var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(t,i)}},analytics.load("dbe2aa1b-ed0a-4045-b83e-b86e284ff7ec"),analytics.page()}();
+	}
+
+	if ( getCookieFrontend( "cookieLaw" ) ) {
+		dreamdata();
+	}
+</script>
+
+<?php
+if ( WP_ENV != 'production' ) {
+	?>
+	<script type="module" defer>
+		// import { onCLS, onFCP, onFID, onINP, onLCP, onTTFB } from 'https://unpkg.com/web-vitals@3.1.1/dist/web-vitals.js?module';
+		//
+		// function sendToGoogleAnalytics( { name, delta, id } ) {
+		// 	gtag('event', name, {
+		// 		event_category: 'Web Vitals',
+		// 		event_label: id,
+		// 		value: Math.round( name === 'CLS' ? delta * 1000 : delta ),
+		// 		non_interaction: true,
+		// 	});
+		// }
+		//
+		// onCLS( sendToGoogleAnalytics );
+		// onFCP( sendToGoogleAnalytics );
+		// onFID( sendToGoogleAnalytics );
+		// onINP( sendToGoogleAnalytics );
+		// onLCP( sendToGoogleAnalytics );
+		// onTTFB( sendToGoogleAnalytics );
+	</script>
+	<?php
+}
+?>

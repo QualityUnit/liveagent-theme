@@ -57,8 +57,7 @@
 
 	<div class="Category__content__description">
 		<div>
-			<span id="countPosts"><?= esc_html( $query_posts->post_count . ' ' . $subpage->name ); ?></span>&nbsp;
-			<?= esc_html( ' ' . __( 'reviews', 'use-case' ) ); ?>
+			<span id="countPosts"><?= esc_html( $query_posts->post_count . ' ' . $subpage->name ); ?></span>
 		</div>
 	</div>
 </div>

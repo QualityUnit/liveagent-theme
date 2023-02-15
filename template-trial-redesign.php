@@ -18,7 +18,7 @@
 		</div>
 		<div class="Trial__main">
 			<h1 class="Trial__main__title"><?php _e( 'Start your <span class="highlight-gradient">free trial</span> today', 'ms' ); ?></h1>
-			<p class="Trial__main__text"><?php _e( "Enjoy testing every feature from our Proffesional plan starting today. Your account's features will be adjusted according to the plan you've selected, after your trial period expire.", 'ms' ); ?></p>
+			<p class="Trial__main__text"><?php _e( "Enjoy testing every feature from our Professional plan starting today. Your account's features will be adjusted according to the plan you've selected, after your trial period expire.", 'ms' ); ?></p>
 			<div class="Signup__form__labels Trial__labels">
 				<div class="Signup__form__labels__label">
 					<?php _e( '7 or 30 days free trial', 'ms' ); ?>&nbsp;

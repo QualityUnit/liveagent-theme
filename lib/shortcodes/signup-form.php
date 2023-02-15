@@ -67,7 +67,7 @@ function ms_signup_form( $atts ) {
 			<div data-id="signUpError"></div>
 
 			<div class="Signup__form__submit">
-				<div data-id="createButtonmain" class="Button Button--full" onclick="handleSend();">
+				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="handleSend();">
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>
 

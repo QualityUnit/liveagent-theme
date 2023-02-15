@@ -9,16 +9,16 @@
 <div id="category" class="Category">
 	<div class="FullHeadline FullHeadline__use-cases">
 		<div class="wrapper text-align-center">
-			<h2 class="FullHeadline__title">
+			<h1 class="FullHeadline__title">
 				<?php _e( '<span class="highlight__bubble">Use case</span> scenarios', 'use-case' ); ?>
-			</h2>
-			<h3 class="FullHeadline__subtitle"><?php _e( 'Boost satisfaction, revenue, and loyalty starting today.', 'use-case' ); ?></h3>
+			</h1>
+			<div class="FullHeadline__subtitle"><?php _e( 'Boost satisfaction, revenue, and loyalty starting today.', 'use-case' ); ?></div>
 
 			<div class="flex flex-justify-center Buttons">
-					<a href="<?php _e( '/trial', 'ms' ); ?>" class="Button Button--full">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 						<span><?php _e( 'Start 14 day trial', 'ms' ); ?></span>
 					</a>
-					<a href="<?php _e( '/business', 'use-case' ); ?>" class="Button Button--outline">
+					<a href="<?php _e( '/business/', 'use-case' ); ?>" class="Button Button--outline">
 						<span><?php _e( 'Find my solution', 'use-case' ); ?></span>
 					</a>
 			</div>
@@ -34,7 +34,7 @@
 				$query_success_stories_posts->the_post();
 
 					$regions_meta = get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories-region', true );
-				
+
 				if ( $regions_meta ) {
 					$regions = $regions_meta;
 				}
@@ -131,9 +131,9 @@
 									<span onclick="_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - <?= esc_html( $region_name ); ?>'])"><?= esc_html( $region_name ); ?></span>
 								</label>
 							</div>
-							<?php 
-					} 
-				} 
+							<?php
+					}
+				}
 				?>
 				</div>
 

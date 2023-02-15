@@ -154,52 +154,6 @@
 	}
 }
 
-.elementor-fit-aspect-ratio {
-	position: relative;
-	height: 0;
-
-	iframe {
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		border: 0;
-		background-color: #000;
-	}
-
-	video {
-		width: 100%;
-	}
-}
-
-.elementor-aspect-ratio {
-
-	&-219 .elementor-fit-aspect-ratio {
-		padding-bottom: 42.8571%;
-	}
-
-	&-169 .elementor-fit-aspect-ratio {
-		padding-bottom: 56.25%;
-	}
-
-	&-43 .elementor-fit-aspect-ratio {
-		padding-bottom: 75%;
-	}
-
-	&-32 .elementor-fit-aspect-ratio {
-		padding-bottom: 66.6666%;
-	}
-
-	&-11 .elementor-fit-aspect-ratio {
-		padding-bottom: 100%;
-	}
-
-	&-916 .elementor-fit-aspect-ratio {
-		padding-bottom: 177.8%;
-	}
-}
-
 @media (max-width: 768px) {
 
 	.elementor-section .elementor-container {
@@ -564,6 +518,10 @@ ul.elementor-icon-list-items {
 		position: relative;
 		padding: 14px;
 
+		a {
+			text-decoration: none !important;
+		}
+
 		.elementor-accordion-icon {
 			width: 24px;
 			height: 24px;
@@ -610,11 +568,15 @@ ul.elementor-icon-list-items {
 
 		a:not(.Button) {
 
-			@include color(color, primary-color);
+			@include color(color, font-color-dark);
+			text-decoration: underline;
 
 			&:active,
 			&:focus,
 			&:hover {
+
+				@include color(color, primary-color);
+
 				text-decoration: underline;
 			}
 		}

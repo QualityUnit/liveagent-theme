@@ -11,10 +11,9 @@
 	@include color(color, font-color-light);
 	@include shakeX(2em);
 	position: fixed;
-	bottom: 25px;
 	left: 25px;
 	z-index: 9999999;
-	display: none;
+	bottom: -225px;
 	flex-flow: wrap row;
 	justify-content: flex-start;
 	align-items: center;
@@ -23,6 +22,7 @@
 	height: auto;
 	overflow: hidden;
 	border-radius: $border-radius-16;
+	transition: bottom 0.5s;
 
 	&.shakeX {
 		animation: shakeX 0.75s;
@@ -109,18 +109,19 @@
 	}
 
 	&.show {
-		display: block;
+		bottom: 25px;
 	}
 
 	&.hide {
-		display: none;
+		bottom: -235px;
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		bottom: 0;
 		left: 0;
 		width: 100%;
 		z-index: 10000000;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
 
 		p {
 			font-size: $font-size-smaller;
@@ -133,6 +134,14 @@
 
 		&__buttons[class] {
 			justify-content: center;
+		}
+
+		&.show {
+			bottom: 0;
+		}
+
+		&.hide {
+			bottom: -225px;
 		}
 	}
 }

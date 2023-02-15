@@ -17,9 +17,10 @@
 
 	&__top {
 
-		h1 {
-			font-size: 2.5rem;
+		h1[class] {
+			font-size: 2.5rem !important;
 			text-align: center;
+			margin: 1em auto 0;
 		}
 
 		.Pricing__labels {
@@ -27,6 +28,11 @@
 
 			.LabelTag {
 				margin-top: 0.5em;
+
+				.icon {
+					margin-left: 0.5em;
+					margin-right: 0;
+				}
 			}
 		}
 
@@ -44,6 +50,10 @@
 				position: relative;
 				display: flex;
 				flex-wrap: wrap;
+
+				a {
+					text-decoration: none;
+				}
 
 				&::before,
 				&::after {
@@ -78,13 +88,13 @@
 				display: flex;
 				align-items: center;
 				align-content: center;
+				justify-content: center;
 				position: relative;
 				font-family: $font-secondary;
 				font-size: 1.3125rem;
 				font-weight: $font-weight-semi;
 				background-color: $lightest-gray;
 				color: $black;
-				text-align: center;
 				padding: 0.5em 3.5em;
 
 				* {
@@ -103,6 +113,7 @@
 
 				&:not(.active) {
 					color: $dark-gray;
+					border-radius: 0 $border-radius-16 0 0;
 
 					&::before {
 						background: url(../../images/pricing/tab_enterprise.png) center center no-repeat;
@@ -144,10 +155,18 @@
 
 			@media (max-width: $breakpoint-tablet) {
 
+				&__inn {
+					width: 100%;
+
+					&::after {
+						display: none;
+					}
+				}
+
 				&__tab {
 					width: 50%;
-					font-size: 1rem;
-					padding: 1em;
+					font-size: 0.825rem;
+					padding: 0.5em;
 				}
 
 				.LabelTag {

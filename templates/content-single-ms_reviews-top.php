@@ -40,6 +40,9 @@ function progressbar( $text, $rating, $color ) {
 							<?php _e( 'Reviews', 'ms' ); ?>
 						</a>
 					</li>
+					<?php
+					if ( isset( $category_slug ) ) {
+						?>
 					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
 						<meta itemprop="name" content="<?= esc_attr( $category_name ); ?>" />
 						<meta itemprop="position" content="2" />
@@ -47,6 +50,9 @@ function progressbar( $text, $rating, $color ) {
 							<?= esc_html( $category_name ); ?>
 						</a>
 					</li>
+						<?php
+					}
+					?>
 					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
 						<meta itemprop="name" content="<?= esc_attr( $titleplain ); ?>" />
 						<meta itemprop="position" content="3" />
@@ -57,7 +63,7 @@ function progressbar( $text, $rating, $color ) {
 
 			<div class="flex-tablet Reviews__header--post__bottom">
 				<h1 class="Reviews__header--post__title" itemprop="name"><?= $posttitle; // @codingStandardsIgnoreLine ?></h1>
-				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_attr( get_the_modified_time( 'F j, Y' ) ); ?>"> 
+				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_attr( get_the_modified_time( 'F j, Y' ) ); ?>">
 					<?= esc_html( __( 'Review Last update:', 'reviews' ) . ' ' ); ?>
 					<em><?= esc_html( get_the_modified_time( 'F j, Y' ) ); ?></em>
 				</time>
@@ -80,7 +86,7 @@ function progressbar( $text, $rating, $color ) {
 					foreach ( $categories as $category ) {
 						?>
 				<li class="Post__sidebar__link mr-s">
-					<a href="../../<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
+					<a href="../../<?= esc_attr( $category->slug ); ?>/" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
 				</li>
 						<?php
 					}
@@ -117,14 +123,14 @@ function progressbar( $text, $rating, $color ) {
 						<div class="Reviews__rating--stars">
 							<div class="Reviews__rating--stars__fill" style="width:<?= esc_attr( ( meta( 'rating' ) / 5 * 100 ) . '%' ); ?>"></div>
 						</div>
-	
+
 						<div class="Tooltip Reviews__rating--tooltip">
 							<div class="info-icon"></div>
 							<span class="Tooltip__text Reviews__rating--tooltip__text">
 								<?php _e( 'Average rating based on data from trusted review portals', 'reviews' ); ?>
-	
-								<time class="Reviews__update fit" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>"> 
-	
+
+								<time class="Reviews__update fit" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>">
+
 									<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . $rating_update->format( 'F j, Y' ) ); ?>
 								</time>
 							</span>
@@ -140,7 +146,7 @@ function progressbar( $text, $rating, $color ) {
 
 			<div class="flex">
 				<span class="h3 no-margin mr-s Reviews__info--title"><?php _e( 'Pricing', 'reviews' ); ?></span>
-				<time class="Reviews__update small text-light" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>"> 
+				<time class="Reviews__update small text-light" itemprop="dateModified" content="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>" datetime="<?= esc_attr( $rating_update->format( 'F j, Y' ) ); ?>">
 					<?= esc_html( __( 'Rating Last Update:', 'reviews' ) . ' ' . $rating_update->format( 'F j, Y' ) ); ?>
 				</time>
 			</div>
@@ -157,7 +163,7 @@ function progressbar( $text, $rating, $color ) {
 						</span>
 					</div>
 
-					<?php 
+					<?php
 							$plan = meta( 'equal_la_plan' );
 
 							$free        = __( "Equal to LiveAgent's Free plan", 'reviews' );
@@ -166,7 +172,7 @@ function progressbar( $text, $rating, $color ) {
 							$all         = __( "Equal to LiveAgent's All Inclusive plan", 'reviews' );
 							$la_pricing  = __( 'Liveagent pricing', 'reviews' );
 
-							$la_pricing_url = __( '/pricing', 'reviews' );
+							$la_pricing_url = __( '/pricing/', 'reviews' );
 
 					if ( ! empty( $plan ) ) {
 						?>
@@ -229,7 +235,7 @@ function progressbar( $text, $rating, $color ) {
 					<ul class="splide__list">
 
 						<?php
-						if ( ! empty( $gallery ) ) { 
+						if ( ! empty( $gallery ) ) {
 							foreach ( $gallery as $thumbnail ) {
 								?>
 						<li class="splide__slide Reviews__Gallery--thumbnail">
@@ -261,10 +267,10 @@ function progressbar( $text, $rating, $color ) {
 		<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
 			<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
 		</span>
-		
+
 		<div class="Reviews__editor--top">
 			<div class="Reviews__editor--titles">
-				<h2 class="tag mb-s"><span><?php _e( "Editor's rating", 'reviews' ); ?>:</span></h2>
+				<h2 class="tag mb-s"><span><?= esc_html( get_the_author() ); ?></span></h2>
 				<h3 class="Reviews__editor--title"><?php _e( "Editor's rating", 'reviews' ); ?></h3>
 			</div>
 
@@ -276,12 +282,13 @@ function progressbar( $text, $rating, $color ) {
 					<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
 						<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
 					</span>
+					<strong class="Reviews__rating--overall"><?php _e( 'Overall rating', 'reviews' ); ?></strong>
 					<div class="flex flex-align-center">
 						<span class="Reviews__rating--rating" itemprop="ratingValue">
 							<?= esc_html( $average ); ?>
 						</span>
 						<div class="Reviews__rating--stars white">
-							<div class="Reviews__rating--stars__fill" 
+							<div class="Reviews__rating--stars__fill"
 							style="width:<?= esc_attr( ( $average / 5 * 103.3 ) . '%' ); ?>"></div>
 						</div>
 					</div>

@@ -70,6 +70,7 @@
 
 		@media (max-width: $breakpoint-tablet) {
 			width: 100%;
+			padding: 0 1.5em;
 		}
 
 		h3 {
@@ -121,11 +122,15 @@
 
 				a:not(.Button) {
 
-					@include color(color, primary-color);
+					@include color(color, font-color-dark);
+					text-decoration: underline;
 
 					&:active,
 					&:focus,
 					&:hover {
+
+						@include color(color, primary-color);
+
 						text-decoration: underline;
 					}
 				}
