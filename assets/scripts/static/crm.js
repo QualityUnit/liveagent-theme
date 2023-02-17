@@ -574,10 +574,6 @@
 	}( sF ) );
 
 	function parseError( response, def ) {
-		if ( response.status === 500 ) {
-			return def;
-		}
-
 		try {
 			const errorData = JSON.parse( response.responseText );
 			return errorData.message;
