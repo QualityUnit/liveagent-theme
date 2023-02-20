@@ -42,7 +42,13 @@ function ms_signup_form( $atts ) {
 			</div>
 
 			<div data-id="mailFieldmain" class="Signup__form__item fontello-mail">
-				<input type="email" name="Email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+				<input type="email" name="Email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255" onKeyUp="checkCompanyMail()">
+				<div data-id="messageTrial" class="InfoMessage hidden">
+					<svg class="InfoMessage__icon">
+						<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#info-solid' ) ?>"></use>
+					</svg>
+					<span class="InfoMessage__text"><?php _e( 'Use your company email to get a 30 day trial for free.', 'ms' ); ?></span>
+				</div>
 				<div class="ErrorMessage"></div>
 			</div>
 
@@ -92,11 +98,23 @@ function ms_signup_form( $atts ) {
 		add_action( 'wp_footer', function() {
 	?>
 	<script>
+            const mailRegex = '@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex' + '.com|gmx.us|@gmx.com)$';
+            const mailInput = document.querySelector('input[type="email"]');
+            const mailMessage = document.querySelector('[data-id="messageTrial"]');
+            function checkCompanyMail() {
+                const mailValue = mailInput.value;
+                if (mailValue) {
+                    const mailSecondary = new RegExp(mailRegex).test(mailValue);
+                    if(mailSecondary) {
+                        mailMessage.classList.remove("hidden");
+                    }
+                }
+            }
 			function handleSend() {
-				const mailValue = document.querySelector('input[type="email"]').value;
+				const mailValue = mailInput.value;
 
 				if (mailValue) {
-					const mailSecondary = new RegExp('@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex.com|gmx.us|@gmx.com)$').test(mailValue);
+					const mailSecondary = new RegExp(mailRegex).test(mailValue);
 
 					gtag('event', 'conversion', {'send_to': 'AW-966671101/wm4uCIGl0eQDEP31-MwD'});
 

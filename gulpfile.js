@@ -52,10 +52,8 @@ gulp.task( 'browser-sync', () => {
 
 	gulp.watch( './assets/styles/**/*.scss', gulp.series( 'styles' ) );
 	gulp.watch( './assets/scripts/app/**/*.js', gulp.series( 'app-js' ) );
-	gulp.watch(
-		'./assets/scripts/vendor/splide.js',
-		gulp.series( 'splide-js' )
-	);
+	gulp.watch( './assets/scripts/vendor/splide.js', gulp.series( 'splide-js' ) );
+	gulp.watch( './assets/scripts/vendor/popper.js', gulp.series( 'popper-js' ) );
 	gulp.watch( './assets/scripts/custom/**/*.js', gulp.series( 'custom-js' ) );
 	gulp.watch( './assets/scripts/static/**/*.js', gulp.series( 'static-js' ) );
 	gulp.watch(
@@ -172,6 +170,21 @@ gulp.task( 'splide-js', () =>
 		.pipe( browserSync.reload( { stream: true } ) )
 );
 
+gulp.task( 'popper-js', () =>
+	gulp
+		.src( [ './assets/scripts/vendor/popper.js' ] )
+		.pipe( gulp.dest( './assets/dist' ) )
+		.pipe(
+			rename( {
+				basename: 'popper',
+				suffix: '.min',
+			} )
+		)
+		.pipe( terser() )
+		.pipe( gulp.dest( './assets/dist/' ) )
+		.pipe( browserSync.reload( { stream: true } ) )
+);
+
 gulp.task( 'app-js', () =>
 	gulp
 		.src( './assets/scripts/app/**/*.js' )
@@ -237,6 +250,7 @@ gulp.task(
 		'clean-dist',
 		'styles',
 		'splide-js',
+		'popper-js',
 		'app-js',
 		'custom-js',
 		'langFlagsSprite',
@@ -251,6 +265,7 @@ gulp.task(
 		'clean-dist',
 		'styles',
 		'splide-js',
+		'popper-js',
 		'app-js',
 		'custom-js',
 		'static-js',
