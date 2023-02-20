@@ -131,14 +131,6 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 		.elementor-widget-text-editor {
 			padding: 0 1.5em;
 		}
-
-		.learn-more {
-
-			a {
-
-				font-size: 0.875rem;
-			}
-		}
 	}
 
 	&__icon {
@@ -279,6 +271,28 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 
 			@extend .highlight-gradient;
 			font-size: 1.5rem;
+		}
+	}
+}
+
+.Box--link {
+
+	@include hover() {
+
+		.learn-more a {
+
+			@include learn-more-hover;
+		}
+	}
+
+	.box-link {
+		position: initial;
+
+		a {
+
+			@include posZero;
+			position: absolute;
+			z-index: 10;
 		}
 	}
 }
