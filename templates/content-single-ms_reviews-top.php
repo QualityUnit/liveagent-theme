@@ -214,10 +214,10 @@ function progressbar( $text, $rating, $color ) {
 								<img name="screenshot" data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $main_img, 'blog_archive_thumbnail' ) ) ?>" alt=""/>
 							</div>
 							<div class="Reviews__Gallery--main__desc">
-									<h5>
+									<p class="h5">
 									<?= esc_html( get_post_meta( $main_img, '_wp_attachment_image_alt', true ) ); ?>
 									<?= esc_html( ( $index + 1 ) . '/' . $total_img ); ?>
-									</h5>
+									</p>
 									<p><?= esc_html( get_post( $main_img )->post_content ); ?></p>
 								</div>
 							</a>
