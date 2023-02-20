@@ -56,11 +56,11 @@
 					<?= esc_html( $subpage->name ); ?>
 				</h1>
 				<?php
-				if ( isset( $subpage->description ) ) {
+				if ( ! empty( $subpage->description ) ) {
 					?>
-				<h3 class="FullHeadline__subtitle">
+				<p class="FullHeadline__subtitle">
 					<?= esc_html( $subpage->description ); ?>
-				</h3>
+				</p>
 					<?php
 				}
 				?>
