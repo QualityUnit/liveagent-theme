@@ -207,3 +207,7 @@ ul:not([class]) li::before {
 		padding-right: 0;
 	}
 }
+
+.elementor-element[class*="elementor-element-"] .elementor-wrapper {
+	aspect-ratio: auto !important;
+}

@@ -350,6 +350,16 @@
 					overflow: hidden;
 					max-height: 15em;
 				}
+
+				&.box-image-wide {
+					padding: 0;
+
+					a,
+					img {
+						border-bottom-left-radius: 0;
+						border-bottom-right-radius: 0;
+					}
+				}
 			}
 
 			.elementor-widget-heading {

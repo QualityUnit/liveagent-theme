@@ -36,6 +36,7 @@ button,
 		}
 
 		a {
+			text-decoration: none !important;
 
 			&::before {
 				content: "";
@@ -43,6 +44,12 @@ button,
 				@include posZero;
 				position: absolute;
 				cursor: pointer;
+			}
+
+			&:active,
+			&:focus,
+			&:hover {
+				text-decoration: none !important;
 			}
 		}
 	}
@@ -130,6 +137,14 @@ button,
 	&:hover {
 
 		@extend %Button--full--hover;
+	}
+
+	&.elementor-widget-button {
+
+		span {
+
+			@include color(color, button-full-font-color, !important);
+		}
 	}
 }
 
@@ -277,7 +292,10 @@ button,
 			background-color: $white;
 			border-color: $white;
 			color: $black-real;
-			mix-blend-mode: screen;
+
+			a {
+				color: inherit;
+			}
 		}
 	}
 }

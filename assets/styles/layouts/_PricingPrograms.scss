@@ -33,6 +33,14 @@
 			margin-bottom: 0;
 		}
 
+		a {
+			text-decoration: none;
+
+			&:hover {
+				color: $black;
+			}
+		}
+
 		> .elementor-container {
 			padding: 1.5em;
 			border-radius: $border-radius-16;
@@ -137,7 +145,10 @@
 }
 
 .Pricing__program {
-	padding: 2.5em 1.5em 1.5em;
+
+	&[class] {
+		padding: 2.5em 1.5em 1.5em !important;
+	}
 	background-color: $white;
 	border-radius: $border-radius-16;
 	margin-bottom: 1.5em;
@@ -167,15 +178,17 @@
 		margin: 0.35em 0 1.5em auto;
 	}
 
-	.elementor-widget-image {
+	.elementor-widget-image:not(.Woman) {
 		display: flex;
-		width: auto;
 		margin-bottom: 1.5em;
+		width: auto;
+		height: 2.875em;
 
 		img,
 		picture {
-			width: auto;
-			height: 2.875em;
+
+			@include square(100%);
+			object-fit: contain;
 		}
 	}
 
