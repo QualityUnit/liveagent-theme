@@ -73,8 +73,11 @@
 			width: 100%;
 
 			p {
-				margin-bottom: 0;
 				font-family: $font-secondary;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}

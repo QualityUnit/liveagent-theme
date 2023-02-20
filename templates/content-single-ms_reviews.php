@@ -70,7 +70,7 @@ function meta( $metabox_id ) {
 					if ( ! empty( meta( 'pros' ) ) ) {
 						?>
 					<div class="wp-block-column checklist checklist--pros">
-						<h4><?php _e( 'Pros', 'reviews' ); ?></h4>
+						<h3><?php _e( 'Pros', 'reviews' ); ?></h3>
 						<ul itemprop="positiveNotes" itemtype="https://schema.org/ItemList" itemscope>
 							<?= preg_replace(
 								"/(.+?)(\n|$)/",
@@ -83,7 +83,7 @@ function meta( $metabox_id ) {
 					if ( ! empty( meta( 'cons' ) ) ) {
 						?>
 						<div class="wp-block-column checklist checklist--cons">
-							<h4><?php _e( 'Cons', 'reviews' ); ?></h4>
+							<h3><?php _e( 'Cons', 'reviews' ); ?></h3>
 							<ul itemprop="negativeNotes" itemtype="https://schema.org/ItemList" itemscope>
 								<?= preg_replace(
 									"/(.+?)(\n|$)/",
