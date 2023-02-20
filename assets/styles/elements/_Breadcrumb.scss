@@ -1,0 +1,49 @@
+/* stylelint-disable selector-class-pattern */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.breadcrumbs {
+
+	ol {
+
+		@include color(color, font-color-normal);
+		list-style: none;
+		display: flex;
+		flex-flow: wrap row;
+		font-size: 0.75rem;
+		line-height: 1.26;
+
+		li {
+			display: inline-block;
+			margin-right: 1em;
+
+			+ li {
+				margin-left: 1em;
+
+				&::before {
+					content: ">";
+					margin-left: -8px;
+					margin-right: 1em;
+					font-weight: $font-weight-bold;
+					background-image: none !important;
+				}
+			}
+
+			&:last-of-type {
+
+				@include color(color, font-color-dark);
+			}
+		}
+	}
+
+	a {
+
+		@include color(color, font-color-normal, !important);
+
+		&:active,
+		&:focus,
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
