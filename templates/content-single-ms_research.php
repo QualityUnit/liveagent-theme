@@ -1,5 +1,4 @@
 <?php // @codingStandardsIgnoreLine
-//	set_custom_source( 'pages/Research', 'css' );
 	set_custom_source( 'common/splide', 'css' );
 	set_custom_source( 'splide', 'js' );
 	set_custom_source( 'sidebar_toc', 'js' );
