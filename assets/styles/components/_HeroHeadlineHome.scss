@@ -134,6 +134,11 @@ value-keyword-case */
 			margin-bottom: 1rem;
 			margin-left: 0;
 			text-decoration: none;
+
+			&::before {
+
+				@include square(3.45em);
+			}
 		}
 
 		@media (max-width: $breakpoint-tablet) {
