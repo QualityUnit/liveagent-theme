@@ -1,5 +1,4 @@
 <?php // @codingStandardsIgnoreLine
-	set_custom_source( 'pages/Reviews', 'css' );
 	set_custom_source( 'pages/Directory', 'css' );
 	set_custom_source( 'common/splide' );
 	set_custom_source( 'reviewsGallery', 'js' );
@@ -29,7 +28,7 @@ function meta( $metabox_id ) {
 }
 ?>
 
-<div class="Post Reviews">	
+<div class="Post Reviews">
 	<?php
 	require_once get_template_directory() . '/templates/content-single-ms_reviews-top.php';
 	?>
@@ -60,7 +59,7 @@ function meta( $metabox_id ) {
 		<div class="Post__content">
 
 			<div class="Content" itemprop="articleBody">
-				<?php 
+				<?php
 				if ( ! empty( meta( 'pros' ) ) || ! empty( meta( 'cons' ) ) ) {
 					?>
 				<h2><?php _e( 'Key takeaways', 'reviews' ); ?></h2>
@@ -151,7 +150,7 @@ function meta( $metabox_id ) {
 					?>
 						<li class="Reviews__relatedReviews--post <?= ( get_the_ID() === $current_id ) ? 'active' : '' ?>" >
 							<a class="flex Reviews__relatedReviews--post__inn" href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" itemprop="review" itemscope itemtype="https://schema.org/Review">
-								
+
 								<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
 									<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
 									<meta itemprop="operatingSystem" content="Any" />
@@ -175,12 +174,12 @@ function meta( $metabox_id ) {
 										<span class="mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>
 										<meta itemprop="reviewCount" content="<?= esc_attr( get_post_meta( get_the_ID(), 'reviews_count', true ) ); ?>" />
 										<div class="Reviews__rating--stars mr-m <?= ( get_the_ID() === $current_id ) ? '' : 'grey' ?>">
-											<div class="Reviews__rating--stars__fill" 
+											<div class="Reviews__rating--stars__fill"
 											style="width:<?= esc_attr( ( $rating_post / 5 * 100 ) . '%' ); ?>"></div>
 										</div>
 										<span class="mr-xs"><?= esc_html( get_post_meta( get_the_ID(), 'reviews_count', true ) ); ?></span><span><?= esc_html( __( 'reviews', 'reviews' ) ); ?></span>
 									</div>
-									
+
 									<?php
 								}
 								?>

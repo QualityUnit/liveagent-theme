@@ -84,19 +84,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="heroHeadline__home--usedby elementor-widget elementor-widget-heading">
-								<div class="elementor-widget-container">
-									<div class="elementor-heading-title elementor-size-default h6"><?php _e( 'Used by', 'ms' ); ?></div>
-								</div>
-							</div>
-							<div class="elementor-widget elementor-widget-shortcode" data-widget_type="shortcode.default">
-								<div class="elementor-widget-container">
-									<div class="elementor-shortcode">
-
-										<?php echo do_shortcode( '[clients posts=4]' ); ?>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 					<div class="elementor-column heroHeadline--bg">
