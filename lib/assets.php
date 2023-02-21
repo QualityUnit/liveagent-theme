@@ -36,6 +36,10 @@ add_action(
 
 		wp_enqueue_style( 'header', get_template_directory_uri() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 
+		if ( is_singular( 'ms_research' ) ) {
+			wp_enqueue_style( 'research-single', get_template_directory_uri() . '/assets/dist/pages/Research' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
+
 		if ( is_page_template( 'elementor.php' ) || is_page_template( 'front-page.php' ) || is_page_template( 'page.php' ) || is_page_template( 'template-academy-header.php' ) || is_page_template( 'template-blog-header.php' ) ) {
 			wp_enqueue_style( 'elementor-layout', get_template_directory_uri() . '/assets/dist/Elementor' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
