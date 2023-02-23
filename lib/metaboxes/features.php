@@ -14,9 +14,9 @@ $metabox = array(
 			'type'        => 'multiselect',
 			'args'        => array(
 				'Free'          => 'free',
-				'Ticket'        => 'ticket',
-				'Ticket+Chat'   => 'ticket-chat',
-				'All-Inclusive' => 'all-inclusive',
+				'Small'        => 'ticket',
+				'Medium'   => 'ticket-chat',
+				'Large' => 'all-inclusive',
 				'Extensions'    => 'extensions',
 			),
 		),

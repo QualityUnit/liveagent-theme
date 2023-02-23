@@ -126,7 +126,7 @@ function ms_block_pricing( $atts ) {
 						<div class="elementor-widget-container">
 							<div class="elementor-text-editor elementor-clearfix">
 								<p><?php _e( 'for 6 months', 'ms' ); ?>
-									<br><br><strong><?php _e( 'All-Inclusive plan', 'ms' ); ?></strong></p>
+									<br><br><strong><?php _e( 'Large plan', 'ms' ); ?></strong></p>
 							</div>
 						</div>
 					</div>

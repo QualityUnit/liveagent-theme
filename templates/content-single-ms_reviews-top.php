@@ -167,9 +167,9 @@ function progressbar( $text, $rating, $color ) {
 							$plan = meta( 'equal_la_plan' );
 
 							$free        = __( "Equal to LiveAgent's Free plan", 'reviews' );
-							$ticket      = __( "Equal to LiveAgent's Ticket plan", 'reviews' );
-							$ticket_chat = __( "Equal to LiveAgent's Ticket + Chat plan", 'reviews' );
-							$all         = __( "Equal to LiveAgent's All Inclusive plan", 'reviews' );
+							$ticket      = __( "Equal to LiveAgent's Small plan", 'reviews' );
+							$ticket_chat = __( "Equal to LiveAgent's Medium plan", 'reviews' );
+							$all         = __( "Equal to LiveAgent's Large plan", 'reviews' );
 							$la_pricing  = __( 'Liveagent pricing', 'reviews' );
 
 							$la_pricing_url = __( '/pricing/', 'reviews' );
