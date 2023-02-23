@@ -158,6 +158,10 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 
 		.elementor-widget-heading .elementor-heading-title {
 			margin-bottom: 1em;
+
+			a {
+				text-decoration: none !important;
+			}
 		}
 
 		div[data-widget_type*="image"] {
