@@ -152,19 +152,21 @@
 
 	&[class] {
 		padding: 2.5em 1.5em 1.5em !important;
+		width: 100%;
 	}
+
 	background-color: $white;
 	border-radius: $border-radius-16;
 	margin-bottom: 1.5em;
 
-	@media (min-width: $breakpoint-tablet) {
+	@media (min-width: 481px) {
 
 		&[class] {
 			width: 50%;
 		}
 	}
 
-	@media (min-width: $breakpoint-tablet-landscape) {
+	@media (min-width: $breakpoint-desktop-box) {
 
 		&[class] {
 			width: 25%;
@@ -259,7 +261,7 @@
 		left: -2px;
 	}
 
-	@media (min-width: $breakpoint-tablet-landscape) {
+	@media (min-width: $breakpoint-desktop-box) {
 
 		&.free {
 			width: calc(25% - 1em);
