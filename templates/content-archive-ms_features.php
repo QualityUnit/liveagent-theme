@@ -66,9 +66,9 @@
 						$plan = array(
 							''              => 'Any',
 							'free'          => 'Free',
-							'ticket'        => 'Ticket',
-							'ticket-chat'   => 'Ticket+Chat',
-							'all-inclusive' => 'All-Inclusive',
+							'ticket'        => 'Small',
+							'ticket-chat'   => 'Medium',
+							'all-inclusive' => 'Large',
 							'extensions'    => 'Extensions',
 						);
 

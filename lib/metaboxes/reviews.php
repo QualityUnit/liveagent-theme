@@ -89,9 +89,9 @@ function add_reviews_pricing( $pricing ) {
 				'placeholder' => 'Select equal LA plan',
 				'options'     => array(
 					'free'        => 'Free',
-					'ticket'      => 'Ticket',
-					'ticket_chat' => 'Ticket + Chat',
-					'all'         => 'All inclusive',
+					'ticket'      => 'Small',
+					'ticket_chat' => 'Medium',
+					'all'         => 'Large',
 				),
 			),
 			array(
@@ -276,9 +276,9 @@ function add_reviews_details( $details ) {
 	foreach ( $details as $fields ) {
 		foreach ( $fields['fields'] as $field ) {
 			register_post_meta(
-				'ms_reviews', 
-				$field['id'], 
-				array( 
+				'ms_reviews',
+				$field['id'],
+				array(
 					'single'       => true,
 					'show_in_rest' => true,
 				)

@@ -59,16 +59,16 @@
 					if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true ) ) {
 						foreach ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true ) as $item ) {
 							if ( 'ticket' === $item ) {
-								echo "<li class='" . esc_attr( $item ) . "'>" . esc_html( get_option( 'ms_theme_ms_general_ticket' ) ) . '</li>';
+								echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Small', 'ms' ) . '</li>';
 							}
 							if ( 'ticket-chat' === $item ) {
-									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html( get_option( 'ms_theme_ms_general_ticket_chat' ) ) . '</li>';
+									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Medium', 'ms' ) . '</li>';
 							}
 							if ( 'all-inclusive' === $item ) {
-									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html( get_option( 'ms_theme_ms_general_all_inclusive' ) ) . '</li>';
+									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Large', 'ms' ) . '</li>';
 							}
 							if ( 'extensions' === $item ) {
-									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html( get_option( 'ms_theme_ms_general_extensions' ) ) . '</li>';
+									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Extensions', 'ms' ) . '</li>';
 							}
 							if ( 'self-hosted' === $item ) {
 									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Self-Hosted', 'ms' ) . '</li>';
