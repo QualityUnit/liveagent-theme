@@ -31,7 +31,7 @@
 			</a>
 			<div class="Trial__main__inner">
 				<h1 class="Trial__main__title"><?php _e( 'Start your <span class="highlight-gradient">free trial</span> today', 'ms' ); ?></h1>
-				<p class="Trial__main__text"><?php _e( "Enjoy testing every feature from our Proffesional plan starting today. Your account's features will be adjusted according to the plan you've selected, after your trial period expire.", 'ms' ); ?></p>
+				<p class="Trial__main__text"><?php _e( 'Experience working with LiveAgent for free with our 7-day or 30-day trial. You can enjoy every feature available in the Large plan for free without any strings attached, and select your new LiveAgent plan at the end of your trial.', 'ms' ); ?></p>
 				<div class="Signup__form__labels Trial__labels">
 					<div class="Signup__form__labels__label">
 						<?php _e( '7 or 30 days free trial', 'ms' ); ?>&nbsp;
@@ -42,22 +42,22 @@
 					</div>
 					<div class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></div>
 				</div>
-	
+
 				<?= do_shortcode( '[signupform]' ); ?>
-	
+
 				<div class="Trial__main__logos">
 					<div class="Trial__main__logo">
 						<a href="<?php _e( '/awards/', 'ms' ); ?>">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_trustpilot.svg" alt="<?php _e( 'Trustpilot', 'ms' ); ?>" class="urlslab-skip-lazy">
 						</a>
 					</div>
-	
+
 					<div class="Trial__main__logo">
 						<a href="<?php _e( '/awards/', 'ms' ); ?>">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_capterra.svg" alt="<?php _e( 'Capterra', 'ms' ); ?>" class="urlslab-skip-lazy">
 						</a>
 					</div>
-	
+
 					<div class="Trial__main__logo">
 						<a href="<?php _e( '/awards/', 'ms' ); ?>">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_g2.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
