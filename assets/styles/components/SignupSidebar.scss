@@ -181,6 +181,13 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 			a {
 				display: inline-flex;
 				align-items: center;
+				text-decoration: none;
+
+				&:active,
+				&:focus,
+				&:hover {
+					text-decoration: underline;
+				}
 
 				.logo-trustpilot {
 					position: relative;
