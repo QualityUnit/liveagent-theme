@@ -32,7 +32,8 @@
 		max-width: $breakpoint-desktop-box;
 
 		@media (min-width: 1300px) {
-			padding-left: 10em;
+			padding-left: 10em !important;
+			padding-right: 0 !important;
 		}
 
 		.elementor-container {
