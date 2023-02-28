@@ -336,10 +336,11 @@
 
 				@include color(box-shadow, box-shadow);
 				@include color(background-color, main-background);
+				flex-direction: column;
 			}
 
 			.elementor-widget-image {
-				padding: 1.75em 1.75em 0;
+				padding: 1.75em 1.7em 0;
 
 				.elementor-widget-container {
 					padding: 0;
@@ -363,7 +364,7 @@
 			}
 
 			.elementor-widget-heading {
-				padding: 1.75em 1.75em 0;
+				padding: 1.75em 2.4em 0;
 
 				.elementor-heading-title {
 					line-height: initial;
@@ -375,7 +376,11 @@
 
 			.elementor-widget-text-editor {
 				width: 100%;
-				padding: 0 1.75em 1.75em;
+				padding: 0 2.4em 1.75em;
+
+				&:last-child {
+					margin-top: auto;
+				}
 
 				p:last-child {
 					margin-bottom: 0;
