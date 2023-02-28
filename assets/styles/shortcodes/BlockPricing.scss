@@ -78,41 +78,37 @@
 
 	.pricing__tags {
 		$gutter: 1em;
-
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: flex-start;
+		align-items: center;
 		margin: math.div(-$gutter, 2);
 
 		> * {
-			padding: math.div($gutter, 2);
-		}
+			$font-size: 12;
+			display: flex;
+			margin: math.div($gutter, 2);
+			padding: 0 em(13, $font-size);
+			font-size: em($font-size);
+			line-height: em(26, $font-size);
+			font-weight: $font-weight-semi;
+			border-radius: em(13, $font-size);
+			color: #1e1e1e;
+			background-color: #e3f2ff;
 
-		div:first-of-type {
+			> span {
+				display: flex;
+			}
 
-			span {
+			&:first-of-type {
 				background-color: #efe6f8;
 			}
-		}
 
-		div:last-of-type {
+			&:last-of-type {
 
-			span {
-				color: $medium-gray;
-				background-color: $lightest-gray;
+				@include color(color, font-color-medium);
+				background-color: transparent;
 			}
-		}
-
-		&__label {
-			color: $black;
-			background-color: #e3f2ff;
-			padding: 0.5em 1.5em;
-			border-radius: 50px;
-			font-size: 12px;
-			font-weight: $font-weight-semi;
-			line-height: $line-height-default;
-			font-family: $font-secondary;
-			text-align: center;
 		}
 	}
 
