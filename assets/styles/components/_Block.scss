@@ -23,6 +23,10 @@ scss/at-extend-no-missing-placeholder */
 
 	&.no-margin-bottom {
 		margin-bottom: 0;
+
+		+ .Block {
+			margin-top: 0;
+		}
 	}
 
 	.elementor-widget:not(:last-child):not(.elementor-widget-spacer) {
