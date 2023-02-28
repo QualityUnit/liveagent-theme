@@ -21,7 +21,7 @@ gulp.task( 'set-path', async () => {
 	if ( process.env.NODE_ENV === 'production' ) {
 		return process.env.url = '/app/themes/liveagent/assets';
 	}
-	return process.env.url = '/app/themes/liveagent-theme/assets';
+	return process.env.url = '/app/themes/liveagent-dev/assets';
 } );
 
 gulp.task( 'browser-reload', ( done ) => {

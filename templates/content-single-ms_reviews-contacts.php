@@ -88,7 +88,7 @@
 	if ( preg_match( '/\<img/', $screenshot ) ) {
 		?>
 	<h2 id="product-homepage" class="Post__sectiontitle"><span><?php echo esc_html( 'Product home page', 'reviews' ); ?></span></h2>
-	<a class="Directory__screenshot mb-xxxl" href="<?= esc_url( get_post_meta( meta( 'details_contacts' ), 'mb_directory_mb_directory_website', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>">
+	<a class="Directory__screenshot mb-xxxl" href="<?= esc_url( get_post_meta( meta( 'details_contacts' ), 'mb_directory_mb_directory_website', true ) ); ?>" target="_blank" rel="nofollow" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>">
 		<div class="Directory__screenshot--url">
 		<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( meta( 'details_contacts' ), 'mb_directory_mb_directory_website', true ) ); ?>
 		</div>
@@ -99,4 +99,3 @@
 	}
 	?>
 </div>
-
