@@ -1,3 +1,11 @@
+<?php
+$page_header_args = array(
+	'image' => get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ),
+	'title' => get_the_title(),
+	'text' => get_the_excerpt( $post ),
+);
+get_template_part( 'lib/custom-blocks/page-header', null, $page_header_args );
+?>
 <div class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
