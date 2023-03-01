@@ -211,3 +211,7 @@ ul:not([class]) li::before {
 .elementor-element[class*="elementor-element-"] .elementor-wrapper {
 	aspect-ratio: auto !important;
 }
+
+.Block--video__vertical.Block--video__vertical .elementor-wrapper {
+	aspect-ratio: 16 / 9 !important;
+}
