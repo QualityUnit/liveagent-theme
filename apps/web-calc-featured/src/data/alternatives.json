@@ -1,49 +1,49 @@
 {
   "liveagent": {
-    "active": true,
-    "name": "LiveAgent",
-    "landing": "https://www.liveagent.com/",
-    "url": "https://www.liveagent.com",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 15
-      },
-      "package2": {
-        "agents": 1,
-        "price": 29
-      },
-      "package3": {
-        "agents": 1,
-        "price": 49
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": "package2",
-      "callcenter": "package3",
-      "selfservice": "package1",
-      "facebook": "package3",
-      "twitter": "package3",
-      "instagram": "package3",
-      "viber": "package3",
-      "knowledgebase": "package1",
-      "customerforum": "package1",
-      "automationrules": "package1",
-      "api": "package1",
-      "ivr": "package3",
-      "videocalls": "package3",
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": "package1",
-      "unlimitedchatbuttons": "package1",
-      "unlimitedtickets": "package1",
-      "unlimitedcallrecording": "package1",
-      "unlimitedsupport": "package1"
-    }
+		"active": true,
+		"name": "LiveAgent",
+		"landing": "https://www.liveagent.com/",
+		"url": "https://www.liveagent.com/",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 9
+			},
+			"package2": {
+				"agents": 1,
+				"price": 29
+			},
+			"package3": {
+				"agents": 1,
+				"price": 49
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": "package2",
+			"selfservice": "package1",
+			"facebook": "package3",
+			"twitter": "package3",
+			"instagram": "package3",
+			"viber": "package3",
+			"knowledgebase": "package1",
+			"customerforum": "package1",
+			"automationrules": "package2",
+			"api": "package1",
+			"ivr": "package2",
+			"videocalls": "package2",
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": "package2",
+			"unlimitedsupport": "package2"
+		}
   },
   "crisp": {
     "active": true,
