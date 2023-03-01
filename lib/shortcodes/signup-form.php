@@ -101,12 +101,15 @@ function ms_signup_form( $atts ) {
             const mailRegex = '@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex' + '.com|gmx.us|@gmx.com)$';
             const mailInput = document.querySelector('input[type="email"]');
             const mailMessage = document.querySelector('[data-id="messageTrial"]');
+            const classMessageToggle = "hidden";
             function checkCompanyMail() {
                 const mailValue = mailInput.value;
                 if (mailValue) {
                     const mailSecondary = new RegExp(mailRegex).test(mailValue);
                     if(mailSecondary) {
-                        mailMessage.classList.remove("hidden");
+                        mailMessage.classList.remove(classMessageToggle);
+                    }else{
+                        mailMessage.classList.add(classMessageToggle);
                     }
                 }
             }
