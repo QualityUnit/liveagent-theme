@@ -3,6 +3,7 @@ $page_header_args = array(
 	'image' => get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ),
 	'title' => get_the_title(),
 	'text' => get_the_excerpt( $post ),
+	'date' => true,
 );
 get_template_part( 'lib/custom-blocks/page-header', null, $page_header_args );
 ?>
@@ -28,7 +29,7 @@ get_template_part( 'lib/custom-blocks/page-header', null, $page_header_args );
 				</div>
 				<p class="BlogPost__author__name"><?php the_author(); ?></p>
 				<p class="BlogPost__author__position">
-					<span itemprop="datePublished" content="<?= esc_html( get_the_time( 'Y-m-d' ) ); ?>"><?php echo get_the_time( 'F j, Y' ) . '</span><br />' .// @codingStandardsIgnoreStart
+					<span itemprop="datePublished" content="<?= esc_html( get_the_time( 'Y-m-d' ) ); ?>"><?php echo get_the_time( 'F j, Y' ) . '</span>' .// @codingStandardsIgnoreStart
 					__( 'Last modified on', 'ms' ) . ' ' .
 					get_the_modified_time( 'F j, Y' ) . ' ' .
 					__( 'at', 'ms' ) . ' ' .
