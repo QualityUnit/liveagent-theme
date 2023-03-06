@@ -1016,7 +1016,7 @@
 					action: 'login',
 				} )
 				.then( ( token ) => {
-					const gaUserId = getCookieFrontend( '_ga_T9HBB9KMVK' ) || '';
+					const gaUserId = getCookieFrontend( '_ga' ) || '';
 
 					sendSignupRequest( {
 						variation_id: variationId,
