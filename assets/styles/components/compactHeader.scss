@@ -1,0 +1,158 @@
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.compact-header {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-color: #f9f9fa;
+
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+
+		> * {
+			width: 100%;
+		}
+	}
+
+	&__image {
+		position: relative;
+		overflow: hidden;
+		padding-bottom: 60%;
+		border-radius: $border-radius-16;
+	}
+
+	&__img {
+
+		@include square(100%);
+		position: absolute;
+		z-index: 1;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	&__logo {
+
+		@include color(background-color, main-background);
+		width: 22%;
+		position: absolute;
+		z-index: 2;
+		overflow: hidden;
+		border-bottom-right-radius: $border-radius-16;
+
+		&-img {
+
+			@include square(70%);
+			object-fit: cover;
+			object-position: center;
+			margin: 15%;
+		}
+	}
+
+	&__title {
+		margin-top: 0;
+		line-height: 1.33;
+		font-family: $font-secondary;
+		font-size: 2.5em;
+		font-weight: $font-weight-bold;
+
+		&:not(:last-child) {
+			margin-bottom: 0.25em;
+		}
+	}
+
+	&__text {
+
+		&:not(:last-child) {
+			margin-bottom: 1.6em;
+		}
+	}
+
+	&__date {
+
+		@include color(color, font-color-normal);
+		font-size: 0.75em;
+
+		&:not(:last-child) {
+			margin-bottom: 0.625em;
+		}
+	}
+
+	&__tags {
+
+		&:not(:last-child) {
+			margin-bottom: 0.625em;
+		}
+
+		&-item {
+			display: flex;
+
+			&:not(:last-child) {
+				margin-bottom: 0.35em;
+			}
+		}
+
+		&-title {
+
+			@include color(color, font-color-normal);
+			line-height: 1.5;
+			font-size: 0.75em;
+			margin-right: 0.8em;
+		}
+
+		&-list {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 -0.4em;
+			line-height: 1.5;
+			font-size: 0.75em;
+
+			li {
+				padding: 0 0.4em;
+			}
+
+			a {
+
+				@include color(color, primary-color);
+				display: inline-flex;
+				align-items: center;
+				font-weight: $font-weight-bold;
+				text-decoration: none;
+
+				svg {
+
+					@include square(1em);
+					display: block;
+					margin-right: 0.2em;
+				}
+			}
+		}
+	}
+
+	.breadcrumbs {
+		margin-bottom: 0.35em;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__wrapper {
+			justify-content: space-between;
+		}
+
+		&__left {
+			max-width: 60%;
+		}
+
+		&__right {
+			max-width: 33%;
+			padding-top: 0.7em;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet - 1) {
+
+		&__wrapper {
+			flex-direction: column;
+		}
+	}
+}

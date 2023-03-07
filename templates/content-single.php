@@ -1,15 +1,30 @@
 <?php
 $page_header_args = array(
-	'image' => get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ),
+	'image' => array(
+		'src' => get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ),
+		'alt' => get_the_title(),
+	),
 	'title' => get_the_title(),
 	'text' => get_the_excerpt( $post ),
 	'date' => true,
 );
-get_template_part( 'lib/custom-blocks/page-header', null, $page_header_args );
+$categories = get_the_terms( $post->ID, 'category' );
+if ( isset( $categories ) ) {
+	$page_header_tags = array();
+	$page_header_tags[0]['title'] = __( 'Categories', 'ms' );
+	foreach ( $categories as $category ) {
+		$page_header_tags[0]['list'][] = array(
+			'href' => get_category_link( $category->term_id ),
+			'title' => $category->name,
+		);
+	}
+	$page_header_args['tags'] = $page_header_tags;
+}
 ?>
 <div class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<div class="BlogPost__header wrapper__wide">
 		<div class="BlogPost__thumbnail">
 			<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ) ); ?>"></meta>
