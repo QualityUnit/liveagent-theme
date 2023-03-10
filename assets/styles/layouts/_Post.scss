@@ -204,4 +204,91 @@ $signupSidebarWidth: 16.875em;
 			}
 		}
 	}
+
+	&--sidebar-right {
+		$wider-margin: 2rem;
+		$wider-margin-sm: 1rem;
+
+		.Post {
+
+			&__sidebar,
+			&__content {
+				display: block;
+				padding: 0;
+				margin: 0;
+			}
+
+			&__content {
+
+				&__whatis-headline {
+					padding-left: $wider-margin;
+					padding-right: $wider-margin;
+					margin-left: -$wider-margin-sm;
+					margin-right: -$wider-margin-sm;
+
+					@media (min-width: $breakpoint-desktop-box) {
+						margin-left: -$wider-margin;
+						margin-right: -$wider-margin;
+					}
+				}
+
+				.Content {
+
+					> {
+
+						:first-child {
+							margin-top: 0 !important;
+						}
+
+						.Post__m__negative,
+						.Post__m__negative--small,
+						.Post__m__negative--mid,
+						.BlockDiscover,
+						.BlockQuote--discover,
+						.wide,
+						.wp-block-embed,
+						.youtube__loader {
+							margin-left: -$wider-margin-sm;
+							margin-right: -$wider-margin-sm;
+
+							@media (min-width: $breakpoint-desktop-box) {
+								margin-left: -$wider-margin;
+								margin-right: -$wider-margin;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.Post {
+
+				&__container {
+					display: flex;
+					justify-content: space-between;
+				}
+
+				&__sidebar {
+					order: 2;
+				}
+
+				&__content {
+					order: 1;
+					width: 60%;
+				}
+			}
+		}
+
+		@media (max-width: ($breakpoint-tablet-landscape - 1)) {
+
+			.Post {
+
+				&__sidebar {
+					display: none;
+				}
+			}
+		}
+	}
 }

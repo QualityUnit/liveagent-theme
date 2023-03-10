@@ -134,6 +134,7 @@ function site_breadcrumb() {
 	$output = '';
 	$i = 1;
 	$output .= '<div class="breadcrumbs">';
+	$output .= '<div class="breadcrumbs-inner">';
 	$output .= '<ol itemscope itemtype="https://schema.org/BreadcrumbList">';
 	foreach ( $breadcrumb as $item ) {
 		$item_name = $item[0];
@@ -151,6 +152,7 @@ function site_breadcrumb() {
 		$i++;
 	}
 	$output .= '</ol>';
+	$output .= '</div>';
 	$output .= '</div>';
 	echo wp_kses( $output, $allowed_html );
 }

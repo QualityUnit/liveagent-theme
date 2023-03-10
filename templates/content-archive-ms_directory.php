@@ -6,7 +6,7 @@
 			<div class="Archive__header__subtitle"><p itemprop="description"><?php the_archive_description(); ?></p></div>
 		<?php } else { ?>
 			<h1 class="Archive__header__title" itemprop="name"><?php _e( 'Customer Service Directory', 'ms' ); ?></h1>
-			<p class="Archive__header__subtitle" itemprop="description"><?php _e( 'Here at LiveAgent, we often get requests for help from customers of other companies. Although we at LiveAgent do not provide support for their services you can find a list of customer support contacts here. ', 'ms' ); ?></h2>
+			<p class="Archive__header__subtitle" itemprop="description"><?php _e( 'Here at LiveAgent, we often get requests for help from customers of other companies. Although we at LiveAgent do not provide support for their services you can find a list of customer support contacts here. ', 'ms' ); ?></p>
 		<?php } ?>
 	</div>
 

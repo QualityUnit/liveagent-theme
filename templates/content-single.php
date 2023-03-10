@@ -1,4 +1,5 @@
 <?php
+global $post;
 $page_header_args = array(
 	'image' => array(
 		'src' => get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ),
@@ -11,7 +12,6 @@ $page_header_args = array(
 $categories = get_the_terms( $post->ID, 'category' );
 if ( isset( $categories ) ) {
 	$page_header_tags = array();
-	$page_header_tags[0]['title'] = __( 'Categories', 'ms' );
 	foreach ( $categories as $category ) {
 		$page_header_tags[0]['list'][] = array(
 			'href' => get_category_link( $category->term_id ),
@@ -21,42 +21,12 @@ if ( isset( $categories ) ) {
 	$page_header_args['tags'] = $page_header_tags;
 }
 ?>
-<div class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/BlogPosting">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	<div class="BlogPost__header wrapper__wide">
-		<div class="BlogPost__thumbnail">
-			<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ) ); ?>"></meta>
-			<img src="<?php the_post_thumbnail_url( 'blog_post_thumbnail' ); ?>" alt="<?php the_title(); ?>" />
-		</div>
-		<div class="BlogPost__intro">
-			<div class="BlogPost__category">
-				<?php /* translators: %s: don't modify */ ?>
-				<?= wp_kses_post( preg_replace( '/<a href=".+?<\/a>.+?(<a)/', '$1', get_the_taxonomies( 0, array( 'template' => __( '<span class="hidden">%s:</span><span>%l</span>' ) ) ) )['category'] );
-				?>
-			</div>
-			<h1 itemprop="name" class="BlogPost__title"><?php the_title(); ?></h1>
-
-			<div class="BlogPost__author">
-				<div class="BlogPost__author__avatar">
-					<?= get_avatar( get_the_author_meta( 'ID' ), 40, 'gravatar_default', get_the_author() ); ?>
-				</div>
-				<p class="BlogPost__author__name"><?php the_author(); ?></p>
-				<p class="BlogPost__author__position">
-					<span itemprop="datePublished" content="<?= esc_html( get_the_time( 'Y-m-d' ) ); ?>"><?php echo get_the_time( 'F j, Y' ) . '</span>' .// @codingStandardsIgnoreStart
-					__( 'Last modified on', 'ms' ) . ' ' .
-					get_the_modified_time( 'F j, Y' ) . ' ' .
-					__( 'at', 'ms' ) . ' ' .
-					get_the_modified_time( 'g:i a' ); // @codingStandardsIgnoreEnd
-					?>
-				</p>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="wrapper__wide Post__container">
+	
+	<div class="wrapper Post__container">
 		<div class="Post__sidebar urlslab-skip-keywords">
 			<?php if ( sidebar_toc() !== false ) { ?>
 				<div class="SidebarTOC-wrapper">
@@ -72,10 +42,6 @@ if ( isset( $categories ) ) {
 					</div>
 				</div>
 			<?php } ?>
-		</div>
-
-		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
 		</div>
 
 		<div class="BlogPost__content Post__content">

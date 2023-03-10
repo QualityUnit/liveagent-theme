@@ -36,7 +36,7 @@
 		<div class="compact-header__left">
 			<?php site_breadcrumb(); ?>
 			<?php if ( isset( $main_title ) ) : ?>
-				<h1 class="compact-header__title"><?= esc_html( $main_title ); ?></h1>
+				<h1 itemprop="name" class="compact-header__title"><?= esc_html( $main_title ); ?></h1>
 			<?php endif ?>
 			<?php if ( isset( $text ) ) : ?>
 				<div class="compact-header__text"><?= esc_html( $text ); ?></div>
@@ -79,7 +79,7 @@
 											<?php endif; ?>
 										>
 											<svg class="">
-												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#tab-pricetag' ) ?>"></use>
+												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#tag-solid' ) ?>"></use>
 											</svg>
 											<?= esc_html( $tag_item['title'] ); ?>
 										</a>
