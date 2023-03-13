@@ -3,7 +3,7 @@
 	// Get English Category slug of localized Post Type
 function get_en_category( $post_type, $post_id ) {
 	global $sitepress;
-	if (is_object($sitepress) && defined('ICL_LANGUAGE_CODE')) {
+	if ( is_object( $sitepress ) && defined( 'ICL_LANGUAGE_CODE' ) ) {
 		$orig_lang = ICL_LANGUAGE_CODE;
 		$sitepress->switch_lang( 'en' );
 		$postid_en       = icl_object_id( $post_id, $post_type, false, 'ICL_LANGUAGE_CODE' );
