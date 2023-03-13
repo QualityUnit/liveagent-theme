@@ -58,7 +58,7 @@ function elementor_learnmore( $content ) {
 	if ( ! $content ) {
 		return $content;
 	}
-	
+
 	$dom = new DOMDocument();
 	libxml_use_internal_errors( true );
 	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
@@ -109,7 +109,7 @@ function insert_svg_icons( $content ) {
 		}
 	}
 	// @codingStandardsIgnoreEnd
-	
+
 	$dom->removeChild( $dom->doctype );
 	$content = $dom->saveHtml();
 	$content = str_replace( '<html><body>', '', $content );
@@ -291,7 +291,7 @@ add_action( 'wp_head', 'end_wp_head_buffer', PHP_INT_MAX );
 
 function add_trailing_slash( $html ) {
 	$output = preg_replace_callback(
-		'/(href=\")([^"]{3,255}live[^"]{3,255}[^0-9|png|jpg|gif|svg|pdf|][^\/])(\")/i',
+		'/(href=\")([^"]{3,255}live[^"]{3,255}[^0-9|png|jpg|jpeg|gif|svg|pdf|][^\/])(\")/i',
 		function ( $matches ) {
 			return $matches[1] . $matches[2] . '/' . $matches[3];
 		},
@@ -374,16 +374,6 @@ function flush_rules_on_save_posts() {
 
 add_action( 'save_post', 'flush_rules_on_save_posts', 20, 2 );
 
-/**
- * Replace admin subdomain
- */
-
-function replace_admin_subdomain( $content ) {
-	$pattern     = '/admin.liveagent.com/i';
-	$replacement = 'www.liveagent.com';
-	return preg_replace( $pattern, $replacement, $content );
-}
-add_filter( 'the_content', 'replace_admin_subdomain' );
 
 /*
 *  checklists (pros and cons) in Block--learnMore
