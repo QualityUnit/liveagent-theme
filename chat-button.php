@@ -21,7 +21,7 @@ function createButton() {
 		timeout = 5000;
 	}
 
-	<?php if ( ICL_LANGUAGE_CODE === 'sv' ) { ?>
+	<?php if ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'sv' ) { ?>
 		setTimeout( function() {
 			(function(d, src, c) { s=d.createElement('script');s.id='la_x2s6df8d';s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};document.querySelector('#chatBtn').appendChild(s);})(document,
 				'https://support.liveagent.se/scripts/track.js',
@@ -29,7 +29,7 @@ function createButton() {
 					LiveAgent.createButton('67a82a6b', e);
 				});
 		}, timeout );
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'ja' ) { ?>
+	<?php } elseif ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'ja' ) { ?>
 		setTimeout( function() {
 			(function(d, src, c) { s=d.createElement('script');s.id='la_x2s6df8d';s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};document.querySelector('#chatBtn').appendChild(s);})(document,
 				'//support.intwk.co.jp/liveagent/scripts/track.js',
@@ -42,25 +42,25 @@ function createButton() {
 			(function(d, src, c) { s=d.createElement('script');s.id='la_x2s6df8d';s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};document.querySelector('#chatBtn').appendChild(s);})(document,
 			'//support.qualityunit.com/scripts/track.js',
 			function(e){
-				<?php if ( ICL_LANGUAGE_CODE === 'de' ) { ?>
+				<?php if ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'de' ) { ?>
 					LiveAgent.createButton('a8xw4r0d', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'fr' ) { ?>
+				<?php } elseif ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'fr' ) { ?>
 					LiveAgent.createButton('ojy731wl', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'es' ) { ?>
+				<?php } elseif ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'es' ) { ?>
 					LiveAgent.createButton('ryv7oyvn', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'pt-br' ) { ?>
+				<?php } elseif ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'pt-br' ) { ?>
 					LiveAgent.createButton('y7aecte9', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'hu' ) { ?>
+				<?php } elseif ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'hu' ) { ?>
 					LiveAgent.createButton('9hrzq40p', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'nl' ) { ?>
+				<?php } elseif ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'nl' ) { ?>
 					LiveAgent.createButton('o1zypcx0', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'pl' ) { ?>
+				<?php } elseif ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'pl' ) { ?>
 					LiveAgent.createButton('keus4mm5', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'it' ) { ?>
+				<?php } elseif ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'it' ) { ?>
 					LiveAgent.createButton('28bwor7y', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'ru' ) { ?>
+				<?php } elseif ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'ru' ) { ?>
 					LiveAgent.createButton('k88ai80o', e);
-				<?php } elseif ( ICL_LANGUAGE_CODE === 'zh-hans' ) { ?>
+				<?php } elseif ( defined( 'ICL_LANGUAGE_CODE' ) && ICL_LANGUAGE_CODE === 'zh-hans' ) { ?>
 					LiveAgent.createButton('49v7ehwf', e);
 				<?php } else { ?>
 					LiveAgent.createButton('443a9d07', e);
