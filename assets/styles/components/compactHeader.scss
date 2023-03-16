@@ -152,10 +152,14 @@
 		}
 	}
 
-	&__filter {
+	&__filters {
 
 		&-toggle {
 			display: none;
+		}
+		&-wrap {
+			display: flex;
+			flex-wrap: wrap;
 		}
 	}
 
@@ -225,6 +229,9 @@
 
 			}
 		}
+	}
+	&__filter {
+		max-width: 200px;
 	}
 
 	.breadcrumbs {

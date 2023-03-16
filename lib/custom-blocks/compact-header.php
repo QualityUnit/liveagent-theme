@@ -1,4 +1,6 @@
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
+<?php set_custom_source( 'components/Filter', 'css' ); ?>
+<?php set_custom_source( 'filterMenu', 'js' ); ?>
 <?php if ( isset( $args ) ) : ?>
 	<?php
 	$image_alt = '';
@@ -136,11 +138,12 @@
 		</div>
 		<div class="compact-header__bottom">
 			<?php if ( isset( $filer_search ) || isset( $filer_items ) ) : ?>
-				<div class="compact-header__filter urlslab-skip-keywords">
-					<a class="compact-header__filter-toggle"></a>
-					<div class="compact-header__filter-wrap">
+				<div class="compact-header__filters urlslab-skip-keywords">
+					<a class="compact-header__filters-toggle"></a>
+					<div class="compact-header__filters-wrap">
 						<?php if ( isset( $filer_search ) ) : ?>
-							<div class="compact-header__search searchField">
+							<div class="compact-header__search">
+							<div class="searchField">
 								<svg class="compact-header__search-icon icon-search">
 									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ) ?>"></use>
 								</svg>
@@ -150,6 +153,7 @@
 										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
 									</svg>
 								</span>
+							</div>
 							</div>
 						<?php endif ?>
 						<?php if ( isset( $filer_items ) ) : ?>
@@ -164,50 +168,70 @@
 								if ( ! empty( $filer_item['name'] ) ) {
 									$filer_name = $filer_item['name'];
 								}
+								if ( ! empty( $filer_item['title'] ) ) {
+									$filer_title = $filer_item['title'];
+								}
 								?>
-								<?php if ( isset( $filer_list ) && isset( $filer_type ) ) : ?>
-									<?php if ( 'radio' == $filer_type && isset( $filer_name ) ) : ?>
-										<div>
-											<?php foreach ( $filer_list as $filer_list_item ) : ?>
-												<?php
-												$item_checked = false;
-												$item_value = '';
-												if ( ! empty( $filer_list_item['checked'] ) ) {
-													$item_checked = $filer_list_item['checked'];
-												}
-												if ( ! empty( $filer_list_item['value'] ) ) {
-													$item_value = $filer_list_item['value'];
-												}
-												if ( ! empty( $filer_list_item['title'] ) ) {
-													$item_title = $filer_list_item['title'];
-												}
-												if ( ! empty( $filer_list_item['onclick'] ) ) {
-													$item_onclick = $filer_list_item['onclick'];
-												}
-												?>
-											<label>
-												<input
-													class="filter-item"
-													type="radio"
-													value="<?= esc_attr( $item_value ); ?>"
-													name="<?= esc_attr( $filer_name ); ?>"
-													<?php if ( $item_checked ) : ?>
-														checked
-													<?php endif; ?>
-												>
-												<span
-													<?php if ( isset( $item_onclick ) ) : ?>
-														onclick="<?= esc_attr( $item_onclick ); ?>"
-													<?php endif; ?>
-												>
-													<?php if ( isset( $item_title ) ) : ?>
-														<?= esc_html( $item_title ); ?>
-													<?php endif; ?>
-												</span>
-											</label>
-										<?php endforeach; ?>
+								<?php if ( isset( $filer_list ) && isset( $filer_type ) && isset( $filer_title ) ) : ?>
+								<div class="compact-header__filter">
+									<div class="FilterMenu">
+										<div class="FilterMenu__title">
+											<?= esc_html( $filer_title ); ?>
 										</div>
-									<?php endif; ?>
+										<div class="FilterMenu__items">
+											<div class="FilterMenu__items--inn">
+												<?php if ( 'radio' == $filer_type && isset( $filer_name ) ) : ?>
+													<?php foreach ( $filer_list as $filer_list_item ) : ?>
+														<?php
+														$item_checked = false;
+														$item_value = '';
+														if ( ! empty( $filer_list_item['checked'] ) ) {
+															$item_checked = $filer_list_item['checked'];
+														}
+														if ( ! empty( $filer_list_item['value'] ) ) {
+															$item_value = $filer_list_item['value'];
+														}
+														if ( ! empty( $filer_list_item['title'] ) ) {
+															$item_title = $filer_list_item['title'];
+														}
+														if ( ! empty( $filer_list_item['onclick'] ) ) {
+															$item_onclick = $filer_list_item['onclick'];
+														}
+														if ( '' == $item_value ) {
+															$item_id = $filer_name . '-any';
+														} else {
+															$item_id = $filer_name . '-' . $item_value;
+														}
+														?>
+														<div class="sorting FilterMenu__item">
+															<input
+																class="filter-item"
+																type="radio"
+																id="<?= esc_attr( $item_id ); ?>"
+																value="<?= esc_attr( $item_value ); ?>"
+																name="<?= esc_attr( $filer_name ); ?>"
+																<?php if ( $item_checked ) : ?>
+																	checked
+																<?php endif; ?>
+															>
+															<label for="<?= esc_attr( $item_id ); ?>">
+																<span
+																	<?php if ( isset( $item_onclick ) ) : ?>
+																		onclick="<?= esc_attr( $item_onclick ); ?>"
+																	<?php endif; ?>
+																>
+																	<?php if ( isset( $item_title ) ) : ?>
+																		<?= esc_html( $item_title ); ?>
+																	<?php endif; ?>
+																</span>
+															</label>
+														</div>
+													<?php endforeach; ?>
+												<?php endif; ?>
+											</div>
+										</div>
+									</div>
+								</div>
 								<?php endif ?>
 							<?php endforeach; ?>
 						<?php endif ?>
