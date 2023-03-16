@@ -2,9 +2,11 @@
 @use "../common/mixins" as *;
 
 .compact-header {
+	$class-name: compact-header;
+	$v-space: 1em;
 	$bg-color: #f9f9fa;
-	padding-top: 1em;
-	padding-bottom: 1em;
+	padding-top: $v-space;
+	padding-bottom: $v-space;
 	background-color: $bg-color;
 
 	&:not(:last-child) {
@@ -22,18 +24,30 @@
 
 	&__image {
 		position: relative;
-		overflow: hidden;
-		padding-bottom: 60%;
-		border-radius: $border-radius-16;
-	}
 
-	&__img {
+		&--default {
+			overflow: hidden;
+			padding-bottom: 60%;
+			margin-top: 0.7em;
+			border-radius: $border-radius-16;
+			.#{$class-name}__img {
 
-		@include square(100%);
-		position: absolute;
-		z-index: 1;
-		object-fit: cover;
-		object-position: center;
+				@include square(100%);
+				position: absolute;
+				z-index: 1;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+
+		&--main {
+			margin-top: -$v-space;
+			.#{$class-name}__img {
+				width: 100%;
+				max-width: 100%;
+				object-fit: contain;
+			}
+		}
 	}
 
 	&__logo {
@@ -138,6 +152,81 @@
 		}
 	}
 
+	&__filter {
+
+		&-toggle {
+			display: none;
+		}
+	}
+
+	&__search {
+
+		position: relative;
+		display: inline-flex;
+
+		&-icon {
+
+			@include square(1em);
+			position: absolute;
+			top: 50%;
+			left: 1.1em;
+			transform: translateY(-50%);
+		}
+
+		&-reset {
+
+			@include square(1.5em);
+			position: absolute;
+			top: 50%;
+			right: 1.1em;
+			display: flex;
+			opacity: 0;
+			pointer-events: none;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			background-color: $lighter-gray;
+			transform: translateY(-50%);
+			cursor: pointer;
+		}
+
+		&-close {
+
+			@include square(0.5em);
+		}
+
+		input[type="search"] {
+
+
+			width: 22em;
+			height: 2.9em;
+			padding-left: 3.5em;
+			border-radius: 0.75em;
+			border: none;
+			font-size: 0.875rem;
+			background-color: $pricing-gray;
+			transition: all 0.2s, background-color 0.2s;
+
+			&::-ms-clear,
+			&::-ms-reveal {
+				display: none;
+				width: 0;
+				height: 0;
+			}
+
+			&::-webkit-search-decoration,
+			&::-webkit-search-cancel-button,
+			&::-webkit-search-results-button,
+			&::-webkit-search-results-decoration {
+				display: none;
+			}
+
+			&:focus {
+
+			}
+		}
+	}
+
 	.breadcrumbs {
 		margin-bottom: 0.35em;
 
@@ -164,7 +253,6 @@
 
 		&__right {
 			max-width: 33%;
-			padding-top: 0.7em;
 		}
 	}
 

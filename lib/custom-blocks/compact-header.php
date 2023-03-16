@@ -2,6 +2,7 @@
 <?php if ( isset( $args ) ) : ?>
 	<?php
 	$image_alt = '';
+	$image_type = 'default';
 	if ( ! empty( $args['image'] ) ) {
 		$image = $args['image'];
 		if ( ! empty( $image['src'] ) ) {
@@ -9,6 +10,9 @@
 		}
 		if ( ! empty( $image['alt'] ) ) {
 			$image_alt = $image['alt'];
+		}
+		if ( ! empty( $image['type'] ) ) {
+			$image_type = $image['type'];
 		}
 	}
 	if ( ! empty( $args['logo'] ) ) {
@@ -30,6 +34,17 @@
 	if ( ! empty( $args['tags'] ) ) {
 		$tags = $args['tags'];
 	}
+	if ( ! empty( $args['filter'] ) ) {
+		$filer_items = $args['filter'];
+	}
+	$search_class = '';
+	if ( ! empty( $args['search'] ) ) {
+		$filer_search = $args['search'];
+		if ( ! empty( $filer_search['type'] ) ) {
+			$search_type = $filer_search['type'];
+			$search_class = ' search--' . $search_type;
+		}
+	}
 	?>
 <div class="compact-header">
 	<div class="compact-header__wrapper wrapper">
@@ -39,7 +54,7 @@
 				<h1 itemprop="name" class="compact-header__title"><?= esc_html( $main_title ); ?></h1>
 			<?php endif ?>
 			<?php if ( isset( $text ) ) : ?>
-				<div class="compact-header__text"><?= esc_html( $text ); ?></div>
+				<div class="compact-header__text"><?= wp_kses_post( $text ); ?></div>
 			<?php endif ?>
 			<?php if ( isset( $date ) ) : ?>
 				<div class="compact-header__date">
@@ -78,7 +93,7 @@
 												onclick="<?= esc_attr( $tag_item['onclick'] ); ?>"
 											<?php endif; ?>
 										>
-											<svg class="">
+											<svg class="icon-tag-solid">
 												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#tag-solid' ) ?>"></use>
 											</svg>
 											<?= esc_html( $tag_item['title'] ); ?>
@@ -94,7 +109,10 @@
 		</div>
 		<div class="compact-header__right">
 			<?php if ( isset( $image_src ) ) : ?>
-				<div class="compact-header__image">
+				<div class="compact-header__image 
+				<?php if ( isset( $image_type ) ) : ?>
+					 compact-header__image--<?= sanitize_html_class( $image_type ) ?>
+				<?php endif; ?>">
 					<img
 						src="<?= esc_url( $image_src ); ?>"
 						alt="<?= esc_attr( $image_alt ); ?>"
@@ -116,7 +134,87 @@
 				</div>
 			<?php endif ?>
 		</div>
-		<div class="compact-header__bottom"></div>
+		<div class="compact-header__bottom">
+			<?php if ( isset( $filer_search ) || isset( $filer_items ) ) : ?>
+				<div class="compact-header__filter urlslab-skip-keywords">
+					<a class="compact-header__filter-toggle"></a>
+					<div class="compact-header__filter-wrap">
+						<?php if ( isset( $filer_search ) ) : ?>
+							<div class="compact-header__search searchField">
+								<svg class="compact-header__search-icon icon-search">
+									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ) ?>"></use>
+								</svg>
+								<input type="search" class="search<?= esc_attr( $search_class ); ?>" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
+								<span class="compact-header__search-reset">
+									<svg class="compact-header__search-close icon-close">
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
+									</svg>
+								</span>
+							</div>
+						<?php endif ?>
+						<?php if ( isset( $filer_items ) ) : ?>
+							<?php foreach ( $filer_items as $filer_item ) : ?>
+								<?php
+								if ( ! empty( $filer_item['type'] ) ) {
+									$filer_type = $filer_item['type'];
+								}
+								if ( ! empty( $filer_item['items'] ) ) {
+									$filer_list = $filer_item['items'];
+								}
+								if ( ! empty( $filer_item['name'] ) ) {
+									$filer_name = $filer_item['name'];
+								}
+								?>
+								<?php if ( isset( $filer_list ) && isset( $filer_type ) ) : ?>
+									<?php if ( 'radio' == $filer_type && isset( $filer_name ) ) : ?>
+										<div>
+											<?php foreach ( $filer_list as $filer_list_item ) : ?>
+												<?php
+												$item_checked = false;
+												$item_value = '';
+												if ( ! empty( $filer_list_item['checked'] ) ) {
+													$item_checked = $filer_list_item['checked'];
+												}
+												if ( ! empty( $filer_list_item['value'] ) ) {
+													$item_value = $filer_list_item['value'];
+												}
+												if ( ! empty( $filer_list_item['title'] ) ) {
+													$item_title = $filer_list_item['title'];
+												}
+												if ( ! empty( $filer_list_item['onclick'] ) ) {
+													$item_onclick = $filer_list_item['onclick'];
+												}
+												?>
+											<label>
+												<input
+													class="filter-item"
+													type="radio"
+													value="<?= esc_attr( $item_value ); ?>"
+													name="<?= esc_attr( $filer_name ); ?>"
+													<?php if ( $item_checked ) : ?>
+														checked
+													<?php endif; ?>
+												>
+												<span
+													<?php if ( isset( $item_onclick ) ) : ?>
+														onclick="<?= esc_attr( $item_onclick ); ?>"
+													<?php endif; ?>
+												>
+													<?php if ( isset( $item_title ) ) : ?>
+														<?= esc_html( $item_title ); ?>
+													<?php endif; ?>
+												</span>
+											</label>
+										<?php endforeach; ?>
+										</div>
+									<?php endif; ?>
+								<?php endif ?>
+							<?php endforeach; ?>
+						<?php endif ?>
+					</div>
+				</div>
+			<?php endif ?>
+		</div>
 	</div>
 </div>
 <?php endif ?>
