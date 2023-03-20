@@ -5,37 +5,44 @@
 	set_custom_source( 'splide', 'js' );
 	set_custom_source( 'slider', 'js' );
 	set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
+ 
 	$page_header_title = single_term_title( '', false );
 	$page_header_args = array(
 		'image' => array(
 			'type' => 'main',
-			'src' => get_template_directory_uri() . '/assets/images/bg_category_directory.jpg?ver=' . THEME_VERSION,
+			'src' => get_template_directory_uri() . '/assets/images/compact_header_blog.png?ver=' . THEME_VERSION,
 			'alt' => $page_header_title,
 		),
 		'title' => $page_header_title,
 		'text' => term_description(),
 	);
+	if ( has_nav_menu( 'blog_filter_navigation' ) ) :
+		$menu_locations = get_nav_menu_locations();
+		$menu_id = $menu_locations['blog_filter_navigation'];
+		$archive_nav = wp_get_nav_menu_items( $menu_id );
+		$filter_items = array(
+			array(
+				'type' => 'link',
+				'name' => 'category',
+			),
+		);
+		$filter_items_categories = array();
+		foreach ( $archive_nav as $item ) :
+			$current = get_queried_object_id() == $item->object_id;
+			if ( $current ) :
+				$filter_items[0]['title'] = $item->title;
+			else :
+				$filter_items_categories[] = array(
+					'href' => $item->url,
+					'title' => $item->title,
+				);
+			endif;
+		endforeach;
+		$filter_items[0]['items'] = $filter_items_categories;
+		$page_header_args['filter'] = $filter_items;
+	endif;
 	?>
 <div id="blog" class="Blog" itemscope itemtype="http://schema.org/Blog">
-	<!--<div class="Blog__header Block--background-glass">
-		<div class="wrapper wrapper__extended">
-			<h1 class="Blog__header__title"><?php /*single_cat_title(); */ ?></h1>
-
-			<div class="Blog__header__navigation urlslab-skip-keywords">
-				<?php
-				/*              if ( has_nav_menu( 'blog_filter_navigation' ) ) :
-					wp_nav_menu(
-						array(
-							'theme_location' => 'blog_filter_navigation',
-							'menu_class'     => 'nav',
-						)
-					);
-				endif;
-				*/
-				?>
-			</div>
-		</div>
-	</div>-->
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<div class="Blog__top SliderCutted slider splide">
 			<div class="splide__arrows nice__arrows">

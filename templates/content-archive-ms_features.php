@@ -135,15 +135,19 @@ $filter_items = array(
 $page_header_args = array(
 	'image' => array(
 		'type' => 'main',
-		'src' => get_template_directory_uri() . '/assets/images/bg_category_features.svg?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_features.png?ver=' . THEME_VERSION,
 		'alt' => $page_header_title,
 	),
 	'title' => $page_header_title,
 	'text' => $page_header_description,
 	'filter' => $filter_items,
 	'search' => array(
-        'type' => 'academy',
-    ),
+		'type' => 'academy',
+	),
+	'count' => array(
+		'title' => __( 'List of features', 'ms' ),
+		'value' => wp_count_posts( 'ms_features' )->publish,
+	),
 );
 ?>
 
@@ -152,7 +156,6 @@ $page_header_args = array(
 
 	<div class="wrapper Category__container">
 		<div class="Category__content">
-			<div class="Category__content__description"><?php _e( 'List of features', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_features' )->publish ); ?></span>)</div></div>
 			<ul class="Category__content__items list">
 				<?php
 				while ( have_posts() ) :

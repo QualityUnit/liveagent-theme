@@ -1,3 +1,4 @@
+/* stylelint-disable selector-class-pattern */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
@@ -5,15 +6,22 @@
 	$class-name: compact-header;
 	$v-space: 1em;
 	$bg-color: #f9f9fa;
-	padding-top: $v-space;
-	padding-bottom: $v-space;
 	background-color: $bg-color;
 
 	&:not(:last-child) {
 		margin-bottom: 2.2em;
 	}
 
+	&__top {
+		padding-top: $v-space;
+	}
+
+	&__bottom {
+		padding-bottom: $v-space;
+	}
+
 	&__wrapper {
+		position: static;
 		display: flex;
 		flex-wrap: wrap;
 
@@ -157,6 +165,7 @@
 		&-toggle {
 			display: none;
 		}
+
 		&-wrap {
 			display: flex;
 			flex-wrap: wrap;
@@ -167,48 +176,33 @@
 
 		position: relative;
 		display: inline-flex;
+	}
 
-		&-icon {
+	.breadcrumbs {
+		margin-bottom: 0.35em;
 
-			@include square(1em);
-			position: absolute;
-			top: 50%;
-			left: 1.1em;
-			transform: translateY(-50%);
+		&::before {
+			left: 0;
+			background: linear-gradient(to left, rgba($bg-color, 0) 0%, rgba($bg-color, 1) 100%);
 		}
 
-		&-reset {
-
-			@include square(1.5em);
-			position: absolute;
-			top: 50%;
-			right: 1.1em;
-			display: flex;
-			opacity: 0;
-			pointer-events: none;
-			justify-content: center;
-			align-items: center;
-			border-radius: 50%;
-			background-color: $lighter-gray;
-			transform: translateY(-50%);
-			cursor: pointer;
+		&::after {
+			right: 0;
+			background: linear-gradient(to right, rgba($bg-color, 0) 0%, rgba($bg-color, 1) 100%);
 		}
+	}
 
-		&-close {
-
-			@include square(0.5em);
-		}
+	.searchField {
+		margin: 0;
 
 		input[type="search"] {
-
-
-			width: 22em;
 			height: 2.9em;
 			padding-left: 3.5em;
 			border-radius: 0.75em;
 			border: none;
 			font-size: 0.875rem;
 			background-color: $pricing-gray;
+			box-shadow: none;
 			transition: all 0.2s, background-color 0.2s;
 
 			&::-ms-clear,
@@ -226,25 +220,39 @@
 			}
 
 			&:focus {
-
+				box-shadow: none;
 			}
 		}
-	}
-	&__filter {
-		max-width: 200px;
-	}
 
-	.breadcrumbs {
-		margin-bottom: 0.35em;
+		&__reset {
 
-		&::before {
-			left: 0;
-			background: linear-gradient(to left, rgba($bg-color, 0) 0%, rgba($bg-color, 1) 100%);
+			@include square(1.5em);
+			position: absolute;
+			top: 50%;
+			right: 1.1em;
+			display: flex;
+			opacity: 0;
+			pointer-events: none;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			background-color: $lighter-gray;
+			transform: translateY(-50%);
+			cursor: pointer;
+
+			&-icon {
+
+				@include square(0.5em);
+			}
 		}
 
-		&::after {
-			right: 0;
-			background: linear-gradient(to right, rgba($bg-color, 0) 0%, rgba($bg-color, 1) 100%);
+		&__icon {
+
+			@include square(1em);
+			position: absolute;
+			top: 50%;
+			left: 1.1em;
+			transform: translateY(-50%);
 		}
 	}
 
@@ -261,6 +269,30 @@
 		&__right {
 			max-width: 33%;
 		}
+
+		&__bottom {
+			position: -webkit-sticky; /* Safari */
+			position: sticky;
+			z-index: 99;
+			top: $header-height;
+
+			&--sticky {
+
+				@include color(background-color,header-background);
+				filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.16));
+			}
+		}
+
+		&__filter {
+			max-width: 200px;
+		}
+
+		.searchField {
+
+			input[type="search"] {
+				width: 22em;
+			}
+		}
 	}
 
 	@media (max-width: $breakpoint-tablet - 1) {
@@ -273,6 +305,37 @@
 				&:not(:last-child) {
 					margin-bottom: 0.75em;
 				}
+			}
+		}
+
+		&__filters {
+
+			@include posCustom();
+			position: fixed;
+			z-index: 101;
+			opacity: 1;
+			background-color: rgba($black-real, 0.5);
+
+			&-toggle {
+				display: block;
+			}
+
+			&-wrap {
+				height: 100%;
+				background-color: $bg-color;
+			}
+		}
+
+		&__search,
+		&__filter,
+		&__count {
+			width: 100%;
+		}
+
+		.searchField {
+
+			input[type="search"] {
+				width: 100%;
 			}
 		}
 	}
