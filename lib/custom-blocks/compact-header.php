@@ -144,136 +144,152 @@
 	</div>
 	<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_count ) ) : ?>
 		<div class="compact-header compact-header__bottom">
-			<div class="compact-header__wrapper wrapper">
-				<div class="compact-header__filters-toggle">
-					<a class="Button Button--outline">
-						<?= esc_html( __( 'Filters', 'ms' ) ); ?>
-						<svg class="searchField__reset-icon icon-gear">
-							<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#gear' ) ?>"></use>
-						</svg>
-					</a>
-				</div>
-				<div class="compact-header__filters urlslab-skip-keywords">
-                    <a class="compact-header__filters-close">x</a>
-					<div class="compact-header__filters-wrap">
-						<?php if ( isset( $filer_search ) ) : ?>
-							<div class="compact-header__search">
-								<div class="searchField">
-									<svg class="searchField__icon icon-search">
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ) ?>"></use>
-									</svg>
-									<input type="search" class="search<?= esc_attr( $search_class ); ?>" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
-									<span class="searchField__reset">
-										<svg class="searchField__reset-icon icon-close">
-											<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
-										</svg>
-									</span>
-								</div>
-							</div>
-						<?php endif ?>
-						<?php if ( isset( $filer_items ) ) : ?>
-							<?php foreach ( $filer_items as $filer_item ) : ?>
-								<?php
-								if ( ! empty( $filer_item['type'] ) ) {
-									$filer_type = $filer_item['type'];
-								}
-								if ( ! empty( $filer_item['items'] ) ) {
-									$filer_list = $filer_item['items'];
-								}
-								if ( ! empty( $filer_item['name'] ) ) {
-									$filer_name = $filer_item['name'];
-								}
-								if ( ! empty( $filer_item['title'] ) ) {
-									$filer_title = $filer_item['title'];
-								}
-								?>
-								<?php if ( isset( $filer_list ) && isset( $filer_type ) && isset( $filer_title ) ) : ?>
-									<div class="compact-header__filter">
-										<div class="FilterMenu">
-											<div class="FilterMenu__title">
-												<?= esc_html( $filer_title ); ?>
-											</div>
-											<div class="FilterMenu__items">
-												<div class="FilterMenu__items--inn">
-													<?php if ( 'radio' == $filer_type && isset( $filer_name ) ) : ?>
-														<?php foreach ( $filer_list as $filer_list_item ) : ?>
-															<?php
-															$item_checked = false;
-															$item_value = '';
-															if ( ! empty( $filer_list_item['checked'] ) ) {
-																$item_checked = $filer_list_item['checked'];
-															}
-															if ( ! empty( $filer_list_item['value'] ) ) {
-																$item_value = $filer_list_item['value'];
-															}
-															if ( ! empty( $filer_list_item['title'] ) ) {
-																$item_title = $filer_list_item['title'];
-															}
-															if ( ! empty( $filer_list_item['onclick'] ) ) {
-																$item_onclick = $filer_list_item['onclick'];
-															}
-															if ( '' == $item_value ) {
-																$item_id = $filer_name . '-any';
-															} else {
-																$item_id = $filer_name . '-' . $item_value;
-															}
-															?>
-															<div class="sorting FilterMenu__item">
-																<input
-																		class="filter-item"
-																		type="radio"
-																		id="<?= esc_attr( $item_id ); ?>"
-																		value="<?= esc_attr( $item_value ); ?>"
-																		name="<?= esc_attr( $filer_name ); ?>"
-																	<?php if ( $item_checked ) : ?>
-																		checked
-																	<?php endif; ?>
-																>
-																<label for="<?= esc_attr( $item_id ); ?>">
-																	<span
-																		<?php if ( isset( $item_onclick ) ) : ?>
-																			onclick="<?= esc_attr( $item_onclick ); ?>"
-																		<?php endif; ?>
-																	>
-																		<?php if ( isset( $item_title ) ) : ?>
-																			<?= esc_html( $item_title ); ?>
-																		<?php endif; ?>
-																	</span>
-																</label>
-															</div>
-														<?php endforeach; ?>
-													<?php endif; ?>
-													<?php if ( 'link' == $filer_type && isset( $filer_name ) ) : ?>
-														<?php foreach ( $filer_list as $filer_list_item ) : ?>
-															<?php if ( isset( $filer_list_item['href'] ) && isset( $filer_list_item['title'] ) ) : ?>
-																<div class="sorting FilterMenu__item">
-																	<a href="<?= esc_url( $filer_list_item['href'] ); ?>"><?= esc_html( $filer_list_item['title'] ); ?></a>
-																</div>
-															<?php endif; ?>
-														<?php endforeach; ?>
-													<?php endif; ?>
-												</div>
-											</div>
-										</div>
-									</div>
-								<?php endif ?>
-							<?php endforeach; ?>
-						<?php endif ?>
-						<?php if ( isset( $filer_count ) ) : ?>
-							<div class="compact-header__count">
-									<span id="countPosts">
-										<?php if ( isset( $filer_count['title'] ) ) : ?>
-											<?= esc_html( $filer_count['title'] ); ?>
-										<?php endif ?>
-									</span>
-								<?php if ( isset( $filer_count['value'] ) ) : ?>
-									<?= esc_html( $filer_count['value'] ); ?>
-								<?php endif ?>
-							</div>
-						<?php endif; ?>
-					</div>
-				</div>
-			</div>
+            <div class="compact-header__wrapper wrapper">
+                <div class="compact-header__filters-toggle">
+                    <a class="Button Button--outline js-compact-header__toggle">
+                        <?= esc_html( __( 'Filters', 'ms' ) ); ?>
+                        <svg class="searchField__reset-icon icon-gear">
+                            <use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#gear' ) ?>"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="compact-header__filters urlslab-skip-keywords">
+
+                    
+                    <a class="compact-header__filters-close js-compact-header__close">
+                        <svg class="icon-close">
+                            <use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
+                        </svg>
+                    </a>
+                    <div class="compact-header__filters-wrap">
+                        <div class="compact-header__filters-scroll">
+                        <?php if ( isset( $filer_search ) ) : ?>
+                            <div class="compact-header__search">
+                                <div class="searchField">
+                                    <svg class="searchField__icon icon-search">
+                                        <use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ) ?>"></use>
+                                    </svg>
+                                    <input type="search" class="search<?= esc_attr( $search_class ); ?>" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
+                                    <span class="searchField__reset">
+                                        <svg class="searchField__reset-icon icon-close">
+                                            <use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        <?php endif ?>
+                        <?php if ( isset( $filer_items ) ) : ?>
+                            <?php foreach ( $filer_items as $filer_item ) : ?>
+                                <?php
+                                if ( ! empty( $filer_item['type'] ) ) {
+                                    $filer_type = $filer_item['type'];
+                                }
+                                if ( ! empty( $filer_item['items'] ) ) {
+                                    $filer_list = $filer_item['items'];
+                                }
+                                if ( ! empty( $filer_item['name'] ) ) {
+                                    $filer_name = $filer_item['name'];
+                                }
+                                if ( ! empty( $filer_item['title'] ) ) {
+                                    $filer_title = $filer_item['title'];
+                                }
+                                ?>
+                                <?php if ( isset( $filer_list ) && isset( $filer_type ) && isset( $filer_title ) ) : ?>
+                                    <div class="compact-header__filter">
+                                        <div class="FilterMenu">
+                                            <div class="FilterMenu__title">
+                                                <?= esc_html( $filer_title ); ?>
+                                            </div>
+                                            <div class="FilterMenu__items">
+                                                <div class="FilterMenu__items--inn">
+                                                    <?php if ( 'radio' == $filer_type && isset( $filer_name ) ) : ?>
+                                                        <?php foreach ( $filer_list as $filer_list_item ) : ?>
+                                                            <?php
+                                                            $item_checked = false;
+                                                            $item_value = '';
+                                                            if ( ! empty( $filer_list_item['checked'] ) ) {
+                                                                $item_checked = $filer_list_item['checked'];
+                                                            }
+                                                            if ( ! empty( $filer_list_item['value'] ) ) {
+                                                                $item_value = $filer_list_item['value'];
+                                                            }
+                                                            if ( ! empty( $filer_list_item['title'] ) ) {
+                                                                $item_title = $filer_list_item['title'];
+                                                            }
+                                                            if ( ! empty( $filer_list_item['onclick'] ) ) {
+                                                                $item_onclick = $filer_list_item['onclick'];
+                                                            }
+                                                            if ( '' == $item_value ) {
+                                                                $item_id = $filer_name . '-any';
+                                                            } else {
+                                                                $item_id = $filer_name . '-' . $item_value;
+                                                            }
+                                                            ?>
+                                                            <div class="sorting FilterMenu__item">
+                                                                <input
+                                                                        class="filter-item"
+                                                                        type="radio"
+                                                                        id="<?= esc_attr( $item_id ); ?>"
+                                                                        value="<?= esc_attr( $item_value ); ?>"
+                                                                        name="<?= esc_attr( $filer_name ); ?>"
+                                                                    <?php if ( $item_checked ) : ?>
+                                                                        checked
+                                                                    <?php endif; ?>
+                                                                >
+                                                                <label for="<?= esc_attr( $item_id ); ?>">
+                                                                    <span
+                                                                        <?php if ( isset( $item_onclick ) ) : ?>
+                                                                            onclick="<?= esc_attr( $item_onclick ); ?>"
+                                                                        <?php endif; ?>
+                                                                    >
+                                                                        <?php if ( isset( $item_title ) ) : ?>
+                                                                            <?= esc_html( $item_title ); ?>
+                                                                        <?php endif; ?>
+                                                                    </span>
+                                                                </label>
+                                                            </div>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
+                                                    <?php if ( 'link' == $filer_type && isset( $filer_name ) ) : ?>
+                                                        <?php foreach ( $filer_list as $filer_list_item ) : ?>
+                                                            <?php if ( isset( $filer_list_item['href'] ) && isset( $filer_list_item['title'] ) ) : ?>
+                                                                <div class="sorting FilterMenu__item">
+                                                                    <a href="<?= esc_url( $filer_list_item['href'] ); ?>"><?= esc_html( $filer_list_item['title'] ); ?></a>
+                                                                </div>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endif ?>
+                            <?php endforeach; ?>
+                        <?php endif ?>
+                        <?php if ( isset( $filer_count ) ) : ?>
+                            <div class="compact-header__count">
+                                    <span id="countPosts">
+                                        <?php if ( isset( $filer_count['value'] ) ) : ?>
+                                            <?= esc_html( $filer_count['value'] ); ?>
+                                        <?php endif ?>
+                                    </span>
+                                <?php if ( isset( $filer_count['title'] ) ) : ?>
+                                    <?= esc_html( $filer_count['title'] ); ?>
+                                <?php endif ?>
+                            </div>
+                        <?php endif; ?>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+                <div class="compact-header__filters-apply">
+                    <a class="Button Button--full js-compact-header__apply">
+                        <span><?= esc_html( __( 'Apply', 'ms' ) ); ?></span>
+                    </a>
+                </div>
+            </div>
 		</div>
 	<?php endif ?>
 <?php endif ?>
