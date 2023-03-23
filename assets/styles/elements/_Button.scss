@@ -275,6 +275,11 @@ button,
 		@include color(border-color, primary-color);
 	}
 
+	&-gray {
+
+		@include color(background-color, button-outline-color);
+	}
+
 	&-white {
 
 		@include color(background-color, main-background);

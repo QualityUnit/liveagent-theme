@@ -27,6 +27,7 @@ body.compact-header--active {
 
 	&__top {
 		padding-top: $v-space;
+		padding-bottom: $v-space;
 	}
 
 	&__bottom {
@@ -122,6 +123,23 @@ body.compact-header--active {
 		}
 	}
 
+	&__buttons {
+
+		&:not(:last-child) {
+			margin-bottom: 1.6em;
+		}
+
+		&-items {
+			display: flex;
+			flex-wrap: wrap;
+			margin: -0.313em;
+		}
+
+		&-item {
+			padding: 0.313em;
+		}
+	}
+
 	&__tags {
 
 		&:not(:last-child) {
@@ -152,12 +170,14 @@ body.compact-header--active {
 			font-size: 0.75em;
 
 			li {
+
+				@include color(color, font-color-normal);
 				padding: 0 0.4em;
 			}
 
-			a {
+			a,
+			span {
 
-				@include color(color, primary-color);
 				display: inline-flex;
 				align-items: center;
 				font-weight: $font-weight-bold;
@@ -169,6 +189,12 @@ body.compact-header--active {
 					display: block;
 					margin-right: 0.2em;
 				}
+			}
+
+			a {
+
+				@include color(color, primary-color);
+
 			}
 		}
 	}
@@ -330,12 +356,10 @@ body.compact-header--active {
 			position: sticky;
 			z-index: 99;
 			top: $header-height;
-			padding-top: 0.8em;
 
 			&--sticky {
 
 				@include color(background-color,header-background);
-				padding-top: 0;
 				filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.16));
 			}
 		}

@@ -2,6 +2,9 @@
 //todo: menu polozky na mobile
 //todo: selectbox chovanie
 //todo: ?awards je elementor stranka?
+//todo: ?integrations ... partners nebudu?
+//todo: ?integrations ... tagy bez linkek?
+//todo: vysku buttonov menime globlane?
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
 <?php set_custom_source( 'components/Filter', 'css' ); ?>
@@ -41,6 +44,9 @@
 	}
 	if ( ! empty( $args['tags'] ) ) {
 		$tags = $args['tags'];
+	}
+	if ( ! empty( $args['buttons'] ) ) {
+		$buttons = $args['buttons'];
 	}
 	if ( ! empty( $args['filter'] ) ) {
 		$filer_items = $args['filter'];
@@ -84,6 +90,42 @@
 						<?php endif ?>
 					</div>
 				<?php endif ?>
+				<?php if ( isset( $buttons ) ) : ?>
+					<div class="compact-header__buttons">
+						<div class="compact-header__buttons-items">
+							<?php foreach ( $buttons as $button ) : ?>
+								<?php if ( isset( $button['title'] ) && isset( $button['href'] ) ) : ?>
+									<?php
+									$button_classes = 'Button Button--outline Button--outline-gray';
+									if ( isset( $button['target'] ) ) :
+										if ( '_blank' == $button['target'] ) :
+											$button_classes = 'Button Button--outline';
+										endif;
+									endif;
+									?>
+									<div class="compact-header__buttons-item">
+										<a href="<?= esc_url( $button['href'] ); ?>"
+										   class="<?= esc_attr( $button_classes ); ?>"
+										   title="<?= esc_attr( $button['title'] ); ?>"
+											<?php if ( isset( $button['target'] ) ) : ?>
+												<?php $button_classes .= 'Button'; ?>
+												target="<?= esc_attr( $button['target'] ); ?>"
+											<?php endif; ?>
+											<?php if ( isset( $button['rel'] ) ) : ?>
+												rel="<?= esc_attr( $button['rel'] ); ?>"
+											<?php endif; ?>
+											<?php if ( isset( $button['onclick'] ) ) : ?>
+												onclick="<?= esc_attr( $button['onclick'] ); ?>"
+											<?php endif; ?>
+										>
+											<span><?= esc_html( $button['title'] ); ?></span>
+										</a>
+									</div>
+								<?php endif; ?>
+							<?php endforeach; ?>
+						</div>
+					</div>
+				<?php endif; ?>
 				<?php if ( isset( $tags ) ) : ?>
 					<div class="compact-header__tags">
 						<?php foreach ( $tags as $item ) : ?>
@@ -95,23 +137,31 @@
 									<ul class="compact-header__tags-list">
 									<?php foreach ( $item['list'] as $tag_item ) : ?>
 										<li>
-											<a href="<?= esc_url( $tag_item['href'] ); ?>"
-											   title="<?= esc_attr( $tag_item['title'] ); ?>"
-											   <?php if ( $tag_item['target'] ) : ?>
-												   target="<?= esc_attr( $tag_item['target'] ); ?>"
-												<?php endif; ?>
-												<?php if ( $tag_item['rel'] ) : ?>
-													rel="<?= esc_attr( $tag_item['rel'] ); ?>"
-												<?php endif; ?>
-												<?php if ( $tag_item['onclick'] ) : ?>
-													onclick="<?= esc_attr( $tag_item['onclick'] ); ?>"
-												<?php endif; ?>
-											>
+											<?php if ( isset( $tag_item['href'] ) ) : ?>
+												<a href="<?= esc_url( $tag_item['href'] ); ?>"
+												   title="<?= esc_attr( $tag_item['title'] ); ?>"
+												   <?php if ( $tag_item['target'] ) : ?>
+													   target="<?= esc_attr( $tag_item['target'] ); ?>"
+													<?php endif; ?>
+													<?php if ( $tag_item['rel'] ) : ?>
+														rel="<?= esc_attr( $tag_item['rel'] ); ?>"
+													<?php endif; ?>
+													<?php if ( $tag_item['onclick'] ) : ?>
+														onclick="<?= esc_attr( $tag_item['onclick'] ); ?>"
+													<?php endif; ?>
+												>
+											<?php else : ?>
+												<span>
+											<?php endif; ?>
 												<svg class="icon-tag-solid">
 													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#tag-solid' ) ?>"></use>
 												</svg>
 												<?= esc_html( $tag_item['title'] ); ?>
-											</a>
+											<?php if ( isset( $tag_item['href'] ) ) : ?>
+												</a>
+											<?php else : ?>
+												</span>
+											<?php endif; ?>
 										</li>
 									<?php endforeach; ?>
 								</ul>
