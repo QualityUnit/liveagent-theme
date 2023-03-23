@@ -173,6 +173,58 @@ body.compact-header--active {
 		}
 	}
 
+	&__menu {
+		display: flex;
+		margin-bottom: -$v-space;
+
+		&-title {
+
+			@include color(color,font-color-medium);
+			margin-right: 3em;
+			font-size: 0.875em;
+		}
+
+		&-items {
+
+			ul {
+				display: flex;
+				margin: 0;
+
+				li {
+					position: relative;
+					margin-right: 3em;
+					font-size: 0.875em;
+					font-weight: $font-weight-semi;
+
+					a {
+						display: block;
+						text-decoration: none;
+
+						@include hover {
+							text-decoration: none;
+						}
+					}
+
+					&.active {
+						padding-bottom: 0.714em;
+
+						&::after {
+
+							@include color(background-color,primary-color);
+							position: absolute;
+							bottom: 0;
+							display: block;
+							content: "";
+							width: 100%;
+							height: 0.214em;
+							pointer-events: none;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.breadcrumbs {
 		margin-bottom: 0.35em;
 
@@ -278,10 +330,12 @@ body.compact-header--active {
 			position: sticky;
 			z-index: 99;
 			top: $header-height;
+			padding-top: 0.8em;
 
 			&--sticky {
 
 				@include color(background-color,header-background);
+				padding-top: 0;
 				filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.16));
 			}
 		}
@@ -294,7 +348,7 @@ body.compact-header--active {
 				display: none;
 			}
 
-			&-wrap {
+			&-inn {
 				display: flex;
 				flex-wrap: wrap;
 			}
@@ -345,14 +399,16 @@ body.compact-header--active {
 				pointer-events: auto;
 			}
 
-			&-scroll {
+			&-inn {
 				overflow: scroll;
+				height: 100%;
+				padding: 0 $wrapper-padding;
 			}
 
 			&-wrap {
 				position: relative;
 				height: calc(100% - 4.5em);
-				padding: 1em $wrapper-padding 4em $wrapper-padding;
+				padding: 1em 0 5em 0;
 				margin-top: 3.5em;
 				border-top-left-radius: $wrapper-padding;
 				border-top-right-radius: $wrapper-padding;
@@ -429,7 +485,7 @@ body.compact-header--active {
 
 			&:not(:first-child) {
 				position: relative;
-				padding-top: 5.9em;
+				padding-top: 0.9em;
 
 				&::before {
 					position: absolute;
@@ -444,7 +500,7 @@ body.compact-header--active {
 			}
 
 			&:not(:last-child) {
-				padding-bottom: 5.6em;
+				padding-bottom: 0.6em;
 			}
 		}
 
@@ -452,6 +508,18 @@ body.compact-header--active {
 
 			input[type="search"] {
 				width: 100%;
+			}
+		}
+
+		.FilterMenu {
+
+			&__items {
+				max-width: 100%;
+				left: initial;
+
+				&--inn {
+					max-height: 50vh;
+				}
 			}
 		}
 	}

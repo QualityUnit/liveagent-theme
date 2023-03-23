@@ -19,81 +19,6 @@ $sidebarWidth: 13.5em;
 			overflow: hidden;
 		}
 
-		&__sidebar {
-			display: block;
-
-			&__title {
-
-				@include color(color, font-color-medium);
-				font-size: 0.75rem;
-				font-family: $font-primary;
-			}
-
-			&__link {
-				margin-bottom: 1.5em;
-
-				a {
-					text-decoration: none !important;
-				}
-
-				&-icon {
-					margin-right: 1em;
-
-					img {
-
-						@include square(1.25em);
-					}
-				}
-
-				a {
-
-					@include color(color, font-color-dark);
-					font-size: 0.875rem;
-					font-family: $font-secondary;
-					font-weight: $font-weight-bold;
-
-					&:hover {
-
-						@include color(color, primary-color);
-					}
-				}
-			}
-
-			@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
-
-				position: sticky;
-				top: $header-height;
-				left: 0;
-				right: 0;
-				background: linear-gradient(to bottom, $white calc(100% - 2em), transparent);
-				z-index: 5;
-				padding: 0 0.5em 1.5em 1.5em;
-
-				.Archive__container__content__item {
-					margin-bottom: 0;
-				}
-
-				&__title {
-					margin: 0 0 0.5em 0;
-				}
-
-				&__links {
-					margin: 0;
-				}
-
-				&__link {
-					display: inline-block;
-					padding: 0;
-					margin: 0 1em 0.5em 0;
-				}
-			}
-
-			@media (min-width: $breakpoint-tablet-landscape) {
-				width: $sidebarWidth;
-				padding-left: 2em;
-			}
-		}
-
 		img {
 			border: none;
 		}
@@ -157,19 +82,6 @@ $sidebarWidth: 13.5em;
 			span {
 				padding: 0 25px;
 			}
-		}
-	}
-
-	.Post__container {
-		justify-content: flex-start;
-
-		@media (max-width: $breakpoint-tablet-landscape) {
-			flex-direction: column;
-		}
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-			flex-direction: row;
-			flex-wrap: nowrap;
 		}
 	}
 

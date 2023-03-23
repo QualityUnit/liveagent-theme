@@ -1,4 +1,3 @@
-
 const clSticky = 'compact-header__bottom';
 const clStickyActive = clSticky + '--sticky';
 const clMobileActive = 'compact-header--active';
@@ -17,14 +16,6 @@ function fnStickyHeader() {
 			elSticky.classList.remove( clStickyActive );
 		}
 	}
-}
-
-function fnMobileShow() {
-	elBody.classList.add( clMobileActive );
-}
-
-function fnMobileHide() {
-	elSticky.classList.remove( clMobileActive );
 }
 
 window.onscroll = function() {
