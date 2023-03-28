@@ -8,8 +8,8 @@ no-descending-specificity, value-keyword-case */
 $maxWidth: 71.125em;
 
 .Research {
-	max-width: $maxWidth;
-	margin: 0 auto;
+	/*max-width: $maxWidth;
+	margin: 0 auto;*/
 
 	&__header {
 		position: relative;
@@ -140,13 +140,13 @@ $maxWidth: 71.125em;
 		}
 	}
 
-	&--wrapper {
+	/*&--wrapper {
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 			width: 57.6%;
 			margin: 0 auto;
 		}
-	}
+	}*/
 
 	&--category {
 

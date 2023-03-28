@@ -251,6 +251,22 @@ body.compact-header--active {
 		}
 	}
 
+	&__scrollbar {
+
+		position: absolute;
+		top: 100%;
+		right: 0;
+		left: 0;
+
+		> * {
+
+			@include color(background-color,primary-color);
+			width: 0;
+			height: 0.2em;
+			display: block;
+		}
+	}
+
 	.breadcrumbs {
 		margin-bottom: 0.35em;
 

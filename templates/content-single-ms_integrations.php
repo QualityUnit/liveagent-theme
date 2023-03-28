@@ -103,7 +103,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
  
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
-	<div class="wrapper__wide Post__container">
+	<div class="wrapper Post__container">
 		<div class="Post__sidebar urlslab-skip-keywords">
 
 			<div class="Post__sidebar__partner">

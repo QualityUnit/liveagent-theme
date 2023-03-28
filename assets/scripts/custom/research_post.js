@@ -45,7 +45,7 @@
 	const navigationItems = document.querySelectorAll(
 		'.Research--navigation__post'
 	);
-	const researchTitle = document.querySelector( '.Research__title' );
+	const researchTitle = document.querySelector( '.compact-header__title' );
 	const researchSelected = document.querySelector(
 		'.Research--navigation__selected'
 	);
@@ -87,11 +87,11 @@
 			} );
 
 		if ( researchTitle ) {
-			const researchTitleId = document.querySelector( '.Research__title' )
+			const researchPageId = document.querySelector( '.Research' )
 				.dataset.id;
 
 			const filteredItem = [ ...navigationItems ].filter(
-				( item ) => item.dataset.id === researchTitleId
+				( item ) => item.dataset.id === researchPageId
 			);
 			filteredItem[ 0 ].classList.add( 'hidden' );
 			const filteredItemNumber = filteredItem[ 0 ]
@@ -101,7 +101,7 @@
 
 			researchTitle.insertAdjacentHTML(
 				'afterbegin',
-				`<span class="Research__title__number outline-text">${ filteredItemNumber }</span>`
+				`${ filteredItemNumber } `
 			);
 			researchSelected.insertAdjacentHTML(
 				'afterbegin',
