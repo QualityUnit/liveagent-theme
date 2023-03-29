@@ -2,9 +2,6 @@
 //todo: menu polozky na mobile
 //todo: selectbox chovanie
 //todo: ?awards je elementor stranka?
-//todo: ?integrations ... partners nebudu?
-//todo: ?integrations ... tagy smeruju na pricing
-//todo: vysku buttonov nechat standard
 //todo: sirka obsahu v research detail, napr: "Call center usage"
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
