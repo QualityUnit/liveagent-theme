@@ -2,39 +2,6 @@
 @use "../../common/variables" as *;
 @use "../../common/mixins" as *;
 
-body {
-
-	&.request-demo,
-	&.page-template-template-request-demo_new {
-
-		#app {
-			padding-top: 0;
-		}
-
-		#loader {
-			display: none;
-		}
-
-		.Header {
-			position: static;
-
-			&__items {
-				display: none;
-			}
-
-			.wrapper {
-				padding-left: 30px;
-				padding-right: 30px;
-				max-width: none;
-			}
-		}
-
-		.AppContainer ~ * {
-			display: none;
-		}
-	}
-}
-
 .RequestDemo.Block {
 	margin-bottom: 0 !important;
 	padding: 0 !important;
