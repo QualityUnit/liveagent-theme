@@ -1,4 +1,4 @@
-const clSticky = 'compact-header__bottom';
+const clSticky = 'compact-header';
 const clStickyActive = clSticky + '--sticky';
 const clMobileActive = 'compact-header--active';
 const elSticky = document.querySelector( '.' + clSticky );
@@ -12,17 +12,15 @@ let elHeaderScrollBar = null;
 if ( elBody.classList.contains( 'single' ) ) {
 	elHeaderScrollBar = document.createElement( 'div' );
 	elHeaderScrollBar.classList.add( 'compact-header__scrollbar' );
-	elHeader.append( elHeaderScrollBar );
+	elSticky.append( elHeaderScrollBar );
 }
 
 function fnStickyHeader() {
-	if ( elSticky && elHeader && elHeaderScrollBar ) {
-		if ( ( document.documentElement.scrollTop + elHeader.offsetHeight ) >= elSticky.offsetTop ) {
+	if ( elSticky && elHeader ) {
+		if ( ( elHeader.offsetHeight + elSticky.offsetHeight ) <= document.documentElement.scrollTop ) {
 			elSticky.classList.add( clStickyActive );
-			elSticky.append( elHeaderScrollBar );
 		} else {
 			elSticky.classList.remove( clStickyActive );
-			elHeader.append( elHeaderScrollBar );
 		}
 	}
 }

@@ -15,6 +15,8 @@ body.compact-header--active {
 	$class-name: compact-header;
 	$v-space: 1em;
 	$bg-color: #f9f9fa;
+	padding-top: $v-space;
+	padding-bottom: $v-space;
 	background-color: $bg-color;
 
 	& ~ & {
@@ -23,15 +25,6 @@ body.compact-header--active {
 
 	&:not(:last-child) {
 		margin-bottom: 2.2em;
-	}
-
-	&__top {
-		padding-top: $v-space;
-		padding-bottom: $v-space;
-	}
-
-	&__bottom {
-		padding-bottom: $v-space;
 	}
 
 	&__wrapper {
@@ -313,7 +306,7 @@ body.compact-header--active {
 			}
 		}
 
-		&__reset {
+		.search-reset {
 
 			@include square(1.5em);
 			position: absolute;
@@ -329,9 +322,14 @@ body.compact-header--active {
 			transform: translateY(-50%);
 			cursor: pointer;
 
-			&-icon {
+			&__icon {
 
 				@include square(0.5em);
+			}
+
+			&--active {
+				opacity: 1;
+				pointer-events: initial;
 			}
 		}
 
@@ -354,6 +352,7 @@ body.compact-header--active {
 	}
 
 	@media (min-width: $breakpoint-tablet) {
+		transition: margin 0.3s ease;
 
 		&__wrapper {
 			justify-content: space-between;
@@ -365,19 +364,6 @@ body.compact-header--active {
 
 		&__right {
 			max-width: 33%;
-		}
-
-		&__bottom {
-			position: -webkit-sticky; /* Safari */
-			position: sticky;
-			z-index: 99;
-			top: $header-height;
-
-			&--sticky {
-
-				@include color(background-color,header-background);
-				filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.16));
-			}
 		}
 
 		&__filters {
@@ -409,18 +395,42 @@ body.compact-header--active {
 				width: 22em;
 			}
 		}
+
+		&--sticky {
+
+			@include color(background-color,header-background);
+			position: fixed;
+			z-index: 99;
+			top: 0;
+			left: 0;
+			right: 0;
+			filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.16));
+			margin-top: $header-height;
+			.#{$class-name} {
+
+				&__left > * {
+					display: none;
+				}
+
+				&__right {
+					display: none;
+				}
+
+				&__title {
+					display: block !important;
+					font-size: 1.125em;
+				}
+			}
+		}
 	}
 
 	@media (max-width: $breakpoint-tablet - 1) {
 
-		&__top &__wrapper {
+		&__wrapper {
 			flex-direction: column;
 
-			> * {
-
-				&:not(:last-child) {
-					margin-bottom: 0.75em;
-				}
+			&:not(:last-child) {
+				margin-bottom: 0.75em;
 			}
 		}
 
