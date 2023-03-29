@@ -151,6 +151,22 @@ $signupSidebarWidth: 16.875em;
 							overflow: hidden;
 							border-radius: $border-radius-16;
 
+							&.alignleft {
+								float: left;
+								margin: -0.25em 1em 0 0;
+								border-radius: 0;
+
+								img {
+									max-width: 3em;
+									border: 0;
+								}
+
+								+ h3 {
+									clear: none;
+									margin-bottom: 1.5em;
+								}
+							}
+
 							figcaption {
 								width: 100%;
 							}
