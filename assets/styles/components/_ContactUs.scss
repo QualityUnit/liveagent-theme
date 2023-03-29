@@ -297,6 +297,7 @@ $colors: (
 			font-weight: $font-weight-semi;
 			font-family: $font-secondary;
 			color: $black-real;
+			text-decoration: none;
 			opacity: 0;
 			transform: translateZ(10px);
 			transition: all 0.25s 0.15s;
@@ -316,6 +317,8 @@ $colors: (
 			}
 
 			&:hover {
+				text-decoration: none !important;
+				color: $black-real !important;
 
 				&::after {
 					transform: translateX(0);
