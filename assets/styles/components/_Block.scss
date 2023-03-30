@@ -425,6 +425,10 @@ scss/at-extend-no-missing-placeholder */
 		}
 	}
 
+	.checklist.elementor-widget-text-editor {
+		max-width: 100% !important;
+	}
+
 	@media (min-width: $breakpoint-desktop) {
 
 		&--big,

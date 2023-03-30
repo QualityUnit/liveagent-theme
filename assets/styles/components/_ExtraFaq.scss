@@ -78,7 +78,7 @@
 			margin-bottom: 1em;
 			font-size: $font-size-h3;
 			line-height: $line-height-smaller;
-			padding-left: 1.5em;
+			padding-left: 1.4em;
 			position: relative;
 
 			&::before {
@@ -107,16 +107,30 @@
 
 				p {
 
+					@include color(color, font-color-dark);
 					margin: 0;
 					font-size: $font-size-default;
 					border: 1px solid $white;
 					border-left: 1px dashed $white;
 					padding: 0 1.5em;
-					color: $dark-gray;
 					text-align: left;
 
 					&:empty {
 						display: none;
+					}
+				}
+
+				ul {
+					list-style: disc;
+					margin-top: 0.5em;
+					margin-left: 2.5em;
+
+					li {
+						padding-left: 0;
+
+						&::before {
+							display: none;
+						}
 					}
 				}
 
