@@ -252,7 +252,8 @@ video {
 	}
 
 	> ul:not([class]),
-	[class*="wp-block"] ul:not([class]) {
+	[class*="wp-block"] ul:not([class]),
+	[class*="elementor-widget-container"] > ul:not([class]) {
 
 		@extend %checklist;
 
