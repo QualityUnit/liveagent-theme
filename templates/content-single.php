@@ -121,9 +121,9 @@ if ( isset( $categories ) ) {
 				</div>
 
 				<div class="Post__content__resources">
-					<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
+					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 					<div class="SimilarSources">
-						<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
+						<?php echo do_shortcode( '[urlslab-related-resources show-image="true" show-summary="true"]' ); ?>
 					</div>
 				</div>
 			</div>
