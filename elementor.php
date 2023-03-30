@@ -14,9 +14,8 @@ while ( have_posts() ) :
 		?>
 		<div class="SimilarSources">
 			<div class="wrapper">
-				<div class="SimilarSources__title h3"><?php _e( 'Related Resources to ', 'ms' ); ?><?php the_title(); ?></div>
-
-				<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
+				<div class="SimilarSources__title h3"><?php _e( 'Related Articles to ', 'ms' ); ?><?php the_title(); ?></div>
+				<?php echo do_shortcode( '[urlslab-related-resources show-image="true" show-summary="true"]' ); ?>
 			</div>
 		</div>
 	<?php } ?>
