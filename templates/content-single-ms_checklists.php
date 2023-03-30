@@ -134,7 +134,7 @@ if ( $categories ) {
 					<div class="h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 
 					<div class="SimilarSources">
-						<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
+						<?php echo do_shortcode( '[urlslab-related-resources show-image="true" show-summary="true"]' ); ?>
 					</div>
 				</div>
 			</div>
