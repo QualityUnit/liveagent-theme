@@ -15,7 +15,7 @@
 					?>
 				<div class="SimilarSources SimilarSources--blog">
 					<div class="wrapper">
-						<div class="SimilarSources__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
+						<div class="SimilarSources__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 
 						<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
 					</div>
