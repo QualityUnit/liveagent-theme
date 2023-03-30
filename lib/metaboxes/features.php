@@ -13,11 +13,12 @@ $metabox = array(
 			'description' => '',
 			'type'        => 'multiselect',
 			'args'        => array(
-				'Free'          => 'free',
-				'Small'        => 'ticket',
-				'Medium'   => 'ticket-chat',
-				'Large' => 'all-inclusive',
-				'Extensions'    => 'extensions',
+				'Free'       => 'free',
+				'Small'      => 'ticket',
+				'Medium'     => 'ticket-chat',
+				'Large'      => 'all-inclusive',
+				'Enterprise' => 'enterprise',
+				'Extensions' => 'extensions',
 			),
 		),
 		array(

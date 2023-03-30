@@ -69,6 +69,7 @@
 							'ticket'        => 'Small',
 							'ticket-chat'   => 'Medium',
 							'all-inclusive' => 'Large',
+							'enterprise'    => 'Enterprise',
 							'extensions'    => 'Extensions',
 						);
 
