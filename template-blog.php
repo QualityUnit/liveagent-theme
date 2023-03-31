@@ -63,7 +63,7 @@
 				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 					<div class="SimilarSources">
-						<?php echo do_shortcode( '[urlslab-related-resources show-image="true" show-summary="true"]' ); ?>
+						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
 					</div>
 				</div>
 			</div>

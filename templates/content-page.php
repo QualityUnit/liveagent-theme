@@ -17,7 +17,7 @@
 					<div class="wrapper">
 						<div class="SimilarSources__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 
-						<?php echo do_shortcode( '[urlslab-related-resources show-image="true" show-summary="true"]' ); ?>
+						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
 					</div>
 				</div>
 				<?php } ?>
