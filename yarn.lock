@@ -4594,12 +4594,12 @@ gulp-stylelint@^13:
     strip-ansi "^6.0.0"
     through2 "^3.0.1"
 
-gulp-svg-sprite@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/gulp-svg-sprite/-/gulp-svg-sprite-2.0.1.tgz#b43400b958586f528c72bbed9c75d8de73cf6dbb"
-  integrity sha512-hK+ipciM9YU9G3lAeBMqZJaDsiq7NMXOkirR7DkU/YhhzE+JEnhp8DzzYC58Dt09KpAmwoK49SIyyk/1UvkJLg==
+gulp-svg-sprite@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/gulp-svg-sprite/-/gulp-svg-sprite-2.0.3.tgz#983fb4ad4d020d8437d995c2be526ad3821a250a"
+  integrity sha512-cQClfYEHyFTqEqlFoMiDXYdGXt3qFU7OxWp8m0ZJNhN/EpOGYRRPAtxJV3Uum7VO0qvZBkcv70y54QSxRKTWBA==
   dependencies:
-    plugin-error "^1.0.1"
+    plugin-error "^2.0.1"
     svg-sprite "^2.0.2"
 
 gulp-terser@^2.1:
@@ -6428,6 +6428,13 @@ plugin-error@^1.0.1:
     arr-diff "^4.0.0"
     arr-union "^3.1.0"
     extend-shallow "^3.0.2"
+
+plugin-error@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/plugin-error/-/plugin-error-2.0.1.tgz#f2ac92bac8c85e3e23492d76d0c3ca12f30eb00b"
+  integrity sha512-zMakqvIDyY40xHOvzXka0kUvf40nYIuwRE8dWhti2WtjQZ31xAgBZBhxsK7vK3QbRXS1Xms/LO7B5cuAsfB2Gg==
+  dependencies:
+    ansi-colors "^1.0.1"
 
 portscanner@2.2.0:
   version "2.2.0"
