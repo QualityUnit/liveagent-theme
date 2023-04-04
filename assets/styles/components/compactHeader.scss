@@ -195,6 +195,11 @@ body.compact-header--active {
 	&__menu {
 		display: flex;
 		margin-bottom: -$v-space;
+		margin-right: (-$wrapper-padding * 2);
+		white-space: nowrap;
+		overflow-x: auto;
+		overflow-y: hidden;
+		-webkit-overflow-scrolling: touch;
 
 		&-title {
 
@@ -211,13 +216,17 @@ body.compact-header--active {
 
 				li {
 					position: relative;
-					margin-right: 3em;
 					font-size: 0.875em;
 					font-weight: $font-weight-semi;
+
+					&:not(:last-child) {
+						margin-right: 3em;
+					}
 
 					a {
 						display: block;
 						text-decoration: none;
+						white-space: nowrap;
 
 						@include hover {
 							text-decoration: none;
@@ -242,6 +251,17 @@ body.compact-header--active {
 				}
 			}
 		}
+	}
+
+	&__filter {
+
+		&-label {
+			font-size: 0.75em;
+		}
+	}
+
+	&__toc {
+		display: none;
 	}
 
 	&__scrollbar {
@@ -275,9 +295,13 @@ body.compact-header--active {
 	}
 
 	.searchField {
+		width: 100%;
 		margin: 0;
 
 		input[type="search"] {
+			display: block;
+			width: 100%;
+			min-width: initial;
 			height: 2.9em;
 			padding-left: 3.5em;
 			border-radius: 0.75em;
@@ -366,6 +390,10 @@ body.compact-header--active {
 			max-width: 33%;
 		}
 
+		&__bottom {
+			padding-top: $v-space;
+		}
+
 		&__filters {
 
 			&-toggle,
@@ -376,7 +404,16 @@ body.compact-header--active {
 
 			&-inn {
 				display: flex;
-				flex-wrap: wrap;
+				align-items: flex-end;
+
+				> * {
+					flex: 1;
+					max-width: 25em;
+
+					&:not(:last-child) {
+						margin-right: 0.625em;
+					}
+				}
 			}
 		}
 
@@ -385,20 +422,9 @@ body.compact-header--active {
 			display: inline-flex;
 		}
 
-		&__filter {
-			max-width: 200px;
-		}
-
-		.searchField {
-
-			input[type="search"] {
-				width: 22em;
-			}
-		}
-
 		&--sticky {
 
-			@include color(background-color,header-background);
+			@include color(background-color,main-background);
 			position: fixed;
 			z-index: 99;
 			top: 0;
@@ -408,17 +434,22 @@ body.compact-header--active {
 			margin-top: $header-height;
 			.#{$class-name} {
 
-				&__left > * {
+				&__left > *,
+				&__right > * {
 					display: none;
 				}
 
-				&__right {
-					display: none;
+				&__bottom {
+					padding-top: 0;
 				}
 
 				&__title {
 					display: block !important;
 					font-size: 1.125em;
+				}
+
+				&__toc {
+					display: block !important;
 				}
 			}
 		}
@@ -571,6 +602,13 @@ body.compact-header--active {
 					max-height: 50vh;
 				}
 			}
+		}
+	}
+
+	@media (max-width: 415px) {
+
+		&__menu {
+			margin-right: -$wrapper-padding;
 		}
 	}
 }

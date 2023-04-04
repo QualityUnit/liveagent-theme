@@ -208,6 +208,7 @@ $signupSidebarWidth: 16.875em;
 	&--sidebar-right {
 		$wider-margin: 2rem;
 		$wider-margin-sm: 1rem;
+		$content-width: 60%;
 
 		.Post {
 
@@ -276,7 +277,15 @@ $signupSidebarWidth: 16.875em;
 
 				&__content {
 					order: 1;
-					width: 60%;
+					width: $content-width;
+				}
+			}
+
+			&.Research .Post__content {
+				width: 100%;
+
+				.Research--wrapper {
+					width: $content-width;
 				}
 			}
 		}

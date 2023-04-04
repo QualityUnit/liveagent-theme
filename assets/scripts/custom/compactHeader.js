@@ -9,10 +9,9 @@ const elClose = document.querySelector( '.js-compact-header__close' );
 const elApply = document.querySelector( '.js-compact-header__apply' );
 //scroll bar on single pages
 let elHeaderScrollBar = null;
-if ( elBody.classList.contains( 'single' ) ) {
+if ( elBody.classList.contains( 'single' ) && ! elBody.classList.contains( 'about' ) ) {
 	elHeaderScrollBar = document.createElement( 'div' );
 	elHeaderScrollBar.classList.add( 'compact-header__scrollbar' );
-	elSticky.append( elHeaderScrollBar );
 }
 
 function fnStickyHeader() {
@@ -51,10 +50,55 @@ function fnHeaderScrollBar() {
 		el.style.width = getScrollPercent();
 	}
 }
+function fnHeaderScrollBarPositon() {
+	if ( elHeaderScrollBar ) {
+		if ( window.innerWidth <= 767 ) {
+			elHeader.append( elHeaderScrollBar );
+		} else {
+			elSticky.append( elHeaderScrollBar );
+		}
+	}
+}
+function fnFilterSelect() {
+	const clFilterMain = 'FilterMenu';
+	const clFilterTitle = 'FilterMenu__title';
+	const clFilterItems = 'FilterMenu__items';
+	const clFilterItem = 'FilterMenu__item-title';
+	const elFilterItem = document.querySelectorAll( '.' + clFilterItem );
+
+	if ( elFilterItem ) {
+		elFilterItem.forEach( ( item ) => {
+			const elFilterMain = item.closest( '.' + clFilterMain );
+			const elFilterItems = item.closest( '.' + clFilterItems );
+			const elFilterTitle = elFilterMain.querySelector( '.' + clFilterTitle );
+			const textItem = item.textContent;
+			const hideMenu = () => {
+				if ( elFilterItems.classList.contains( 'visible' ) ) {
+					elFilterItems.classList.remove( 'visible' );
+					elFilterTitle.classList.remove( 'active' );
+					setTimeout( () => {
+						elFilterItems.classList.remove( 'active' );
+					}, 200 );
+				}
+			};
+			if ( elFilterTitle ) {
+				item.addEventListener( 'click', () => {
+					elFilterTitle.textContent = textItem;
+					hideMenu();
+				} );
+			}
+		} );
+	}
+}
 
 fnStickyHeaderActions();
 fnHeaderScrollBar();
-window.onscroll = function() {
+fnHeaderScrollBarPositon();
+fnFilterSelect();
+window.addEventListener( 'scroll', function() {
 	fnStickyHeader();
 	fnHeaderScrollBar();
-};
+}, true );
+window.addEventListener( 'resize', function() {
+	fnHeaderScrollBarPositon();
+}, true );

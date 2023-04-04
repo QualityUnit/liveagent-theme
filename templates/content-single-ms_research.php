@@ -11,7 +11,8 @@ $page_header_args = array(
 	),
 	'title' => $page_title,
 	'text' => get_the_excerpt( $post ),
-	'research_nav' => true
+	'research_nav' => true,
+	'toc' => true,
 );
 ?>
 <div class="Post Research Post--sidebar-right" itemscope itemtype="http://schema.org/Article" data-id="<?php echo get_the_ID(); ?>">
@@ -19,22 +20,6 @@ $page_header_args = array(
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	
 	<div class="wrapper Post__container">
-		<div class="Post__sidebar urlslab-skip-keywords">
-			<?php if ( sidebar_toc() !== false ) { ?>
-				<div class="SidebarTOC-wrapper">
-					<div class="SidebarTOC">
-						<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-						<div class="SidebarTOC__slider slider splide">
-							<div class="splide__track">
-								<ul class="SidebarTOC__content splide__list">
-									<?php echo wp_kses_post( sidebar_toc() ); ?>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-		</div>
 		<div class="Post__content">
 			<div class="Content" itemprop="articleBody">
 				

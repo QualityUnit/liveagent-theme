@@ -1,5 +1,7 @@
 <?php
 //todo: sirka obsahu v research detail, napr: "Call center usage"
+//todo: bug: filter - rozklikavanie selectov
+//todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
 <?php set_custom_source( 'components/Filter', 'css' ); ?>
@@ -7,26 +9,6 @@
 <?php set_custom_source( 'compactHeader', 'js' ); ?>
 <?php if ( isset( $args ) ) : ?>
 	<?php
-	$image_alt = '';
-	$image_type = 'default';
-	if ( ! empty( $args['image'] ) ) {
-		$image = $args['image'];
-		if ( ! empty( $image['src'] ) ) {
-			$image_src = $image['src'];
-		}
-		if ( ! empty( $image['alt'] ) ) {
-			$image_alt = $image['alt'];
-		}
-		if ( ! empty( $image['type'] ) ) {
-			$image_type = $image['type'];
-		}
-	}
-	if ( ! empty( $args['logo'] ) ) {
-		$logo = $args['logo'];
-	}
-	if ( ! empty( $args['title'] ) ) {
-		$main_title = $args['title'];
-	}
 	if ( ! empty( $args['text'] ) ) {
 		$text = $args['text'];
 	}
@@ -68,8 +50,8 @@
 		<div class="compact-header__wrapper wrapper">
 			<div class="compact-header__left">
 				<?php site_breadcrumb(); ?>
-				<?php if ( isset( $main_title ) ) : ?>
-					<h1 itemprop="name" class="compact-header__title"><?= esc_html( $main_title ); ?></h1>
+				<?php if ( ! empty( $args['title'] ) ) : ?>
+					<h1 itemprop="name" class="compact-header__title"><?= esc_html( $args['title'] ); ?></h1>
 				<?php endif ?>
 				<?php if ( isset( $text ) ) : ?>
 					<div class="compact-header__text"><?= wp_kses_post( $text ); ?></div>
@@ -135,30 +117,24 @@
 									<ul class="compact-header__tags-list">
 									<?php foreach ( $item['list'] as $tag_item ) : ?>
 										<li>
-											<?php if ( isset( $tag_item['href'] ) ) : ?>
+											<?php if ( isset( $tag_item['href'] ) && isset( $tag_item['title'] ) ) : ?>
 												<a href="<?= esc_url( $tag_item['href'] ); ?>"
 												   title="<?= esc_attr( $tag_item['title'] ); ?>"
-												   <?php if ( $tag_item['target'] ) : ?>
+												   <?php if ( isset( $tag_item['target'] ) ) : ?>
 													   target="<?= esc_attr( $tag_item['target'] ); ?>"
 													<?php endif; ?>
-													<?php if ( $tag_item['rel'] ) : ?>
+													<?php if ( isset( $tag_item['rel'] ) ) : ?>
 														rel="<?= esc_attr( $tag_item['rel'] ); ?>"
 													<?php endif; ?>
-													<?php if ( $tag_item['onclick'] ) : ?>
+													<?php if ( isset( $tag_item['onclick'] ) ) : ?>
 														onclick="<?= esc_attr( $tag_item['onclick'] ); ?>"
 													<?php endif; ?>
 												>
-											<?php else : ?>
-												<span>
-											<?php endif; ?>
-												<svg class="icon-tag-solid">
-													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#tag-solid' ) ?>"></use>
-												</svg>
-												<?= esc_html( $tag_item['title'] ); ?>
-											<?php if ( isset( $tag_item['href'] ) ) : ?>
+													<svg class="icon-tag-solid">
+														<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#tag-solid' ) ?>"></use>
+													</svg>
+													<?= esc_html( $tag_item['title'] ); ?>
 												</a>
-											<?php else : ?>
-												</span>
 											<?php endif; ?>
 										</li>
 									<?php endforeach; ?>
@@ -170,34 +146,56 @@
 				<?php endif; ?>
 			</div>
 			<div class="compact-header__right">
-				<?php if ( isset( $image_src ) ) : ?>
-					<div class="compact-header__image
-					<?php if ( isset( $image_type ) ) : ?>
-						 compact-header__image--<?= sanitize_html_class( $image_type ) ?>
-					<?php endif; ?>">
-						<img
-							src="<?= esc_url( $image_src ); ?>"
-							alt="<?= esc_attr( $image_alt ); ?>"
-							class="compact-header__img"
-						>
-						<?php if ( isset( $logo ) ) : ?>
-							<div class="compact-header__logo">
-								<img
-									<?php if ( $logo['src'] ) : ?>
-										src="<?= esc_url( $logo['src'] ); ?>"
-									<?php endif; ?>
-									<?php if ( $logo['alt'] ) : ?>
-										alt="<?= esc_attr( $logo['alt'] ); ?>"
-									<?php endif; ?>
-									class="compact-header__logo-img"
-								>
+				<?php if ( ! empty( $args['toc'] ) ) : ?>
+					<?php if ( compact_header_toc() !== false ) : ?>
+						<div class="compact-header__toc">
+							<div class="FilterMenu">
+								<div class="FilterMenu__title"></div>
+								<div class="FilterMenu__items">
+									<div class="FilterMenu__items--inn">
+										<?= wp_kses_post( compact_header_toc() ); ?>
+									</div>
+								</div>
 							</div>
-						<?php endif ?>
-					</div>
+						</div>
+					<?php endif; ?>
+				<?php endif; ?>
+				<?php if ( ! empty( $args['image'] ) ) : ?>
+					<?php
+					$image_alt = '';
+					$image_type = 'default';
+					$image = $args['image'];
+					?>
+					<?php if ( isset( $image['src'] ) ) : ?>
+						<div class="compact-header__image
+						<?php if ( isset( $image['type'] ) ) : ?>
+							 compact-header__image--<?= sanitize_html_class( $image['type'] ) ?>
+						<?php endif; ?>">
+							<img
+								src="<?= esc_url( $image['src'] ); ?>"
+								alt="<?= esc_attr( $image['alt'] ); ?>"
+								class="compact-header__img"
+							>
+							<?php if ( ! empty( $args['logo'] ) ) : ?>
+								<?php $logo = $args['logo']; ?>
+								<div class="compact-header__logo">
+									<img
+										<?php if ( isset( $logo['src'] ) ) : ?>
+											src="<?= esc_url( $logo['src'] ); ?>"
+										<?php endif; ?>
+										<?php if ( isset( $logo['alt'] ) ) : ?>
+											alt="<?= esc_attr( $logo['alt'] ); ?>"
+										<?php endif; ?>
+										class="compact-header__logo-img"
+									>
+								</div>
+							<?php endif ?>
+						</div>
+					<?php endif ?>
 				<?php endif ?>
 			</div>
 			<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_count ) || isset( $menu_header ) || isset( $research_nav ) ) : ?>
-				<div class="compact-header compact-header__bottom">
+				<div class="compact-header__bottom">
 					<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_count ) ) : ?>
 						<div class="compact-header__filters-toggle">
 							<a class="Button Button--outline js-compact-header__toggle">
@@ -248,9 +246,12 @@
 											?>
 											<?php if ( isset( $filer_list ) && isset( $filer_type ) && isset( $filer_title ) ) : ?>
 												<div class="compact-header__filter">
+													<div class="compact-header__filter-label">
+														<?= esc_html( $filer_title ); ?>
+													</div>
 													<div class="FilterMenu">
 														<div class="FilterMenu__title">
-															<?= esc_html( $filer_title ); ?>
+															<?= esc_html( $filer_list[0]['title'] ); ?>
 														</div>
 														<div class="FilterMenu__items">
 															<div class="FilterMenu__items--inn">
@@ -279,25 +280,26 @@
 																		?>
 																		<div class="sorting FilterMenu__item">
 																			<input
-																					class="filter-item"
-																					type="radio"
-																					id="<?= esc_attr( $item_id ); ?>"
-																					value="<?= esc_attr( $item_value ); ?>"
-																					name="<?= esc_attr( $filer_name ); ?>"
+																				class="filter-item"
+																				type="radio"
+																				id="<?= esc_attr( $item_id ); ?>"
+																				value="<?= esc_attr( $item_value ); ?>"
+																				name="<?= esc_attr( $filer_name ); ?>"
 																				<?php if ( $item_checked ) : ?>
 																					checked
 																				<?php endif; ?>
 																			>
 																			<label for="<?= esc_attr( $item_id ); ?>">
-																	<span
-																		<?php if ( isset( $item_onclick ) ) : ?>
-																			onclick="<?= esc_attr( $item_onclick ); ?>"
-																		<?php endif; ?>
-																	>
-																		<?php if ( isset( $item_title ) ) : ?>
-																			<?= esc_html( $item_title ); ?>
-																		<?php endif; ?>
-																	</span>
+																				<span
+																					class="FilterMenu__item-title"
+																					<?php if ( isset( $item_onclick ) ) : ?>
+																						onclick="<?= esc_attr( $item_onclick ); ?>"
+																					<?php endif; ?>
+																				>
+																					<?php if ( isset( $item_title ) ) : ?>
+																						<?= esc_html( $item_title ); ?>
+																					<?php endif; ?>
+																				</span>
 																			</label>
 																		</div>
 																	<?php endforeach; ?>
@@ -306,7 +308,9 @@
 																	<?php foreach ( $filer_list as $filer_list_item ) : ?>
 																		<?php if ( isset( $filer_list_item['href'] ) && isset( $filer_list_item['title'] ) ) : ?>
 																			<div class="sorting FilterMenu__item">
-																				<a href="<?= esc_url( $filer_list_item['href'] ); ?>"><?= esc_html( $filer_list_item['title'] ); ?></a>
+																				<a href="<?= esc_url( $filer_list_item['href'] ); ?>" class="FilterMenu__item-title">
+																					<?= esc_html( $filer_list_item['title'] ); ?>
+																				</a>
 																			</div>
 																		<?php endif; ?>
 																	<?php endforeach; ?>
@@ -318,18 +322,20 @@
 											<?php endif ?>
 										<?php endforeach; ?>
 									<?php endif ?>
-									<?php if ( isset( $filer_count ) ) : ?>
+									<?php 
+									/* if ( isset( $filer_count ) ) : ?>
 										<div class="compact-header__count">
-									<span id="countPosts">
-										<?php if ( isset( $filer_count['value'] ) ) : ?>
-											<?= esc_html( $filer_count['value'] ); ?>
-										<?php endif ?>
-									</span>
+											<span id="countPosts">
+												<?php if ( isset( $filer_count['value'] ) ) : ?>
+													<?= esc_html( $filer_count['value'] ); ?>
+												<?php endif ?>
+											</span>
 											<?php if ( isset( $filer_count['title'] ) ) : ?>
 												<?= esc_html( $filer_count['title'] ); ?>
 											<?php endif ?>
 										</div>
-									<?php endif; ?>
+									<?php endif; */ 
+									?>
 								</div>
 							</div>
 						</div>
