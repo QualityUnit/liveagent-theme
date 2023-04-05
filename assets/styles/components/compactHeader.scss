@@ -70,6 +70,8 @@ body.compact-header--active {
 		@include color(background-color, main-background);
 		width: 22%;
 		position: absolute;
+		top: 0;
+		left: 0;
 		z-index: 2;
 		overflow: hidden;
 		border-bottom-right-radius: $border-radius-16;
@@ -84,7 +86,7 @@ body.compact-header--active {
 	}
 
 	&__title {
-		margin-top: 0;
+		margin: 0;
 		line-height: 1.33;
 		font-family: $font-secondary;
 		font-size: 2.5em;

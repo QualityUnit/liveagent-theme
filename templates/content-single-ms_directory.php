@@ -127,36 +127,51 @@ if ( has_post_thumbnail() ) {
 
 $page_header_args = array(
 	'image' => array(
-		'src' => get_template_directory_uri() . '/assets/images/bg_category_directory.jpg?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_directory.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
 	'logo' => $page_header_logo,
 	'title' => get_the_title(),
 	'text' => get_the_excerpt( $post ),
 	'tags' => $page_header_tags,
+	'toc' => array(
+		'items' => array(
+			array(
+				'id' => 'customer-service-contacts',
+				'title' => __( 'Customer Service Contacts', 'ms' ),
+			),
+			array(
+				'href' => 'social-media',
+				'title' => __( 'Social Media Support Contacts', 'ms' ),
+			),
+			array(
+				'id' => 'sla',
+				'title' => __( 'SLAs & Agreements', 'ms' ),
+			),
+			array(
+				'id' => 'legal-contacts',
+				'title' => __( 'Legal Contacts', 'ms' ),
+			),
+			array(
+				'id' => 'other-links',
+				'title' => __( 'Other Links', 'ms' ),
+			),
+			array(
+				'id' => 'location',
+				'title' => __( 'Location', 'ms' ),
+			),
+			array(
+				'id' => 'faq',
+				'title' => __( 'FAQ', 'ms' ),
+			),
+		),
+	),
 );
 ?>
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/Organization">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Post__container">
-		<div class="Post__sidebar urlslab-skip-keywords">
-			<div class="SidebarTOC-wrapper">
-				<div class="SidebarTOC Post__SidebarTOC">
-					<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-					<ul class="SidebarTOC__content">
-						<li class="SidebarTOC__item"><a href="#customer-service-contacts"><?php _e( 'Customer Service Contacts', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#social-media"><?php _e( 'Social Media Support Contacts', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#sla"><?php _e( 'SLAs & Agreements', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#legal-contacts"><?php _e( 'Legal Contacts', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#other-links"><?php _e( 'Other Links', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#location"><?php _e( 'Location', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#faq"><?php _e( 'FAQ', 'ms' ); ?></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
 		<div class="Post__content">
 			<div class="Content">
 				<?php

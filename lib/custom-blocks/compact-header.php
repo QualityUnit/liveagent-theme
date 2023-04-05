@@ -1,5 +1,4 @@
 <?php
-//todo: sirka obsahu v research detail, napr: "Call center usage"
 //todo: bug: filter - rozklikavanie selectov
 //todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
 ?>
@@ -9,22 +8,6 @@
 <?php set_custom_source( 'compactHeader', 'js' ); ?>
 <?php if ( isset( $args ) ) : ?>
 	<?php
-	if ( ! empty( $args['text'] ) ) {
-		$text = $args['text'];
-	}
-	if ( ! empty( $args['date'] ) ) {
-		$date = $args['date'];
-		$date_machine = get_the_time( 'Y-m-d' );
-		$date_human = get_the_time( 'F j, Y' );
-		$date_modified = get_the_modified_time( 'F j, Y' );
-		$time_modified = get_the_modified_time( 'g:i a' );
-	}
-	if ( ! empty( $args['tags'] ) ) {
-		$tags = $args['tags'];
-	}
-	if ( ! empty( $args['buttons'] ) ) {
-		$buttons = $args['buttons'];
-	}
 	if ( ! empty( $args['filter'] ) ) {
 		$filer_items = $args['filter'];
 	}
@@ -53,10 +36,16 @@
 				<?php if ( ! empty( $args['title'] ) ) : ?>
 					<h1 itemprop="name" class="compact-header__title"><?= esc_html( $args['title'] ); ?></h1>
 				<?php endif ?>
-				<?php if ( isset( $text ) ) : ?>
-					<div class="compact-header__text"><?= wp_kses_post( $text ); ?></div>
+				<?php if ( ! empty( $args['text'] ) ) : ?>
+					<div class="compact-header__text"><?= wp_kses_post( $args['text'] ); ?></div>
 				<?php endif ?>
-				<?php if ( isset( $date ) ) : ?>
+				<?php if ( ! empty( $args['date'] ) ) : ?>
+					<?php
+						$date_machine = get_the_time( 'Y-m-d' );
+						$date_human = get_the_time( 'F j, Y' );
+						$date_modified = get_the_modified_time( 'F j, Y' );
+						$time_modified = get_the_modified_time( 'g:i a' );
+					?>
 					<div class="compact-header__date">
 						<?php if ( isset( $date_machine ) && isset( $date_human ) ) : ?>
 							<span itemprop="datePublished" content="<?= esc_attr( $date_machine ); ?>"><?=
@@ -70,10 +59,10 @@
 						<?php endif ?>
 					</div>
 				<?php endif ?>
-				<?php if ( isset( $buttons ) ) : ?>
+				<?php if ( ! empty( $args['buttons'] ) ) : ?>
 					<div class="compact-header__buttons">
 						<div class="compact-header__buttons-items">
-							<?php foreach ( $buttons as $button ) : ?>
+							<?php foreach ( $args['buttons'] as $button ) : ?>
 								<?php if ( isset( $button['title'] ) && isset( $button['href'] ) ) : ?>
 									<?php
 									$button_classes = 'Button Button--outline Button--outline-gray';
@@ -106,9 +95,9 @@
 						</div>
 					</div>
 				<?php endif; ?>
-				<?php if ( isset( $tags ) ) : ?>
+				<?php if ( ! empty( $args['tags'] ) ) : ?>
 					<div class="compact-header__tags">
-						<?php foreach ( $tags as $item ) : ?>
+						<?php foreach ( $args['tags'] as $item ) : ?>
 							<div class="compact-header__tags-item">
 								<?php if ( isset( $item['title'] ) ) : ?>
 									<div class="compact-header__tags-title"><?= esc_html( $item['title'] ); ?>:</div>
@@ -147,17 +136,10 @@
 			</div>
 			<div class="compact-header__right">
 				<?php if ( ! empty( $args['toc'] ) ) : ?>
-					<?php if ( compact_header_toc() !== false ) : ?>
-						<div class="compact-header__toc">
-							<div class="FilterMenu">
-								<div class="FilterMenu__title"></div>
-								<div class="FilterMenu__items">
-									<div class="FilterMenu__items--inn">
-										<?= wp_kses_post( compact_header_toc() ); ?>
-									</div>
-								</div>
-							</div>
-						</div>
+					<?php if ( isset( $args['toc']['items'] ) ) : ?>
+						<?= wp_kses_post( compact_header_toc( null, $args['toc']['items'] ) ); ?>
+					<?php else : ?>
+						<?= wp_kses_post( compact_header_toc() ); ?>
 					<?php endif; ?>
 				<?php endif; ?>
 				<?php if ( ! empty( $args['image'] ) ) : ?>
@@ -178,17 +160,17 @@
 							>
 							<?php if ( ! empty( $args['logo'] ) ) : ?>
 								<?php $logo = $args['logo']; ?>
-								<div class="compact-header__logo">
-									<img
-										<?php if ( isset( $logo['src'] ) ) : ?>
+								<?php if ( isset( $logo['src'] ) ) : ?>
+									<div class="compact-header__logo">
+										<img
 											src="<?= esc_url( $logo['src'] ); ?>"
-										<?php endif; ?>
-										<?php if ( isset( $logo['alt'] ) ) : ?>
-											alt="<?= esc_attr( $logo['alt'] ); ?>"
-										<?php endif; ?>
-										class="compact-header__logo-img"
-									>
-								</div>
+											<?php if ( isset( $logo['alt'] ) ) : ?>
+												alt="<?= esc_attr( $logo['alt'] ); ?>"
+											<?php endif; ?>
+											class="compact-header__logo-img"
+										>
+									</div>
+								<?php endif; ?>
 							<?php endif ?>
 						</div>
 					<?php endif ?>

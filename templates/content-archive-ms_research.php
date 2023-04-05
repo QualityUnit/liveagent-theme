@@ -14,7 +14,7 @@ $page_header_args = array(
 );
 ?>
 <?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	<div class="Research">
+	<div class="Research wrapper">
 		<div class="Content Research--content">
 
 			<div class="Research--categories">
