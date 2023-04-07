@@ -143,10 +143,11 @@ $version: "3.0";
 			}
 
 			&__bottom {
+				flex-flow: wrap column;
 				margin-top: auto;
 
 				.Reviews__update {
-					margin-top: auto;
+					margin-top: 0.5em;
 					padding-bottom: 1em;
 				}
 			}
@@ -160,7 +161,15 @@ $version: "3.0";
 				}
 			}
 
-			@media (min-width: $breakpoint-desktop-box) {
+			@media (min-width: $breakpoint-desktop-big) {
+
+				&__bottom {
+					flex-flow: wrap row;
+
+					.Reviews__update {
+						margin-top: auto;
+					}
+				}
 
 				&::after {
 
