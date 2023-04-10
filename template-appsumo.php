@@ -1,0 +1,63 @@
+<?php
+/**
+ * Template Name: AppSumo
+ */
+set_source( 'appsumo', 'pages/TrialRedesign', 'css' );
+set_source( 'appsumo', 'pages/app', 'css' );
+?>
+
+<div class="Trial FullScreen">
+	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Trial Logo'])">
+		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
+	</a>
+
+	<div class="Trial__container">
+		<div class="Trial__sidebar urlslab-min-width-1024">
+			<div class="Trial__sidebar__inner">
+				<div class="Trial__sidebar__content checklist">
+					<h3 class="Trial__sidebar__title"><?php _e( 'Handle all support channels in one solution', 'ms' ); ?></h3>
+					<ul>
+						<li><?php _e( 'Spend 85% less time on issues', 'ms' ); ?></li>
+						<li><?php _e( 'Save 95% more money on support', 'ms' ); ?></li>
+						<li><?php _e( 'Gain 56% more returning customers', 'ms' ); ?></li>
+						<li><?php _e( 'Get 73% higher satisfaction rates', 'ms' ); ?></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="Trial__main">
+			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__awards">
+				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/trial_badges.svg" alt="<?php _e( 'Awards', 'ms' ); ?>" class="urlslab-skip-lazy">
+			</a>
+			<div class="Trial__main__inner">
+				<h1 class="Trial__main__title"><?php _e( 'AppSumo <span class="highlight-gradient">Redeem Code</span>', 'ms' ); ?></h1>
+				<p class="Trial__main__text"><?php _e( '...', 'ms' ); ?></p>
+				<div class="Signup__form__labels Trial__labels">
+					<div class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></div>
+				</div>
+
+				<?= do_shortcode( '[signupform-appsumo]' ); ?>
+
+				<div class="Trial__main__logos">
+					<div class="Trial__main__logo">
+						<a href="<?php _e( '/awards/', 'ms' ); ?>">
+							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_trustpilot.svg" alt="<?php _e( 'Trustpilot', 'ms' ); ?>" class="urlslab-skip-lazy">
+						</a>
+					</div>
+
+					<div class="Trial__main__logo">
+						<a href="<?php _e( '/awards/', 'ms' ); ?>">
+							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_capterra.svg" alt="<?php _e( 'Capterra', 'ms' ); ?>" class="urlslab-skip-lazy">
+						</a>
+					</div>
+
+					<div class="Trial__main__logo">
+						<a href="<?php _e( '/awards/', 'ms' ); ?>">
+							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_g2.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
