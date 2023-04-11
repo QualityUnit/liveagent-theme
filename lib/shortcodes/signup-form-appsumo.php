@@ -1,6 +1,6 @@
 <?php
 
-function ms_signup_form_appsumo( $atts ) {
+function ms_signup_form_redeem_code( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'title'  => __( 'Redeem Code', 'ms' ),
@@ -91,49 +91,20 @@ function ms_signup_form_appsumo( $atts ) {
 		add_action( 'wp_footer', function() {
 	?>
 	<script>
-            const mailRegex = '@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex' + '.com|gmx.us|@gmx.com)$';
-            const mailInput = document.querySelector('input[type="email"]');
-            const mailMessage = document.querySelector('[data-id="messageTrial"]');
-            const classMessageToggle = "hidden";
-            function checkCompanyMail() {
-                const mailValue = mailInput.value;
-                if (mailValue) {
-                    const mailSecondary = new RegExp(mailRegex).test(mailValue);
-                    if(mailSecondary) {
-                        mailMessage.classList.remove(classMessageToggle);
-                    }else{
-                        mailMessage.classList.add(classMessageToggle);
-                    }
-                }
-            }
 			function handleSend() {
 				const mailValue = mailInput.value;
 
 				if (mailValue) {
-					const mailSecondary = new RegExp(mailRegex).test(mailValue);
-
 					gtag('event', 'conversion', {'send_to': 'AW-966671101/wm4uCIGl0eQDEP31-MwD'});
 
-					if(mailSecondary) {
-						gtag( 'event', 'Trial Signup', {
-							'event_category': 'SignUp',
-							'event_action': 'Trial',
-							'event_label': 'all',
-							'value': 1
-						} );
+					gtag( 'event', 'Trial Signup', {
+						'event_category': 'SignUp',
+						'event_action': 'Redeem Code',
+						'event_label': 'redeemcode',
+						'value': 100
+					} );
 
-						_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
-					}
-					if(!mailSecondary) {
-						gtag( 'event', 'Trial Signup', {
-							'event_category': 'SignUp',
-							'event_action': 'Trial',
-							'event_label': 'workmail',
-							'value': 10
-						} );
-
-						_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
-					}
+					_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Redeem Code Signup']);
 				}
 			}
 	</script>
@@ -200,8 +171,8 @@ function ms_signup_form_appsumo( $atts ) {
 	<?php } else { ?>
 		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
 	<?php } ?>
-	<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm-appsumo.js' ) ); ?>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-appsumo.js?ver=' . $crm_ver_app ?>"></script>
+	<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm-redeemcode.js' ) ); ?>
+	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-redeemcode.js?ver=' . $crm_ver_app ?>"></script>
 	<?php }, 999 ); ?>
 	<?php // @codingStandardsIgnoreEnd ?>
 
@@ -211,4 +182,4 @@ function ms_signup_form_appsumo( $atts ) {
 	set_custom_source( 'components/Signup' );
 	return ob_get_clean();
 }
-add_shortcode( 'signupform-appsumo', 'ms_signup_form_appsumo' );
+add_shortcode( 'signupform-redeemcode', 'ms_signup_form_redeem_code' );
