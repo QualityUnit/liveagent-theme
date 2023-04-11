@@ -35,7 +35,7 @@ function ms_signup_form_redeem_code( $atts ) {
 			</div>
 
 			<div data-id="mailFieldmain" class="Signup__form__item fontello-mail">
-				<input type="email" name="Email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255" onKeyUp="checkCompanyMail()">
+				<input type="email" name="Email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255">
 				<div data-id="messageTrial" class="InfoMessage hidden">
 					<svg class="InfoMessage__icon">
 						<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#info-solid' ) ?>"></use>
@@ -92,6 +92,7 @@ function ms_signup_form_redeem_code( $atts ) {
 	?>
 	<script>
 			function handleSend() {
+				const mailInput = document.querySelector('input[type="email"]');
 				const mailValue = mailInput.value;
 
 				if (mailValue) {
