@@ -30,8 +30,8 @@ set_source( 'redeem-code', 'pages/app', 'css' );
 				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/trial_badges.svg" alt="<?php _e( 'Awards', 'ms' ); ?>" class="urlslab-skip-lazy">
 			</a>
 			<div class="Trial__main__inner">
-				<h1 class="Trial__main__title"><?php _e( 'LiveAgent registration with <span class="highlight-gradient">Redeem code</span>', 'ms' ); ?></h1>
-				<p class="Trial__main__text"><?php _e( 'Finish your LiveAgent registration with your Redeem code in the form below and get access to our extensive set of tools and features. Start providing superb customer service with LiveAgent today!', 'ms' ); ?></p>
+				<h1 class="Trial__main__title"><?php _e( 'LiveAgent registration with <span class="highlight-gradient">a redeem code</span>', 'ms' ); ?></h1>
+				<p class="Trial__main__text"><?php _e( 'Finish your LiveAgent registration with your redeem code in the form below and get access to our extensive set of tools and features. Start providing superb customer service with LiveAgent today!', 'ms' ); ?></p>
 				<div class="Signup__form__labels Trial__labels">
 					<div class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></div>
 				</div>
