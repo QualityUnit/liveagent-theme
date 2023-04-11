@@ -3,7 +3,6 @@
 	 * Template Name: Trial Redesign
 	 */
 	set_source( 'trial', 'pages/TrialRedesign', 'css' );
-	set_source( 'trial', 'pages/app', 'css' );
 ?>
 
 <div class="Trial FullScreen">
