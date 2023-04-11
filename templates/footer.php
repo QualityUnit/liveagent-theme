@@ -57,7 +57,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 					<ul>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-257-8754', 'ms' ); ?></a></li>
-						<li class="Footer__middle__contacts__whatsapp"><a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-786-204-1375', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__whatsapp"><a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-786-204-1375', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__calendar"><a href="<?php _e( '/demo/', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s demo', 'ms' ); ?>"><?php _e( 'Schedule a demo', 'ms' ); ?></a></li>
 					</ul>
 				</div>
@@ -112,7 +112,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							</li>
 						<?php } ?>
 						<li>
-							<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?" target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
+							<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
 								<svg>
 									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ) ?>"></use>
 								</svg>
