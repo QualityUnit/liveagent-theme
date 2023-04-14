@@ -8,8 +8,8 @@
  
 	$page_header_title = single_term_title( '', false );
 	$page_header_args = array(
+		'type' => 'lvl-1',
 		'image' => array(
-			'type' => 'main',
 			'src' => get_template_directory_uri() . '/assets/images/compact_header_blog.png?ver=' . THEME_VERSION,
 			'alt' => $page_header_title,
 		),

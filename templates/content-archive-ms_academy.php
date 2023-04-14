@@ -1,66 +1,55 @@
 <?php // @codingStandardsIgnoreLine
-	set_source( 'academy', 'pages/Category', 'css' );
-	set_source( 'academy', 'filter', 'js' );
+set_source( 'academy', 'pages/Category', 'css' );
+set_source( 'academy', 'filter', 'js' );
+$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_academy_categories' ) ), SORT_REGULAR );
+$page_header_title = __( 'LiveAgent Academy', 'ms' );
+$page_header_text = __( 'The only resource about customer service you will ever need.', 'ms' );
+if ( is_tax( 'ms_academy_categories' ) ) :
+	$page_header_title = single_term_title( '', false );
+	$page_header_text = term_description();
+endif;
+$filter_items_categories = array(
+	array(
+		'checked' => true,
+		'value' => '',
+		'title' => __( 'Any', 'ms' ),
+		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Academy', 'Filter - Category - Any'])",
+	),
+);
+foreach ( $categories as $category ) :
+	$filter_items_categories[] = array(
+		'value' => $category->slug,
+		'title' => $category->name,
+		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Academy', 'Filter - Category - " . $category->name . "'])",
+	);
+endforeach;
+$filter_items = array(
+	array(
+		'type' => 'radio',
+		'name' => 'category',
+		'title' => __( 'Category', 'ms' ),
+		'items' => $filter_items_categories,
+	),
+);
+$page_header_args = array(
+	'type' => 'lvl-1',
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_academy.png?ver=' . THEME_VERSION,
+		'alt' => $page_header_title,
+	),
+	'title' => $page_header_title,
+	'text' => $page_header_text,
+	'search' => array(
+		'type' => 'academy',
+	),
+	'filter' => $filter_items,
+);
 ?>
 <div id="category" class="Category">
-	<div class="Box Category__header Category__header--academy">
-		<div class="wrapper">
-			<div class="Category__header--center">
-				<?php if ( is_tax( 'ms_academy_categories' ) ) { ?>
-					<h1 class="Category__header__title"><?php single_cat_title(); ?></h1>
-					<div class="Category__header__subtitle"><p><?php the_archive_description(); ?></p></div>
-				<?php } else { ?>
-					<h1 class="Category__header__title"><?php _e( 'LiveAgent Academy', 'ms' ); ?></h1>
-					<p class="Category__header__subtitle"><?php _e( 'The only resource about customer service you will ever need.', 'ms' ); ?></p>
-				<?php } ?>
-
-				<div class="Category__header__search searchField">
-					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
-					<input type="search" class="search search--academy" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
-				</div>
-			</div>
-		</div>
-	</div>
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Category__container">
-		<div class="Category__sidebar urlslab-skip-keywords">
-			<input class="Category__sidebar__showfilter" type="checkbox" id="showfilter">
-			<label class="Button Button--outline Category__sidebar__showfilter--label" for="showfilter" data-hidden="<?php _e( 'Hide filters', 'ms' ); ?>">
-				<img class="Category__sidebar__showfilter--icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-filter.svg" alt="<?php _e( 'Filters', 'ms' ); ?>">
-				<span><?php _e( 'Filters', 'ms' ); ?></span>
-			</label>
-
-			<div class="Category__sidebar__items">
-				<div class="Category__sidebar__item Category__sidebar__item--uniq">
-					<div class="Category__sidebar__item__title h4"><?php _e( 'Category', 'ms' ); ?></div>
-
-					<label>
-						<input class="filter-item" type="radio" value="" name="category" checked />
-						<span onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Filter - Category - Any'])"><?php _e( 'Any', 'ms' ); ?></span>
-					</label>
-					<?php
-					$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_academy_categories' ) ), SORT_REGULAR );
-					foreach ( $categories as $category ) {
-						?>
-						<label>
-							<input class="filter-item" type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category"
-							<?php
-							if ( current( $category ) === $category->slug ) {
-								echo 'checked';
-							}
-							?>
-							>
-							<span onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Filter - Category - <?= esc_html( $category->name ); ?>'])"><?= esc_html( $category->name ); ?></span>
-						</label>
-					<?php } ?>
-			</div>
-
-			</div>
-
-		</div>
-
 		<div class="Category__content">
-			<div class="Category__content__description"><?php _e( 'List of articles', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_academy' )->publish ); ?></span>)</div></div>
 			<ul class="Category__content__items list">
 				<?php
 				while ( have_posts() ) :

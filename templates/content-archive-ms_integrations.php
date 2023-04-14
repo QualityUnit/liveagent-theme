@@ -1,118 +1,112 @@
 <?php // @codingStandardsIgnoreLine
-	set_source( 'integrations', 'pages/Category', 'css' );
-	set_source( 'integrations', 'filter', 'js' );
+set_source( 'integrations', 'pages/Category', 'css' );
+set_source( 'integrations', 'filter', 'js' );
+$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_categories' ) ), SORT_REGULAR );
+$page_header_title = __( 'Integrations', 'ms' );
+$page_header_text = __( "Maximize the value of your existing help desk software and extend customer satisfaction with LiveAgent's range of integrations, plugins, and apps.", 'ms' );
+if ( is_tax( 'ms_integrations_categories' ) ) :
+	$page_header_title = single_term_title( '', false );
+	$page_header_text = term_description();
+endif;
+$filter_items_categories = array(
+	array(
+		'checked' => true,
+		'value' => '',
+		'title' => __( 'Any', 'ms' ),
+		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Category - Any'])",
+	),
+);
+foreach ( $categories as $category ) :
+	$filter_items_categories[] = array(
+		'value' => $category->slug,
+		'title' => $category->name,
+		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Category - " . $category->name . "'])",
+	);
+endforeach;
+$filter_items = array(
+	array(
+		'type' => 'radio',
+		'name' => 'collections',
+		'title' => __( 'Collections', 'ms' ),
+		'items' => array(
+			array(
+				'checked' => true,
+				'value' => '',
+				'title' => __( 'Any', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Collections - Any'])",
+			),
+			array(
+				'value' => 'featured',
+				'title' => __( 'Featured', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Collections - Featured'])",
+			),
+			array(
+				'value' => 'popular',
+				'title' => __( 'Popular', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Collections - Popular'])",
+			),
+			array(
+				'value' => 'new',
+				'title' => __( 'New', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Collections - New'])",
+			),
+		),
+	),
+	array(
+		'type' => 'radio',
+		'name' => 'type',
+		'title' => __( 'Type in', 'ms' ),
+		'items' => array(
+			array(
+				'checked' => true,
+				'value' => '',
+				'title' => __( 'Any', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Type - Any'])",
+			),
+			array(
+				'value' => 'native',
+				'title' => __( 'Native', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Type - Native'])",
+			),
+			array(
+				'value' => 'external',
+				'title' => __( 'External', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Type - External'])",
+			),
+			array(
+				'value' => 'zapier',
+				'title' => __( 'Zapier', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Type - Zapier'])",
+			),
+		),
+	),
+	array(
+		'type' => 'radio',
+		'name' => 'category',
+		'title' => __( 'Category', 'ms' ),
+		'items' => $filter_items_categories,
+	),
+);
+$page_header_args = array(
+	'type' => 'lvl-1',
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_integrations.png?ver=' . THEME_VERSION,
+		'alt' => $page_header_title,
+	),
+	'title' => $page_header_title,
+	'text' => $page_header_text,
+	'search' => array(
+		'type' => 'academy',
+	),
+	'filter' => $filter_items,
+);
 ?>
 
 <div id="category" class="Category">
-	<div class="Box Category__header Category__header--integrations">
-		<div class="wrapper">
-			<div class="Category__header--center">
-				<?php if ( is_tax( 'ms_integrations_categories' ) ) { ?>
-					<h1 class="Category__header__title"><?php single_cat_title(); ?></h1>
-					<div class="Category__header__subtitle"><p><?php the_archive_description(); ?></p></div>
-				<?php } else { ?>
-					<h1 class="Category__header__title"><?php _e( 'Integrations', 'ms' ); ?></h1>
-					<p class="Category__header__subtitle"><?php _e( "Maximize the value of your existing help desk software and extend customer satisfaction with LiveAgent's range of integrations, plugins, and apps.", 'ms' ); ?></p>
-				<?php } ?>
-
-				<div class="Category__header__search searchField">
-					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
-					<input type="search" class="search search--academy" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
-				</div>
-			</div>
-		</div>
-	</div>
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Category__container">
-		<div class="Category__sidebar urlslab-skip-keywords">
-			<input class="Category__sidebar__showfilter" type="checkbox" id="showfilter">
-			<label class="Button Button--outline Category__sidebar__showfilter--label" for="showfilter" data-hidden="<?php _e( 'Hide filters', 'ms' ); ?>">
-				<img class="Category__sidebar__showfilter--icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-filter.svg" alt="<?php _e( 'Filters', 'ms' ); ?>">
-				<span><?php _e( 'Filters', 'ms' ); ?></span>
-			</label>
-
-			<div class="Category__sidebar__items">
-				<div class="Category__sidebar__item">
-					<div class="Category__sidebar__item__title h4"><?php _e( 'Collections', 'ms' ); ?></div>
-
-					<?php
-						$collections = array(
-							''         => 'Any',
-							'featured' => 'Featured',
-							'popular'  => 'Popular',
-							'new'      => 'New',
-						);
-
-						foreach ( $collections as $key => $value ) {
-							?>
-						<label>
-							<input class="filter-item" type="radio" value="<?php echo esc_attr( $key ); ?>" name="collections"
-							<?php
-							if ( current( $collections ) === $value ) {
-								echo 'checked';
-							}
-							?>
-							>
-							<span onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Collections - <?php echo esc_html( $value ); ?>'])"><?php echo esc_html( $value ); ?></span>
-						</label>
-					<?php } ?>
-				</div>
-
-				<div class="Category__sidebar__item">
-					<div class="Category__sidebar__item__title h4"><?php _e( 'Type', 'ms' ); ?></div>
-
-					<?php
-						$data_type = array(
-							''         => 'Any',
-							'native'   => 'Native',
-							'external' => 'External',
-							'zapier'   => 'Zapier',
-						);
-
-						foreach ( $data_type as $key => $value ) {
-							?>
-						<label>
-							<input class="filter-item" type="radio" value="<?php echo esc_attr( $key ); ?>" name="type"
-							<?php
-							if ( current( $data_type ) === $value ) {
-								echo 'checked';
-							}
-							?>
-							>
-							<span onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Type - <?php echo esc_html( $value ); ?>'])"><?php echo esc_html( $value ); ?></span>
-						</label>
-					<?php } ?>
-				</div>
-
-				<div class="Category__sidebar__item Category__sidebar__item--wide">
-					<div class="Category__sidebar__item__title h4"><?php _e( 'Category', 'ms' ); ?></div>
-
-					<label>
-						<input class="filter-item" type="radio" value="" name="category" checked />
-						<span onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Category - Any'])"><?php _e( 'Any', 'ms' ); ?></span>
-					</label>
-					<?php
-					$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_categories' ) ), SORT_REGULAR );
-					foreach ( $categories as $category ) {
-						?>
-						<label>
-							<input class="filter-item" type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category"
-							<?php
-							if ( current( $category ) === $category->slug ) {
-								echo 'checked';
-							}
-							?>
-							>
-							<span onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Filter - Category - <?= esc_html( $category->name ); ?>'])"><?= esc_html( $category->name ); ?></span>
-						</label>
-					<?php } ?>
-				</div>
-			</div>
-
-		</div>
-
 		<div class="Category__content">
-			<div class="Category__content__description"><?php _e( 'List of integrations', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_integrations' )->publish ); ?></span>)</div></div>
 			<ul class="Category__content__items list">
 				<?php
 				while ( have_posts() ) :

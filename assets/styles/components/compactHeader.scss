@@ -40,7 +40,15 @@ body.compact-header--active {
 	&__image {
 		position: relative;
 
-		&--default {
+		.#{$class-name}--lvl-1 & {
+			margin-top: -$v-space;
+			.#{$class-name}__img {
+				width: 100%;
+				max-width: 100%;
+				object-fit: contain;
+			}
+		}
+		.#{$class-name}--lvl-2 & {
 			overflow: hidden;
 			padding-bottom: 60%;
 			margin-top: 0.7em;
@@ -52,15 +60,6 @@ body.compact-header--active {
 				z-index: 1;
 				object-fit: cover;
 				object-position: center;
-			}
-		}
-
-		&--main {
-			margin-top: -$v-space;
-			.#{$class-name}__img {
-				width: 100%;
-				max-width: 100%;
-				object-fit: contain;
 			}
 		}
 	}
@@ -444,15 +443,17 @@ body.compact-header--active {
 				&__bottom {
 					padding-top: 0;
 				}
+			}
+		}
+		&.#{$class-name}--lvl-2 & {
 
-				&__title {
-					display: block !important;
-					font-size: 1.125em;
-				}
+			&__title {
+				display: block !important;
+				font-size: 1.125em;
+			}
 
-				&__toc {
-					display: block !important;
-				}
+			&__toc {
+				display: block !important;
 			}
 		}
 	}

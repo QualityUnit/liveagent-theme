@@ -8,6 +8,10 @@
 <?php set_custom_source( 'compactHeader', 'js' ); ?>
 <?php if ( isset( $args ) ) : ?>
 	<?php
+	$header_type = 'lvl-2';
+	if ( ! empty( $args['type'] ) ) {
+		$header_type = $args['type'];
+	}
 	if ( ! empty( $args['filter'] ) ) {
 		$filer_items = $args['filter'];
 	}
@@ -29,7 +33,7 @@
 		$research_nav = $args['research_nav'];
 	}
 	?>
-	<div class="compact-header">
+	<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?>">
 		<div class="compact-header__wrapper wrapper">
 			<div class="compact-header__left">
 				<?php site_breadcrumb(); ?>
@@ -144,15 +148,10 @@
 				<?php endif; ?>
 				<?php if ( ! empty( $args['image'] ) ) : ?>
 					<?php
-					$image_alt = '';
-					$image_type = 'default';
 					$image = $args['image'];
 					?>
 					<?php if ( isset( $image['src'] ) ) : ?>
-						<div class="compact-header__image
-						<?php if ( isset( $image['type'] ) ) : ?>
-							 compact-header__image--<?= sanitize_html_class( $image['type'] ) ?>
-						<?php endif; ?>">
+						<div class="compact-header__image">
 							<img
 								src="<?= esc_url( $image['src'] ); ?>"
 								alt="<?= esc_attr( $image['alt'] ); ?>"
@@ -176,9 +175,9 @@
 					<?php endif ?>
 				<?php endif ?>
 			</div>
-			<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_count ) || isset( $menu_header ) || isset( $research_nav ) ) : ?>
+			<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $menu_header ) || isset( $research_nav ) ) : ?>
 				<div class="compact-header__bottom">
-					<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_count ) ) : ?>
+					<?php if ( isset( $filer_search ) || isset( $filer_items ) ) : ?>
 						<div class="compact-header__filters-toggle">
 							<a class="Button Button--outline js-compact-header__toggle">
 								<?= esc_html( __( 'Filters', 'ms' ) ); ?>
@@ -304,20 +303,6 @@
 											<?php endif ?>
 										<?php endforeach; ?>
 									<?php endif ?>
-									<?php 
-									/* if ( isset( $filer_count ) ) : ?>
-										<div class="compact-header__count">
-											<span id="countPosts">
-												<?php if ( isset( $filer_count['value'] ) ) : ?>
-													<?= esc_html( $filer_count['value'] ); ?>
-												<?php endif ?>
-											</span>
-											<?php if ( isset( $filer_count['title'] ) ) : ?>
-												<?= esc_html( $filer_count['title'] ); ?>
-											<?php endif ?>
-										</div>
-									<?php endif; */ 
-									?>
 								</div>
 							</div>
 						</div>

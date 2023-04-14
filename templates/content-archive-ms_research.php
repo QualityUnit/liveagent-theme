@@ -4,8 +4,8 @@
 	set_custom_source( 'filter', 'js' );
 $page_header_title = __( 'Customer service Benchmark Report', 'ms' );
 $page_header_args = array(
+	'type' => 'lvl-1',
 	'image' => array(
-		'type' => 'main',
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_research.png?ver=' . THEME_VERSION,
 		'alt' => $page_header_title,
 	),

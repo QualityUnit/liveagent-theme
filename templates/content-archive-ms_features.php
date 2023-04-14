@@ -133,8 +133,8 @@ $filter_items = array(
 	),
 );
 $page_header_args = array(
+	'type' => 'lvl-1',
 	'image' => array(
-		'type' => 'main',
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_features.png?ver=' . THEME_VERSION,
 		'alt' => $page_header_title,
 	),
@@ -143,10 +143,6 @@ $page_header_args = array(
 	'filter' => $filter_items,
 	'search' => array(
 		'type' => 'academy',
-	),
-	'count' => array(
-		'title' => __( 'List of features', 'ms' ),
-		'value' => wp_count_posts( 'ms_features' )->publish,
 	),
 );
 ?>
