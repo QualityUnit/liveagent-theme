@@ -66,7 +66,7 @@ if ( SortingMenus.length ) {
 				return b.length - a.length;
 			} );
 
-			menuTitle.style.width = `${ menuItemsStrings[ 0 ].length + 4 }ch`; // Setting width of Sorting menu by longest item
+			menuTitle.style.minWidth = `${ menuItemsStrings[ 0 ].length + 4 }ch`; // Setting width of Sorting menu by longest item
 		}
 
 		menuTitle.addEventListener( 'click', () => {

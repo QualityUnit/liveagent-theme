@@ -1,31 +1,114 @@
 <?php // @codingStandardsIgnoreLine
-	set_custom_source( 'pages/Reviews', 'css' );
-	set_custom_source( 'pages/post', 'css' );
-	set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
+set_custom_source( 'pages/Reviews', 'css' );
+set_custom_source( 'pages/post', 'css' );
+set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
 
-	$subpage = get_queried_object();
+$subpage = get_queried_object();
 
-	$main_page = get_posts(
+$main_page = get_posts(
+	array(
+		'name'      => 'how-we-review',
+		'post_type' => 'ms_reviews',
+	)
+);
+
+if ( ! empty( $main_page ) ) {
+	$main_page_id  = $main_page[0]->ID;
+	$translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
+
+	$mainpost     = get_post( $translated_id );
+	$post_title   = $mainpost->post_title;
+	$post_content = $mainpost->post_content;
+}
+
+if ( ! isset( $subpage->slug ) ) {
+	$page_header_title_1 = __( 'Reviews categories', 'ms' );
+	$page_header_description_1 = __( 'Find out which software in any category is the best option for your business. You are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'ms' );
+	$page_header_args_1 = array(
+		'type' => 'lvl-1',
+		'image' => array(
+			'src' => get_template_directory_uri() . '/assets/images/compact_header_reviews_1.png?ver=' . THEME_VERSION,
+			'alt' => $page_header_title_1,
+		),
+		'title' => $page_header_title_1,
+		'text' => $page_header_description_1,
+	);
+}
+if ( isset( $subpage->slug ) ) {
+	$query_posts_2 = new WP_Query(
 		array(
-			'name'      => 'how-we-review',
 			'post_type' => 'ms_reviews',
+			// @codingStandardsIgnoreLine
+			'posts_per_page' => 500,
+			'orderby' => 'date',
+			'order' => 'ASC',
+			'tax_query' => array( // @codingStandardsIgnoreLine
+				array(
+					'taxonomy' => 'ms_reviews_categories',
+					'field' => 'term_id',
+					'terms' => $subpage->term_id,
+				),
+			),
 		)
 	);
-
-	if ( ! empty( $main_page ) ) {
-		$main_page_id  = $main_page[0]->ID;
-		$translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
-
-		$mainpost     = get_post( $translated_id );
-		$post_title   = $mainpost->post_title;
-		$post_content = $mainpost->post_content;
-	}
-	?>
+	$page_header_title_2 = $subpage->name;
+	$page_header_description_2 = $subpage->description;
+	$page_header_breadcrumb_2 = array(
+		array( __( 'Reviews', 'ms' ), __( '/reviews/', 'ms' ) ),
+		array( $subpage->name ),
+	);
+	$sort_items_2 = array(
+		'label' => __( 'Sort by:', 'ms' ),
+		'items' => array(
+			array(
+				'checked' => true,
+				'value' => 'reviews',
+				'title' => __( 'Most reviews from external portals', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Most reviews from external portals'])",
+			),
+			array(
+				'checked' => true,
+				'value' => 'rating',
+				'title' => __( 'Best ratings from external portals', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Best ratings from external portals'])",
+			),
+			array(
+				'checked' => true,
+				'value' => 'ourrating',
+				'title' => __( 'Our best rating', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Our best rating'])",
+			),
+			array(
+				'checked' => true,
+				'value' => 'updated',
+				'title' => __( 'Recently updated', 'ms' ),
+				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Recently updated'])",
+			),
+		),
+	);
+	$page_header_args_2 = array(
+		'type' => 'lvl-1',
+		'breadcrumb' => $page_header_breadcrumb_2,
+		'image' => array(
+			'src' => get_template_directory_uri() . '/assets/images/compact_header_reviews_2.png?ver=' . THEME_VERSION,
+			'alt' => $page_header_title_2,
+		),
+		'title' => $page_header_title_2,
+		'text' => $page_header_description_2,
+		'sort' => $sort_items_2,
+		'count' => array(
+			'title' => $subpage->name,
+			'value' => $query_posts_2->post_count,
+		),
+	);
+}
+?>
 <div id="blog" class="Blog" itemscope itemtype="http://schema.org/Blog">
 	<?php 
 	// Main page level 1
 	if ( ! isset( $subpage->slug ) ) {
-			require_once get_template_directory() . '/templates/content-archive-ms_reviews-categories.php';
+		get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args_1 );
+		require_once get_template_directory() . '/templates/content-archive-ms_reviews-categories.php';
 	}
 	if ( ! empty( $main_page ) && ! isset( $subpage->slug ) ) {
 		?>
@@ -42,31 +125,9 @@
 	}
 
 	// Category page level 2
-	if ( isset( $subpage->slug ) ) {
+	if ( isset( $subpage->slug ) ) { 
 		?>
-		<div class="Reviews__header Reviews__header-level2 FullHeadline narrow">
-			<div class="wrapper text-align-center">
-				<div class="Post__content__breadcrumbs ma-bottom">
-					<ul>
-						<li><a href="<?php _e( '/reviews/', 'ms' ); ?>"><?php _e( 'Reviews', 'ms' ); ?></a></li>
-						<li><?= esc_html( $subpage->name ); ?></li>
-					</ul>
-				</div>
-				<h1 class="FullHeadline__title">
-					<?= esc_html( $subpage->name ); ?>
-				</h1>
-				<?php
-				if ( ! empty( $subpage->description ) ) {
-					?>
-				<p class="FullHeadline__subtitle">
-					<?= esc_html( $subpage->description ); ?>
-				</p>
-					<?php
-				}
-				?>
-				<?php require_once get_template_directory() . '/templates/content-archive-ms_reviews-sorting.php'; ?>
-			</div>
-		</div>
+		<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args_2 ); ?>
 		<?php require_once get_template_directory() . '/templates/content-archive-ms_reviews-posts.php'; ?>
 
 		<div class="wrapper__wide">

@@ -5,6 +5,7 @@
 	$current_lang       = apply_filters( 'wpml_current_language', null );
 	$header_en_category = get_en_category( 'ms_reviews', $post->ID );
 	$header_category    = get_the_terms( $post->ID, 'ms_reviews_categories' );
+	$titleplain = str_replace( '^', '', get_the_title() );
 
 if ( ! empty( $header_category ) ) {
 	$header_category      = array_shift( $header_category );
@@ -21,6 +22,25 @@ if ( $categories ) {
 	$category_name = $categories[0]->name;
 	$category_slug = $categories[0]->slug;
 };
+$page_header_breadcrumb = array(
+	array( __( 'Reviews', 'ms' ), __( '/reviews/', 'ms' ) ),
+);
+if ( isset( $category_slug ) ) {
+	$page_header_breadcrumb[] = array( $category_name, __( '/reviews/', 'ms' ) . $category_slug );
+}
+$page_header_breadcrumb[] = array( $titleplain );
+$page_header_args = array(
+	'breadcrumb' => $page_header_breadcrumb,
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_reviews_1.png?ver=' . THEME_VERSION,
+		'alt' => get_the_title(),
+	),
+	'title' => get_the_title(),
+	'text' => get_the_excerpt( $post ),
+	'update' => array(
+		'label' => __( 'Review Last update:', 'ms' ),
+	),
+);
 
 function meta( $metabox_id ) {
 		global $post;
@@ -29,6 +49,7 @@ function meta( $metabox_id ) {
 ?>
 
 <div class="Post Reviews">
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<?php
 	require_once get_template_directory() . '/templates/content-single-ms_reviews-top.php';
 	?>
