@@ -102,6 +102,58 @@ scss/at-extend-no-missing-placeholder */
 
 	}
 
+	&__agent {
+		display: none;
+
+		@media (min-width: $breakpoint-tablet) {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			flex-flow: wrap row;
+			align-items: center;
+			padding: 1em;
+			background: rgba(5, 5, 5, 0.5);
+			border-top-left-radius: 65px;
+			border-bottom-left-radius: 65px;
+			box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+
+			&__photo {
+				border-radius: 50%;
+				overflow: hidden;
+				margin-right: 1em;
+				width: 100px;
+				height: 100px;
+			}
+
+			&__name {
+
+				@include color(color, font-color-light, !important);
+				font-family: $font-secondary;
+				font-size: 1.5rem;
+				line-height: 1.285;
+				font-weight: $font-weight-semi;
+			}
+
+			&__position {
+
+				@include color(color, font-color-light, !important);
+				font-family: $font-secondary;
+				font-size: 1rem;
+				line-height: 1.285;
+				font-weight: $font-weight-normal;
+			}
+		}
+	}
+
+	&--expert {
+
+		&::before {
+			display: none;
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet) {
 
 		h4,

@@ -101,7 +101,7 @@
 				if ( ! empty( $shortcode_text ) ) {
 					?>
 
-					<div class="BlockDiscover BlockDiscover--discover">
+					<div class="BlockDiscover BlockDiscover--expert">
 						<p class="BlockDiscover__title"><?php _e( 'Expert note', 'ms' ); ?></p>
 						<p class="BlockDiscover__text"><?php echo esc_html( $shortcode_text ); ?></p>
 
@@ -114,6 +114,13 @@
 							</a>
 						</div>
 
+						<div class="BlockDiscover__agent">
+							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/agent-saxon.png" alt="<?php _e( 'Andrej Saxon', 'ms' ); ?>" class="BlockDiscover__agent__photo">
+							<div>
+								<div class="BlockDiscover__agent__name"><?php _e( 'Andrej Saxon', 'ms' ); ?></div>
+								<div class="BlockDiscover__agent__position"><?php _e( 'Sales manager', 'ms' ); ?></div>
+							</div>
+						</div>
 					</div>
 
 					<?php set_custom_source( 'shortcodes/BlockDiscover' ); ?>
