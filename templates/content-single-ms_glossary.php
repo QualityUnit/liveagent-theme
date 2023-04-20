@@ -66,6 +66,29 @@ $page_header_args = array(
 					</a>
 				</div>
 
+				<?php
+				$shortcode_text = do_shortcode( '[urlslab-generator command="You are award winning call center, live chat and help desk specialist. You are writing Expert Quote block for website. Write expert quote in form of opinion about ' . get_the_title() . ' 30 words long. Return output in language |$lang|" source-url="liveagent.com" semantic-context="' . get_the_title() . '"]' );
+
+				if ( ! empty( $shortcode_text ) ) {
+					?>
+
+					<div class="BlockDiscover BlockDiscover--discover">
+						<p class="BlockDiscover__title"><?php _e( 'Expert note', 'ms' ); ?></p>
+						<p class="BlockDiscover__text"><?php echo esc_html( $shortcode_text ); ?></p>
+
+						<div class="BlockDiscover__buttons">
+							<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--knockout">
+								<span><?php _e( 'Try LiveAgent', 'ms' ); ?></span>
+							</a>
+							<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline Button--outline__white">
+								<span><?php _e( 'Schedule a Demo', 'ms' ); ?></span>
+							</a>
+						</div>
+
+					</div>
+
+				<?php } ?>
+
 				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 
