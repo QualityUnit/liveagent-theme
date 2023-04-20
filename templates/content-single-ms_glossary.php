@@ -116,6 +116,7 @@
 
 					</div>
 
+					<?php set_custom_source( 'shortcodes/BlockDiscover' ); ?>
 				<?php } ?>
 
 				<div class="Post__content__resources">
