@@ -134,11 +134,92 @@
 			'liveagent.lt',
 			'liveagent.hr',
 			'liveagent.ee',
+			'liveagent.local',
 			'ru.liveagent.com',
 			'support.liveagent.com',
 			'ladesk.com'
 		]
-	});
+	})
+
+	gtag('config', 'AW-966671101', {
+		'linker': {
+			'domains': [
+				'liveagent.com',
+				'ladesk.com',
+				'liveagent.fr',
+				'liveagent.de',
+				'liveagent.hu',
+				'liveagent.com.br',
+				'liveagent.sk',
+				'liveagent.es',
+				'live-agent.cn',
+				'live-agent.nl',
+				'live-agent.it',
+				'live-agent.pl',
+				'live-agent.cz',
+				'liveagent.vn',
+				'liveagent.no',
+				'liveagent.dk',
+				'liveagent.gr',
+				'liveagent.ro',
+				'liveagent.bg',
+				'liveagent.se',
+				'liveagent.jp',
+				'liveagent.fi',
+				'liveagent.ae',
+				'liveagent.ph',
+				'liveagent.si',
+				'liveagent.lv',
+				'liveagent.lt',
+				'liveagent.hr',
+				'liveagent.ee',
+				'liveagent.local',
+				'ru.liveagent.com',
+				'support.liveagent.com',
+				'ladesk.com'
+			]
+		}
+	})
+
+	gtag('config', 'G-T9HBB9KMVK', {
+		'linker': {
+			'domains': [
+				'liveagent.com',
+				'ladesk.com',
+				'liveagent.fr',
+				'liveagent.de',
+				'liveagent.hu',
+				'liveagent.com.br',
+				'liveagent.sk',
+				'liveagent.es',
+				'live-agent.cn',
+				'live-agent.nl',
+				'live-agent.it',
+				'live-agent.pl',
+				'live-agent.cz',
+				'liveagent.vn',
+				'liveagent.no',
+				'liveagent.dk',
+				'liveagent.gr',
+				'liveagent.ro',
+				'liveagent.bg',
+				'liveagent.se',
+				'liveagent.jp',
+				'liveagent.fi',
+				'liveagent.ae',
+				'liveagent.ph',
+				'liveagent.si',
+				'liveagent.lv',
+				'liveagent.lt',
+				'liveagent.hr',
+				'liveagent.ee',
+				'liveagent.local',
+				'ru.liveagent.com',
+				'support.liveagent.com',
+				'ladesk.com'
+			]
+		}
+	})
 
 	function consentGranted() {
 		gtag('consent', 'update', {
