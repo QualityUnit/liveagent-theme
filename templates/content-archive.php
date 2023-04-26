@@ -24,13 +24,14 @@
 			array(
 				'type' => 'link',
 				'name' => 'category',
+				'title' => __( 'Category', 'ms' ),
 			),
 		);
 		$filter_items_categories = array();
 		foreach ( $archive_nav as $item ) :
 			$current = get_queried_object_id() == $item->object_id;
 			if ( $current ) :
-				$filter_items[0]['title'] = $item->title;
+				$filter_items[0]['active'] = $item->title;
 			else :
 				$filter_items_categories[] = array(
 					'href' => $item->url,

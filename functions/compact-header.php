@@ -6,7 +6,7 @@ function compact_header_toc( $custom_content = null, $items = null ) {
 	if ( isset( $items ) ) {
 		foreach ( $items as $item ) {
 			if ( isset( $item['id'] ) && isset( $item['title'] ) ) {
-				$toc[] = '<li class="FilterMenu__item"><a href="#' . $item['id'] . '">' . $item['title'] . '</a></li>'; // @codingStandardsIgnoreLine
+				$toc[] = '<a href="#' . $item['id'] . '" class="FilterMenu__item"><span class="FilterMenu__item-title">' . $item['title'] . '</span></a>'; // @codingStandardsIgnoreLine
 			}
 		}
 		if ( isset( $toc ) ) {
@@ -45,7 +45,7 @@ function compact_header_toc( $custom_content = null, $items = null ) {
 				$title = $node->nodeValue; //@codingStandardsIgnoreLine
 				$id    = $node->getAttribute( 'id' );
 				if ( strlen( $id ) > 2 ) {
-					$toc[] = '<li class="FilterMenu__item FilterMenu__item--' . $tag . '"><a href="#' . $id . '">' . $title . '</a></li>'; // @codingStandardsIgnoreLine
+					$toc[] = '<a href="#' . $id . '" class="FilterMenu__item FilterMenu__item--' . $tag . '"><span class="FilterMenu__item-title">' . $title . '</span></a>'; // @codingStandardsIgnoreLine
 				}
 			}
 			if ( isset( $toc ) ) {

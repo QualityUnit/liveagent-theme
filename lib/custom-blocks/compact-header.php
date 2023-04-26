@@ -1,6 +1,6 @@
 <?php
-//todo: bug: filter - rozklikavanie selectov
 //todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
+//todo: vymazat zakomentovane includovanie 'sidebar_toc'
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
 <?php set_custom_source( 'components/Filter', 'css' ); ?>
@@ -284,18 +284,24 @@
 											if ( ! empty( $filer_item['name'] ) ) {
 												$filer_name = $filer_item['name'];
 											}
-											if ( ! empty( $filer_item['title'] ) ) {
-												$filer_title = $filer_item['title'];
-											}
 											?>
-											<?php if ( isset( $filer_list ) && isset( $filer_type ) && isset( $filer_title ) ) { ?>
+											<?php if ( isset( $filer_list ) && isset( $filer_type ) ) { ?>
+												<?php
+												if ( ! empty( $filer_item['active'] ) ) {
+													$filer_active = $filer_item['active'];
+												} else {
+													$filer_active = $filer_list[0]['title'];
+												}
+												?>
 												<div class="compact-header__filter">
-													<div class="compact-header__filter-label">
-														<?= esc_html( $filer_title ); ?>
-													</div>
+													<?php if ( ! empty( $filer_item['title'] ) ) { ?>
+														<div class="compact-header__filter-label">
+															<?= esc_html( $filer_item['title'] ); ?>
+														</div>
+													<?php } ?>
 													<div class="FilterMenu">
 														<div class="FilterMenu__title">
-															<?= esc_html( $filer_list[0]['title'] ); ?>
+															<?= esc_html( $filer_active ); ?>
 														</div>
 														<div class="FilterMenu__items">
 															<div class="FilterMenu__items--inn">
@@ -322,7 +328,7 @@
 																			$item_id = $filer_name . '-' . $item_value;
 																		}
 																		?>
-																		<div class="sorting FilterMenu__item">
+																		<div class="checkbox FilterMenu__item">
 																			<input
 																				class="filter-item"
 																				type="radio"
@@ -351,11 +357,9 @@
 																<?php if ( 'link' == $filer_type && isset( $filer_name ) ) { ?>
 																	<?php foreach ( $filer_list as $filer_list_item ) { ?>
 																		<?php if ( isset( $filer_list_item['href'] ) && isset( $filer_list_item['title'] ) ) { ?>
-																			<div class="sorting FilterMenu__item">
-																				<a href="<?= esc_url( $filer_list_item['href'] ); ?>" class="FilterMenu__item-title">
-																					<?= esc_html( $filer_list_item['title'] ); ?>
-																				</a>
-																			</div>
+																			<a href="<?= esc_url( $filer_list_item['href'] ); ?>" class="checkbox FilterMenu__item">
+																				<span class="checkbox-label FilterMenu__item-title"><?= esc_html( $filer_list_item['title'] ); ?></span>
+																			</a>
 																		<?php } ?>
 																	<?php } ?>
 																<?php } ?>
@@ -424,59 +428,56 @@
 						</div>
 					<?php } elseif ( isset( $research_nav ) ) { ?>
 						<div class="compact-header__research">
-							<div class="Research--wrapper Research--wrapper__navigation">
-								<nav class="Research--navigation">
+							<nav class="Research--navigation">
+								<div class="Research--navigation__title"><?php _e( 'Navigation', 'ms' ); ?></div>
+								<div class="Research--navigation__posts">
 
-									<div class="Research--navigation__title"><?php _e( 'Navigation', 'ms' ); ?></div>
-									<div class="Research--navigation__posts">
+									<div class="Research--navigation__selected" data-id="<?php echo get_the_ID(); ?>"> <?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?> </div>
 
-										<div class="Research--navigation__selected h4" data-id="<?php echo get_the_ID(); ?>"> <?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?> </div>
-
-										<div class="Research--navigation__menu hidden">
-											<ul class="Research--navigation__menu__inn">
-												<?php $categories = array_unique( get_categories( array( 'taxonomy' => 'ms_research_categories' ) ), SORT_REGULAR ); ?>
-												<?php
-												$counter = 0;
-												foreach ( $categories as $category ) {
-													$query_research_posts = new WP_Query(
-														array(
-															'ms_research_categories' => $category->slug,
-                                                            // @codingStandardsIgnoreLine
-                                                            'posts_per_page' => 500,
-															'orderby' => 'menu_order',
-															'order'   => 'ASC',
-														)
-													);
-													
-													while ( $query_research_posts->have_posts() ) :
-														$query_research_posts->the_post();
-														++$counter;
-														$color = $counter;
-                                                        if ( $counter % 9 == 0 ) { // @codingStandardsIgnoreLine
-															$color = 9;
-														}
-														if ( $counter % 9 > 0 ) {
-															$color = $counter % 9;
-														}
-														?>
-														<li data-id="<?php echo get_the_ID(); ?>" data-color="<?php echo esc_attr( $color ); ?>" class="Research--navigation__post Research--color-<?php echo esc_html( $color ); ?>">
-															<a class="Research--navigation__post__title" href="<?php the_permalink(); ?>">
-														<span class="Research--navigation__counter">
-														<?php
-														echo esc_html( $counter < 10 ? ( '0' . $counter ) : $counter );
-														?>
-													</span>
-																<?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?>
-															</a>
-														</li>
-													<?php endwhile; ?>
-													<?php wp_reset_postdata(); ?>
-												<?php } ?>
-											</ul>
-										</div>
+									<div class="Research--navigation__menu hidden">
+										<ul class="Research--navigation__menu__inn">
+											<?php $categories = array_unique( get_categories( array( 'taxonomy' => 'ms_research_categories' ) ), SORT_REGULAR ); ?>
+											<?php
+											$counter = 0;
+											foreach ( $categories as $category ) {
+												$query_research_posts = new WP_Query(
+													array(
+														'ms_research_categories' => $category->slug,
+                                                        // @codingStandardsIgnoreLine
+                                                        'posts_per_page' => 500,
+														'orderby' => 'menu_order',
+														'order'   => 'ASC',
+													)
+												);
+												
+												while ( $query_research_posts->have_posts() ) :
+													$query_research_posts->the_post();
+													++$counter;
+													$color = $counter;
+                                                    if ( $counter % 9 == 0 ) { // @codingStandardsIgnoreLine
+														$color = 9;
+													}
+													if ( $counter % 9 > 0 ) {
+														$color = $counter % 9;
+													}
+													?>
+													<li data-id="<?php echo get_the_ID(); ?>" data-color="<?php echo esc_attr( $color ); ?>" class="Research--navigation__post Research--color-<?php echo esc_html( $color ); ?>">
+														<a class="Research--navigation__post__title" href="<?php the_permalink(); ?>">
+													<span class="Research--navigation__counter">
+													<?php
+													echo esc_html( $counter < 10 ? ( '0' . $counter ) : $counter );
+													?>
+												</span>
+															<?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?>
+														</a>
+													</li>
+												<?php endwhile; ?>
+												<?php wp_reset_postdata(); ?>
+											<?php } ?>
+										</ul>
 									</div>
-								</nav>
-							</div>
+								</div>
+							</nav>
 						</div>
 					<?php } ?>
 				</div>

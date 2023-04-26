@@ -381,6 +381,69 @@ body.compact-header--active {
 		&__items {
 			z-index: 10;
 		}
+
+		a[href].FilterMenu__item {
+
+			@include color(color, font-color-dark);
+			transition: all 0.5s;
+			text-decoration: none;
+
+			strong {
+				font-weight: $font-weight-normal;
+			}
+
+			&:hover,
+			&.active {
+				background-color: $light-gray;
+			}
+
+		}
+	}
+
+	&__toc .FilterMenu {
+
+		&__item {
+			position: relative;
+
+			&::before {
+				top: 50%;
+				position: absolute;
+				display: block;
+				content: "";
+				border-radius: 50%;
+				background-color: $lighter-gray;
+				transform: translateY(-50%);
+			}
+
+			&--h2 {
+				padding-left: 2.429em;
+				font-size: 0.875em;
+
+				&::before {
+
+					@include square(0.357em);
+					left: 1.429em;
+				}
+			}
+
+			&--h3 {
+				padding-left: 3.769em;
+				font-size: 0.813em;
+
+				&::before {
+
+					@include square(0.385em);
+					left: 2.692em;
+				}
+			}
+
+			&.active {
+
+				&::before {
+					background-color: $black;
+				}
+			}
+		}
 	}
 
 	@media (min-width: $breakpoint-tablet) {

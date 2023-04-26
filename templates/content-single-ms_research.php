@@ -1,7 +1,7 @@
 <?php // @codingStandardsIgnoreLine
 	set_custom_source( 'common/splide', 'css' );
 	set_custom_source( 'splide', 'js' );
-	set_custom_source( 'sidebar_toc', 'js' );
+	//set_custom_source( 'sidebar_toc', 'js' );
 	set_custom_source( 'research_post', 'js' );
 $page_title = str_replace( '^', '', get_the_title() );
 $page_header_args = array(
