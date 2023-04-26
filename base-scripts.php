@@ -102,17 +102,42 @@
 		'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO']
 	})
 
-	gtag('config', 'AW-966671101', {
-		'linker': {
-			'domains': ['liveagent.com', 'liveagent.fr', 'liveagent.de', 'liveagent.hu', 'liveagent.com.br', 'liveagent.sk', 'liveagent.es', 'live-agent.cn', 'live-agent.nl', 'live-agent.it', 'live-agent.pl', 'ru.liveagent.com', 'live-agent.cz', 'liveagent.vn', 'liveagent.no', 'liveagent.dk', 'liveagent.gr', 'liveagent.ro', 'liveagent.bg', 'liveagent.se', 'liveagent.jp', 'liveagent.fi', 'liveagent.ae', 'liveagent.ph', 'liveagent.si', 'liveagent.lv', 'liveagent.lt', 'liveagent.hr', 'liveagent.ee', 'support.liveagent.com', 'ladesk.com', 'liveagent.local', '*.ladesk.com']
-		}
-	})
-
-	gtag('config', 'G-T9HBB9KMVK', {
-		'linker': {
-			'domains': ['liveagent.com', 'liveagent.fr', 'liveagent.de', 'liveagent.hu', 'liveagent.com.br', 'liveagent.sk', 'liveagent.es', 'live-agent.cn', 'live-agent.nl', 'live-agent.it', 'live-agent.pl', 'ru.liveagent.com', 'live-agent.cz', 'liveagent.vn', 'liveagent.no', 'liveagent.dk', 'liveagent.gr', 'liveagent.ro', 'liveagent.bg', 'liveagent.se', 'liveagent.jp', 'liveagent.fi', 'liveagent.ae', 'liveagent.ph', 'liveagent.si', 'liveagent.lv', 'liveagent.lt', 'liveagent.hr', 'liveagent.ee', 'support.liveagent.com', 'ladesk.com', 'liveagent.local', '*.ladesk.com']
-		}
-	})
+	gtag('set', 'linker', {
+		'accept_incoming': true,
+		'domains': [
+			'liveagent.com',
+			'*.liveagent.com',
+			'ladesk.com',
+			'*.ladesk.com',
+			'liveagent.fr',
+			'liveagent.de',
+			'liveagent.hu',
+			'liveagent.com.br',
+			'liveagent.sk',
+			'liveagent.es',
+			'live-agent.cn',
+			'live-agent.nl',
+			'live-agent.it',
+			'live-agent.pl',
+			'live-agent.cz',
+			'liveagent.vn',
+			'liveagent.no',
+			'liveagent.dk',
+			'liveagent.gr',
+			'liveagent.ro',
+			'liveagent.bg',
+			'liveagent.se',
+			'liveagent.jp',
+			'liveagent.fi',
+			'liveagent.ae',
+			'liveagent.ph',
+			'liveagent.si',
+			'liveagent.lv',
+			'liveagent.lt',
+			'liveagent.hr',
+			'liveagent.ee'
+		]
+	});
 
 	function consentGranted() {
 		gtag('consent', 'update', {
