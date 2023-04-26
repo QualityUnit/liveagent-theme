@@ -106,9 +106,7 @@
 		'accept_incoming': true,
 		'domains': [
 			'liveagent.com',
-			'*.liveagent.com',
 			'ladesk.com',
-			'*.ladesk.com',
 			'liveagent.fr',
 			'liveagent.de',
 			'liveagent.hu',
@@ -135,7 +133,10 @@
 			'liveagent.lv',
 			'liveagent.lt',
 			'liveagent.hr',
-			'liveagent.ee'
+			'liveagent.ee',
+			'ru.liveagent.com',
+			'support.liveagent.com',
+			'ladesk.com'
 		]
 	});
 
