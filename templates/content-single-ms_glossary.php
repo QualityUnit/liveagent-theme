@@ -67,7 +67,7 @@ $page_header_args = array(
 				</div>
 
 				<?php
-				$shortcode_text = do_shortcode( '[urlslab-generator command="You are award winning call center, live chat and help desk specialist. You are writing Expert Quote block for website. Write expert quote in form of opinion about ' . get_the_title() . ' 30 words long. Return output in language |$lang|" source-url="liveagent.com" semantic-context="' . get_the_title() . '"]' );
+				$shortcode_text = do_shortcode( '[urlslab-generator id="1"]' );
 
 				if ( ! empty( $shortcode_text ) ) {
 					?>
