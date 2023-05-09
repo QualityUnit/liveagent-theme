@@ -1,6 +1,15 @@
 <?php
+//todo: about us ... dokoncit
+//todo: single feature
+//todo: single research ... prazdne toc
+//todo: single integrations ... pridat toc
 //todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
 //todo: vymazat zakomentovane includovanie 'sidebar_toc'
+//todo: toc - pozicia pri scrollovani
+//todo: checklist toc - dokoncit
+//todo: vymazat onclick => _paq.push...
+//todo: related articles v 'content-single-ms_glossary'
+//todo: http://liveagent.local/checklists/#marketing - po nacitani sa nevybera kategoria v selectboxe
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
 <?php set_custom_source( 'components/Filter', 'css' ); ?>
@@ -35,6 +44,9 @@
 	}
 	if ( ! empty( $args['research_nav'] ) ) {
 		$research_nav = $args['research_nav'];
+	}
+	if ( ! empty( $args['checklist'] ) ) {
+		$checklist = $args['checklist'];
 	}
 	?>
 	<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?>">
@@ -195,7 +207,7 @@
 					<?php } ?>
 				<?php } ?>
 			</div>
-			<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_sort ) || isset( $filer_count ) || isset( $menu_header ) || isset( $research_nav ) ) { ?>
+			<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_sort ) || isset( $filer_count ) || isset( $menu_header ) || isset( $research_nav ) || isset( $checklist ) ) { ?>
 				<div class="compact-header__bottom">
 					<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_sort ) || isset( $filer_count ) ) { ?>
 						<div class="compact-header__filters-toggle">
@@ -478,6 +490,44 @@
 									</div>
 								</div>
 							</nav>
+						</div>
+					<?php } elseif ( isset( $checklist ) ) { ?>
+						<div class="compact-header__checklist">
+							<div class="Checklists__toc__main" data-target="ChecklistTOC">
+								<?php if ( checklists_toc() !== false ) { ?>
+									<div class="Checklists__toc__label"><?php _e( 'Contents', 'ms' ); ?></div>
+									<div class="Checklists__toc__block">
+										<div class="Checklists__toc__title"><?= esc_html( checklists_toc()->title ); ?></div>
+										<span class="Checklists__toc__activator"></span>
+										<div class="Checklists__toc__wrapper hidden" data-targetId="ChecklistTOC">
+											<div class="Checklists__toc__inn">
+												<ul class="Checklists__toc">
+													<?= wp_kses_post( checklists_toc()->toc ); ?>
+												</ul>
+											</div>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
+							<div class="compact-header__checklist-progress CircleProgressBar">
+								<div class="CircleProgressBar__middle" id="circleProgressMiddle"></div>
+								<div class="CircleProgressBar__spinner" id="circleProgressSpinner"></div>
+							</div>
+							<?php if ( checklists_toc() !== false ) { ?>
+								<div class="compact-header__checklist-counter" id="checklistsCounter" data-checked="0" data-total="<?= esc_attr( checklists_toc()->count ); ?>">
+									<?= esc_html( checklists_toc()->count ); ?>
+								</div>
+								<div class="compact-header__checklist-collapse">
+									<span class="qu-Checklist__expander qu-Checklist__expander--collapse" data-action="closeAll">
+										<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 18.59 8.83 20 12 16.83 15.17 20l1.41-1.41L12 14l-4.59 4.59Zm9.18-13.18L15.17 4 12 7.17 8.83 4 7.41 5.41 12 10l4.59-4.59Z" fill="#050505"/></svg>
+										<span class="desktop--only"><?php _e( 'Collapse All', 'ms' ); ?></span>
+									</span>
+									<span class="qu-Checklist__expander qu-Checklist__expander--expand inactive" data-action="openAll">
+										<svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 18.59 8.83 20 12 16.83 15.17 20l1.41-1.41L12 14l-4.59 4.59Z" style="fill:#050505" transform="translate(0 -10)"/><path d="M16.59 5.41 15.17 4 12 7.17 8.83 4 7.41 5.41 12 10l4.59-4.59Z" style="fill:#050505" transform="translate(0 10)"/></svg>
+										<span class="desktop--only"><?php _e( 'Expand All', 'ms' ); ?></span>
+									</span>
+								</div>
+							<?php } ?>
 						</div>
 					<?php } ?>
 				</div>

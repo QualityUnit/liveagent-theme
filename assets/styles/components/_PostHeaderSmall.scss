@@ -5,6 +5,73 @@
 @forward "../components/ChecklistsToc";
 @forward "../elements/CircleProgressBar";
 
+.compact-header__checklist {
+	display: flex;
+	align-items: center;
+	margin-top: 0.75em;
+
+	&-progress {
+
+		&:not(:first-child) {
+			margin-left: 1em;
+		}
+	}
+
+	&-counter {
+
+		@include color(color, font-color-dark);
+		font-family: $font-secondary;
+		font-size: 0.8125rem;
+		font-weight: 500;
+
+		&::before {
+			content: attr(data-checked) " / ";
+		}
+	}
+
+	&-progress + &-counter {
+		margin-left: 0.5em;
+	}
+
+	&-collapse {
+
+		@include color(color, font-color-dark);
+		@include color(background-color, button-outline-color);
+		font-family: $font-secondary;
+		font-size: 0.8125rem;
+		font-weight: $font-weight-semi;
+		border-radius: 6px;
+		text-align: center;
+		transition: all 0.2s;
+		padding: 0.45em;
+		cursor: pointer;
+
+		&:not(:first-child) {
+			margin-left: 0.75em;
+		}
+
+		&:hover {
+
+			@include color(background-color, secondary-background);
+		}
+
+		.inactive {
+			display: none;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&-progress {
+			flex: 0 0 auto;
+		}
+
+		&-collapse {
+			padding: 0.5em 1.25em 0.5em 0.75em;
+		}
+	}
+}
+
 .Post__header__small {
 
 	@include color(background-color, main-background);
@@ -13,7 +80,7 @@
 	transition: all 0.2s;
 	top: 0;
 	z-index: 101;
-	transform: translateY(calc(-100% - 4px));
+	//transform: translateY(calc(-100% - 4px));
 	box-shadow: 0 4px 4px 0 rgba($black-real, 0.1);
 
 	&__navLabel {

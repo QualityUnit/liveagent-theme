@@ -26,9 +26,11 @@ function checklists_toc() {
 		}
 		if ( isset( $toc ) ) {
 			$count_items = count( $toc );
+			$toc_title = count( $toc );
 			$toc         = implode( '', $toc );
 
 			$output = (object) array(
+				'title' => $nodes[0]->nodeValue,
 				'toc'   => $toc,
 				'count' => $count_items,
 			);
