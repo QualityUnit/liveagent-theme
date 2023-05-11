@@ -15,6 +15,19 @@
 		}, 25 );
 	}
 
+	function filterMenuTitleChange( item ) {
+		const clWrap = 'FilterMenu';
+		const clTitle = 'FilterMenu__title';
+		const title = item.getAttribute( 'title' );
+		const elMain = item.closest( '.' + clWrap );
+		if ( elMain && title !== null ) {
+			const elTitle = elMain.querySelector( '.' + clTitle );
+			if ( elTitle ) {
+				elTitle.textContent = title;
+			}
+		}
+	}
+
 	if ( query( '.list' ) !== null ) {
 		const list = query( '.list' );
 		const listItems = list.querySelectorAll( 'li' );
@@ -180,6 +193,7 @@
 
 				if ( filteredHash === val ) {
 					filterItem.checked = true;
+					filterMenuTitleChange( filterItem );
 					recountVisible();
 				}
 			} );

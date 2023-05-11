@@ -11,14 +11,12 @@ $filter_items_categories = array(
 		'checked' => true,
 		'value' => '',
 		'title' => __( 'All Categories', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Checklists', 'Templates - Category - All'])",
 	),
 );
 foreach ( $categories as $category ) :
 	$filter_items_categories[] = array(
 		'value' => $category->slug,
 		'title' => $category->name,
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Checklists', 'Templates - Category - " . $category->name . "'])",
 	);
 endforeach;
 $filter_items = array(

@@ -29,9 +29,9 @@
 	const elTOC = query( '.compact-header__toc' );
 	const tocHeaderItems = ( () => {
 		if ( queryAll( '.compact-header__toc .FilterMenu__item--h3' ).length > 0 ) {
-			return queryAll( '.Content > h2[id], .Content > h3[id]' );
+			return queryAll( '.Content h2[id], .Content h3[id]' );
 		}
-		return queryAll( '.Content > h2[id]' );
+		return queryAll( '.Content h2[id]' );
 	} )();
 	const tocTitle = query( '.compact-header__toc .FilterMenu__title' );
 	const tocItems = queryAll( '.compact-header__toc a.FilterMenu__item' );
@@ -72,7 +72,7 @@
 			} );
 		}
 	}
-	function getScrollPercent() {
+	function fnGetScrollPercent() {
 		const h = document.documentElement,
 			b = document.body,
 			st = 'scrollTop',
@@ -87,7 +87,7 @@
 				elHeaderScrollBar.appendChild( elChild );
 			}
 			const el = elHeaderScrollBar.firstChild;
-			el.style.width = getScrollPercent();
+			el.style.width = fnGetScrollPercent();
 		}
 	}
 	function fnHeaderScrollBarPosition() {
@@ -99,37 +99,6 @@
 			}
 		}
 	}
-	/*function fnFilterSelect() {
-		const clFilterMain = 'FilterMenu';
-		const clFilterTitle = 'FilterMenu__title';
-		const clFilterItems = 'FilterMenu__items';
-		const clFilterItem = 'FilterMenu__item-title';
-		const elFilterItem = queryAll( '.' + clFilterItem );
-
-		if ( elFilterItem ) {
-			elFilterItem.forEach( ( item ) => {
-				const elFilterMain = item.closest( '.' + clFilterMain );
-				const elFilterItems = item.closest( '.' + clFilterItems );
-				const elFilterTitle = elFilterMain.querySelector.bind( '.' + clFilterTitle );
-				const textItem = item.textContent;
-				const hideMenu = () => {
-					if ( elFilterItems.classList.contains( 'visible' ) ) {
-						elFilterItems.classList.remove( 'visible' );
-						elFilterTitle.classList.remove( 'active' );
-						setTimeout( () => {
-							elFilterItems.classList.remove( 'active' );
-						}, 200 );
-					}
-				};
-				if ( elFilterTitle ) {
-					item.addEventListener( 'click', () => {
-						elFilterTitle.textContent = textItem;
-						hideMenu();
-					} );
-				}
-			} );
-		}
-	}*/
 	function fnFilterSelect() {
 		const clFilterMain = 'FilterMenu';
 		const clFilterTitle = 'FilterMenu__title';
@@ -164,12 +133,12 @@
 			} );
 		}
 	}
-	function tocRemoveActive() {
+	function fnTocRemoveActive() {
 		tocItems.forEach( ( element ) => {
 			element.classList.remove( 'active' );
 		} );
 	}
-	function tocActivate() {
+	function fnTocActivate() {
 		let isScrolling;
 		if ( elTOC !== null ) {
 			tocItems.forEach( ( element, index ) => {
@@ -177,7 +146,7 @@
 				el.dataset.number = index;
 
 				el.addEventListener( 'click', ( ) => {
-					tocRemoveActive();
+					fnTocRemoveActive();
 					el.classList.add( 'active' );
 
 					// setTimeout( () => {
@@ -198,10 +167,11 @@
 							const activateItem = query(
 								`.compact-header__toc a[href*=${ elemHref }`
 							);
-
-							tocRemoveActive();
-							activateItem.classList.add( 'active' );
-							tocTitle.textContent = activateItem.textContent;
+							if ( activateItem ) {
+								fnTocRemoveActive();
+								activateItem.classList.add( 'active' );
+								tocTitle.textContent = activateItem.textContent;
+							}
 						}
 					} );
 				}
@@ -232,12 +202,12 @@
 	}, true );
 	// Handles TOC in case when user visits with required screen/window size
 	if ( mql.matches ) {
-		tocActivate();
+		fnTocActivate();
 	}
 	// Handles TOC in case when user changes orientation of device from portrait > landscape, ie. iPad Pro
 	mql.addEventListener( 'change', ( event ) => {
 		if ( event.matches ) {
-			tocActivate();
+			fnTocActivate();
 		}
 	} );
 } )();

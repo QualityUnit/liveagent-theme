@@ -15,6 +15,7 @@ $page_header_args = array(
 	),
 	'title' => get_the_title(),
 	'text' => get_the_excerpt( $post ),
+	'toc' => true,
 );
 if ( has_post_thumbnail() ) {
 	$page_header_args['logo'] = array(
@@ -30,14 +31,12 @@ if (
 	if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ) ) {
 		$header_buttons[] = array(
 			'href' => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ),
-			'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration " . get_the_title() . " - Button - Native Integration'])",
 			'title' => __( 'Native Integration', 'ms' ),
 		);
 	}
 	if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_external_integration_url', true ) ) {
 		$header_buttons[] = array(
 			'href' => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_external_integration_url', true ) . '?utm_medium=referral&utm_source=liveagent&utm_campaign=integration',
-			'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration " . get_the_title() . " - Button - External Integration'])",
 			'target' => '_blank',
 			'title' => __( 'External Integration', 'ms' ),
 		);
@@ -45,7 +44,6 @@ if (
 	if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_zapier_integration_url', true ) ) {
 		$header_buttons[] = array(
 			'href' => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_zapier_integration_url', true ) . '?utm_medium=referral&utm_source=liveagent&utm_campaign=integration',
-			'onclick' => "_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration " . get_the_title() . " - Button - Zapier Integration'])",
 			'target' => '_blank',
 			'title' => __( 'Zapier Integration', 'ms' ),
 		);
@@ -111,23 +109,6 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Post__container">
-		<div class="Post__sidebar urlslab-skip-keywords">
-
-			<?php if ( sidebar_toc() !== false ) { ?>
-				<div class="SidebarTOC-wrapper">
-					<div class="SidebarTOC Post__SidebarTOC">
-						<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-						<div class="SidebarTOC__slider slider splide">
-							<div class="splide__track">
-								<ul class="SidebarTOC__content splide__list">
-									<?= wp_kses_post( sidebar_toc() ); ?>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-		</div>
 
 		<div class="Post__content">
 

@@ -1,15 +1,10 @@
 <?php
-//todo: about us ... dokoncit
-//todo: single feature
-//todo: single research ... prazdne toc
-//todo: single integrations ... pridat toc
 //todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
 //todo: vymazat zakomentovane includovanie 'sidebar_toc'
 //todo: toc - pozicia pri scrollovani
+//todo: toc - scrollbar
 //todo: checklist toc - dokoncit
-//todo: vymazat onclick => _paq.push...
-//todo: related articles v 'content-single-ms_glossary'
-//todo: http://liveagent.local/checklists/#marketing - po nacitani sa nevybera kategoria v selectboxe
+//todo: ??? related articles v 'content-single-ms_glossary' (http://liveagent.local/customer-support-glossary/agent-signature/)
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
 <?php set_custom_source( 'components/Filter', 'css' ); ?>
@@ -347,6 +342,9 @@
 																				id="<?= esc_attr( $item_id ); ?>"
 																				value="<?= esc_attr( $item_value ); ?>"
 																				name="<?= esc_attr( $filer_name ); ?>"
+																				<?php if ( isset( $item_title ) ) { ?>
+																					title="<?= esc_attr( $item_title ); ?>"
+																				<?php } ?>
 																				<?php if ( $item_checked ) { ?>
 																					checked
 																				<?php } ?>

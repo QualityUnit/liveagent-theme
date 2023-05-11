@@ -13,14 +13,12 @@ $filter_items_categories = array(
 		'checked' => true,
 		'value' => '',
 		'title' => __( 'Any', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Academy', 'Templates - Category - Any'])",
 	),
 );
 foreach ( $categories as $category ) :
 	$filter_items_categories[] = array(
 		'value' => $category->slug,
 		'title' => $category->name,
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Academy', 'Templates - Category - " . $category->name . "'])",
 	);
 endforeach;
 $filter_items = array(

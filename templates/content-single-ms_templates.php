@@ -4,7 +4,7 @@
 	do_action( 'wpml_switch_language', $current_lang );
 	
 	$page_header_logo = array(
-		'src' => get_template_directory_uri() . '/assets/images/icon-book.svg',
+		'src' => get_template_directory_uri() . '/assets/images/icon-book.svg?ver=' . THEME_VERSION,
 		'alt' => __( 'Templates', 'ms' ),
 	);
 	if ( has_post_thumbnail() ) {

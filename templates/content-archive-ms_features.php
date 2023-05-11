@@ -15,14 +15,12 @@ $filter_items_categories = array(
 		'checked' => true,
 		'value' => '',
 		'title' => __( 'Any', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Category - Any'])",
 	),
 );
 foreach ( $categories as $category ) :
 	$filter_items_categories[] = array(
 		'value' => $category->slug,
 		'title' => $category->name,
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Category - " . $category->name . "'])",
 	);
 endforeach;
 $filter_items = array(
@@ -35,22 +33,18 @@ $filter_items = array(
 				'checked' => true,
 				'value' => '',
 				'title' => __( 'Any', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Collections - Any'])",
 			),
 			array(
 				'value' => 'featured',
 				'title' => __( 'Featured', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Collections - Featured'])",
 			),
 			array(
 				'value' => 'popular',
 				'title' => __( 'Popular', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Collections - Popular'])",
 			),
 			array(
 				'value' => 'new',
 				'title' => __( 'New', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Collections - New'])",
 			),
 		),
 	),
@@ -63,32 +57,26 @@ $filter_items = array(
 				'checked' => true,
 				'value' => '',
 				'title' => __( 'Any', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Plan - Any'])",
 			),
 			array(
 				'value' => 'free',
 				'title' => __( 'Free', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Plan - Free'])",
 			),
 			array(
 				'value' => 'ticket',
 				'title' => __( 'Small', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Plan - Small'])",
 			),
 			array(
 				'value' => 'ticket-chat',
 				'title' => __( 'Medium', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Plan - Medium'])",
 			),
 			array(
 				'value' => 'all-inclusive',
 				'title' => __( 'Large', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Plan - Large'])",
 			),
 			array(
 				'value' => 'extensions',
 				'title' => __( 'Extensions', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Plan - Extensions'])",
 			),
 		),
 	),
@@ -101,27 +89,22 @@ $filter_items = array(
 				'checked' => true,
 				'value' => '',
 				'title' => __( 'Any', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Size - Any'])",
 			),
 			array(
 				'value' => 'individuals',
 				'title' => __( 'Individuals', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Size - Individuals'])",
 			),
 			array(
 				'value' => 'start-ups',
 				'title' => __( 'Start-ups', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Size - Start-ups'])",
 			),
 			array(
 				'value' => 'smbs',
 				'title' => __( 'SMBs', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Size - SMBs'])",
 			),
 			array(
 				'value' => 'enterprise',
 				'title' => __( 'Enterprise', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Size - Enterprise'])",
 			),
 		),
 	),

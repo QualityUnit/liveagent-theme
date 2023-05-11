@@ -64,25 +64,21 @@ if ( isset( $subpage->slug ) ) {
 				'checked' => true,
 				'value' => 'reviews',
 				'title' => __( 'Most reviews from external portals', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Most reviews from external portals'])",
 			),
 			array(
 				'checked' => true,
 				'value' => 'rating',
 				'title' => __( 'Best ratings from external portals', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Best ratings from external portals'])",
 			),
 			array(
 				'checked' => true,
 				'value' => 'ourrating',
 				'title' => __( 'Our best rating', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Our best rating'])",
 			),
 			array(
 				'checked' => true,
 				'value' => 'updated',
 				'title' => __( 'Recently updated', 'ms' ),
-				'onclick' => "_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Recently updated'])",
 			),
 		),
 	);

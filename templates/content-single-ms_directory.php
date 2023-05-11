@@ -14,7 +14,6 @@ $business = get_post_meta( get_the_ID(), 'mb_directory_mb_directory_business', t
 $page_header_tags = array();
 $page_header_tags[0]['title'] = __( 'Business Type', 'ms' );
 $page_header_tags[0]['list'][0]['href'] = __( '/industry/', 'ms' ) . $industry;
-$page_header_tags[0]['list'][0]['onclick'] = "_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Industry'])";
 if ( 'accounting-legal' === $industry ) {
 	$page_header_tags[0]['list'][0]['title'] = __( 'Accounting & Legal', 'ms' );
 } elseif ( 'automotive' === $industry ) {
@@ -50,7 +49,6 @@ if ( 'accounting-legal' === $industry ) {
 }
 $page_header_tags[0]['title'] = __( 'Business Type', 'ms' );
 $page_header_tags[0]['list'][1]['href'] = __( '/business/', 'ms' ) . $business;
-$page_header_tags[0]['list'][1]['onclick'] = "_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Business'])";
 if ( 'agency' === $business ) {
 	$page_header_tags[0]['list'][1]['title'] = __( 'Agency', 'ms' );
 } elseif ( 'education-ngo' === $business ) {
@@ -69,49 +67,41 @@ if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', tru
 	$page_header_tags[1]['list'][] = array(
 		'href' => __( '/help-desk-software/', 'ms' ),
 		'title' => __( 'Help Desk Software', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Help Desk Software'])",
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) {
 	$page_header_tags[1]['list'][] = array(
 		'href' => __( '/ticketing-software/', 'ms' ),
 		'title' => __( 'Ticketing Software', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Ticketing Software])",
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_livechat-support', true ) ) {
 	$page_header_tags[1]['list'][] = array(
 		'href' => __( '/live-chat-software/', 'ms' ),
 		'title' => __( 'Live Chat Software', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Live Chat Software])",
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ) {
 	$page_header_tags[1]['list'][] = array(
 		'href' => __( '/call-center-software/', 'ms' ),
 		'title' => __( 'Call Center Software', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Call Center Software])",
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_facebook', true ) || get_post_meta( get_the_ID(), 'mb_directory_mb_directory_twitter', true ) || get_post_meta( get_the_ID(), 'mb_directory_mb_directory_instagram', true ) ) {
 	$page_header_tags[1]['list'][] = array(
 		'href' => __( '/social-media-customer-service/', 'ms' ),
 		'title' => __( 'Social Media Support', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Social Media Support])",
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_forum', true ) ) {
 	$page_header_tags[1]['list'][] = array(
 		'href' => __( '/customer-portal-software/', 'ms' ),
 		'title' => __( 'Customer Portal Software', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Customer Portal Software])",
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_knowledge-base', true ) ) {
 	$page_header_tags[1]['list'][] = array(
 		'href' => __( '/knowledge-base-software/', 'ms' ),
 		'title' => __( 'Knowledge Base Software', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Knowledge Base Software])",
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_affiliate-program', true ) ) {
 	$page_header_tags[1]['list'][] = array(
 		'href' => 'https://www.postaffiliatepro.com/?utm_medium=referral&utm_source=liveagent&utm_campaign=directory',
 		'title' => __( 'Affiliate Software', 'ms' ),
-		'onclick' => "_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Affiliate Program])",
 		'target' => '_blank',
 		'rel' => 'nofollow',
 	);
