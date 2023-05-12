@@ -15,4 +15,5 @@
 	require_once get_template_directory() . '/lib/post-types/research.php';
 	require_once get_template_directory() . '/lib/post-types/checklists.php';
 	require_once get_template_directory() . '/lib/post-types/reviews.php';
+	require_once get_template_directory() . '/lib/post-types/videos.php';
 	require_once get_template_directory() . '/lib/post-types/pricing-tables.php';

@@ -13,4 +13,4 @@
 	require_once get_template_directory() . '/lib/metaboxes/sidebar-show-h3.php';
 	require_once get_template_directory() . '/lib/metaboxes/checklists.php';
 	require_once get_template_directory() . '/lib/metaboxes/reviews.php';
-	
+	require_once get_template_directory() . '/lib/metaboxes/videos.php';
