@@ -14,6 +14,13 @@ $metabox = array(
 			'type'        => 'text',
 			'editor_args' => array(),
 		),
+		array(
+			'id'          => 'mb_videos_shortcode_id',
+			'label'       => 'Shortcode ID',
+			'description' => '',
+			'type'        => 'text',
+			'editor_args' => array(),
+		),
 	),
 );
 
