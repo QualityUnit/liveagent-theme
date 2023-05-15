@@ -1,0 +1,103 @@
+<?php // @codingStandardsIgnoreLine
+	set_source( 'videos', 'pages/Category', 'css' );
+	set_source( 'videos', 'filter', 'js' );
+?>
+
+<div id="category" class="Category">
+	<div class="Box Category__header Category__header--templates">
+		<div class="wrapper">
+			<div class="Category__header--center">
+				<?php if ( is_tax( 'ms_videos_categories' ) ) { ?>
+					<h1 class="Category__header__title"><?php single_cat_title(); ?></h1>
+					<div class="Category__header__subtitle"><p><?php the_archive_description(); ?></p></div>
+				<?php } else { ?>
+					<h1 class="Category__header__title"><?php _e( 'Videos', 'ms' ); ?></h1>
+				<?php } ?>
+
+				<div class="Category__header__search searchField">
+					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
+					<input type="search" class="search search--academy" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrapper Category__container">
+		<div class="Category__sidebar urlslab-skip-keywords">
+			<input class="Category__sidebar__showfilter" type="checkbox" id="showfilter">
+			<label class="Button Button--outline Category__sidebar__showfilter--label" for="showfilter" data-hidden="<?php _e( 'Hide filters', 'ms' ); ?>">
+				<img class="Category__sidebar__showfilter--icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-filter.svg" alt="<?php _e( 'Filters', 'ms' ); ?>">
+				<span><?php _e( 'Filters', 'ms' ); ?></span>
+			</label>
+
+				<div class="Category__sidebar__items">
+					<div class="Category__sidebar__item Category__sidebar__item--uniq">
+						<div class="Category__sidebar__item__title h4"><?php _e( 'Category', 'ms' ); ?></div>
+					<label>
+						<input class="filter-item" type="radio" value="" name="category" checked />
+						<span><?php _e( 'Any', 'ms' ); ?></span>
+					</label>
+						<?php
+						$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_videos_categories' ) ), SORT_REGULAR );
+						foreach ( $categories as $category ) {
+							?>
+							<label>
+								<input class="filter-item" type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category"
+								<?php
+								if ( current( $category ) === $category->slug ) {
+									echo 'checked';
+								}
+								?>
+								>
+								<span><?= esc_html( $category->name ); ?></span>
+							</label>
+						<?php } ?>
+					</div>
+				</div>
+
+		</div>
+
+		<div class="Category__content">
+			<div class="Category__content__description"><?php _e( 'List of videos', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_videos' )->publish ); ?></span>)</div></div>
+			<ul class="Category__content__items list">
+				<?php
+				while ( have_posts() ) :
+					the_post();
+
+					$category = '';
+
+					$categories = get_the_terms( 0, 'ms_videos_categories' );
+
+					if ( ! empty( $categories ) ) {
+						foreach ( $categories as $category_item ) {
+							$category_item = array_shift( $categories );
+							$category     .= $category_item->slug;
+							$category     .= ' ';
+						}
+					}
+
+					$category = substr( $category, 0, -1 );
+					?>
+
+					<li class="Category__item Category__item--videos" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>">
+						<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
+							<img src="https://i.ytimg.com/vi/<?php echo esc_attr( get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) ); ?>/hqdefault.jpg" alt="<?php _e( 'Videos', 'ms' ); ?>">
+						</a>
+							<h3 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<div class="Category__item__excerpt item-excerpt">
+								<a href="<?php the_permalink(); ?>">
+									<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
+								</a>
+							</div>
+					</li>
+
+					<?php
+						$category = '';
+					?>
+
+				<?php endwhile; ?>
+			</ul>
+		</div>
+	</div>
+
+</div>
