@@ -33,7 +33,9 @@
 				'title' => $category->name,
 			);
 		}
-		$page_header_args['tags'][] = $new_tags;
+		if ( isset( $new_tags['list'] ) ) {
+			$page_header_args['tags'][] = $new_tags;
+		}
 	}
 	if ( ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_help-desk-software', true ) === 'on' )
 	|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_ticketing-software', true ) === 'on' )
@@ -97,7 +99,9 @@
 				'rel' => 'nofollow',
 			);
 		}
-		$page_header_args['tags'][] = $new_tags;
+		if ( isset( $new_tags['list'] ) ) {
+			$page_header_args['tags'][] = $new_tags;
+		}
 	}
 ?>
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/Guide">

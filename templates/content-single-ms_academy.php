@@ -38,7 +38,9 @@
 				'title' => $category->name,
 			);
 		}
-		$page_header_args['tags'][] = $new_tags;
+		if ( isset( $new_tags['list'] ) ) {
+			$page_header_args['tags'][] = $new_tags;
+		}
 	}
 ?>
 

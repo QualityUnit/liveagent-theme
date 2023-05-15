@@ -69,12 +69,25 @@
 		left: 0;
 		display: none;
 		opacity: 0;
+		overflow: hidden;
 		background-color: $white;
-		border-radius: 12px;
-		width: 175%;
+		border-radius: 0.625em;
+		width: 145%;
 		padding: 1em 1.45em;
 		transition: opacity 0.1s;
-		filter: drop-shadow(0 0 16px rgba($black-real, 0.1));
+		filter: drop-shadow(0 0.063em 0.375em rgba($black, 0.16));
+
+
+		&::before {
+			display: block;
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 0.7em;
+			background-color: $lightest-gray;
+		}
 
 		&--inn {
 
@@ -83,11 +96,7 @@
 			overflow-y: scroll;
 			position: relative;
 			margin-left: -1.45em;
-			margin-right: -1.95em;
-
-			&.has-scrollbar {
-				margin-right: -1.45em;
-			}
+			margin-right: -1.35em;
 		}
 
 		&.active {

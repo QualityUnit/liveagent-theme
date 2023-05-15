@@ -378,6 +378,11 @@ body.compact-header--active {
 	.FilterMenu {
 		z-index: initial;
 
+		&__title {
+			position: relative;
+			z-index: 11;
+		}
+
 		&__items {
 			z-index: 10;
 		}

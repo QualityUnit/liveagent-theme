@@ -1,10 +1,10 @@
 <?php
 //todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
 //todo: vymazat zakomentovane includovanie 'sidebar_toc'
-//todo: toc - pozicia pri scrollovani
-//todo: toc - scrollbar
 //todo: checklist toc - dokoncit
+//todo: research select - scroll lista
 //todo: ??? related articles v 'content-single-ms_glossary' (http://liveagent.local/customer-support-glossary/agent-signature/)
+//todo: mobilna verzia filtra
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
 <?php set_custom_source( 'components/Filter', 'css' ); ?>

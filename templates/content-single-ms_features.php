@@ -33,7 +33,9 @@ if ( $categories && $categories_url ) {
 			'title' => $category->name,
 		);
 	}
-	$page_header_args['tags'][] = $new_tags;
+	if ( isset( $new_tags['list'] ) ) {
+		$page_header_args['tags'][] = $new_tags;
+	}
 }
 if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
 	$new_tags = array(
@@ -65,7 +67,9 @@ if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
 			);
 		}
 	}
-	$page_header_args['tags'][] = $new_tags;
+	if ( isset( $new_tags['list'] ) ) {
+		$page_header_args['tags'][] = $new_tags;
+	}
 }
 ?>
 

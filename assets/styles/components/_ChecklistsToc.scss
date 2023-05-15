@@ -27,6 +27,8 @@
 	}
 
 	&__title {
+		position: relative;
+		z-index: 11;
 		width: 23em;
 		height: 2.9em;
 		line-height: 2.9;
@@ -40,6 +42,7 @@
 		white-space: nowrap;
 		background-color: $white;
 		user-select: none;
+		cursor: pointer;
 	}
 
 	&__block {
@@ -52,6 +55,7 @@
 
 		@extend %menuArrow;
 		position: absolute;
+		z-index: 12;
 		display: block;
 		top: 50%;
 		right: 1em;
@@ -69,36 +73,39 @@
 	&__wrapper {
 
 		@include color(background-color, main-background);
-		position: fixed;
+		position: absolute;
+		z-index: 10;
 		top: 100%;
 		left: 0;
-		transform: translate(0, -2em);
 		width: 100%;
+		pointer-events: none;
 		opacity: 0;
-		border-radius: $border-radius-16;
-		transition: all 0.25s;
-		filter: drop-shadow(0 3px 20px rgba($black-real, 0.15));
+		overflow: hidden;
+		border-radius: 0.625em;
+		transition: opacity 0.1s;
+		filter: drop-shadow(0 0.063em 0.375em rgba($black, 0.16));
 
 		&.visible {
-			transform: translate(0, 0);
 			opacity: 1;
+			pointer-events: initial;
 		}
 
 		.Post__header__small:not(.visible) & {
-			transform: translate(0, -100%);
+			pointer-events: none;
+			opacity: 0;
 		}
 
 
 		@media (min-width: $breakpoint-tablet) {
-			position: absolute;
-			transform: translate(0, -2em);
 
 			&.visible {
-				transform: translate(0, 0);
+				opacity: 1;
+				pointer-events: initial;
 			}
 
 			.Post__header__small:not(.visible) & {
-				transform: translate(0, -100%);
+				pointer-events: none;
+				opacity: 0;
 			}
 		}
 
@@ -112,12 +119,24 @@
 	}
 
 	&__inn {
+		position: relative;
 		width: 100%;
 		padding: 0.75em 1em 0.75em 0;
 
+		&::before {
+			display: block;
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 0.7em;
+			background-color: $lightest-gray;
+		}
+
 		ul {
 
-			@include scrollbar;
+			@include scrollbar(0.5em);
 			max-height: 19em;
 			overflow-y: scroll;
 			position: relative;

@@ -19,7 +19,9 @@ if ( isset( $categories ) ) {
 			'title' => $category->name,
 		);
 	}
-	$page_header_args['tags'] = $page_header_tags;
+	if ( isset( $page_header_tags[0]['list'] ) ) {
+		$page_header_args['tags'] = $page_header_tags;
+	}
 }
 ?>
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/BlogPosting">

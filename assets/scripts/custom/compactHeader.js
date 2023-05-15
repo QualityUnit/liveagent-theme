@@ -143,15 +143,22 @@
 		if ( elTOC !== null ) {
 			tocItems.forEach( ( element, index ) => {
 				const el = element;
+				const elTitle = el.querySelector( '.FilterMenu__item-title' );
 				el.dataset.number = index;
+
+				//fill TOC title with first item if empty
+				if ( tocTitle.textContent === '' && index === 0 && elTitle ) {
+					tocTitle.textContent = elTitle.textContent;
+				}
 
 				el.addEventListener( 'click', ( ) => {
 					fnTocRemoveActive();
 					el.classList.add( 'active' );
 
-					// setTimeout( () => {
-					// 	window.scrollBy( 0, -164 );
-					// }, 1000 );
+					setTimeout( () => {
+						const scrollCorrection = ( ( fnHeaderHeight() + 24 ) * -1 );
+						window.scrollBy( 0, scrollCorrection );
+					}, 1000 );
 				} );
 			} );
 		}
