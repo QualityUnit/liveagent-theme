@@ -55,7 +55,7 @@ function ms_good_hands( $atts ) {
 										</div>
 										<div class="Reviews__items__item">
 											<a href="<?php _e( '/awards/', 'ms' ); ?>" title="Trustpilot">
-												<img src="https://www.liveagent.com/app/uploads/2019/11/logo_trustpilot.svg" alt="Trustpilot">
+												<img src="https://www.liveagent.com/app/uploads/2023/05/logo-capterra.svg" alt="Capterra">
 											</a>
 											<div class="Reviews__items__item__stars">
 												<span class="Reviews__items__item__stars__item"></span>
