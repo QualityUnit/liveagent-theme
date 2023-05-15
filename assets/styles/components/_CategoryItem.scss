@@ -223,6 +223,23 @@
 	}
 }
 
+.Category__item--videos {
+	max-height: 23.125em !important;
+
+	.Category__item {
+
+		&__title {
+			max-height: 5.5em !important;
+			margin-bottom: 0 !important;
+		}
+
+		&__thumbnail {
+			height: auto !important;
+			border-radius: 1rem !important;
+		}
+	}
+}
+
 .Category__item--blogLike {
 	border-radius: $border-radius-16;
 	box-shadow: 0 15px 66px -15px rgba($black-real, 0.12);
