@@ -261,15 +261,10 @@ body.compact-header--active {
 		}
 	}
 
-	&__filters {
+	&__filter {
 
 		&-label {
 			font-size: 0.75em;
-		}
-
-		&-wrap {
-			display: flex;
-			flex-wrap: wrap;
 		}
 	}
 
@@ -291,10 +286,6 @@ body.compact-header--active {
 			height: 0.2em;
 			display: block;
 		}
-	}
-
-	&__filter {
-		max-width: 200px;
 	}
 
 	.breadcrumbs {
