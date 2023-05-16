@@ -26,15 +26,22 @@
 		elHeaderScrollBar.classList.add( 'compact-header__scrollbar' );
 	}
 	//TOC
-	const elTOC = query( '.compact-header__toc' );
+	const elTOC = query( '.js-toc' );
+	const elTocChecklists = query( '.Checklists__toc' );
 	const tocHeaderItems = ( () => {
-		if ( queryAll( '.compact-header__toc .FilterMenu__item--h3' ).length > 0 ) {
+		if ( queryAll( '.js-toc .FilterMenu__item--h3' ).length > 0 ) {
 			return queryAll( '.Content h2[id], .Content h3[id]' );
 		}
 		return queryAll( '.Content h2[id]' );
 	} )();
-	const tocTitle = query( '.compact-header__toc .FilterMenu__title' );
-	const tocItems = queryAll( '.compact-header__toc a.FilterMenu__item' );
+	const tocChecklistsHeaderItems = ( () => {
+		if ( queryAll( '.js-toc js-toc__item' ).length > 0 ) {
+			return queryAll( '.Content .qu-ChecklistItem__header--text' );
+		}
+		return queryAll( '.Content .qu-ChecklistItem__header--text' );
+	} )();
+	const tocTitle = query( '.js-toc .js-toc__title' );
+	const tocItems = queryAll( '.js-toc .js-toc__item' );
 	const threshold = 96; // about height of regular <p> paragraph to delay the highlight of toc item
 	const mql = window.matchMedia( '(min-width: 1380px)' );
 
@@ -143,7 +150,7 @@
 		if ( elTOC !== null ) {
 			tocItems.forEach( ( element, index ) => {
 				const el = element;
-				const elTitle = el.querySelector( '.FilterMenu__item-title' );
+				const elTitle = el.querySelector( '.js-toc__item-title' );
 				el.dataset.number = index;
 
 				//fill TOC title with first item if empty
@@ -168,11 +175,15 @@
 			() => {
 				window.clearTimeout( isScrolling );
 				if ( elTOC !== null && fnHeaderHeight() ) {
-					tocHeaderItems.forEach( ( element ) => {
+					let itemsTocHeader = tocHeaderItems;
+					if ( elTocChecklists ) {
+						itemsTocHeader = tocChecklistsHeaderItems;
+					}
+					itemsTocHeader.forEach( ( element ) => {
 						if ( element.getBoundingClientRect().top <= ( fnHeaderHeight() + threshold ) ) {
 							const elemHref = element.getAttribute( 'id' );
 							const activateItem = query(
-								`.compact-header__toc a[href*=${ elemHref }`
+								`.js-toc a[href*=${ elemHref }`
 							);
 							if ( activateItem ) {
 								fnTocRemoveActive();
@@ -199,6 +210,7 @@
 	fnHeaderScrollBarPosition();
 	fnFilterSelect();
 	fnSidebarStickyPos();
+	fnTocActivate();
 	window.addEventListener( 'scroll', function() {
 		fnStickyHeader();
 		fnHeaderScrollBar();
@@ -207,10 +219,6 @@
 	window.addEventListener( 'resize', function() {
 		fnHeaderScrollBarPosition();
 	}, true );
-	// Handles TOC in case when user visits with required screen/window size
-	if ( mql.matches ) {
-		fnTocActivate();
-	}
 	// Handles TOC in case when user changes orientation of device from portrait > landscape, ie. iPad Pro
 	mql.addEventListener( 'change', ( event ) => {
 		if ( event.matches ) {

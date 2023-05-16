@@ -24,17 +24,6 @@ $page_header_args = array(
 	
 	<div class="wrapper Post__container">
 
-		<?php 
-		//if ( boolval( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_related-articles', true ) ) ) { ?>
-			<div class="Post__sidebar urlslab-skip-keywords">
-				<div class="Post__sidebar__related">
-					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
-					<?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_related-articles', true ) ) ?>
-				</div>
-			</div>
-		<?php //}
-		?>
-
 		<div class="Post__content">
 
 			<div class="Content" itemprop="articleBody">

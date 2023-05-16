@@ -41,7 +41,6 @@ body.compact-header--active {
 		position: relative;
 
 		.#{$class-name}--lvl-1 & {
-			margin-top: -$v-space;
 			.#{$class-name}__img {
 				width: 100%;
 				max-width: 100%;
@@ -51,7 +50,6 @@ body.compact-header--active {
 		.#{$class-name}--lvl-2 & {
 			overflow: hidden;
 			padding-bottom: 60%;
-			margin-top: 0.7em;
 			border-radius: $border-radius-16;
 			.#{$class-name}__img {
 
@@ -73,6 +71,8 @@ body.compact-header--active {
 		left: 0;
 		z-index: 2;
 		overflow: hidden;
+		border: 0.063em solid $light-gray-icon;
+		border-top-left-radius: $border-radius-16;
 		border-bottom-right-radius: $border-radius-16;
 
 		&-img {
@@ -310,9 +310,9 @@ body.compact-header--active {
 			display: block;
 			width: 100%;
 			min-width: initial;
-			height: 2.9em;
+			height: 2.857em;
 			padding-left: 3.5em;
-			border-radius: 0.75em;
+			border-radius: 0.714em;
 			border: none;
 			font-size: 0.875rem;
 			background-color: $pricing-gray;
@@ -376,12 +376,6 @@ body.compact-header--active {
 	}
 
 	.FilterMenu {
-		z-index: initial;
-
-		&__title {
-			position: relative;
-			z-index: 11;
-		}
 
 		&__items {
 			z-index: 10;
@@ -468,6 +462,15 @@ body.compact-header--active {
 
 		&__bottom {
 			padding-top: $v-space;
+		}
+
+		&__image {
+			.#{$class-name}--lvl-1 & {
+				margin-top: -$v-space;
+			}
+			.#{$class-name}--lvl-2 & {
+				margin-top: 0.7em;
+			}
 		}
 
 		&__filters {
@@ -561,6 +564,10 @@ body.compact-header--active {
 			}
 		}
 
+		&__image {
+			margin: 0.5em 0 1.125em 0;
+		}
+
 		&__filters {
 
 			@include posCustom();
@@ -577,13 +584,14 @@ body.compact-header--active {
 			}
 
 			&-wrap {
+
+				@include color(background-color,main-background);
 				position: relative;
 				height: calc(100% - 4.5em);
 				padding: 1em 0 5em 0;
 				margin-top: 3.5em;
 				border-top-left-radius: $wrapper-padding;
 				border-top-right-radius: $wrapper-padding;
-				background-color: $bg-color;
 
 				&::before {
 					content: "";
@@ -606,14 +614,16 @@ body.compact-header--active {
 				display: block;
 
 				.Button {
+
+					@include color(background-color, main-background);
 					width: 100%;
-					height: 2.6em;
+					height: 3em;
 					margin: 0;
 
 					[class*="icon-"] {
 
-						@include square(1em);
-						margin-left: 0.8em;
+						@include square(1.143em);
+						margin-left: 0.9em;
 					}
 				}
 			}
@@ -639,6 +649,7 @@ body.compact-header--active {
 			&-apply {
 
 				@include posCustom(auto, 0, 0, 0);
+				@include color(background-color,main-background);
 				position: fixed;
 				z-index: 102;
 				opacity: 0;
@@ -646,8 +657,7 @@ body.compact-header--active {
 				display: flex;
 				justify-content: flex-end;
 				padding: 0.5em $wrapper-padding;
-				box-shadow: 0 -3px 4px rgba(9, 0, 44, 0.16);
-				background-color: $bg-color;
+				box-shadow: 0 -0.188em 0.25em rgba(9, 0, 44, 0.16);
 
 				.compact-header--active & {
 					opacity: 1;
@@ -692,8 +702,11 @@ body.compact-header--active {
 		}
 
 		.FilterMenu {
+			z-index: initial;
 
 			&__title {
+				position: static;
+				z-index: initial;
 				min-width: initial !important;
 				max-width: 100%;
 			}

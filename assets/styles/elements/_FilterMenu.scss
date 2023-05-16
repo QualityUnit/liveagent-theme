@@ -20,7 +20,7 @@
 		line-height: 1;
 		border: 1px solid $medium-gray-inputs;
 		padding: 0.85em 1em;
-		border-radius: 12px;
+		border-radius: 0.714em;
 		background-color: $white;
 		transition: all 0.2s;
 		min-width: 10em;
@@ -64,13 +64,14 @@
 	}
 
 	&__items {
+
+		@include color(background-color, main-background);
 		position: absolute;
 		top: 100%;
 		left: 0;
 		display: none;
 		opacity: 0;
 		overflow: hidden;
-		background-color: $white;
 		border-radius: 0.625em;
 		width: 145%;
 		padding: 1em 1.45em;
@@ -79,6 +80,8 @@
 
 
 		&::before {
+
+			@include color(background-color, secondary-background);
 			display: block;
 			content: "";
 			position: absolute;
@@ -86,7 +89,6 @@
 			right: 0;
 			bottom: 0;
 			width: 0.7em;
-			background-color: $lightest-gray;
 		}
 
 		&--inn {

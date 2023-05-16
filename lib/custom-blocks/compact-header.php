@@ -1,10 +1,9 @@
 <?php
 //todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
 //todo: vymazat zakomentovane includovanie 'sidebar_toc'
-//todo: checklist toc - dokoncit
-//todo: research select - scroll lista
-//todo: ??? related articles v 'content-single-ms_glossary' (http://liveagent.local/customer-support-glossary/agent-signature/)
+//todo: vymazat console log z compactHeader.js
 //todo: mobilna verzia filtra
+//todo: filter toggle ikona
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
 <?php set_custom_source( 'components/Filter', 'css' ); ?>
@@ -494,12 +493,12 @@
 							<div class="Checklists__toc__main" data-target="ChecklistTOC">
 								<?php if ( checklists_toc() !== false ) { ?>
 									<div class="Checklists__toc__label"><?php _e( 'Contents', 'ms' ); ?></div>
-									<div class="Checklists__toc__block">
-										<div class="Checklists__toc__title"><?= esc_html( checklists_toc()->title ); ?></div>
+									<div class="Checklists__toc__block js-toc">
+										<div class="Checklists__toc__title js-toc__title"><?= esc_html( checklists_toc()->title ); ?></div>
 										<span class="Checklists__toc__activator"></span>
 										<div class="Checklists__toc__wrapper hidden" data-targetId="ChecklistTOC">
 											<div class="Checklists__toc__inn">
-												<ul class="Checklists__toc">
+												<ul class="Checklists__toc js-toc__items">
 													<?= wp_kses_post( checklists_toc()->toc ); ?>
 												</ul>
 											</div>

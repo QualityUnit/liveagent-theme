@@ -132,31 +132,43 @@
 
 		&__menu {
 
-			@include color(box-shadow, box-shadow);
 			@include color(background-color, main-background);
 			position: absolute;
 			top: 100%;
-			width: 100%;
-			padding-right: 0.5em;
-			border-radius: 0.625em;
-			filter: drop-shadow(0 0.063em 0.375em rgba($black, 0.16));
+			left: 0;
 			opacity: 0;
+			pointer-events: none;
 			overflow: hidden;
+			border-radius: 0.625em;
+			width: 100%;
+			padding: 1em 1.45em;
 			transition: opacity 0.1s;
+			filter: drop-shadow(0 0.063em 0.375em rgba($black, 0.16));
+
+			&::before {
+
+				@include color(background-color, secondary-background);
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 0.7em;
+			}
 
 			&.active {
-				transform: translateY(0);
 				opacity: 1;
+				pointer-events: initial;
 			}
 
 			&__inn {
 
-				@include scrollbar;
-				width: 100%;
-				padding: 0.25em 0.375em;
-				margin: 0;
-				max-height: 18.5em;
+				@include scrollbar(0.5em);
+				max-height: 19em;
 				overflow-y: scroll;
+				position: relative;
+				margin: 0 -1.35em 0 -1.45em;
 			}
 		}
 

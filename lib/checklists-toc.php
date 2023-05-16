@@ -21,7 +21,7 @@ function checklists_toc() {
 			$title = $node->nodeValue; //@codingStandardsIgnoreLine
 			$id    = $node->getAttribute( 'id' );
 			if ( strlen( $id ) > 2 ) {
-				$toc[] = '<li class="Checklists__toc__item"><a href="#' . $id . '">' . $title . '</a></li>'; // @codingStandardsIgnoreLine
+				$toc[] = '<li class="Checklists__toc__item js-toc__item"><a href="#' . $id . '" class="js-toc__item-title">' . $title . '</a></li>'; // @codingStandardsIgnoreLine
 			}
 		}
 		if ( isset( $toc ) ) {
