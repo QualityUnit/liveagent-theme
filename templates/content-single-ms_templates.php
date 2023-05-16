@@ -103,7 +103,7 @@
 			$page_header_args['tags'][] = $new_tags;
 		}
 	}
-?>
+	?>
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/Guide">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>

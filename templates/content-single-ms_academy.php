@@ -7,7 +7,7 @@
 	$current_lang    = apply_filters( 'wpml_current_language', null );
 	$header_category = get_en_category( 'ms_academy', $post->ID );
 	do_action( 'wpml_switch_language', $current_lang );
-	
+
 	$page_header_logo = array(
 		'src' => get_template_directory_uri() . '/assets/images/icon-book.svg',
 		'alt' => __( 'Academy', 'ms' ),
@@ -42,7 +42,7 @@
 			$page_header_args['tags'][] = $new_tags;
 		}
 	}
-?>
+	?>
 
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
