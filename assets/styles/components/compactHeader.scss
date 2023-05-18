@@ -529,6 +529,7 @@ body.compact-header--active {
 			right: 0;
 			filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.16));
 			margin-top: $header-height;
+			border-top: 0.063em solid $light-gray;
 			.#{$class-name} {
 
 				&__left > *,

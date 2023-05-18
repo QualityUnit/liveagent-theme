@@ -6,9 +6,6 @@
 @forward "../elements/CircleProgressBar";
 
 .compact-header__checklist {
-	display: flex;
-	align-items: center;
-	margin-top: 0.75em;
 
 	&-progress {
 
@@ -70,9 +67,19 @@
 			padding: 0.5em 1.25em 0.5em 0.75em;
 		}
 	}
+
+	@media (min-width: $breakpoint-tablet) {
+		display: flex;
+		align-items: center;
+		margin-top: 0.75em;
+	}
+
+	@media (max-width: $breakpoint-tablet - 1) {
+		display: none;
+	}
 }
 
-.Post__header__small {
+/*.Post__header__small {
 
 	@include color(background-color, main-background);
 	position: fixed;
@@ -214,4 +221,4 @@
 			width: auto;
 		}
 	}
-}
+}*/

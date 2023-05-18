@@ -1,9 +1,11 @@
 <?php
 //todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
 //todo: vymazat zakomentovane includovanie 'sidebar_toc'
-//todo: vymazat console log z compactHeader.js
+//todo: vymazat 'Post__header__small' v php a css
 //todo: mobilna verzia filtra
+//todo: logo v sablonach s THEME_VERSION
 //todo: filter toggle ikona
+//todo: obrazok pre video(kategoria/single)
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
 <?php set_custom_source( 'components/Filter', 'css' ); ?>
