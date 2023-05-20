@@ -250,7 +250,7 @@
 										<?php if ( isset( $sort_items ) ) { ?>
 											<div class="FilterMenu__wrapper SortingMenu__wrapper flex-tablet flex-align-center">
 											<?php if ( isset( $filer_sort['label'] ) ) { ?>
-												<strong class="FilterMenu__desc mr-xs"><?php esc_html( $filer_sort['label'] ); ?></strong>
+												<div class="FilterMenu__desc"><?= esc_html( $filer_sort['label'] ); ?></div>
 											<?php } ?>
 											<div class="FilterMenu SortingMenu" data-sort="relatedReviews">
 												<div class="FilterMenu__title SortingMenu__title flex flex-align-center" data-title>

@@ -7,124 +7,158 @@
 	position: relative;
 	z-index: 3;
 
-	&__desc {
-		font-size: 0.875rem;
-		line-height: 1;
-	}
-
 	&__title {
 
 		@extend %menuArrow;
-		display: flex;
-		font-size: 0.875rem;
-		line-height: 1;
-		border: 1px solid $medium-gray-inputs;
-		padding: 0.85em 1em;
-		border-radius: 0.714em;
-		background-color: $white;
-		transition: all 0.2s;
-		min-width: 10em;
-		cursor: pointer;
-		transform: scale(1);
-		filter: none;
+	}
 
-		&::after { // aka menuArrow
+	@media (min-width: $breakpoint-tablet) {
 
-			@include square(0.65em);
-			border-color: $black;
-			border-width: 2px;
+		&__desc {
+			font-size: 0.875rem;
+			font-weight: $font-weight-semi;
+			line-height: 1;
 		}
 
-		&.active {
-			color: $dark-orange;
-			border-color: currentcolor;
+		&__title {
+			display: flex;
+			font-size: 0.875rem;
+			line-height: 1;
+			border: 1px solid $medium-gray-inputs;
+			padding: 0.85em 1em;
+			border-radius: 0.714em;
+			background-color: $white;
+			transition: all 0.2s;
+			min-width: 10em;
+			cursor: pointer;
+			transform: scale(1);
+			filter: none;
 
 			&::after { // aka menuArrow
-				top: 0.15em;
-				border-color: currentcolor;
+
+				@include square(0.65em);
+				border-color: $black;
+				border-width: 2px;
 			}
-		}
 
-		@media (hover: hover) {
-
-			&:hover {
+			&.active {
 				color: $dark-orange;
 				border-color: currentcolor;
 
-				&::after {
+				&::after { // aka menuArrow
+					top: 0.15em;
 					border-color: currentcolor;
 				}
 			}
 
-			&.active:hover {
-				color: $black;
-				border-color: $medium-gray-inputs;
+			@media (hover: hover) {
+
+				&:hover {
+					color: $dark-orange;
+					border-color: currentcolor;
+
+					&::after {
+						border-color: currentcolor;
+					}
+				}
+
+				&.active:hover {
+					color: $black;
+					border-color: $medium-gray-inputs;
+				}
+			}
+		}
+
+		&__items {
+
+			@include color(background-color, main-background);
+			position: absolute;
+			top: 100%;
+			left: 0;
+			display: none;
+			opacity: 0;
+			overflow: hidden;
+			border-radius: 0.625em;
+			width: 145%;
+			padding: 1em 1.45em;
+			transition: opacity 0.1s;
+			filter: drop-shadow(0 0.063em 0.375em rgba($black, 0.16));
+
+
+			&::before {
+
+				@include color(background-color, secondary-background);
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 0.7em;
+			}
+
+			&--inn {
+
+				@include scrollbar(0.5em);
+				max-height: 19em;
+				overflow-y: scroll;
+				position: relative;
+				margin-left: -1.45em;
+				margin-right: -1.35em;
+			}
+
+			&.active {
+				display: block;
+			}
+
+			&.visible {
+				opacity: 1;
+			}
+		}
+
+		&__item {
+			display: flex;
+			align-content: center;
+			padding: 0.5em 1em;
+			margin-bottom: 0.25em;
+			text-decoration: none !important;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+
+			@media (hover: hover) {
+
+				&:hover {
+					background-color: $pricing-gray;
+				}
 			}
 		}
 	}
 
-	&__items {
+	@media (max-width: $breakpoint-tablet - 1) {
 
-		@include color(background-color, main-background);
-		position: absolute;
-		top: 100%;
-		left: 0;
-		display: none;
-		opacity: 0;
-		overflow: hidden;
-		border-radius: 0.625em;
-		width: 145%;
-		padding: 1em 1.45em;
-		transition: opacity 0.1s;
-		filter: drop-shadow(0 0.063em 0.375em rgba($black, 0.16));
-
-
-		&::before {
-
-			@include color(background-color, secondary-background);
-			display: block;
-			content: "";
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			width: 0.7em;
+		&__title {
+			display: none !important;
 		}
 
-		&--inn {
+		&__item {
 
-			@include scrollbar(0.5em);
-			max-height: 19em;
-			overflow-y: scroll;
-			position: relative;
-			margin-left: -1.45em;
-			margin-right: -1.35em;
-		}
+			margin-bottom: 0.143em;
 
-		&.active {
-			display: block;
-		}
+			[type="checkbox"],
+			[type="radio"] {
 
-		&.visible {
-			opacity: 1;
-		}
-	}
+				+ label {
+					line-height: 1.2;
+					padding: 0.857em;
+					border-radius: 0.429em;
+					box-shadow: inset 0 0 0 0.071em $medium-gray-inputs;
+				}
 
-	&__item {
-		display: flex;
-		align-content: center;
-		padding: 0.5em 1em;
-		margin-bottom: 0.25em;
-		text-decoration: none !important;
-
-		&:last-of-type {
-			margin-bottom: 0;
-		}
-
-		@media (hover: hover) {
-
-			&:hover {
-				background-color: $pricing-gray;
+				&:checked + label {
+					box-shadow: inset 0 0 0 0.143em $dark-orange;
+				}
 			}
 		}
 	}

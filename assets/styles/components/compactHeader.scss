@@ -261,13 +261,6 @@ body.compact-header--active {
 		}
 	}
 
-	&__filter {
-
-		&-label {
-			font-size: 0.75em;
-		}
-	}
-
 	&__toc {
 		display: none;
 	}
@@ -505,6 +498,10 @@ body.compact-header--active {
 			}
 		}
 
+		&__filter-label {
+			font-size: 0.75em;
+		}
+
 		&__count {
 			position: relative;
 			display: flex;
@@ -517,6 +514,13 @@ body.compact-header--active {
 		&__search {
 			position: relative;
 			display: inline-flex;
+		}
+
+		.FilterMenu {
+
+			&__desc {
+				margin-right: 0.25em;
+			}
 		}
 
 		&--sticky {
@@ -721,6 +725,13 @@ body.compact-header--active {
 					max-height: 50vh;
 				}
 			}
+		}
+
+		.FilterMenu__desc,
+		&__filter-label {
+			margin-bottom: 0.714em;
+			font-size: 0.875em;
+			font-weight: $font-weight-semi;
 		}
 	}
 
