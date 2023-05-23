@@ -105,7 +105,8 @@ textarea {
 		}
 	}
 
-	&:active &-label::before {
+	&:active &-label::before,
+	&.active &-label::before {
 		background-image: url(../images/checkbox-active.svg);
 	}
 

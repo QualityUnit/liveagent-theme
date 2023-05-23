@@ -2,7 +2,6 @@
 //todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
 //todo: vymazat zakomentovane includovanie 'sidebar_toc'
 //todo: vymazat 'Post__header__small' v php a css
-//todo: mobilna verzia filtra
 //todo: logo v sablonach s THEME_VERSION
 //todo: filter toggle ikona
 //todo: obrazok pre video(kategoria/single)
@@ -250,7 +249,7 @@
 										<?php if ( isset( $sort_items ) ) { ?>
 											<div class="FilterMenu__wrapper SortingMenu__wrapper flex-tablet flex-align-center">
 											<?php if ( isset( $filer_sort['label'] ) ) { ?>
-												<div class="FilterMenu__desc"><?= esc_html( $filer_sort['label'] ); ?></div>
+												<div class="FilterMenu__desc SortingMenu__desc"><?= esc_html( $filer_sort['label'] ); ?></div>
 											<?php } ?>
 											<div class="FilterMenu SortingMenu" data-sort="relatedReviews">
 												<div class="FilterMenu__title SortingMenu__title flex flex-align-center" data-title>
@@ -367,8 +366,12 @@
 																<?php } ?>
 																<?php if ( 'link' == $filer_type && isset( $filer_name ) ) { ?>
 																	<?php foreach ( $filer_list as $filer_list_item ) { ?>
-																		<?php if ( isset( $filer_list_item['href'] ) && isset( $filer_list_item['title'] ) ) { ?>
-																			<a href="<?= esc_url( $filer_list_item['href'] ); ?>" class="checkbox FilterMenu__item">
+																		<?php if ( isset( $filer_list_item['href'] ) && isset( $filer_list_item['title'] ) && isset( $filer_list_item['active'] ) ) { ?>
+																			<a href="<?= esc_url( $filer_list_item['href'] ); ?>" class="checkbox FilterMenu__item
+																			<?php if ( true == $filer_list_item['active'] ) { ?>
+																				active
+																			<?php } ?>
+																			" active>
 																				<span class="checkbox-label FilterMenu__item-title"><?= esc_html( $filer_list_item['title'] ); ?></span>
 																			</a>
 																		<?php } ?>

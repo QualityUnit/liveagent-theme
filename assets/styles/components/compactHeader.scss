@@ -383,12 +383,6 @@ body.compact-header--active {
 			strong {
 				font-weight: $font-weight-normal;
 			}
-
-			&:hover,
-			&.active {
-				background-color: $light-gray;
-			}
-
 		}
 	}
 
@@ -520,6 +514,14 @@ body.compact-header--active {
 
 			&__desc {
 				margin-right: 0.25em;
+			}
+
+			a[href].FilterMenu__item {
+
+				&:hover,
+				&.active {
+					background-color: $light-gray;
+				}
 			}
 		}
 

@@ -161,5 +161,22 @@
 				}
 			}
 		}
+
+		a[href] {
+
+			display: block;
+			margin-bottom: 0.143em;
+
+			.FilterMenu__item-title {
+				line-height: 1.2;
+				padding: 0.857em;
+				border-radius: 0.429em;
+				box-shadow: inset 0 0 0 0.071em $medium-gray-inputs;
+			}
+
+			&.active .FilterMenu__item-title {
+				box-shadow: inset 0 0 0 0.143em $dark-orange;
+			}
+		}
 	}
 }

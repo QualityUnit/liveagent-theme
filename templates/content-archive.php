@@ -30,14 +30,16 @@
 		$filter_items_categories = array();
 		foreach ( $archive_nav as $item ) :
 			$current = get_queried_object_id() == $item->object_id;
+			$active = false;
 			if ( $current ) :
 				$filter_items[0]['active'] = $item->title;
-			else :
-				$filter_items_categories[] = array(
-					'href' => $item->url,
-					'title' => $item->title,
-				);
+				$active = true;
 			endif;
+			$filter_items_categories[] = array(
+				'href' => $item->url,
+				'title' => $item->title,
+				'active' => $active,
+			);
 		endforeach;
 		$filter_items[0]['items'] = $filter_items_categories;
 		$page_header_args['filter'] = $filter_items;
