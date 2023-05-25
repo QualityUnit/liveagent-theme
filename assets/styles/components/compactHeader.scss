@@ -480,6 +480,10 @@ body.compact-header--active {
 				}
 			}
 
+			&-collapse {
+				display: none;
+			}
+
 			&-inn {
 				display: flex;
 				align-items: flex-end;
@@ -511,21 +515,6 @@ body.compact-header--active {
 		&__search {
 			position: relative;
 			display: inline-flex;
-		}
-
-		.FilterMenu {
-
-			&__desc {
-				margin-right: 0.25em;
-			}
-
-			a[href].FilterMenu__item {
-
-				&:hover,
-				&.active {
-					background-color: $light-gray;
-				}
-			}
 		}
 
 		&--sticky {
@@ -608,16 +597,15 @@ body.compact-header--active {
 				margin-top: 3.5em;
 				border-top-left-radius: $wrapper-padding;
 				border-top-right-radius: $wrapper-padding;
+			}
 
-				&::before {
-					content: "";
-					display: block;
-					width: 3.5em;
-					height: 0.5em;
-					margin: 0 auto 1em;
-					border-radius: 0.25em;
-					background-color: $dark-gray;
-				}
+			&-collapse {
+				display: block;
+				width: 3.5em;
+				height: 0.5em;
+				margin: 0 auto 1em;
+				border-radius: 0.25em;
+				background-color: $dark-gray;
 			}
 
 			&-inn {

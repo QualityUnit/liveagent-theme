@@ -158,14 +158,18 @@
 					tocTitle.textContent = elTitle.textContent;
 				}
 
-				el.addEventListener( 'click', ( ) => {
+				el.addEventListener( 'click', ( event ) => {
+					event.preventDefault();
 					fnTocRemoveActive();
 					el.classList.add( 'active' );
 
-					setTimeout( () => {
-						const scrollCorrection = ( ( fnHeaderHeight() + 24 ) * -1 );
-						window.scrollBy( 0, scrollCorrection );
-					}, 1000 );
+					//smooth window scroll with correction
+					const targetElement = document.querySelector( el.getAttribute( 'href' ) );
+					const targetOffset = targetElement.offsetTop;
+					window.scroll( {
+						top: ( targetOffset - threshold ),
+						behavior: 'smooth',
+					} );
 				} );
 			} );
 		}

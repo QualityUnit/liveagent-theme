@@ -5,8 +5,6 @@
 //todo: logo v sablonach s THEME_VERSION
 //todo: filter toggle ikona
 //todo: obrazok pre video(kategoria/single)
-//todo: filter - ciarka hore by mala collapsnut filter
-//todo: toc scroll bez korekcie (fix)
 
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
@@ -227,6 +225,7 @@
 							if ( isset( $filer_count ) ) {
 								?>
 								 compact-header__filters-wrap--count<?php } ?>">
+								<span class="compact-header__filters-collapse js-compact-header__close"></span>
 								<div class="compact-header__filters-inn">
 									<?php if ( isset( $filer_search ) ) { ?>
 										<div class="compact-header__search">

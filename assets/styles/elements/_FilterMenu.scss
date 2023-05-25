@@ -52,6 +52,7 @@
 	@media (min-width: $breakpoint-tablet) {
 
 		&__desc {
+			margin-right: 0.25em;
 			font-size: 0.875rem;
 			font-weight: $font-weight-semi;
 			line-height: 1;
@@ -115,7 +116,6 @@
 			position: relative;
 			display: flex;
 			align-content: center;
-			padding: 0.5em 1em;
 			margin-bottom: 0.25em;
 			text-decoration: none !important;
 
@@ -129,6 +129,12 @@
 					background-color: $pricing-gray;
 				}
 			}
+		}
+
+		&__item [type="checkbox"] + label,
+		&__item [type="radio"] + label,
+		a[href] &__item-title {
+			padding: 0.5em 1em;
 		}
 	}
 
