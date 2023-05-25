@@ -36,7 +36,6 @@
 		border: 0.071em solid $medium-gray-inputs;
 		border-radius: 0.714em;
 		font-size: 0.875em;
-		font-weight: $font-weight-bold;
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
@@ -149,9 +148,7 @@
 
 		@include color(color, font-color-dark);
 		position: relative;
-		line-height: 1.2;
 		font-size: 0.875em;
-		font-weight: $font-weight-bold;
 
 		a {
 			display: block;

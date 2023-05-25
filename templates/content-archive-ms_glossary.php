@@ -1,15 +1,22 @@
-<?php // @codingStandardsIgnoreLine ?>
+<?php // @codingStandardsIgnoreLine
+$page_header_title = __( 'Help Desk Software Glossary', 'ms' );
+$page_header_text = __( 'If you are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'ms' );
+if ( is_tax( 'ms_glossary_categories' ) ) :
+	$page_header_title = single_term_title( '', false );
+	$page_header_text = term_description();
+endif;
+$page_header_args = array(
+	'type' => 'lvl-1',
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_glossary.png?ver=' . THEME_VERSION,
+		'alt' => $page_header_title,
+	),
+	'title' => $page_header_title,
+	'text' => $page_header_text,
+);
+?>
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
-	<div class="wrapper Archive__header Archive__header--glossary">
-		<?php if ( is_tax( 'ms_glossary_categories' ) ) { ?>
-			<h1 class="Archive__header__title" itemprop="name"><?php single_cat_title(); ?></h1>
-			<div class="Archive__header__subtitle"><p itemprop="description"><?php the_archive_description(); ?></p></div>
-		<?php } else { ?>
-			<h1 itemprop="name" class="Archive__header__title"><?php _e( 'Help Desk Software Glossary', 'ms' ); ?></h1>
-			<p itemprop="description" class="Archive__header__subtitle"><?php _e( 'If you are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'ms' ); ?></p>
-		<?php } ?>
-	</div>
-
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<div class="Box Box--gray Archive__filter">
 		<div class="wrapper">
 			<div class="Archive__filter__item">

@@ -5,6 +5,9 @@
 //todo: logo v sablonach s THEME_VERSION
 //todo: filter toggle ikona
 //todo: obrazok pre video(kategoria/single)
+//todo: filter - ciarka hore by mala collapsnut filter
+//todo: toc scroll bez korekcie (fix)
+
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>
 <?php set_custom_source( 'components/Filter', 'css' ); ?>
@@ -213,7 +216,7 @@
 								</svg>
 							</a>
 						</div>
-						<div class="compact-header__filters urlslab-skip-keywords">
+						<div class="compact-header__filters js-compact-header__close urlslab-skip-keywords">
 							<a class="compact-header__filters-close js-compact-header__close">
 								<svg class="icon-close">
 									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>

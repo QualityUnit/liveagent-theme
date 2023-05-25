@@ -25,13 +25,6 @@
 
 		@media (hover: hover) {
 
-			&:hover {
-
-				&::before {
-					filter: none;
-				}
-			}
-
 			&.active {
 
 				&:hover::before {

@@ -10,6 +10,43 @@
 	&__title {
 
 		@extend %menuArrow;
+		display: block;
+		min-width: 10em;
+		max-width: 100%;
+		font-size: 0.875rem;
+		line-height: 1;
+		border: 1px solid $medium-gray-inputs;
+		padding: 0.85em 2em 0.85em 1em;
+		border-radius: 0.714em;
+		background-color: $white;
+		transition: all 0.2s;
+		cursor: pointer;
+		transform: scale(1);
+		filter: none;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		&::after { // aka menuArrow
+
+			@include square(0.52rem);
+			position: absolute;
+			top: 50%;
+			right: 1em;
+			margin: -0.4rem 0 0 0;
+			border-color: $black;
+			border-width: 0.125rem;
+		}
+
+		&.menu-active,
+		&.active,
+		.active & {
+
+			&::after {
+				top: 50%;
+				margin: -0.1rem 0 0 0;
+			}
+		}
 	}
 
 	@media (min-width: $breakpoint-tablet) {
@@ -18,55 +55,6 @@
 			font-size: 0.875rem;
 			font-weight: $font-weight-semi;
 			line-height: 1;
-		}
-
-		&__title {
-			display: flex;
-			font-size: 0.875rem;
-			line-height: 1;
-			border: 1px solid $medium-gray-inputs;
-			padding: 0.85em 1em;
-			border-radius: 0.714em;
-			background-color: $white;
-			transition: all 0.2s;
-			min-width: 10em;
-			cursor: pointer;
-			transform: scale(1);
-			filter: none;
-
-			&::after { // aka menuArrow
-
-				@include square(0.65em);
-				border-color: $black;
-				border-width: 2px;
-			}
-
-			&.active {
-				color: $dark-orange;
-				border-color: currentcolor;
-
-				&::after { // aka menuArrow
-					top: 0.15em;
-					border-color: currentcolor;
-				}
-			}
-
-			@media (hover: hover) {
-
-				&:hover {
-					color: $dark-orange;
-					border-color: currentcolor;
-
-					&::after {
-						border-color: currentcolor;
-					}
-				}
-
-				&.active:hover {
-					color: $black;
-					border-color: $medium-gray-inputs;
-				}
-			}
 		}
 
 		&__items {
@@ -84,27 +72,33 @@
 			transition: opacity 0.1s;
 			filter: drop-shadow(0 0.063em 0.375em rgba($black, 0.16));
 
-
-			&::before {
-
-				@include color(background-color, secondary-background);
-				display: block;
-				content: "";
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				width: 0.7em;
-			}
-
 			&--inn {
-
-				@include scrollbar(0.5em);
 				max-height: 19em;
-				overflow-y: scroll;
 				position: relative;
 				margin-left: -1.45em;
-				margin-right: -1.35em;
+				margin-right: -1.85em;
+			}
+
+			&.scrollbar-visible {
+
+				&::before {
+
+					@include color(background-color, secondary-background);
+					display: block;
+					content: "";
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					width: 0.7em;
+				}
+
+				.FilterMenu__items--inn {
+
+					@include scrollbar(0.5em);
+					overflow-y: scroll;
+					margin-right: -1.35em;
+				}
 			}
 
 			&.active {
@@ -117,6 +111,8 @@
 		}
 
 		&__item {
+			overflow: visible;
+			position: relative;
 			display: flex;
 			align-content: center;
 			padding: 0.5em 1em;

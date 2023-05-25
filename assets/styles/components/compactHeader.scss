@@ -3,11 +3,14 @@
 @use "../common/mixins" as *;
 
 body.compact-header--active {
-	overflow: hidden;
 
-	.ContactUs {
-		opacity: 0;
-		pointer-events: none;
+	@media (max-width: $breakpoint-tablet - 1) {
+		overflow: hidden;
+
+		.ContactUs {
+			opacity: 0;
+			pointer-events: none;
+		}
 	}
 }
 
@@ -550,8 +553,13 @@ body.compact-header--active {
 		}
 		&--sticky.#{$class-name}--lvl-2 & {
 
+			&__wrapper {
+				align-items: center;
+			}
+
 			&__title {
 				display: block !important;
+				margin-bottom: 0;
 				font-size: 1.125em;
 			}
 
@@ -594,6 +602,7 @@ body.compact-header--active {
 
 				@include color(background-color,main-background);
 				position: relative;
+				z-index: 10;
 				height: calc(100% - 4.5em);
 				padding: 1em 0 5em 0;
 				margin-top: 3.5em;
