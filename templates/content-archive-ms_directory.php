@@ -1,15 +1,22 @@
-<?php // @codingStandardsIgnoreLine ?>
+<?php // @codingStandardsIgnoreLine
+$page_header_title = __( 'Customer Service Directory', 'ms' );
+$page_header_text = __( 'Here at LiveAgent, we often get requests for help from customers of other companies. Although we at LiveAgent do not provide support for their services you can find a list of customer support contacts here. ', 'ms' );
+if ( is_tax( 'ms_directory_categories' ) ) :
+	$page_header_title = single_term_title( '', false );
+	$page_header_text = term_description();
+endif;
+$page_header_args = array(
+	'type' => 'lvl-1',
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_directory.png?ver=' . THEME_VERSION,
+		'alt' => $page_header_title,
+	),
+	'title' => $page_header_title,
+	'text' => $page_header_text,
+);
+?>
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
-	<div class="wrapper Archive__header Archive__header--glossary">
-		<?php if ( is_tax( 'ms_directory_categories' ) ) { ?>
-			<h1 class="Archive__header__title" itemprop="name"><?php single_cat_title(); ?></h1>
-			<div class="Archive__header__subtitle"><p itemprop="description"><?php the_archive_description(); ?></p></div>
-		<?php } else { ?>
-			<h1 class="Archive__header__title" itemprop="name"><?php _e( 'Customer Service Directory', 'ms' ); ?></h1>
-			<p class="Archive__header__subtitle" itemprop="description"><?php _e( 'Here at LiveAgent, we often get requests for help from customers of other companies. Although we at LiveAgent do not provide support for their services you can find a list of customer support contacts here. ', 'ms' ); ?></p>
-		<?php } ?>
-	</div>
-
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<div class="Box Box--gray Archive__filter">
 		<div class="wrapper">
 			<div class="Archive__filter__item">

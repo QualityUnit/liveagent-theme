@@ -82,7 +82,7 @@
 		overflow: hidden;
 		border-radius: 0.625em;
 		transition: opacity 0.1s;
-		filter: drop-shadow(0 0.063em 0.375em rgba($black, 0.16));
+		box-shadow: 0 0.063em 0.375em rgba($black, 0.16);
 
 		&.visible {
 			opacity: 1;

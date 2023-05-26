@@ -45,6 +45,15 @@
 	const threshold = 96; // about height of regular <p> paragraph to delay the highlight of toc item
 	const mql = window.matchMedia( '(min-width: 1380px)' );
 
+	function fnOffsetTop( elem ) {
+		const box = elem.getBoundingClientRect();
+		const body = document.body;
+		const docEl = document.documentElement;
+		const scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+		const clientTop = docEl.clientTop || body.clientTop || 0;
+		const top = box.top + scrollTop - clientTop;
+		return Math.round( top );
+	}
 	function fnHeaderHeight( units = null ) {
 		if ( elHeader && elSticky ) {
 			const heightHeader = elHeader.offsetHeight;
@@ -165,9 +174,9 @@
 
 					//smooth window scroll with correction
 					const targetElement = document.querySelector( el.getAttribute( 'href' ) );
-					const targetOffset = targetElement.offsetTop;
+					const targetOffset = fnOffsetTop( targetElement );
 					window.scroll( {
-						top: ( targetOffset - threshold ),
+						top: ( targetOffset - ( fnHeaderHeight() + 24 ) ),
 						behavior: 'smooth',
 					} );
 				} );

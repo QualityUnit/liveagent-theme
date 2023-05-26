@@ -71,7 +71,7 @@
 			width: 145%;
 			padding: 1em 1.45em;
 			transition: opacity 0.1s;
-			filter: drop-shadow(0 0.063em 0.375em rgba($black, 0.16));
+			box-shadow: 0 0.063em 0.375em rgba($black, 0.16);
 
 			&--inn {
 				max-height: 19em;
