@@ -1,4 +1,5 @@
 /* stylelint-disable selector-class-pattern */
+@use "sass:map";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
@@ -8,25 +9,30 @@
 
 		@include color(color, font-color-normal);
 		list-style: none;
-		display: flex;
-		flex-flow: wrap row;
+		display: inline-flex;
+		padding: 0;
+		margin: 0;
 		font-size: 0.75rem;
 		line-height: 1.26;
 
 		li {
 			display: inline-block;
-			margin-right: 1em;
 
 			+ li {
 				margin-left: 1em;
 
 				&::before {
+
+					@include color(color, font-color-normal);
 					content: ">";
 					margin-left: -8px;
 					margin-right: 1em;
-					font-weight: $font-weight-bold;
 					background-image: none !important;
 				}
+			}
+
+			&:not(:last-child) {
+				margin-right: 1em;
 			}
 
 			&:last-of-type {
@@ -36,14 +42,57 @@
 		}
 	}
 
-	a {
+	a:not(.Button) {
 
 		@include color(color, font-color-normal, !important);
+		text-decoration: none;
 
-		&:active,
-		&:focus,
-		&:hover {
+		@include hover() {
 			text-decoration: underline;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		ol {
+			flex-flow: wrap row;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet - 1) {
+
+		position: relative;
+		width: auto;
+		margin-left: -$wrapper-padding;
+		margin-right: -$wrapper-padding;
+
+		&::before,
+		&::after {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			content: "";
+			display: block;
+			width: $wrapper-padding;
+		}
+
+		&::before {
+			left: 0;
+			background: linear-gradient(to left, rgba(map.get($vars, main-background), 0) 0%, rgba(map.get($vars, main-background), 1) 100%);
+		}
+
+		&::after {
+			right: 0;
+			background: linear-gradient(to right, rgba(map.get($vars, main-background), 0) 0%, rgba(map.get($vars, main-background), 1) 100%);
+		}
+
+		&-inner {
+			padding-left: $wrapper-padding;
+			padding-right: $wrapper-padding;
+			white-space: nowrap;
+			overflow-x: auto;
+			overflow-y: hidden;
+			-webkit-overflow-scrolling: touch;
 		}
 	}
 }

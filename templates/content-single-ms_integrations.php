@@ -1,139 +1,151 @@
 <?php // @codingStandardsIgnoreLine
-	$current_lang    = apply_filters( 'wpml_current_language', null );
-	$header_category = get_en_category( 'ms_integrations', $post->ID );
-	do_action( 'wpml_switch_language', $current_lang );
+set_custom_source( 'pages/Directory', 'css' );
+$current_lang    = apply_filters( 'wpml_current_language', null );
+$header_category = get_en_category( 'ms_integrations', $post->ID );
+do_action( 'wpml_switch_language', $current_lang );
+$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_integrations' );
+$categories = get_the_terms( $current_id, 'ms_integrations_categories' );
+$categories_url = get_post_type_archive_link( 'ms_integrations' );
+$la_pricing_url = __( '/pricing/', 'ms' );
+
+$page_header_args = array(
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_integrations.png?ver=' . THEME_VERSION,
+		'alt' => get_the_title(),
+	),
+	'title' => get_the_title(),
+	'text' => get_the_excerpt( $post ),
+	'toc' => true,
+);
+if ( has_post_thumbnail() ) {
+	$page_header_args['logo'] = array(
+		'src' => get_the_post_thumbnail_url( $post->ID, 'logo_thumbnail' ),
+	);
+}
+if (
+		get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ) ||
+		get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_external_integration_url', true ) ||
+		get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_zapier_integration_url', true )
+) {
+	$header_buttons = array();
+	if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ) ) {
+		$header_buttons[] = array(
+			'href' => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ),
+			'title' => __( 'Native Integration', 'ms' ),
+		);
+	}
+	if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_external_integration_url', true ) ) {
+		$header_buttons[] = array(
+			'href' => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_external_integration_url', true ) . '?utm_medium=referral&utm_source=liveagent&utm_campaign=integration',
+			'target' => '_blank',
+			'title' => __( 'External Integration', 'ms' ),
+		);
+	}
+	if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_zapier_integration_url', true ) ) {
+		$header_buttons[] = array(
+			'href' => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_zapier_integration_url', true ) . '?utm_medium=referral&utm_source=liveagent&utm_campaign=integration',
+			'target' => '_blank',
+			'title' => __( 'Zapier Integration', 'ms' ),
+		);
+	}
+	$page_header_args['buttons'] = $header_buttons;
+}
+if ( $categories && $categories_url ) {
+	$new_tags = array(
+		'title' => __( 'Categories', 'ms' ),
+	);
+	foreach ( $categories as $category ) {
+		$new_tags['list'][] = array(
+			'href' => $categories_url . '#' . $category->slug,
+			'title' => $category->name,
+		);
+	}
+	if ( isset( $new_tags['list'] ) ) {
+		$page_header_args['tags'][] = $new_tags;
+	}
+}
+if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true ) ) {
+	$new_tags = array(
+		'title' => __( 'Available in', 'ms' ),
+	);
+	foreach ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true ) as $item ) {
+		if ( 'ticket' === $item ) {
+			$new_tags['list'][] = array(
+				'href' => $la_pricing_url,
+				'title' => __( 'Small', 'ms' ),
+			);
+		}
+		if ( 'ticket-chat' === $item ) {
+			$new_tags['list'][] = array(
+				'href' => $la_pricing_url,
+				'title' => __( 'Medium', 'ms' ),
+			);
+		}
+		if ( 'all-inclusive' === $item ) {
+			$new_tags['list'][] = array(
+				'href' => $la_pricing_url,
+				'title' => __( 'Large', 'ms' ),
+			);
+		}
+		if ( 'extensions' === $item ) {
+			$new_tags['list'][] = array(
+				'href' => $la_pricing_url,
+				'title' => __( 'Extensions', 'ms' ),
+			);
+		}
+		if ( 'self-hosted' === $item ) {
+			$new_tags['list'][] = array(
+				'href' => $la_pricing_url,
+				'title' => __( 'Self-Hosted', 'ms' ),
+			);
+		}
+	}
+	if ( isset( $new_tags['list'] ) ) {
+		$page_header_args['tags'][] = $new_tags;
+	}
+}
 ?>
 
-<div class="Post" itemscope itemtype="http://schema.org/TechArticle">
+<div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+ 
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
-	<div class="Post__header <?= esc_attr( $header_category ); ?>">
-		<div class="wrapper__wide"></div>
-	</div>
-
-	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar urlslab-skip-keywords">
-			<div class="Post__sidebar__buttons">
-				<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ) ) ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - Native Integration'])" target="_blank">
-						<span><?php _e( 'Native Integration', 'ms' ); ?></span>
-					</a>
-				<?php } ?>
-				<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_external_integration_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_external_integration_url', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - External Integration'])" target="_blank" rel="nofollow" class="Button Button--outline">
-						<span><?php _e( 'External Integration', 'ms' ); ?></span>
-					</a>
-				<?php } ?>
-				<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_zapier_integration_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_zapier_integration_url', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - Zapier Integration'])" target="_blank" rel="nofollow" class="Button Button--outline">
-						<span><?php _e( 'Zapier Integration', 'ms' ); ?></span>
-					</a>
-				<?php } ?>
-			</div>
-
-			<div class="Post__sidebar__categories">
-				<div class="Post__sidebar__title h4"><?php _e( 'Categories', 'ms' ); ?></div>
-				<ul class="Post__sidebar__categories__labels">
-					<?php
-					$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_integrations' );
-					$categories = get_the_terms( $current_id, 'ms_integrations_categories' );
-
-					if ( $categories ) {
-						foreach ( $categories as $category ) {
-							?>
-					<li class="Post__sidebar__link">
-						<a href="../#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
-					</li>
-							<?php
-						}
-					}
-					?>
-				</ul>
-			</div>
-
-			<div class="Post__sidebar__available">
-				<div class="Post__sidebar__title h4"><?php _e( 'Available in', 'ms' ); ?></div>
-				<ul>
-					<?php
-					if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true ) ) {
-						foreach ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true ) as $item ) {
-							if ( 'ticket' === $item ) {
-								echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Small', 'ms' ) . '</li>';
-							}
-							if ( 'ticket-chat' === $item ) {
-									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Medium', 'ms' ) . '</li>';
-							}
-							if ( 'all-inclusive' === $item ) {
-									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Large', 'ms' ) . '</li>';
-							}
-							if ( 'extensions' === $item ) {
-									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Extensions', 'ms' ) . '</li>';
-							}
-							if ( 'self-hosted' === $item ) {
-									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Self-Hosted', 'ms' ) . '</li>';
-							}
-						}
-					}
-					?>
-				</ul>
-			</div>
-
-			<div class="Post__sidebar__partner">
-				<div class="Post__sidebar__title h4"><?php _e( 'Partner', 'ms' ); ?></div>
-				<ul>
-					<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_learn_more', true ) ) { ?>
-						<li>
-							<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_learn_more', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - Partner - Learn More'])" target="_blank" rel="nofollow">
-								<?php _e( 'Learn More', 'ms' ); ?>
-							</a>
-						</li>
-					<?php } ?>
-					<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_privacy_policy', true ) ) { ?>
-						<li>
-							<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_privacy_policy', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - Partner - Privacy Policy'])" target="_blank" rel="nofollow">
-								<?php the_title(); ?> <?php _e( 'Privacy Policy', 'ms' ); ?>
-							</a>
-						</li>
-					<?php } ?>
-				</ul>
-			</div>
-
-			<?php if ( sidebar_toc() !== false ) { ?>
-				<div class="SidebarTOC-wrapper">
-					<div class="SidebarTOC Post__SidebarTOC">
-						<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-						<div class="SidebarTOC__slider slider splide">
-							<div class="splide__track">
-								<ul class="SidebarTOC__content splide__list">
-									<?= wp_kses_post( sidebar_toc() ); ?>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-		</div>
-
-		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
-		</div>
+	<div class="wrapper Post__container">
 
 		<div class="Post__content">
-			<div class="Post__logo">
-				<?php the_post_thumbnail( 'logo_thumbnail' ); ?>
-			</div>
-
-			<div class="Post__content__breadcrumbs">
-				<ul>
-					<li><a href="<?php _e( '/integrations/', 'ms' ); ?>"><?php _e( 'Integrations', 'ms' ); ?></a></li>
-					<li><?php the_title(); ?></li>
-				</ul>
-			</div>
-
-			<h1 itemprop="name"><?php the_title(); ?></h1>
 
 			<div class="Content" itemprop="articleBody">
+	
+				<div class="Directory__blocks">
+					<h2 id="customer-service-contacts" class="Post__sectiontitle"><span><?php _e( 'Partner', 'ms' ); ?></span></h2>
+					<div class="Directory__blocks__items">
+						<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_learn_more', true ) ) { ?>
+						<div class="Directory__blocks__items__item">
+							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-ticket.svg" alt="">
+							<h3>Partner website</h3>
+							<p>
+								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_learn_more', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - Partner - Learn More'])" target="_blank" rel="nofollow">
+									<?php _e( 'Learn More', 'ms' ); ?>
+								</a>
+							</p>
+						</div>
+						<?php } ?>
+						<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_privacy_policy', true ) ) { ?>
+						<div class="Directory__blocks__items__item">
+							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-live-chat.svg" alt="">
+							<h3>Lorem ipsum</h3>
+							<p>
+								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_privacy_policy', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - Partner - Privacy Policy'])" target="_blank" rel="nofollow">
+									<?php the_title(); ?> <?php _e( 'Privacy Policy', 'ms' ); ?>
+								</a>
+							</p>
+						</div>
+						<?php } ?>
+					</div>
+				</div>
+				
 				<?php the_content(); ?>
 
 				<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q1', true ) ) { ?>

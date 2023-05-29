@@ -8,8 +8,6 @@ no-descending-specificity, value-keyword-case */
 $maxWidth: 71.125em;
 
 .Research {
-	max-width: $maxWidth;
-	margin: 0 auto;
 
 	&__header {
 		position: relative;
@@ -47,7 +45,7 @@ $maxWidth: 71.125em;
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
-			padding: 3em 0 3em 3em 3em;
+			padding: 3em 0 3em 3em;
 
 			&::after {
 				content: "";
@@ -137,14 +135,6 @@ $maxWidth: 71.125em;
 
 		@media (min-width: $maxWidth) {
 			padding: 0;
-		}
-	}
-
-	&--wrapper {
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-			width: 57.6%;
-			margin: 0 auto;
 		}
 	}
 

@@ -1,161 +1,168 @@
 <?php // @codingStandardsIgnoreLine
-	set_source( 'directory', 'pages/Directory', 'css' );
-	set_custom_source( 'common/splide', 'css' );
-	set_custom_source( 'components/SidebarTOC' );
-	set_custom_source( 'components/SignupSidebar' );
-	set_custom_source( 'splide', 'js' );
-	set_custom_source( 'sidebar_toc', 'js' );
+set_source( 'directory', 'pages/Directory', 'css' );
+set_custom_source( 'common/splide', 'css' );
+set_custom_source( 'components/SidebarTOC' );
+set_custom_source( 'components/SignupSidebar' );
+set_custom_source( 'splide', 'js' );
+set_custom_source( 'sidebar_toc', 'js' );
+global $post;
+$screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ) . "' ]" );
 
-	$screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ) . "' ]" );
+$industry = get_post_meta( get_the_ID(), 'mb_directory_mb_directory_industry', true );
+$business = get_post_meta( get_the_ID(), 'mb_directory_mb_directory_business', true );
+
+$page_header_tags = array();
+$page_header_tags[0]['title'] = __( 'Business Type', 'ms' );
+$page_header_tags[0]['list'][0]['href'] = __( '/industry/', 'ms' ) . $industry;
+if ( 'accounting-legal' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Accounting & Legal', 'ms' );
+} elseif ( 'automotive' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Automotive', 'ms' );
+} elseif ( 'banking-insurance' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Banking & Insurance', 'ms' );
+} elseif ( 'e-commerce-services' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'E-commerce & Services', 'ms' );
+} elseif ( 'entertainment' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Entertainment', 'ms' );
+} elseif ( 'esports' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'eSports', 'ms' );
+} elseif ( 'fashion' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Fashion', 'ms' );
+} elseif ( 'healthcare' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Healthcare', 'ms' );
+} elseif ( 'hr-recruitment' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'HR & Recruitment', 'ms' );
+} elseif ( 'marketing-telecommunications' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Marketing & TelCo', 'ms' );
+} elseif ( 'construction-real-estate' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Real Estate', 'ms' );
+} elseif ( 'retail' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Retail', 'ms' );
+} elseif ( 'saas' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'SaaS', 'ms' );
+} elseif ( 'software-internet' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Software & Internet', 'ms' );
+} elseif ( 'travel-accommodation' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Travel & Accommodation', 'ms' );
+} elseif ( 'webhosting' === $industry ) {
+	$page_header_tags[0]['list'][0]['title'] = __( 'Webhosting', 'ms' );
+}
+$page_header_tags[0]['title'] = __( 'Business Type', 'ms' );
+$page_header_tags[0]['list'][1]['href'] = __( '/business/', 'ms' ) . $business;
+if ( 'agency' === $business ) {
+	$page_header_tags[0]['list'][1]['title'] = __( 'Agency', 'ms' );
+} elseif ( 'education-ngo' === $business ) {
+	$page_header_tags[0]['list'][1]['title'] = __( 'EDU and NGOs', 'ms' );
+} elseif ( 'government' === $business ) {
+	$page_header_tags[0]['list'][1]['title'] = __( 'Government', 'ms' );
+} elseif ( 'enterprise' === $business ) {
+	$page_header_tags[0]['list'][1]['title'] = __( 'Enterprise', 'ms' );
+} elseif ( 'solo' === $business ) {
+	$page_header_tags[0]['list'][1]['title'] = __( 'Solopreneur', 'ms' );
+} elseif ( 'startups' === $business ) {
+	$page_header_tags[0]['list'][1]['title'] = __( 'Startups and SMBs', 'ms' );
+}
+$page_header_tags[1]['title'] = __( 'Technologies', 'ms' );
+if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) {
+	$page_header_tags[1]['list'][] = array(
+		'href' => __( '/help-desk-software/', 'ms' ),
+		'title' => __( 'Help Desk Software', 'ms' ),
+	);
+} if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) {
+	$page_header_tags[1]['list'][] = array(
+		'href' => __( '/ticketing-software/', 'ms' ),
+		'title' => __( 'Ticketing Software', 'ms' ),
+	);
+} if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_livechat-support', true ) ) {
+	$page_header_tags[1]['list'][] = array(
+		'href' => __( '/live-chat-software/', 'ms' ),
+		'title' => __( 'Live Chat Software', 'ms' ),
+	);
+} if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ) {
+	$page_header_tags[1]['list'][] = array(
+		'href' => __( '/call-center-software/', 'ms' ),
+		'title' => __( 'Call Center Software', 'ms' ),
+	);
+} if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_facebook', true ) || get_post_meta( get_the_ID(), 'mb_directory_mb_directory_twitter', true ) || get_post_meta( get_the_ID(), 'mb_directory_mb_directory_instagram', true ) ) {
+	$page_header_tags[1]['list'][] = array(
+		'href' => __( '/social-media-customer-service/', 'ms' ),
+		'title' => __( 'Social Media Support', 'ms' ),
+	);
+} if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_forum', true ) ) {
+	$page_header_tags[1]['list'][] = array(
+		'href' => __( '/customer-portal-software/', 'ms' ),
+		'title' => __( 'Customer Portal Software', 'ms' ),
+	);
+} if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_knowledge-base', true ) ) {
+	$page_header_tags[1]['list'][] = array(
+		'href' => __( '/knowledge-base-software/', 'ms' ),
+		'title' => __( 'Knowledge Base Software', 'ms' ),
+	);
+} if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_affiliate-program', true ) ) {
+	$page_header_tags[1]['list'][] = array(
+		'href' => 'https://www.postaffiliatepro.com/?utm_medium=referral&utm_source=liveagent&utm_campaign=directory',
+		'title' => __( 'Affiliate Software', 'ms' ),
+		'target' => '_blank',
+		'rel' => 'nofollow',
+	);
+}
+
+$page_header_logo = array(
+	'src' => get_template_directory_uri() . '/assets/images/icon-custom-post_type.svg',
+	'alt' => __( 'Directory', 'ms' ),
+);
+if ( has_post_thumbnail() ) {
+	$page_header_logo['src'] = get_the_post_thumbnail_url( 'logo_thumbnail' );
+}
+
+$page_header_args = array(
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_directory.png?ver=' . THEME_VERSION,
+		'alt' => get_the_title(),
+	),
+	'logo' => $page_header_logo,
+	'title' => get_the_title(),
+	'text' => get_the_excerpt( $post ),
+	'tags' => $page_header_tags,
+	'toc' => array(
+		'items' => array(
+			array(
+				'id' => 'customer-service-contacts',
+				'title' => __( 'Customer Service Contacts', 'ms' ),
+			),
+			array(
+				'href' => 'social-media',
+				'title' => __( 'Social Media Support Contacts', 'ms' ),
+			),
+			array(
+				'id' => 'sla',
+				'title' => __( 'SLAs & Agreements', 'ms' ),
+			),
+			array(
+				'id' => 'legal-contacts',
+				'title' => __( 'Legal Contacts', 'ms' ),
+			),
+			array(
+				'id' => 'other-links',
+				'title' => __( 'Other Links', 'ms' ),
+			),
+			array(
+				'id' => 'location',
+				'title' => __( 'Location', 'ms' ),
+			),
+			array(
+				'id' => 'faq',
+				'title' => __( 'FAQ', 'ms' ),
+			),
+		),
+	),
+);
 ?>
-<div class="Post" itemscope itemtype="http://schema.org/Organization">
-	<div class="Post__header directory">
-		<div class="wrapper__wide"></div>
-	</div>
+<div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/Organization">
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
-	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar urlslab-skip-keywords">
-
-			<div class="Post__sidebar__categories">
-				<div class="Post__sidebar__title h4"><?php _e( 'Business Type', 'ms' ); ?></div>
-				<div class="Post__sidebar__categories__labels">
-				<?php $industry = get_post_meta( get_the_ID(), 'mb_directory_mb_directory_industry', true ); ?>
-					<a href="<?php _e( '/industry/', 'ms' ); ?><?= esc_html( $industry ) ?>/" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Industry'])">
-					<?php
-					if ( 'accounting-legal' === $industry ) {
-						_e( 'Accounting & Legal', 'ms' );
-					} elseif ( 'automotive' === $industry ) {
-						_e( 'Automotive', 'ms' );
-					} elseif ( 'banking-insurance' === $industry ) {
-						_e( 'Banking & Insurance', 'ms' );
-					} elseif ( 'e-commerce-services' === $industry ) {
-						_e( 'E-commerce & Services', 'ms' );
-					} elseif ( 'entertainment' === $industry ) {
-						_e( 'Entertainment', 'ms' );
-					} elseif ( 'esports' === $industry ) {
-						_e( 'eSports', 'ms' );
-					} elseif ( 'fashion' === $industry ) {
-						_e( 'Fashion', 'ms' );
-					} elseif ( 'healthcare' === $industry ) {
-						_e( 'Healthcare', 'ms' );
-					} elseif ( 'hr-recruitment' === $industry ) {
-						_e( 'HR & Recruitment', 'ms' );
-					} elseif ( 'marketing-telecommunications' === $industry ) {
-						_e( 'Marketing & TelCo', 'ms' );
-					} elseif ( 'construction-real-estate' === $industry ) {
-						_e( 'Real Estate', 'ms' );
-					} elseif ( 'retail' === $industry ) {
-						_e( 'Retail', 'ms' );
-					} elseif ( 'saas' === $industry ) {
-						_e( 'SaaS', 'ms' );
-					} elseif ( 'software-internet' === $industry ) {
-						_e( 'Software & Internet', 'ms' );
-					} elseif ( 'travel-accommodation' === $industry ) {
-						_e( 'Travel & Accommodation', 'ms' );
-					} elseif ( 'webhosting' === $industry ) {
-						_e( 'Webhosting', 'ms' );
-					}
-					?>
-					</a>
-
-					<?php $business = get_post_meta( get_the_ID(), 'mb_directory_mb_directory_business', true ); ?>
-					<a href="<?php _e( '/business/', 'ms' ); ?><?= esc_html( $business ) ?>/" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Business'])">
-					<?php
-					if ( 'agency' === $business ) {
-						_e( 'Agency', 'ms' );
-					} elseif ( 'education-ngo' === $business ) {
-						_e( 'EDU and NGOs', 'ms' );
-					} elseif ( 'government' === $business ) {
-						_e( 'Government', 'ms' );
-					} elseif ( 'enterprise' === $business ) {
-						_e( 'Enterprise', 'ms' );
-					} elseif ( 'solo' === $business ) {
-						_e( 'Solopreneur', 'ms' );
-					} elseif ( 'startups' === $business ) {
-						_e( 'Startups and SMBs', 'ms' );
-					}
-					?>
-					</a>
-				</div>
-			</div>
-
-			<div class="Post__sidebar__categories">
-				<div class="Post__sidebar__title h4"><?php _e( 'Technologies', 'ms' ); ?></div>
-				<div class="Post__sidebar__categories__labels">
-				<?php if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) { ?>
-					<a href="<?php _e( '/help-desk-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Help Desk Software'])"><?php _e( 'Help Desk Software', 'ms' ); ?></a>
-				<?php } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) { ?>
-					<a href="<?php _e( '/ticketing-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Ticketing Software])"><?php _e( 'Ticketing Software', 'ms' ); ?></a>
-				<?php } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_livechat-support', true ) ) { ?>
-					<a href="<?php _e( '/live-chat-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Live Chat Software])"><?php _e( 'Live Chat Software', 'ms' ); ?></a>
-				<?php } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ) { ?>
-					<a href="<?php _e( '/call-center-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Call Center Software])"><?php _e( 'Call Center Software', 'ms' ); ?></a>
-				<?php } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_facebook', true ) || get_post_meta( get_the_ID(), 'mb_directory_mb_directory_twitter', true ) || get_post_meta( get_the_ID(), 'mb_directory_mb_directory_instagram', true ) ) { ?>
-					<a href="<?php _e( '/social-media-customer-service/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Social Media Support])"><?php _e( 'Social Media Support', 'ms' ); ?></a>
-				<?php } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_forum', true ) ) { ?>
-					<a href="<?php _e( '/customer-portal-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Customer Portal Software])"><?php _e( 'Customer Portal Software', 'ms' ); ?></a>
-				<?php } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_knowledge-base', true ) ) { ?>
-					<a href="<?php _e( '/knowledge-base-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Knowledge Base Software])"><?php _e( 'Knowledge Base Software', 'ms' ); ?></a>
-				<?php } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_affiliate-program', true ) ) { ?>
-					<a href="https://www.postaffiliatepro.com/?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" target="_blank" rel="nofollow" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Label - Technologies - Affiliate Program])"><?php _e( 'Affiliate Software', 'ms' ); ?></a>
-				<?php } ?>
-				</div>
-			</div>
-
-			<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_business-hours', true ) ) ) { ?>
-				<div class="Post__sidebar__related">
-					<div class="Post__sidebar__title h4"><?php _e( 'Business Hours', 'ms' ); ?></div>
-					<?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_business-hours', true ) ) ?>
-				</div>
-			<?php } ?>
-
-			<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_address', true ) ) ) { ?>
-				<div class="Post__sidebar__related">
-					<div class="Post__sidebar__title h4"><?php _e( 'Address', 'ms' ); ?></div>
-					<div itemprop="address">
-						<?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_address', true ) ) ?>
-					</div>
-				</div>
-			<?php } ?>
-
-			<div class="SidebarTOC-wrapper">
-				<div class="SidebarTOC Post__SidebarTOC">
-					<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-					<ul class="SidebarTOC__content">
-						<li class="SidebarTOC__item"><a href="#customer-service-contacts"><?php _e( 'Customer Service Contacts', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#social-media"><?php _e( 'Social Media Support Contacts', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#sla"><?php _e( 'SLAs & Agreements', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#legal-contacts"><?php _e( 'Legal Contacts', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#other-links"><?php _e( 'Other Links', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#location"><?php _e( 'Location', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#faq"><?php _e( 'FAQ', 'ms' ); ?></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar title="' . __( 'Try LiveAgent, best rated cloud-based Help Desk Software for free', 'ms' ) . '" subtitle=""]' ); ?>
-		</div>
-
+	<div class="wrapper Post__container">
 		<div class="Post__content">
-			<div class="Post__logo">
-				<?php if ( has_post_thumbnail() ) { ?>
-					<?php the_post_thumbnail( 'logo_thumbnail' ); ?>
-				<?php } else { ?>
-					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php _e( 'Directory', 'ms' ); ?>">
-				<?php } ?>
-			</div>
-
-			<div class="Post__content__breadcrumbs">
-				<ul>
-					<li><a href="<?php _e( '/directory/', 'ms' ); ?>"><?php _e( 'Directory', 'ms' ); ?></a></li>
-					<li><?php the_title(); ?></li>
-				</ul>
-			</div>
-
-			<h1 itemprop="name"><?php the_title(); ?></h1>
-
 			<div class="Content">
 				<?php
 					$declaration = __( 'It looks like you’re trying to reach ${company_name}’s customer service team. Unfortunately, we’re not associated with ${company_name}’s support team. We are two entirely different business organizations. However, to make your life a little easier, we’ve researched ${company_name}’s website and found the following customer support contact details. Please get in contact with ${company_name}’s representatives by reaching out to them directly using the contact information below.', 'ms' );

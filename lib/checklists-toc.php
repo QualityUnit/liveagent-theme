@@ -21,14 +21,16 @@ function checklists_toc() {
 			$title = $node->nodeValue; //@codingStandardsIgnoreLine
 			$id    = $node->getAttribute( 'id' );
 			if ( strlen( $id ) > 2 ) {
-				$toc[] = '<li class="Checklists__toc__item"><a href="#' . $id . '">' . $title . '</a></li>'; // @codingStandardsIgnoreLine
+				$toc[] = '<li class="Checklists__toc__item"><a href="#' . $id . '" class="js-toc__item-title js-toc__item">' . $title . '</a></li>'; // @codingStandardsIgnoreLine
 			}
 		}
 		if ( isset( $toc ) ) {
 			$count_items = count( $toc );
+			$toc_title = count( $toc );
 			$toc         = implode( '', $toc );
 
 			$output = (object) array(
+				'title' => $nodes[0]->nodeValue,
 				'toc'   => $toc,
 				'count' => $count_items,
 			);

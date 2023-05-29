@@ -1,62 +1,52 @@
 <?php // @codingStandardsIgnoreLine
-	set_source( 'checklists', 'pages/blog', 'css' );
-	set_source( 'checklists', 'pages/Category', 'css' );
-	set_source( 'checklists', 'pages/ChecklistsArchive', 'css' );
-	set_source( 'checklists', 'filter', 'js' );
+set_source( 'checklists', 'pages/blog', 'css' );
+set_source( 'checklists', 'pages/Category', 'css' );
+set_source( 'checklists', 'pages/ChecklistsArchive', 'css' );
+set_source( 'checklists', 'filter', 'js' );
+$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_checklists_categories' ) ), SORT_REGULAR );
+$page_header_title = __( 'Checklists', 'ms' );
+$page_header_text = __( 'Pick from a variety of detailed checklists for all your business needs. Organize your workflows and get any job done efficiently without difficulties.', 'ms' );
+$filter_items_categories = array(
+	array(
+		'checked' => true,
+		'value' => '',
+		'title' => __( 'All Categories', 'ms' ),
+	),
+);
+foreach ( $categories as $category ) :
+	$filter_items_categories[] = array(
+		'value' => $category->slug,
+		'title' => $category->name,
+	);
+endforeach;
+$filter_items = array(
+	array(
+		'type' => 'radio',
+		'name' => 'category',
+		'title' => __( 'Categories', 'ms' ),
+		'items' => $filter_items_categories,
+	),
+);
+$page_header_args = array(
+	'type' => 'lvl-1',
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_checklist.png?ver=' . THEME_VERSION,
+		'alt' => $page_header_title,
+	),
+	'title' => $page_header_title,
+	'text' => $page_header_text,
+	'search' => array(
+		'type' => 'academy',
+	),
+	'filter' => $filter_items,
+);
 ?>
 
 <div id="category" class="Category Checklists">
-	<div class="Box Category__header Category__header--checklists">
-		<div class="wrapper">
-			<div class="Category__header--center">
-				<h1 class="Category__header__title"><?php _e( 'Checklists', 'ms' ); ?></h1>
-				<p class="Category__header__subtitle"><?php _e( 'Pick from a variety of detailed checklists for all your business needs. Organize your workflows and get any job done efficiently without difficulties.', 'ms' ); ?></p>
-
-				<div class="Category__header__search searchField">
-					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
-					<input type="search" class="search search--academy" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
-				</div>
-			</div>
-		</div>
-	</div>
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Category__container">
-		<div class="Category__sidebar urlslab-skip-keywords" id="notFloating">
-			<input class="Category__sidebar__showfilter" type="checkbox" id="showfilter">
-			<label class="Button Button--outline Category__sidebar__showfilter--label" for="showfilter" data-hidden="<?php _e( 'Hide filters', 'ms' ); ?>">
-				<img class="Category__sidebar__showfilter--icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-filter.svg" alt="<?php _e( 'Filters', 'ms' ); ?>">
-				<span><?php _e( 'Filters', 'ms' ); ?></span>
-			</label>
-
-			<div class="Category__sidebar__items">
-				<div class="Category__sidebar__item">
-					<div class="Category__sidebar__item__title h4"><?php _e( 'Categories', 'ms' ); ?></div>
-					<label>
-						<input class="filter-item" type="radio" value="" name="category" checked />
-						<span onclick="_paq.push(['trackEvent', 'Activity', 'Checklists', 'Filter - Category - All'])"><?php _e( 'All Categories', 'ms' ); ?></span>
-					</label>
-					<?php $categories = get_categories( array( 'taxonomy' => 'ms_checklists_categories' ) ); ?>
-					<?php
-
-					foreach ( $categories as $category ) {
-						?>
-						<label>
-							<input class="filter-item" type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category"
-							<?php
-							if ( current( $category ) === $category->slug ) {
-								echo 'checked';
-							}
-							?>
-							>
-							<span onclick="_paq.push(['trackEvent', 'Activity', 'Checklists', 'Filter - Category - <?= esc_html( $category->name ); ?>'])"><?= esc_html( $category->name ); ?></span>
-						</label>
-					<?php } ?>
-				</div>
-			</div>
-		</div>
-
 		<div class="Category__content">
-			<div class="Category__content__description"><?php _e( 'List of checklists', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_features' )->publish ); ?></span>)</div></div>
 			<ul class="Category__content__items list">
 				<?php
 				while ( have_posts() ) :

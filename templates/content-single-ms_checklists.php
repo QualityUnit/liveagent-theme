@@ -19,45 +19,33 @@ if ( $categories ) {
 	$category_name = $categories[0]->name;
 	$category_slug = $categories[0]->slug;
 };
+$page_header_breadcrumb = array(
+	array( __( 'All checklists', 'ms' ), __( '/checklists/', 'ms' ) ),
+);
+if ( isset( $category_slug ) ) {
+	$page_header_breadcrumb[] = array( $category_name, __( '/checklists/', 'ms' ) . $category_slug );
+}
+$page_header_breadcrumb[] = array( $posttitle_filtered );
+$page_header_args = array(
+	'breadcrumb' => $page_header_breadcrumb,
+	'image' => array(
+		'src' => get_the_post_thumbnail_url( $post->ID, 'blog_thumbnail' ),
+		'alt' => $posttitle_filtered,
+	),
+	'title' => $posttitle_filtered,
+	'text' => get_the_excerpt( $post ),
+	'checklist' => true,
+);
 ?>
 
-<div class="Post Checklists">
-	<div class="Post__header">
-		<div class="wrapper__wide">
-			<div class="Post__header__image urlslab-min-width-1024">
-				<?php the_post_thumbnail( 'blog_thumbnail', array( 'class' => 'urlslab-skip-lazy' ) ); ?>
-			</div>
-			<div class="Post__header__text">
-				<div class="Post__content__breadcrumbs Post__header__breadcrumbs">
-					<ul >
-						<li><a href="<?php _e( '/checklists/', 'ms' ); ?>"><?php _e( 'All checklists', 'ms' ); ?></a></li>
-						<li><a href="<?php _e( '/checklists/', 'ms' ); ?>#<?= esc_html( $category_slug ) ?>"><?= esc_html( $category_name ); ?></a></li>
-						<li><?= esc_html( $posttitle_filtered ); ?></li>
-					</ul>
-				</div>
-				<h1 class="Post__header__title">
-						<?php
-						$pagetitle = explode( '^', get_the_title() );
-						if ( isset( $pagetitle[1] ) ) {
-							?>
-							<?php echo esc_html( $pagetitle[0] ) . ' '; ?>
-							<span class="highlight-gradient"><?php echo esc_html( $pagetitle[1] ); ?></span>
-							<?php echo esc_html( ' ' . $pagetitle[2] ); ?>
-							<?php
-						} else {
-							the_title();
-						}
-						?>
-				</h1>
-			</div>
-		</div>
-	</div>
-	<?php require_once get_template_directory() . '/lib/custom-blocks/checklist-post-header-small.php'; ?>
+<div class="Post Post--sidebar-right Checklists">
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
+	<?php //require_once get_template_directory() . '/lib/custom-blocks/checklist-post-header-small.php'; ?>
 
-	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar__wrapper">
-			<div class="Post__sidebar urlslab-skip-keywords">
-				<div class="SidebarItemsSlider__wrapper">
+	<div class="wrapper Post__container">
+		
+		<div class="Post__sidebar urlslab-skip-keywords">
+				<div class="SidebarItemsSlider__wrapper js-sidebar-sticky">
 					<div class="SidebarItemsSlider">
 						<?php if ( $categories ) { ?>
 						<div class="Post__sidebar__title"><strong><?php _e( 'Other', 'ms' ); ?> <?= esc_html( $category_name ); ?> <?php _e( 'checklists', 'ms' ); ?></strong></div>
@@ -111,11 +99,6 @@ if ( $categories ) {
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
-		</div>
 
 		<div class="Post__content">
 			<div class="Content">

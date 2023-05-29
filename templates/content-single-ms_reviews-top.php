@@ -28,49 +28,6 @@ function progressbar( $text, $rating, $color ) {
 	<?php
 }
 ?>
-
-	<div class="Post__header  Reviews__header Reviews__header--post <?= esc_attr( $header_en_category ); ?>">
-		<div class="wrapper flex flex-direction-column">
-			<div class="Post__content__breadcrumbs">
-				<ul itemscope itemtype="https://schema.org/BreadcrumbList">
-					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<meta itemprop="name" content="<?php _e( 'Reviews', 'ms' ); ?>" />
-						<meta itemprop="position" content="1" />
-						<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="<?php _e( '/reviews/', 'ms' ); ?>" href="<?php _e( '/reviews/', 'ms' ); ?>">
-							<?php _e( 'Reviews', 'ms' ); ?>
-						</a>
-					</li>
-					<?php
-					if ( isset( $category_slug ) ) {
-						?>
-					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<meta itemprop="name" content="<?= esc_attr( $category_name ); ?>" />
-						<meta itemprop="position" content="2" />
-						<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="<?= esc_url( __( '/reviews/', 'ms' ) . $category_slug ); ?>" href="<?= esc_url( __( '/reviews/', 'ms' ) . $category_slug ); ?>">
-							<?= esc_html( $category_name ); ?>
-						</a>
-					</li>
-						<?php
-					}
-					?>
-					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<meta itemprop="name" content="<?= esc_attr( $titleplain ); ?>" />
-						<meta itemprop="position" content="3" />
-						<?= esc_html( $titleplain ); ?>
-					</li>
-				</ul>
-			</div>
-
-			<div class="flex-tablet Reviews__header--post__bottom">
-				<h1 class="Reviews__header--post__title" itemprop="name"><?= $posttitle; // @codingStandardsIgnoreLine ?></h1>
-				<time class="Reviews__update" itemprop="dateModified" content="<?= esc_attr( get_the_modified_time( 'F j, Y' ) ); ?>">
-					<?= esc_html( __( 'Review Last update:', 'reviews' ) . ' ' ); ?>
-					<em><?= esc_html( get_the_modified_time( 'F j, Y' ) ); ?></em>
-				</time>
-			</div>
-		</div>
-	</div>
-
 	<div class="wrapper flex-tablet-landscape mb-extreme">
 		<div class="col-50 Reviews__info">
 			<?php

@@ -77,8 +77,10 @@ textarea {
 		display: none;
 	}
 
+	&-label,
 	label {
 		display: flex;
+		align-items: center;
 		align-content: center;
 		width: 100%;
 		cursor: pointer;
@@ -86,10 +88,10 @@ textarea {
 		&::before {
 			content: "";
 
-			@include square(1.429em);
+			@include square(1.143em);
 			background: url(../images/checkbox-inactive.svg) center center no-repeat;
 			background-size: contain;
-			margin-right: 0.75em;
+			margin-right: 0.5em;
 		}
 
 		@media (hover: hover) {
@@ -101,6 +103,11 @@ textarea {
 				}
 			}
 		}
+	}
+
+	&:active &-label::before,
+	&.active &-label::before {
+		background-image: url(../images/checkbox-active.svg);
 	}
 
 	[type="checkbox"]:checked,
@@ -134,11 +141,10 @@ textarea {
 		&::before {
 			content: "";
 
-			@include square(0.85em);
-			background: url(../images/icon-sorting-check.svg) center center no-repeat;
+			@include square(1.143em);
+			background: url(../images/checkbox-inactive.svg) center center no-repeat;
 			background-size: contain;
-			margin-right: 0.75em;
-			opacity: 0;
+			margin-right: 0.5em;
 		}
 	}
 
@@ -147,7 +153,7 @@ textarea {
 		+ label {
 
 			&::before {
-				opacity: 1;
+				background-image: url(../images/checkbox-active.svg);
 			}
 		}
 	}

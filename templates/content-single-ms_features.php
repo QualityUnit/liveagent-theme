@@ -1,100 +1,86 @@
 <?php // @codingStandardsIgnoreLine
-	$current_lang    = apply_filters( 'wpml_current_language', null );
-	$header_category = get_en_category( 'ms_features', $post->ID );
-	do_action( 'wpml_switch_language', $current_lang );
+$current_lang    = apply_filters( 'wpml_current_language', null );
+$header_category = get_en_category( 'ms_features', $post->ID );
+do_action( 'wpml_switch_language', $current_lang );
+$la_pricing_url = __( '/pricing/', 'ms' );
+$page_header_logo = array(
+	'src' => get_template_directory_uri() . '/assets/images/icon-custom-post_type.svg' . THEME_VERSION,
+	'alt' => __( 'Integration', 'ms' ),
+);
+if ( has_post_thumbnail() ) {
+	$page_header_logo['src'] = get_the_post_thumbnail_url( $post, 'logo_thumbnail' );
+}
+$page_header_args = array(
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_features.png?ver=' . THEME_VERSION,
+		'alt' => get_the_title(),
+	),
+	'logo' => $page_header_logo,
+	'title' => get_the_title(),
+	'text' => get_the_excerpt( $post ),
+	'toc' => true,
+);
+$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_features' );
+$categories = get_the_terms( $current_id, 'ms_features_categories' );
+$categories_url = get_post_type_archive_link( 'ms_features' );
+if ( $categories && $categories_url ) {
+	$new_tags = array(
+		'title' => __( 'Categories', 'ms' ),
+	);
+	foreach ( $categories as $category ) {
+		$new_tags['list'][] = array(
+			'href' => $categories_url . '#' . $category->slug,
+			'title' => $category->name,
+		);
+	}
+	if ( isset( $new_tags['list'] ) ) {
+		$page_header_args['tags'][] = $new_tags;
+	}
+}
+if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
+	$new_tags = array(
+		'title' => __( 'Available in', 'ms' ),
+	);
+	foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) as $item ) {
+		if ( 'ticket' === $item ) {
+			$new_tags['list'][] = array(
+				'href' => $la_pricing_url,
+				'title' => __( 'Small', 'ms' ),
+			);
+		}
+		if ( 'ticket-chat' === $item ) {
+			$new_tags['list'][] = array(
+				'href' => $la_pricing_url,
+				'title' => __( 'Medium', 'ms' ),
+			);
+		}
+		if ( 'all-inclusive' === $item ) {
+			$new_tags['list'][] = array(
+				'href' => $la_pricing_url,
+				'title' => __( 'Large', 'ms' ),
+			);
+		}
+		if ( 'self-hosted' === $item ) {
+			$new_tags['list'][] = array(
+				'href' => $la_pricing_url,
+				'title' => __( 'Self-Hosted', 'ms' ),
+			);
+		}
+	}
+	if ( isset( $new_tags['list'] ) ) {
+		$page_header_args['tags'][] = $new_tags;
+	}
+}
 ?>
 
-<div class="Post" itemscope itemtype="http://schema.org/TechArticle">
+<div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
-
-	<div class="Post__header <?= esc_attr( $header_category ); ?>">
-		<div class="wrapper__wide"></div>
-	</div>
-
-	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar urlslab-skip-keywords">
-			<div class="Post__sidebar__categories">
-				<div class="Post__sidebar__title h4"><?php _e( 'Categories', 'ms' ); ?></div>
-				<ul class="Post__sidebar__categories__labels">
-					<?php
-					$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_features' );
-					$categories = get_the_terms( $current_id, 'ms_features_categories' );
-
-					if ( $categories ) {
-						foreach ( $categories as $category ) {
-							?>
-					<li class="Post__sidebar__link">
-						<a href="../#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
-					</li>
-							<?php
-						}
-					}
-					?>
-				</ul>
-			</div>
-
-			<div class="Post__sidebar__available">
-				<div class="Post__sidebar__title h4"><?php _e( 'Available in', 'ms' ); ?></div>
-				<ul>
-					<?php
-					if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
-						foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) as $item ) {
-							if ( 'ticket' === $item ) {
-								echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Small', 'ms' ) . '</li>';
-							}
-							if ( 'ticket-chat' === $item ) {
-								echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Medium', 'ms' ) . '</li>';
-							}
-							if ( 'all-inclusive' === $item ) {
-								echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Large', 'ms' ) . '</li>';
-							}
-							if ( 'self-hosted' === $item ) {
-								echo "<li class='" . esc_attr( $item ) . "'>" . esc_html_e( 'Self-Hosted', 'ms' ) . '</li>';
-							}
-						}
-					}
-					?>
-				</ul>
-			</div>
-
-			<?php if ( sidebar_toc() !== false ) { ?>
-				<div class="SidebarTOC-wrapper">
-					<div class="SidebarTOC Post__SidebarTOC">
-						<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-						<div class="SidebarTOC__slider slider splide">
-							<div class="splide__track">
-								<ul class="SidebarTOC__content splide__list">
-									<?= wp_kses_post( sidebar_toc() ); ?>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-		</div>
-
-		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
-		</div>
-
+	
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
+	
+	<div class="wrapper Post__container">
 		<div class="Post__content">
-			<div class="Post__logo Post__logo--features">
-				<?php if ( has_post_thumbnail() ) { ?>
-					<?php the_post_thumbnail( 'logo_thumbnail' ); ?>
-				<?php } else { ?>
-					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php _e( 'Integration', 'ms' ); ?>">
-				<?php } ?>
-			</div>
-			<div class="Post__content__breadcrumbs">
-				<ul>
-					<li><a href="<?php _e( '/features/', 'ms' ); ?>"><?php _e( 'Features', 'ms' ); ?></a></li>
-					<li><?php the_title(); ?></li>
-				</ul>
-			</div>
-
-			<h1 itemprop="name"><?php the_title(); ?></h1>
-
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
 

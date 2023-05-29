@@ -19,3 +19,11 @@ function body_class( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', __NAMESPACE__ . '\\body_class' );
+
+/**
+ * Change the excerpt more string
+ */
+function excerpt_more( $more ) {
+	return '&hellip;';
+}
+add_filter( 'excerpt_more', __NAMESPACE__ . '\\excerpt_more' );

@@ -2,110 +2,116 @@
 	$current_lang    = apply_filters( 'wpml_current_language', null );
 	$header_category = get_en_category( 'ms_templates', $post->ID );
 	do_action( 'wpml_switch_language', $current_lang );
-?>
-<div class="Post" itemscope itemtype="http://schema.org/Guide">
+	
+	$page_header_logo = array(
+		'src' => get_template_directory_uri() . '/assets/images/icon-book.svg?ver=' . THEME_VERSION,
+		'alt' => __( 'Templates', 'ms' ),
+	);
+	if ( has_post_thumbnail() ) {
+		$page_header_logo['src'] = get_the_post_thumbnail_url( $post, 'logo_thumbnail' );
+	}
+	$page_header_args = array(
+		'image' => array(
+			'src' => get_template_directory_uri() . '/assets/images/compact_header_templates.png?ver=' . THEME_VERSION,
+			'alt' => get_the_title(),
+		),
+		'logo' => $page_header_logo,
+		'title' => get_the_title(),
+		'text' => get_the_excerpt( $post ),
+		'toc' => true,
+	);
+	$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_templates' );
+	$categories = get_the_terms( $current_id, 'ms_templates_categories' );
+	$categories_url = get_post_type_archive_link( 'ms_templates' );
+	if ( $categories && $categories_url ) {
+		$new_tags = array(
+			'title' => __( 'Categories', 'ms' ),
+		);
+		foreach ( $categories as $category ) {
+			$new_tags['list'][] = array(
+				'href' => $categories_url . '#' . $category->slug,
+				'title' => $category->name,
+			);
+		}
+		if ( isset( $new_tags['list'] ) ) {
+			$page_header_args['tags'][] = $new_tags;
+		}
+	}
+	if ( ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_help-desk-software', true ) === 'on' )
+	|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_ticketing-software', true ) === 'on' )
+	|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_live-chat-software', true ) === 'on' )
+	|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_call-center-software', true ) === 'on' )
+	|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_social-media', true ) === 'on' )
+	|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_customer-portal-software', true ) === 'on' )
+	|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_knowledge-base', true ) === 'on' )
+	|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_affiliate-program', true ) === 'on' )
+	) {
+		$new_tags = array(
+			'title' => __( 'Technologies', 'ms' ),
+		);
+		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_help-desk-software', true ) === 'on' ) {
+			$new_tags['list'][] = array(
+				'href' => __( '/help-desk-software/', 'ms' ),
+				'title' => __( 'Help Desk Software', 'ms' ),
+			);
+		}
+		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_ticketing-software', true ) === 'on' ) {
+			$new_tags['list'][] = array(
+				'href' => __( '/ticketing-software/', 'ms' ),
+				'title' => __( 'Ticketing Software', 'ms' ),
+			);
+		}
+		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_live-chat-software', true ) === 'on' ) {
+			$new_tags['list'][] = array(
+				'href' => __( '/live-chat-software/', 'ms' ),
+				'title' => __( 'Live Chat Software', 'ms' ),
+			);
+		}
+		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_call-center-software', true ) === 'on' ) {
+			$new_tags['list'][] = array(
+				'href' => __( '/call-center-software/', 'ms' ),
+				'title' => __( 'Call Center Software', 'ms' ),
+			);
+		}
+		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_social-media', true ) === 'on' ) {
+			$new_tags['list'][] = array(
+				'href' => __( '/social-media-customer-service/', 'ms' ),
+				'title' => __( 'Social Media Support', 'ms' ),
+			);
+		}
+		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_customer-portal-software', true ) === 'on' ) {
+			$new_tags['list'][] = array(
+				'href' => __( '/customer-portal-software/', 'ms' ),
+				'title' => __( 'Customer Portal Software', 'ms' ),
+			);
+		}
+		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_knowledge-base', true ) === 'on' ) {
+			$new_tags['list'][] = array(
+				'href' => __( '/knowledge-base-software/', 'ms' ),
+				'title' => __( 'Knowledge Base Software', 'ms' ),
+			);
+		}
+		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_affiliate-program', true ) === 'on' ) {
+			$new_tags['list'][] = array(
+				'href' => __( 'https://www.postaffiliatepro.com/?utm_medium=referral&utm_source=liveagent&utm_campaign=directory', 'ms' ),
+				'title' => __( 'Affiliate Software', 'ms' ),
+				'target' => '_blank',
+				'rel' => 'nofollow',
+			);
+		}
+		if ( isset( $new_tags['list'] ) ) {
+			$page_header_args['tags'][] = $new_tags;
+		}
+	}
+	?>
+<div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/Guide">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
-	<div class="Post__header <?= esc_attr( $header_category ); ?>">
-		<div class="wrapper__wide"></div>
-	</div>
-
-	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar urlslab-skip-keywords">
-
-			<div class="Post__sidebar__categories">
-				<div class="Post__sidebar__title h4"><?php _e( 'Categories', 'ms' ); ?></div>
-				<ul class="Post__sidebar__categories__labels">
-					<?php
-					$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_templates' );
-					$categories = get_the_terms( $current_id, 'ms_templates_categories' );
-
-					if ( $categories ) {
-						foreach ( $categories as $category ) {
-							?>
-					<li class="Post__sidebar__link">
-						<a href="../#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
-					</li>
-							<?php
-						}
-					}
-					?>
-				</ul>
-			</div>
-
-			<?php
-			if (
-				( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_help-desk-software', true ) === 'on' )
-				|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_ticketing-software', true ) === 'on' )
-				|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_live-chat-software', true ) === 'on' )
-				|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_call-center-software', true ) === 'on' )
-				|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_social-media', true ) === 'on' )
-				|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_customer-portal-software', true ) === 'on' )
-				|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_knowledge-base', true ) === 'on' )
-				|| ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_affiliate-program', true ) === 'on' )
-			) {
-				?>
-				<div class="Post__sidebar__categories">
-					<div class="Post__sidebar__title h4"><?php _e( 'Technologies', 'ms' ); ?></div>
-					<div class="Post__sidebar__categories__labels">
-						<?php if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_help-desk-software', true ) === 'on' ) { ?>
-							<a href="<?php _e( '/help-desk-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Label - Technologies - Help Desk Software'])"><?php _e( 'Help Desk Software', 'ms' ); ?></a>
-						<?php } if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_ticketing-software', true ) === 'on' ) { ?>
-							<a href="<?php _e( '/ticketing-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Label - Technologies - Ticketing Software])"><?php _e( 'Ticketing Software', 'ms' ); ?></a>
-						<?php } if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_live-chat-software', true ) === 'on' ) { ?>
-							<a href="<?php _e( '/live-chat-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Label - Technologies - Live Chat Software])"><?php _e( 'Live Chat Software', 'ms' ); ?></a>
-						<?php } if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_call-center-software', true ) === 'on' ) { ?>
-							<a href="<?php _e( '/call-center-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Label - Technologies - Call Center Software])"><?php _e( 'Call Center Software', 'ms' ); ?></a>
-						<?php } if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_social-media', true ) === 'on' ) { ?>
-							<a href="<?php _e( '/social-media-customer-service/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Label - Technologies - Social Media Support])"><?php _e( 'Social Media Support', 'ms' ); ?></a>
-						<?php } if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_customer-portal-software', true ) === 'on' ) { ?>
-							<a href="<?php _e( '/customer-portal-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Label - Technologies - Customer Portal Software])"><?php _e( 'Customer Portal Software', 'ms' ); ?></a>
-						<?php } if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_knowledge-base', true ) === 'on' ) { ?>
-							<a href="<?php _e( '/knowledge-base-software/', 'ms' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Label - Technologies - Knowledge Base Software])"><?php _e( 'Knowledge Base Software', 'ms' ); ?></a>
-						<?php } if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_affiliate-program', true ) === 'on' ) { ?>
-							<a href="https://www.postaffiliatepro.com/?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" target="_blank" rel="nofollow" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Label - Technologies - Affiliate Program])"><?php _e( 'Affiliate Software', 'ms' ); ?></a>
-						<?php } ?>
-					</div>
-				</div>
-			<?php } ?>
-
-			<?php if ( sidebar_toc() !== false ) { ?>
-				<div class="SidebarTOC-wrapper">
-					<div class="SidebarTOC Post__SidebarTOC">
-						<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-						<div class="SidebarTOC__slider slider splide">
-							<div class="splide__track">
-								<ul class="SidebarTOC__content splide__list">
-									<?= wp_kses_post( sidebar_toc() ); ?>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-		</div>
-
-		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
-		</div>
-
+	<div class="wrapper Post__container">
+		
 		<div class="Post__content">
-			<div class="Post__logo">
-				<?php if ( has_post_thumbnail() ) { ?>
-					<?php the_post_thumbnail( 'logo_thumbnail' ); ?>
-				<?php } else { ?>
-					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-book.svg" alt="<?php _e( 'Templates', 'ms' ); ?>">
-				<?php } ?>
-			</div>
-			<div class="Post__content__breadcrumbs">
-				<ul>
-					<li><a href="<?php _e( '/templates/', 'ms' ); ?>"><?php _e( 'Templates', 'ms' ); ?></a></li>
-					<li><?php the_title(); ?></li>
-				</ul>
-			</div>
-
-			<h1 itemprop="name"><?php the_title(); ?></h1>
 
 			<div class="Content" itemprop="text">
 				<?php the_content(); ?>

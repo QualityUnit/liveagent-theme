@@ -15,6 +15,19 @@
 		}, 25 );
 	}
 
+	function filterMenuTitleChange( item ) {
+		const clWrap = 'FilterMenu';
+		const clTitle = 'FilterMenu__title';
+		const title = item.getAttribute( 'title' );
+		const elMain = item.closest( '.' + clWrap );
+		if ( elMain && title !== null ) {
+			const elTitle = elMain.querySelector( '.' + clTitle );
+			if ( elTitle ) {
+				elTitle.textContent = title;
+			}
+		}
+	}
+
 	if ( query( '.list' ) !== null ) {
 		const list = query( '.list' );
 		const listItems = list.querySelectorAll( 'li' );
@@ -24,6 +37,8 @@
 			'.filter-item'
 		);
 		const search = query( "input[type='search']" );
+		const searchReset = query( "input[type='search']+.search-reset" );
+		const searchResetActive = 'search-reset--active';
 		const { hash } = window.location;
 		const activeFilter = {
 			collections: '',
@@ -44,6 +59,15 @@
 			query( '.Category__content__description div' ).classList.add(
 				'show'
 			);
+		}
+
+		function resultsReset() {
+			searchReset.classList.remove( searchResetActive );
+			list.classList.remove( 'empty' );
+			list.querySelectorAll( 'li' ).forEach( ( element ) => {
+				const el = element;
+				el.style = null;
+			} );
 		}
 
 		// Adds numbered classes to each featured article so we can assign image to it
@@ -169,6 +193,7 @@
 
 				if ( filteredHash === val ) {
 					filterItem.checked = true;
+					filterMenuTitleChange( filterItem );
 					recountVisible();
 				}
 			} );
@@ -209,6 +234,12 @@
 			} );
 		} );
 
+		searchReset.addEventListener( 'click', () => {
+			search.value = '';
+			resultsReset();
+			recountVisible();
+		} );
+
 		// Empty
 		filterItems.forEach( ( element ) => {
 			const filterItem = element;
@@ -237,14 +268,11 @@
 		} );
 		search.addEventListener( 'input', () => {
 			if ( search.value === '' ) {
-				list.classList.remove( 'empty' );
-				list.querySelectorAll( 'li' ).forEach( ( element ) => {
-					const el = element;
-					el.style = null;
-				} );
+				resultsReset();
+			} else {
+				searchReset.classList.add( searchResetActive );
+				recountVisible();
 			}
-
-			recountVisible();
 		} );
 	}
 } )();

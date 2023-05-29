@@ -10,9 +10,9 @@
 
 			@include square(1.125em);
 			content: "";
+			margin-right: 0.5em;
 			background: url(../../images/icon-sorting.svg) center center no-repeat;
 			background-size: contain;
-			margin-right: 0.5em;
 			filter: grayscale(100%) brightness(0);
 		}
 
@@ -24,13 +24,6 @@
 		}
 
 		@media (hover: hover) {
-
-			&:hover {
-
-				&::before {
-					filter: none;
-				}
-			}
 
 			&.active {
 
@@ -45,10 +38,25 @@
 		width: 100%;
 		left: 50%;
 		transform: translateX(-50%);
+	}
 
-		&::before {
-			left: auto;
-			right: 1em;
+	@media (max-width: $breakpoint-tablet - 1) {
+
+		&__desc {
+
+			display: flex;
+			align-items: center;
+
+			&::before {
+
+				@include square(1em);
+				content: "";
+				display: block;
+				margin-right: 0.5em;
+				background: url(../../images/icon-sorting.svg) center center no-repeat;
+				background-size: contain;
+				filter: grayscale(100%) brightness(0);
+			}
 		}
 	}
 }

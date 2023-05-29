@@ -1,16 +1,5 @@
 <?php // @codingStandardsIgnoreLine ?>
 
-<div class="Reviews__header Reviews__header-level1 FullHeadline narrow">
-	<div class="wrapper text-align-center">
-		<h1 class="FullHeadline__title">
-			<?php _e( '<span class="highlight__bubble long">Software Reviews</span> To Help You Decide', 'reviews' ); ?>
-		</h1>
-		<h2 class="FullHeadline__subtitle">
-			<?php _e( 'Explore software categories and choose the right solution<br/> for your business.', 'reviews' ); ?>
-		</h2>
-	</div>
-</div>
-
 <div class="Reviews__categories">
 	<div class="wrapper__wide">
 		<ul class="Reviews__categories--inn">

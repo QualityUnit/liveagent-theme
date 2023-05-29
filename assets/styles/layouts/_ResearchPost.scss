@@ -64,29 +64,32 @@
 	}
 
 	&--navigation {
+		$num-width: 1.8em;
+		$num-margin: 0.875em;
 
 		@include color(color, font-color-level3);
-
 		display: flex;
 		justify-content: space-between;
 		border-radius: $border-radius-16;
-		margin-bottom: 2rem;
-		font-size: 0.75rem;
 
 		@media (min-width: $breakpoint-tablet) {
 
 			@include color(background-color, secondary-background);
-			margin: 0 2rem 2rem 0;
+			width: 30em;
 		}
 
 		&__title {
 			display: none;
+			padding: 0 0.625em;
 			color: currentColor;
 			font-weight: $font-weight-semi;
-			margin: 2rem 3rem;
+			font-size: 0.75em;
 
 			@media (min-width: $breakpoint-tablet) {
-				display: block;
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				min-width: 20%;
 			}
 		}
 
@@ -96,77 +99,76 @@
 			@include color(color, font-color-dark);
 			font-size: 0.875rem;
 			font-weight: $font-weight-semi;
-
-			@media (min-width: $breakpoint-tablet) {
-				font-size: 1rem;
-			}
 		}
 
 		&__selected {
 
 			@extend %menuArrow;
-			@include color(box-shadow, box-shadow);
 			@include color(background-color, main-background);
 			position: relative;
 			z-index: 2;
 			display: flex;
 			align-items: center;
+			width: 100%;
 			margin: 0 !important;
-			padding: 1em 1.5em 1em 1em;
+			padding: 0.375em 1.125em 0.375em 0.375em;
+			border: 1px solid $medium-gray-inputs;
 			border-radius: $border-radius-16;
 			cursor: pointer;
-			width: 100%;
 
+			&::after {
+
+				@include square(0.625em);
+				border: 2px solid $black;
+				border-top: 0;
+				border-right: 0;
+			}
 
 			@media (min-width: $breakpoint-tablet) {
 
 				@include square(100%);
-				padding: 0 1.4em;
 			}
 		}
 
 		&__menu {
 
-			@include color(box-shadow, box-shadow);
 			@include color(background-color, main-background);
 			position: absolute;
-			top: calc(100% - 1em);
-			width: 100%;
-			border-radius: 0  0 $border-radius-16 $border-radius-16;
-
-			transition: all 0.25s;
-			transform: translateY(-2em);
+			top: 100%;
+			left: 0;
 			opacity: 0;
+			pointer-events: none;
 			overflow: hidden;
-			padding-right: 0.5em;
+			border-radius: 0.625em;
+			width: 100%;
+			padding: 1em 1.45em;
+			transition: opacity 0.1s;
+			box-shadow: 0 0.063em 0.375em rgba($black, 0.16);
 
-			&.active {
-				transform: translateY(0);
-				opacity: 1;
-			}
+			&::before {
 
-			&::after {
+				@include color(background-color, secondary-background);
+				display: block;
 				content: "";
 				position: absolute;
-				width: calc(100% - 1em);
-				height: 4em;
-				left: 0;
+				top: 0;
+				right: 0;
 				bottom: 0;
-				background: linear-gradient(to top, $white 40%, rgba($white, 0));
-				z-index: 1;
+				width: 0.7em;
+			}
+
+			&.active {
+				opacity: 1;
+				pointer-events: initial;
 			}
 
 			&__inn {
 
-				@include scrollbar;
-				width: 100%;
-				padding: 1.5em;
-				max-height: 18.5em;
+				@include scrollbar(0.5em);
+				max-height: 19em;
 				overflow-y: scroll;
-
-				@media (min-width: $breakpoint-tablet) {
-					padding: 1em 2.3em 2.3em;
-				}
+				position: relative;
+				margin: 0 -1.35em 0 -1.45em;
 			}
 		}
 
@@ -185,24 +187,27 @@
 		&__counter {
 
 			@extend %counter;
+			@include square($num-width);
+			margin-right: $num-margin;
+			text-align: center;
 		}
 
 		&__post {
 			display: flex;
 			align-items: center;
-			padding-top: 0.5em;
+			padding: 0.25em 0;
 			cursor: pointer;
 
 			&__title {
 				display: flex;
 				align-items: center;
+				text-decoration: none !important;
 			}
 
 			&:hover {
-
 				text-decoration: none;
 
-				a {
+				a:not(.Button) {
 					text-decoration: none !important;
 					color: var(--post-color);
 				}
@@ -217,22 +222,25 @@
 			}
 		}
 
+		.Research--post__counter {
+
+			@include square($num-width);
+			padding: 0;
+			margin-right: $num-margin;
+			font-size: 1rem;
+		}
+
 		@media (min-width: $breakpoint-tablet) {
 
 			&__menu__inn {
 				max-height: 28.5em;
 			}
 
-			&__counter {
-				margin-right: 1.75em;
-			}
-
 			&__post {
-				padding-top: 1.25em;
 
 				&::after {
 
-					@include square(0.55em);
+					@include square(0.45em);
 					flex: 0 0 auto;
 					content: "";
 					border: 2px solid transparent;
@@ -240,7 +248,7 @@
 					border-left: 0;
 					transition: all 0.2s;
 					transform: rotate(-45deg);
-					margin-left: 1em;
+					margin-left: 0.5em;
 				}
 			}
 		}

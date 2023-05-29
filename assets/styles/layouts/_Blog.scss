@@ -22,7 +22,7 @@ no-descending-specificity, value-keyword-case */
 
 	&__top.SliderCutted {
 
-		@media (min-width: $breakpoint-tablet) {
+		/*@media (min-width: $breakpoint-tablet) {
 			margin-top: -10em;
 		}
 
@@ -32,7 +32,7 @@ no-descending-specificity, value-keyword-case */
 
 		@media (min-width: $breakpoint-desktop-box) {
 			margin-top: -10em;
-		}
+		}*/
 	}
 
 	&__items {
