@@ -48,6 +48,19 @@ if ( $categories && $categories_url ) {
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo esc_attr( get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) ); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 				<?= do_shortcode( '[urlslab-generator id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ); ?>
+				
+				<div class="urlslab-video-transcript">
+					<h3><?php _e( 'Video trancript', 'ms' ) ?></h3>
+
+					<div class="urlslab-video-transcript-inn">
+						<p>
+							<?= do_shortcode( '[urlslab-video videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '" attribute="captions_text" nl2br=true]' ); ?>
+						</p>
+
+						<div class="urlslab-video-transcript-activator"><strong><?php _e( 'Show full video transcript', 'ms' ); ?></strong></div>
+						<div class="urlslab-video-transcript-deactivator"><strong><?php _e( 'Hide full video transcript', 'ms' ); ?></strong></div>
+					</div>
+				</div>
 
 				<?php the_content(); ?>
 
