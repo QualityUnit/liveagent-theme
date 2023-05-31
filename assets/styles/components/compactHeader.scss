@@ -228,6 +228,7 @@ body.compact-header--active {
 
 				li {
 					position: relative;
+					padding: 0.714em 0;
 					font-size: 0.875em;
 					font-weight: $font-weight-semi;
 
@@ -246,7 +247,6 @@ body.compact-header--active {
 					}
 
 					&.active {
-						padding-bottom: 0.714em;
 
 						&::after {
 
@@ -381,7 +381,6 @@ body.compact-header--active {
 		a[href].FilterMenu__item {
 
 			@include color(color, font-color-dark);
-			transition: all 0.5s;
 			text-decoration: none;
 
 			strong {
@@ -395,8 +394,12 @@ body.compact-header--active {
 		&__item {
 			position: relative;
 
+			&-title {
+				padding: 0.2em 1em 0.2em 0 !important;
+			}
+
 			&::before {
-				top: 50%;
+				top: 0.85em;
 				position: absolute;
 				display: block;
 				content: "";
@@ -427,7 +430,8 @@ body.compact-header--active {
 				}
 			}
 
-			&.active {
+			&.active,
+			&:hover {
 
 				&::before {
 					background-color: $black;
