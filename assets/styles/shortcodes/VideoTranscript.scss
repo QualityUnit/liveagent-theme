@@ -1,0 +1,26 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.urlslab-video-transcript {
+
+	&-inn {
+		border: 1px solid $light-gray;
+		border-radius: 10px;
+		padding: 1.5em;
+		background-color: #f9f9fa;
+		max-height: 6em;
+		overflow-y: auto;
+
+		&.active {
+			max-height: none;
+		}
+	}
+
+	&-activator,
+	&-deactivator {
+		margin-top: 2em;
+		text-align: center;
+	}
+}
