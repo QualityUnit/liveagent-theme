@@ -53,12 +53,12 @@ if ( $categories && $categories_url ) {
 					<h3><?php _e( 'Video trancript', 'ms' ) ?></h3>
 
 					<div class="urlslab-video-transcript-inn">
-						<p>
+						<p class="urlslab-video-transcript-text">
 							<?= do_shortcode( '[urlslab-video videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '" attribute="captions_text" nl2br=true]' ); ?>
 						</p>
 
-						<div class="urlslab-video-transcript-activator"><strong><?php _e( 'Show full video transcript', 'ms' ); ?></strong></div>
-						<div class="urlslab-video-transcript-deactivator"><strong><?php _e( 'Hide full video transcript', 'ms' ); ?></strong></div>
+						<div class="urlslab-video-transcript-activator" data-activator><strong><?php _e( 'Show full video transcript', 'ms' ); ?></strong></div>
+						<div class="urlslab-video-transcript-deactivator" data-deactivator><strong><?php _e( 'Hide full video transcript', 'ms' ); ?></strong></div>
 					</div>
 				</div>
 

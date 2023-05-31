@@ -6,21 +6,62 @@
 .urlslab-video-transcript {
 
 	&-inn {
+		position: relative;
 		border: 1px solid $light-gray;
 		border-radius: 10px;
-		padding: 1.5em;
 		background-color: #f9f9fa;
-		max-height: 6em;
-		overflow-y: auto;
+		overflow: hidden;
+
+		[data-deactivator] {
+			display: none;
+		}
 
 		&.active {
-			max-height: none;
+
+			p.urlslab-video-transcript-text {
+				max-height: none;
+			}
+
+			[data-activator] {
+				display: none;
+			}
+
+			[data-deactivator] {
+				display: block;
+			}
 		}
+	}
+
+	&-text {
+		padding: 1.5em 1.5em 4.5em;
+		margin-bottom: -0.01em;
+		max-height: 18em;
+		overflow: hidden auto;
 	}
 
 	&-activator,
 	&-deactivator {
-		margin-top: 2em;
+		position: absolute;
+		left: 0;
+		right: 1.5em;
+		bottom: -0.01em;
+		padding: 1.5em 0;
 		text-align: center;
+		background-color: #f9f9fa;
+		cursor: pointer;
+
+		&::after {
+			content: "\e821";
+			display: inline-block;
+			font-family: fontello, sans-serif;
+			margin-left: 0.5em;
+		}
+	}
+
+	&-deactivator {
+
+		&::after {
+			transform: scaleY(-1);
+		}
 	}
 }
