@@ -36,7 +36,7 @@ $page_header_args = array(
 		'alt' => get_the_title(),
 	),
 	'title' => get_the_title(),
-	'text' => get_the_excerpt( $post ),
+	'text' => urlslab_url_attribute( 'url_summary' ),
 	'update' => array(
 		'label' => __( 'Review Last update:', 'ms' ),
 	),
