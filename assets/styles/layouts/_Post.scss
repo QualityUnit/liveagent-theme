@@ -225,6 +225,7 @@ $signupSidebarWidth: 16.875em;
 		$wider-margin: 2rem;
 		$wider-margin-sm: 1rem;
 		$content-width: 60%;
+		$sidebar-width: 33%;
 
 		.Post {
 
@@ -289,6 +290,7 @@ $signupSidebarWidth: 16.875em;
 
 				&__sidebar {
 					order: 2;
+					width: $sidebar-width;
 				}
 
 				&__content {

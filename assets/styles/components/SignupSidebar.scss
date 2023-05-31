@@ -40,6 +40,10 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 		width: 16.875em;
 		z-index: 3;
 		order: 2;
+
+		.Post--sidebar-right & {
+			height: 100%;
+		}
 	}
 
 	input {

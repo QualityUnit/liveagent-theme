@@ -10,6 +10,7 @@ function ms_signup_sidebar( $atts ) {
 			'company'  => __( 'Company name', 'ms' ),
 			'button'   => __( 'Start your free account', 'ms' ),
 			'trusted'  => __( 'Trusted by the best', 'ms' ),
+			'js-sticky' => false,
 		),
 		$atts,
 		'signup-sidebar'
@@ -17,7 +18,11 @@ function ms_signup_sidebar( $atts ) {
 	ob_start();
 	?>
 
-	<div class="Signup__sidebar urlslab-skip-keywords">
+	<div class="Signup__sidebar urlslab-skip-keywords
+	<?php if ( $atts['js-sticky'] ) { ?>
+		js-sidebar-sticky
+	<?php } ?>
+	">
 		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] ); ?></div>
 		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
 
