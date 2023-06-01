@@ -33,7 +33,7 @@ $page_header_args = array(
 		'alt' => $posttitle_filtered,
 	),
 	'title' => $posttitle_filtered,
-	'text' => get_the_excerpt( $post ),
+	'text' => urlslab_url_attribute( 'url_summary' ),
 	'checklist' => true,
 );
 ?>
