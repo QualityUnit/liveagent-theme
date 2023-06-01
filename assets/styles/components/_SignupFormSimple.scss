@@ -7,6 +7,9 @@
 
 .Signup__form--simple {
 
+	background: url(../../images/signup_sidebar_bg.svg) center center no-repeat;
+	background-size: cover;
+
 	&[class] {
 		max-width: none;
 		overflow: hidden;
@@ -19,13 +22,20 @@
 		}
 	}
 
-	*:not(.Button) {
+	/**:not(.Button) {
 		text-align: left !important;
 		justify-content: flex-start !important;
+	}*/
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
 	}
 
-	&__title.h2 {
-		margin-bottom: 0;
+	&__title {
+		margin: 0 2em 0 0;
+		line-height: 1.6;
+		font-size: 1.429em;
 	}
 
 	[data-id="promoFieldmain"][class] {
@@ -61,14 +71,16 @@
 			flex: 0 0 100%;
 
 			&--text {
-				display: flex;
-				align-items: center;
 				color: $saturated-green;
-				margin-bottom: 1em;
+				text-align: right;
+
+				> * {
+					display: inline-block;
+					vertical-align: middle;
+				}
 
 				.emoji {
 					height: 1.42em;
-					margin-left: 0.75em;
 				}
 
 				.CircleProgressBar {
@@ -80,15 +92,6 @@
 						transform: scale(0.75);
 					}
 				}
-
-				em {
-					font-style: normal;
-					color: $medium-gray-quotes;
-				}
-			}
-
-			@media (min-width: $breakpoint-desktop-box) {
-				padding-right: 8.75rem;
 			}
 		}
 	}

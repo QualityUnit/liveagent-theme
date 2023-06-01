@@ -3,10 +3,7 @@
 function ms_signup_form_simple( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'title'    => __( 'Start <span class="highlight-gradient">Free Trial</span> today', 'ms' ),
-			'label1'   => __( '7 or 30 days free trial', 'ms' ),
-			'tooltip1' => __( 'Free trial for 7 days with a free email, or 30 days with a company email', 'ms' ),
-			'label2'   => __( 'No Credit Card required', 'ms' ),
+			'title'    => __( '<strong>Try LiveAgent,</strong> best rated cloud-based Help Desk Software for free', 'ms' ),
 			'button'   => __( 'Create account for FREE', 'ms' ),
 		),
 		$atts,
@@ -19,28 +16,19 @@ function ms_signup_form_simple( $atts ) {
 	<div class="Signup__form Signup__form--simple">
 		<div class="Signup__form__steps flex flex-align-center" data-step="1" data-id="signup">
 			<div class="Signup__form__step" data-step="1">
-				<div class="Signup__form--simple__title h2"><?= $atts['title']; // @codingStandardsIgnoreLine ?></div>
-
-				<div class="Signup__form__labels">
-					<span class="Signup__form__labels__label">
-						<?= esc_html( $atts['label1'] ); ?>&nbsp;
-						<span class="Tooltip">
-							<span class="fontello-info"></span>
-							<span class="Tooltip__text Tooltip__text--left"><?= esc_html( $atts['tooltip1'] ); ?></span>
-						</span>
-					</span>
-					<span class="Signup__form__labels__label"><?= esc_html( $atts['label2'] ); ?></span>
-				</div>
-
-				<div class="Signup__form__step--text">
-					<div class="CircleProgressBar">
-						<div class="CircleProgressBar__middle"></div>
-						<div class="CircleProgressBar__spinner" data-circlebar></div>
+				<div class="Signup__form--simple__header">
+                    <div class="Signup__form--simple__title"><?= $atts['title']; // @codingStandardsIgnoreLine ?></div>
+					<div class="Signup__form__step--text">
+						<div class="CircleProgressBar">
+							<div class="CircleProgressBar__middle"></div>
+							<div class="CircleProgressBar__spinner" data-circlebar></div>
+						</div>
+						<span>1/2</span><br>
+						<span class="ml-s"><?php _e( 'You are almost there!', 'ms' ); ?></span>
+						<img class="emoji" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/emoji_wink.png" alt="emoji wink" />
 					</div>
-					1<em>/2</em> <span class="ml-s"><?php _e( 'You are almost there!', 'ms' ); ?></span>
-					<img class="emoji" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/emoji_wink.png" alt="emoji wink" />
 				</div>
-
+				
 				<input data-id="plan" type="hidden" value="Trial" autocomplete="off">
 				<input data-id="variation" type="hidden" value="3513230f" autocomplete="off">
 
