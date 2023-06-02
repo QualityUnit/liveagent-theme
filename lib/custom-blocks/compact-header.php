@@ -5,6 +5,7 @@
 //todo: logo v sablonach s THEME_VERSION
 //todo: filter toggle ikona
 //todo: obrazok pre video(kategoria/single)
+//todo: PHP Warning:  Undefined array key "active" in /var/www/html/web/app/themes/liveagent/lib/custom-blocks/compact-header.php on line 421
 
 ?>
 <?php set_custom_source( 'components/compactHeader', 'css' ); ?>

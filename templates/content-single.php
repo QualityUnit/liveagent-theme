@@ -37,7 +37,6 @@ if ( isset( $categories ) ) {
 		</div>
 		<div class="BlogPost__content Post__content">
 			<div class="Content" itemprop="articleBody">
-				<?= do_shortcode( '[signupform-simple]' ); ?>
 				<?php the_content(); ?>
 
 				<div class="BlogPost__share">
