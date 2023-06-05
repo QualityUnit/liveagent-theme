@@ -14,6 +14,8 @@
 		return null
 	}
 
+	const mobile = window.matchMedia('(max-width: 768px)');
+
 	const acceptButton = document.querySelector( ".Medovnicky__button--yes" );
 	const trialButton = document.querySelector( ".createTrialButton" );
 
@@ -29,6 +31,9 @@
 		}
 
 		gtmWithCookie();
+		consentGranted();
+		grafana();
+		postAffiliate();
 		if ( typeof createButton == 'function' ) {
 			createButton();
 		}
@@ -46,18 +51,210 @@
 				document.querySelector( '.Medovnicky' ).classList.add( 'hide' );
 
 				gtmWithCookie();
+				consentGranted();
+				grafana();
+				postAffiliate();
 			}
 		});
 	}
 </script>
 
-<!-- Google Tag Manager - No Cookies -->
 <script>
-	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-MR5X6FD');
+	function loadGoogle() {
+		const body  = document.body;
+		const gtag1 = document.createElement('script');
+		gtag1.async = true;
+		gtag1.src = "https://www.googletagmanager.com/gtag/js?id=G-T9HBB9KMVK";
+
+		body.insertAdjacentElement('beforeend', gtag1);
+	}
+
+	if ( ! mobile.matches ) {
+		loadGoogle()
+	}
+
+	if ( mobile.matches && getCookieFrontend( "cookieLaw" ) ) {
+		loadGoogle()
+	}
+</script>
+
+<script>
+	window.dataLayer = window.dataLayer || []
+	function gtag() { dataLayer.push(arguments) }
+	gtag('js', new Date())
+
+	gtag('consent', 'default', {
+		'ad_storage': 'granted',
+		'analytics_storage': 'granted'
+	})
+
+	gtag('consent', 'default', {
+		'ad_storage': 'denied',
+		'analytics_storage': 'denied',
+		'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO']
+	})
+
+	gtag('set', 'linker', {
+		'accept_incoming': true,
+		'domains': [
+			'liveagent.com',
+			'ladesk.com',
+			'liveagent.fr',
+			'liveagent.de',
+			'liveagent.hu',
+			'liveagent.com.br',
+			'liveagent.sk',
+			'liveagent.es',
+			'live-agent.cn',
+			'live-agent.nl',
+			'live-agent.it',
+			'live-agent.pl',
+			'live-agent.cz',
+			'liveagent.vn',
+			'liveagent.no',
+			'liveagent.dk',
+			'liveagent.gr',
+			'liveagent.ro',
+			'liveagent.bg',
+			'liveagent.se',
+			'liveagent.jp',
+			'liveagent.fi',
+			'liveagent.ae',
+			'liveagent.ph',
+			'liveagent.si',
+			'liveagent.lv',
+			'liveagent.lt',
+			'liveagent.hr',
+			'liveagent.ee',
+			'liveagent.local',
+			'ru.liveagent.com',
+			'support.liveagent.com',
+			'ladesk.com'
+		]
+	})
+
+	gtag('config', 'G-T9HBB9KMVK', {
+		'linker': {
+			'domains': [
+				'liveagent.com',
+				'ladesk.com',
+				'liveagent.fr',
+				'liveagent.de',
+				'liveagent.hu',
+				'liveagent.com.br',
+				'liveagent.sk',
+				'liveagent.es',
+				'live-agent.cn',
+				'live-agent.nl',
+				'live-agent.it',
+				'live-agent.pl',
+				'live-agent.cz',
+				'liveagent.vn',
+				'liveagent.no',
+				'liveagent.dk',
+				'liveagent.gr',
+				'liveagent.ro',
+				'liveagent.bg',
+				'liveagent.se',
+				'liveagent.jp',
+				'liveagent.fi',
+				'liveagent.ae',
+				'liveagent.ph',
+				'liveagent.si',
+				'liveagent.lv',
+				'liveagent.lt',
+				'liveagent.hr',
+				'liveagent.ee',
+				'liveagent.local',
+				'ru.liveagent.com',
+				'support.liveagent.com',
+				'ladesk.com'
+			]
+		}
+	})
+
+	function consentGranted() {
+		gtag('consent', 'update', {
+			'ad_storage': 'granted',
+			'analytics_storage': 'granted'
+		})
+	}
+</script>
+
+<!-- Post Affiliate Pro -->
+<script type="text/javascript">
+	function postAffiliate() {
+		(function(d,t) {
+			var script = d.createElement(t); script.id= 'pap_x2s6df8d'; script.async = true;
+			script.src = '//pap.qualityunit.com/scripts/m3j58hy8fd';
+			script.onload = script.onreadystatechange = function() {
+				var rs = this.readyState; if (rs && (rs != 'complete') && (rs != 'loaded')) return;
+				PostAffTracker.setAccountId('default1');
+				if ( !getCookieFrontend( "cookieLaw" ) ) {
+					try {
+						PostAffTracker.disableTrackingMethod('C');
+						PostAffTracker.track();
+					} catch (e) {}
+				}
+				if ( getCookieFrontend( "cookieLaw" ) ) {
+					try {
+						PostAffTracker.enableTrackingMethods();
+						PostAffTracker.track();
+					} catch (e) {}
+				}
+			}
+			var placeholder = document.getElementById('papPlaceholder');
+			placeholder.parentNode.insertBefore(script, placeholder);
+		})(document, 'script');
+	}
+
+	if ( ! mobile.matches ) {
+		postAffiliate()
+	}
+
+	if ( mobile.matches && getCookieFrontend( "cookieLaw" ) ) {
+		postAffiliate()
+	}
+</script>
+
+<!-- Grafana -->
+<script>
+	function grafana(cookie = true) {
+		var _paq = window._paq || [];
+		window._paq = _paq;
+
+		if (cookie === false) {
+			_paq.push(["disableCookies"]);
+		}
+
+		_paq.push(['enableLinkTracking']);
+		_paq.push(['trackPageView']);
+		_paq.push(['enableCrossDomainLinking']);
+		window.onerror = function (msg, url, lineNo, columnNo, error) {
+			var stackT = "";
+			if (typeof(error) != 'undefined' && typeof(error.stack) != 'undefined') {
+				stackT = error.stack.replace(/\n/g, ' ').substring(0, 1000);
+			}
+			_paq.push(['trackEvent', 'error', 'js', msg + "::" + url + "::" + lineNo + "::" + stackT, navigator.userAgent]);
+		};
+		(function() {
+			_paq.push(['setSiteId', 'LA-web']);
+			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+			g.type='text/javascript'; g.async=true; g.defer=true; g.src='//analytics.qualityunit.com/i.js'; s.parentNode.insertBefore(g,s);
+		})();
+	}
+
+	if ( ! mobile.matches ) {
+		if ( getCookieFrontend( "cookieLaw" ) ) {
+			grafana()
+		} else {
+			grafana(false)
+		}
+	}
+
+	if ( mobile.matches && getCookieFrontend( "cookieLaw" ) ) {
+		grafana()
+	}
 </script>
 
 <!-- Google Tag Manager - Accepted Cookies -->
