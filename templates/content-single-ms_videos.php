@@ -16,7 +16,7 @@ $page_header_args = array(
 	),
 	'logo' => $page_header_logo,
 	'title' => get_the_title(),
-	'text' => urlslab_url_attribute( 'url_summary' ),
+	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
 	'toc' => true,
 );
 $current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_videos' );
