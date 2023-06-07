@@ -168,11 +168,13 @@ if ( isset( $subpage->slug ) ) {
 			set_custom_source( 'custom_lightbox', 'js' );
 			?>
 
-		<div class="wrapper__wide Post__container">
-			<div class="Post__content">
-				<div class="Content">
-					<h2><?= $whatis_post_title; // @codingStandardsIgnoreLine ?></h2>
-					<?= $whatis_post; // @codingStandardsIgnoreLine ?>
+		<div class="Post Post--sidebar-right">
+			<div class="wrapper Post__container">
+				<div class="Post__content">
+					<div class="Content">
+                        <h2><?= $whatis_post_title; // @codingStandardsIgnoreLine ?></h2>
+                        <?= $whatis_post; // @codingStandardsIgnoreLine ?>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -259,6 +259,7 @@
 		fnSidebarStickyPos();
 	}, true );
 	window.addEventListener( 'resize', function() {
+		fnStickyHeader();
 		fnHeaderScrollBarPosition();
 	}, true );
 	// Handles TOC in case when user changes orientation of device from portrait > landscape, ie. iPad Pro

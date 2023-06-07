@@ -26,16 +26,16 @@ body.compact-header--active {
 		margin-top: -2.2em;
 	}
 
-	+ .Category__container {
-		padding-top: 0;
-	}
-
-	&:not(:last-child) {
-		margin-bottom: 2.2em;
-	}
-
 	&__placeholder {
 		background-color: $bg-color;
+
+		+ .Category__container {
+			padding-top: 0;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2.2em;
+		}
 	}
 
 	&__wrapper {
@@ -551,6 +551,10 @@ body.compact-header--active {
 
 				&-sm > * {
 					max-width: 21em;
+
+					&.SortingMenu__wrapper {
+						max-width: initial;
+					}
 				}
 
 				> * {
@@ -568,6 +572,7 @@ body.compact-header--active {
 		}
 
 		&__count {
+			margin-left: 2em;
 			font-weight: $font-weight-semi;
 			font-size: 0.875em;
 		}
