@@ -33,7 +33,7 @@ $page_header_args = array(
 		'alt' => $posttitle_filtered,
 	),
 	'title' => $posttitle_filtered,
-	'text' => urlslab_url_attribute( 'url_summary' ),
+	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
 	'checklist' => true,
 );
 ?>

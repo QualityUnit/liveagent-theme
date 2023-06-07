@@ -6,7 +6,7 @@ $page_header_args = array(
 		'alt' => get_the_title(),
 	),
 	'title' => get_the_title(),
-	'text' => urlslab_url_attribute( 'url_summary' ),
+	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
 	'date' => true,
 	'toc' => true,
 );
