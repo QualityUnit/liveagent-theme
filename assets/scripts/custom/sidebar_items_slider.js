@@ -5,8 +5,8 @@ const queryAll = document.querySelectorAll.bind( document );
 const sidebarSlider = query( '.SidebarItemsSlider' );
 const sidebarSliderItems = queryAll( '.SidebarItemsSlider__item' );
 const sidebarSliderSlider = query( '.SidebarItemsSlider__slider' );
-const sidebarSliderShow = 8;
-const sidebarSliderMargin = 4;
+const sidebarSliderShow = 4;
+const sidebarSliderMargin = 2;
 let slider = null;
 
 const mql = window.matchMedia( '(min-width: 1024px)' );

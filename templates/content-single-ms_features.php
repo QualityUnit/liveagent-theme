@@ -10,9 +10,10 @@ $page_header_logo = array(
 if ( has_post_thumbnail() ) {
 	$page_header_logo['src'] = get_the_post_thumbnail_url( $post, 'logo_thumbnail' );
 }
+$page_header_image = 'features-category_' . $header_category . '.png';
 $page_header_args = array(
 	'image' => array(
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_features.png?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/' . $page_header_image . '?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
 	'logo' => $page_header_logo,
@@ -87,6 +88,7 @@ if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
 		</div>
 		<div class="Post__content">
 			<div class="Content" itemprop="articleBody">
+                <?= $header_category ?>
 				<?php the_content(); ?>
 
 				<div class="Post__content__resources">

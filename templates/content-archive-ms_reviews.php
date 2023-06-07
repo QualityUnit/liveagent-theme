@@ -169,26 +169,6 @@ if ( isset( $subpage->slug ) ) {
 			?>
 
 		<div class="wrapper__wide Post__container">
-			<div class="Post__sidebar urlslab-skip-keywords">
-			<?php if ( sidebar_toc( $whatis_post ) !== false ) { ?>
-					<div class="SidebarTOC-wrapper">
-						<div class="SidebarTOC Post__SidebarTOC">
-							<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-							<div class="SidebarTOC__slider slider splide">
-								<div class="splide__track">
-									<ul class="SidebarTOC__content splide__list">
-										<?= wp_kses_post( sidebar_toc( $whatis_post ) ); ?>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				<?php } ?>
-			</div>
-
-			<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
-			</div>
 			<div class="Post__content">
 				<div class="Content">
 					<h2><?= $whatis_post_title; // @codingStandardsIgnoreLine ?></h2>

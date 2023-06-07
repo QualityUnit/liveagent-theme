@@ -3,8 +3,11 @@
 	const queryAll = document.querySelectorAll.bind( document );
 	const clStickyMain = 'compact-header';
 	const clStickyActive = clStickyMain + '--sticky';
+	const clStickyTransition = clStickyMain + '--transition';
+	const clStickyPlaceholder = clStickyMain + '__placeholder';
 	const clMobileActive = 'compact-header--active';
 	const elSticky = query( '.' + clStickyMain );
+	const elStickyPlaceholder = query( '.' + clStickyPlaceholder );
 	let isSticky = false;
 	const elBody = query( 'body' );
 	const elHeader = query( '.Header' );
@@ -12,6 +15,7 @@
 	const elToggle = query( '.js-compact-header__toggle' );
 	const elClose = query( '.js-compact-header__close' );
 	const elApply = query( '.js-compact-header__apply' );
+	let scrollPos = 0;
 	//disable sticky header
 	let stickyDisable = false;
 	const elStickyMain = query( '.' + clStickyMain );
@@ -66,12 +70,31 @@
 		}
 		return false;
 	}
-	function fnStickyHeader() {
+	function fnStickyPlaceholder() {
 		if ( false === stickyDisable ) {
-			if ( elSticky && fnHeaderHeight() ) {
-				if ( fnHeaderHeight() <= document.documentElement.scrollTop ) {
+			if ( elSticky && elStickyPlaceholder ) {
+				if ( ! elSticky.classList.contains( clStickyActive ) ) {
+					elStickyPlaceholder.style.minHeight = elSticky.offsetHeight + 'px';
+				}
+			}
+		}
+	}
+	function fnStickyHeader( scrollDirection = null ) {
+		if ( false === stickyDisable ) {
+			if ( elSticky && elStickyPlaceholder && fnHeaderHeight() ) {
+				fnStickyPlaceholder();
+				const stickyPoint = elStickyPlaceholder.offsetHeight * 2;
+				if ( stickyPoint <= document.documentElement.scrollTop ) {
 					elSticky.classList.add( clStickyActive );
 					isSticky = true;
+				} else if ( scrollDirection === 'up' ) {
+					elSticky.classList.add( clStickyTransition );
+					setTimeout( () => {
+						elSticky.classList.remove( clStickyActive );
+						elSticky.classList.remove( clStickyTransition );
+						isSticky = false;
+						fnStickyPlaceholder();
+					}, 300 );
 				} else {
 					elSticky.classList.remove( clStickyActive );
 					isSticky = false;
@@ -218,6 +241,7 @@
 		}
 	}
 
+	fnStickyHeader();
 	fnStickyHeaderActions();
 	fnHeaderScrollBar();
 	fnHeaderScrollBarPosition();
@@ -225,7 +249,12 @@
 	fnSidebarStickyPos();
 	fnTocActivate();
 	window.addEventListener( 'scroll', function() {
-		fnStickyHeader();
+		let scrollDirection = 'down';
+		if ( ( document.body.getBoundingClientRect() ).top > scrollPos ) {
+			scrollDirection = 'up';
+		}
+		scrollPos = ( document.body.getBoundingClientRect() ).top;
+		fnStickyHeader( scrollDirection = scrollDirection );
 		fnHeaderScrollBar();
 		fnSidebarStickyPos();
 	}, true );
