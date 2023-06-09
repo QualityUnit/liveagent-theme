@@ -152,30 +152,22 @@ $page_header_args = array(
 						$future_sizes = get_post_meta( get_the_ID(), 'mb_features_mb_features_size', true ) ?? '';
 						$future_collections = get_post_meta( get_the_ID(), 'mb_features_mb_features_collections', true ) ?? '';
 
-						if ( $future_plans ) {
+						if ($future_plans) {
 
-							foreach ($future_plans as $item)  {
-									$plan .= $item . ' ';
-							}
+							$plan = implode(' ', $future_plans);
 
-								$plan = substr( $plan, 0, -1 );
 						}
 
-						if ( $future_sizes ) {
-							foreach ($future_sizes as $item ) {
-									$size .= $item . ' ';
-							}
+						if ($future_sizes) {
 
-								$size = substr( $size, 0, -1 );
+							$size = implode(' ', $future_sizes);
 						}
 
-						if ( $future_collections ) {
-							foreach ($future_collections as $item ) {
-									$collections .= $item . ' ';
-							}
+						if ($future_collections)  {
 
-								$collections = substr( $collections, 0, -1 );
+							$collections = implode(' ', $future_collections);
 						}
+
 
 						$categories   = get_the_terms( 0, 'ms_features_categories' );
 						$current_lang = apply_filters( 'wpml_current_language', null );
