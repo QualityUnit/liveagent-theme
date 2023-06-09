@@ -1,0 +1,30 @@
+/* stylelint-disable selector-class-pattern */
+@use "../common/variables" as *;
+
+$category_label_colors: (
+	"ticket-management": $light-blue,
+	"live-chat": $dark-orange,
+	"call-center": $green,
+	"social": $saturated-violet,
+	"reporting": $saturated-red,
+	"support-portal": $saturated-cyan,
+	"gamification": $saturated-green,
+	"multilingual": "#B44B85",
+	"mobile-apps": "#FFDC22",
+	"integrations": $saturated-blue,
+	"security": "#FF492B",
+	"browser-extensions": "#9154CE",
+);
+
+@each $className, $color in $category_label_colors {
+	.redesign.Category__item--features.#{$className} {
+
+
+		.Category__item__header__label_text {
+
+			&::after {
+				background-color: #{$color};
+			}
+		}
+	}
+}

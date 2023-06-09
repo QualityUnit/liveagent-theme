@@ -1,6 +1,7 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'features', 'pages/Category', 'css' );
 set_source( 'features', 'pages/CategoryImages', 'css' );
+set_source( 'features', 'pages/CategoryLabelColors', 'css' );
 set_source( 'features', 'filter', 'js' );
 $categories = array_unique( get_categories( array( 'taxonomy' => 'ms_features_categories' ) ), SORT_REGULAR );
 if ( is_tax( 'ms_features_categories' ) ) :
@@ -147,96 +148,110 @@ $page_header_args = array(
 						$size        = '';
 						$category    = '';
 
-					if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
-						foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) as $item ) {
-								$plan .= $item . ' ';
+						$future_plans = get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ?? '';
+						$future_sizes = get_post_meta( get_the_ID(), 'mb_features_mb_features_size', true ) ?? '';
+						$future_collections = get_post_meta( get_the_ID(), 'mb_features_mb_features_collections', true ) ?? '';
+
+						if ( $future_plans ) {
+
+							foreach ($future_plans as $item)  {
+									$plan .= $item . ' ';
+							}
+
+								$plan = substr( $plan, 0, -1 );
 						}
 
-							$plan = substr( $plan, 0, -1 );
-					}
+						if ( $future_sizes ) {
+							foreach ($future_sizes as $item ) {
+									$size .= $item . ' ';
+							}
 
-					if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_size', true ) ) {
-						foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_size', true ) as $item ) {
-								$size .= $item . ' ';
+								$size = substr( $size, 0, -1 );
 						}
 
-							$size = substr( $size, 0, -1 );
-					}
+						if ( $future_collections ) {
+							foreach ($future_collections as $item ) {
+									$collections .= $item . ' ';
+							}
 
-					if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_collections', true ) ) {
-						foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_collections', true ) as $item ) {
-								$collections .= $item . ' ';
+								$collections = substr( $collections, 0, -1 );
 						}
-
-							$collections = substr( $collections, 0, -1 );
-					}
 
 						$categories   = get_the_terms( 0, 'ms_features_categories' );
 						$current_lang = apply_filters( 'wpml_current_language', null );
 						do_action( 'wpml_switch_language', 'en' );
 						$categories_en = get_the_terms( 0, 'ms_features_categories' );
-					if ( ! empty( $categories_en ) ) {
-						$category_en = array_shift( $categories_en )->slug;
-					}
-						do_action( 'wpml_switch_language', $current_lang );
-					if ( ! empty( $categories ) ) {
-						foreach ( $categories as $category_item ) {
-								$category_item = array_shift( $categories );
-								$category     .= $category_item->slug;
-								$category     .= ' ';
+						if ( ! empty( $categories_en ) ) {
+							$category_en = array_shift( $categories_en )->slug;
 						}
-					}
+							do_action( 'wpml_switch_language', $current_lang );
+						if ( ! empty( $categories ) ) {
+							foreach ( $categories as $category_item ) {
+									$category_item = array_shift( $categories );
+									$category     .= $category_item->slug;
+									$category     .= ' ';
+							}
+						}
 						$category = substr( $category, 0, -1 );
 
 					?>
 
-					<li class="Category__item
 					<?php
-					if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) {
-						echo 'pillar'; }
-					?>
-					<?= esc_attr( $category ); ?> <?= esc_attr( $category_en ) ?>" data-collections="<?= esc_attr( $collections ); ?>" data-plan="<?= esc_attr( $plan ); ?>" data-size="<?= esc_attr( $size ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Features', 'Go to <?php the_title(); ?> feature'])">
+						// Element classes
+						$pillar_value = get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) ?? '';
+						$pillar_class = $pillar_value === 'on' ? 'pillar ' : '';
+						$category_item_classes = 'Category__item redesign Category__item--features ' . $pillar_class . ' ' . esc_attr($category) . ' ' . esc_attr($category_en);
+
+						// Element attributes
+						$category_item_attributes = [
+							'data-plan' => esc_attr($plan),
+							'data-collections' => esc_attr($collections),
+							'data-size' => esc_attr($size),
+							'data-category' => esc_attr($category),
+							'data-href' => get_permalink()
+						];
+						if ($pillar_value === 'on') : ?>
+							<li class="<?= $category_item_classes ?>" <?php foreach ($category_item_attributes as $name => $value) { echo $name . '="' . $value . '" '; }?>>
 							<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
-								<?php if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) { ?>
-									<span class="Category__item__thumbnail__image"></span>
-								<?php } elseif ( has_post_thumbnail() ) { ?>
-									<?php the_post_thumbnail( 'archive_thumbnail' ); ?>
-								<?php } else { ?>
-									<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php _e( 'Features', 'ms' ); ?>">
-								<?php } ?>
+								<span class="Category__item__thumbnail__image"></span>
 							</a>
-							<?php
-							if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) {
-								?>
-									<div class="Category__item__wrap">
-								<?php
-							}
-							?>
+							<div class="Category__item__wrap">
 								<h3 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 								<div class="Category__item__excerpt item-excerpt">
 									<a href="<?php the_permalink(); ?>">
-										<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
-										<?php if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) { ?>
-											<span><?php _e( 'Read more about', 'ms' ); ?> <?= esc_html( strtolower( get_the_title() ) ); ?></span>
-										<?php } ?>
+										<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 									</a>
 								</div>
-							<?php
-							if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) {
-								?>
+								<a class="Category__item__cta" href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'ms' ); ?></a>
+							</div>
+							</li>
+						<?php else : ?>
+							<li class="<?= $category_item_classes ?>" <?php foreach ($category_item_attributes as $name => $value) { echo $name . '="' . $value . '" '; }?>>
+								<div class="Category__item__wrap">
+									<div class="Category__item__header">
+										<?php
+											if ( has_post_thumbnail() ) {
+												the_post_thumbnail( 'archive_thumbnail' );
+											}
+											else { ?>
+												<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php _e( 'Features', 'ms' ); ?>">
+										<?php	} ?>
+										<div class="Category__item__header__label">
+											<span class="Category__item__header__label_text">Ticketing system</span>
+										</div>
 									</div>
-								<?php
-							}
-							?>
-					</li>
-
-					<?php
-						$collections = '';
-						$plan        = '';
-						$size        = '';
-						$category    = '';
-					?>
-
+									<div class="Category__item__content">
+										<h3 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+										<div class="Category__item__excerpt item-excerpt">
+											<a href="<?php the_permalink(); ?>">
+												<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
+											</a>
+										</div>
+										<a class="Category__item__cta" href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'ms' ); ?></a>
+									</div>
+								</div>
+							</li>
+					<?php endif; ?>
 				<?php endwhile; ?>
 			</ul>
 		</div>
