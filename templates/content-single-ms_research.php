@@ -10,7 +10,7 @@ $page_header_args = array(
 		'alt' => $page_title,
 	),
 	'title' => $page_title,
-	'text' => get_the_excerpt( $post ),
+	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
 	'research_nav' => true,
 	'toc' => true,
 );

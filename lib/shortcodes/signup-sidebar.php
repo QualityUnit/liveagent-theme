@@ -134,6 +134,12 @@ function ms_signup_sidebar( $atts ) {
 						'value': 10
 					} );
 
+					window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({
+						'event': 'sign_up',
+						'emailType': 'Company Email'
+					});
+
 					_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 				}
 			}

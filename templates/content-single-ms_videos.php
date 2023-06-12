@@ -16,7 +16,7 @@ $page_header_args = array(
 	),
 	'logo' => $page_header_logo,
 	'title' => get_the_title(),
-	'text' => get_the_excerpt( $post ),
+	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
 	'toc' => true,
 );
 $current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_videos' );
@@ -53,6 +53,19 @@ if ( $categories && $categories_url ) {
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo esc_attr( get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) ); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 				<?= do_shortcode( '[urlslab-generator id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ); ?>
+				
+				<div class="urlslab-video-transcript">
+					<h3><?php _e( 'Video trancript', 'ms' ); ?></h3>
+
+					<div class="urlslab-video-transcript-inn">
+						<p class="urlslab-video-transcript-text">
+							<?= do_shortcode( '[urlslab-video videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '" attribute="captions_text" nl2br=true]' ); ?>
+						</p>
+
+						<div class="urlslab-video-transcript-activator" data-activator><strong><?php _e( 'Show full video transcript', 'ms' ); ?></strong></div>
+						<div class="urlslab-video-transcript-deactivator" data-deactivator><strong><?php _e( 'Hide full video transcript', 'ms' ); ?></strong></div>
+					</div>
+				</div>
 
 				<?php the_content(); ?>
 

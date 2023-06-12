@@ -6,7 +6,7 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+'
   workflow_call:
     secrets:
-      CICD_PAT:
+      WEB_CICD_PAT:
         required: true
 
 jobs:
@@ -92,7 +92,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v0.1.15
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WEB_CICD_PAT }}
         with:
           draft: false
           prerelease: false
@@ -121,7 +121,7 @@ jobs:
           workflow: update-theme.yml
           repo: QualityUnit/liveagent-wp
           ref: dev
-          token: ${{ secrets.CICD_PAT }}
+          token: ${{ secrets.WEB_CICD_PAT }}
           wait-for-completion-interval: 5s
           inputs: '{
                   "repository":"liveagent-wp",

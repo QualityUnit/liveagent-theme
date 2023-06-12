@@ -122,7 +122,7 @@ $page_header_args = array(
 	),
 	'logo' => $page_header_logo,
 	'title' => get_the_title(),
-	'text' => get_the_excerpt( $post ),
+	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
 	'tags' => $page_header_tags,
 	'toc' => array(
 		'items' => array(

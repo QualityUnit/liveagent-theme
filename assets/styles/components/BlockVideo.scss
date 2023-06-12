@@ -26,6 +26,25 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 	.youtube_urlslab_loader {
 		overflow: visible;
 		min-height: 29em;
+		background-color: transparent;
+
+		&--wrapper {
+
+			picture {
+				display: none;
+			}
+
+			&::before,
+			&::after {
+				display: none;
+			}
+		}
+
+		&--title,
+		&--duration,
+		&--bottom {
+			display: none;
+		}
 
 		&--img {
 			border-radius: 4.375em;
@@ -72,6 +91,8 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 			@include square(100%);
 			content: "";
 			position: absolute;
+			top: 0;
+			right: 0;
 			font-size: $font-size-default;
 			overflow: hidden;
 			z-index: 2;

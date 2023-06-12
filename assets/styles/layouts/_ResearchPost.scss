@@ -64,6 +64,8 @@
 	}
 
 	&--navigation {
+		$num-width: 1.8em;
+		$num-margin: 0.875em;
 
 		@include color(color, font-color-level3);
 		display: flex;

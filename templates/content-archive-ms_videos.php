@@ -40,7 +40,7 @@ $page_header_args = array(
 		'alt' => $page_header_title,
 	),
 	'title' => $page_header_title,
-	'text' => term_description(),
+	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
 	'search' => array(
 		'type' => 'academy',
 	),
