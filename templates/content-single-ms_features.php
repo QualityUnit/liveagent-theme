@@ -88,7 +88,6 @@ if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
 		</div>
 		<div class="Post__content">
 			<div class="Content" itemprop="articleBody">
-                <?= $header_category ?>
 				<?php the_content(); ?>
 
 				<div class="Post__content__resources">
