@@ -151,11 +151,11 @@ $page_header_args = array(
 					$future_collections = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_collections', true ) ?? '' );
 
 
-					if (true === $future_plans ) {
+					if ( true === $future_plans ) {
 						$plan = implode( ' ', $future_plans );
 					}
 
-					if (true === $future_sizes ) {
+					if ( true === $future_sizes ) {
 						$size = implode( ' ', $future_sizes );
 					}
 
@@ -186,12 +186,15 @@ $page_header_args = array(
 					?>
 
 					<?php
-					// Element classes
-					$pillar_value          = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) ?? '' );
-					$pillar_class          = $pillar_value === 'on' ? 'pillar ' : '';
+					// Element classes.
+					$pillar_value = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) ?? '' );
+					$pillar_class = '';
+					if ( 'on' === $pillar_value ) {
+							$pillar_class = 'pillar';
+					}
 					$category_item_classes = 'Category__item redesign Category__item--features ' . $pillar_class . ' ' . esc_attr( $category ) . ' ' . esc_attr( $category_en );
 
-					// Element attributes
+					// Element attributes.
 					$category_item_attributes = array(
 						'data-plan'        => esc_attr( $plan ),
 						'data-collections' => esc_attr( $collections ),
@@ -199,15 +202,15 @@ $page_header_args = array(
 						'data-category'    => esc_attr( $category ),
 						'data-href'        => get_permalink(),
 					);
-					if ( $pillar_value === 'on' ) :
+					if ( 'on' === $pillar_value ) :
 						?>
-							<li class="<?php echo $category_item_classes; ?>"
-												  <?php
-													foreach ( $category_item_attributes as $name => $value ) {
-														echo $name . '="' . $value . '" ';
-													}
-													?>
-									   >
+							<li class="<?php echo esc_html( $category_item_classes ); ?>"
+										<?php
+										foreach ( $category_item_attributes as $name => $value ) {
+											echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
+										}
+										?>
+							>
 							<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
 								<span class="Category__item__thumbnail__image"></span>
 							</a>
@@ -218,17 +221,17 @@ $page_header_args = array(
 						<?php echo esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 									</a>
 								</div>
-								<a class="Category__item__cta" href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'ms' ); ?></a>
+								<a class="Category__item__cta" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
 							</div>
 							</li>
 		<?php else : ?>
-							<li class="<?php echo $category_item_classes; ?>"
-												  <?php
-													foreach ( $category_item_attributes as $name => $value ) {
-														echo $name . '="' . $value . '" ';
-													}
-													?>
-									   >
+							<li class="<?php echo esc_html( $category_item_classes ); ?>"
+											<?php
+											foreach ( $category_item_attributes as $name => $value ) {
+												echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
+											}
+											?>
+								>
 								<div class="Category__item__wrap">
 									<div class="Category__item__header">
 			<?php
@@ -236,7 +239,7 @@ $page_header_args = array(
 				the_post_thumbnail( 'archive_thumbnail' );
 			} else {
 				?>
-												<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php _e( 'Features', 'ms' ); ?>">
+												<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php esc_html_e( 'Features', 'ms' ); ?>">
 			<?php	} ?>
 										<div class="Category__item__header__label">
 											<span class="Category__item__header__label_text">Ticketing system</span>
@@ -249,7 +252,7 @@ $page_header_args = array(
 												<?php echo esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 											</a>
 										</div>
-										<a class="Category__item__cta" href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'ms' ); ?></a>
+										<a class="Category__item__cta" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
 									</div>
 								</div>
 							</li>
