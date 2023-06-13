@@ -204,7 +204,7 @@ $page_header_args = array(
 					);
 					if ( 'on' === $pillar_value ) :
 						?>
-							<li class="<?php echo esc_html( $category_item_classes ); ?>"
+							<li class="<?php echo esc_attr( $category_item_classes ); ?>"
 										<?php
 										foreach ( $category_item_attributes as $name => $value ) {
 											echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
@@ -225,7 +225,7 @@ $page_header_args = array(
 							</div>
 							</li>
 		<?php else : ?>
-							<li class="<?php echo esc_html( $category_item_classes ); ?>"
+							<li class="<?php echo esc_attr( $category_item_classes ); ?>"
 											<?php
 											foreach ( $category_item_attributes as $name => $value ) {
 												echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
@@ -239,7 +239,7 @@ $page_header_args = array(
 				the_post_thumbnail( 'archive_thumbnail' );
 			} else {
 				?>
-												<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php esc_html_e( 'Features', 'ms' ); ?>">
+												<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php esc_attr_e( 'Features', 'ms' ); ?>">
 			<?php	} ?>
 										<div class="Category__item__header__label">
 											<span class="Category__item__header__label_text">Ticketing system</span>
