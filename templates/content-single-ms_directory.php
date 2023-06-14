@@ -13,7 +13,7 @@ $business = get_post_meta( get_the_ID(), 'mb_directory_mb_directory_business', t
 
 $page_header_tags = array();
 $page_header_tags[0]['title'] = __( 'Business Type', 'ms' );
-$page_header_tags[0]['list'][0]['href'] = __( '/industry/', 'ms' ) . $industry;
+$page_header_tags[0]['list'][0]['href'] = __( '/industry/', 'ms' ) . $industry . '/';
 if ( 'accounting-legal' === $industry ) {
 	$page_header_tags[0]['list'][0]['title'] = __( 'Accounting & Legal', 'ms' );
 } elseif ( 'automotive' === $industry ) {
@@ -48,7 +48,7 @@ if ( 'accounting-legal' === $industry ) {
 	$page_header_tags[0]['list'][0]['title'] = __( 'Webhosting', 'ms' );
 }
 $page_header_tags[0]['title'] = __( 'Business Type', 'ms' );
-$page_header_tags[0]['list'][1]['href'] = __( '/business/', 'ms' ) . $business;
+$page_header_tags[0]['list'][1]['href'] = __( '/business/', 'ms' ) . $business . '/';
 if ( 'agency' === $business ) {
 	$page_header_tags[0]['list'][1]['title'] = __( 'Agency', 'ms' );
 } elseif ( 'education-ngo' === $business ) {
