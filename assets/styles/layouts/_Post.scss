@@ -222,8 +222,8 @@ $signupSidebarWidth: 16.875em;
 	}
 
 	&--sidebar-right {
-		$wider-margin: 2rem;
-		$wider-margin-sm: 1rem;
+		$wider-margin: 0;
+		$wider-margin-sm: 0;
 		$content-width: 60%;
 		$sidebar-width: 33%;
 
@@ -273,6 +273,16 @@ $signupSidebarWidth: 16.875em;
 							@media (min-width: $breakpoint-desktop-box) {
 								margin-left: -$wider-margin;
 								margin-right: -$wider-margin;
+							}
+						}
+
+						figure {
+
+							&.size-full,
+							&.wide,
+							&.size-large {
+								margin-left: -$wider-margin-sm;
+								margin-right: -$wider-margin-sm;
 							}
 						}
 					}
