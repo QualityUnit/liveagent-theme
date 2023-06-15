@@ -19,12 +19,17 @@ $category_label_colors: (
 @each $className, $color in $category_label_colors {
 	.redesign.Category__item--features.#{$className} {
 
+		&::after {
 
-		.Category__item__header__label_text {
+			background-color: #{$color};
+		}
 
-			&::after {
+		.Category__item__header__label__text {
+
+			&::before {
 				background-color: #{$color};
 			}
 		}
+
 	}
 }

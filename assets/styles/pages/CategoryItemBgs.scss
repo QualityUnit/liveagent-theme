@@ -1,0 +1,33 @@
+/* stylelint-disable selector-class-pattern */
+
+$featured_items_bg: (
+	"ticket-management": "features_ticketing_item_bg.jpg",
+	"live-chat": "features_livechat_item_bg.jpg",
+	"call-center": "features_callcenter_item_bg.jpg",
+	"social": "features_social_item_bg.jpg",
+	"reporting": "features_service_reporting_item_bg.jpg",
+	"support-portal": "features_supportportal_item_bg.jpg",
+	"gamification": "features_gamification_item_bg.jpg",
+	"multilingual": "features_multilingual_item_bg.jpg",
+	"mobile-apps": "features_mobileapps_item_bg.jpg",
+	"integrations": "features_integrations_item_bg.jpg",
+	"security": "features_security_item_bg.jpg",
+	"browser-extensions": "features_browser_extensions_item_bg.jpg",
+);
+
+@each $className, $image in $featured_items_bg {
+
+	.redesign.Category__item--features.#{$className} {
+
+		.Category__item {
+
+			&__header {
+
+				&::before {
+					background-image: url(../../images/#{$image});
+				}
+			}
+		}
+	}
+}
+

@@ -1,7 +1,8 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'features', 'pages/Category', 'css' );
 set_source( 'features', 'pages/CategoryImages', 'css' );
-set_source( 'features', 'pages/CategoryLabelColors', 'css' );
+set_source( 'features', 'pages/CategoryItemBgs', 'css' );
+set_source( 'features', 'pages/CategoryColorScheme', 'css' );
 set_source( 'features', 'filter', 'js' );
 $categories = array_unique( get_categories( array( 'taxonomy' => 'ms_features_categories' ) ), SORT_REGULAR );
 if ( is_tax( 'ms_features_categories' ) === true ) :
@@ -215,7 +216,7 @@ $page_header_args = array(
 								<span class="Category__item__thumbnail__image"></span>
 							</a>
 							<div class="Category__item__wrap">
-								<h3 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+								<h2 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								<div class="Category__item__excerpt item-excerpt">
 									<a href="<?php the_permalink(); ?>">
 						<?php echo esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
@@ -234,25 +235,27 @@ $page_header_args = array(
 								>
 								<div class="Category__item__wrap">
 									<div class="Category__item__header">
+										<div class="Category__item__header__image">
 			<?php
 			if ( has_post_thumbnail() ) {
 				the_post_thumbnail( 'archive_thumbnail' );
 			} else {
 				?>
-												<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php esc_attr_e( 'Features', 'ms' ); ?>">
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php esc_attr_e( 'Features', 'ms' ); ?>">
+
 			<?php	} ?>
+			</div>
 										<div class="Category__item__header__label">
-											<span class="Category__item__header__label_text">Ticketing system</span>
+											<span class="Category__item__header__label__text">Ticketing system</span>
 										</div>
 									</div>
 									<div class="Category__item__content">
-										<h3 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-										<div class="Category__item__excerpt item-excerpt">
+										<h3 class="Category__item__content__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+										<div class="Category__item__content__excerpt item-excerpt">
 											<a href="<?php the_permalink(); ?>">
 												<?php echo esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 											</a>
 										</div>
-										<a class="Category__item__cta" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
 									</div>
 								</div>
 							</li>
