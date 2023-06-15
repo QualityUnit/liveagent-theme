@@ -17,13 +17,14 @@ body.compact-header--active {
 .compact-header {
 	$class-name: compact-header;
 	$v-space: 1em;
+	$bottom-space: 2.2em;
 	$bg-color: #f9f9fa;
 	padding-top: $v-space;
 	padding-bottom: $v-space;
 	background-color: $bg-color;
 
 	& ~ & {
-		margin-top: -2.2em;
+		margin-top: -$bottom-space;
 	}
 
 	&__placeholder {
@@ -33,8 +34,13 @@ body.compact-header--active {
 			padding-top: 0;
 		}
 
+		+ .Archive__filter {
+			margin-top: -$bottom-space;
+			background-color: $pricing-gray;
+		}
+
 		&:not(:last-child) {
-			margin-bottom: 2.2em;
+			margin-bottom: $bottom-space;
 		}
 	}
 
@@ -485,6 +491,15 @@ body.compact-header--active {
 
 	@media (min-width: $breakpoint-tablet) {
 		transition: margin 0.3s ease;
+
+		&__placeholder {
+
+			+ .Archive__filter {
+				top: $header-height;
+				position: sticky;
+				z-index: 5;
+			}
+		}
 
 		&__wrapper {
 			justify-content: space-between;
