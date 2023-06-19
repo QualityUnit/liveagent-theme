@@ -6,9 +6,9 @@
 //todo: filter toggle ikona
 //todo: obrazok pre video(kategoria/single)
 
+// Note: CSS was moved to assets.php because of CLS Web Vital
+
 ?>
-<?php set_custom_source( 'components/compactHeader', 'css' ); ?>
-<?php set_custom_source( 'components/Filter', 'css' ); ?>
 <?php set_custom_source( 'filterMenu', 'js' ); ?>
 <?php set_custom_source( 'sortingMenu', 'js' ); ?>
 <?php set_custom_source( 'compactHeader', 'js' ); ?>
@@ -45,7 +45,7 @@
 		$checklist = $args['checklist'];
 	}
 	?>
-	<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?>">
+	<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?> urlslab-skip-lazy">
 		<div class="compact-header__wrapper wrapper">
 			<div class="compact-header__left">
 				<?php
@@ -220,8 +220,8 @@
 									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
 								</svg>
 							</a>
-							<div class=" compact-header__filters-wrap 
-							<?php 
+							<div class=" compact-header__filters-wrap
+							<?php
 							if ( isset( $filer_count ) ) {
 								?>
 								 compact-header__filters-wrap--count<?php } ?>">
@@ -465,7 +465,7 @@
 														'order'   => 'ASC',
 													)
 												);
-												
+
 												while ( $query_research_posts->have_posts() ) :
 													$query_research_posts->the_post();
 													++$counter;
