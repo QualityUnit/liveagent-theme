@@ -71,35 +71,31 @@
 		return false;
 	}
 	function fnStickyPlaceholder() {
-		if ( false === stickyDisable ) {
-			if ( elSticky && elStickyPlaceholder ) {
-				if ( ! elSticky.classList.contains( clStickyActive ) ) {
-					elStickyPlaceholder.style.minHeight = elSticky.offsetHeight + 'px';
-				}
-			}
+		if ( ! stickyDisable && elSticky && elStickyPlaceholder && ! elSticky.classList.contains( clStickyActive ) ) {
+			elStickyPlaceholder.style.minHeight = elSticky.offsetHeight + 'px';
 		}
 	}
 	function fnStickyHeader( scrollDirection = null ) {
-		if ( false === stickyDisable ) {
-			if ( elSticky && elStickyPlaceholder && fnHeaderHeight() ) {
-				fnStickyPlaceholder();
-				const stickyPoint = elStickyPlaceholder.offsetHeight * 2;
-				if ( stickyPoint <= document.documentElement.scrollTop ) {
-					elSticky.classList.add( clStickyActive );
-					isSticky = true;
-				} else if ( scrollDirection === 'up' ) {
-					elSticky.classList.add( clStickyTransition );
-					setTimeout( () => {
-						elSticky.classList.remove( clStickyActive );
-						elSticky.classList.remove( clStickyTransition );
-						isSticky = false;
-						fnStickyPlaceholder();
-					}, 300 );
-				} else {
-					elSticky.classList.remove( clStickyActive );
-					isSticky = false;
-				}
+		if ( ! stickyDisable && elSticky && elStickyPlaceholder && fnHeaderHeight() ) {
+			fnStickyPlaceholder();
+			const stickyPoint = elStickyPlaceholder.offsetHeight * 2;
+			if ( stickyPoint <= document.documentElement.scrollTop ) {
+				elSticky.classList.add( clStickyActive );
+				isSticky = true;
+				return false;
 			}
+			if ( scrollDirection === 'up' ) {
+				elSticky.classList.add( clStickyTransition );
+				setTimeout( () => {
+					elSticky.classList.remove( clStickyActive );
+					elSticky.classList.remove( clStickyTransition );
+					isSticky = false;
+					fnStickyPlaceholder();
+				}, 300 );
+				return false;
+			}
+			elSticky.classList.remove( clStickyActive );
+			isSticky = false;
 		}
 	}
 	function fnStickyHeaderActions() {

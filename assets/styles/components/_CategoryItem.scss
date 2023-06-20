@@ -241,11 +241,8 @@
 }
 
 .Category__item--blogLike {
-
-	@include color(border-color, border-color-gray);
+	border: 1px solid $light-gray;
 	border-radius: $border-radius-16;
-	border-style: solid;
-	border-width: 1px;
 	box-shadow: 0 15px 66px -15px rgba($black-real, 0.12);
 	transition: transform 0.2s;
 	cursor: pointer;

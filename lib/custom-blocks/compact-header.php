@@ -221,10 +221,7 @@
 							</a>
 							<?php
 							$filter_fields_count = 0;
-							if ( isset( $filer_search ) ) {
-								$filter_fields_count++;
-							}
-							if ( isset( $filer_sort ) ) {
+							if ( isset( $filer_search ) || isset( $filer_sort ) ) {
 								$filter_fields_count++;
 							}
 							if ( isset( $filer_items ) ) {
