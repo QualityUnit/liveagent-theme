@@ -1,9 +1,7 @@
 <?php
-//todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
 //todo: vymazat zakomentovane includovanie 'sidebar_toc'
 //todo: vymazat 'Post__header__small' v php a css
 //todo: filter toggle ikona
-//todo: obrazok pre video(kategoria/single)
 //todo: content-archive-ms_reviews.php ... zobrazovat $whatis_post?
 
 // Note: CSS was moved to assets.php because of CLS Web Vital
