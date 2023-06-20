@@ -1,18 +1,18 @@
 /* stylelint-disable selector-class-pattern */
 
 $featured: (
-	"ticket-management": "features_ticketing.svg",
-	"live-chat": "features_livechat.svg",
-	"call-center": "features_callcenter.svg",
-	"social": "features_social.svg",
-	"reporting": "features_reporting.svg",
-	"support-portal": "features_supportportal.svg",
-	"gamification": "features_gamification.svg",
-	"multilingual": "features_multilingual.svg",
-	"mobile-apps": "features_mobileapps.svg",
-	"integrations": "features_integrations.svg",
-	"security": "features_security.svg",
-	"browser-extensions": "features_livechat.svg",
+	"ticket-management": "features_ticketing.png",
+	"live-chat": "features_livechat.png",
+	"call-center": "features_callcenter.png",
+	"social": "features_social.png",
+	"reporting": "features_service_reporting.png",
+	"support-portal": "features_supportportal.png",
+	"gamification": "features_gamification.png",
+	"multilingual": "features_multilingual.png",
+	"mobile-apps": "features_mobileapps.png",
+	"integrations": "features_integrations.png",
+	"security": "features_security.png",
+	"browser-extensions": "features_browser_extensions.png",
 );
 
 @each $className, $image in $featured {
