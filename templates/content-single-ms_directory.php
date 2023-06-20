@@ -13,7 +13,7 @@ $business = get_post_meta( get_the_ID(), 'mb_directory_mb_directory_business', t
 
 $page_header_tags = array();
 $page_header_tags[0]['title'] = __( 'Business Type', 'ms' );
-$page_header_tags[0]['list'][0]['href'] = __( '/industry/', 'ms' ) . $industry;
+$page_header_tags[0]['list'][0]['href'] = __( '/industry/', 'ms' ) . $industry . '/';
 if ( 'accounting-legal' === $industry ) {
 	$page_header_tags[0]['list'][0]['title'] = __( 'Accounting & Legal', 'ms' );
 } elseif ( 'automotive' === $industry ) {
@@ -48,7 +48,7 @@ if ( 'accounting-legal' === $industry ) {
 	$page_header_tags[0]['list'][0]['title'] = __( 'Webhosting', 'ms' );
 }
 $page_header_tags[0]['title'] = __( 'Business Type', 'ms' );
-$page_header_tags[0]['list'][1]['href'] = __( '/business/', 'ms' ) . $business;
+$page_header_tags[0]['list'][1]['href'] = __( '/business/', 'ms' ) . $business . '/';
 if ( 'agency' === $business ) {
 	$page_header_tags[0]['list'][1]['title'] = __( 'Agency', 'ms' );
 } elseif ( 'education-ngo' === $business ) {
@@ -180,11 +180,11 @@ $page_header_args = array(
 				<?php
 				if ( preg_match( '/\<img/', $screenshot ) ) {
 					?>
-				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>" target="_blank" rel="nofollow" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>">
+				<a class="Directory__screenshot urlslab-skip-lazy" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>" target="_blank" rel="nofollow" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>">
 					<div class="Directory__screenshot--url">
 					<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ); ?>
 					</div>
-					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/browser_window.svg' ); ?>" />
+					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/browser_window.svg' ); ?>" alt="<?php _e( 'Browser Window', 'ms' ); ?>" />
 				<?= $screenshot; // @codingStandardsIgnoreLine ?>
 				</a>
 					<?php

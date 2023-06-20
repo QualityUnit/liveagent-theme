@@ -6,9 +6,9 @@
 //todo: obrazok pre video(kategoria/single)
 //todo: content-archive-ms_reviews.php ... zobrazovat $whatis_post?
 
+// Note: CSS was moved to assets.php because of CLS Web Vital
+
 ?>
-<?php set_custom_source( 'components/compactHeader', 'css' ); ?>
-<?php set_custom_source( 'components/Filter', 'css' ); ?>
 <?php set_custom_source( 'filterMenu', 'js' ); ?>
 <?php set_custom_source( 'sortingMenu', 'js' ); ?>
 <?php set_custom_source( 'compactHeader', 'js' ); ?>
@@ -46,7 +46,7 @@
 	}
 	?>
 	<div class="compact-header__placeholder">
-		<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?>">
+	<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?> urlslab-skip-lazy">
 		<div class="compact-header__wrapper wrapper">
 			<div class="compact-header__left">
 				<?php
@@ -234,7 +234,7 @@
 							}
 							?>
 							<div class=" compact-header__filters-wrap 
-							<?php 
+							<?php
 							if ( isset( $filer_count ) ) {
 								?>
 								 compact-header__filters-wrap--count<?php } ?>">
@@ -477,7 +477,7 @@
 														'order'   => 'ASC',
 													)
 												);
-												
+
 												while ( $query_research_posts->have_posts() ) :
 													$query_research_posts->the_post();
 													++$counter;
