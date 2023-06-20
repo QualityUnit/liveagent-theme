@@ -545,6 +545,10 @@ $positions: ("left", "right");
 	box-shadow: 0 50px 90px rgba(0, 0, 0, 0.06);
 	padding: 0.5em;
 
+	.youtube_urlslab_loader--inn {
+		display: none;
+	}
+
 	@media (min-width: ($breakpoint-tablet-landscape + 1px)) {
 
 		+ .Block--video__vertical {
