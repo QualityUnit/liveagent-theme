@@ -37,7 +37,6 @@ $page_header_args = array(
 	),
 	'title' => get_the_title(),
 	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-	'toc' => true,
 	'update' => array(
 		'label' => __( 'Review Last update:', 'ms' ),
 	),
@@ -56,8 +55,21 @@ function meta( $metabox_id ) {
 	?>
 
 	<div class="wrapper Post__container">
-		<div class="Post__sidebar">
-			<?= do_shortcode( '[signup-sidebar title="' . __( 'Start your free LiveAgent trial!', 'reviews' ) . '"]' ); ?>
+		<div class="Post__sidebar urlslab-skip-keywords">
+			<div class="SidebarItemsSlider__wrapper js-sidebar-sticky">
+				<div class="SidebarItemsSlider">
+					<?php if ( $categories ) { ?>
+						<div class="Post__sidebar__title"><strong><?php _e( 'Other', 'ms' ); ?> <?= esc_html( $category_name ); ?> <?php _e( 'checklists', 'ms' ); ?></strong></div>
+						<div class="SidebarItemsSlider__slider splide">
+							<div class="splide__track">
+								<ul class="SidebarTOC__content splide__list">
+									<?= wp_kses_post( sidebar_toc() ); ?>
+								</ul>
+							</div>
+						</div>
+					<?php } ?>
+				</div>
+			</div>
 		</div>
 
 		<div class="Post__content">
