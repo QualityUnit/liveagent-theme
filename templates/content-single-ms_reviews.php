@@ -48,32 +48,14 @@ function meta( $metabox_id ) {
 }
 ?>
 
-<div class="Post Reviews">
+<div class="Post Post--sidebar-right Reviews">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<?php
 	require_once get_template_directory() . '/templates/content-single-ms_reviews-top.php';
 	?>
 
-	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar urlslab-skip-keywords">
-
-			<?php if ( sidebar_toc() !== false ) { ?>
-				<div class="SidebarTOC-wrapper">
-					<div class="SidebarTOC Post__SidebarTOC">
-						<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-						<div class="SidebarTOC__slider slider splide">
-							<div class="splide__track">
-								<ul class="SidebarTOC__content splide__list">
-									<?= wp_kses_post( sidebar_toc() ); ?>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-		</div>
-
-		<div class="Signup__sidebar-wrapper">
+	<div class="wrapper Post__container">
+		<div class="Post__sidebar">
 			<?= do_shortcode( '[signup-sidebar title="' . __( 'Start your free LiveAgent trial!', 'reviews' ) . '"]' ); ?>
 		</div>
 
