@@ -37,6 +37,7 @@ $page_header_args = array(
 	),
 	'title' => get_the_title(),
 	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
+	'toc' => true,
 	'update' => array(
 		'label' => __( 'Review Last update:', 'ms' ),
 	),
