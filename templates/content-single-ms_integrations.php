@@ -113,7 +113,11 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Post__container">
-
+		<div class="Post__sidebar">
+			<div class="Signup__sidebar-wrapper">
+				<?= do_shortcode( '[signup-sidebar js-sticky="true"]' ); ?>
+			</div>
+		</div>
 		<div class="Post__content">
 
 			<div class="Content" itemprop="articleBody">

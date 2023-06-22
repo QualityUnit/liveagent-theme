@@ -35,10 +35,8 @@
 		@include color(color, font-color-dark);
 		@include color(background-color, button-outline-color);
 		font-family: $font-secondary;
-		font-size: 0.8125rem;
 		font-weight: $font-weight-semi;
 		border-radius: 6px;
-		text-align: center;
 		transition: all 0.2s;
 		padding: 0.45em;
 		cursor: pointer;
@@ -50,6 +48,13 @@
 		&:hover {
 
 			@include color(background-color, secondary-background);
+		}
+
+		.qu-Checklist__expander {
+			display: flex;
+			align-items: center;
+			line-height: 1;
+			font-size: 0.8125rem;
 		}
 
 		.inactive {

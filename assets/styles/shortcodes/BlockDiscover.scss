@@ -25,8 +25,12 @@ scss/at-extend-no-missing-placeholder */
 		}
 
 		@media (min-width: $breakpoint-desktop) {
-			background-size: auto 100%;
-			background-position: 95% bottom;
+			background-position: 103% bottom;
+			background-size: auto 90%;
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			background-position: 100% bottom;
 		}
 	}
 
