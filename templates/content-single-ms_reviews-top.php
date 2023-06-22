@@ -238,15 +238,15 @@ function progressbar( $text, $rating, $color ) {
 				</div>
 			</div>
 			<div class="Post__content">
-                <meta itemprop="operatingSystem" content="Any" />
-                <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
-                <span  itemprop="applicationCategory" content="BusinessApplication">
+				<meta itemprop="operatingSystem" content="Any" />
+				<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+				<span  itemprop="applicationCategory" content="BusinessApplication">
                 <meta itemprop="name" content="<?= $posttitle; // @codingStandardsIgnoreLine ?>">
 				<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
 					<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
 				</span>
 			</span>
-                <span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
 				<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
 			</span>
 				<div class="Reviews__editor--top">
