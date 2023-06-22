@@ -6,6 +6,9 @@
 @forward "../elements/CircleProgressBar";
 
 .Signup__form--simple {
+	$field-height: 2.75rem;
+	background: $medium-orange url(../../images/orange_effect_bg.svg) center center no-repeat;
+	background-size: cover;
 
 	&[class] {
 		max-width: none;
@@ -19,13 +22,88 @@
 		}
 	}
 
-	*:not(.Button) {
-		text-align: left !important;
-		justify-content: flex-start !important;
+	input {
+
+		@include color(background-color, main-background);
+		@include color(color, font-color-level3);
+		width: 100%;
+		height: $field-height;
+		border: 1px solid $medium-gray-inputs;
+		font-size: 0.8125rem;
+		padding-left: 1em;
+
+		@include input-placeholder() {
+			color: currentcolor;
+		}
 	}
 
-	&__title.h2 {
-		margin-bottom: 0;
+	.signUpError {
+
+		@include color(color, error-color);
+		line-height: 1.3;
+		margin-bottom: 1em;
+	}
+
+	&__header {
+		display: flex;
+		margin-bottom: 1.25em;
+	}
+
+	&__title {
+		line-height: 1.6;
+		font-size: 1.25em;
+	}
+
+	&__reviews {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		&--title {
+			font-size: 0.813em;
+			font-weight: $font-weight-semi;
+		}
+
+		&--item {
+			display: flex;
+			align-items: center;
+
+			a {
+				display: inline-flex;
+				align-items: center;
+				text-decoration: none;
+
+				&:active,
+				&:focus,
+				&:hover {
+					text-decoration: underline;
+				}
+
+				.logo-trustpilot {
+					position: relative;
+					top: -0.025em;
+				}
+
+				span {
+
+					@include color(color, font-color-dark);
+					line-height: 1;
+					font-size: 0.813em;
+					text-decoration: none !important;
+				}
+			}
+		}
+
+		.stars {
+			display: flex;
+
+			&__item {
+
+				@include square(1em);
+				display: block;
+				margin: 0 0.063em;
+			}
+		}
 	}
 
 	[data-id="promoFieldmain"][class] {
@@ -40,14 +118,93 @@
 		}
 
 		&__item {
-			margin-bottom: 1em;
+			position: relative;
+			margin-bottom: 0.75em;
+			z-index: 5;
 
-			&__domain {
-				height: calc(50px - 2px);
+			&::before {
+				top: 0;
+				line-height: $field-height;
+				transform: none;
 			}
 
-			input {
-				height: 50px;
+			.Button {
+				height: $field-height;
+			}
+
+			.ErrorMessage {
+				position: relative;
+				left: initial;
+				font-size: 0.6875rem;
+				margin-bottom: 0;
+				margin-top: 0.2em;
+			}
+
+			&.Error {
+
+				input {
+					border-color: $saturated-red;
+					color: $saturated-red;
+				}
+			}
+
+			&.Valid {
+
+				.ErrorMessage {
+					display: none;
+				}
+
+				input {
+					border-color: $saturated-green;
+					color: $saturated-green;
+				}
+			}
+
+			&.domain {
+
+				input {
+					padding-right: 7em;
+				}
+			}
+
+			&.has-svg {
+
+				svg {
+					top: ( $field-height / 2 );
+				}
+			}
+
+			&__domain {
+
+				@include color(background-color, secondary-background);
+				@include color(color, font-color-normal);
+				position: absolute;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 0.6875rem;
+				padding: 0 1em;
+				border-radius: 0 6px 6px 0;
+				height: calc($field-height - 2px);
+				top: 1px;
+				right: 1px;
+			}
+
+			&__info {
+				position: absolute;
+				top: -0.5em;
+				right: -0.5em;
+				font-size: 1rem;
+
+				.ComparePlans__tooltip__text {
+					left: auto;
+					right: -1em;
+
+					&::after {
+						left: auto !important;
+						right: 1.25em;
+					}
+				}
 			}
 		}
 
@@ -56,39 +213,200 @@
 		}
 
 		&__step {
-			font-size: 0.875rem;
-			padding: 3em 2.5em;
 			flex: 0 0 100%;
 
 			&--text {
-				display: flex;
-				align-items: center;
-				color: $saturated-green;
-				margin-bottom: 1em;
+
+				text-align: right;
+
+				&-text {
+					font-size: 0.75em;
+					font-weight: $font-weight-semi;
+					vertical-align: middle;
+				}
 
 				.emoji {
+					display: inline-block;
 					height: 1.42em;
-					margin-left: 0.75em;
 				}
 
 				.CircleProgressBar {
 
-					@include square(1.7145em);
+					@include square(1.5em);
 					margin-right: 0.5em;
 
 					&__middle {
 						transform: scale(0.75);
+						background-color: $medium-orange;
 					}
-				}
-
-				em {
-					font-style: normal;
-					color: $medium-gray-quotes;
 				}
 			}
 
-			@media (min-width: $breakpoint-desktop-box) {
-				padding-right: 8.75rem;
+			&--progress {
+
+				&:not(:last-child) {
+					margin-bottom: 0.5em;
+				}
+
+				> * {
+					display: inline-block;
+					vertical-align: middle;
+				}
+
+				&-steps {
+
+					@include color(color, primary-color);
+					font-size: 0.875em;
+					font-weight: $font-weight-semi;
+				}
+			}
+		}
+
+		&__submit {
+
+			.Button {
+				width: 100%;
+				padding: 0 0.5em;
+				font-size: 0.875em;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__header {
+			justify-content: space-between;
+			align-items: flex-end;
+		}
+
+		&__title {
+			max-width: 60%;
+			margin: 0 2em 0 0;
+		}
+
+		&__reviews {
+
+			&--title {
+				margin-right: 0.846em;
+			}
+
+			&--item {
+
+				&:not(:last-child) {
+					margin-right: 1em;
+				}
+
+				a {
+
+					span {
+						margin: 0 0.385em;
+					}
+				}
+			}
+		}
+
+		.Signup__form {
+
+			&__step {
+
+				padding: 1.25em 2em;
+
+				&--fields {
+					display: flex;
+					flex-wrap: wrap;
+
+					> * {
+						width: 100%;
+					}
+				}
+
+				&[data-step="2"] .Signup__form__item {
+
+					max-width: 49%;
+
+					&:first-child {
+						margin-right: 2%;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: ($breakpoint-tablet - 1)) {
+
+		&__header {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		&__title {
+			max-width: initial;
+			margin: 0 0 0.5em 0;
+		}
+
+		&__reviews {
+			max-width: 13em;
+			margin-left: auto;
+			margin-right: auto;
+			justify-content: space-between;
+			text-align: center;
+
+			&--title {
+				width: 100%;
+				margin-bottom: 0.5em;
+			}
+
+			&--item {
+				flex-direction: column;
+
+				a {
+
+					span {
+						margin-left: 0.385em;
+					}
+				}
+			}
+
+			.stars {
+				margin-top: 0.4em;
+			}
+		}
+
+		.Signup__form {
+
+			&__item {
+
+				.Button {
+					width: 100%;
+					position: relative;
+					right: initial;
+					margin: 0.5em 0 0 0;
+					border-radius: 0.375em;
+					font-size: 0.8125rem;
+				}
+			}
+
+			&__step {
+
+				padding: 1.25em 1em;
+
+				&--text {
+					text-align: inherit;
+				}
+
+				&[data-step="1"] .Signup__form__item {
+
+					display: flex;
+					flex-direction: column;
+
+					.ErrorMessage {
+						order: 2;
+					}
+
+					.Button {
+						order: 3;
+					}
+				}
 			}
 		}
 	}

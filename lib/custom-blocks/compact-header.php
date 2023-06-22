@@ -1,10 +1,8 @@
 <?php
-//todo: bug: pri vyske stranky,ktora je len o par stovak px vyssia ako okno preblikava compact header
 //todo: vymazat zakomentovane includovanie 'sidebar_toc'
 //todo: vymazat 'Post__header__small' v php a css
-//todo: logo v sablonach s THEME_VERSION
 //todo: filter toggle ikona
-//todo: obrazok pre video(kategoria/single)
+//todo: content-archive-ms_reviews.php ... zobrazovat $whatis_post?
 
 // Note: CSS was moved to assets.php because of CLS Web Vital
 
@@ -45,6 +43,7 @@
 		$checklist = $args['checklist'];
 	}
 	?>
+	<div class="compact-header__placeholder">
 	<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?> urlslab-skip-lazy">
 		<div class="compact-header__wrapper wrapper">
 			<div class="compact-header__left">
@@ -220,13 +219,26 @@
 									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
 								</svg>
 							</a>
-							<div class=" compact-header__filters-wrap
+							<?php
+							$filter_fields_count = 0;
+							if ( isset( $filer_search ) || isset( $filer_sort ) ) {
+								$filter_fields_count++;
+							}
+							if ( isset( $filer_items ) ) {
+								$filter_fields_count = $filter_fields_count + count( $filer_items );
+							}
+							?>
+							<div class=" compact-header__filters-wrap 
 							<?php
 							if ( isset( $filer_count ) ) {
 								?>
 								 compact-header__filters-wrap--count<?php } ?>">
 								<span class="compact-header__filters-collapse js-compact-header__close"></span>
-								<div class="compact-header__filters-inn">
+								<div class="compact-header__filters-inn
+								<?php
+								if ( $filter_fields_count < 3 ) {
+									?>
+									compact-header__filters-inn-sm<?php } ?>">
 									<?php if ( isset( $filer_search ) ) { ?>
 										<div class="compact-header__search">
 											<div class="searchField">
@@ -415,25 +427,20 @@
 								<div class="compact-header__menu-items">
 									<ul>
 										<?php foreach ( $menu_header['items'] as $menu_item ) { ?>
-											<?php
-											$menu_item_href = $menu_item['href'];
-											$menu_item_title = $menu_item['title'];
-											$menu_item_active = $menu_item['active'];
-											?>
 											<li
-												<?php if ( isset( $menu_item_active ) ) { ?>
-													<?php if ( $menu_item_active ) { ?>
+												<?php if ( isset( $menu_item['active'] ) ) { ?>
+													<?php if ( $menu_item['active'] ) { ?>
 														class="active"
 													<?php } ?>
 												<?php } ?>
 											>
-												<?php if ( isset( $menu_item_href ) ) { ?>
-												<a href="<?= esc_url( $menu_item_href ); ?>">
+												<?php if ( isset( $menu_item['href'] ) ) { ?>
+												<a href="<?= esc_url( $menu_item['href'] ); ?>">
 													<?php } ?>
-													<?php if ( isset( $menu_item_title ) ) { ?>
-														<?= esc_html( $menu_item_title ); ?>
+													<?php if ( isset( $menu_item['title'] ) ) { ?>
+														<?= esc_html( $menu_item['title'] ); ?>
 													<?php } ?>
-													<?php if ( isset( $menu_item_href ) ) { ?>
+													<?php if ( isset( $menu_item['href'] ) ) { ?>
 												</a>
 											<?php } ?>
 											</li>
@@ -537,5 +544,6 @@
 				</div>
 			<?php } ?>
 		</div>
+	</div>
 	</div>
 <?php } ?>
