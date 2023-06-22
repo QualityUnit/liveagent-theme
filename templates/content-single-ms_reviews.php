@@ -1,7 +1,10 @@
 <?php // @codingStandardsIgnoreLine
 	set_custom_source( 'pages/Directory', 'css' );
-	set_custom_source( 'common/splide' );
+	set_custom_source( 'common/splide', 'css' );
+	set_custom_source( 'components/SidebarTOC', 'css' );
 	set_custom_source( 'reviewsGallery', 'js' );
+	set_custom_source( 'splide', 'js' );
+	set_custom_source( 'sidebar_toc', 'js' );
 	$current_lang       = apply_filters( 'wpml_current_language', null );
 	$header_en_category = get_en_category( 'ms_reviews', $post->ID );
 	$header_category    = get_the_terms( $post->ID, 'ms_reviews_categories' );
@@ -41,7 +44,28 @@ $page_header_args = array(
 		'label' => __( 'Review Last update:', 'ms' ),
 	),
 );
-
+$pre_content = null;
+if ( ! empty( meta( 'pros' ) ) || ! empty( meta( 'cons' ) ) ) {
+	$pre_content .= '<h2>' . __( 'Key takeaways', 'reviews' ) . '</h2>';
+	$pre_content .= '<div class="wp-block-columns">';
+	if ( ! empty( meta( 'pros' ) ) ) {
+		$pre_content .= '<div class="wp-block-column checklist checklist--pros">';
+		$pre_content .= '<h3>' . __( 'Pros', 'reviews' ) . '</h3>';
+		$pre_content .= '<ul itemprop="positiveNotes" itemtype="https://schema.org/ItemList" itemscope>';
+		$pre_content .= preg_replace( "/(.+?)(\n|$)/", '<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope> <meta itemprop="name" content="$1" />$1</li>', meta( 'pros' ) );
+		$pre_content .= '</ul>';
+		$pre_content .= '</div>';
+	}
+	if ( ! empty( meta( 'cons' ) ) ) {
+		$pre_content .= '<div class="wp-block-column checklist checklist--cons">';
+		$pre_content .= '<h3>' . __( 'Cons', 'reviews' ) . '</h3>';
+		$pre_content .= '<ul itemprop="negativeNotes" itemtype="https://schema.org/ItemList" itemscope>';
+		$pre_content .= preg_replace( "/(.+?)(\n|$)/", '<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope> <meta itemprop="name" content="$1" />$1</li>', meta( 'cons' ) );
+		$pre_content .= '</ul>';
+		$pre_content .= '</div>';
+	}
+	$pre_content .= '</div>';
+}
 function meta( $metabox_id ) {
 		global $post;
 		return get_post_meta( $post->ID, $metabox_id, true );
@@ -56,65 +80,26 @@ function meta( $metabox_id ) {
 
 	<div class="wrapper Post__container">
 		<div class="Post__sidebar urlslab-skip-keywords">
-			<div class="SidebarItemsSlider__wrapper js-sidebar-sticky">
-				<div class="SidebarItemsSlider">
-					<?php if ( $categories ) { ?>
-						<div class="Post__sidebar__title"><strong><?php _e( 'Other', 'ms' ); ?> <?= esc_html( $category_name ); ?> <?php _e( 'checklists', 'ms' ); ?></strong></div>
-						<div class="SidebarItemsSlider__slider splide">
+			<?php if ( sidebar_toc() !== false ) { ?>
+				<div class="SidebarTOC-wrapper js-sidebar-sticky">
+					<div class="SidebarTOC Post__SidebarTOC">
+						<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
+						<div class="SidebarTOC__slider slider splide">
 							<div class="splide__track">
 								<ul class="SidebarTOC__content splide__list">
-									<?= wp_kses_post( sidebar_toc() ); ?>
+									<?= wp_kses_post( sidebar_toc( $pre_content . apply_filters( 'the_content', strip_shortcodes( get_the_content() ) ) ) ); ?>
 								</ul>
 							</div>
 						</div>
-					<?php } ?>
-				</div>
-			</div>
-		</div>
-
-		<div class="Post__content">
-
-			<div class="Content" itemprop="articleBody">
-				<?php
-				if ( ! empty( meta( 'pros' ) ) || ! empty( meta( 'cons' ) ) ) {
-					?>
-				<h2><?php _e( 'Key takeaways', 'reviews' ); ?></h2>
-				<div class="wp-block-columns">
-					<?php
-					// @codingStandardsIgnoreStart
-					if ( ! empty( meta( 'pros' ) ) ) {
-						?>
-					<div class="wp-block-column checklist checklist--pros">
-						<h3><?php _e( 'Pros', 'reviews' ); ?></h3>
-						<ul itemprop="positiveNotes" itemtype="https://schema.org/ItemList" itemscope>
-							<?= preg_replace(
-								"/(.+?)(\n|$)/",
-								'<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
-							<meta itemprop="name" content="$1" />$1</li>', meta( 'pros' ) ); ?>
-						</ul>
 					</div>
-						<?php
-					}
-					if ( ! empty( meta( 'cons' ) ) ) {
-						?>
-						<div class="wp-block-column checklist checklist--cons">
-							<h3><?php _e( 'Cons', 'reviews' ); ?></h3>
-							<ul itemprop="negativeNotes" itemtype="https://schema.org/ItemList" itemscope>
-								<?= preg_replace(
-									"/(.+?)(\n|$)/",
-									'<li itemprop="itemListElement" itemtype="https://schema.org/ListItem" itemscope>
-								<meta itemprop="name" content="$1" />$1</li>', meta( 'cons' ) ); ?>
-							</ul>
-						</div>
-						<?php
-					}
-					// @codingStandardsIgnoreEnd
-					?>
 				</div>
-					<?php
-				}
-				?>
-
+			<?php } ?>
+		</div>
+		<div class="Post__content">
+			<div class="Content" itemprop="articleBody">
+				<?php if ( $pre_content ) { ?>
+					<?= wp_kses_post( $pre_content ); ?>
+				<?php } ?>
 				<?php the_content(); ?>
 
 				<?php
