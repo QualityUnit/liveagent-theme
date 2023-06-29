@@ -168,6 +168,17 @@
 		}
 	}
 
+	&__many-more {
+		display: flex;
+		justify-content: flex-end;
+		text-align: center;
+
+		> * {
+			width: 100%;
+			max-width: 24em;
+		}
+	}
+
 	@media (max-width: $breakpoint-desktop) {
 
 		&.elementor-section {
@@ -207,6 +218,13 @@
 
 			.Reviews__items {
 				margin-top: 0;
+			}
+		}
+
+		&__many-more {
+
+			> * {
+				max-width: 100%;
 			}
 		}
 	}
