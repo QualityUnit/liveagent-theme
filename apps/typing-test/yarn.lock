@@ -2089,10 +2089,15 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.5.tgz#1001cc5e6a3704b83c236027e77f2f58ea010f40"
   integrity sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==
 
-"@types/node@*", "@types/node@^18":
+"@types/node@*":
   version "18.11.18"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.18.tgz#8dfb97f0da23c2293e554c5a50d61ef134d7697f"
   integrity sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==
+
+"@types/node@^20":
+  version "20.3.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.3.3.tgz#329842940042d2b280897150e023e604d11657d6"
+  integrity sha512-wheIYdr4NYML61AjC8MKj/2jrR/kDQri/CIpVoZwldwhnIrD/j9jIU5bJ8yBKuB2VhpFV7Ab6G2XkBjv9r9Zzw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -9558,9 +9563,9 @@ node-status-codes@^1.0.0:
   integrity sha1-WuVUHQJGRdMqWPzdyc7s6nrjrC8=
 
 node@^20:
-  version "20.0.0"
-  resolved "https://registry.yarnpkg.com/node/-/node-20.0.0.tgz#74222aea3c96f2f3ff9968d13ffc836b3bfbfe7b"
-  integrity sha512-4R1vw5hKUjQw3x65x9g/ape/XlY/ZFHaQWB+jQLFJIJkVKJPDSY4oj3O6qgXOvv2wwgEpK9J2SvJUjuL6zu0uA==
+  version "20.3.1"
+  resolved "https://registry.yarnpkg.com/node/-/node-20.3.1.tgz#b3603945c37a9a87bdda4ffdfa5437a69df53846"
+  integrity sha512-14WqSnODmC4pBaYmWUJ+xYEH0UJs2JWhLLaDZ24PxMrnVuK4s+dJa9IfMCOgZv7W8nn1aZ/G977975M61RjgtA==
   dependencies:
     node-bin-setup "^1.0.0"
 
