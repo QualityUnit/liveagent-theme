@@ -198,7 +198,7 @@ body.compact-header--active {
 				display: inline-flex;
 				align-items: center;
 				font-weight: $font-weight-bold;
-				text-decoration: none;
+				text-decoration: none !important;
 
 				svg {
 
@@ -210,7 +210,7 @@ body.compact-header--active {
 
 			a {
 
-				@include color(color, primary-color);
+				@include color(color, primary-color, !important);
 
 			}
 		}
