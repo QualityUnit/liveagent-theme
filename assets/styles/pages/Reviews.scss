@@ -12,7 +12,6 @@
 $version: "3.0";
 
 .Reviews {
-	overflow-x: hidden;
 
 	&__how {
 
@@ -230,10 +229,7 @@ $version: "3.0";
 	}
 
 	&__info {
-
-		@media (max-width: $breakpoint-tablet-landscape) {
-			margin-bottom: 3em;
-		}
+		margin-bottom: 3em;
 
 		&--title {
 			font-size: 1.25rem;
@@ -244,7 +240,7 @@ $version: "3.0";
 		}
 
 		.currency {
-			font-style: 1.143em;
+			font-size: 1.143em;
 		}
 
 		.price {
@@ -282,7 +278,7 @@ $version: "3.0";
 
 		a {
 			display: block;
-			color: currentcolor;
+			color: currentcolor !important;
 			text-decoration: underline;
 		}
 	}
@@ -290,8 +286,6 @@ $version: "3.0";
 	&__editor {
 		background: url(../../images/reviews_editor_bg.jpg) center center no-repeat;
 		background-size: cover;
-		max-width: $breakpoint-desktop-hd;
-		margin: 0 auto;
 		padding: 1.5em;
 
 		&--top {
@@ -327,10 +321,6 @@ $version: "3.0";
 				max-width: 18.375em;
 				margin-left: auto;
 			}
-		}
-
-		@media (min-width: $breakpoint-desktop-hd) {
-			border-radius: $border-radius-16;
 		}
 	}
 
