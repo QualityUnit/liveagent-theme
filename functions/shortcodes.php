@@ -5,6 +5,7 @@ require_once get_template_directory() . '/lib/shortcodes/small-photo-slider.php'
 	require_once get_template_directory() . '/lib/shortcodes/signup-form-free.php';
 	require_once get_template_directory() . '/lib/shortcodes/signup-sidebar.php';
 	require_once get_template_directory() . '/lib/shortcodes/signup-form-redeemcode.php';
+	require_once get_template_directory() . '/lib/shortcodes/la-functions-explanation-with-videos.php';
 	require_once get_template_directory() . '/lib/shortcodes/newsletter-form.php';
 	require_once get_template_directory() . '/lib/shortcodes/clients.php';
 	require_once get_template_directory() . '/lib/shortcodes/voip-partners.php';

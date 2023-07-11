@@ -1,0 +1,30 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, selector-id-pattern */
+
+$tabIcons: (
+	"chat": "tab-icon-chat.svg",
+	"calls": "tab-icon-calls.svg",
+	"video-calls": "tab-icon-video-calls.svg",
+	"contact-forms": "tab-icon-contact-forms.svg",
+	"forum": "tab-icon-forum.svg",
+	"feedbacks": "tab-icon-feedbacks.svg",
+	"twitter": "tab-icon-twitter.svg",
+	"gmail": "tab-icon-gmail.svg",
+	"facebook": "tab-icon-facebook.svg",
+	"viber": "tab-icon-viber.svg",
+	"whatsapp": "tab-icon-whatsapp.svg",
+	"slack": "tab-icon-slack.svg",
+);
+
+@each $className, $image in $tabIcons {
+
+	.BuildingApp__videos__tab.RadioInputContainer {
+
+		label[for="#{$className}"] {
+			.tab-icon.#{$className} {
+				background: url(../images/#{$image});
+
+			}
+		}
+	}
+}

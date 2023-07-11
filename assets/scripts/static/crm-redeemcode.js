@@ -507,7 +507,7 @@
 		} ),
 
 		bar: generateAccessor( '_bar', function bar( reset ) {
-			return this.block( reset ).find( '.progress-bar' );
+			return this.block( reset ).find( '.progress__bar' );
 		} ),
 
 		setProgress( progress ) {
@@ -515,20 +515,16 @@
 				this.progress = progress;
 			}
 
-			progressStep =
-				( 0.5 + ( 1 - this.clientProgress / this.progress ) ) *
-				( 1 + this.clientProgress / this.progress );
-			newProgress = Math.round( this.clientProgress + progressStep );
+			newProgress = Math.round( this.progress );
+
 			if ( newProgress <= this.progress ) {
 				this.clientProgress = newProgress;
-				this.bar().width( `${ this.clientProgress }%` );
+				this.bar().css( 'width', `${ this.clientProgress }%` );
 				this.percent().text( `${ this.clientProgress }%` );
 
-				if ( this.clientProgress !== 0 ) {
-					$( '#heart-1' ).css(
-						'stroke-dashoffset',
-						269.663 - this.clientProgress * ( 269.663 / 100 )
-					);
+				// eslint-disable-next-line eqeqeq
+				if ( this.clientProgress === 100 ) {
+					this.percent().hide();
 				}
 
 				const label = this.label();
@@ -539,12 +535,14 @@
 					this.dots += '.';
 				}
 
-				if ( this.clientProgress <= 33 ) {
+				if ( this.clientProgress <= 32 ) {
 					label.text( `${ textInstalling }${ this.dots }` );
-				} else if ( this.clientProgress <= 66 ) {
+				} else if ( this.clientProgress <= 52 ) {
 					label.text( `${ textLaunching }${ this.dots }` );
-				} else if ( this.clientProgress === 100 ) {
+				} else if ( this.clientProgress <= 72 ) {
 					label.text( `${ textRedirecting }${ this.dots }` );
+				} else if ( this.clientProgress === 100 ) {
+					label.text( `${ textFinalizing }${ this.dots }` );
 				} else {
 					label.text( `${ textFinalizing }${ this.dots }` );
 				}

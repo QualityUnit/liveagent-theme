@@ -74,17 +74,15 @@ function ms_signup_form( $atts ) {
 
 			<div class="Signup__form__submit">
 				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="handleSend();">
+					<div class="WorkingPanel" style="display: none;">
+						<div class="animation">
+							<div class="one spin-one"></div>
+							<div class="two spin-one"></div>
+						</div>
+					</div>
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>
 
-				<div class="WorkingPanel" style="display: none;">
-					<div class="animation">
-						<div class="one spin-one"></div>
-						<div class="two spin-two"></div>
-						<div class="three spin-one"></div>
-					</div>
-					<p><?php _e( 'Passing data through the machine...', 'ms' ); ?></p>
-				</div>
 				<div class="Signup__form__terms">
 					<p><?php _e( 'By signing up, I accept', 'ms' ); ?> <a title="<?php _e( 'T&amp;C', 'ms' ); ?>" href="<?php _e( '/terms-and-conditions/', 'ms' ); ?>"><?php _e( 'T&amp;C', 'ms' ); ?></a> <?php _e( 'and', 'ms' ); ?> <a title="<?php _e( 'Privacy Policy', 'ms' ); ?>" href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'Privacy Policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 				</div>
@@ -115,6 +113,9 @@ function ms_signup_form( $atts ) {
             }
 			function handleSend() {
 				const mailValue = mailInput.value;
+				const buttonText = document.querySelector('.createTrialButton span');
+
+				buttonText.textContent = `${ textButtonSubmit }`;
 
 				if (mailValue) {
 					const mailSecondary = new RegExp(mailRegex).test(mailValue);
