@@ -68,10 +68,7 @@ function ms_signup_form_redeem_code( $atts ) {
 			<div class="Signup__form__submit">
 				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="handleSend();">
 					<div class="WorkingPanel" style="display: none;">
-						<div class="animation">
-							<div class="one spin-one"></div>
-							<div class="two spin-one"></div>
-						</div>
+						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheel.gif' ) ?>" alt="gear wheels">
 					</div>
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>

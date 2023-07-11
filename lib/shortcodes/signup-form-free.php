@@ -45,10 +45,7 @@ function ms_signup_form_free() {
 			<div class="Signup__form__submit">
 				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form Free', 'Signup']); handleSend();">
 					<div class="WorkingPanel" style="display: none;">
-						<div class="animation">
-							<div class="one spin-one"></div>
-							<div class="two spin-one"></div>
-						</div>
+						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheel.gif' ) ?>" alt="gear wheels">
 					</div>
 					<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 				</div>

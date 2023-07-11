@@ -66,7 +66,7 @@ no-descending-specificity, selector-id-pattern */
 		@include color(color, font-color-light);
 		display: inline-block;
 		margin: 0;
-		padding: 0 35px;
+		padding: 0 57px 0 35px;
 		border: 0;
 		border-radius: $border-radius-small;
 		font-size: 14px;
@@ -76,6 +76,17 @@ no-descending-specificity, selector-id-pattern */
 		text-decoration: none;
 		transition: all 0.3s;
 		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+
+		&::after {
+			content: url(/assets/images/arrow_right_white.svg);
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(-100%, -44%);
+		}
+
 
 		&:active,
 		&:focus,
@@ -120,8 +131,9 @@ no-descending-specificity, selector-id-pattern */
 
 			display: grid;
 			grid-template-columns: 50px 1fr max-content;
-			align-items: flex-start;
+			align-items: center;
 			gap: 1em;
+			margin-bottom: 12px;
 
 			&__logo {
 				display: block;
@@ -133,7 +145,7 @@ no-descending-specificity, selector-id-pattern */
 				display: block;
 				text-align: left;
 				font-size: 24px;
-				margin-bottom: 40px;
+				margin-bottom: 0;
 			}
 
 			&__percentage {
@@ -142,13 +154,6 @@ no-descending-specificity, selector-id-pattern */
 				font-style: normal;
 				justify-self: flex-end;
 
-			}
-
-			@media (min-width: $breakpoint-desktop) {
-
-				&__title {
-					margin-bottom: 20px;
-				}
 			}
 
 		}
@@ -418,37 +423,13 @@ no-descending-specificity, selector-id-pattern */
 		justify-content: center;
 		align-items: center;
 		z-index: 5;
+		margin-right: 12px;
 
-
-		.animation {
+		.gear-wheels {
 			position: relative;
-			width: 31px;
-			height: 36px;
-			margin-right: 12px;
-		}
-
-
-		.one,
-		.two {
-			width: 18px;
-			height: 18px;
-			background-size: 100%;
-			background-image: url(../images/gear-wheel.svg);
-			background-repeat: no-repeat;
-		}
-
-		.two {
-			animation: spin-one 2s infinite linear;
-			position: absolute;
-			bottom: 2px;
-			right: 0;
-		}
-
-		.one {
-			animation: spin-one 2s infinite linear;
-			position: absolute;
-			top: 2px;
-			left: 0;
+			z-index: 9;
+			width: 37px;
+			height: 37px;
 		}
 
 
