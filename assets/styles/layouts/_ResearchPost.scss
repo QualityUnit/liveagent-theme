@@ -187,9 +187,12 @@
 		&__counter {
 
 			@extend %counter;
-			@include square($num-width);
-			margin-right: $num-margin;
-			text-align: center;
+			@include square(2.071em);
+			margin-right: 1em;
+			margin-left: 0.429em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 
 		&__post {
@@ -224,9 +227,9 @@
 
 		.Research--post__counter {
 
-			@include square($num-width);
+			@include square(1.813em);
 			padding: 0;
-			margin-right: $num-margin;
+			margin-right: 0.875em;
 			font-size: 1rem;
 		}
 

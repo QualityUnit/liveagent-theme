@@ -17,7 +17,7 @@ $page_header_args = array(
 ?>
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	<div class="Box Box--gray Archive__filter">
+	<div class="Archive__filter">
 		<div class="wrapper">
 			<div class="Archive__filter__item">
 				<ul>

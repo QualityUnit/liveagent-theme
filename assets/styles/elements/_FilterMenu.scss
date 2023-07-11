@@ -68,7 +68,7 @@
 			opacity: 0;
 			overflow: hidden;
 			border-radius: 0.625em;
-			width: 145%;
+			width: 100%;
 			padding: 1em 1.45em;
 			transition: opacity 0.1s;
 			box-shadow: 0 0.063em 0.375em rgba($black, 0.16);
@@ -134,6 +134,7 @@
 		&__item [type="checkbox"] + label,
 		&__item [type="radio"] + label,
 		a[href] &__item-title {
+			line-height: 1.4;
 			padding: 0.5em 1em;
 		}
 	}

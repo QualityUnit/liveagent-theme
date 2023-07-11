@@ -16,22 +16,13 @@ scss/at-extend-no-missing-placeholder */
 
 		@media (min-width: $breakpoint-tablet) {
 
-			@include posZero;
+			@include posCustom($left: 50%) ;
 			position: absolute;
 			content: "";
 			pointer-events: none;
 			background: url(../../images/cta_new_chat.png) 100% bottom no-repeat;
-			background-size: 50% auto;
+			background-size: contain;
 		}
-
-		@media (min-width: $breakpoint-desktop) {
-			background-size: auto 100%;
-			background-position: 95% bottom;
-		}
-	}
-
-	.Button + .Button {
-		top: 0;
 	}
 
 	&__title {
@@ -80,24 +71,13 @@ scss/at-extend-no-missing-placeholder */
 
 	&__buttons {
 		display: flex;
-		flex-direction: column;
-		margin-top: 1.5em;
+		flex-wrap: wrap;
 
 		.Button {
-			padding: 0.5em 1.5em;
-		}
-
-		@media (max-width: $breakpoint-tablet-landscape) {
-
-			.Button {
-				padding: 0.5em 1.5em;
-				width: 100%;
-
-				+ .Button {
-					margin-left: 0;
-					margin-top: 1em;
-				}
-			}
+			flex: 1;
+			min-width: 13em;
+			padding: 0.5em;
+			margin: 1em 1em 0 0 !important;
 		}
 
 	}
@@ -166,18 +146,9 @@ scss/at-extend-no-missing-placeholder */
 	@media (min-width: $breakpoint-desktop) {
 
 		h4,
-		p {
-			max-width: 50%;
-		}
-
+		p,
 		&__buttons {
-			flex-direction: row;
-			max-width: 58%;
-
-			.Button.Button {
-				white-space: nowrap;
-				max-width: 50%;
-			}
+			max-width: 50%;
 		}
 	}
 }

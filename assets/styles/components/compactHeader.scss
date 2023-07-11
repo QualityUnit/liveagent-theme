@@ -17,17 +17,31 @@ body.compact-header--active {
 .compact-header {
 	$class-name: compact-header;
 	$v-space: 1em;
+	$bottom-space: 2.2em;
 	$bg-color: #f9f9fa;
 	padding-top: $v-space;
 	padding-bottom: $v-space;
 	background-color: $bg-color;
 
 	& ~ & {
-		margin-top: -2.2em;
+		margin-top: -$bottom-space;
 	}
 
-	&:not(:last-child) {
-		margin-bottom: 2.2em;
+	&__placeholder {
+		background-color: $bg-color;
+
+		+ .Category__container {
+			padding-top: 0;
+		}
+
+		+ .Archive__filter {
+			margin-top: -$bottom-space;
+			background-color: $pricing-gray;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: $bottom-space;
+		}
 	}
 
 	&__wrapper {
@@ -151,7 +165,6 @@ body.compact-header--active {
 		}
 
 		&-item {
-			display: flex;
 
 			&:not(:last-child) {
 				margin-bottom: 0.35em;
@@ -164,12 +177,9 @@ body.compact-header--active {
 			line-height: 1.5;
 			font-size: 0.75em;
 			margin-right: 0.8em;
-			overflow-wrap: break-word;
 		}
 
 		&-list {
-			display: flex;
-			flex-wrap: wrap;
 			margin: 0 -0.4em;
 			line-height: 1.5;
 			font-size: 0.75em;
@@ -177,6 +187,8 @@ body.compact-header--active {
 			li {
 
 				@include color(color, font-color-normal);
+				display: inline-block;
+				vertical-align: middle;
 				padding: 0 0.4em;
 			}
 
@@ -186,19 +198,19 @@ body.compact-header--active {
 				display: inline-flex;
 				align-items: center;
 				font-weight: $font-weight-bold;
-				text-decoration: none;
+				text-decoration: none !important;
 
 				svg {
 
 					@include square(1em);
 					display: block;
-					margin-right: 0.2em;
+					margin-right: 0.35em;
 				}
 			}
 
 			a {
 
-				@include color(color, primary-color);
+				@include color(color, primary-color, !important);
 
 			}
 		}
@@ -228,11 +240,26 @@ body.compact-header--active {
 
 				li {
 					position: relative;
+					padding: 0.714em 0;
 					font-size: 0.875em;
 					font-weight: $font-weight-semi;
 
 					&:not(:last-child) {
 						margin-right: 3em;
+					}
+
+					&::after {
+
+						@include color(background-color,primary-color);
+						position: absolute;
+						bottom: 0;
+						left: 50%;
+						display: block;
+						content: "";
+						width: 0;
+						height: 0.214em;
+						pointer-events: none;
+						transition: all 0.3s;
 					}
 
 					a {
@@ -241,23 +268,20 @@ body.compact-header--active {
 						white-space: nowrap;
 
 						@include hover {
+
+							@include color(color,font-color-dark);
 							text-decoration: none;
 						}
 					}
 
+					&:active,
+					&:focus,
+					&:hover,
 					&.active {
-						padding-bottom: 0.714em;
 
 						&::after {
-
-							@include color(background-color,primary-color);
-							position: absolute;
-							bottom: 0;
-							display: block;
-							content: "";
+							left: 0;
 							width: 100%;
-							height: 0.214em;
-							pointer-events: none;
 						}
 					}
 				}
@@ -381,7 +405,6 @@ body.compact-header--active {
 		a[href].FilterMenu__item {
 
 			@include color(color, font-color-dark);
-			transition: all 0.5s;
 			text-decoration: none;
 
 			strong {
@@ -390,13 +413,42 @@ body.compact-header--active {
 		}
 	}
 
+	.CircleProgressBar {
+
+		&__middle {
+			background-color: $bg-color;
+		}
+	}
+
 	&__toc .FilterMenu {
+
+		&__title {
+			position: relative;
+			padding-left: 2.429em;
+
+			&::before {
+
+				@include square(0.357em);
+				top: 50%;
+				left: 1.429em;
+				position: absolute;
+				display: block;
+				content: "";
+				border-radius: 50%;
+				background-color: $lighter-gray;
+				transform: translateY(-50%);
+			}
+		}
 
 		&__item {
 			position: relative;
 
+			&-title {
+				padding: 0.2em 1em 0.2em 0 !important;
+			}
+
 			&::before {
-				top: 50%;
+				top: 0.85em;
 				position: absolute;
 				display: block;
 				content: "";
@@ -427,7 +479,8 @@ body.compact-header--active {
 				}
 			}
 
-			&.active {
+			&.active,
+			&:hover {
 
 				&::before {
 					background-color: $black;
@@ -438,6 +491,15 @@ body.compact-header--active {
 
 	@media (min-width: $breakpoint-tablet) {
 		transition: margin 0.3s ease;
+
+		&__placeholder {
+
+			+ .Archive__filter {
+				top: $header-height;
+				position: sticky;
+				z-index: 5;
+			}
+		}
 
 		&__wrapper {
 			justify-content: space-between;
@@ -453,6 +515,19 @@ body.compact-header--active {
 
 		&__bottom {
 			padding-top: $v-space;
+		}
+
+		&__tags {
+
+			&-item {
+				white-space: nowrap;
+
+				> * {
+					display: inline-block;
+					vertical-align: text-top;
+					white-space: normal;
+				}
+			}
 		}
 
 		&__image {
@@ -489,9 +564,16 @@ body.compact-header--active {
 				display: flex;
 				align-items: flex-end;
 
+				&-sm > * {
+					max-width: 21em;
+
+					&.SortingMenu__wrapper {
+						max-width: initial;
+					}
+				}
+
 				> * {
 					flex: 1;
-					max-width: 25em;
 
 					&:not(:last-child) {
 						margin-right: 0.625em;
@@ -505,10 +587,7 @@ body.compact-header--active {
 		}
 
 		&__count {
-			position: relative;
-			display: flex;
-			align-items: center;
-			height: 100%;
+			margin-left: 2em;
 			font-weight: $font-weight-semi;
 			font-size: 0.875em;
 		}
@@ -540,7 +619,20 @@ body.compact-header--active {
 					padding-top: 0;
 				}
 			}
+
+			.CircleProgressBar {
+
+				&__middle {
+
+					@include color(background-color,main-background);
+				}
+			}
 		}
+
+		&--transition {
+			margin-top: 0;
+		}
+
 		&--sticky.#{$class-name}--lvl-2 & {
 
 			&__wrapper {
@@ -566,6 +658,16 @@ body.compact-header--active {
 
 			&:not(:last-child) {
 				margin-bottom: 0.75em;
+			}
+		}
+
+		&__tags {
+
+			&-title {
+
+				&:not(:last-child) {
+					margin-bottom: 0.35em;
+				}
 			}
 		}
 

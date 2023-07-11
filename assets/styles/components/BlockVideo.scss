@@ -10,7 +10,7 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 	height: 100%;
 
 	.elementor-widget-container {
-		padding-bottom: 1em;
+		padding-bottom: 0;
 		overflow: visible;
 	}
 
@@ -237,6 +237,14 @@ $positions: ("left", "right");
 			border-radius: $border-radius-16;
 			overflow: hidden;
 			background-size: cover;
+		}
+	}
+
+	.youtube_urlslab_loader--inn {
+		all: unset;
+
+		&::before {
+			background: transparent none;
 		}
 	}
 

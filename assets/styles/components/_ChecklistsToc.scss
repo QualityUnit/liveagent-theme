@@ -11,10 +11,6 @@
 		align-items: center;
 		border-radius: 0.75em;
 		background-color: $lightest-gray;
-
-		@media (min-width: $breakpoint-desktop-box) {
-			padding-right: 2em;
-		}
 	}
 
 	&__label {
