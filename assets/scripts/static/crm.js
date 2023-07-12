@@ -77,19 +77,17 @@
 	}
 
 	function setVisible( element, value ) {
-		const $videoSources = $( '.BuildingApp__videos__contents .tab-content video source' );
+		const $videoElements = $( '.BuildingApp__videos__contents .tab-content video' );
 
 		if ( value ) {
 			element.removeClass( 'invisible' );
 			$( 'body' ).addClass( 'activeOverlay' );
 
-			// eslint-disable-next-line no-unused-vars
-			const escapedCode = $( '<div>' ).text( $videoSources.attr( 'src', function() {
-				const $source = $( this );
-				const dataSrcValue = $source.attr( 'data-src' );
-				$source.closest( 'video' ).attr( 'src', dataSrcValue );
-				return dataSrcValue;
-			} ).removeAttr( 'data-src' ) ).html();
+			$videoElements.each( function() {
+				const $video = $( this );
+				const dataSrc = $video.data( 'src' );
+				$video.attr( 'src', dataSrc );
+			} );
 		} else {
 			element.addClass( 'invisible' );
 			$( 'body' ).removeClass( 'activeOverlay' );
