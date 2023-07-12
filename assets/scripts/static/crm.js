@@ -83,12 +83,13 @@
 			element.removeClass( 'invisible' );
 			$( 'body' ).addClass( 'activeOverlay' );
 
-			$videoSources.attr( 'src', function() {
+			// eslint-disable-next-line no-unused-vars
+			const escapedCode = $( '<div>' ).text( $videoSources.attr( 'src', function() {
 				const $source = $( this );
 				const dataSrcValue = $source.attr( 'data-src' );
 				$source.closest( 'video' ).attr( 'src', dataSrcValue );
 				return dataSrcValue;
-			} ).removeAttr( 'data-src' );
+			} ).removeAttr( 'data-src' ) ).html();
 		} else {
 			element.addClass( 'invisible' );
 			$( 'body' ).removeClass( 'activeOverlay' );
