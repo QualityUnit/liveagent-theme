@@ -95,7 +95,7 @@ function la_functions_explanation_with_videos() {
 
 			<div class="tab-content" data-tab="<?php echo esc_attr( $class_name ); ?>">
 				<video data-src="<?php echo esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" autoplay muted loop playsinline>
-					<source src="<?php echo esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" type="video/mp4" />
+					<source data-src="<?php echo esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" type="video/mp4" />
 				</video>
 			</div>
 					<?php

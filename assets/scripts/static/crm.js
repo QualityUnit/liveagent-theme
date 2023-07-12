@@ -77,9 +77,18 @@
 	}
 
 	function setVisible( element, value ) {
+		const $videoSources = $( '.BuildingApp__videos__contents .tab-content video source' );
+
 		if ( value ) {
 			element.removeClass( 'invisible' );
 			$( 'body' ).addClass( 'activeOverlay' );
+
+			$videoSources.attr( 'src', function() {
+				const $source = $( this );
+				const dataSrcValue = $source.attr( 'data-src' );
+				$source.closest( 'video' ).attr( 'src', dataSrcValue );
+				return dataSrcValue;
+			} ).removeAttr( 'data-src' );
 		} else {
 			element.addClass( 'invisible' );
 			$( 'body' ).removeClass( 'activeOverlay' );

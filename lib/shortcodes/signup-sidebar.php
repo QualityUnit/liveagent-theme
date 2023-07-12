@@ -57,7 +57,7 @@ function ms_signup_sidebar( $atts ) {
 			<div class="Signup__sidebar__submit urlslab-skip-keywords">
 				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="_paq.push(['trackEvent', 'Activity', 'Start your free account', 'Sidebar Signup']); dataLayer.push({'Click data-id': 'startYourfreeAccountBtn'}); handleSend();">
 					<div class="WorkingPanel" style="display: none;">
-						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheel.gif' ) ?>" alt="gear wheels">
+						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
 					</div>
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>

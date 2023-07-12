@@ -129,7 +129,7 @@ function ms_signup_form_simple( $atts ) {
 					<div class="Signup__form__submit">
 						<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="handleSend();">
 							<div class="WorkingPanel" style="display: none;">
-								<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheel.gif' ) ?>" alt="gear wheels">
+								<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
 							</div>
 							<span><?= esc_html( $atts['button'] ); ?></span>
 						</div>
