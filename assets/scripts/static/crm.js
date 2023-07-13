@@ -78,6 +78,7 @@
 
 	function setVisible( element, value ) {
 		const $videoElements = $( '.BuildingApp__videos__contents .tab-content video' );
+		const $imgElements = $( '.BuildingApp__videos__tabs img' );
 
 		if ( value ) {
 			element.removeClass( 'invisible' );
@@ -87,6 +88,12 @@
 				const $video = $( this );
 				const dataSrc = $video.data( 'src' );
 				$video.attr( 'src', dataSrc );
+			} );
+
+			$imgElements.each( function() {
+				const $img = $( this );
+				const dataSrc = $img.data( 'src' );
+				$img.attr( 'src', dataSrc );
 			} );
 		} else {
 			element.addClass( 'invisible' );
@@ -523,6 +530,10 @@
 			return this.block( reset ).find( '.progress__ball' );
 		} ),
 
+		progressHeader: generateAccessor( '_progress_header', function bar( reset ) {
+			return this.block( reset ).find( '.BuildingApp__progress__header' );
+		} ),
+
 		setProgress( progress ) {
 			if ( this.progress < progress ) {
 				this.progress = progress;
@@ -539,6 +550,7 @@
 				// eslint-disable-next-line eqeqeq
 				if ( this.clientProgress === 100 ) {
 					this.percent().hide();
+					this.progressHeader().addClass( 'mobile' );
 				}
 
 				const label = this.label();

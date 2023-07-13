@@ -3,7 +3,6 @@ no-descending-specificity, selector-id-pattern */
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@use "LoaderTabIcons" as *;
 
 /* ---------------------------- LOADING SCREEN ----------------------------- */
 
@@ -24,7 +23,7 @@ no-descending-specificity, selector-id-pattern */
 	align-items: center;
 	opacity: 1;
 	overflow: auto;
-	z-index: 99;
+	z-index: 999;
 
 	&.invisible {
 		opacity: 0 !important;
@@ -97,6 +96,14 @@ no-descending-specificity, selector-id-pattern */
 			outline: 0;
 			text-decoration: none;
 		}
+
+		@media (max-width: $breakpoint-mobile) {
+
+			&::after {
+				right: unset;
+				transform: translate(70%, -44%);
+			}
+		}
 	}
 }
 
@@ -135,6 +142,17 @@ no-descending-specificity, selector-id-pattern */
 			gap: 1em;
 			margin-bottom: 12px;
 
+			&.mobile {
+				grid-template-columns: 50px 1fr;
+
+				.BuildingApp__progress__header__action__wrapper {
+					display: flex;
+					width: 100%;
+					grid-column: 1 / span 2;
+					justify-content: center;
+				}
+			}
+
 			&__logo {
 				display: block;
 				width: 50px;
@@ -144,7 +162,7 @@ no-descending-specificity, selector-id-pattern */
 			&__title {
 				display: block;
 				text-align: left;
-				font-size: 24px;
+				font-size: 22px;
 				margin-bottom: 0;
 			}
 
@@ -155,6 +173,37 @@ no-descending-specificity, selector-id-pattern */
 				justify-self: flex-end;
 
 			}
+
+			@media (min-width: $breakpoint-tablet-small) {
+
+				&__title {
+					font-size: 24px;
+				}
+
+				&.mobile {
+					grid-template-columns: 50px 1fr max-content;
+
+					.BuildingApp__progress__header__action__wrapper {
+						display: unset;
+						width: 100%;
+						grid-column: unset;
+					}
+
+				}
+
+			}
+
+			@media (max-width: $breakpoint-mobile) {
+
+				#redirectButtonPanel {
+					width: 100%;
+
+					.FinalButton {
+						width: 100%;
+					}
+				}
+			}
+
 
 		}
 
@@ -300,13 +349,13 @@ no-descending-specificity, selector-id-pattern */
 				}
 
 
-				@media (min-width: $breakpoint-tablet-small) {
+				@media (min-width: 524px) {
 					width: 48%;
 
 				}
 
 				@media (min-width: $breakpoint-tablet) {
-					width: 30%;
+					width: 31%;
 
 				}
 
@@ -432,28 +481,5 @@ no-descending-specificity, selector-id-pattern */
 			height: 37px;
 		}
 
-
-		@keyframes spin-one {
-
-			from {
-				transform: rotate(0deg);
-			}
-
-			to {
-				transform: rotate(-359deg);
-			}
-		}
-
-		@media (max-width: 400px) {
-
-			.one,
-			.two {
-				display: none;
-			}
-
-			.one {
-				display: block;
-			}
-		}
 	}
 }
