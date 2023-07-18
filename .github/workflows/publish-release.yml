@@ -1,0 +1,190 @@
+# Inspired by Elementor Releasing Pipeline https://github.com/elementor/elementor
+name: Create New Version
+
+# Environmental Variables: WEB_CICD_PAT (PAT), WEB_CICD_USERNAME (GitHub Bot Username), WEB_CICD_MAIL (GitHub Bot E-mail)
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release Type"
+        required: true
+        type: choice
+        options:
+          - prerelease
+          - prepatch
+          - preminor
+          - premajor
+          - patch
+          - minor
+          - major
+      deploy:
+        description: "Deploy Directly to Our Website"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  bump-and-publish:
+    name: Bump Version and Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Main Branch
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.WEB_CICD_PAT }}
+          ref: main
+
+      - name: Setup PHP 8.0
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.0"
+
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          cache: "yarn"
+
+      - name: Setup YQ
+        uses: chrisdickinson/setup-yq@latest
+        with:
+          yq-version: 'v4.25.2'
+
+      - name: Get Old Version
+        id: get_old_version
+        run: |
+          npm config set git-tag-version false
+          PREV_PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          echo "PREV_PACKAGE_VERSION=${PREV_PACKAGE_VERSION}" >> $GITHUB_ENV
+
+      - name: Bump Major Version
+        if: "${{ github.event.inputs.version == 'major' }}"
+        run: npm version major
+
+      - name: Bump Minor Version
+        if: "${{ github.event.inputs.version == 'minor' }}"
+        run: npm version minor
+
+      - name: Bump Patch Version
+        if: "${{ github.event.inputs.version == 'patch' }}"
+        run: npm version patch
+
+      - name: Bump Premajor Version
+        if: "${{ github.event.inputs.version == 'premajor' }}"
+        run: |
+          npm version premajor --preid=beta
+          npm version prerelease --preid=beta
+
+      - name: Bump Preminor Version
+        if: "${{ github.event.inputs.version == 'preminor' }}"
+        run: |
+          npm version preminor --preid=beta
+          npm version prerelease --preid=beta
+
+      - name: Bump Prepatch Version
+        if: "${{ github.event.inputs.version == 'prepatch' }}"
+        run: |
+          npm version prepatch --preid=beta
+          npm version prerelease --preid=beta
+
+      - name: Bump Prerelease Version
+        if: "${{ github.event.inputs.version == 'prerelease' }}"
+        run: npm version prerelease --preid=beta
+
+      - name: Set New Version
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          echo "PACKAGE_VERSION=${PACKAGE_VERSION}" >> $GITHUB_ENV
+
+      - name: Push New Version with Build Files
+        env:
+          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+          WEB_CICD_MAIL: ${{ secrets.WEB_CICD_MAIL }}
+          WEB_CICD_USERNAME: ${{ secrets.WEB_CICD_USERNAME }}
+        run: |
+          bash "${GITHUB_WORKSPACE}/.github/scripts/update-version-files.sh"
+          bash "${GITHUB_WORKSPACE}/.github/scripts/build-files.sh"
+          bash "${GITHUB_WORKSPACE}/.github/scripts/commit-push-bump.sh"
+
+      - name: Get Current Version
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          echo "PACKAGE_VERSION=${PACKAGE_VERSION}" >> $GITHUB_ENV
+
+      - name: Create Tag
+        env:
+          WEB_CICD_MAIL: ${{ secrets.WEB_CICD_MAIL }}
+          WEB_CICD_USERNAME: ${{ secrets.WEB_CICD_USERNAME }}
+        run: |
+          bash "${GITHUB_WORKSPACE}/.github/scripts/create-git-tag.sh"
+
+      - name: Create ZIP File
+        env:
+          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+        run: |
+          bash "${GITHUB_WORKSPACE}/.github/scripts/build-zip.sh"
+
+      - name: Upload ZIP File to GitHub Actions Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: liveagent_${{ env.PACKAGE_VERSION }}
+          path: ${{ github.workspace }}/**/*
+
+      - name: Create GitHub Prerelease
+        if: "${{ github.event.inputs.version != 'major' && github.event.inputs.version != 'minor' && github.event.inputs.version != 'patch' }}"
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.PACKAGE_VERSION }}
+          files: liveagent_*.zip
+          prerelease: true
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.WEB_CICD_PAT }}
+
+      - name: Create GitHub Release
+        if: "${{ github.event.inputs.version != 'premajor' && github.event.inputs.version != 'preminor' && github.event.inputs.version != 'prepatch' && github.event.inputs.version != 'prerelease' }}"
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.PACKAGE_VERSION }}
+          files: liveagent_*.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.WEB_CICD_PAT }}
+
+  deploy:
+    name: Deploy
+    needs: bump-and-publish
+    runs-on: ubuntu-latest
+    if: "${{ github.event.inputs.deploy == 'true' }}"
+
+    steps:
+      - name: Checkout Main Branch
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.WEB_CICD_PAT }}
+          ref: main
+
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          cache: "yarn"
+
+      - name: Get Current Version
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          echo "PACKAGE_VERSION=${PACKAGE_VERSION}" >> $GITHUB_ENV
+
+      - name: Trigger the Update Pipeline [LiveAgent]
+        uses: aurelien-baudet/workflow-dispatch@v2
+        with:
+          workflow: update-theme.yml
+          repo: QualityUnit/liveagent-wp
+          ref: dev
+          token: ${{ secrets.WEB_CICD_PAT }}
+          wait-for-completion-interval: 5s
+          inputs: '{
+                  "repository":"liveagent-wp",
+                  "version":"${{ env.PACKAGE_VERSION }}"
+                }'
