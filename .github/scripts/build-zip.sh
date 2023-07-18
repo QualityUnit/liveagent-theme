@@ -19,7 +19,7 @@ cd ../qu-expertnote/ && rm -rf node_modules package.json yarn.lock webpack.confi
 cd ../qu-usecase/ && rm -rf node_modules package.json yarn.lock webpack.config.js
 cd ../statistics/ && rm -rf node_modules package.json yarn.lock
 
-PLUGIN_ZIP_FILENAME="liveagent_${PACKAGE_VERSION}.zip"
+PLUGIN_ZIP_FILENAME="liveagent-${PACKAGE_VERSION}.zip"
 dir_name="liveagent-theme"
 mkdir "$dir_name"
 for file in *; do

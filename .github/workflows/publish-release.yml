@@ -128,7 +128,7 @@ jobs:
       - name: Upload ZIP File to GitHub Actions Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: liveagent_${{ env.PACKAGE_VERSION }}
+          name: liveagent-${{ env.PACKAGE_VERSION }}
           path: ${{ github.workspace }}/**/*
 
       - name: Create GitHub Prerelease
@@ -136,7 +136,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.PACKAGE_VERSION }}
-          files: liveagent_*.zip
+          files: liveagent-*.zip
           prerelease: true
           generate_release_notes: true
         env:
@@ -147,7 +147,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.PACKAGE_VERSION }}
-          files: liveagent_*.zip
+          files: liveagent-*.zip
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.WEB_CICD_PAT }}
