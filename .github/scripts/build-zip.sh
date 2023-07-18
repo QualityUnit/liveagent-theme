@@ -20,7 +20,7 @@ cd ../qu-usecase/ && rm -rf node_modules package.json yarn.lock webpack.config.j
 cd ../statistics/ && rm -rf node_modules package.json yarn.lock
 
 PLUGIN_ZIP_FILENAME="liveagent-${PACKAGE_VERSION}.zip"
-dir_name="liveagent-theme"
+dir_name="liveagent"
 mkdir "$dir_name"
 for file in *; do
     if [ "$file" != "$dir_name" ]; then
@@ -28,6 +28,6 @@ for file in *; do
     fi
 done
 
-zip -r $PLUGIN_ZIP_FILENAME ./liveagent-theme/ -x "*.zip"
+zip -r $PLUGIN_ZIP_FILENAME ./liveagent/ -x "*.zip"
 echo "PLUGIN_ZIP_FILENAME=${PLUGIN_ZIP_FILENAME}" >> $GITHUB_ENV
 echo "PLUGIN_ZIP_PATH=./**/*" >> $GITHUB_ENV
