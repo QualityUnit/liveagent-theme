@@ -4,9 +4,45 @@
 @use "../common/mixins" as *;
 @use "../elements/LabelTag" as *;
 
+
+.elementor-shortcode {
+	display: none;
+}
+
 .Pricing__programs {
 	position: relative;
 	padding: 3em 0 0;
+
+	&.Pricing__programs__new {
+
+		> .elementor-container {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			gap: 10px;
+
+			> .Pricing__program {
+				width: 100%;
+				margin-bottom: 0;
+			}
+		}
+
+
+		@media (min-width: $breakpoint-tablet-small ) {
+
+			> .elementor-container {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop ) {
+
+			> .elementor-container {
+				grid-template-columns: repeat(4, 1fr);
+			}
+		}
+
+
+	}
 
 	> .elementor-container,
 	> .elementor-widget-container {
@@ -91,7 +127,7 @@
 		}
 
 		.Button--outline {
-			padding: 0.5em 2em;
+			padding: 0.5em 1.4em;
 		}
 
 		@media (max-width: $breakpoint-tablet-landscape) {
@@ -125,7 +161,13 @@
 				font-size: 0.75rem;
 				margin-bottom: 0;
 			}
+
+			&--new {
+				margin-bottom: 0;
+				padding: 0.625em 0;
+			}
 		}
+
 	}
 
 	.enterprise & .Pricing__program {
@@ -145,6 +187,155 @@
 				margin-left: auto;
 			}
 		}
+	}
+
+	&.Deal__startups__Free__accounts {
+		padding: 0.625em 0 3em 0;
+
+		> .elementor-container {
+			background-color: unset;
+			border-radius: 0;
+			padding: 0;
+			gap: 1%;
+
+			> .elementor-inner-column {
+				width: 100%;
+
+				@media (min-width: $breakpoint-desktop ) {
+					width: 49.5%;
+				}
+			}
+
+		}
+
+		.elementor-heading-title {
+			font-size: 30px;
+			line-height: 45px;
+
+		}
+
+		.elementor-widget-wrap {
+			flex-wrap: wrap;
+			flex-direction: row;
+			width: 100%;
+		}
+
+		.Free__accounts,
+		.Deal__startups {
+			padding: 1.125em 1.5em !important;
+			border-radius: $border-radius-16;
+
+
+			.col__one {
+				width: 100%;
+				margin-bottom: 10px;
+
+				> .elementor-widget-wrap {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+			}
+
+			.col__two {
+				width: 100%;
+			}
+
+			.Button--outline {
+				width: 100%;
+
+			}
+
+			@media (min-width: $breakpoint-tablet-small ) {
+
+				.col__one {
+					width: 60%;
+
+				}
+
+				.col__two {
+					width: 40%;
+				}
+			}
+		}
+
+		.Free__accounts {
+			background-color: transparent;
+			border: 1px solid $medium-gray-inputs;
+			margin-bottom: 10px;
+
+			* {
+
+				@include color(color, font-color-dark);
+				margin-bottom: 0;
+			}
+
+			.col__one {
+
+				a {
+
+					@include color(color, primary-color);
+
+					&:hover {
+
+						@include color(color, font-color-dark);
+					}
+				}
+			}
+
+			.price__per__month {
+
+				p {
+					font-family: $font-secondary;
+					font-size: 20px;
+					line-height: 45px;
+				}
+
+			}
+
+			.Button--outline {
+
+				&:hover {
+
+					@include color(border-color, primary-color);
+					@include color(background, secondary-background);
+
+					span {
+
+						@include color(color, primary-color);
+					}
+
+				}
+
+				span {
+					transition: 0.3s all;
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop ) {
+				margin-bottom: 0;
+			}
+		}
+
+		.Deal__startups {
+			background-color: $saturated-green;
+			overflow: hidden;
+
+			.col__one {
+				margin-bottom: 24px;
+			}
+
+			.col__two {
+				align-self: end;
+			}
+
+			@media (min-width: $breakpoint-tablet-small ) {
+
+				.col__one {
+					margin-bottom: 0;
+				}
+			}
+		}
+
 	}
 }
 
@@ -261,11 +452,4 @@
 		left: -2px;
 	}
 
-	@media (min-width: $breakpoint-desktop-box) {
-
-		&.free {
-			width: calc(25% - 1em);
-			margin-left: 1em;
-		}
-	}
 }
