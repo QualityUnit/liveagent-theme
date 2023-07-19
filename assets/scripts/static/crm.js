@@ -77,8 +77,8 @@
 	}
 
 	function setVisible( element, value ) {
-		const $videoElements = $( '.BuildingApp__videos__contents .tab-content video' );
-		const $imgElements = $( '.BuildingApp__videos__tabs img' );
+		const $videoElements = $( '.Introduction__videos__contents .tab-content video' );
+		const $imgElements = $( '.Introduction__videos__tabs img' );
 
 		if ( value ) {
 			element.removeClass( 'invisible' );
@@ -550,7 +550,7 @@
 				// eslint-disable-next-line eqeqeq
 				if ( this.clientProgress === 100 ) {
 					this.percent().hide();
-					this.progressHeader().addClass( 'mobile' );
+					this.progressHeader().addClass( 'progress--done' );
 				}
 
 				const label = this.label();
@@ -765,6 +765,8 @@
 
 					$( redirectForm ).appendTo( '#redirectButtonPanel' );
 					$( '#redirectButtonPanel' ).css( 'display', 'block' );
+					$( redirectForm ).appendTo( '.progress__done__overlay .redirectButtonPanel' );
+					$( '.progress__done__overlay .redirectButtonPanel' ).css( 'display', 'block' );
 
 					if ( $( '.BuildingHeader' ).length > 0 ) {
 						$( '.BuildingHeader' ).each( function() {
