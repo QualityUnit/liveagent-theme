@@ -21,7 +21,7 @@ cd ../statistics/ && rm -rf node_modules package.json yarn.lock
 
 cd ../../..
 
-PLUGIN_ZIP_FILENAME="liveagent-${PACKAGE_VERSION}.zip"
+PLUGIN_ZIP_FILENAME="liveagent_${PACKAGE_VERSION}.zip"
 dir_name="liveagent"
 mkdir "$dir_name"
 for file in *; do
