@@ -7,10 +7,10 @@ const languageCode = 'en-US';
 
 const textValidating = 'Validating...';
 const textCreating = 'Creating...';
-const textInstalling = 'Installing';
-const textLaunching = 'Launching';
-const textRedirecting = 'Redirecting';
-const textFinalizing = 'Finalizing';
+const textInstalling = 'Building Your LiveAgent';
+const textLaunching = 'Halfway there';
+const textRedirecting = 'Almost done, just a moment';
+const textFinalizing = 'Your LiveAgent is ready to use.';
 const textStart = 'Start now';
 const textError = 'Something went wrong.';
 const textEmpty = "Field can't be empty";
@@ -27,3 +27,4 @@ const textReadyApp = 'Your LiveAgent is ready';
 const textDoneAppTitle = 'Your LiveAgent is ready';
 const textDoneAppText =
 	'The login credentials have been sent to your inbox. Please check it to continue to LiveAgent.';
+const textButtonSubmit = 'Thank you, please wait ...';

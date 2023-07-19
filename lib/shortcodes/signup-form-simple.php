@@ -33,7 +33,7 @@ function ms_signup_form_simple( $atts ) {
 						</div>
 					</div>
 				</div>
-				
+
 				<input data-id="plan" type="hidden" value="Trial" autocomplete="off">
 				<input data-id="variation" type="hidden" value="3513230f" autocomplete="off">
 
@@ -43,7 +43,7 @@ function ms_signup_form_simple( $atts ) {
 						<button type="button" class="Button Button--full" data-change-steps disabled><span><?php _e( 'Continue…', 'ms' ); ?></span></button>
 						<div class="ErrorMessage"></div>
 					</div>
-					
+
 					<div class="WorkingPanel" style="display: none;">
 						<div class="animation">
 							<div class="one spin-one"></div>
@@ -84,7 +84,7 @@ function ms_signup_form_simple( $atts ) {
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="Signup__form__step" data-step="2">
 				<div class="Signup__form--simple__header">
 					<div class="Signup__form--simple__title"></div>
@@ -102,7 +102,7 @@ function ms_signup_form_simple( $atts ) {
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="Signup__form__step--fields">
 					<div data-id="nameFieldmain" class="Signup__form__item has-svg">
 						<svg width="18" height="20" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M18 19v-2c0-2.743-2.257-5-5-5H5c-2.743 0-5 2.257-5 5v2a1 1 0 0 0 2 0v-2c0-1.646 1.354-3 3-3h8c1.646 0 3 1.354 3 3v2a1 1 0 0 0 2 0Zm-9-9c2.743 0 5-2.257 5-5s-2.257-5-5-5-5 2.257-5 5 2.257 5 5 5Zm0-2C7.354 8 6 6.646 6 5s1.354-3 3-3 3 1.354 3 3-1.354 3-3 3Z"/></svg>
@@ -128,17 +128,11 @@ function ms_signup_form_simple( $atts ) {
 
 					<div class="Signup__form__submit">
 						<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="handleSend();">
+							<div class="WorkingPanel" style="display: none;">
+								<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
+							</div>
 							<span><?= esc_html( $atts['button'] ); ?></span>
 						</div>
-					</div>
-					
-					<div class="WorkingPanel" style="display: none;">
-						<div class="animation">
-							<div class="one spin-one"></div>
-							<div class="two spin-two"></div>
-							<div class="three spin-one"></div>
-						</div>
-						<p><?php _e( 'Passing data through the machine...', 'ms' ); ?></p>
 					</div>
 
 					<div class="Signup__form--simple__reviews">
@@ -214,6 +208,9 @@ function ms_signup_form_simple( $atts ) {
 
 			function handleSend() {
 				const mailValue = document.querySelector('input[type="email"]').value;
+				const buttonText = document.querySelector('.createTrialButton span');
+
+				buttonText.textContent = `${ textButtonSubmit }`;
 
 				if (mailValue) {
 					const mailSecondary = new RegExp('@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex.com|gmx.us|@gmx.com)$').test(mailValue);

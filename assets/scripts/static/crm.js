@@ -1,5 +1,6 @@
 /* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-mixed-operators, no-redeclare */
 /* global jQuery, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha, analytics, twq */
+// eslint-disable-next-line no-unused-vars
 /* global progressStep, newProgress, btoa, getCookieFrontend */
 /* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, textStart, textInvalid, textCreating, variationId */
 
@@ -76,9 +77,24 @@
 	}
 
 	function setVisible( element, value ) {
+		const $videoElements = $( '.BuildingApp__videos__contents .tab-content video' );
+		const $imgElements = $( '.BuildingApp__videos__tabs img' );
+
 		if ( value ) {
 			element.removeClass( 'invisible' );
 			$( 'body' ).addClass( 'activeOverlay' );
+
+			$videoElements.each( function() {
+				const $video = $( this );
+				const dataSrc = $video.data( 'src' );
+				$video.attr( 'src', dataSrc );
+			} );
+
+			$imgElements.each( function() {
+				const $img = $( this );
+				const dataSrc = $img.data( 'src' );
+				$img.attr( 'src', dataSrc );
+			} );
 		} else {
 			element.addClass( 'invisible' );
 			$( 'body' ).removeClass( 'activeOverlay' );
@@ -507,7 +523,15 @@
 		} ),
 
 		bar: generateAccessor( '_bar', function bar( reset ) {
-			return this.block( reset ).find( '.progress-bar' );
+			return this.block( reset ).find( '.progress__bar' );
+		} ),
+
+		ball: generateAccessor( '_ball', function bar( reset ) {
+			return this.block( reset ).find( '.progress__ball' );
+		} ),
+
+		progressHeader: generateAccessor( '_progress_header', function bar( reset ) {
+			return this.block( reset ).find( '.BuildingApp__progress__header' );
 		} ),
 
 		setProgress( progress ) {
@@ -515,20 +539,18 @@
 				this.progress = progress;
 			}
 
-			progressStep =
-				( 0.5 + ( 1 - this.clientProgress / this.progress ) ) *
-				( 1 + this.clientProgress / this.progress );
-			newProgress = Math.round( this.clientProgress + progressStep );
+			newProgress = Math.round( this.progress );
+
 			if ( newProgress <= this.progress ) {
 				this.clientProgress = newProgress;
-				this.bar().width( `${ this.clientProgress }%` );
+				this.bar().css( 'width', `${ this.clientProgress }%` );
+				this.ball().css( 'left', `${ this.clientProgress }%` );
 				this.percent().text( `${ this.clientProgress }%` );
 
-				if ( this.clientProgress !== 0 ) {
-					$( '#heart-1' ).css(
-						'stroke-dashoffset',
-						269.663 - this.clientProgress * ( 269.663 / 100 )
-					);
+				// eslint-disable-next-line eqeqeq
+				if ( this.clientProgress === 100 ) {
+					this.percent().hide();
+					this.progressHeader().addClass( 'mobile' );
 				}
 
 				const label = this.label();
@@ -539,13 +561,13 @@
 					this.dots += '.';
 				}
 
-				if ( this.clientProgress <= 33 ) {
+				if ( this.clientProgress <= 32 ) {
 					label.text( `${ textInstalling }${ this.dots }` );
-				} else if ( this.clientProgress <= 66 ) {
+				} else if ( this.clientProgress <= 52 ) {
 					label.text( `${ textLaunching }${ this.dots }` );
-				} else if ( this.clientProgress === 100 ) {
+				} else if ( this.clientProgress <= 99 ) {
 					label.text( `${ textRedirecting }${ this.dots }` );
-				} else {
+				} else if ( this.clientProgress === 100 ) {
 					label.text( `${ textFinalizing }${ this.dots }` );
 				}
 			}
@@ -739,7 +761,7 @@
 				progressLoader.setProgress( 100 );
 
 				if ( data.login_token ) {
-					const redirectForm = `<form method='POST' action='${ data.login_url }' id="trialform"><input type='hidden' name='action' value='login'><input type='hidden' name='${ authTokenName }' value='${ data.login_token }'><input type='hidden' name='l' value='${ languageCode }'><input type='submit' name='goto' value='${ textGoApp }' class='FinalButton' style='display: none;'><a href='${ data.login_url }' id='gotoapp' class='FinalButton'>Go to your App</a></form>`;
+					const redirectForm = `<form method='POST' action='${ data.login_url }' id="trialform"><input type='hidden' name='action' value='login'><input type='hidden' name='${ authTokenName }' value='${ data.login_token }'><input type='hidden' name='l' value='${ languageCode }'><input type='submit' name='goto' value='${ textGoApp }' class='FinalButton' style='display: none;'><a href='${ data.login_url }' id='gotoapp' class='FinalButton'>Go to LiveAgent</a></form>`;
 
 					$( redirectForm ).appendTo( '#redirectButtonPanel' );
 					$( '#redirectButtonPanel' ).css( 'display', 'block' );

@@ -56,17 +56,12 @@ function ms_signup_sidebar( $atts ) {
 
 			<div class="Signup__sidebar__submit urlslab-skip-keywords">
 				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="_paq.push(['trackEvent', 'Activity', 'Start your free account', 'Sidebar Signup']); dataLayer.push({'Click data-id': 'startYourfreeAccountBtn'}); handleSend();">
+					<div class="WorkingPanel" style="display: none;">
+						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
+					</div>
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>
 
-				<div class="WorkingPanel" style="display: none;">
-					<div class="animation">
-						<div class="one spin-one"></div>
-						<div class="two spin-two"></div>
-						<div class="three spin-one"></div>
-					</div>
-					<p><?php _e( 'Passing data through the machine...', 'ms' ); ?></p>
-				</div>
 				<div class="Signup__sidebar__terms">
 					<p><?php _e( 'By signing up, I accept', 'ms' ); ?> <a title="<?php _e( 'T&amp;C', 'ms' ); ?>" href="<?php _e( '/terms-and-conditions/', 'ms' ); ?>"><?php _e( 'T&amp;C', 'ms' ); ?></a> <?php _e( 'and', 'ms' ); ?> <a title="<?php _e( 'Privacy Policy', 'ms' ); ?>" href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'Privacy Policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 				</div>
@@ -110,6 +105,9 @@ function ms_signup_sidebar( $atts ) {
 	<script>
 		function handleSend() {
 			const mailValue = document.querySelector('input[type="email"]').value;
+			const buttonText = document.querySelector('.createTrialButton span');
+
+			buttonText.textContent = `${ textButtonSubmit }`;
 
 			if (mailValue) {
 				const mailSecondary = new RegExp('@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex.com|gmx.us|@gmx.com)$').test(mailValue);

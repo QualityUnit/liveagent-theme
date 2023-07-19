@@ -7,10 +7,10 @@ const languageCode = 'en-US';
 
 const textValidating = 'Validating...';
 const textCreating = 'Creating...';
-const textInstalling = 'Installing';
-const textLaunching = 'Launching';
-const textRedirecting = 'Redirecting';
-const textFinalizing = 'Finalizing';
+const textInstalling = 'Building Your LiveAgent...';
+const textLaunching = 'Halfway there... ';
+const textRedirecting = 'Almost done, just a moment...';
+const textFinalizing = 'Your LiveAgent is ready to use.';
 const textStart = 'Start now';
 const textError = 'Something went wrong.';
 const textEmpty = "Field can't be empty";

@@ -159,42 +159,29 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 	<div class="loaderIn">
 
 		<div class="BuildingApp">
-			<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" width="201" height="50" alt="<?php bloginfo( 'name' ); ?>" class="BuildingApp__logo">
+				<div class="BuildingApp__progress">
+					<div class="BuildingApp__progress__header">
+							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon_logo_liveagent.jpg" alt="<?php bloginfo( 'name' ); ?>" class="BuildingApp__progress__header__logo">
+							<div class="BuildingApp__progress__header__title h2 loader-label"><?php _e( 'Building Your LiveAgent...', 'ms' ); ?></div>
+						<div class="BuildingApp__progress__header__action__wrapper">
+							<div class="BuildingApp__progress__header__percentage percentage">0%</div>
+							<div id="redirectButtonPanel" style="display:none"></div>
+						</div>
+					</div>
 
-			<div class="BuildingHeader BuildingApp__title BuildingApp--desktop h2"><?php _e( 'Building Your LiveAgent...', 'ms' ); ?></div>
-			<p class="BuildingText BuildingApp__text BuildingApp--desktop"><?php _e( 'We appreciate your recent sign up for a LiveAgent. <br>A message will be sent to your email address containing login details, right after your account is installed. <br>If you wait for a while, after installation is complete you will be able to access your account directly from here.', 'ms' ); ?></p>
+					<div id="progress-1" class="progress__bar__container">
+						<div class="progress__bar"></div>
+						<div class="progress__ball"></div>
+					</div>
 
-			<div class="BuildingHeader BuildingApp__title BuildingApp--mobile h2"><?php _e( 'We are currently building your LiveAgent dashboard...', 'ms' ); ?></div>
-			<p class="BuildingText BuildingApp__text BuildingApp--mobile"><?php _e( 'After the process is over, we will send the login details to your mailbox.', 'ms' ); ?></p>
+					<p class="BuildingApp__progress__wrap__text"><?php _e( 'We appreciate your recent sign up for a LiveAgent. <br>A message will be sent to your email address containing login details, right after your account is installed.', 'ms' ); ?></p>
+				</div>
 
-			<div id="BuildingSubheader" class="BuildingApp__subtitle h4"><?php _e( 'Installation status', 'ms' ); ?></div>
+			<?= do_shortcode( '[laFunctionsExplanationWithVideos]' ); ?>
 
-			<div class="progressHeart" id="progressHeart">
-				<span class="percentage">0%</span>
-				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-					<path fill-opacity="0" stroke-width="1" stroke="#f4f4f4"
-								d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z">
-					</path>
-					<path id="heart-1" fill-opacity="0" stroke-width="3" stroke="#ED6A5A"
-								d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z">
-					</path>
-				</svg>
-			</div>
 		</div>
 
-		<div id="redirectButtonPanel" style="display:none"></div>
-
-		<div class="loading-bar">
-			<div class="progress-bar">
-				<div class="progress-stripes">////////////////////////</div>
-			</div>
-		</div>
-
-		<div class="loading-info">
-			<span class="loader-label"><?php _e( 'Loading...', 'ms' ); ?></span>
-		</div>
 	</div>
-</div>
 
 <div class="Medovnicky urlslab-skip-all">
 	<div class="wrapper">
