@@ -188,7 +188,8 @@ no-descending-specificity, selector-id-pattern */
 
 			#redirectButtonPanel {
 				width: 100%;
-				a{
+
+				a {
 					width: 100%;
 				}
 			}
@@ -256,6 +257,7 @@ no-descending-specificity, selector-id-pattern */
 				}
 
 			}
+
 			@media (min-width: $breakpoint-tablet) {
 
 				&__title {
@@ -266,9 +268,6 @@ no-descending-specificity, selector-id-pattern */
 					width: 48px;
 				}
 			}
-
-
-
 		}
 
 		&__wrap__text {

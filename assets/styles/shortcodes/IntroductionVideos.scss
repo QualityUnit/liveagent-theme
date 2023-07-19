@@ -63,8 +63,10 @@
 					font-weight: $font-weight-semi;
 					display: flex;
 					align-items: center;
+
 					.tab-icon {
 						margin-right: 5px;
+
 						@include square(24px);
 					}
 
@@ -80,7 +82,9 @@
 
 
 				&.selected {
+
 					&:hover {
+
 						&::before {
 							background: url(../images/radio-input-active.svg) center center no-repeat;
 							background-size: contain;
@@ -132,12 +136,12 @@
 				}
 
 
-				[type="radio"] {
+				input[type="radio"] {
 
 					~ label {
 
 						.tab-icon {
-							margin-right: 0px;
+							margin-right: 0;
 							background-size: contain;
 							content: "";
 							position: absolute;
@@ -150,15 +154,13 @@
 
 					}
 				}
-
-
-
 			}
 
 		}
 
 		@media (min-width: $breakpoint-desktop) {
-			.RadioInputContainer{
+
+			.RadioInputContainer {
 				width: auto;
 
 				&::after {
