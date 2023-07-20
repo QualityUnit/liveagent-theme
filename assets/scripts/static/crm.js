@@ -533,26 +533,84 @@
 			return this.block( reset ).find( '.BuildingApp__progress__header' );
 		} ),
 
+		introductionVideos: generateAccessor( '_introduction_videos', function bar( reset ) {
+			return this.block( reset ).find( '.Introduction__videos' );
+		} ),
+
+		progressDoneOverlay: generateAccessor( '_progress_done_overlay', function bar( reset ) {
+			return this.block( reset ).find( '.progress__done__overlay' );
+		} ),
+
 		setProgress( progress ) {
+			// If the new progress is greater than the current progress, update it.
 			if ( this.progress < progress ) {
 				this.progress = progress;
 			}
 
+			// Rounding to a whole percentage.
 			newProgress = Math.round( this.progress );
+
+			/// Toggle overlay and opacity.
+			function progressDoneOverlayOnOff() {
+				const introductionVideos = $( '.Introduction__videos' );
+				const progressDoneOverlay = $( '.progress__done__overlay' );
+				introductionVideos.toggleClass( 'opacity--low' );
+				progressDoneOverlay.toggleClass( 'invisible' );
+			}
 
 			if ( newProgress <= this.progress ) {
 				this.clientProgress = newProgress;
+
+				// Update the visual display of the progress bar.
 				this.bar().css( 'width', `${ this.clientProgress }%` );
 				this.ball().css( 'left', `${ this.clientProgress }%` );
 				this.percent().text( `${ this.clientProgress }%` );
 
-				// eslint-disable-next-line eqeqeq
 				if ( this.clientProgress === 100 ) {
 					this.percent().hide();
 					this.progressHeader().addClass( 'progress--done' );
+					progressDoneOverlayOnOff();
+
+					const selectedTab = $( '.Introduction__videos__tab.selected' );
+					const continueButton = $( '.progress__done__overlay a.continue__watching' );
+					const dataTab = selectedTab.attr( 'data-tab' );
+					const video = $( `.tab-content[data-tab="${ dataTab }"] video` );
+
+					// Play or pause the video based on availability.
+					function playVideoIfAvailable() {
+						if ( video.length > 0 ) {
+							video[ 0 ].play();
+						}
+					}
+					function pauseVideoIfAvailable() {
+						if ( video.length > 0 ) {
+							video[ 0 ].pause();
+						}
+					}
+
+					pauseVideoIfAvailable();
+
+					// Add event listener only if the overlay is not hidden.
+					if ( ! this.progressDoneOverlay().hasClass( 'invisible' ) ) {
+						continueButton.on( 'click', function( e ) {
+							e.preventDefault();
+							progressDoneOverlayOnOff();
+							playVideoIfAvailable();
+						} );
+					}
 				}
 
 				const label = this.label();
+				let text;
+				if ( this.clientProgress <= 32 ) {
+					text = textInstalling;
+				} else if ( this.clientProgress <= 52 ) {
+					text = textLaunching;
+				} else if ( this.clientProgress <= 99 ) {
+					text = textRedirecting;
+				} else if ( this.clientProgress === 100 ) {
+					text = textFinalizing;
+				}
 
 				if ( this.dots.length > 2 ) {
 					this.dots = '.';
@@ -560,17 +618,10 @@
 					this.dots += '.';
 				}
 
-				if ( this.clientProgress <= 32 ) {
-					label.text( `${ textInstalling }${ this.dots }` );
-				} else if ( this.clientProgress <= 52 ) {
-					label.text( `${ textLaunching }${ this.dots }` );
-				} else if ( this.clientProgress <= 99 ) {
-					label.text( `${ textRedirecting }${ this.dots }` );
-				} else if ( this.clientProgress === 100 ) {
-					label.text( `${ textFinalizing }${ this.dots }` );
-				}
+				label.text( `${ text }${ this.dots }` );
 			}
 		},
+
 	};
 
 	const progressLoader = new ProgressLoader();

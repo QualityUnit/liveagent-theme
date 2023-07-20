@@ -34,6 +34,27 @@ no-descending-specificity, selector-id-pattern */
 	.loaderIn {
 		text-align: center;
 
+		.opacity--low {
+			opacity: 0.2;
+		}
+
+		.BuildingApp {
+
+			.progress__done__overlay {
+				z-index: 999;
+				position: absolute;
+				top: 20%;
+				left: 0;
+				height: 100%;
+				display: flex;
+				width: 100%;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				opacity: 1;
+			}
+		}
+
 		h2 {
 			margin-top: 25px;
 			margin-bottom: 15px;
@@ -288,23 +309,6 @@ no-descending-specificity, selector-id-pattern */
 
 }
 
-.Introduction__videos {
-	position: relative;
-
-	.progress__done__overlay {
-		z-index: 999;
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 100%;
-		display: flex;
-		width: 100%;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		opacity: 1;
-	}
-}
 
 .ApplicationReady {
 
