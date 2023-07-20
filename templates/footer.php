@@ -179,8 +179,8 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 			<?= do_shortcode( '[laIntroductionVideos]' ); ?>
 
 		</div>
-
 	</div>
+</div>
 
 <div class="Medovnicky urlslab-skip-all">
 	<div class="wrapper">

@@ -1,6 +1,5 @@
 /* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-mixed-operators, no-redeclare */
 /* global jQuery, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha, analytics, twq */
-// eslint-disable-next-line no-unused-vars
 /* global progressStep, newProgress, btoa, getCookieFrontend */
 /* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, textStart, textInvalid, textCreating, variationId */
 
@@ -539,12 +538,13 @@
 				this.progress = progress;
 			}
 
-			newProgress = Math.round( this.progress );
-
+			progressStep =
+				( 0.5 + ( 1 - this.clientProgress / this.progress ) ) *
+				( 1 + this.clientProgress / this.progress );
+			newProgress = Math.round( this.clientProgress + progressStep );
 			if ( newProgress <= this.progress ) {
 				this.clientProgress = newProgress;
-				this.bar().css( 'width', `${ this.clientProgress }%` );
-				this.ball().css( 'left', `${ this.clientProgress }%` );
+				this.bar().width( `${ this.clientProgress }%` );
 				this.percent().text( `${ this.clientProgress }%` );
 
 				// eslint-disable-next-line eqeqeq
@@ -561,13 +561,13 @@
 					this.dots += '.';
 				}
 
-				if ( this.clientProgress <= 32 ) {
+				if ( this.clientProgress <= 33 ) {
 					label.text( `${ textInstalling }${ this.dots }` );
-				} else if ( this.clientProgress <= 52 ) {
+				} else if ( this.clientProgress <= 66 ) {
 					label.text( `${ textLaunching }${ this.dots }` );
-				} else if ( this.clientProgress <= 99 ) {
-					label.text( `${ textRedirecting }${ this.dots }` );
 				} else if ( this.clientProgress === 100 ) {
+					label.text( `${ textRedirecting }${ this.dots }` );
+				} else {
 					label.text( `${ textFinalizing }${ this.dots }` );
 				}
 			}
