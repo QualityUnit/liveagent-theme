@@ -115,6 +115,11 @@ function la_introduction_videos() {
 				}
 				?>
 			</div>
+			<div class="progress__done__overlay invisible">
+				<div class="redirectButtonPanel" style="display:none"></div>
+				<p>or</p>
+				<a href="#0">Continue watching</a>
+			</div>
 	</div>
 	<div class="progress__done__overlay invisible">
 		<div class="redirectButtonPanel" style="display:none"></div>

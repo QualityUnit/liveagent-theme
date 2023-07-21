@@ -358,13 +358,13 @@ no-descending-specificity, selector-id-pattern */
 		justify-content: center;
 		align-items: center;
 		z-index: 5;
-		margin-right: 12px;
+		margin-right: 0.75em;
 
 		.gear-wheels {
 			position: relative;
 			z-index: 9;
-			width: 37px;
-			height: 37px;
+
+			@include square(2.3125em);
 		}
 
 	}

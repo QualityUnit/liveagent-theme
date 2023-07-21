@@ -562,6 +562,7 @@
 				this.ball().css( 'left', `${ this.clientProgress }%` );
 				this.percent().text( `${ this.clientProgress }%` );
 
+				// eslint-disable-next-line eqeqeq
 				if ( this.clientProgress === 100 ) {
 					this.percent().hide();
 					this.progressHeader().addClass( 'progress--done' );
