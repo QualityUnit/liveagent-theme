@@ -217,7 +217,7 @@ no-descending-specificity, selector-id-pattern */
 					height: 0.625em;
 
 
-					background-color: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
+					background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
 					width: 0;
 					transition: width 0.5s;
 					border-radius: $border-radius-small;
