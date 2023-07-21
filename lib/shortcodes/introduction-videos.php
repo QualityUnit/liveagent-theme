@@ -1,5 +1,5 @@
 <?php
-function la_functions_explanation_with_videos() {
+function la_introduction_videos() {
 	$atts = array(
 		array(
 			'class' => 'chat',
@@ -77,20 +77,20 @@ function la_functions_explanation_with_videos() {
 
 	?>
 
-		<div class="BuildingApp__videos ">
-		<h3 class="BuildingApp__videos__title">
+		<div class="Introduction__videos">
+		<h3 class="Introduction__videos__title">
 			<?php _e( ' Try all communication channels while your LiveAgent is ready. ', 'ms' ); ?>
 		</h3>
 
 		<?php
 
-			echo '<div class="BuildingApp__videos__tabs">';
+			echo '<div class="Introduction__videos__tabs">';
 		foreach ( $atts as $att ) {
 			$class_name = $att['class'];
 			$display_name = $att['name'];
 			$icon_url = $att['icon-url'];
 
-			echo '<div class="BuildingApp__videos__tab RadioInputContainer" data-tab="' . esc_attr( $class_name ) . '"  onclick="selectRadioTab(\'' . esc_attr( $class_name ) . '\')">
+			echo '<div class="Introduction__videos__tab RadioInputContainer" data-tab="' . esc_attr( $class_name ) . '"  onclick="selectRadioTab(\'' . esc_attr( $class_name ) . '\')">
 											<input type="radio" id="' . esc_attr( $class_name ) . '" name="radio" checked/>
 											<label for="' . esc_attr( $class_name ) . '"><img src="" data-src="' . esc_url( get_template_directory_uri() ) . esc_html( $icon_url ) . '" alt=" icon-' . esc_attr( $class_name ) . '" class="tab-icon" loading="lazy">' . esc_html( $display_name ) . '</label>
 											</div>';
@@ -99,7 +99,7 @@ function la_functions_explanation_with_videos() {
 			echo '</div>';
 		?>
 
-			<div class="BuildingApp__videos__contents">
+			<div class="Introduction__videos__contents">
 				<?php
 				foreach ( $atts as $att ) {
 					$video_url = $att['url'];
@@ -114,6 +114,11 @@ function la_functions_explanation_with_videos() {
 					<?php
 				}
 				?>
+			</div>
+			<div class="progress__done__overlay invisible">
+				<div class="redirectButtonPanel" style="display:none"></div>
+				<p>or</p>
+				<a href="#0">Continue watching</a>
 			</div>
 	</div>
 
@@ -173,4 +178,4 @@ function la_functions_explanation_with_videos() {
 	?>
 	<?php
 }
-add_shortcode( 'laFunctionsExplanationWithVideos', 'la_functions_explanation_with_videos' );
+add_shortcode( 'laIntroductionVideos', 'la_introduction_videos' );

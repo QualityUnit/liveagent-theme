@@ -1,7 +1,6 @@
 /* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-mixed-operators, no-redeclare */
 /* global jQuery, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha, analytics, twq */
-// eslint-disable-next-line no-unused-vars
-/* global progressStep, newProgress, btoa, getCookieFrontend */
+/* global newProgress, btoa, getCookieFrontend */
 /* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, textStart, textInvalid, textCreating, variationId */
 
 ( function main() {
@@ -77,8 +76,8 @@
 	}
 
 	function setVisible( element, value ) {
-		const $videoElements = $( '.BuildingApp__videos__contents .tab-content video' );
-		const $imgElements = $( '.BuildingApp__videos__tabs img' );
+		const $videoElements = $( '.Introduction__videos__contents .tab-content video' );
+		const $imgElements = $( '.Introduction__videos__tabs img' );
 
 		if ( value ) {
 			element.removeClass( 'invisible' );
@@ -550,7 +549,7 @@
 				// eslint-disable-next-line eqeqeq
 				if ( this.clientProgress === 100 ) {
 					this.percent().hide();
-					this.progressHeader().addClass( 'mobile' );
+					this.progressHeader().addClass( 'progress--done' );
 				}
 
 				const label = this.label();
@@ -765,6 +764,8 @@
 
 					$( redirectForm ).appendTo( '#redirectButtonPanel' );
 					$( '#redirectButtonPanel' ).css( 'display', 'block' );
+					$( redirectForm ).appendTo( '.progress__done__overlay .redirectButtonPanel' );
+					$( '.progress__done__overlay .redirectButtonPanel' ).css( 'display', 'block' );
 
 					if ( $( '.BuildingHeader' ).length > 0 ) {
 						$( '.BuildingHeader' ).each( function() {

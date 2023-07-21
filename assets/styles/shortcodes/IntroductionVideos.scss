@@ -1,0 +1,235 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Introduction__videos {
+	border-radius: $border-radius;
+	width: 100%;
+
+	background: #f7f7f9;
+
+	&__title {
+		margin-top: 1.3125em;
+		margin-bottom: 1.875em;
+		font-family: $font-primary;
+		font-size: 1rem;
+		padding: 0 1.3125em;
+	}
+
+	&__tabs {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1.25em 1em;
+		padding: 0 1.3125em;
+
+		.RadioInputContainer {
+			position: relative;
+			line-height: 1.2;
+			padding: 0.5em 1.125em 0.5em 1.125em;
+			border-radius: 0.429em;
+			border: 2px solid $white;
+			cursor: pointer !important;
+			width: 100%;
+			display: flex;
+			justify-content: flex-start;
+			background: $white;
+			box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
+
+			* {
+				cursor: pointer !important;
+			}
+
+
+			&.selected {
+				background: $medium-orange;
+				border-color: $dark-orange;
+			}
+
+			[type="radio"] {
+				appearance: none;
+
+				~ label {
+					position: relative;
+					width: 100%;
+					text-align: left;
+					font-size: 0.875em;
+					font-weight: $font-weight-semi;
+					display: flex;
+					align-items: center;
+
+					.tab-icon {
+						margin-right: 0.3125em;
+
+						@include square(1.5em);
+					}
+
+				}
+			}
+
+		}
+
+		@media (min-width: 31.25em) {
+
+			.RadioInputContainer {
+				padding: 0.75em 1.375em 0.75em 4.875em;
+
+				&.selected {
+
+					&:hover {
+
+						&::before {
+							background: url(../images/radio-input-active.svg) center center no-repeat;
+							background-size: contain;
+						}
+					}
+				}
+
+				[type="radio"] {
+
+					&::before {
+						content: "";
+						position: absolute;
+
+						@include square(1.5em);
+						background: url(../images/radio-input-inactive.svg) center center no-repeat;
+						background-size: contain;
+						top: 50%;
+						transform: translateY(-50%);
+						left: 10px;
+					}
+
+					&:checked {
+
+						&::before {
+							background: url(../images/radio-input-active.svg) center center no-repeat;
+							background-size: contain;
+						}
+
+					}
+
+				}
+
+
+				&:hover {
+
+					&:not(.selected) {
+
+						border-color: $dark-orange;
+
+						[type="radio"] {
+
+							&::before {
+								background: url(../images/radio-input-inactive-hover.svg) center center no-repeat;
+								background-size: contain;
+							}
+						}
+
+					}
+				}
+
+
+				input[type="radio"] {
+
+					~ label {
+
+						.tab-icon {
+							margin-right: 0;
+							background-size: contain;
+							content: "";
+							position: absolute;
+
+							@include square(1.625em);
+							left: -6px;
+							top: 50%;
+							transform: translate(-100%, -50%);
+						}
+
+					}
+				}
+			}
+
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+
+			.RadioInputContainer {
+				width: auto;
+
+				&::after {
+					content: "";
+					background: url(../images/doted-line.svg) center center no-repeat;
+					position: absolute;
+					top: 50%;
+					right: -2px;
+					transform: translate(100%, -50%);
+					width: 1.875em;
+					height: 0.125em;
+					gap: 1.25em;
+				}
+
+				&:nth-child(6n) {
+
+					&::after {
+						content: none;
+					}
+
+				}
+			}
+
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+
+			.RadioInputContainer {
+				width: auto;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: flex;
+
+			.RadioInputContainer {
+				width: auto;
+			}
+		}
+
+
+	}
+
+	&__contents {
+		position: relative;
+
+		.tab-content {
+			width: auto;
+			height: 7.5em;
+			margin-top: 3em;
+			display: none;
+			z-index: 9;
+
+			&:first-child {
+				display: block;
+			}
+
+			video {
+				width: 100%;
+				height: auto;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 9;
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				height: 18.75em;
+
+			}
+		}
+	}
+
+}

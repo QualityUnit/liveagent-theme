@@ -158,7 +158,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 <div id="loader" class="invisible">
 	<div class="loaderIn">
 
-		<div class="BuildingApp urlslab-skip-all">
+		<div class="BuildingApp">
 				<div class="BuildingApp__progress">
 					<div class="BuildingApp__progress__header">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon_logo_liveagent.jpg" alt="<?php bloginfo( 'name' ); ?>" class="BuildingApp__progress__header__logo">
@@ -167,21 +167,20 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 							<div class="BuildingApp__progress__header__percentage percentage">0%</div>
 							<div id="redirectButtonPanel" style="display:none"></div>
 						</div>
-					</div>
-
-					<div id="progress-1" class="progress__bar__container">
-						<div class="progress__bar"></div>
-						<div class="progress__ball"></div>
+						<div id="progress-1" class="progress__bar__container">
+							<div class="progress__bar"></div>
+							<div class="progress__ball"></div>
+						</div>
 					</div>
 
 					<p class="BuildingApp__progress__wrap__text"><?php _e( 'We appreciate your recent sign up for a LiveAgent. <br>A message will be sent to your email address containing login details, right after your account is installed.', 'ms' ); ?></p>
 				</div>
 
-			<?= do_shortcode( '[laFunctionsExplanationWithVideos]' ); ?>
+			<?= do_shortcode( '[laIntroductionVideos]' ); ?>
 
 		</div>
-
 	</div>
+</div>
 
 <div class="Medovnicky urlslab-skip-all">
 	<div class="wrapper">

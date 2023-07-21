@@ -3,12 +3,13 @@ no-descending-specificity, selector-id-pattern */
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@forward "../shortcodes/IntroductionVideos";
 
 /* ---------------------------- LOADING SCREEN ----------------------------- */
 
 #loader {
 
-	@include color(background, main-background);
+	background: $white;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -16,7 +17,7 @@ no-descending-specificity, selector-id-pattern */
 	left: 0;
 	width: 100%;
 	height: 100%;
-	padding: 50px 0;
+	padding: 3.125em 0;
 	display: flex;
 	flex-flow: wrap row;
 	justify-content: center;
@@ -32,11 +33,10 @@ no-descending-specificity, selector-id-pattern */
 
 	.loaderIn {
 		text-align: center;
-		padding: 0 35px;
 
 		h2 {
-			margin-top: 25px;
-			margin-bottom: 15px;
+			margin-top: 1.5625em;
+			margin-bottom: 0.9375em;
 		}
 	}
 
@@ -45,7 +45,7 @@ no-descending-specificity, selector-id-pattern */
 
 #redirectButtonPanel[style*="block"] + .mobileSignupFinal {
 
-	@media (max-width: 1024px) {
+	@media (max-width: $breakpoint-tablet-landscape) {
 		display: flex;
 	}
 }
@@ -54,22 +54,23 @@ no-descending-specificity, selector-id-pattern */
 	display: flex;
 }
 
-#redirectButtonPanel {
+#redirectButtonPanel,
+.redirectButtonPanel {
 	flex-flow: wrap row;
 	justify-content: center;
 	align-items: center;
 
 	.FinalButton {
 
-		@include color(background, background);
-		@include color(color, font-color-light);
+		background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
+		color: $white;
 		display: inline-block;
 		margin: 0;
-		padding: 0 57px 0 35px;
+		padding: 0 3.5625em 0 2.1875em;
 		border: 0;
 		border-radius: $border-radius-small;
-		font-size: 14px;
-		line-height: 48px;
+		font-size: 0.875rem;
+		line-height: 3.428;
 		font-weight: $font-weight-bold;
 		text-align: center;
 		text-decoration: none;
@@ -91,8 +92,8 @@ no-descending-specificity, selector-id-pattern */
 		&:focus,
 		&:hover {
 
-			@include color(background, background-invert, !important);
-			@include color(color, font-color-light);
+			background: linear-gradient(90deg, $dark-orange 0%, $light-orange 100%) !important;
+			color: $white;
 			outline: 0;
 			text-decoration: none;
 		}
@@ -111,7 +112,7 @@ no-descending-specificity, selector-id-pattern */
 	display: none !important;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $breakpoint-tablet-landscape) {
 
 	[class*="--desktop"] {
 		display: none !important;
@@ -132,18 +133,32 @@ no-descending-specificity, selector-id-pattern */
 
 	&__progress {
 		width: 100%;
-		max-width: 800px;
+		max-width: 50em;
+		padding: 0 1.3125em;
 
 		&__header {
 
 			display: grid;
-			grid-template-columns: 50px 1fr max-content;
+			grid-template-columns: 45px 1fr max-content;
 			align-items: center;
 			gap: 1em;
-			margin-bottom: 12px;
+			margin-bottom: 0.75em;
 
-			&.mobile {
-				grid-template-columns: 50px 1fr;
+			~ .BuildingApp__progress__wrap__text {
+				padding-top: 0;
+			}
+
+			&.progress--done {
+				position: fixed;
+				width: 100%;
+				top: 0;
+				left: 0;
+				padding: 1.3125em;
+				z-index: 90;
+				background-color: $white;
+				column-gap: 0;
+				margin-bottom: 0;
+				box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 
 				.BuildingApp__progress__header__action__wrapper {
 					display: flex;
@@ -151,18 +166,22 @@ no-descending-specificity, selector-id-pattern */
 					grid-column: 1 / span 2;
 					justify-content: center;
 				}
+
+				~ .BuildingApp__progress__wrap__text {
+					padding-top: 7.5em;
+				}
 			}
 
 			&__logo {
 				display: block;
-				width: 50px;
+				width: 2.25em;
 				height: auto;
 			}
 
 			&__title {
 				display: block;
 				text-align: left;
-				font-size: 22px;
+				font-size: 1.125rem;
 				margin-bottom: 0;
 			}
 
@@ -174,14 +193,64 @@ no-descending-specificity, selector-id-pattern */
 
 			}
 
-			@media (min-width: $breakpoint-tablet-small) {
+			#redirectButtonPanel {
+				width: 100%;
 
-				&__title {
-					font-size: 24px;
+				a {
+					width: 100%;
+				}
+			}
+
+			.progress__bar__container {
+				position: relative;
+				width: 100%;
+				height: 0.625em;
+				grid-column: 1/span 3;
+
+				background-color: $medium-orange;
+				border-radius: $border-radius-small;
+
+				.progress__bar {
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 0.625em;
+
+
+					background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
+					width: 0;
+					transition: width 0.5s;
+					border-radius: $border-radius-small;
 				}
 
-				&.mobile {
+				.progress__ball {
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translate(-5px, -50%);
+
+					@include square( 0.875em );
+					border-radius: 50%;
+					background-color: $white;
+					transition: left 0.5s;
+					z-index: 99;
+					border: 2px solid $dark-orange;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet-small) {
+
+				.progress__bar__container {
+					grid-column: 1/span 3;
+				}
+
+				&.progress--done {
 					grid-template-columns: 50px 1fr max-content;
+					position: relative;
+					width: 100%;
+					padding: 0;
+					background-color: unset;
+					box-shadow: none;
 
 					.BuildingApp__progress__header__action__wrapper {
 						display: unset;
@@ -189,239 +258,52 @@ no-descending-specificity, selector-id-pattern */
 						grid-column: unset;
 					}
 
-				}
-
-			}
-
-			@media (max-width: $breakpoint-mobile) {
-
-				#redirectButtonPanel {
-					width: 100%;
-
-					.FinalButton {
-						width: 100%;
+					~ .BuildingApp__progress__wrap__text {
+						padding-top: 0;
 					}
+
+				}
+
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				&__title {
+					font-size: 1.5rem;
+				}
+
+				&__logo {
+					width: 3em;
 				}
 			}
-
-
 		}
-
-		.progress__bar__container {
-			position: relative;
-			width: 100%;
-			height: 10px;
-
-			@include color(background-color, third-color);
-			border-radius: $border-radius-small;
-
-			.progress__bar {
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 10px;
-
-				@include color(background-image, background);
-				width: 0;
-				transition: width 0.5s;
-				border-radius: $border-radius-small;
-			}
-
-			.progress__ball {
-				position: absolute;
-				top: 50%;
-				left: 0;
-				transform: translate(-5px, -50%);
-				width: 14px;
-				height: 14px;
-				border-radius: 50%;
-				background-color: #fff;
-				transition: left 0.5s;
-				z-index: 99;
-				border: 2px solid $dark-orange;
-			}
-		}
-
 
 		&__wrap__text {
+			padding-top: 7.5em;
 			margin: 2em 0;
+			font-size: 0.875rem;
 		}
 
 	}
 
-	&__videos {
-		padding: 25px 0;
-		border-radius: $border-radius;
+}
 
-		background: #f7f7f9;
+.Introduction__videos {
+	position: relative;
 
-		&__title {
-			margin-top: 0;
-			margin-bottom: 30px;
+	.progress__done__overlay {
+		z-index: 999;
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
 
-		}
-
-		&__tabs {
-			display: flex;
-			justify-content: center;
-			flex-direction: row;
-			flex-wrap: wrap;
-			gap: 1.25em 1em;
-			padding: 0 1em;
-
-			.RadioInputContainer {
-				position: relative;
-				line-height: 1.2;
-				padding: 12px 22px 12px 68px;
-				border-radius: 0.429em;
-				border: 2px solid $white;
-				cursor: pointer !important;
-				width: 100%;
-
-				@include color(background, main-background);
-				@include color(box-shadow, box-shadow);
-
-
-				* {
-					cursor: pointer !important;
-				}
-
-
-				&.selected {
-
-					@include color(background, third-color);
-					@include color(border-color, primary-color);
-				}
-
-				&:hover {
-
-					@include color(border-color, primary-color);
-
-					[type="radio"] {
-
-						&::before {
-							background: url(../images/radio-input-inactive-hover.svg) center center no-repeat;
-							background-size: contain;
-						}
-					}
-
-				}
-
-				[type="radio"] {
-					appearance: none;
-
-					&::before {
-						content: "";
-						position: absolute;
-
-						@include square(1.5em);
-						background: url(../images/radio-input-inactive.svg) center center no-repeat;
-						background-size: contain;
-						top: 50%;
-						transform: translateY(-50%);
-						left: 10px;
-					}
-
-					~ label {
-						position: relative;
-
-						.tab-icon {
-							background-size: contain;
-							content: "";
-							position: absolute;
-
-							@include square(26px);
-							left: -6px;
-							top: 50%;
-							transform: translate(-100%, -50%);
-						}
-
-					}
-
-					&:checked {
-
-						&::before {
-							background: url(../images/radio-input-active.svg) center center no-repeat;
-							background-size: contain;
-						}
-
-					}
-				}
-
-
-				@media (min-width: 524px) {
-					width: 48%;
-
-				}
-
-				@media (min-width: $breakpoint-tablet) {
-					width: 31%;
-
-				}
-
-				@media (min-width: $breakpoint-desktop) {
-					width: auto;
-
-					&::after {
-						content: "";
-						background: url(../images/doted-line.svg) center center no-repeat;
-						position: absolute;
-						top: 50%;
-						right: -2px;
-						transform: translate(100%, -50%);
-						width: 30px;
-						height: 2px;
-						gap: 1.25em;
-					}
-
-					&:nth-child(6n) {
-
-						&::after {
-							content: none;
-						}
-
-					}
-				}
-			}
-
-			@media (min-width: $breakpoint-desktop) {
-				padding: 0 2em;
-			}
-		}
-
-		&__contents {
-			position: relative;
-
-			.tab-content {
-				width: auto;
-				height: 120px;
-				margin-top: 3em;
-				display: none;
-				z-index: 9;
-
-				&:first-child {
-					display: block;
-				}
-
-				video {
-					width: 100%;
-					height: auto;
-					position: absolute;
-					top: 0;
-					left: 0;
-					right: 0;
-					z-index: 9;
-				}
-
-				@media (min-width: $breakpoint-desktop) {
-					height: 300px;
-
-				}
-			}
-		}
-
+		@include square(100%);
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		opacity: 1;
 	}
-
 }
 
 .ApplicationReady {
@@ -437,7 +319,7 @@ no-descending-specificity, selector-id-pattern */
 	}
 
 	#redirectButtonPanel {
-		margin-top: 65px;
+		margin-top: 4.0625em;
 	}
 
 	&--spam {
@@ -448,7 +330,7 @@ no-descending-specificity, selector-id-pattern */
 	}
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $breakpoint-tablet-landscape) {
 
 	.ApplicationReady.ApplicationReady.ApplicationReady {
 
@@ -472,13 +354,13 @@ no-descending-specificity, selector-id-pattern */
 		justify-content: center;
 		align-items: center;
 		z-index: 5;
-		margin-right: 12px;
+		margin-right: 0.75em;
 
 		.gear-wheels {
 			position: relative;
 			z-index: 9;
-			width: 37px;
-			height: 37px;
+
+			@include square(2.3125em);
 		}
 
 	}
