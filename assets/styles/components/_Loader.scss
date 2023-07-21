@@ -3,13 +3,13 @@ no-descending-specificity, selector-id-pattern */
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@use "../shortcodes/IntroductionVideos" as *;
+@forward "../shortcodes/IntroductionVideos";
 
 /* ---------------------------- LOADING SCREEN ----------------------------- */
 
 #loader {
 
-	@include color(background, main-background);
+	background: $white;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -17,7 +17,7 @@ no-descending-specificity, selector-id-pattern */
 	left: 0;
 	width: 100%;
 	height: 100%;
-	padding: 50px 0;
+	padding: 3.125em 0;
 	display: flex;
 	flex-flow: wrap row;
 	justify-content: center;
@@ -56,8 +56,8 @@ no-descending-specificity, selector-id-pattern */
 		}
 
 		h2 {
-			margin-top: 25px;
-			margin-bottom: 15px;
+			margin-top: 1.5625em;
+			margin-bottom: 0.9375em;
 		}
 	}
 
@@ -66,7 +66,7 @@ no-descending-specificity, selector-id-pattern */
 
 #redirectButtonPanel[style*="block"] + .mobileSignupFinal {
 
-	@media (max-width: 1024px) {
+	@media (max-width: $breakpoint-tablet-landscape) {
 		display: flex;
 	}
 }
@@ -83,15 +83,15 @@ no-descending-specificity, selector-id-pattern */
 
 	.FinalButton {
 
-		@include color(background, background);
-		@include color(color, font-color-light);
+		background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
+		color: $white;
 		display: inline-block;
 		margin: 0;
-		padding: 0 57px 0 35px;
+		padding: 0 3.5625em 0 2.1875em;
 		border: 0;
 		border-radius: $border-radius-small;
-		font-size: 14px;
-		line-height: 48px;
+		font-size: 0.875rem;
+		line-height: 3.428;
 		font-weight: $font-weight-bold;
 		text-align: center;
 		text-decoration: none;
@@ -113,8 +113,8 @@ no-descending-specificity, selector-id-pattern */
 		&:focus,
 		&:hover {
 
-			@include color(background, background-invert, !important);
-			@include color(color, font-color-light);
+			background: linear-gradient(90deg, $dark-orange 0%, $light-orange 100%) !important;
+			color: $white;
 			outline: 0;
 			text-decoration: none;
 		}
@@ -133,7 +133,7 @@ no-descending-specificity, selector-id-pattern */
 	display: none !important;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $breakpoint-tablet-landscape) {
 
 	[class*="--desktop"] {
 		display: none !important;
@@ -154,8 +154,8 @@ no-descending-specificity, selector-id-pattern */
 
 	&__progress {
 		width: 100%;
-		max-width: 800px;
-		padding: 0 21px;
+		max-width: 50em;
+		padding: 0 1.3125em;
 
 		&__header {
 
@@ -163,7 +163,7 @@ no-descending-specificity, selector-id-pattern */
 			grid-template-columns: 45px 1fr max-content;
 			align-items: center;
 			gap: 1em;
-			margin-bottom: 12px;
+			margin-bottom: 0.75em;
 
 			~ .BuildingApp__progress__wrap__text {
 				padding-top: 0;
@@ -174,13 +174,12 @@ no-descending-specificity, selector-id-pattern */
 				width: 100%;
 				top: 0;
 				left: 0;
-				padding: 21px;
+				padding: 1.3125em;
 				z-index: 90;
 				background-color: $white;
 				column-gap: 0;
 				margin-bottom: 0;
-
-				@include color( box-shadow, box-shadow );
+				box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 
 				.BuildingApp__progress__header__action__wrapper {
 					display: flex;
@@ -190,20 +189,20 @@ no-descending-specificity, selector-id-pattern */
 				}
 
 				~ .BuildingApp__progress__wrap__text {
-					padding-top: 120px;
+					padding-top: 7.5em;
 				}
 			}
 
 			&__logo {
 				display: block;
-				width: 36px;
+				width: 2.25em;
 				height: auto;
 			}
 
 			&__title {
 				display: block;
 				text-align: left;
-				font-size: 18px;
+				font-size: 1.125rem;
 				margin-bottom: 0;
 			}
 
@@ -226,19 +225,20 @@ no-descending-specificity, selector-id-pattern */
 			.progress__bar__container {
 				position: relative;
 				width: 100%;
-				height: 10px;
+				height: 0.625em;
 				grid-column: 1/span 3;
 
-				@include color(background-color, third-color);
+				background-color: $medium-orange;
 				border-radius: $border-radius-small;
 
 				.progress__bar {
 					position: absolute;
 					top: 0;
 					left: 0;
-					height: 10px;
+					height: 0.625em;
 
-					@include color(background-image, background);
+
+					background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
 					width: 0;
 					transition: width 0.5s;
 					border-radius: $border-radius-small;
@@ -249,10 +249,10 @@ no-descending-specificity, selector-id-pattern */
 					top: 50%;
 					left: 0;
 					transform: translate(-5px, -50%);
-					width: 14px;
-					height: 14px;
+
+					@include square( 0.875em );
 					border-radius: 50%;
-					background-color: #fff;
+					background-color: $white;
 					transition: left 0.5s;
 					z-index: 99;
 					border: 2px solid $dark-orange;
@@ -290,19 +290,19 @@ no-descending-specificity, selector-id-pattern */
 			@media (min-width: $breakpoint-tablet) {
 
 				&__title {
-					font-size: 24px;
+					font-size: 1.5rem;
 				}
 
 				&__logo {
-					width: 48px;
+					width: 3em;
 				}
 			}
 		}
 
 		&__wrap__text {
-			padding-top: 120px;
+			padding-top: 7.5em;
 			margin: 2em 0;
-			font-size: 14px;
+			font-size: 0.875rem;
 		}
 
 	}
@@ -323,7 +323,7 @@ no-descending-specificity, selector-id-pattern */
 	}
 
 	#redirectButtonPanel {
-		margin-top: 65px;
+		margin-top: 4.0625em;
 	}
 
 	&--spam {
@@ -334,7 +334,7 @@ no-descending-specificity, selector-id-pattern */
 	}
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $breakpoint-tablet-landscape) {
 
 	.ApplicationReady.ApplicationReady.ApplicationReady {
 

@@ -10,11 +10,11 @@
 	background: #f7f7f9;
 
 	&__title {
-		margin-top: 21px;
-		margin-bottom: 30px;
+		margin-top: 1.3125em;
+		margin-bottom: 1.875em;
 		font-family: $font-primary;
-		font-size: 16px;
-		padding: 0 21px;
+		font-size: 1rem;
+		padding: 0 1.3125em;
 	}
 
 	&__tabs {
@@ -24,22 +24,20 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		gap: 1.25em 1em;
-		padding: 0 21px;
+		padding: 0 1.3125em;
 
 		.RadioInputContainer {
 			position: relative;
 			line-height: 1.2;
-			padding: 8px 18px 8px 18px;
+			padding: 0.5em 1.125em 0.5em 1.125em;
 			border-radius: 0.429em;
 			border: 2px solid $white;
 			cursor: pointer !important;
 			width: 100%;
 			display: flex;
 			justify-content: flex-start;
-
-			@include color(background, main-background);
-			@include color(box-shadow, box-shadow);
-
+			background: $white;
+			box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 
 			* {
 				cursor: pointer !important;
@@ -47,9 +45,8 @@
 
 
 			&.selected {
-
-				@include color(background, third-color);
-				@include color(border-color, primary-color);
+				background: $medium-orange;
+				border-color: $dark-orange;
 			}
 
 			[type="radio"] {
@@ -59,15 +56,15 @@
 					position: relative;
 					width: 100%;
 					text-align: left;
-					font-size: 14px;
+					font-size: 0.875em;
 					font-weight: $font-weight-semi;
 					display: flex;
 					align-items: center;
 
 					.tab-icon {
-						margin-right: 5px;
+						margin-right: 0.3125em;
 
-						@include square(24px);
+						@include square(1.5em);
 					}
 
 				}
@@ -75,11 +72,10 @@
 
 		}
 
-		@media (min-width: 500px) {
+		@media (min-width: 31.25em) {
 
 			.RadioInputContainer {
-				padding: 12px 22px 12px 78px;
-
+				padding: 0.75em 1.375em 0.75em 4.875em;
 
 				&.selected {
 
@@ -122,7 +118,7 @@
 
 					&:not(.selected) {
 
-						@include color(border-color, primary-color);
+						border-color: $dark-orange;
 
 						[type="radio"] {
 
@@ -146,7 +142,7 @@
 							content: "";
 							position: absolute;
 
-							@include square(26px);
+							@include square(1.625em);
 							left: -6px;
 							top: 50%;
 							transform: translate(-100%, -50%);
@@ -170,8 +166,8 @@
 					top: 50%;
 					right: -2px;
 					transform: translate(100%, -50%);
-					width: 30px;
-					height: 2px;
+					width: 1.875em;
+					height: 0.125em;
 					gap: 1.25em;
 				}
 
@@ -210,7 +206,7 @@
 
 		.tab-content {
 			width: auto;
-			height: 120px;
+			height: 7.5em;
 			margin-top: 3em;
 			display: none;
 			z-index: 9;
@@ -230,7 +226,7 @@
 			}
 
 			@media (min-width: $breakpoint-desktop) {
-				height: 300px;
+				height: 18.75em;
 
 			}
 		}
