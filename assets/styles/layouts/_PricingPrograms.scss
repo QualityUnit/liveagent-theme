@@ -5,10 +5,6 @@
 @use "../elements/LabelTag" as *;
 
 
-.elementor-shortcode {
-	display: none;
-}
-
 .Pricing__programs {
 	position: relative;
 	padding: 3em 0 0;
@@ -18,7 +14,7 @@
 		> .elementor-container {
 			display: grid;
 			grid-template-columns: repeat(1, 1fr);
-			gap: 10px;
+			gap: 0.625em;
 
 			> .Pricing__program {
 				width: 100%;
@@ -209,8 +205,8 @@
 		}
 
 		.elementor-heading-title {
-			font-size: 30px;
-			line-height: 45px;
+			font-size: 1.875rem;
+			line-height: 1.5;
 
 		}
 
@@ -228,7 +224,7 @@
 
 			.col__one {
 				width: 100%;
-				margin-bottom: 10px;
+				margin-bottom: 0.625em;
 
 				> .elementor-widget-wrap {
 					flex-direction: column;
@@ -261,11 +257,10 @@
 		.Free__accounts {
 			background-color: transparent;
 			border: 1px solid $medium-gray-inputs;
-			margin-bottom: 10px;
+			margin-bottom: 0.625em;
 
 			* {
-
-				@include color(color, font-color-dark);
+				color: $black;
 				margin-bottom: 0;
 			}
 
@@ -273,11 +268,10 @@
 
 				a {
 
-					@include color(color, primary-color);
+					color: $dark-orange;
 
 					&:hover {
-
-						@include color(color, font-color-dark);
+						color: $black;
 					}
 				}
 			}
@@ -286,8 +280,8 @@
 
 				p {
 					font-family: $font-secondary;
-					font-size: 20px;
-					line-height: 45px;
+					font-size: 1.25rem;
+					line-height: 2.25;
 				}
 
 			}
@@ -296,12 +290,11 @@
 
 				&:hover {
 
-					@include color(border-color, primary-color);
-					@include color(background, secondary-background);
+					border-color: $dark-orange;
+					background: $lightest-gray;
 
 					span {
-
-						@include color(color, primary-color);
+						color: $dark-orange;
 					}
 
 				}
@@ -321,7 +314,7 @@
 			overflow: hidden;
 
 			.col__one {
-				margin-bottom: 24px;
+				margin-bottom: 1.5em;
 			}
 
 			.col__two {
