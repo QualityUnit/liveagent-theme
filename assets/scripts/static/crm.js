@@ -533,10 +533,6 @@
 			return this.block( reset ).find( '.BuildingApp__progress__header' );
 		} ),
 
-		introductionVideos: generateAccessor( '_introduction_videos', function bar( reset ) {
-			return this.block( reset ).find( '.Introduction__videos' );
-		} ),
-
 		progressDoneOverlay: generateAccessor( '_progress_done_overlay', function bar( reset ) {
 			return this.block( reset ).find( '.progress__done__overlay' );
 		} ),
