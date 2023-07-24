@@ -121,7 +121,11 @@ function la_introduction_videos() {
 				<a href="#0">Continue watching</a>
 			</div>
 	</div>
-
+	<div class="progress__done__overlay invisible">
+		<div class="redirectButtonPanel" style="display:none"></div>
+		<p>or</p>
+		<a class="continue__watching" href="#0">Continue watching</a>
+	</div>
 
 	<?php
 		add_action(
