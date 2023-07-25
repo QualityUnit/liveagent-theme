@@ -155,7 +155,7 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 	</div>
 </footer>
 
-<div id="loader" class="invisible">
+<div id="loader" class="invisible urlslab-skip-all">
 	<div class="loaderIn">
 
 		<div class="BuildingApp">
