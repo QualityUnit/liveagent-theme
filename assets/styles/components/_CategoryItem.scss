@@ -27,8 +27,7 @@
 		&:active,
 		&:focus,
 		&:hover {
-
-			@include color(box-shadow, box-shadow);
+			box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 		}
 
 		.Category__item {
@@ -54,8 +53,7 @@
 				overflow: hidden;
 
 				a {
-
-					@include color(color, font-color-dark);
+					color: $black;
 					text-decoration: none;
 				}
 			}
@@ -64,8 +62,7 @@
 
 				p,
 				> a {
-
-					@include color(color, font-color-level3);
+					color: $medium-gray-quotes;
 					font-size: $font-size-smaller;
 					line-height: $line-height-smaller;
 					text-decoration: none;
@@ -167,8 +164,7 @@
 
 			p,
 			> a {
-
-				@include color(color, font-color-normal);
+				color: $dark-gray;
 				display: block;
 				font-weight: $font-weight-bold;
 
@@ -183,8 +179,7 @@
 			}
 
 			span {
-
-				@include color(color, primary-color);
+				color: $dark-orange;
 				display: flex;
 				font-weight: $font-weight-bold;
 
@@ -315,8 +310,7 @@
 		}
 
 		a {
-
-			@include color(color, font-color-dark);
+			color: $black;
 		}
 	}
 
@@ -331,6 +325,7 @@
 	max-height: 23.125em;
 	box-shadow: 0 0 0 2px transparent;
 	transition: 0.2s;
+	margin-bottom: 2.5em;
 
 	&::after {
 		content: "";
@@ -348,8 +343,7 @@
 		transition: 0.2s;
 		border-width: 1px;
 		border-style: solid;
-
-		@include color(border-color, primary-color);
+		border-color: $dark-orange;
 
 		.Category__item {
 
@@ -359,12 +353,13 @@
 
 					a {
 
-						@include color(color, primary-color);
+						color: $dark-orange;
 					}
 				}
 			}
 		}
 	}
+
 
 	.Category__item {
 
@@ -414,8 +409,7 @@
 				background-color: $white;
 				border-radius: $border-radius;
 				margin-bottom: 10px;
-
-				@include color(box-shadow, box-shadow);
+				box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 				backdrop-filter: blur(8.5px);
 				margin-right: 8px;
 
@@ -451,8 +445,7 @@
 				a {
 
 					&:hover {
-
-						@include color(color, primary-color);
+						color: $dark-orange;
 					}
 				}
 
@@ -505,12 +498,12 @@
 		background: url(../../images/bg_circles_category_item.jpg)  center/cover no-repeat;
 		padding: 0;
 		z-index: 1;
+		margin-top: 1.25em;
 
 		&:hover {
 			border: 1px solid;
 			box-shadow: none;
-
-			@include color(border-color, border-color-gray);
+			border-color: $light-gray;
 		}
 
 		.Category__item {
@@ -583,3 +576,4 @@
 		}
 	}
 }
+
