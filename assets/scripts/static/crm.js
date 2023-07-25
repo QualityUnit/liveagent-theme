@@ -85,13 +85,13 @@
 
 			$videoElements.each( function() {
 				const $video = $( this );
-				const dataSrc = $video.data( 'src' );
+				const dataSrc = $video.data( 'src-trial' );
 				$video.attr( 'src', dataSrc );
 			} );
 
 			$imgElements.each( function() {
 				const $img = $( this );
-				const dataSrc = $img.data( 'src' );
+				const dataSrc = $img.data( 'src-trial' );
 				$img.attr( 'src', dataSrc );
 			} );
 		} else {

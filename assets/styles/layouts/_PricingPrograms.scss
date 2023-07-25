@@ -277,11 +277,19 @@
 			}
 
 			.price__per__month {
+				font-family: $font-secondary;
+				font-weight: 700;
+				font-size: 1.875rem;
+				line-height: 2;
 
-				p {
-					font-family: $font-secondary;
-					font-size: 1.25rem;
-					line-height: 2.25;
+				small,
+				sup {
+					font-weight: 400;
+					font-size: 1.3rem;
+				}
+
+				sup {
+					font-size: 1rem;
 				}
 
 			}
