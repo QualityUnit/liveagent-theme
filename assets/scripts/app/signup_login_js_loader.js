@@ -2,24 +2,36 @@ const signuplogin = () => {
 	const scriptList = [ ...document.querySelectorAll( 'script[data-src]' ) ];
 	const regex = /.+crm.js.+|.+login.js.+/gi;
 
+	function waitForLoad( element ) {
+		return new Promise( ( resolve ) => {
+			element.onload = resolve( { ok: true } );
+		} );
+	}
+
 	function loadScripts() {
 		scriptList.map( ( element ) => {
 			const script = element;
 
 			const datasrc = script.getAttribute( 'data-src' );
 			if ( ! datasrc.match( regex ) ) {
-				script.setAttribute( 'src', datasrc );
-				script.addEventListener( 'load', () => {
-					setTimeout( () => {
-						scriptList.filter( ( executor ) => {
-							const src = executor.getAttribute( 'data-src' );
-							if ( src.match( regex ) ) {
-								executor.setAttribute( 'src', src );
-							}
-							return true;
-						} );
-					}, 50 );
-				} );
+				script.src = datasrc;
+
+				async function isLoaded() {
+					const response = await waitForLoad( script );
+					if ( response.ok ) {
+						setTimeout( () => {
+							scriptList.filter( ( executor ) => {
+								const dataSrc = executor.getAttribute( 'data-src' );
+								if ( dataSrc.match( regex ) ) {
+									executor.src = dataSrc;
+								}
+								return true;
+							} );
+						}, 50 );
+					}
+				}
+
+				isLoaded();
 			}
 			return true;
 		} );
