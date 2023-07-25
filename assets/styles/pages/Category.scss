@@ -97,3 +97,17 @@
 		}
 	}
 }
+
+
+@media (min-width: $breakpoint-tablet-landscape) {
+
+	.post-type-archive-ms_features {
+
+		.Category {
+
+			.Category__content__items {
+				column-gap: 30px;
+			}
+		}
+	}
+}
