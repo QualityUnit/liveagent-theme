@@ -91,9 +91,9 @@ function la_introduction_videos() {
 			$icon_url = $att['icon-url'];
 
 			echo '<div class="Introduction__videos__tab RadioInputContainer" data-tab="' . esc_attr( $class_name ) . '"  onclick="selectRadioTab(\'' . esc_attr( $class_name ) . '\')">
-											<input type="radio" id="' . esc_attr( $class_name ) . '" name="radio" checked/>
-											<label for="' . esc_attr( $class_name ) . '"><img src="" data-src="' . esc_url( get_template_directory_uri() ) . esc_html( $icon_url ) . '" alt=" icon-' . esc_attr( $class_name ) . '" class="tab-icon" loading="lazy">' . esc_html( $display_name ) . '</label>
-											</div>';
+			<input type="radio" id="' . esc_attr( $class_name ) . '" name="radio" checked/>
+			<label for="' . esc_attr( $class_name ) . '"><img src="" data-src-trial="' . esc_url( get_template_directory_uri() ) . esc_html( $icon_url ) . '" alt=" icon-' . esc_attr( $class_name ) . '" class="tab-icon" loading="lazy">' . esc_html( $display_name ) . '</label>
+			</div>';
 
 		}
 			echo '</div>';
@@ -107,8 +107,8 @@ function la_introduction_videos() {
 					?>
 
 			<div class="tab-content" data-tab="<?php echo esc_attr( $class_name ); ?>">
-				<video src="" data-src="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" autoplay muted loop playsinline>
-					<source data-src="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" type="video/mp4" />
+				<video data-src-trial="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" autoplay muted loop playsinline>
+					<source data-src-trial="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" type="video/mp4" />
 				</video>
 			</div>
 					<?php
