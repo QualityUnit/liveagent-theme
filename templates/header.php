@@ -1,3 +1,21 @@
+<?php
+if ( is_front_page() ) { ?>
+		<div class="Announcement__bar Ai__whisper__assistent">
+			<div class="wrapper">
+				<div class="Announcement__bar__col__left">
+					<h2><?php _e( 'AI Whisper Assistant', 'ms' ); ?><small><?php _e( '/Private beta', 'ms' ); ?></small></h2>
+					<p><?php _e( 'Suggests the responses to your agents need', 'ms' ); ?></p>
+				</div>
+				<div class="Announcement__bar__col__right">
+					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/ai-announcement-bar-img-right.png" alt="">
+				</div>
+			</div>
+			<button class="Announcement__bar__close">X</button>
+		</div>
+	<?php
+}
+?>
+
 <header class="Header urlslab-skip-keywords urlslab-skip-fragment urlslab-skip-all">
 	<div class="wrapper">
 		<div class="Header__logo">
@@ -59,3 +77,39 @@
 
 	</div>
 </header>
+<script>
+
+	document.addEventListener("DOMContentLoaded", function() {
+
+		const body = document.body;
+
+		const appElement = document.getElementById("app");
+
+		if (body.classList.contains("home")) {
+
+			appElement.classList.add("announcement--active");
+		}
+
+
+		const AppContainer = document.querySelector('#app');
+		const closeButton = document.querySelector(".Announcement__bar__close");
+
+		closeButton.addEventListener("click", function() {
+			AppContainer.classList.remove("announcement--active");
+		});
+
+	});
+	function removeAnnouncement() {
+		const AppContainer = document.querySelector('#app');
+		const scrollHeight = window.scrollY;
+
+		if (scrollHeight >= 800) {
+			AppContainer.classList.remove('announcement--active');
+		}
+	}
+	window.addEventListener('scroll', removeAnnouncement);
+
+
+</script>
+
+
