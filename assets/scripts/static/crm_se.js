@@ -1,29 +1,29 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'spinla01';
-const variationId = 'seLaTria';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'spinla01',
+	variationId: 'seLaTria',
 
-const languageCode = 'sv';
+	languageCode: 'sv',
 
-const textValidating = 'Bekräftar...';
-const textCreating = 'Skapar...';
-const textInstalling = 'Installerar';
-const textLaunching = 'Lanserar';
-const textRedirecting = 'Omdirigerar';
-const textFinalizing = 'Slutför';
-const textStart = 'Börja nu';
-const textError = 'Något gick fel.';
-const textEmpty = 'Fält kan inte vara tomma';
-const textInvalid = 'Några fält är ogiltiga';
-const textInvalidField = 'Ogiltigt fält';
-const textInvalidMail = 'Ogiltig e-post';
-const textValidDomain = 'Domänen är giltig';
-const textFailedDomain = 'Kunde inte bekräfta domän';
-const textDomainNoHttp =
-	'	Domänen kan inte innehålla http eller www och stora bokstäver';
-const textFailedRetrieve = 'Kunde inte hämta giltig utvecklings info.';
-const textGoApp = 'Gå till din app';
-const textReadyApp = 'Din LiveAgent är redo';
-const textDoneAppTitle = 'Din LiveAgent är redo';
-const textDoneAppText =
-	'Inloggnings uppgifterna har skickats till din inbox. Vänligen kolla den för att fortsätta till LiveAgent..';
+	textValidating: 'Bekräftar...',
+	textCreating: 'Skapar...',
+	textInstalling: 'Installerar',
+	textLaunching: 'Lanserar',
+	textRedirecting: 'Omdirigerar',
+	textFinalizing: 'Slutför',
+	textStart: 'Börja nu',
+	textError: 'Något gick fel.',
+	textEmpty: 'Fält kan inte vara tomma',
+	textInvalid: 'Några fält är ogiltiga',
+	textInvalidField: 'Ogiltigt fält',
+	textInvalidMail: 'Ogiltig e-post',
+	textValidDomain: 'Domänen är giltig',
+	textFailedDomain: 'Kunde inte bekräfta domän',
+	textDomainNoHttp: '	Domänen kan inte innehålla http eller www och stora bokstäver',
+	textFailedRetrieve: 'Kunde inte hämta giltig utvecklings info.',
+	textGoApp: 'Gå till din app',
+	textReadyApp: 'Din LiveAgent är redo',
+	textDoneAppTitle: 'Din LiveAgent är redo',
+	textDoneAppText: 'Inloggnings uppgifterna har skickats till din inbox. Vänligen kolla den för att fortsätta till LiveAgent..',
+} ) );
