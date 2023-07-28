@@ -1,31 +1,30 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'b229622b';
-const variationId = '3513230f';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'b229622b',
+	variationId: '3513230f',
 
-const languageCode = 'en-US';
+	languageCode: 'lv',
 
-const textValidating = 'Pārbauda...';
-const textCreating = 'Izveido...';
-const textInstalling = 'Instalē';
-const textLaunching = 'Palaiž';
-const textRedirecting = 'Pārvirza';
-const textFinalizing = 'Pabeidz';
-const textStart = 'Sākt tagad';
-const textError = 'Kaut kas nogāja greizi.';
-const textEmpty = 'Lauks nedrīkst būt tukšs';
-const textInvalid = 'Daži lauki ir nederīgi';
-const textInvalidField = 'Lauks ir nederīgs';
-const textInvalidMail = 'E-pasts ir nederīgs';
-const textValidDomain = 'Domain ir derīgs';
-const textFailedDomain = 'Domēna pārbaude neveiksmīga';
-const textDomainNoHttp =
-	'	Domēns nedrīkst saturēt http vai www un lielos sākumburtus (A-Z)';
-const textFailedRetrieve =
-	'Nebija iespējams saņemt derīgu informāciju par progresu.';
-const textGoApp = 'Dodieties uz Jūsu Lietotni';
-const textReadyApp = 'Jūsu LiveAgent ir gatavs';
-const textDoneAppTitle = 'Jūsu LiveAgent ir gatavs';
-const textDoneAppText =
-	'Pieteikšanās informācija tika nosūtīta uz Jūsu e-pasta iesūtni. Lūdzu, iepazīstieties ar to, pirms turpiniet doties uz LiveAgent.';
+	textValidating: 'Pārbauda...',
+	textCreating: 'Izveido...',
+	textInstalling: 'Instalē',
+	textLaunching: 'Palaiž',
+	textRedirecting: 'Pārvirza',
+	textFinalizing: 'Pabeidz',
+	textStart: 'Sākt tagad',
+	textError: 'Kaut kas nogāja greizi.',
+	textEmpty: 'Lauks nedrīkst būt tukšs',
+	textInvalid: 'Daži lauki ir nederīgi',
+	textInvalidField: 'Lauks ir nederīgs',
+	textInvalidMail: 'E-pasts ir nederīgs',
+	textValidDomain: 'Domain ir derīgs',
+	textFailedDomain: 'Domēna pārbaude neveiksmīga',
+	textDomainNoHttp: '	Domēns nedrīkst saturēt http vai www un lielos sākumburtus (A-Z)',
+	textFailedRetrieve: 'Nebija iespējams saņemt derīgu informāciju par progresu.',
+	textGoApp: 'Dodieties uz Jūsu Lietotni',
+	textReadyApp: 'Jūsu LiveAgent ir gatavs',
+	textDoneAppTitle: 'Jūsu LiveAgent ir gatavs',
+	textDoneAppText: 'Pieteikšanās informācija tika nosūtīta uz Jūsu e-pasta iesūtni. Lūdzu, iepazīstieties ar to, pirms turpiniet doties uz LiveAgent.',
 
+} ) );

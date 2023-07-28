@@ -1,31 +1,30 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'b229622b';
-const variationId = 'freedesk';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'b229622b',
+	variationId: 'freedesk',
 
-const languageCode = 'ru';
+	languageCode: 'ru',
 
-const textValidating = 'Проверка...';
-const textCreating = 'Создание...';
-const textInstalling = 'Установка';
-const textLaunching = 'Запуск';
-const textRedirecting = 'Перенаправление';
-const textFinalizing = 'Завершение';
-const textStart = 'Приступить';
-const textError = 'Что-то пошло не так.';
-const textEmpty = 'Поле не должно быть пустым';
-const textInvalid = 'Некоторые поля заполнены некорректно';
-const textInvalidField = 'Некорректное поле';
-const textInvalidMail = 'Некорректный адрес электронной почты';
-const textValidDomain = 'Домен корректен';
-const textFailedDomain = 'Не удалось проверить домен';
-const textDomainNoHttp =
-	'Доменное имя не должно содержать "http" или "www", а также буквы в верхнем регистре (A-Z)';
-const textFailedRetrieve =
-	'Не удалось получить актуальную информацию о прогрессе.';
-const textGoApp = 'Перейдите в ваше приложение';
-const textReadyApp = 'Ваша учетная запись LiveAgent готова';
-const textDoneAppTitle = 'Ваша учетная запись LiveAgent готова';
-const textDoneAppText =
-	'Ваши учетные данные были направлены на ваш электронный адрес. Чтобы войти в LiveAgent, проверьте почту.';
+	textValidating: 'Проверка...',
+	textCreating: 'Создание...',
+	textInstalling: 'Установка',
+	textLaunching: 'Запуск',
+	textRedirecting: 'Перенаправление',
+	textFinalizing: 'Завершение',
+	textStart: 'Приступить',
+	textError: 'Что-то пошло не так.',
+	textEmpty: 'Поле не должно быть пустым',
+	textInvalid: 'Некоторые поля заполнены некорректно',
+	textInvalidField: 'Некорректное поле',
+	textInvalidMail: 'Некорректный адрес электронной почты',
+	textValidDomain: 'Домен корректен',
+	textFailedDomain: 'Не удалось проверить домен',
+	textDomainNoHttp: 'Доменное имя не должно содержать "http" или "www", а также буквы в верхнем регистре (A-Z)',
+	textFailedRetrieve: 'Не удалось получить актуальную информацию о прогрессе.',
+	textGoApp: 'Перейдите в ваше приложение',
+	textReadyApp: 'Ваша учетная запись LiveAgent готова',
+	textDoneAppTitle: 'Ваша учетная запись LiveAgent готова',
+	textDoneAppText: 'Ваши учетные данные были направлены на ваш электронный адрес. Чтобы войти в LiveAgent, проверьте почту.',
 
+} ) );

@@ -1,8 +1,10 @@
 {
 	"globals": {
-		"fetch": false,
-		"IntersectionObserver": false,
-		"ResizeObserver": false
+		"fetch": true,
+		"sessionStorage": true,
+		"localStorage": true,
+		"IntersectionObserver": true,
+		"ResizeObserver": true
 	},
 	"parser": "@babel/eslint-parser",
 	"parserOptions": {

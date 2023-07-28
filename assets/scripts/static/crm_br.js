@@ -1,31 +1,30 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'b229622b';
-const variationId = '3513230f';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'b229622b',
+	variationId: '3513230f',
 
-const languageCode = 'pt-BR';
+	languageCode: 'pt-BR',
 
-const textValidating = 'Validando...';
-const textCreating = 'Criando...';
-const textInstalling = 'Instalando';
-const textLaunching = 'Iniciando';
-const textRedirecting = 'Redirecionando';
-const textFinalizing = 'Finalizando';
-const textStart = 'Comece agora';
-const textError = 'Algo deu errado.';
-const textEmpty = 'O campo não pode estar vazio';
-const textInvalid = 'Alguns campos são inválidos';
-const textInvalidField = 'Campo inválido';
-const textInvalidMail = 'E-mail inválido';
-const textValidDomain = 'O domínio é válido';
-const textFailedDomain = 'Falha ao validar domínio';
-const textDomainNoHttp =
-	'O domínio não pode conter http ou www e caracteres maiúsculos (A-Z)';
-const textFailedRetrieve =
-	'Falha ao recuperar informações do progresso válidas.';
-const textGoApp = 'Vá para seu aplicativo';
-const textReadyApp = 'O seu LiveAgent está pronto';
-const textDoneAppTitle = 'O seu LiveAgent está pronto';
-const textDoneAppText =
-	'As credenciais de login foram enviadas para sua caixa de entrada. Verifique ela para continuar com o LiveAgent.';
+	textValidating: 'Validando...',
+	textCreating: 'Criando...',
+	textInstalling: 'Instalando',
+	textLaunching: 'Iniciando',
+	textRedirecting: 'Redirecionando',
+	textFinalizing: 'Finalizando',
+	textStart: 'Comece agora',
+	textError: 'Algo deu errado.',
+	textEmpty: 'O campo não pode estar vazio',
+	textInvalid: 'Alguns campos são inválidos',
+	textInvalidField: 'Campo inválido',
+	textInvalidMail: 'E-mail inválido',
+	textValidDomain: 'O domínio é válido',
+	textFailedDomain: 'Falha ao validar domínio',
+	textDomainNoHttp: 'O domínio não pode conter http ou www e caracteres maiúsculos (A-Z)',
+	textFailedRetrieve: 'Falha ao recuperar informações do progresso válidas.',
+	textGoApp: 'Vá para seu aplicativo',
+	textReadyApp: 'O seu LiveAgent está pronto',
+	textDoneAppTitle: 'O seu LiveAgent está pronto',
+	textDoneAppText: 'As credenciais de login foram enviadas para sua caixa de entrada. Verifique ela para continuar com o LiveAgent.',
 
+} ) );

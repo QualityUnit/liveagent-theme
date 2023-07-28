@@ -1,30 +1,30 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'b229622b';
-const variationId = 'freedesk';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'b229622b',
+	variationId: 'freedesk',
 
-const languageCode = 'bg';
+	languageCode: 'bg',
 
-const textValidating = 'Валидиране...';
-const textCreating = 'Създаване...';
-const textInstalling = 'Инсталиране';
-const textLaunching = 'Стартиране';
-const textRedirecting = 'Пренасочване';
-const textFinalizing = 'Финализиране';
-const textStart = 'Започнете сега';
-const textError = 'Нещо се обърка.';
-const textEmpty = 'Полето не може да бъде празно';
-const textInvalid = 'Някои полета са невалидни';
-const textInvalidField = 'Невалидно поле';
-const textInvalidMail = 'Невалиден имейл';
-const textValidDomain = 'Домейнът е валиден';
-const textFailedDomain = 'Неуспешно валидиране на домейн';
-const textDomainNoHttp =
-	'Домейнът не може да съдържа http или www, както и големи букви (A-Z)';
-const textFailedRetrieve = 'Не е получена валидна информация за напредъка.';
-const textGoApp = 'Отидете в приложението си';
-const textReadyApp = 'Вашият LiveAgent е готов';
-const textDoneAppTitle = 'Вашият LiveAgent е готов';
-const textDoneAppText =
-	'Данните за вход са изпратени във входящата ви кутия. Моля проверете я, за да продължите към LiveAgent.';
+	textValidating: 'Валидиране...',
+	textCreating: 'Създаване...',
+	textInstalling: 'Инсталиране',
+	textLaunching: 'Стартиране',
+	textRedirecting: 'Пренасочване',
+	textFinalizing: 'Финализиране',
+	textStart: 'Започнете сега',
+	textError: 'Нещо се обърка.',
+	textEmpty: 'Полето не може да бъде празно',
+	textInvalid: 'Някои полета са невалидни',
+	textInvalidField: 'Невалидно поле',
+	textInvalidMail: 'Невалиден имейл',
+	textValidDomain: 'Домейнът е валиден',
+	textFailedDomain: 'Неуспешно валидиране на домейн',
+	textDomainNoHttp: 'Домейнът не може да съдържа http или www, както и големи букви (A-Z)',
+	textFailedRetrieve: 'Не е получена валидна информация за напредъка.',
+	textGoApp: 'Отидете в приложението си',
+	textReadyApp: 'Вашият LiveAgent е готов',
+	textDoneAppTitle: 'Вашият LiveAgent е готов',
+	textDoneAppText: 'Данните за вход са изпратени във входящата ви кутия. Моля проверете я, за да продължите към LiveAgent.',
 
+} ) );
