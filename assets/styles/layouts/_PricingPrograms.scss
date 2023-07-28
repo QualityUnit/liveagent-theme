@@ -347,25 +347,22 @@
 		ul {
 
 			li {
+				display: flex;
+				align-items: center;
 
-				.pricing___badge__new {
+				span.badge__new {
 					color: $white;
 					font-size: 12px;
-					line-height: 1.4;
+					line-height: 1.5;
 					text-transform: uppercase;
 					padding: 2px 9px 2px 9px;
 					border-radius: 100px;
 					margin-left: 0.5em;
 					background-color: #ff492b;
-
-
 				}
 			}
 		}
-
-
 	}
-
 
 	&[class] {
 		padding: 2.5em 1.5em 1.5em !important;

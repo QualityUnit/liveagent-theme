@@ -4,108 +4,237 @@
 @use "../common/mixins" as *;
 
 $Announcement_bar_height: 120px;
+$Announcement_bar_height_mobile: 80px;
 
-#app {
+body {
 
-	&.announcement--active {
-		padding-top: calc($Announcement_bar_height + 90px);
 
-		.Header {
-			top: $Announcement_bar_height;
-		}
+	&.home {
 
-		.Announcement__bar {
+		#app {
 
-			&.Ai__whisper__assistent {
-				width: 100%;
-				height: $Announcement_bar_height;
-				background: linear-gradient(291deg, #ffd3b8 0%, #050505 100%);
-				z-index: 99;
-				position: fixed;
-				left: 0;
-				top: 23px;
+			.Announcement__bar {
+				animation: slideDown 0.3s ease;
 
-				&::before {
-					position: absolute;
-					top: 0;
-					left: 0;
-					content: "";
-					background: url(../../images/ai-announcement-bar-bg.png);
+				&.Ai__whisper__assistent {
 					width: 100%;
-					height: 100%;
-					z-index: 1;
-				}
+					height: $Announcement_bar_height_mobile;
+					background: linear-gradient(291deg, #ffd3b8 0%, #050505 100%);
+					z-index: 999;
+					position: fixed;
+					left: 0;
+					top: 0;
+					opacity: 1;
+					display: none;
 
-				.wrapper {
-					display: grid;
-					grid-template-columns: repeat(2, 1fr);
-					height: 100%;
-
-					.Announcement__bar__col__left,
-					.Announcement__bar__col__right {
-						display: flex;
-						flex-direction: column;
-						justify-content: center;
-						z-index: 9;
+					&::before {
+						position: absolute;
+						top: 0;
+						left: 0;
+						content: "";
+						background: url(../../images/ai-announcement-bar-bg.png);
+						width: 100%;
+						height: 100%;
+						z-index: 1;
 					}
 
-					.Announcement__bar__col__left {
+					.wrapper {
+						display: flex;
+						height: 100%;
+						justify-content: center;
 
-						h2 {
-							color: $white;
-							font-size: 2.125em;
-							line-height: 1.2;
-							margin-bottom: 0;
+						.Announcement__bar__col__left,
+						.Announcement__bar__col__right {
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							z-index: 9;
+						}
 
-							small {
-								font-size: 1rem;
-								color: #a4d6a3;
-								margin-left: 0.7em;
+						.Announcement__bar__col__left {
+
+							h2 {
+								color: $white;
+								font-size: 1.125em;
+								line-height: 1.2;
+								margin-bottom: 0;
+
+								small {
+									font-size: 0.9rem;
+									color: #a4d6a3;
+									margin-left: 0.7em;
+								}
+							}
+
+							p {
+								color: $white;
+								font-weight: 400;
+								font-size: 0.9375em;
+								margin-bottom: 0;
 							}
 						}
 
-						p {
-							color: $white;
-							font-weight: 400;
-							font-size: 1.4375em;
-							margin-bottom: 0;
+						.Announcement__bar__col__right {
+							display: none;
+
+							img {
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+								object-position: left;
+								overflow: visible;
+							}
 						}
 					}
 
-					.Announcement__bar__col__right {
+					button.Announcement__bar__close {
 
-						img {
-							width: 100%;
-							height: 100%;
-							object-fit: cover;
-							object-position: left;
-							overflow: visible;
+						@include square(24px);
+						content: url(../../images/close-announcements-bar-icon.svg);
+						position: absolute;
+						top: 10px;
+						right: 10px;
+						z-index: 20;
+						padding: 0;
+					}
+
+
+					@media (min-width: $breakpoint-mobile) {
+						height: $Announcement_bar_height;
+
+						.wrapper {
+
+							.Announcement__bar__col__left {
+
+								h2 {
+									font-size: 1.6rem;
+									line-height: 1.2;
+
+									small {
+										font-size: 0.9rem;
+									}
+								}
+
+								p {
+									font-size: 1rem;
+								}
+							}
+						}
+					}
+
+					@media (min-width: $breakpoint-tablet-landscape ) {
+
+						.wrapper {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+
+							.Announcement__bar__col__right {
+								display: block;
+							}
+
+							.Announcement__bar__col__left {
+
+								h2 {
+									font-size: 2.125em;
+									line-height: 1.2;
+
+									small {
+										font-size: 1rem;
+									}
+								}
+
+								p {
+									font-size: 1.4375em;
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+			&.announcement--active {
+				padding-top: calc($Announcement_bar_height_mobile + 90px);
+
+				.Header {
+					top: $Announcement_bar_height_mobile;
+					animation: top 0.3s ease;
+
+					.sub-menu {
+						top: calc($Announcement_bar_height_mobile + 90px);
+					}
+				}
+
+				@media (min-width: $breakpoint-mobile ) {
+					padding-top: calc($Announcement_bar_height + 90px);
+
+					.Header {
+						top: $Announcement_bar_height;
+						animation: top 0.3s ease;
+
+						.sub-menu {
+							top: calc($Announcement_bar_height + 90px);
 						}
 					}
 				}
 
-				button.Announcement__bar__close {
+			}
 
-					@include square(24px);
-					content: url(../../images/close-announcements-bar-icon.svg);
-					position: absolute;
-					top: 10px;
-					right: 10px;
-					z-index: 20;
-					padding: 0;
+			&.announcement--hidden {
+
+				.Announcement__bar {
+					transform: translateY(-100%);
+					animation: slideUp 0.2s ease;
 				}
 			}
 		}
-	}
 
-	&:not(.announcement--active) {
+		&.logged-in {
 
-		.Announcement__bar {
-			opacity: 0;
-			display: none;
-			transform: translateY(-100%);
-			transition: 0.5s;
+			#app {
+
+				&.announcement--active {
+
+					.Announcement__bar {
+						top: 23px;
+					}
+
+					.Header {
+						top: calc($Announcement_bar_height + 23px);
+
+						.sub-menu {
+							top: calc($Announcement_bar_height + 90px + 23px);
+						}
+					}
+				}
+			}
 		}
+
+		@keyframes slideDown {
+
+			from {
+				transform: translateY(-100%);
+			}
+
+			to {
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes slideUp {
+
+			from {
+
+				transform: translateY(0);
+			}
+
+			to {
+				transform: translateY(-100%);
+			}
+		}
+
 	}
+
+
 }
 

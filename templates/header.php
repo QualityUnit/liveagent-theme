@@ -77,39 +77,4 @@ if ( is_front_page() ) { ?>
 
 	</div>
 </header>
-<script>
-
-	document.addEventListener("DOMContentLoaded", function() {
-
-		const body = document.body;
-
-		const appElement = document.getElementById("app");
-
-		if (body.classList.contains("home")) {
-
-			appElement.classList.add("announcement--active");
-		}
-
-
-		const AppContainer = document.querySelector('#app');
-		const closeButton = document.querySelector(".Announcement__bar__close");
-
-		closeButton.addEventListener("click", function() {
-			AppContainer.classList.remove("announcement--active");
-		});
-
-	});
-	function removeAnnouncement() {
-		const AppContainer = document.querySelector('#app');
-		const scrollHeight = window.scrollY;
-
-		if (scrollHeight >= 800) {
-			AppContainer.classList.remove('announcement--active');
-		}
-	}
-	window.addEventListener('scroll', removeAnnouncement);
-
-
-</script>
-
 
