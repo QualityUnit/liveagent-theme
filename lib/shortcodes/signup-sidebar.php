@@ -26,7 +26,7 @@ function ms_signup_sidebar( $atts ) {
 		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] ); ?></div>
 		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
 
-		<div data-id="signup">
+		<div data-id="signup" data-type='free'>
 			<input data-id="plan" type="hidden" value="FreeTrial" autocomplete="off">
 			<input data-id="variation" type="hidden" value="freedesk" autocomplete="off">
 

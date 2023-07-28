@@ -1,28 +1,30 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'b229622b';
-const variationId = '3513230f';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'b229622b',
+	variationId: '3513230f',
 
-const languageCode = 'hr';
+	languageCode: 'hr',
 
-const textValidating = 'Potvrđivanje...';
-const textCreating = 'Kreiranje...';
-const textInstalling = 'Instaliranje';
-const textLaunching = 'Lansiranje';
-const textRedirecting = 'Preusmjeravanje';
-const textFinalizing = 'Završavanje';
-const textStart = 'Započni odmah';
-const textError = 'Nešto nije u redu.';
-const textEmpty = 'Polje ne može biti prazno';
-const textInvalid = 'Neka polja su nevažeća';
-const textInvalidField = 'Nevažeće polje';
-const textInvalidMail = 'Nevažeći email';
-const textValidDomain = 'Domena je važeća';
-const textFailedDomain = 'Neuspješna potvrda domene';
-const textDomainNoHttp = 'Domena ne smije sadržavati http ili www';
-const textFailedRetrieve = 'Neuspješno dohvaćanje važećih informacija o napretku.';
-const textGoApp = 'Idite u vašu aplikaciju';
-const textReadyApp = 'Vaš LiveAgent je spreman';
-const textDoneAppTitle = 'Vaš LiveAgent je spreman';
-const textDoneAppText = 'Podaci za prijavu su poslani u vašu ulaznu poštu. Molimo da ih provjerite kako bi mogli nastaviti s LiveAgent-om.';
+	textValidating: 'Potvrđivanje...',
+	textCreating: 'Kreiranje...',
+	textInstalling: 'Instaliranje',
+	textLaunching: 'Lansiranje',
+	textRedirecting: 'Preusmjeravanje',
+	textFinalizing: 'Završavanje',
+	textStart: 'Započni odmah',
+	textError: 'Nešto nije u redu.',
+	textEmpty: 'Polje ne može biti prazno',
+	textInvalid: 'Neka polja su nevažeća',
+	textInvalidField: 'Nevažeće polje',
+	textInvalidMail: 'Nevažeći email',
+	textValidDomain: 'Domena je važeća',
+	textFailedDomain: 'Neuspješna potvrda domene',
+	textDomainNoHttp: 'Domena ne smije sadržavati http ili www',
+	textFailedRetrieve: 'Neuspješno dohvaćanje važećih informacija o napretku.',
+	textGoApp: 'Idite u vašu aplikaciju',
+	textReadyApp: 'Vaš LiveAgent je spreman',
+	textDoneAppTitle: 'Vaš LiveAgent je spreman',
+	textDoneAppText: 'Podaci za prijavu su poslani u vašu ulaznu poštu. Molimo da ih provjerite kako bi mogli nastaviti s LiveAgent-om.',
 
+} ) );

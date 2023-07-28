@@ -1,29 +1,29 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'spinla01';
-const variationId = 'seLaTria';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'spinla01',
+	variationId: 'seLaTria',
 
-const languageCode = 'fi';
+	languageCode: 'fi',
 
-const textValidating = 'Vahvistetaan...';
-const textCreating = 'Luodaan...';
-const textInstalling = 'Asennetaan';
-const textLaunching = 'Käynnistetään';
-const textRedirecting = 'Uudelleenohjataan';
-const textFinalizing = 'Viimeistellään';
-const textStart = 'Aloita nyt';
-const textError = 'Jotain meni pieleen.';
-const textEmpty = 'Kentät eivät voi olla tyhjiä';
-const textInvalid = 'Jotkut kentät ovat virheellisiä';
-const textInvalidField = 'Virheellinen kenttä';
-const textInvalidMail = 'Virheellinen sähköposti';
-const textValidDomain = 'Verkkotunnus on kelvollinen';
-const textFailedDomain = 'Verkkotunnuksen vahvistaminen epäonnistui';
-const textDomainNoHttp =
-	'Verkkotunnus ei voi sisältää http- tai www-merkkejä eikä isoja kirjaimia (A-Z)';
-const textFailedRetrieve = 'Epäonnistui hakemaan kelvollisia edistymistietoja.';
-const textGoApp = 'Mene sovellukseesi';
-const textReadyApp = 'LiveAgentisi on valmis';
-const textDoneAppTitle = 'LiveAgentisi on valmis';
-const textDoneAppText =
-	'Kirjautumistiedot on lähetetty sähköpostiisi. Tarkista ne jatkaaksesi LiveAgentiin.';
+	textValidating: 'Vahvistetaan...',
+	textCreating: 'Luodaan...',
+	textInstalling: 'Asennetaan',
+	textLaunching: 'Käynnistetään',
+	textRedirecting: 'Uudelleenohjataan',
+	textFinalizing: 'Viimeistellään',
+	textStart: 'Aloita nyt',
+	textError: 'Jotain meni pieleen.',
+	textEmpty: 'Kentät eivät voi olla tyhjiä',
+	textInvalid: 'Jotkut kentät ovat virheellisiä',
+	textInvalidField: 'Virheellinen kenttä',
+	textInvalidMail: 'Virheellinen sähköposti',
+	textValidDomain: 'Verkkotunnus on kelvollinen',
+	textFailedDomain: 'Verkkotunnuksen vahvistaminen epäonnistui',
+	textDomainNoHttp: 'Verkkotunnus ei voi sisältää http- tai www-merkkejä eikä isoja kirjaimia (A-Z)',
+	textFailedRetrieve: 'Epäonnistui hakemaan kelvollisia edistymistietoja.',
+	textGoApp: 'Mene sovellukseesi',
+	textReadyApp: 'LiveAgentisi on valmis',
+	textDoneAppTitle: 'LiveAgentisi on valmis',
+	textDoneAppText: 'Kirjautumistiedot on lähetetty sähköpostiisi. Tarkista ne jatkaaksesi LiveAgentiin.',
+} ) );

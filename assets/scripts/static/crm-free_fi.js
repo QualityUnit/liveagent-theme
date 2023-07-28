@@ -1,30 +1,30 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'b229622b';
-const variationId = 'freedesk';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'b229622b',
+	variationId: 'freedesk',
 
-const languageCode = 'fi';
+	languageCode: 'fi',
 
-const textValidating = 'Vahvistetaan...';
-const textCreating = 'Luodaan...';
-const textInstalling = 'Asennetaan';
-const textLaunching = 'Käynnistetään';
-const textRedirecting = 'Uudelleenohjataan';
-const textFinalizing = 'Viimeistellään';
-const textStart = 'Aloita nyt';
-const textError = 'Jotain meni pieleen.';
-const textEmpty = 'Kenttä ei voi olla tyhjä';
-const textInvalid = 'Jotkut kentät ovat virheellisiä';
-const textInvalidField = 'Virheellinen kenttä';
-const textInvalidMail = 'Virheellinen sähköposti';
-const textValidDomain = 'Verkkotunnus on kelvollinen';
-const textFailedDomain = 'Verkkotunnuksen vahvistaminen epäonnistui';
-const textDomainNoHttp =
-	'Verkkotunnus ei voi sisältää http- tai www-merkkejä eikä isoja kirjaimia (A-Z)';
-const textFailedRetrieve = 'Epäonnistui hakemaan kelvollisia edistymistietoja.';
-const textGoApp = 'Mene sovellukseesi';
-const textReadyApp = 'LiveAgentisi on valmis';
-const textDoneAppTitle = 'LiveAgentisi on valmis';
-const textDoneAppText =
-	'Kirjautumistiedot on lähetetty sähköpostiisi. Tarkista ne jatkaaksesi LiveAgentiin.';
+	textValidating: 'Vahvistetaan...',
+	textCreating: 'Luodaan...',
+	textInstalling: 'Asennetaan',
+	textLaunching: 'Käynnistetään',
+	textRedirecting: 'Uudelleenohjataan',
+	textFinalizing: 'Viimeistellään',
+	textStart: 'Aloita nyt',
+	textError: 'Jotain meni pieleen.',
+	textEmpty: 'Kenttä ei voi olla tyhjä',
+	textInvalid: 'Jotkut kentät ovat virheellisiä',
+	textInvalidField: 'Virheellinen kenttä',
+	textInvalidMail: 'Virheellinen sähköposti',
+	textValidDomain: 'Verkkotunnus on kelvollinen',
+	textFailedDomain: 'Verkkotunnuksen vahvistaminen epäonnistui',
+	textDomainNoHttp: 'Verkkotunnus ei voi sisältää http- tai www-merkkejä eikä isoja kirjaimia (A-Z)',
+	textFailedRetrieve: 'Epäonnistui hakemaan kelvollisia edistymistietoja.',
+	textGoApp: 'Mene sovellukseesi',
+	textReadyApp: 'LiveAgentisi on valmis',
+	textDoneAppTitle: 'LiveAgentisi on valmis',
+	textDoneAppText: 'Kirjautumistiedot on lähetetty sähköpostiisi. Tarkista ne jatkaaksesi LiveAgentiin.',
 
+} ) );
