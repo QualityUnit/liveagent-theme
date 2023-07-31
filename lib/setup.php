@@ -8,16 +8,6 @@
 add_action(
 	'after_setup_theme',
 	function () {
-		// Enable features from Soil when plugin is activated
-		// https://roots.io/plugins/soil/
-		add_theme_support(
-			'soil',
-			array(
-				'disable-trackbacks',
-				'nice-search',
-			)
-		);
-
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
 
