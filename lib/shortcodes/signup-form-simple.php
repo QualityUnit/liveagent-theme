@@ -175,7 +175,6 @@ function ms_signup_form_simple( $atts ) {
 		add_action( 'wp_footer', function() {
 	?>
 	<script>
-		( () => {
 			function handleSteps() {
 				const stepsWrapper = document.querySelector('[data-id="signup"]');
 				const stepsWrapperWidth = stepsWrapper.getBoundingClientRect().width;
@@ -246,7 +245,6 @@ function ms_signup_form_simple( $atts ) {
 					}
 				}
 			}
-		} )();
 	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>

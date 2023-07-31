@@ -93,7 +93,6 @@ function ms_signup_form( $atts ) {
 		add_action( 'wp_footer', function() {
 	?>
 	<script>
-		( () => {
 			const mailRegex = '@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex' + '.com|gmx.us|@gmx.com)$';
 			const mailInput = document.querySelector('input[type="email"]');
 			const mailMessage = document.querySelector('[data-id="messageTrial"]');
@@ -149,7 +148,6 @@ function ms_signup_form( $atts ) {
 					}
 				}
 			}
-		} )();
 	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>

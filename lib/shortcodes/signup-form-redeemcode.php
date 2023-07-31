@@ -86,7 +86,6 @@ function ms_signup_form_redeem_code( $atts ) {
 		add_action( 'wp_footer', function() {
 	?>
 	<script>
-		( () => {
 			function handleSend() {
 				const mailInput = document.querySelector('input[type="email"]');
 				const mailValue = mailInput.value;
@@ -107,7 +106,6 @@ function ms_signup_form_redeem_code( $atts ) {
 					_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Redeem Code Signup']);
 				}
 			}
-	} )();
 	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
