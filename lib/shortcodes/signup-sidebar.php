@@ -103,6 +103,7 @@ function ms_signup_sidebar( $atts ) {
 		add_action( 'wp_footer', function() {
 	?>
 	<script>
+		( () => {
 		function handleSend() {
 			const mailValue = document.querySelector('input[type="email"]').value;
 			const buttonText = document.querySelector('.createTrialButton span');
@@ -142,69 +143,70 @@ function ms_signup_sidebar( $atts ) {
 				}
 			}
 		}
+		} )();
 	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
 	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_en.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_en.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'de' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_de.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_de.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'es' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_es.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_es.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'fr' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_fr.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_fr.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'pt-br' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_br.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_br.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'sk' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_sk.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_sk.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'hu' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_hu.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_hu.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'nl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_nl.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_nl.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'pl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_pl.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_pl.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'it' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_it.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_it.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'ru' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ru.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ru.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'zh-hans' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_cn.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_cn.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'ar' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ae.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ae.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'bg' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_bg.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_bg.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'hr' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_cr.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_cr.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'cs' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_cz.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_cz.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'da' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_dk.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_dk.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'et' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ee.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ee.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'fi' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_fi.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_fi.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'el' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_gr.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_gr.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'ja' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_jp.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_jp.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'lt' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_lt.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_lt.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'lv' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_lv.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_lv.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'no' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_no.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_no.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'tl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ph.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ph.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'ro' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ro.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ro.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'sv' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_se.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_se.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'sl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_si.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_si.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'vi' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_vn.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_vn.js' ?>"></script>
 	<?php } else { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_en.js' ?>"></script>
+		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_en.js' ?>"></script>
 	<?php } ?>
 	<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) ); ?>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>

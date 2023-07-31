@@ -34,7 +34,7 @@ no-descending-specificity, selector-id-pattern */
 	.loaderIn {
 		text-align: center;
 
-		.opacity--low {
+		.opacity--low > *:not(.progress__done__overlay) {
 			opacity: 0.2;
 		}
 
@@ -64,18 +64,18 @@ no-descending-specificity, selector-id-pattern */
 }
 
 
-#redirectButtonPanel[style*="block"] + .mobileSignupFinal {
+[data-id="redirectButtonPanel"][style*="block"] + .mobileSignupFinal {
 
 	@media (max-width: $breakpoint-tablet-landscape) {
 		display: flex;
 	}
 }
 
-#redirectButtonPanel[style*="block"] {
+[data-id="redirectButtonPanel"][style*="block"] {
 	display: flex;
 }
 
-#redirectButtonPanel,
+[data-id="redirectButtonPanel"],
 .redirectButtonPanel {
 	flex-flow: wrap row;
 	justify-content: center;
@@ -214,7 +214,7 @@ no-descending-specificity, selector-id-pattern */
 
 			}
 
-			#redirectButtonPanel {
+			[data-id="redirectButtonPanel"] {
 				width: 100%;
 
 				a {
@@ -322,7 +322,7 @@ no-descending-specificity, selector-id-pattern */
 		display: block !important;
 	}
 
-	#redirectButtonPanel {
+	[data-id="redirectButtonPanel"] {
 		margin-top: 4.0625em;
 	}
 

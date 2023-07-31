@@ -811,58 +811,63 @@
 
 				progressLoader.setProgress( 100 );
 
+				const buildingHeaders = document.querySelectorAll( '.BuildingHeader' );
+
 				if ( data.login_token ) {
-					const redirectForm = `<form method='POST' action='${ data.login_url }' id="trialform"><input type='hidden' name='action' value='login'><input type='hidden' name='${ authTokenName }' value='${ data.login_token }'><input type='hidden' name='l' value='${ languageCode }'><input type='submit' name='goto' value='${ textGoApp }' class='FinalButton' style='display: none;'><a href='${ data.login_url }' id='gotoapp' class='FinalButton'>Go to LiveAgent</a></form>`;
+					const redirectForm = `<form method='POST' action='${ data.login_url }' data-id="trialform"><input type='hidden' name='action' value='login'><input type='hidden' name='${ authTokenName }' value='${ data.login_token }'><input type='hidden' name='l' value='${ languageCode }'><input type='submit' name='goto' value='${ textGoApp }' class='FinalButton' style='display: none;'><a href='${ data.login_url }' data-id='gotoapp' class='FinalButton'>Go to LiveAgent</a></form>`;
 
-					$( redirectForm ).appendTo( '#redirectButtonPanel' );
-					$( '#redirectButtonPanel' ).css( 'display', 'block' );
-					$( redirectForm ).appendTo( '.progress__done__overlay .redirectButtonPanel' );
-					$( '.progress__done__overlay .redirectButtonPanel' ).css( 'display', 'block' );
+					document.querySelectorAll( '[data-id="redirectButtonPanel"]' ).forEach( ( btnPanel ) => {
+						btnPanel.insertAdjacentHTML( 'beforeend', redirectForm );
+						btnPanel.style.display = 'block';
+					} );
 
-					if ( $( '.BuildingHeader' ).length > 0 ) {
-						$( '.BuildingHeader' ).each( function() {
-							$( this ).text( textReadyApp );
+					if ( buildingHeaders.length > 0 ) {
+						buildingHeaders.forEach( ( buildingHeader ) => {
+							buildingHeader.innerHTML( textReadyApp );
 						} );
-						$( '#loader' ).addClass( 'ApplicationReady' );
+						document.querySelector( '#loader' ).classList.add( 'ApplicationReady' );
 					}
 
-					$( '#gotoapp' ).click( ( e ) => {
-						e.preventDefault();
+					document.addEventListener( 'click', ( event ) => {
+						const btn = event.target;
+						if ( btn.dataset.id === 'gotoapp' ) {
+							event.preventDefault();
 
-						setTimeout( () => {
-							const href = $( '#gotoapp' ).attr( 'href' );
-							let param = href.replace(
-								`${ data.login_url }`,
-								''
-							);
-							param = param.replace( '?', '' );
+							setTimeout( () => {
+								const href = btn.href;
+								let param = href.replace(
+									`${ data.login_url }`,
+									''
+								);
+								param = param.replace( '?', '' );
 
-							if ( pkvid === '' ) {
-								const url = `${ data.login_url }?${ param }`;
-								$( '#trialform' ).attr( 'action', url );
-							} else if ( param === '' ) {
-								const url = `${ data.login_url }${ pkvid }`;
-								$( '#trialform' ).attr( 'action', url );
-							} else if ( pkvid === '' && param === '' ) {
-								const url = `${ data.login_url }`;
-								$( '#trialform' ).attr( 'action', url );
-							} else {
-								const url = `${ data.login_url }${ pkvid }&${ param }`;
-								$( '#trialform' ).attr( 'action', url );
-							}
+								if ( pkvid === '' ) {
+									const url = `${ data.login_url }?${ param }`;
+									btn.closest( "form[data-id='trialform']" ).setAttribute( 'action', url );
+								} else if ( param === '' ) {
+									const url = `${ data.login_url }${ pkvid }`;
+									btn.closest( "form[data-id='trialform']" ).setAttribute( 'action', url );
+								} else if ( pkvid === '' && param === '' ) {
+									const url = `${ data.login_url }`;
+									btn.closest( "form[data-id='trialform']" ).setAttribute( 'action', url );
+								} else {
+									const url = `${ data.login_url }${ pkvid }&${ param }`;
+									btn.closest( "form[data-id='trialform']" ).setAttribute( 'action', url );
+								}
 
-							$( '#trialform' ).submit();
-						}, 100 );
+								btn.closest( "form[data-id='trialform']" ).submit();
+							}, 100 );
+						}
 					} );
-				} else if ( $( '.BuildingHeader' ).length > 0 ) {
-					$( '.BuildingHeader' ).each( function() {
-						$( this ).text( textDoneAppTitle );
+				} else if ( buildingHeaders.length > 0 ) {
+					buildingHeaders.forEach( ( buildingHeader ) => {
+						buildingHeader.innerHTML( textDoneAppTitle );
 					} );
-					$( '.BuildingText' ).each( function() {
-						$( this ).text( textDoneAppText );
+
+					document.querySelectorAll( '.BuildingText' ).forEach( ( buildingText ) => {
+						buildingText.innerHTML( textDoneAppText );
 					} );
-					$( '#loader' ).addClass( 'ApplicationReady' );
-					$( '#loader' ).addClass( 'ApplicationReady--spam' );
+					document.querySelector( '#loader' ).classList.add( 'ApplicationReady', 'ApplicationReady--spam' );
 				}
 			}
 		};
