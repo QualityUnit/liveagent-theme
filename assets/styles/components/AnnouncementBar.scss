@@ -2,12 +2,13 @@
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@forward "../common/animations";
 
-$Announcement_bar_height: 120px;
-$Announcement_bar_height_mobile: 80px;
+
+$Announcement_bar_height: 7.5em;
+$Announcement_bar_height_mobile: 5em;
 
 body {
-
 
 	&.home {
 
@@ -19,7 +20,7 @@ body {
 				&.Ai__whisper__assistent {
 					width: 100%;
 					height: $Announcement_bar_height_mobile;
-					background: linear-gradient(291deg, #ffd3b8 0%, #050505 100%);
+					background: linear-gradient(291deg, #ffd3b8 0%, $black 100%);
 					z-index: 999;
 					position: fixed;
 					left: 0;
@@ -28,13 +29,11 @@ body {
 					display: none;
 
 					&::before {
+
+						@include posZero();
 						position: absolute;
-						top: 0;
-						left: 0;
 						content: "";
 						background: url(../../images/ai-announcement-bar-bg.png);
-						width: 100%;
-						height: 100%;
 						z-index: 1;
 					}
 
@@ -89,7 +88,7 @@ body {
 
 					button.Announcement__bar__close {
 
-						@include square(24px);
+						@include square(1.5em);
 						content: url(../../images/close-announcements-bar-icon.svg);
 						position: absolute;
 						top: 10px;
@@ -154,26 +153,26 @@ body {
 			}
 
 			&.announcement--active {
-				padding-top: calc($Announcement_bar_height_mobile + 90px);
+				padding-top: calc($Announcement_bar_height_mobile + 5.625em);
 
 				.Header {
 					top: $Announcement_bar_height_mobile;
 					animation: top 0.3s ease;
 
 					.sub-menu {
-						top: calc($Announcement_bar_height_mobile + 90px);
+						top: calc($Announcement_bar_height_mobile + 5.625em);
 					}
 				}
 
 				@media (min-width: $breakpoint-mobile ) {
-					padding-top: calc($Announcement_bar_height + 90px);
+					padding-top: calc($Announcement_bar_height + 5.625em);
 
 					.Header {
 						top: $Announcement_bar_height;
 						animation: top 0.3s ease;
 
 						.sub-menu {
-							top: calc($Announcement_bar_height + 90px);
+							top: calc($Announcement_bar_height + 5.625em);
 						}
 					}
 				}
@@ -196,40 +195,17 @@ body {
 				&.announcement--active {
 
 					.Announcement__bar {
-						top: 23px;
+						top: 1.4375em;
 					}
 
 					.Header {
-						top: calc($Announcement_bar_height + 23px);
+						top: calc($Announcement_bar_height + 1.4375em);
 
 						.sub-menu {
-							top: calc($Announcement_bar_height + 90px + 23px);
+							top: calc($Announcement_bar_height + 5.625em + 1.4375em);
 						}
 					}
 				}
-			}
-		}
-
-		@keyframes slideDown {
-
-			from {
-				transform: translateY(-100%);
-			}
-
-			to {
-				transform: translateY(0);
-			}
-		}
-
-		@keyframes slideUp {
-
-			from {
-
-				transform: translateY(0);
-			}
-
-			to {
-				transform: translateY(-100%);
 			}
 		}
 
