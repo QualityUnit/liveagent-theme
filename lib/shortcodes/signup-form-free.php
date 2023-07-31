@@ -63,7 +63,6 @@ function ms_signup_form_free() {
 	?>
 	<script>
 
-		( () => {
 		function handleSend() {
 			const mailValue = document.querySelector('input[type="email"]').value;
 			const buttonText = document.querySelector('.createTrialButton span');
@@ -97,7 +96,6 @@ function ms_signup_form_free() {
 				}
 			}
 		}
-		} )();
 	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
