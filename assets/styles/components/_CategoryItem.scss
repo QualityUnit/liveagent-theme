@@ -366,7 +366,7 @@
 		&__header {
 			display: flex;
 			justify-content: space-between;
-			align-items: end;
+			align-items: flex-end;
 			position: relative;
 			height: 5em;
 
@@ -464,9 +464,9 @@
 					-webkit-line-clamp: 3;
 					-webkit-box-orient: vertical;
 					-ms-flex-line-pack: center;
-					align-items: start;
+					align-items: flex-start;
 					height: 5em;
-					font-size: 14px;
+					font-size: 0.875rem;
 					font-weight: $font-weight-normal;
 					max-height: 100%;
 					margin-bottom: 0;
