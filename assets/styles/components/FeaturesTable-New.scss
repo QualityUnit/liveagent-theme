@@ -275,7 +275,6 @@
 				top: 50%;
 				transform: translateY(-50%);
 				transition: all $transition;
-				//z-index: -2;
 			}
 
 			&::after {
@@ -286,7 +285,7 @@
 				mask-position: 0 0, calc(100% + 1px) 50%;
 				mask-repeat: no-repeat;
 				mask-composite: exclude;
-				//mask-composite: xor;
+				mask-composite: xor;
 				border-radius: $featureRadius $border-radius-16 $border-radius-16 $featureRadius;
 				transition: all $transition;
 			}
@@ -393,7 +392,6 @@
 		&::after {
 			content: "";
 			position: absolute;
-			//z-index: -1;
 			left: 50%;
 		}
 
