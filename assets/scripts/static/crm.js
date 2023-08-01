@@ -572,7 +572,7 @@
 					progressDoneOverlayOnOff();
 
 					const selectedTab = $( '.Introduction__videos__tab.selected' );
-					const continueButton = $( '.progress__done__overlay a.continue__watching' );
+					const continueButton = $( '.continue__watching' );
 					const dataTab = selectedTab.attr( 'data-tab' );
 					const video = $( `.tab-content[data-tab="${ dataTab }"] video` );
 
