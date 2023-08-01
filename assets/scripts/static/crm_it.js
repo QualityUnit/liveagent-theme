@@ -1,31 +1,30 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'b229622b';
-const variationId = '3513230f';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'b229622b',
+	variationId: '3513230f',
 
-const languageCode = 'it';
+	languageCode: 'it',
 
-const textValidating = 'Validazione...';
-const textCreating = 'Creazione...';
-const textInstalling = 'Installazione';
-const textLaunching = 'Lancio';
-const textRedirecting = 'Reindirizzamento';
-const textFinalizing = 'Finalizzazione';
-const textStart = 'Comincia ora';
-const textError = 'Qualcosa è andato storto.';
-const textEmpty = 'Il campo non può essere vuoto';
-const textInvalid = 'Alcuni campi non sono validi';
-const textInvalidField = 'Campo non valido';
-const textInvalidMail = 'Email non valida';
-const textValidDomain = 'Dominio non valido';
-const textFailedDomain = 'Errore nella validazione del dominio';
-const textDomainNoHttp =
-	'Il dominio non può contenere http o www e caratteri maiuscoli (A-Z)';
-const textFailedRetrieve =
-	"Impossibile recuperare informazioni valide sull'avanzamento.";
-const textGoApp = 'Vai alla tua App';
-const textReadyApp = 'Il tuo LiveAgent è pronto';
-const textDoneAppTitle = 'Il tuo LiveAgent è pronto';
-const textDoneAppText =
-	'Le credenziali di accesso sono state inviate alla tua casella di posta. Selezionalo per continuare su LiveAgent.';
+	textValidating: 'Validazione...',
+	textCreating: 'Creazione...',
+	textInstalling: 'Installazione',
+	textLaunching: 'Lancio',
+	textRedirecting: 'Reindirizzamento',
+	textFinalizing: 'Finalizzazione',
+	textStart: 'Comincia ora',
+	textError: 'Qualcosa è andato storto.',
+	textEmpty: 'Il campo non può essere vuoto',
+	textInvalid: 'Alcuni campi non sono validi',
+	textInvalidField: 'Campo non valido',
+	textInvalidMail: 'Email non valida',
+	textValidDomain: 'Dominio non valido',
+	textFailedDomain: 'Errore nella validazione del dominio',
+	textDomainNoHttp: 'Il dominio non può contenere http o www e caratteri maiuscoli (A-Z)',
+	textFailedRetrieve: "Impossibile recuperare informazioni valide sull'avanzamento.",
+	textGoApp: 'Vai alla tua App',
+	textReadyApp: 'Il tuo LiveAgent è pronto',
+	textDoneAppTitle: 'Il tuo LiveAgent è pronto',
+	textDoneAppText: 'Le credenziali di accesso sono state inviate alla tua casella di posta. Selezionalo per continuare su LiveAgent.',
 
+} ) );

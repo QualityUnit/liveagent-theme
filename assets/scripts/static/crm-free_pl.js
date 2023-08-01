@@ -1,31 +1,30 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'b229622b';
-const variationId = 'freedesk';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'b229622b',
+	variationId: 'freedesk',
 
-const languageCode = 'pl';
+	languageCode: 'pl',
 
-const textValidating = 'Weryfikowanie...';
-const textCreating = 'Tworzenie...';
-const textInstalling = 'Instalowanie';
-const textLaunching = 'Uruchamianie';
-const textRedirecting = 'Przekierowanie';
-const textFinalizing = 'Finalizowanie';
-const textStart = 'Rozpocznij teraz';
-const textError = 'Coś poszło nie tak.';
-const textEmpty = 'Pola nie mogą być puste';
-const textInvalid = 'Niektóre pola są nieprawidłowo wypełnione';
-const textInvalidField = 'Nieprawidłowo wypełnione pola';
-const textInvalidMail = 'Nieprawidłowy e-mail';
-const textValidDomain = 'Domena jest prawidłowa';
-const textFailedDomain = 'Nie udało się zweryfikować domeny';
-const textDomainNoHttp =
-	'Adres strony nie może zawierać http lub www i wielkich liter (A-Z)';
-const textFailedRetrieve =
-	'Nie udało się pobrać prawidłowych danych o postępie.';
-const textGoApp = 'Przejdź do aplikacji';
-const textReadyApp = 'Twój LiveAgent jest gotowy';
-const textDoneAppTitle = 'Twój LiveAgent jest gotowy';
-const textDoneAppText =
-	'Dane logowania zostały wysłane na Twój adres e-mail. Sprawdź je i zacznij korzystać z LiveAgent.';
+	textValidating: 'Weryfikowanie...',
+	textCreating: 'Tworzenie...',
+	textInstalling: 'Instalowanie',
+	textLaunching: 'Uruchamianie',
+	textRedirecting: 'Przekierowanie',
+	textFinalizing: 'Finalizowanie',
+	textStart: 'Rozpocznij teraz',
+	textError: 'Coś poszło nie tak.',
+	textEmpty: 'Pola nie mogą być puste',
+	textInvalid: 'Niektóre pola są nieprawidłowo wypełnione',
+	textInvalidField: 'Nieprawidłowo wypełnione pola',
+	textInvalidMail: 'Nieprawidłowy e-mail',
+	textValidDomain: 'Domena jest prawidłowa',
+	textFailedDomain: 'Nie udało się zweryfikować domeny',
+	textDomainNoHttp: 'Adres strony nie może zawierać http lub www i wielkich liter (A-Z)',
+	textFailedRetrieve: 'Nie udało się pobrać prawidłowych danych o postępie.',
+	textGoApp: 'Przejdź do aplikacji',
+	textReadyApp: 'Twój LiveAgent jest gotowy',
+	textDoneAppTitle: 'Twój LiveAgent jest gotowy',
+	textDoneAppText: 'Dane logowania zostały wysłane na Twój adres e-mail. Sprawdź je i zacznij korzystać z LiveAgent.',
 
+} ) );

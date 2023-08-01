@@ -1,6 +1,6 @@
 const signuplogin = () => {
 	const scriptList = [ ...document.querySelectorAll( 'script[data-src]' ) ];
-	const regex = /.+crm.js.+|.+login.js.+/gi;
+	const regex = /.+crm\.js.+|.+login\.js.+/gi;
 
 	function waitForLoad( element ) {
 		return new Promise( ( resolve ) => {
@@ -8,7 +8,7 @@ const signuplogin = () => {
 		} );
 	}
 
-	function loadScripts() {
+	function loadScripts( ) {
 		scriptList.map( ( element ) => {
 			const script = element;
 
@@ -18,6 +18,7 @@ const signuplogin = () => {
 
 				async function isLoaded() {
 					const response = await waitForLoad( script );
+
 					if ( response.ok ) {
 						setTimeout( () => {
 							scriptList.filter( ( executor ) => {
@@ -43,8 +44,10 @@ const signuplogin = () => {
 		);
 
 		scriptParent.forEach( ( input ) => {
-			input.addEventListener( 'focus', () => {
-				loadScripts();
+			input.addEventListener( 'focus', ( event ) => {
+				const type = event.target.closest( '[data-id="signup"]' ).dataset.type;
+				sessionStorage.setItem( 'crmType', type );
+				loadScripts( );
 			} );
 		} );
 

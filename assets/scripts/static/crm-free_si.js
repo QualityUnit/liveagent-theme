@@ -1,31 +1,30 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const productId = 'b229622b';
-const variationId = 'freedesk';
+sessionStorage.setItem( 'crmVars', JSON.stringify( {
+	productId: 'b229622b',
+	variationId: 'freedesk',
 
-const languageCode = 'sl';
+	languageCode: 'sl',
 
-const textValidating = 'Preverjanje ...';
-const textCreating = 'Ustvarjanje ...';
-const textInstalling = 'Namestitev';
-const textLaunching = 'Zagon';
-const textRedirecting = 'Preusmerjanje';
-const textFinalizing = 'Dokončanje';
-const textStart = 'Začni zdaj';
-const textError = 'Prišlo je do napake.';
-const textEmpty = 'Polje ne sme biti prazno';
-const textInvalid = 'Nekatera polja so neveljavna';
-const textInvalidField = 'Neveljavno polje';
-const textInvalidMail = 'E-poštni  naslov ni veljaven';
-const textValidDomain = 'Domena je veljavna';
-const textFailedDomain = 'Preverjanje domene ni uspelo';
-const textDomainNoHttp =
-	'	Domena ne sme vsebovati http ali www in velikih črk (A-Z)';
-const textFailedRetrieve =
-	'Ni uspelo pridobiti veljavnih informacij o napredku.';
-const textGoApp = 'Pojdi v svojo aplikacijo';
-const textReadyApp = 'Vaš LiveAgent je pripravljen';
-const textDoneAppTitle = 'Vaš LiveAgent je pripravljen';
-const textDoneAppText =
-	'Prijavne poverilnice so bile poslane v vaš nabiralnik. Za nadaljevanje v LiveAgent jih vnesite.';
+	textValidating: 'Preverjanje ...',
+	textCreating: 'Ustvarjanje ...',
+	textInstalling: 'Namestitev',
+	textLaunching: 'Zagon',
+	textRedirecting: 'Preusmerjanje',
+	textFinalizing: 'Dokončanje',
+	textStart: 'Začni zdaj',
+	textError: 'Prišlo je do napake.',
+	textEmpty: 'Polje ne sme biti prazno',
+	textInvalid: 'Nekatera polja so neveljavna',
+	textInvalidField: 'Neveljavno polje',
+	textInvalidMail: 'E-poštni  naslov ni veljaven',
+	textValidDomain: 'Domena je veljavna',
+	textFailedDomain: 'Preverjanje domene ni uspelo',
+	textDomainNoHttp: '	Domena ne sme vsebovati http ali www in velikih črk (A-Z)',
+	textFailedRetrieve: 'Ni uspelo pridobiti veljavnih informacij o napredku.',
+	textGoApp: 'Pojdi v svojo aplikacijo',
+	textReadyApp: 'Vaš LiveAgent je pripravljen',
+	textDoneAppTitle: 'Vaš LiveAgent je pripravljen',
+	textDoneAppText: 'Prijavne poverilnice so bile poslane v vaš nabiralnik. Za nadaljevanje v LiveAgent jih vnesite.',
 
+} ) );
