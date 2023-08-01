@@ -3201,14 +3201,14 @@
     "@wordpress/dom-ready" "^3.38.0"
     "@wordpress/i18n" "^4.38.0"
 
-"@wordpress/api-fetch@^6.0.1", "@wordpress/api-fetch@^6.13.0", "@wordpress/api-fetch@^6.34.0", "@wordpress/api-fetch@^6.4.0", "@wordpress/api-fetch@^6.7.0":
-  version "6.34.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-6.34.0.tgz#c6a67500d8c1fc795a7e85ae328b830d2c2c2126"
-  integrity sha512-bWJngQ/ZRyLtlRnDdvSErZyoXJFBfHWg+4EQXkLZc6js3FU290H8YoJ9SP4PJTE9aF723mN1x4l/sy1QVWFchQ==
+"@wordpress/api-fetch@^6.0.1", "@wordpress/api-fetch@^6.13.0", "@wordpress/api-fetch@^6.34.0", "@wordpress/api-fetch@^6.35.0", "@wordpress/api-fetch@^6.4.0", "@wordpress/api-fetch@^6.7.0":
+  version "6.35.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-6.35.0.tgz#6f14442408f1591169e32e38eaa1fb85575239d5"
+  integrity sha512-pQkH9BRhrWgDki9Bj9Cwyj89kXcXrDjWWJKUq2viuuyK/QEGLthKFOWkSQWT5v0QHDL81B0jWkr0eSG80Mtxtw==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@wordpress/i18n" "^4.37.0"
-    "@wordpress/url" "^3.38.0"
+    "@wordpress/i18n" "^4.38.0"
+    "@wordpress/url" "^3.39.0"
 
 "@wordpress/api-fetch@^6.35.0":
   version "6.35.0"
@@ -3268,10 +3268,10 @@
   resolved "https://registry.yarnpkg.com/@wordpress/base-styles/-/base-styles-4.29.0.tgz#335fb82b3ec858f1de8937657f30da6d78323f4b"
   integrity sha512-2oYk4M6F+os9Mw0mxWZaEmt9sj5mB2TeMDp99/g23JZpQVzOV5qeDOePnH77qViARBno7lFe40nuaHNf5Sd/fA==
 
-"@wordpress/blob@^3.16.0", "@wordpress/blob@^3.22.0", "@wordpress/blob@^3.3.1", "@wordpress/blob@^3.37.0", "@wordpress/blob@^3.7.0":
-  version "3.37.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-3.37.0.tgz#3505741c1511f1393a3608ab1d7892b4d91c1da2"
-  integrity sha512-1JkInPKI0inhHlDOchkq639JyNXdPABYoWTNRs9TgB9DtL6Z/EPWwMTTbNTVgeh3LgSbe6Q/A8yPmlGWYDCoRQ==
+"@wordpress/blob@^3.16.0", "@wordpress/blob@^3.22.0", "@wordpress/blob@^3.3.1", "@wordpress/blob@^3.37.0", "@wordpress/blob@^3.38.0", "@wordpress/blob@^3.7.0":
+  version "3.38.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-3.38.0.tgz#a53ca5ded7f32bf1c6ca1ed92f3cbbb20b2ff9b7"
+  integrity sha512-zvkRbbEScM1RIPLVA27ydyDjPX50FWdro8Zy0yQ2BtZ+heH6khsCB48yKPDRhl0GoifdVJIiEcLtpb4yHMzZ2g==
   dependencies:
     "@babel/runtime" "^7.16.0"
 
@@ -4042,15 +4042,15 @@
     change-case "^4.1.2"
 
 "@wordpress/media-utils@^4":
-  version "4.28.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-4.28.0.tgz#152952dfc28c3b6d96cd3398437754eefc12aab6"
-  integrity sha512-tbzWXcd5RGLaDlqKvfXCEwIeCw6WS4ycCD743dhL8LNytpuwEU0RRb5l/tTJwe+/7dcUqsyPOo2T0ZWk4vCi9w==
+  version "4.29.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-4.29.0.tgz#6a3cecb343f550755979aeb4b83bae7bf9f971a1"
+  integrity sha512-eTmLtAdmDM0ovIT/awWJkFoOyaOhjAnisIA7bcgSIqrK4XYWF6tU59Hzirg0CYNsW+lsOTTDixFxPJUA8I68aw==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@wordpress/api-fetch" "^6.34.0"
-    "@wordpress/blob" "^3.37.0"
-    "@wordpress/element" "^5.14.0"
-    "@wordpress/i18n" "^4.37.0"
+    "@wordpress/api-fetch" "^6.35.0"
+    "@wordpress/blob" "^3.38.0"
+    "@wordpress/element" "^5.15.0"
+    "@wordpress/i18n" "^4.38.0"
 
 "@wordpress/notices@^3.10.0", "@wordpress/notices@^3.16.0", "@wordpress/notices@^3.3.2", "@wordpress/notices@^3.7.0":
   version "3.30.0"
@@ -4365,6 +4365,14 @@
     "@babel/runtime" "^7.16.0"
 
 "@wordpress/url@^3.11.0", "@wordpress/url@^3.17.0", "@wordpress/url@^3.38.0", "@wordpress/url@^3.39.0", "@wordpress/url@^3.4.1", "@wordpress/url@^3.8.0":
+  version "3.39.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/url/-/url-3.39.0.tgz#573777913db9f681cc75b235b2ca609751aaab3c"
+  integrity sha512-+s7eEZgBkyNm93RNDeIzq5oJBMA6lAEH27hyJkY6sRamDbaercZyYSr/q3If8c6hHsbLeVMJpd3NkiZpe384Lg==
+  dependencies:
+    "@babel/runtime" "^7.16.0"
+    remove-accents "^0.4.2"
+
+"@wordpress/url@^3.39.0":
   version "3.39.0"
   resolved "https://registry.yarnpkg.com/@wordpress/url/-/url-3.39.0.tgz#573777913db9f681cc75b235b2ca609751aaab3c"
   integrity sha512-+s7eEZgBkyNm93RNDeIzq5oJBMA6lAEH27hyJkY6sRamDbaercZyYSr/q3If8c6hHsbLeVMJpd3NkiZpe384Lg==
