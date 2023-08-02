@@ -7,10 +7,10 @@
 	position: relative;
 
 	> .elementor-container {
-		padding: 5em 40px;
-		column-gap: 60px;
+		padding: 5em 2.5em;
+		column-gap: 3.75em;
 		position: relative;
-		max-width: 1180px;
+		max-width: 73.75em;
 		width: 100%;
 
 		&::before {
@@ -31,7 +31,7 @@
 		}
 
 		@media (min-width: $breakpoint-desktop-box) {
-			padding: 65px 120px;
+			padding: 4.0625em 7.5em;
 			margin: 0 auto;
 			width: 100%;
 		}

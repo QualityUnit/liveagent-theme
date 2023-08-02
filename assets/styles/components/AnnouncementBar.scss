@@ -2,8 +2,6 @@
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@forward "../common/animations";
-
 
 $Announcement_bar_height: 7.5em;
 $Announcement_bar_height_mobile: 5em;
@@ -21,7 +19,7 @@ body {
 					width: 100%;
 					height: $Announcement_bar_height_mobile;
 					background: linear-gradient(291deg, #ffd3b8 0%, $black 100%);
-					z-index: 999;
+					z-index: 101;
 					position: fixed;
 					left: 0;
 					top: 0;
@@ -47,7 +45,7 @@ body {
 							display: flex;
 							flex-direction: column;
 							justify-content: center;
-							z-index: 9;
+							z-index: 1;
 						}
 
 						.Announcement__bar__col__left {
@@ -77,8 +75,9 @@ body {
 							display: none;
 
 							img {
-								width: 100%;
-								height: 100%;
+
+								@include square(100%);
+
 								object-fit: cover;
 								object-position: left;
 								overflow: visible;
@@ -91,9 +90,9 @@ body {
 						@include square(1.5em);
 						content: url(../../images/close-announcements-bar-icon.svg);
 						position: absolute;
-						top: 10px;
-						right: 10px;
-						z-index: 20;
+						top: 0.625em;
+						right: 0.625em;
+						z-index: 1;
 						padding: 0;
 					}
 
@@ -143,7 +142,7 @@ body {
 								}
 
 								p {
-									font-size: 1.4375em;
+									font-size: 1.4375rem;
 								}
 							}
 						}
