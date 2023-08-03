@@ -1,0 +1,215 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+$Announcement_bar_height: 7.5em;
+$Announcement_bar_height_mobile: 5em;
+
+body {
+
+	&.home {
+
+		#app {
+
+			.Announcement__bar {
+				animation: slideDown 0.3s ease;
+
+				&.Ai__whisper__assistent {
+					width: 100%;
+					height: $Announcement_bar_height_mobile;
+					background: linear-gradient(291deg, #ffd3b8 0%, $black 100%);
+					z-index: 101;
+					position: fixed;
+					left: 0;
+					top: 0;
+					opacity: 1;
+					display: none;
+
+					&::before {
+
+						@include posZero();
+						position: absolute;
+						content: "";
+						background: url(../../images/ai-announcement-bar-bg.png);
+						z-index: 1;
+					}
+
+					.wrapper {
+						display: flex;
+						height: 100%;
+						justify-content: center;
+
+						.Announcement__bar__col__left,
+						.Announcement__bar__col__right {
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							z-index: 1;
+						}
+
+						.Announcement__bar__col__left {
+
+							h2 {
+								color: $white;
+								font-size: 1.125em;
+								line-height: 1.2;
+								margin-bottom: 0;
+
+								small {
+									font-size: 0.9rem;
+									color: #a4d6a3;
+									margin-left: 0.7em;
+								}
+							}
+
+							p {
+								color: $white;
+								font-weight: 400;
+								font-size: 0.9375em;
+								margin-bottom: 0;
+							}
+						}
+
+						.Announcement__bar__col__right {
+							display: none;
+
+							img {
+
+								@include square(100%);
+
+								object-fit: cover;
+								object-position: left;
+								overflow: visible;
+							}
+						}
+					}
+
+					button.Announcement__bar__close {
+
+						@include square(1.5em);
+						content: url(../../images/close-announcements-bar-icon.svg);
+						position: absolute;
+						top: 0.625em;
+						right: 0.625em;
+						z-index: 1;
+						padding: 0;
+					}
+
+
+					@media (min-width: $breakpoint-mobile) {
+						height: $Announcement_bar_height;
+
+						.wrapper {
+
+							.Announcement__bar__col__left {
+
+								h2 {
+									font-size: 1.6rem;
+									line-height: 1.2;
+
+									small {
+										font-size: 0.9rem;
+									}
+								}
+
+								p {
+									font-size: 1rem;
+								}
+							}
+						}
+					}
+
+					@media (min-width: $breakpoint-tablet-landscape ) {
+
+						.wrapper {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+
+							.Announcement__bar__col__right {
+								display: block;
+							}
+
+							.Announcement__bar__col__left {
+
+								h2 {
+									font-size: 2.125em;
+									line-height: 1.2;
+
+									small {
+										font-size: 1rem;
+									}
+								}
+
+								p {
+									font-size: 1.4375rem;
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+			&.announcement--active {
+				padding-top: calc($Announcement_bar_height_mobile + 5.625em);
+
+				.Header {
+					top: $Announcement_bar_height_mobile;
+					animation: top 0.3s ease;
+
+					.sub-menu {
+						top: calc($Announcement_bar_height_mobile + 5.625em);
+					}
+				}
+
+				@media (min-width: $breakpoint-mobile ) {
+					padding-top: calc($Announcement_bar_height + 5.625em);
+
+					.Header {
+						top: $Announcement_bar_height;
+						animation: top 0.3s ease;
+
+						.sub-menu {
+							top: calc($Announcement_bar_height + 5.625em);
+						}
+					}
+				}
+
+			}
+
+			&.announcement--hidden {
+
+				.Announcement__bar {
+					transform: translateY(-100%);
+					animation: slideUp 0.2s ease;
+				}
+			}
+		}
+
+		&.logged-in {
+
+			#app {
+
+				&.announcement--active {
+
+					.Announcement__bar {
+						top: 1.4375em;
+					}
+
+					.Header {
+						top: calc($Announcement_bar_height + 1.4375em);
+
+						.sub-menu {
+							top: calc($Announcement_bar_height + 5.625em + 1.4375em);
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+
+}
+

@@ -1,0 +1,60 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Ai__whisper__assistent {
+	position: relative;
+
+	> .elementor-container {
+		padding: 5em 2.5em;
+		column-gap: 3.75em;
+		position: relative;
+		max-width: 73.75em;
+		width: 100%;
+
+		&::before {
+
+			@include square(100%);
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: url(../../images/ai_wishper_assistent_background.jpg) center no-repeat;
+			background-size: cover;
+			border-radius: $border-radius-16;
+		}
+
+		.elementor-widget-wrap {
+			align-content: center;
+
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			padding: 4.0625em 7.5em;
+			margin: 0 auto;
+			width: 100%;
+		}
+
+	}
+
+	&.Block--redesign {
+
+		.elementor-heading-title {
+			margin-bottom: 0;
+			line-height: 1;
+
+			small {
+				color: $saturated-green;
+				font-size: 1rem;
+				line-height: 1;
+			}
+
+		}
+	}
+
+
+	p.Ai__whisper__assistent__cta {
+		margin-bottom: 0;
+	}
+}

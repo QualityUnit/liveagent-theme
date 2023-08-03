@@ -342,6 +342,29 @@
 
 .Pricing__program {
 
+	.checklist {
+
+		ul {
+
+			li {
+				display: flex;
+				align-items: center;
+
+				span.badge__new {
+					color: $white;
+					font-size: 0.75rem;
+					font-weight: 700;
+					line-height: 1.5;
+					text-transform: uppercase;
+					padding: 0.125em 0.5625em;
+					border-radius: 6.25em;
+					margin-left: 0.5em;
+					background-color: #ff492b;
+				}
+			}
+		}
+	}
+
 	&[class] {
 		padding: 2.5em 1.5em 1.5em !important;
 		width: 100%;
