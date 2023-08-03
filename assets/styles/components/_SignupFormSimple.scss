@@ -1,5 +1,5 @@
 /* stylelint-disable selector-class-pattern */
-
+@use "sass:math";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 @forward "./BlockSignUpForm";
@@ -170,7 +170,7 @@
 			&.has-svg {
 
 				svg {
-					top: ( $field-height / 2 );
+					top: math.div($field-height, 2);
 				}
 			}
 
