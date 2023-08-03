@@ -52,25 +52,27 @@ if ( comparePlansTableTitles.length ) {
 	} );
 }
 
-// Finding differences in values in pricing table rows
 if ( comparePlansRows.length ) {
 	const matchingRows = [];
 	const compareSwitcher = document.querySelector( '[data-switcher="compare"]' );
 	const compareSwitcherLabels = compareSwitcher.querySelectorAll( 'label' );
+	let cells;
 	setOddEven();
 
 	comparePlansRows.forEach( ( row ) => {
-		// Selecting cells except first description one
-		let cells = row.querySelectorAll( 'td:not(:first-of-type)' );
-		if ( row.closest( '.ComparePlans.enterprise' ) ) {
-			cells = row.querySelectorAll( 'td:nth-of-type(4), td:nth-of-type(6)' );
-		}
+		// Checking if the row has the class .ComparePlans.enterprise
+		const isEnterpriseRow = row.closest( '.ComparePlans.enterprise' );
+
+		cells = isEnterpriseRow
+			? row.querySelectorAll( 'td:nth-of-type(4), td:nth-of-type(6)' )
+			: row.querySelectorAll( 'td:not(:first-of-type):not(:last-of-type)' );
+
 		const firstValueCell = cells.item( 0 ).innerText;
 
 		// Filtering array of nodes with different values
 		const matching = [ ...cells ].filter( ( cell ) => cell.innerText !== firstValueCell );
 
-		// If returns td cells with same content in all cells, push the row to the array
+		// If all cells have the same content, push the row to the array
 		if ( ! matching.length ) {
 			matchingRows.push( row );
 		}
