@@ -152,34 +152,10 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 				
 				<?php the_content(); ?>
 
-				<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q1', true ) ) { ?>
 					<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
 						<h2 id="faq"><?php _e( '<span class="highlight">Frequently</span> asked questions', 'ms' ); ?></h2>
-						<?php
-						if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-text', true ) ) {
-							?>
-							<div class="subhead--wrapper">
-								<p class="subhead"><?= esc_html( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-text', true ) ); ?></p>
-							</div>
-							<?php
-						}
-						for ( $i = 1; $i <= 10; ++$i ) {
-							if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ) {
-								?>
-								<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-									<h3 itemprop="name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ); ?></h3>
-									<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-										<div class="Faq__inner-wrapper" itemprop="text">
-											<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-a' . $i, true ) ); ?></p>
-										</div>
-									</div>
-								</div>
-								<?php
-							}
-						}
-						?>
+						<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 					</div>
-				<?php } ?>
 
 				<div class="Post__buttons">
 					<a href="<?php _e( '/integrations/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Back to Integrations'])"><span><?php _e( 'Back to Integrations', 'ms' ); ?></span></a>
