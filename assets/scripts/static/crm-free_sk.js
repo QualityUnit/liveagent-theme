@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-sessionStorage.setItem( 'crmVars', JSON.stringify( {
+sessionStorage.setItem( 'freeCrmVars', JSON.stringify( {
 	productId: 'b229622b',
 	variationId: 'freedesk',
 
