@@ -23,7 +23,7 @@ $page_header_breadcrumb = array(
 	array( __( 'All checklists', 'ms' ), __( '/checklists/', 'ms' ) ),
 );
 if ( isset( $category_slug ) ) {
-	$page_header_breadcrumb[] = array( $category_name, __( '/checklists/', 'ms' ) . $category_slug );
+	$page_header_breadcrumb[] = array( $category_name, __( '/checklists/', 'ms' ) . '#' . $category_slug );
 }
 $page_header_breadcrumb[] = array( $posttitle_filtered );
 $page_header_args = array(
@@ -43,7 +43,7 @@ $page_header_args = array(
 	<?php //require_once get_template_directory() . '/lib/custom-blocks/checklist-post-header-small.php'; ?>
 
 	<div class="wrapper Post__container">
-		
+
 		<div class="Post__sidebar urlslab-skip-keywords">
 				<div class="SidebarItemsSlider__wrapper js-sidebar-sticky">
 					<div class="SidebarItemsSlider">
