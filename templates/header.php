@@ -2,9 +2,9 @@
 if ( is_front_page() ) { ?>
 		<div class="Announcement__bar Ai__whisper__assistent">
 			<div class="wrapper">
-				<div class="Announcement__bar__col__left urlslab-skip-all">
+				<div class="Announcement__bar__col__left">
 					<h2><?php _e( 'AI Whisper Assistant', 'ms' ); ?><small><?php _e( '/Private beta', 'ms' ); ?></small></h2>
-					<p><?php _e( 'Suggests the responses to your agent\'s needs', 'ms' ); ?></p>
+					<p><?php _e( 'Suggests the responses to your agents needs', 'ms' ); ?></p>
 				</div>
 				<div class="Announcement__bar__col__right">
 					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/ai-announcement-bar-img-right.png" alt="">
