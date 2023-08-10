@@ -3,8 +3,8 @@ set_custom_source( 'pages/Directory', 'css' );
 $current_lang    = apply_filters( 'wpml_current_language', null );
 $header_category = get_en_category( 'ms_integrations', $post->ID );
 do_action( 'wpml_switch_language', $current_lang );
-$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_integrations' );
-$categories = get_the_terms( $current_id, 'ms_integrations_categories' );
+$current_id     = apply_filters( 'wpml_object_id', $post->ID, 'ms_integrations' );
+$categories     = get_the_terms( $current_id, 'ms_integrations_categories' );
 $categories_url = get_post_type_archive_link( 'ms_integrations' );
 $la_pricing_url = __( '/pricing/', 'ms' );
 
@@ -14,8 +14,8 @@ $page_header_args = array(
 		'alt' => get_the_title(),
 	),
 	'title' => get_the_title(),
-	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-	'toc' => true,
+	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'toc'   => true,
 );
 if ( has_post_thumbnail() ) {
 	$page_header_args['logo'] = array(
@@ -30,22 +30,22 @@ if (
 	$header_buttons = array();
 	if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ) ) {
 		$header_buttons[] = array(
-			'href' => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ),
+			'href'  => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_native_integration_url', true ),
 			'title' => __( 'Native Integration', 'ms' ),
 		);
 	}
 	if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_external_integration_url', true ) ) {
 		$header_buttons[] = array(
-			'href' => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_external_integration_url', true ) . '?utm_medium=referral&utm_source=liveagent&utm_campaign=integration',
+			'href'   => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_external_integration_url', true ) . '?utm_medium=referral&utm_source=liveagent&utm_campaign=integration',
 			'target' => '_blank',
-			'title' => __( 'External Integration', 'ms' ),
+			'title'  => __( 'External Integration', 'ms' ),
 		);
 	}
 	if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_zapier_integration_url', true ) ) {
 		$header_buttons[] = array(
-			'href' => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_zapier_integration_url', true ) . '?utm_medium=referral&utm_source=liveagent&utm_campaign=integration',
+			'href'   => get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_zapier_integration_url', true ) . '?utm_medium=referral&utm_source=liveagent&utm_campaign=integration',
 			'target' => '_blank',
-			'title' => __( 'Zapier Integration', 'ms' ),
+			'title'  => __( 'Zapier Integration', 'ms' ),
 		);
 	}
 	$page_header_args['buttons'] = $header_buttons;
@@ -56,7 +56,7 @@ if ( $categories && $categories_url ) {
 	);
 	foreach ( $categories as $category ) {
 		$new_tags['list'][] = array(
-			'href' => $categories_url . '#' . $category->slug,
+			'href'  => $categories_url . '#' . $category->slug,
 			'title' => $category->name,
 		);
 	}
@@ -71,31 +71,31 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 	foreach ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true ) as $item ) {
 		if ( 'ticket' === $item ) {
 			$new_tags['list'][] = array(
-				'href' => $la_pricing_url,
+				'href'  => $la_pricing_url,
 				'title' => __( 'Small', 'ms' ),
 			);
 		}
 		if ( 'ticket-chat' === $item ) {
 			$new_tags['list'][] = array(
-				'href' => $la_pricing_url,
+				'href'  => $la_pricing_url,
 				'title' => __( 'Medium', 'ms' ),
 			);
 		}
 		if ( 'all-inclusive' === $item ) {
 			$new_tags['list'][] = array(
-				'href' => $la_pricing_url,
+				'href'  => $la_pricing_url,
 				'title' => __( 'Large', 'ms' ),
 			);
 		}
 		if ( 'extensions' === $item ) {
 			$new_tags['list'][] = array(
-				'href' => $la_pricing_url,
+				'href'  => $la_pricing_url,
 				'title' => __( 'Extensions', 'ms' ),
 			);
 		}
 		if ( 'self-hosted' === $item ) {
 			$new_tags['list'][] = array(
-				'href' => $la_pricing_url,
+				'href'  => $la_pricing_url,
 				'title' => __( 'Self-Hosted', 'ms' ),
 			);
 		}

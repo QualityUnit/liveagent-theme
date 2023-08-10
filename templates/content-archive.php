@@ -7,41 +7,41 @@
 	set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
  
 	$page_header_title = single_term_title( '', false );
-	$page_header_args = array(
-		'type' => 'lvl-1',
+	$page_header_args  = array(
+		'type'  => 'lvl-1',
 		'image' => array(
 			'src' => get_template_directory_uri() . '/assets/images/compact_header_blog.png?ver=' . THEME_VERSION,
 			'alt' => $page_header_title,
 		),
 		'title' => $page_header_title,
-		'text' => term_description(),
+		'text'  => term_description(),
 	);
 	if ( has_nav_menu( 'blog_filter_navigation' ) ) :
-		$menu_locations = get_nav_menu_locations();
-		$menu_id = $menu_locations['blog_filter_navigation'];
-		$archive_nav = wp_get_nav_menu_items( $menu_id );
-		$filter_items = array(
+		$menu_locations          = get_nav_menu_locations();
+		$menu_id                 = $menu_locations['blog_filter_navigation'];
+		$archive_nav             = wp_get_nav_menu_items( $menu_id );
+		$filter_items            = array(
 			array(
-				'type' => 'link',
-				'name' => 'category',
+				'type'  => 'link',
+				'name'  => 'category',
 				'title' => __( 'Category', 'ms' ),
 			),
 		);
 		$filter_items_categories = array();
 		foreach ( $archive_nav as $item ) :
 			$current = get_queried_object_id() == $item->object_id;
-			$active = false;
+			$active  = false;
 			if ( $current ) :
 				$filter_items[0]['active'] = $item->title;
-				$active = true;
+				$active                    = true;
 			endif;
 			$filter_items_categories[] = array(
-				'href' => $item->url,
-				'title' => $item->title,
+				'href'   => $item->url,
+				'title'  => $item->title,
 				'active' => $active,
 			);
 		endforeach;
-		$filter_items[0]['items'] = $filter_items_categories;
+		$filter_items[0]['items']   = $filter_items_categories;
 		$page_header_args['filter'] = $filter_items;
 	endif;
 	?>

@@ -22,77 +22,77 @@ if ( ! empty( $main_page ) ) {
 }
 
 if ( ! isset( $subpage->slug ) ) {
-	$page_header_title_1 = __( 'Reviews categories', 'ms' );
+	$page_header_title_1       = __( 'Reviews categories', 'ms' );
 	$page_header_description_1 = __( 'Find out which software in any category is the best option for your business. You are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'ms' );
-	$page_header_args_1 = array(
-		'type' => 'lvl-1',
+	$page_header_args_1        = array(
+		'type'  => 'lvl-1',
 		'image' => array(
 			'src' => get_template_directory_uri() . '/assets/images/compact_header_reviews_1.png?ver=' . THEME_VERSION,
 			'alt' => $page_header_title_1,
 		),
 		'title' => $page_header_title_1,
-		'text' => $page_header_description_1,
+		'text'  => $page_header_description_1,
 	);
 }
 if ( isset( $subpage->slug ) ) {
-	$query_posts_2 = new WP_Query(
+	$query_posts_2             = new WP_Query(
 		array(
-			'post_type' => 'ms_reviews',
+			'post_type'      => 'ms_reviews',
 			// @codingStandardsIgnoreLine
 			'posts_per_page' => 500,
-			'orderby' => 'date',
-			'order' => 'ASC',
+			'orderby'        => 'date',
+			'order'          => 'ASC',
 			'tax_query' => array( // @codingStandardsIgnoreLine
 				array(
 					'taxonomy' => 'ms_reviews_categories',
-					'field' => 'term_id',
-					'terms' => $subpage->term_id,
+					'field'    => 'term_id',
+					'terms'    => $subpage->term_id,
 				),
 			),
 		)
 	);
-	$page_header_title_2 = $subpage->name;
+	$page_header_title_2       = $subpage->name;
 	$page_header_description_2 = $subpage->description;
-	$page_header_breadcrumb_2 = array(
+	$page_header_breadcrumb_2  = array(
 		array( __( 'Reviews', 'ms' ), __( '/reviews/', 'ms' ) ),
 		array( $subpage->name ),
 	);
-	$sort_items_2 = array(
+	$sort_items_2              = array(
 		'label' => __( 'Sort by:', 'ms' ),
 		'items' => array(
 			array(
 				'checked' => true,
-				'value' => 'reviews',
-				'title' => __( 'Most reviews from external portals', 'ms' ),
+				'value'   => 'reviews',
+				'title'   => __( 'Most reviews from external portals', 'ms' ),
 			),
 			array(
 				'checked' => true,
-				'value' => 'rating',
-				'title' => __( 'Best ratings from external portals', 'ms' ),
+				'value'   => 'rating',
+				'title'   => __( 'Best ratings from external portals', 'ms' ),
 			),
 			array(
 				'checked' => true,
-				'value' => 'ourrating',
-				'title' => __( 'Our best rating', 'ms' ),
+				'value'   => 'ourrating',
+				'title'   => __( 'Our best rating', 'ms' ),
 			),
 			array(
 				'checked' => true,
-				'value' => 'updated',
-				'title' => __( 'Recently updated', 'ms' ),
+				'value'   => 'updated',
+				'title'   => __( 'Recently updated', 'ms' ),
 			),
 		),
 	);
-	$page_header_args_2 = array(
-		'type' => 'lvl-1',
+	$page_header_args_2        = array(
+		'type'       => 'lvl-1',
 		'breadcrumb' => $page_header_breadcrumb_2,
-		'image' => array(
+		'image'      => array(
 			'src' => get_template_directory_uri() . '/assets/images/compact_header_reviews_2.png?ver=' . THEME_VERSION,
 			'alt' => $page_header_title_2,
 		),
-		'title' => $page_header_title_2,
-		'text' => $page_header_description_2,
-		'sort' => $sort_items_2,
-		'count' => array(
+		'title'      => $page_header_title_2,
+		'text'       => $page_header_description_2,
+		'sort'       => $sort_items_2,
+		'count'      => array(
 			'title' => $subpage->name,
 			'value' => $query_posts_2->post_count,
 		),

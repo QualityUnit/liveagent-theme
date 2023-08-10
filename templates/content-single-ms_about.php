@@ -6,23 +6,23 @@ if ( ! empty( $header_category ) ) {
 	$header_category = array_shift( $header_category );
 	$header_category = $header_category->slug;
 }
-$post_permalink = get_the_permalink();
-$categories = get_categories( array( 'taxonomy' => 'ms_about_categories' ) );
+$post_permalink   = get_the_permalink();
+$categories       = get_categories( array( 'taxonomy' => 'ms_about_categories' ) );
 $page_header_args = array(
 	'image' => array(
 		'type' => 'main',
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_about_us.png?ver=' . THEME_VERSION,
-		'alt' => get_the_title(),
+		'src'  => get_template_directory_uri() . '/assets/images/compact_header_about_us.png?ver=' . THEME_VERSION,
+		'alt'  => get_the_title(),
 	),
-	'logo' => array(
+	'logo'  => array(
 		'src' => get_template_directory_uri() . '/assets/images/icon-book.svg?ver=' . THEME_VERSION,
 		'alt' => __( 'About us', 'ms' ),
 	),
 	'title' => get_the_title(),
-	'menu' => array(
+	'menu'  => array(
 		//'title' => 'Nejaky nazov',
 	),
-	'toc' => true,
+	'toc'   => true,
 );
 $menu_items = array();
 if ( ! empty( $categories ) ) :
@@ -33,8 +33,8 @@ if ( ! empty( $categories ) ) :
 					'ms_about_categories' => $category->slug,
                     // @codingStandardsIgnoreLine
                     'posts_per_page' => 500,
-					'orderby'    => 'date',
-					'order'      => 'ASC',
+					'orderby'             => 'date',
+					'order'               => 'ASC',
 				)
 			);
 			while ( $query_glossary_posts->have_posts() ) :
@@ -44,8 +44,8 @@ if ( ! empty( $categories ) ) :
 					$menu_item_active = true;
 				endif;
 				$menu_items[] = array(
-					'title' => get_the_title(),
-					'href' => get_the_permalink(),
+					'title'  => get_the_title(),
+					'href'   => get_the_permalink(),
 					'active' => $menu_item_active,
 				);
 			endwhile;
@@ -70,7 +70,7 @@ else :
 		endif;
 		$menu_items[] = array(
 			'title' => get_the_title(),
-			'href' => get_the_permalink(),
+			'href'  => get_the_permalink(),
 		);
 	endwhile;
 	wp_reset_postdata();

@@ -11,10 +11,10 @@ $page_header_args = array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_glossary.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
-	'logo' => $page_header_logo,
+	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
-	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-	'toc' => true,
+	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'toc'   => true,
 );
 ?>
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">

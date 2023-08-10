@@ -11,8 +11,8 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 $industry = get_post_meta( get_the_ID(), 'mb_directory_mb_directory_industry', true );
 $business = get_post_meta( get_the_ID(), 'mb_directory_mb_directory_business', true );
 
-$page_header_tags = array();
-$page_header_tags[0]['title'] = __( 'Business Type', 'ms' );
+$page_header_tags                       = array();
+$page_header_tags[0]['title']           = __( 'Business Type', 'ms' );
 $page_header_tags[0]['list'][0]['href'] = __( '/industry/', 'ms' ) . $industry . '/';
 if ( 'accounting-legal' === $industry ) {
 	$page_header_tags[0]['list'][0]['title'] = __( 'Accounting & Legal', 'ms' );
@@ -47,7 +47,7 @@ if ( 'accounting-legal' === $industry ) {
 } elseif ( 'webhosting' === $industry ) {
 	$page_header_tags[0]['list'][0]['title'] = __( 'Webhosting', 'ms' );
 }
-$page_header_tags[0]['title'] = __( 'Business Type', 'ms' );
+$page_header_tags[0]['title']           = __( 'Business Type', 'ms' );
 $page_header_tags[0]['list'][1]['href'] = __( '/business/', 'ms' ) . $business . '/';
 if ( 'agency' === $business ) {
 	$page_header_tags[0]['list'][1]['title'] = __( 'Agency', 'ms' );
@@ -65,45 +65,45 @@ if ( 'agency' === $business ) {
 $page_header_tags[1]['title'] = __( 'Technologies', 'ms' );
 if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) {
 	$page_header_tags[1]['list'][] = array(
-		'href' => __( '/help-desk-software/', 'ms' ),
+		'href'  => __( '/help-desk-software/', 'ms' ),
 		'title' => __( 'Help Desk Software', 'ms' ),
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) {
 	$page_header_tags[1]['list'][] = array(
-		'href' => __( '/ticketing-software/', 'ms' ),
+		'href'  => __( '/ticketing-software/', 'ms' ),
 		'title' => __( 'Ticketing Software', 'ms' ),
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_livechat-support', true ) ) {
 	$page_header_tags[1]['list'][] = array(
-		'href' => __( '/live-chat-software/', 'ms' ),
+		'href'  => __( '/live-chat-software/', 'ms' ),
 		'title' => __( 'Live Chat Software', 'ms' ),
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ) {
 	$page_header_tags[1]['list'][] = array(
-		'href' => __( '/call-center-software/', 'ms' ),
+		'href'  => __( '/call-center-software/', 'ms' ),
 		'title' => __( 'Call Center Software', 'ms' ),
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_facebook', true ) || get_post_meta( get_the_ID(), 'mb_directory_mb_directory_twitter', true ) || get_post_meta( get_the_ID(), 'mb_directory_mb_directory_instagram', true ) ) {
 	$page_header_tags[1]['list'][] = array(
-		'href' => __( '/social-media-customer-service/', 'ms' ),
+		'href'  => __( '/social-media-customer-service/', 'ms' ),
 		'title' => __( 'Social Media Support', 'ms' ),
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_forum', true ) ) {
 	$page_header_tags[1]['list'][] = array(
-		'href' => __( '/customer-portal-software/', 'ms' ),
+		'href'  => __( '/customer-portal-software/', 'ms' ),
 		'title' => __( 'Customer Portal Software', 'ms' ),
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_knowledge-base', true ) ) {
 	$page_header_tags[1]['list'][] = array(
-		'href' => __( '/knowledge-base-software/', 'ms' ),
+		'href'  => __( '/knowledge-base-software/', 'ms' ),
 		'title' => __( 'Knowledge Base Software', 'ms' ),
 	);
 } if ( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_affiliate-program', true ) ) {
 	$page_header_tags[1]['list'][] = array(
-		'href' => 'https://www.postaffiliatepro.com/?utm_medium=referral&utm_source=liveagent&utm_campaign=directory',
-		'title' => __( 'Affiliate Software', 'ms' ),
+		'href'   => 'https://www.postaffiliatepro.com/?utm_medium=referral&utm_source=liveagent&utm_campaign=directory',
+		'title'  => __( 'Affiliate Software', 'ms' ),
 		'target' => '_blank',
-		'rel' => 'nofollow',
+		'rel'    => 'nofollow',
 	);
 }
 
@@ -120,38 +120,38 @@ $page_header_args = array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_directory.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
-	'logo' => $page_header_logo,
+	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
-	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-	'tags' => $page_header_tags,
-	'toc' => array(
+	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'tags'  => $page_header_tags,
+	'toc'   => array(
 		'items' => array(
 			array(
-				'id' => 'customer-service-contacts',
+				'id'    => 'customer-service-contacts',
 				'title' => __( 'Customer Service Contacts', 'ms' ),
 			),
 			array(
-				'href' => 'social-media',
+				'href'  => 'social-media',
 				'title' => __( 'Social Media Support Contacts', 'ms' ),
 			),
 			array(
-				'id' => 'sla',
+				'id'    => 'sla',
 				'title' => __( 'SLAs & Agreements', 'ms' ),
 			),
 			array(
-				'id' => 'legal-contacts',
+				'id'    => 'legal-contacts',
 				'title' => __( 'Legal Contacts', 'ms' ),
 			),
 			array(
-				'id' => 'other-links',
+				'id'    => 'other-links',
 				'title' => __( 'Other Links', 'ms' ),
 			),
 			array(
-				'id' => 'location',
+				'id'    => 'location',
 				'title' => __( 'Location', 'ms' ),
 			),
 			array(
-				'id' => 'faq',
+				'id'    => 'faq',
 				'title' => __( 'FAQ', 'ms' ),
 			),
 		),
@@ -602,7 +602,7 @@ $page_header_args = array(
 				}
 					the_content();
 					echo do_shortcode( '[urlslab-faq]' );
-			?>
+				?>
 
 					<div class="Post__buttons">
 						<a href="<?php _e( '/directory/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Back to Directory'])"><span><?php _e( 'Back to Directory', 'ms' ); ?></span></a>
