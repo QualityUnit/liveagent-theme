@@ -120,7 +120,7 @@
 		}
 	}
 
-	@media (max-width: $breakpoint-tablet + 1) {
+	@media (max-width: ($breakpoint-tablet + 1)) {
 
 		&__bg {
 			padding: $block-bg-space-sm 0;

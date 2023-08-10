@@ -60,6 +60,8 @@
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
 
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
+
 				<div class="Post__buttons">
 					<a href="<?php _e( '/academy/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Back to Academy'])"><span><?php _e( 'Back to Academy', 'ms' ); ?></span></a>
 

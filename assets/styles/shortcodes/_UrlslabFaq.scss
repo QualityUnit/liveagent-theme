@@ -1,0 +1,25 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Urlslab-Faq {
+
+	&__item {
+
+		h3 {
+
+			&::before {
+				content: url(/app/themes/liveagent/assets/images/icon_checkmark_circle.svg) !important;
+			}
+		}
+	}
+
+	.Urlslab-Faq__outer-wrapper[class] {
+
+		&::before {
+			border-left: 1px dashed $dark-orange;
+		}
+	}
+}

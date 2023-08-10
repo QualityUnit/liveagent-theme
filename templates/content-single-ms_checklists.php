@@ -113,6 +113,8 @@ $page_header_args = array(
 				</div>
 				<?php the_content(); ?>
 
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
+
 				<div class="Post__content__resources">
 					<div class="h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 
