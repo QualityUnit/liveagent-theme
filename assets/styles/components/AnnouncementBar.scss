@@ -158,9 +158,6 @@ body {
 					top: $Announcement_bar_height_mobile;
 					animation: top 0.3s ease;
 
-					.sub-menu {
-						top: calc($Announcement_bar_height_mobile + 5.625em);
-					}
 				}
 
 				@media (min-width: $breakpoint-mobile ) {
@@ -171,7 +168,7 @@ body {
 						animation: top 0.3s ease;
 
 						.sub-menu {
-							top: calc($Announcement_bar_height + 5.625em);
+							top: calc($Announcement_bar_height + 4.5em);
 						}
 					}
 				}
@@ -201,7 +198,7 @@ body {
 						top: calc($Announcement_bar_height + 1.4375em);
 
 						.sub-menu {
-							top: calc($Announcement_bar_height + 5.625em + 1.4375em);
+							top: calc($Announcement_bar_height + 4.5em + 1.4375em);
 						}
 					}
 				}
