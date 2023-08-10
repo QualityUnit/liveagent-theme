@@ -3,14 +3,14 @@
 	set_custom_source( 'pages/Research', 'css' );
 	set_custom_source( 'filter', 'js' );
 $page_header_title = __( 'Customer service Benchmark Report', 'ms' );
-$page_header_args = array(
-	'type' => 'lvl-1',
+$page_header_args  = array(
+	'type'  => 'lvl-1',
 	'image' => array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_research.png?ver=' . THEME_VERSION,
 		'alt' => $page_header_title,
 	),
 	'title' => $page_header_title,
-	'text' => the_archive_description(),
+	'text'  => the_archive_description(),
 );
 ?>
 <?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>

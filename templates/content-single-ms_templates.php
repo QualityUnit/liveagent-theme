@@ -15,21 +15,21 @@
 			'src' => get_template_directory_uri() . '/assets/images/compact_header_templates.png?ver=' . THEME_VERSION,
 			'alt' => get_the_title(),
 		),
-		'logo' => $page_header_logo,
+		'logo'  => $page_header_logo,
 		'title' => get_the_title(),
-		'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-		'toc' => true,
+		'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+		'toc'   => true,
 	);
-	$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_templates' );
-	$categories = get_the_terms( $current_id, 'ms_templates_categories' );
-	$categories_url = get_post_type_archive_link( 'ms_templates' );
+	$current_id       = apply_filters( 'wpml_object_id', $post->ID, 'ms_templates' );
+	$categories       = get_the_terms( $current_id, 'ms_templates_categories' );
+	$categories_url   = get_post_type_archive_link( 'ms_templates' );
 	if ( $categories && $categories_url ) {
 		$new_tags = array(
 			'title' => __( 'Categories', 'ms' ),
 		);
 		foreach ( $categories as $category ) {
 			$new_tags['list'][] = array(
-				'href' => $categories_url . '#' . $category->slug,
+				'href'  => $categories_url . '#' . $category->slug,
 				'title' => $category->name,
 			);
 		}
@@ -51,52 +51,52 @@
 		);
 		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_help-desk-software', true ) === 'on' ) {
 			$new_tags['list'][] = array(
-				'href' => __( '/help-desk-software/', 'ms' ),
+				'href'  => __( '/help-desk-software/', 'ms' ),
 				'title' => __( 'Help Desk Software', 'ms' ),
 			);
 		}
 		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_ticketing-software', true ) === 'on' ) {
 			$new_tags['list'][] = array(
-				'href' => __( '/ticketing-software/', 'ms' ),
+				'href'  => __( '/ticketing-software/', 'ms' ),
 				'title' => __( 'Ticketing Software', 'ms' ),
 			);
 		}
 		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_live-chat-software', true ) === 'on' ) {
 			$new_tags['list'][] = array(
-				'href' => __( '/live-chat-software/', 'ms' ),
+				'href'  => __( '/live-chat-software/', 'ms' ),
 				'title' => __( 'Live Chat Software', 'ms' ),
 			);
 		}
 		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_call-center-software', true ) === 'on' ) {
 			$new_tags['list'][] = array(
-				'href' => __( '/call-center-software/', 'ms' ),
+				'href'  => __( '/call-center-software/', 'ms' ),
 				'title' => __( 'Call Center Software', 'ms' ),
 			);
 		}
 		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_social-media', true ) === 'on' ) {
 			$new_tags['list'][] = array(
-				'href' => __( '/social-media-customer-service/', 'ms' ),
+				'href'  => __( '/social-media-customer-service/', 'ms' ),
 				'title' => __( 'Social Media Support', 'ms' ),
 			);
 		}
 		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_customer-portal-software', true ) === 'on' ) {
 			$new_tags['list'][] = array(
-				'href' => __( '/customer-portal-software/', 'ms' ),
+				'href'  => __( '/customer-portal-software/', 'ms' ),
 				'title' => __( 'Customer Portal Software', 'ms' ),
 			);
 		}
 		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_knowledge-base', true ) === 'on' ) {
 			$new_tags['list'][] = array(
-				'href' => __( '/knowledge-base-software/', 'ms' ),
+				'href'  => __( '/knowledge-base-software/', 'ms' ),
 				'title' => __( 'Knowledge Base Software', 'ms' ),
 			);
 		}
 		if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_affiliate-program', true ) === 'on' ) {
 			$new_tags['list'][] = array(
-				'href' => __( 'https://www.postaffiliatepro.com/?utm_medium=referral&utm_source=liveagent&utm_campaign=directory', 'ms' ),
-				'title' => __( 'Affiliate Software', 'ms' ),
+				'href'   => __( 'https://www.postaffiliatepro.com/?utm_medium=referral&utm_source=liveagent&utm_campaign=directory', 'ms' ),
+				'title'  => __( 'Affiliate Software', 'ms' ),
 				'target' => '_blank',
-				'rel' => 'nofollow',
+				'rel'    => 'nofollow',
 			);
 		}
 		if ( isset( $new_tags['list'] ) ) {

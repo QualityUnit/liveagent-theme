@@ -6,16 +6,16 @@ $page_header_args = array(
 		'alt' => get_the_title(),
 	),
 	'title' => get_the_title(),
-	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-	'date' => true,
-	'toc' => true,
+	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'date'  => true,
+	'toc'   => true,
 );
-$categories = get_the_terms( $post->ID, 'category' );
+$categories       = get_the_terms( $post->ID, 'category' );
 if ( isset( $categories ) ) {
 	$page_header_tags = array();
 	foreach ( $categories as $category ) {
 		$page_header_tags[0]['list'][] = array(
-			'href' => get_category_link( $category->term_id ),
+			'href'  => get_category_link( $category->term_id ),
 			'title' => $category->name,
 		);
 	}

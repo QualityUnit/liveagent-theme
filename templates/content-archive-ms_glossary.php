@@ -1,18 +1,18 @@
 <?php // @codingStandardsIgnoreLine
 $page_header_title = __( 'Help Desk Software Glossary', 'ms' );
-$page_header_text = __( 'If you are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'ms' );
+$page_header_text  = __( 'If you are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'ms' );
 if ( is_tax( 'ms_glossary_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
-	$page_header_text = term_description();
+	$page_header_text  = term_description();
 endif;
 $page_header_args = array(
-	'type' => 'lvl-1',
+	'type'  => 'lvl-1',
 	'image' => array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_glossary.png?ver=' . THEME_VERSION,
 		'alt' => $page_header_title,
 	),
 	'title' => $page_header_title,
-	'text' => $page_header_text,
+	'text'  => $page_header_text,
 );
 ?>
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">

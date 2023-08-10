@@ -8,7 +8,7 @@
 	$current_lang       = apply_filters( 'wpml_current_language', null );
 	$header_en_category = get_en_category( 'ms_reviews', $post->ID );
 	$header_category    = get_the_terms( $post->ID, 'ms_reviews_categories' );
-	$titleplain = str_replace( '^', '', get_the_title() );
+	$titleplain         = str_replace( '^', '', get_the_title() );
 
 if ( ! empty( $header_category ) ) {
 	$header_category      = array_shift( $header_category );
@@ -32,19 +32,19 @@ if ( isset( $category_slug ) ) {
 	$page_header_breadcrumb[] = array( $category_name, __( '/reviews/', 'ms' ) . $category_slug );
 }
 $page_header_breadcrumb[] = array( $titleplain );
-$page_header_args = array(
+$page_header_args         = array(
 	'breadcrumb' => $page_header_breadcrumb,
-	'image' => array(
+	'image'      => array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_reviews_1.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
-	'title' => get_the_title(),
-	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-	'update' => array(
+	'title'      => get_the_title(),
+	'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
+	'update'     => array(
 		'label' => __( 'Review Last update:', 'ms' ),
 	),
 );
-$pre_content = null;
+$pre_content              = null;
 if ( ! empty( meta( 'pros' ) ) || ! empty( meta( 'cons' ) ) ) {
 	$pre_content .= '<h2>' . __( 'Key takeaways', 'reviews' ) . '</h2>';
 	$pre_content .= '<div class="wp-block-columns">';

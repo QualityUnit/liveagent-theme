@@ -20,21 +20,21 @@
 			'src' => get_template_directory_uri() . '/assets/images/compact_header_academy.png?ver=' . THEME_VERSION,
 			'alt' => get_the_title(),
 		),
-		'logo' => $page_header_logo,
+		'logo'  => $page_header_logo,
 		'title' => get_the_title(),
-		'text' => get_the_excerpt( $post ),
-		'toc' => true,
+		'text'  => get_the_excerpt( $post ),
+		'toc'   => true,
 	);
-	$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_academy' );
-	$categories = get_the_terms( $current_id, 'ms_academy_categories' );
-	$categories_url = get_post_type_archive_link( 'ms_academy' );
+	$current_id       = apply_filters( 'wpml_object_id', $post->ID, 'ms_academy' );
+	$categories       = get_the_terms( $current_id, 'ms_academy_categories' );
+	$categories_url   = get_post_type_archive_link( 'ms_academy' );
 	if ( $categories && $categories_url ) {
 		$new_tags = array(
 			'title' => __( 'Categories', 'ms' ),
 		);
 		foreach ( $categories as $category ) {
 			$new_tags['list'][] = array(
-				'href' => $categories_url . '#' . $category->slug,
+				'href'  => $categories_url . '#' . $category->slug,
 				'title' => $category->name,
 			);
 		}
@@ -59,6 +59,8 @@
 
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
+
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__buttons">
 					<a href="<?php _e( '/academy/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Back to Academy'])"><span><?php _e( 'Back to Academy', 'ms' ); ?></span></a>

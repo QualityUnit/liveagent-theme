@@ -1,18 +1,18 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'integrations', 'pages/Category', 'css' );
 set_source( 'integrations', 'filter', 'js' );
-$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_categories' ) ), SORT_REGULAR );
+$categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_categories' ) ), SORT_REGULAR );
 $page_header_title = __( 'Integrations', 'ms' );
-$page_header_text = __( "Maximize the value of your existing help desk software and extend customer satisfaction with LiveAgent's range of integrations, plugins, and apps.", 'ms' );
+$page_header_text  = __( "Maximize the value of your existing help desk software and extend customer satisfaction with LiveAgent's range of integrations, plugins, and apps.", 'ms' );
 if ( is_tax( 'ms_integrations_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
-	$page_header_text = term_description();
+	$page_header_text  = term_description();
 endif;
 $filter_items_categories = array(
 	array(
 		'checked' => true,
-		'value' => '',
-		'title' => __( 'Any', 'ms' ),
+		'value'   => '',
+		'title'   => __( 'Any', 'ms' ),
 	),
 );
 foreach ( $categories as $category ) :
@@ -21,16 +21,16 @@ foreach ( $categories as $category ) :
 		'title' => $category->name,
 	);
 endforeach;
-$filter_items = array(
+$filter_items     = array(
 	array(
-		'type' => 'radio',
-		'name' => 'collections',
+		'type'  => 'radio',
+		'name'  => 'collections',
 		'title' => __( 'Collections', 'ms' ),
 		'items' => array(
 			array(
 				'checked' => true,
-				'value' => '',
-				'title' => __( 'Any', 'ms' ),
+				'value'   => '',
+				'title'   => __( 'Any', 'ms' ),
 			),
 			array(
 				'value' => 'featured',
@@ -47,14 +47,14 @@ $filter_items = array(
 		),
 	),
 	array(
-		'type' => 'radio',
-		'name' => 'type',
+		'type'  => 'radio',
+		'name'  => 'type',
 		'title' => __( 'Type in', 'ms' ),
 		'items' => array(
 			array(
 				'checked' => true,
-				'value' => '',
-				'title' => __( 'Any', 'ms' ),
+				'value'   => '',
+				'title'   => __( 'Any', 'ms' ),
 			),
 			array(
 				'value' => 'native',
@@ -71,20 +71,20 @@ $filter_items = array(
 		),
 	),
 	array(
-		'type' => 'radio',
-		'name' => 'category',
+		'type'  => 'radio',
+		'name'  => 'category',
 		'title' => __( 'Category', 'ms' ),
 		'items' => $filter_items_categories,
 	),
 );
 $page_header_args = array(
-	'type' => 'lvl-1',
-	'image' => array(
+	'type'   => 'lvl-1',
+	'image'  => array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_integrations.png?ver=' . THEME_VERSION,
 		'alt' => $page_header_title,
 	),
-	'title' => $page_header_title,
-	'text' => $page_header_text,
+	'title'  => $page_header_title,
+	'text'   => $page_header_text,
 	'search' => array(
 		'type' => 'academy',
 	),

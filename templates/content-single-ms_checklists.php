@@ -26,15 +26,15 @@ if ( isset( $category_slug ) ) {
 	$page_header_breadcrumb[] = array( $category_name, __( '/checklists/', 'ms' ) . '#' . $category_slug );
 }
 $page_header_breadcrumb[] = array( $posttitle_filtered );
-$page_header_args = array(
+$page_header_args         = array(
 	'breadcrumb' => $page_header_breadcrumb,
-	'image' => array(
+	'image'      => array(
 		'src' => get_the_post_thumbnail_url( $post->ID, 'blog_thumbnail' ),
 		'alt' => $posttitle_filtered,
 	),
-	'title' => $posttitle_filtered,
-	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-	'checklist' => true,
+	'title'      => $posttitle_filtered,
+	'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
+	'checklist'  => true,
 );
 ?>
 
@@ -112,6 +112,8 @@ $page_header_args = array(
 					</div>
 				</div>
 				<?php the_content(); ?>
+
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__content__resources">
 					<div class="h4"><?php _e( 'Related Articles', 'ms' ); ?></div>

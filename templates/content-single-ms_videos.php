@@ -14,21 +14,21 @@ $page_header_args = array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_webinars.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
-	'logo' => $page_header_logo,
+	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
-	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-	'toc' => true,
+	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'toc'   => true,
 );
-$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_videos' );
-$categories = get_the_terms( $current_id, 'ms_videos_categories' );
-$categories_url = get_post_type_archive_link( 'ms_videos' );
+$current_id       = apply_filters( 'wpml_object_id', $post->ID, 'ms_videos' );
+$categories       = get_the_terms( $current_id, 'ms_videos_categories' );
+$categories_url   = get_post_type_archive_link( 'ms_videos' );
 if ( $categories && $categories_url ) {
 	$new_tags = array(
 		'title' => __( 'Categories', 'ms' ),
 	);
 	foreach ( $categories as $category ) {
 		$new_tags['list'][] = array(
-			'href' => $categories_url . '#' . $category->slug,
+			'href'  => $categories_url . '#' . $category->slug,
 			'title' => $category->name,
 		);
 	}

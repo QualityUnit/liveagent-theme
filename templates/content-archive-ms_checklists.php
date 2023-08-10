@@ -3,14 +3,14 @@ set_source( 'checklists', 'pages/blog', 'css' );
 set_source( 'checklists', 'pages/Category', 'css' );
 set_source( 'checklists', 'pages/ChecklistsArchive', 'css' );
 set_source( 'checklists', 'filter', 'js' );
-$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_checklists_categories' ) ), SORT_REGULAR );
-$page_header_title = __( 'Checklists', 'ms' );
-$page_header_text = __( 'Pick from a variety of detailed checklists for all your business needs. Organize your workflows and get any job done efficiently without difficulties.', 'ms' );
+$categories              = array_unique( get_categories( array( 'taxonomy' => 'ms_checklists_categories' ) ), SORT_REGULAR );
+$page_header_title       = __( 'Checklists', 'ms' );
+$page_header_text        = __( 'Pick from a variety of detailed checklists for all your business needs. Organize your workflows and get any job done efficiently without difficulties.', 'ms' );
 $filter_items_categories = array(
 	array(
 		'checked' => true,
-		'value' => '',
-		'title' => __( 'All Categories', 'ms' ),
+		'value'   => '',
+		'title'   => __( 'All Categories', 'ms' ),
 	),
 );
 foreach ( $categories as $category ) :
@@ -19,22 +19,22 @@ foreach ( $categories as $category ) :
 		'title' => $category->name,
 	);
 endforeach;
-$filter_items = array(
+$filter_items     = array(
 	array(
-		'type' => 'radio',
-		'name' => 'category',
+		'type'  => 'radio',
+		'name'  => 'category',
 		'title' => __( 'Categories', 'ms' ),
 		'items' => $filter_items_categories,
 	),
 );
 $page_header_args = array(
-	'type' => 'lvl-1',
-	'image' => array(
+	'type'   => 'lvl-1',
+	'image'  => array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_checklist.png?ver=' . THEME_VERSION,
 		'alt' => $page_header_title,
 	),
-	'title' => $page_header_title,
-	'text' => $page_header_text,
+	'title'  => $page_header_title,
+	'text'   => $page_header_text,
 	'search' => array(
 		'type' => 'academy',
 	),
