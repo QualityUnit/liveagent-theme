@@ -151,11 +151,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 				</div>
 				
 				<?php the_content(); ?>
-
-					<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
-						<h2 id="faq"><?php _e( '<span class="highlight">Frequently</span> asked questions', 'ms' ); ?></h2>
-						<?php echo do_shortcode( '[urlslab-faq]' ); ?>
-					</div>
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__buttons">
 					<a href="<?php _e( '/integrations/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Back to Integrations'])"><span><?php _e( 'Back to Integrations', 'ms' ); ?></span></a>
