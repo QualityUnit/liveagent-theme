@@ -8,6 +8,80 @@ value-keyword-case */
 @use "../elements/Typography" as *;
 
 
+.heroBanner {
+	margin-top: 1em;
+
+	.elementor-container {
+		align-items: center;
+	}
+
+	&__content {
+
+		&__title {
+
+			.elementor-heading-title {
+				margin-bottom: 0;
+				line-height: 1.2;
+			}
+		}
+
+		&__subtitle {
+
+			h3 {
+				font-size: 1.625em;
+				font-weight: 400;
+				line-height: 1.4;
+				margin-bottom: 0;
+			}
+		}
+
+		&__footer {
+
+			&__cta {
+
+				.Button {
+					min-width: 20.725em;
+				}
+			}
+		}
+	}
+
+	&__image {
+		display: none;
+
+		@media (min-width: $breakpoint-tablet) {
+			display: block;
+		}
+	}
+
+	&--ticketing {
+
+		.heroBanner__content {
+
+			&__footer {
+
+				&__cta {
+
+					.info__under__button {
+
+						span {
+							font-family: $font-secondary;
+							color: $medium-gray-quotes;
+							font-size: 0.8125rem;
+
+							&:first-child {
+								margin-right: 0.625em;
+							}
+
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
 .heroHeadline__home,
 .heroHeadline {
 	margin-top: 1em;
@@ -422,8 +496,8 @@ value-keyword-case */
 
 		&::before {
 			content: "";
-			background-image: url(../images/heroHeadline_bg.jpg?ver=#{$version});
-			background-image: url(../images/heroHeadline_bg.webp?ver=#{$version});
+			background-image: url(../images/heroHeadline_bg.jpg);
+			//background-image: url(../images/heroHeadline_bg.webp?ver=#{$version});
 			background-position: center top;
 			background-repeat: no-repeat;
 			background-size: cover;
