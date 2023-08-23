@@ -6,7 +6,7 @@ value-keyword-case */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 @use "../elements/Typography" as *;
-
+@forward "_HeroBanner";
 
 .heroHeadline__home,
 .heroHeadline {
@@ -422,8 +422,8 @@ value-keyword-case */
 
 		&::before {
 			content: "";
-			background-image: url(../images/heroHeadline_bg.jpg?ver=#{$version});
-			background-image: url(../images/heroHeadline_bg.webp?ver=#{$version});
+			background-image: url(../images/heroHeadline_bg.jpg);
+			//background-image: url(../images/heroHeadline_bg.webp?ver=#{$version});
 			background-position: center top;
 			background-repeat: no-repeat;
 			background-size: cover;

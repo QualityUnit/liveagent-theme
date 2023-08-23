@@ -47,17 +47,11 @@
 	&.Logos--home {
 
 		.Clients {
-			margin: 0;
+			margin: 3.125em;
 
 			&__item {
 				filter: brightness(0) opacity(0.18);
 				transition: filter 0.3s;
-
-				&:active,
-				&:focus,
-				&:hover {
-					filter: initial;
-				}
 			}
 		}
 	}
