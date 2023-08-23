@@ -219,18 +219,51 @@
 }
 
 .Category__item--videos {
-	max-height: 23.125em !important;
+	max-height: none !important;
 
 	.Category__item {
 
 		&__title {
-			max-height: 5.5em !important;
-			margin-bottom: 0 !important;
+			padding: 1em 1.5em 0;
+			margin-bottom: 0;
 		}
 
 		&__thumbnail {
-			height: auto !important;
-			border-radius: 1rem !important;
+			display: inline-block;
+			width: 100%;
+			height: 9.375em !important;
+			border-radius: 1rem 1rem 0 0;
+			overflow: hidden;
+
+
+			img {
+
+				@include square(100%);
+				object-fit: cover;
+			}
+		}
+
+		&__excerpt[class] {
+			padding: 1.5em;
+			max-height: none;
+			overflow: visible;
+
+			> a {
+				display: block;
+				max-height: none;
+				overflow: visible;
+				font-size: 0.825rem;
+				color: $black;
+				line-height: 1.25 !important;
+			}
+		}
+
+		&__duration {
+			text-align: right;
+			padding: 0 1.5em 1.5em;
+			font-size: 0.825rem;
+			color: $dark-gray;
+			margin-left: auto;
 		}
 	}
 }
