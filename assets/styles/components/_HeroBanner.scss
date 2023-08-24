@@ -78,15 +78,9 @@
 		@media (min-width: $breakpoint-tablet) {
 			display: block;
 
-			.heroBanner__image__cta__img {
-				position: absolute;
-				left: 0;
-				top: 50%;
-				width: 50%;
-				height: auto;
-				z-index: 2;
-				transform: translateY(-50%);
-				cursor: pointer;
+			img {
+
+				@include square(35.625em);
 			}
 
 			.heroBanner__awards {
@@ -96,7 +90,22 @@
 					position: absolute;
 					bottom: 0;
 					right: 0;
-					max-width: 6.25em;
+					width: 6.25em;
+					height: auto;
+				}
+			}
+
+			.heroBanner__image__cta__img {
+				position: absolute;
+				left: 0;
+				top: 50%;
+				width: 50%;
+				height: auto;
+				z-index: 2;
+				transform: translateY(-50%);
+				cursor: pointer;
+
+				img {
 					height: auto;
 				}
 			}
