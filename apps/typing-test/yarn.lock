@@ -8944,50 +8944,7 @@ make-fetch-happen@^10.0.3:
     socks-proxy-agent "^7.0.0"
     ssri "^9.0.0"
 
-make-fetch-happen@^11.0.0:
-  version "11.0.1"
-  resolved "https://registry.yarnpkg.com/make-fetch-happen/-/make-fetch-happen-11.0.1.tgz#b3c51663d018d9e11d57fdd4393a4c5a1a7d56eb"
-  integrity sha512-clv3IblugXn2CDUmqFhNzii3rjKa46u5wNeivc+QlLXkGI5FjLX3rGboo+y2kwf1pd8W0iDiC384cemeDtw9kw==
-  dependencies:
-    agentkeepalive "^4.2.1"
-    cacache "^17.0.0"
-    http-cache-semantics "^4.1.0"
-    http-proxy-agent "^5.0.0"
-    https-proxy-agent "^5.0.0"
-    is-lambda "^1.0.1"
-    lru-cache "^7.7.1"
-    minipass "^3.1.6"
-    minipass-collect "^1.0.2"
-    minipass-fetch "^3.0.0"
-    minipass-flush "^1.0.5"
-    minipass-pipeline "^1.2.4"
-    negotiator "^0.6.3"
-    promise-retry "^2.0.1"
-    socks-proxy-agent "^7.0.0"
-    ssri "^10.0.0"
-
-make-fetch-happen@^11.0.1:
-  version "11.0.3"
-  resolved "https://registry.yarnpkg.com/make-fetch-happen/-/make-fetch-happen-11.0.3.tgz#ed83dd3685b97f75607156d2721848f6eca561b9"
-  integrity sha512-oPLh5m10lRNNZDjJ2kP8UpboUx2uFXVaVweVe/lWut4iHWcQEmfqSVJt2ihZsFI8HbpwyyocaXbCAWf0g1ukIA==
-  dependencies:
-    agentkeepalive "^4.2.1"
-    cacache "^17.0.0"
-    http-cache-semantics "^4.1.1"
-    http-proxy-agent "^5.0.0"
-    https-proxy-agent "^5.0.0"
-    is-lambda "^1.0.1"
-    lru-cache "^7.7.1"
-    minipass "^4.0.0"
-    minipass-fetch "^3.0.0"
-    minipass-flush "^1.0.5"
-    minipass-pipeline "^1.2.4"
-    negotiator "^0.6.3"
-    promise-retry "^2.0.1"
-    socks-proxy-agent "^7.0.0"
-    ssri "^10.0.0"
-
-make-fetch-happen@^11.1.1:
+make-fetch-happen@^11.0.0, make-fetch-happen@^11.0.1, make-fetch-happen@^11.1.1:
   version "11.1.1"
   resolved "https://registry.yarnpkg.com/make-fetch-happen/-/make-fetch-happen-11.1.1.tgz#85ceb98079584a9523d4bf71d32996e7e208549f"
   integrity sha512-rLWS7GCSTcEujjVBs2YqG7Y4643u8ucvCJeSRqiLYhesrDuzeuFIk37xREzAsfQaqzl8b9rNCE4m6J8tvX4Q8w==
@@ -9686,9 +9643,9 @@ npm-bundled@^3.0.0:
     npm-normalize-package-bin "^3.0.0"
 
 npm-check-updates@^16:
-  version "16.10.17"
-  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-16.10.17.tgz#1f28b024235c2ecc34ce7361c0376d61953b556c"
-  integrity sha512-ZoIbWYJhlgMDoByq1WC6Ys3E76IvNCxgS54tPUFbK5J/nqf/BCJt6xiMPAEa7G1HuyAruG+orUF9uTsTGUZl8g==
+  version "16.13.2"
+  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-16.13.2.tgz#552e8223d83ae5ae2d48a11ac254cf0b231277b9"
+  integrity sha512-0pQI+k1y0JVwenB2gBc69tXFYfkckSVrNrlcn7TIrZfis4LnfdzakY/LYzZKt/lx37edN2isk3d2Zw4csptu/w==
   dependencies:
     chalk "^5.3.0"
     cli-table3 "^0.6.3"
@@ -9704,6 +9661,7 @@ npm-check-updates@^16:
     json-parse-helpfulerror "^1.0.3"
     jsonlines "^0.1.1"
     lodash "^4.17.21"
+    make-fetch-happen "^11.1.1"
     minimatch "^9.0.3"
     p-map "^4.0.0"
     pacote "15.2.0"
