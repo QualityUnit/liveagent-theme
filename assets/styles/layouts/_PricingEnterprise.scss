@@ -138,6 +138,24 @@
 
 	.Pricing__program {
 
+		.checklist {
+
+			ul {
+
+				li {
+					display: block;
+				}
+			}
+		}
+
+		.Button {
+			margin-left: 0;
+		}
+
+		.Woman {
+			margin-bottom: 3.5em;
+		}
+
 		@media (max-width: $breakpoint-tablet-landscape) {
 
 			&[class] {
@@ -150,13 +168,14 @@
 					max-width: none;
 
 					ul {
-						columns: 2;
+						columns: 1;
 						column-gap: 2em;
 						break-inside: avoid;
 					}
 
 					li {
 						padding-left: 2em;
+						display: block;
 
 						&::before {
 							left: 0;
@@ -169,6 +188,7 @@
 				order: -1;
 			}
 		}
+
 
 		@media (min-width: $breakpoint-tablet) {
 
