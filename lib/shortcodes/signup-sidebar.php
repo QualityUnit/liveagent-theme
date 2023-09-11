@@ -24,13 +24,13 @@ function ms_signup_sidebar( $atts ) {
 	$subtitle = meta( 'signup_subtitle' );
 	$button  = meta( 'signup_button' );
 
-	if ( isset( $title ) ) {
+	if ( isset( $title ) && strlen( $title ) > 0 ) {
 		$atts['title'] = $title;
 	}
-	if ( isset( $subtitle ) ) {
+	if ( isset( $subtitle ) && strlen( $subtitle ) > 0 ) {
 		$atts['subtitle'] = $subtitle;
 	}
-	if ( isset( $button ) ) {
+	if ( isset( $button ) && strlen( $button ) > 0 ) {
 		$atts['button'] = $button;
 	}
 
