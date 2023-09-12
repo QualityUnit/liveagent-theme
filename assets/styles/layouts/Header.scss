@@ -515,13 +515,14 @@
 	}
 
 	$iconHeader: (
-		"wordpress": "-20px 0",
-		"prestashop": "-67px 0",
-		"magento": "1px 0",
-		"shopify": "-94px 0",
-		"mailchimp": "-120px 0",
-		"pipedrive": "-151px 0",
-		"slack": "-43px 0",
+		"whatsapp": "-152px 2px",
+		"wordpress": "-16px 2px",
+		"prestashop": "-234px 2px",
+		"magento": "4px 2px",
+		"shopify": "-81px 1px",
+		"mailchimp": "-105px 0px",
+		"pipedrive": "-132px 2px",
+		"slack": "-36px 2px",
 	);
 
 	@each $icon, $pos in $iconHeader {
