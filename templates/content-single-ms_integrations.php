@@ -109,7 +109,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
- 
+
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Post__container">
@@ -121,7 +121,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 		<div class="Post__content">
 
 			<div class="Content" itemprop="articleBody">
-	
+
 				<div class="Directory__blocks">
 					<h2 id="customer-service-contacts" class="Post__sectiontitle"><span><?php _e( 'Partner', 'ms' ); ?></span></h2>
 					<div class="Directory__blocks__items">
@@ -139,7 +139,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 						<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_privacy_policy', true ) ) { ?>
 						<div class="Directory__blocks__items__item">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-live-chat.svg" alt="">
-							<h3>Lorem ipsum</h3>
+							<h3><?php _e( 'Partner Privacy Policy', 'ms' ); ?></h3>
 							<p>
 								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_privacy_policy', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - Partner - Privacy Policy'])" target="_blank" rel="nofollow">
 									<?php the_title(); ?> <?php _e( 'Privacy Policy', 'ms' ); ?>
@@ -149,7 +149,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 						<?php } ?>
 					</div>
 				</div>
-				
+
 				<?php the_content(); ?>
 				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
