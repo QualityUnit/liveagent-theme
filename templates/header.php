@@ -1,6 +1,11 @@
 <?php
-if ( is_front_page() ) { ?>
-		<div class="Announcement__bar Ai__whisper__assistent">
+if ( is_front_page() ) {
+	$is_announcement_hidden = true; // To display the announcement bar, set it to false and vice versa
+	$announcement_bar_classes = 'Announcement__bar Ai__whisper__assistent';
+	$announcement_bar_classes .= $is_announcement_hidden ? ' hidden' : '';
+
+	?>
+		<div class="<?php echo esc_attr( $announcement_bar_classes ); ?>">
 			<div class="wrapper">
 				<div class="Announcement__bar__col__left urlslab-skip-all">
 					<h2><?php _e( 'AI Whisper Assistant', 'ms' ); ?><small><?php _e( '/Private beta', 'ms' ); ?></small></h2>
