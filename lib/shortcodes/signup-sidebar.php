@@ -16,13 +16,13 @@ function ms_signup_sidebar( $atts ) {
 		'signup-sidebar'
 	);
 
-	function meta( $metabox_id ) {
+	function shortcode_meta( $metabox_id ) {
 		return get_post_meta( get_the_ID(), $metabox_id, true );
 	}
 
-	$title  = meta( 'signup_title' );
-	$subtitle = meta( 'signup_subtitle' );
-	$button  = meta( 'signup_button' );
+	$title  = shortcode_meta( 'signup_title' );
+	$subtitle = shortcode_meta( 'signup_subtitle' );
+	$button  = shortcode_meta( 'signup_button' );
 
 	if ( isset( $title ) && strlen( $title ) > 0 ) {
 		$atts['title'] = $title;
