@@ -16,13 +16,9 @@ function ms_signup_sidebar( $atts ) {
 		'signup-sidebar'
 	);
 
-	function shortcode_meta( $metabox_id ) {
-		return get_post_meta( get_the_ID(), $metabox_id, true );
-	}
-
-	$title  = shortcode_meta( 'signup_title' );
-	$subtitle = shortcode_meta( 'signup_subtitle' );
-	$button  = shortcode_meta( 'signup_button' );
+	$title  = get_post_meta( get_the_ID(), 'signup_title', true );
+	$subtitle = get_post_meta( get_the_ID(), 'signup_subtitle', true );
+	$button  = get_post_meta( get_the_ID(), 'signup_button', true );
 
 	if ( isset( $title ) && strlen( $title ) > 0 ) {
 		$atts['title'] = $title;
