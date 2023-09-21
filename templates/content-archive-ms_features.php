@@ -151,19 +151,9 @@ $page_header_args = array(
 					$future_sizes       = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_size', true ) ?? '' );
 					$future_collections = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_collections', true ) ?? '' );
 
-
-					if ( true === $future_plans ) {
-						$plan = implode( ' ', $future_plans );
-					}
-
-					if ( true === $future_sizes ) {
-						$size = implode( ' ', $future_sizes );
-					}
-
-					if ( true === $future_collections ) {
-						$collections = implode( ' ', $future_collections );
-					}
-
+					$plan = is_array( $future_plans ) ? implode( ' ', $future_plans ) : '';
+					$size = is_array( $future_sizes ) ? implode( ' ', $future_sizes ) : '';
+					$collections = is_array( $future_collections ) ? implode( ' ', $future_collections ) : '';
 
 					$categories   = get_the_terms( 0, 'ms_features_categories' );
 					$current_lang = apply_filters( 'wpml_current_language', null );
