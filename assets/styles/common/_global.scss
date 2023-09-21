@@ -409,3 +409,13 @@ $sizes: (
 		padding-left: $val;
 	}
 }
+
+.Footer,
+.Signup__sidebar-wrapper,
+.Block--learnMore
+.Reviews,
+.Block--redesign__successtories,
+.Block--redesign__testimonials,
+.SimilarSources {
+	content-visibility: auto;
+}
