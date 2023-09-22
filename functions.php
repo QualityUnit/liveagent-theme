@@ -40,6 +40,7 @@ $theme_includes = array(
 	'functions/shortcodes.php', // Import ShortCodes
 	'functions/sitemap-filters.php', // Sitemap XML filters for YOAST SEO (https://developer.yoast.com/features/xml-sitemaps/api/)
 	'functions/widgets.php', // Import Widgets/Plugins
+	'functions/remove-base-classes.php', // Remove base classes
 );
 
 foreach ( $theme_includes as $file ) {
