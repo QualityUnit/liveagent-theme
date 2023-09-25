@@ -453,3 +453,5 @@ if (
 	// Pass the reporting function to the web-vitals INP reporter:
 	onINP(sendToGoogleAnalytics);
 </script>
+
+<script src="https://cdn.debugbear.com/LbnYR4GjHn7z.js" async></script>
