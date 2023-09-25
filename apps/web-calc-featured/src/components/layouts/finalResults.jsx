@@ -62,7 +62,11 @@ function FinalResults() {
   }, [agents, selFeature])
 
   const setTitle = () => {
-    return {__html: i18n.title.replace('%feature%', `<span class="highlight-gradient">${i18n[getWebCalcData()]}</span>`)};
+    const customtitle = i18n[`${getWebCalcData()}_title`];
+    if (customtitle) {
+      return { __html: customtitle.replace('%feature%', `<span class="highlight-gradient">${i18n[getWebCalcData()]}</span>`) }
+    }
+    return { __html: i18n.title.replace('%feature%', `<span class="highlight-gradient">${i18n[getWebCalcData()]}</span>`) };
   }
 
   return(
