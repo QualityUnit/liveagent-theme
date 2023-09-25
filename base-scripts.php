@@ -339,44 +339,56 @@ if (
 <script id="announcement-bar-scripts">
 
 	const announcementBar = document.querySelector(".Announcement__bar");
-	const isHidden = announcementBar.classList.contains("hidden");
-	if (!isHidden)  {
+	const isHidden = announcementBar && announcementBar.classList.contains("hidden");
 
-		function showAnnouncementBar() {
-			const appContainer = document.getElementById("app");
-			const announcementBar = document.querySelector(".Announcement__bar");
+	function showAnnouncementBar() {
+		const appContainer = document.getElementById("app");
+		const announcementBar = document.querySelector(".Announcement__bar");
+
+		if (announcementBar) {
 			announcementBar.style.display = "block";
+		}
+		if (appContainer) {
 			appContainer.classList.add("announcement--active");
 		}
+	}
 
-		function hideAnnouncementBar() {
-			const appContainer = document.getElementById("app");
+	function hideAnnouncementBar() {
+		const appContainer = document.getElementById("app");
+
+		if (appContainer) {
 			appContainer.classList.remove("announcement--active");
 			appContainer.classList.add("announcement--hidden");
 			appContainer.classList.add("announcement--closed");
-			sessionStorage.setItem("announcementClosed", "true");
 		}
+		sessionStorage.setItem("announcementClosed", "true");
+	}
 
-		function initializeAnnouncementBar() {
-			const appContainer = document.getElementById("app");
-			const scrollHeight = window.scrollY;
+	function initializeAnnouncementBar() {
+		const appContainer = document.getElementById("app");
+		const scrollHeight = window.scrollY;
 
+		if (appContainer) {
 			if (scrollHeight >= 800) {
 				appContainer.classList.remove("announcement--hidden");
 				appContainer.classList.add("announcement--active");
 			}
+		}
 
-			const closeButton = document.querySelector(".Announcement__bar__close");
+		const closeButton = document.querySelector(".Announcement__bar__close");
+		if (closeButton) {
 			closeButton.addEventListener("click", function() {
 				hideAnnouncementBar();
 			});
 		}
+	}
 
-		function toggleAnnouncementBar() {
-			const appContainer = document.getElementById("app");
-			const scrollHeight = window.scrollY;
+	function toggleAnnouncementBar() {
+		const appContainer = document.getElementById("app");
+		const scrollHeight = window.scrollY;
 
-			const announcementClosed = sessionStorage.getItem("announcementClosed");
+		const announcementClosed = sessionStorage.getItem("announcementClosed");
+		if (appContainer) {
 			if (announcementClosed === "true") {
 				appContainer.classList.add("announcement--hidden");
 			} else if (scrollHeight >= 800) {
@@ -389,19 +401,22 @@ if (
 				}
 			}
 		}
-
 	}
 
-	document.addEventListener("DOMContentLoaded", function() {
-		const announcementClosed = sessionStorage.getItem("announcementClosed");
-		if (!announcementClosed) {
-			showAnnouncementBar();
-		}
-	});
+	if (!isHidden) {
+		document.addEventListener("DOMContentLoaded", function() {
+			const announcementClosed = sessionStorage.getItem("announcementClosed");
+			if (!announcementClosed) {
+				showAnnouncementBar();
+			}
+		});
 
-	document.addEventListener("DOMContentLoaded", initializeAnnouncementBar);
-	window.addEventListener("scroll", toggleAnnouncementBar);
+		document.addEventListener("DOMContentLoaded", initializeAnnouncementBar);
+		window.addEventListener("scroll", toggleAnnouncementBar);
+	}
+
 </script>
+
 
 <script type="module" defer>
 	import { onINP } from 'https://unpkg.com/web-vitals@3.4.0/dist/web-vitals.attribution.js?module';
