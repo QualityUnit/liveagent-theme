@@ -95,8 +95,8 @@
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" />
 				</a>
 			</li>
-			<li class="ContactUs__menu--item">
-				<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..."  class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener external">
+			<li class="ContactUs__menu--item whatsapp">
+				<a href="#"  class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener external">
 					Whatsapp
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" />
 				</a>
@@ -114,3 +114,17 @@
 		</ul>
 	</nav>
 </div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		var button = document.querySelector(".ContactUs .ContactUs__button");
+		var link = document.querySelector(".ContactUs__menu--item.whatsapp .ContactUs__menu--link");
+		var text = "Hi! I am contacting you from " + window.location.href + ", and I am contacting you about...";
+		var number = "17862041375";
+
+		button.addEventListener("click", function() {
+			var whatsappLink = "https://wa.me/" + number + "?text=" + encodeURIComponent(text);
+			link.href = whatsappLink;
+		});
+	});
+</script>
