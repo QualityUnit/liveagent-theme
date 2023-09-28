@@ -41,7 +41,7 @@ if ( $categories && $categories_url ) {
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
- 
+
 	<div class="wrapper Post__container">
 		<div class="Post__sidebar">
 			<div class="Signup__sidebar-wrapper">
@@ -57,9 +57,9 @@ if ( $categories && $categories_url ) {
 				</h3>
 
 				<?= do_shortcode( '[urlslab-generator id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ); ?>
-				
+
 				<div class="urlslab-video-transcript">
-					<h3><?php _e( 'Video trancript', 'ms' ); ?></h3>
+					<h3><?php _e( 'Video transcript', 'ms' ); ?></h3>
 
 					<div class="urlslab-video-transcript-inn">
 						<p class="urlslab-video-transcript-text">
