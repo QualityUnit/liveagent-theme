@@ -56,51 +56,51 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 		} = data;
 
 		const blogPost = `
-				<li itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting" class="Blog__item inactive postDynamic-${ id }">
-					<a href="${ url }" title=${ title }" itemprop="url">
-						<div class="Blog__item__thumbnail">
-							<meta itemprop="image" content="${ image }">
-							<img data-src="${ image }" alt="${ title }" />
-						</div>
-						<div class="Blog__item__content">
-							<div class="Blog__item__meta">
-								<div class="Blog__item__meta__categories">
-									<span class="hidden">Categories:</span>
-									<span class="postDynamicCats-${ id }">
-										${ categories
+					<li itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting" class="Blog__item inactive postDynamic-${ id }">
+						<a href="${ url }" title=${ title }" itemprop="url">
+							<div class="Blog__item__thumbnail">
+								<meta itemprop="image" content="${ image }">
+								<img data-src="${ image }" alt="${ title }" />
+							</div>
+							<div class="Blog__item__content">
+								<div class="Blog__item__meta">
+									<div class="Blog__item__meta__categories">
+										<span class="hidden">Categories:</span>
+										<span class="postDynamicCats-${ id }">
+											${ categories
 		.map( ( cat ) => {
 			return `<span>${ cat.name }</span>`;
 		} )
 		.join( '' ) }
-									</span>
-								</div>
-
-								<div class="Blog__item__meta__date">
-									<svg viewBox="0 0 11 12" xmlns="http://www.w3.org/2000/svg">
-										<path d="M8.556 5.4H2.444v1.2h6.112V5.4Zm1.222-4.2h-.611V0H7.944v1.2H3.056V0H1.833v1.2h-.61c-.68 0-1.217.54-1.217 1.2L0 10.8c0 .66.544 1.2 1.222 1.2h8.556C10.45 12 11 11.46 11 10.8V2.4c0-.66-.55-1.2-1.222-1.2Zm0 9.6H1.222V4.2h8.556v6.6Zm-3.056-3H2.444V9h4.278V7.8Z"></path>
-										</svg>
-										<span itemprop="datePublished" content="${ dateU }">
-											${ date }
 										</span>
+									</div>
+	
+									<div class="Blog__item__meta__date">
+										<svg viewBox="0 0 11 12" xmlns="http://www.w3.org/2000/svg">
+											<path d="M8.556 5.4H2.444v1.2h6.112V5.4Zm1.222-4.2h-.611V0H7.944v1.2H3.056V0H1.833v1.2h-.61c-.68 0-1.217.54-1.217 1.2L0 10.8c0 .66.544 1.2 1.222 1.2h8.556C10.45 12 11 11.46 11 10.8V2.4c0-.66-.55-1.2-1.222-1.2Zm0 9.6H1.222V4.2h8.556v6.6Zm-3.056-3H2.444V9h4.278V7.8Z"></path>
+											</svg>
+											<span itemprop="datePublished" content="${ dateU }">
+												${ date }
+											</span>
+									</div>
 								</div>
-							</div>
-
-							<h3 class="Blog__item__title" itemprop="name">${ title }</h3>
-							<p itemprop="abstract">
-								${ excerpt }
-								<span class="learn-more">
-									${ __(
+	
+								<h3 class="Blog__item__title" itemprop="name">${ title }</h3>
+								<p itemprop="abstract">
+									${ excerpt }
+									<span class="learn-more">
+										${ __(
 		'Learn More',
 		'ms'
 	) } <svg width="15" height="13" xmlns="http://www.w3.org/2000/svg">
-										<path d="M8.514 0 7.37 1.146l4.525 4.542H0v1.625h11.895L7.37 11.854 8.514 13 15 6.5 8.514 0Z"></path>
-										</svg>
-								</span>
-							</p>
-						</div>
-				</a>
-				</li>
-		`;
+											<path d="M8.514 0 7.37 1.146l4.525 4.542H0v1.625h11.895L7.37 11.854 8.514 13 15 6.5 8.514 0Z"></path>
+											</svg>
+									</span>
+								</p>
+							</div>
+					</a>
+					</li>
+			`;
 
 		return blogPost;
 	};
@@ -113,7 +113,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 				page += 1; // Iterating through pages to fetch from URL
 
 				// Temporarily showing Loader
-				loader.classList.remove( 'hidden' );
+				loader.classList.remove( 'invisible' );
 
 				// Fetching the blog posts from custom REST API endpoint
 				getPosts(
@@ -125,7 +125,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 					}&page=${ page }`
 				).then( ( data ) => {
 					if ( data ) {
-						loader.classList.add( 'hidden' );
+						loader.classList.add( 'invisible' );
 
 						data.map( ( keys ) => {
 							blogItems.insertAdjacentHTML(
@@ -164,7 +164,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 		}
 	);
 
-	blogPostsObserver.observe( document.querySelector( '.Footer' ) ); // Binding observer on the Footer newsletter element
+	blogPostsObserver.observe( loader ); // Binding observer on the Footer newsletter element
 }
 
 const customLazyLoad = () => {
