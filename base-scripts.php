@@ -339,7 +339,7 @@ if (
 <script id="announcement-bar-scripts">
 
 	const announcementBar = document.querySelector(".Announcement__bar");
-	const isHidden = announcementBar && announcementBar.classList.contains("hidden");
+	const isHidden = announcementBar && announcementBar?.classList.contains("hidden");
 
 	function showAnnouncementBar() {
 		const appContainer = document.getElementById("app");

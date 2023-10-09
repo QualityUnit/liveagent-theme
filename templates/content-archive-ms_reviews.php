@@ -1,7 +1,6 @@
 <?php // @codingStandardsIgnoreLine
 set_custom_source( 'pages/Reviews', 'css' );
 set_custom_source( 'pages/post', 'css' );
-set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
 
 $subpage = get_queried_object();
 
