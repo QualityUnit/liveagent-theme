@@ -59,7 +59,7 @@ if ( $categories && $categories_url ) {
 				<?= do_shortcode( '[urlslab-generator id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ); ?>
 				
 				<div class="urlslab-video-transcript">
-					<h3><?php _e( 'Video trancript', 'ms' ); ?></h3>
+					<h3><?php _e( 'Video transcript', 'ms' ); ?></h3>
 
 					<div class="urlslab-video-transcript-inn">
 						<p class="urlslab-video-transcript-text">
