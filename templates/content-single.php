@@ -28,7 +28,7 @@ if ( isset( $categories ) ) {
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	
+
 	<div class="wrapper Post__container">
 		<div class="Post__sidebar">
 			<div class="Signup__sidebar-wrapper">
@@ -97,32 +97,6 @@ if ( isset( $categories ) ) {
 							<?php } ?>
 						</div>
 					</div>
-				</div>
-
-				<div class="BlogPost__articles urlslab-skip-keywords">
-					<?php
-					$query_blog_posts = new WP_Query(
-						array(
-							'posts_per_page' => 2,
-							'orderby'        => 'modified',
-						)
-					);
-					if ( $query_blog_posts->have_posts() ) :
-						while ( $query_blog_posts->have_posts() ) :
-							$query_blog_posts->the_post();
-							?>
-					<div class="BlogPost__articles__article">
-						<div class="BlogPost__articles__article__thumbnail">
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-								<?php the_post_thumbnail( 'person_thumbnail', array( 'alt' => get_the_title() ) ); ?>
-							</a>
-						</div>
-						<p class="BlogPost__articles__article__title"><a href="<?php the_permalink(); ?>"
-								title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
-					</div>
-					<?php endwhile; ?>
-					<?php endif; ?>
-					<?php wp_reset_postdata(); ?>
 				</div>
 
 				<div class="Post__content__resources">

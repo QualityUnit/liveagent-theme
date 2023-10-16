@@ -272,65 +272,6 @@ no-descending-specificity, value-keyword-case */
 				float: left;
 				margin-right: 10px;
 			}
-
-			.BlogPost__articles {
-				margin: 0 auto 40px;
-				padding-top: 40px;
-				border-top: 1px solid #f1f1f1;
-
-				&__article {
-					display: flex;
-					flex-flow: nowrap row;
-					justify-content: flex-start;
-					align-items: center;
-					margin-bottom: 1em;
-
-					&__thumbnail {
-
-						img {
-							width: 90px;
-							height: 60px;
-							object-fit: cover;
-							max-width: none;
-							border-radius: 14px;
-							margin-right: 15px;
-						}
-					}
-
-					&__title {
-
-						@include color(color, font-color-dark);
-						font-size: 14px;
-						font-weight: $font-weight-bold;
-						margin-bottom: 0;
-
-						a {
-
-							@include color(color, font-color-dark);
-							transition: all 0.3s ease;
-
-							&:active,
-							&:focus,
-							&:hover {
-
-								@include color(color, primary-color);
-							}
-						}
-					}
-				}
-
-				@media (min-width: $breakpoint-tablet) {
-					display: flex;
-					flex-flow: wrap row;
-					justify-content: space-between;
-					align-items: flex-start;
-
-					&__article {
-						width: 50%;
-						padding-right: 20px;
-					}
-				}
-			}
 		}
 	}
 
