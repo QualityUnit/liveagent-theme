@@ -102,6 +102,8 @@ function meta( $metabox_id ) {
 				<?php } ?>
 				<?php the_content(); ?>
 
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
+				
 				<?php
 				if ( ! empty( meta( 'details_contacts' ) ) ) {
 					require_once get_template_directory() . '/templates/content-single-ms_reviews-contacts.php';
