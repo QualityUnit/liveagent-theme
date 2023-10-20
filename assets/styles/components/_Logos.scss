@@ -11,6 +11,16 @@
 		margin-bottom: 0;
 	}
 
+	&--white {
+
+		.Clients {
+
+			&__item {
+				filter: brightness(100) opacity(100) !important;
+			}
+		}
+	}
+
 	.Clients {
 		margin: 45px 0;
 
@@ -55,4 +65,5 @@
 			}
 		}
 	}
+
 }
