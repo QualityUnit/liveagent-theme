@@ -1,3 +1,5 @@
+/* stylelint-disable selector-class-pattern */
+
 h1,
 h2,
 h3,
@@ -20,8 +22,18 @@ h2 {
 
 h4 {
 	font-size: 0.875rem;
+}
+
+p {
+
+	@include color(color, font-color-normal);
+	font-size: 0.875rem;
+	line-height: 1.6;
 
 	&.subtitle--icon {
+		text-align: center;
+		font-weight: 700;
+		color: $black;
 
 		img,
 		svg {
@@ -30,13 +42,6 @@ h4 {
 			margin-right: 0.75em;
 		}
 	}
-}
-
-p {
-
-	@include color(color, font-color-normal);
-	font-size: 0.875rem;
-	line-height: 1.6;
 }
 
 ul {
