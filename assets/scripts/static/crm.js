@@ -1098,6 +1098,12 @@
 				.then( ( token ) => {
 					const gaUserId = getCookieFrontend( '_ga' ) || '';
 
+					gtag( 'set', 'user_data', {
+						email: sF.mailField.value(),
+					} );
+
+					gtag( 'event', 'form_submit', { send_to: 'GTM-MR5X6FD' } );
+
 					sendSignupRequest( {
 						variation_id: variationId,
 						subdomain: sF.domainField.value(),
