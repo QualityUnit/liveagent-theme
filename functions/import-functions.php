@@ -25,6 +25,7 @@ function wp_head_content( $page ) {
 	if ( $body_class ) {
 		return true;
 	}
+	return false;
 }
 
 // Calling specific JS/CSS for page or subpage, ie. features/pageXXX will be $page = features
@@ -68,9 +69,8 @@ function site_breadcrumb( $breadcrumb = array() ) {
 				$post_type_name = $post_type->labels->name;
 				if ( 'Posts' == $post_type_name ) {
 					$categories = get_the_category();
-					$cat = $categories[0];
-					if ( $cat ) {
-						$breadcrumb[] = array( $cat->name, get_category_link( $cat->term_id ) );
+					if ( isset( $categories[0] ) ) {
+						$breadcrumb[] = array( $categories[0]->name, get_category_link( $categories[0]->term_id ) );
 					}
 				} else {
 					$post_type_url = get_post_type_archive_link( $post_type->name );
@@ -79,10 +79,10 @@ function site_breadcrumb( $breadcrumb = array() ) {
 			}
 			$breadcrumb[] = array( get_the_title() );
 		} elseif ( is_category() ) {
-			$cat = get_the_category()[0];
 			if ( is_subcategory() ) {
-				if ( $cat ) {
-					$breadcrumb[] = array( $cat->name, get_category_link( $cat->term_id ) );
+				$categories = get_the_category();
+				if ( isset( $categories[0] ) ) {
+					$breadcrumb[] = array( $categories[0]->name, get_category_link( $categories[0]->term_id ) );
 				}
 			} else {
 				$breadcrumb[] = $home;
