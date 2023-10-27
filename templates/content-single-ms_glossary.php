@@ -51,7 +51,7 @@ $page_header_args = array(
 
 					<div class="BlockDiscover BlockDiscover--expert">
 						<p class="BlockDiscover__title"><?php _e( 'Expert note', 'ms' ); ?></p>
-						<p class="BlockDiscover__text"><?php echo esc_html( $shortcode_text ); ?></p>
+						<p class="BlockDiscover__text"><?php echo $shortcode_text; //@codingStandardsIgnoreLine ?></p>
 
 						<div class="BlockDiscover__buttons">
 							<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--knockout">
