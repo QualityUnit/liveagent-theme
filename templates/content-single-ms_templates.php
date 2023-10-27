@@ -2,7 +2,7 @@
 	$current_lang    = apply_filters( 'wpml_current_language', null );
 	$header_category = get_en_category( 'ms_templates', $post->ID );
 	do_action( 'wpml_switch_language', $current_lang );
-	
+
 	$page_header_logo = array(
 		'src' => get_template_directory_uri() . '/assets/images/icon-book.svg?ver=' . THEME_VERSION,
 		'alt' => __( 'Templates', 'ms' ),
@@ -119,6 +119,8 @@
 
 			<div class="Content" itemprop="text">
 				<?php the_content(); ?>
+
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__buttons">
 					<a href="<?php _e( '/templates/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Back to Templates'])"><span><?php _e( 'Back to Templates', 'ms' ); ?></span></a>
