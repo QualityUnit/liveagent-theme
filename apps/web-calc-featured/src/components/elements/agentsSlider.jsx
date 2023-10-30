@@ -29,10 +29,10 @@ function AgentsSlider(props) {
 
 	return(
 			<div className={`AgentsSlider ${showAgentsModal ? 'has-modal' : ''}`}>
-				<h4 className="subtitle--icon">
+				<p className="subtitle--icon">
 					<img src={`${production ? path:''}images/person.svg`} alt="Agents" />
 					{i18n.agents_number}: { !agents ? '1' : agents }
-				</h4>
+				</p>
 				<input type="range" min="1" max="100" defaultValue={ !agents ? '1' : agents } style={{backgroundSize: ( !agents ? "1" : agents ) +"% 100%"}} onChange={getValue} />
 				{showAgentsModal
         ? <div className="AgentsSlider--modal">
