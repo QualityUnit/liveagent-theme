@@ -365,6 +365,8 @@ if (
 		}
 	}
 
+
+
 	if (!isHidden) {
 		document.addEventListener("DOMContentLoaded", function() {
 			const announcementClosed = sessionStorage.getItem("announcementClosed");
@@ -376,5 +378,52 @@ if (
 		document.addEventListener("DOMContentLoaded", initializeAnnouncementBar);
 		window.addEventListener("scroll", toggleAnnouncementBar);
 	}
+
+
+	document.addEventListener('DOMContentLoaded', (e) => {
+
+		if (document.querySelector('.Content .yoast-table-of-contents'))  {
+
+			let heights = {placeholderHeight: 0, stickyHeaderHeight: 0};
+			let checked = false;
+
+			function updateHeights() {
+				const placeholder = document.querySelector('.compact-header__placeholder');
+				const stickyHeader = document.querySelector('.compact-header__placeholder .compact-header--sticky');
+				if (placeholder) heights.placeholderHeight = placeholder.offsetHeight;
+				if (stickyHeader) heights.stickyHeaderHeight = stickyHeader.offsetHeight;
+			}
+
+			function checkScroll() {
+				if (!checked && window.scrollY >= heights.placeholderHeight * 2) {
+					updateHeights();
+					checked = true;
+					window.removeEventListener('scroll', checkScroll);
+				}
+			}
+
+			function handleLinkClick(event) {
+				event.preventDefault();
+				const targetId = this.getAttribute('href').substring(1);
+				const targetElement = document.getElementById(targetId);
+
+				if (targetElement) {
+					const {placeholderHeight, stickyHeaderHeight} = heights;
+					const defaultSubHeaderHeight = 73;
+					const offset = stickyHeaderHeight || defaultSubHeaderHeight;
+					const targetPosition = targetElement.offsetTop + placeholderHeight - offset;
+
+					console.log(targetPosition);
+					window.scrollTo({top: targetPosition, behavior: 'smooth'});
+				}
+			}
+
+			updateHeights();
+			window.addEventListener('scroll', checkScroll);
+			document.querySelectorAll('.yoast-table-of-contents li a').forEach(link => link.addEventListener('click', handleLinkClick));
+		}
+	});
+
+
 
 </script>
