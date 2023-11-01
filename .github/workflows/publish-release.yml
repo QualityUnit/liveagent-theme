@@ -41,7 +41,7 @@ jobs:
           php-version: "8.0"
 
       - name: Setup Node.js 16.x
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "16.x"
           cache: "yarn"
@@ -166,7 +166,7 @@ jobs:
           ref: main
 
       - name: Setup Node.js 16.x
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "16.x"
           cache: "yarn"
