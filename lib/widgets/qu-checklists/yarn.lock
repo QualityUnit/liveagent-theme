@@ -3411,16 +3411,7 @@
     "@wordpress/dom-ready" "^3.44.0"
     "@wordpress/i18n" "^4.44.0"
 
-"@wordpress/api-fetch@^6.0.1", "@wordpress/api-fetch@^6.13.0", "@wordpress/api-fetch@^6.4.0", "@wordpress/api-fetch@^6.40.0", "@wordpress/api-fetch@^6.41.0", "@wordpress/api-fetch@^6.7.0":
-  version "6.41.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-6.41.0.tgz#bd57ecbf2a77c5280533ac3ef6e10d8fc8111cdd"
-  integrity sha512-IrwfTrdKFz+fwPbhd5RedaR3aGNVJIshWhKkL2Six8Mcc+h257RFIzESghywyk5YJ8HDIKElTO05Vge+rBPK3Q==
-  dependencies:
-    "@babel/runtime" "^7.16.0"
-    "@wordpress/i18n" "^4.44.0"
-    "@wordpress/url" "^3.45.0"
-
-"@wordpress/api-fetch@^6.41.0":
+"@wordpress/api-fetch@^6.0.1", "@wordpress/api-fetch@^6.13.0", "@wordpress/api-fetch@^6.4.0", "@wordpress/api-fetch@^6.41.0", "@wordpress/api-fetch@^6.7.0":
   version "6.41.0"
   resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-6.41.0.tgz#bd57ecbf2a77c5280533ac3ef6e10d8fc8111cdd"
   integrity sha512-IrwfTrdKFz+fwPbhd5RedaR3aGNVJIshWhKkL2Six8Mcc+h257RFIzESghywyk5YJ8HDIKElTO05Vge+rBPK3Q==
@@ -3478,14 +3469,7 @@
   resolved "https://registry.yarnpkg.com/@wordpress/base-styles/-/base-styles-4.35.0.tgz#f37cae6f818de01419c21da5245397ddbba3ecd1"
   integrity sha512-Fum6jVvkX/xnRW1sbKkN0fQWh8QwKJXx8o3J6jhtynwjlTCd8pwKu+AQoF4TCt8UZDvnTtjGam011lRkKsWPsw==
 
-"@wordpress/blob@^3.16.0", "@wordpress/blob@^3.17.0", "@wordpress/blob@^3.3.1", "@wordpress/blob@^3.43.0", "@wordpress/blob@^3.44.0", "@wordpress/blob@^3.7.0":
-  version "3.44.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-3.44.0.tgz#a098b47e4f3b0da828b91a96728983ee54236ccb"
-  integrity sha512-f/U7Dd0KLpvGeiwsWDSI0QCJoPPYmYaoih2CoAaE2+9vM7vDpCP0Sx8t4QD+JBwG7ZjQ33fIPdlFCQGJxc6YVg==
-  dependencies:
-    "@babel/runtime" "^7.16.0"
-
-"@wordpress/blob@^3.44.0":
+"@wordpress/blob@^3.16.0", "@wordpress/blob@^3.17.0", "@wordpress/blob@^3.3.1", "@wordpress/blob@^3.44.0", "@wordpress/blob@^3.7.0":
   version "3.44.0"
   resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-3.44.0.tgz#a098b47e4f3b0da828b91a96728983ee54236ccb"
   integrity sha512-f/U7Dd0KLpvGeiwsWDSI0QCJoPPYmYaoih2CoAaE2+9vM7vDpCP0Sx8t4QD+JBwG7ZjQ33fIPdlFCQGJxc6YVg==
@@ -4118,7 +4102,7 @@
     react "^17.0.2"
     react-dom "^17.0.2"
 
-"@wordpress/element@^5.20.0", "@wordpress/element@^5.21.0", "@wordpress/element@^5.4.0":
+"@wordpress/element@^5.21.0", "@wordpress/element@^5.4.0":
   version "5.21.0"
   resolved "https://registry.yarnpkg.com/@wordpress/element/-/element-5.21.0.tgz#09d4987722b208f8a059ce4eea2189592551ed02"
   integrity sha512-iHuVj5gVGLqGtegfMtQp7pUqBksMDhF4Zt3sN4uMWEOewjAhdO18jOQjVrP5aKh7SrdBAzQeGpnsrNUvA7Aj1g==
@@ -4194,7 +4178,7 @@
   dependencies:
     "@babel/runtime" "^7.16.0"
 
-"@wordpress/i18n@^4.10.0", "@wordpress/i18n@^4.15.0", "@wordpress/i18n@^4.16.0", "@wordpress/i18n@^4.17.0", "@wordpress/i18n@^4.22.0", "@wordpress/i18n@^4.3.1", "@wordpress/i18n@^4.43.0", "@wordpress/i18n@^4.44.0", "@wordpress/i18n@^4.7.0":
+"@wordpress/i18n@^4.10.0", "@wordpress/i18n@^4.15.0", "@wordpress/i18n@^4.16.0", "@wordpress/i18n@^4.17.0", "@wordpress/i18n@^4.22.0", "@wordpress/i18n@^4.3.1", "@wordpress/i18n@^4.44.0", "@wordpress/i18n@^4.7.0":
   version "4.44.0"
   resolved "https://registry.yarnpkg.com/@wordpress/i18n/-/i18n-4.44.0.tgz#19859bf4a51b26c413129f2cfb3cf27e197c5669"
   integrity sha512-90SY4//QgqoKLf3HK0vNk+D/PGwK+0KOMuIwnkwKDKBw+Vr/Vusg6qiEngVc/BETfuG9ssDtAiNEBSMm8+YGYA==
@@ -4648,15 +4632,7 @@
     "@babel/runtime" "^7.16.0"
     "@wordpress/is-shallow-equal" "^4.44.0"
 
-"@wordpress/url@^3.11.0", "@wordpress/url@^3.17.0", "@wordpress/url@^3.4.1", "@wordpress/url@^3.44.0", "@wordpress/url@^3.45.0", "@wordpress/url@^3.8.0":
-  version "3.45.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/url/-/url-3.45.0.tgz#232e9d65455ad7d0f7909c090ffa441ebbaaf080"
-  integrity sha512-SYVFNuhotfxpDloGXcut4XvXYHtqhTDJT7UZ/LvXBwVFFxtXyey+Ej8h7FuDqnakbkWauUp0cmD0iDHMhtb9sw==
-  dependencies:
-    "@babel/runtime" "^7.16.0"
-    remove-accents "^0.5.0"
-
-"@wordpress/url@^3.45.0":
+"@wordpress/url@^3.11.0", "@wordpress/url@^3.17.0", "@wordpress/url@^3.4.1", "@wordpress/url@^3.45.0", "@wordpress/url@^3.8.0":
   version "3.45.0"
   resolved "https://registry.yarnpkg.com/@wordpress/url/-/url-3.45.0.tgz#232e9d65455ad7d0f7909c090ffa441ebbaaf080"
   integrity sha512-SYVFNuhotfxpDloGXcut4XvXYHtqhTDJT7UZ/LvXBwVFFxtXyey+Ej8h7FuDqnakbkWauUp0cmD0iDHMhtb9sw==
