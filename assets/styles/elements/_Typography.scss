@@ -355,7 +355,7 @@ video {
 
 		.textarea-pseudo {
 
-			@include color(color, font-color-medium);
+			color: $black;
 			border: 1px solid #f0f0f0;
 			background-color: #fafafa;
 			max-width: 100%;
