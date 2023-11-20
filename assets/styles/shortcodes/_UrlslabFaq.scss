@@ -26,8 +26,8 @@
 
 	@media (min-width: $breakpoint-tablet) {
 
-		&__items {
-			columns: 1 auto !important;
+		> .Urlslab-Faq__items {
+				columns:  unset;
 		}
 
 	}
