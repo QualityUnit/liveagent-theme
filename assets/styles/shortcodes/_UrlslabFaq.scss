@@ -6,6 +6,7 @@
 
 .Urlslab-Faq {
 
+
 	&__item {
 
 		h3 {
@@ -21,5 +22,13 @@
 		&::before {
 			border-left: 1px dashed $dark-orange;
 		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		> .Urlslab-Faq__items {
+			columns: unset;
+		}
+
 	}
 }
