@@ -1,4 +1,4 @@
-<?php // @codingStandardsIgnoreLine 
+<?php // @codingStandardsIgnoreLine
 	set_custom_source( 'components/Filter', 'css' );
 	set_custom_source( 'sortingMenu', 'js' );
 
@@ -46,7 +46,7 @@
 								<input class="sorting-item" type="radio" id="<?= esc_attr( $key ); ?>" value="<?= esc_attr( $key ); ?>" name="relatedReviews" data-sortBy="<?= esc_attr( $filter ); ?>" <?= esc_attr( 1 === $counter ? 'checked' : '' ); ?> />
 
 								<label for="<?= esc_attr( $key ); ?>">
-									<span onclick="_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - <?= esc_html( $filter ); ?>'])"><?= esc_html( $filter ); ?></span>
+									<span><?= esc_html( $filter ); ?></span>
 								</label>
 							</div>
 						<?php } ?>

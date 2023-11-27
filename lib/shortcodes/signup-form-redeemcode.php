@@ -102,8 +102,6 @@ function ms_signup_form_redeem_code( $atts ) {
 						'event_label': 'redeemcode',
 						'value': 100
 					} );
-
-					_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Redeem Code Signup']);
 				}
 			}
 	</script>

@@ -70,7 +70,7 @@ function ms_signup_sidebar( $atts ) {
 
 
 			<div class="Signup__sidebar__submit urlslab-skip-keywords">
-				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="_paq.push(['trackEvent', 'Activity', 'Start your free account', 'Sidebar Signup']); dataLayer.push({'Click data-id': 'startYourfreeAccountBtn'}); handleSend();">
+				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="dataLayer.push({'Click data-id': 'startYourfreeAccountBtn'}); handleSend();">
 					<div class="WorkingPanel" style="display: none;">
 						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
 					</div>
@@ -136,8 +136,6 @@ function ms_signup_sidebar( $atts ) {
 						'event_label': 'all',
 						'value': 1
 					} );
-
-					_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 				}
 				if(!mailSecondary) {
 					gtag( 'event', 'Trial Signup', {
@@ -152,8 +150,6 @@ function ms_signup_sidebar( $atts ) {
 						'event': 'sign_up',
 						'emailType': 'Company Email'
 					});
-
-					_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 				}
 			}
 		}

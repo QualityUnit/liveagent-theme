@@ -66,7 +66,7 @@
 					<div class="checkbox FilterMenu__item">
 						<input class="filter-item" type="radio" id="cat-all" value="" name="category" checked />
 						<label for="cat-all">
-							<span onclick="_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Any'])"><?php _e( 'Any', 'ms' ); ?></span>
+							<span><?php _e( 'Any', 'ms' ); ?></span>
 						</label>
 					</div>
 					<?php
@@ -77,7 +77,7 @@
 								<input class="filter-item" type="radio" id="<?php echo esc_attr( $category->slug ); ?>" value="<?php echo esc_attr( $category->slug ); ?>" name="category" />
 
 								<label for="<?php echo esc_attr( $category->slug ); ?>" >
-									<span onclick="_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - <?= esc_html( $category->name ); ?>'])"><?= esc_html( $category->name ); ?></span>
+									<span><?= esc_html( $category->name ); ?></span>
 								</label>
 							</div>
 						<?php } ?>
@@ -99,7 +99,7 @@
 					<div class="checkbox FilterMenu__item">
 						<input class="filter-item" type="radio" id="region-all" value="" name="region" checked />
 						<label for="region-all">
-							<span onclick="_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - Any'])"><?php _e( 'Any', 'ms' ); ?></span>
+							<span><?php _e( 'Any', 'ms' ); ?></span>
 						</label>
 					</div>
 				<?php
@@ -128,7 +128,7 @@
 								<input class="filter-item" type="radio" id="region_<?php echo esc_attr( $region ); ?>" value="region_<?php echo esc_attr( $region ); ?>" name="region" />
 
 								<label for="region_<?php echo esc_attr( $region ); ?>" >
-									<span onclick="_paq.push(['trackEvent', 'Activity', 'Use case scenarios', 'Filter - Category - <?= esc_html( $region_name ); ?>'])"><?= esc_html( $region_name ); ?></span>
+									<span><?= esc_html( $region_name ); ?></span>
 								</label>
 							</div>
 							<?php

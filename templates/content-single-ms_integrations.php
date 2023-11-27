@@ -130,7 +130,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-ticket.svg" alt="">
 							<h3>Partner website</h3>
 							<p>
-								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_learn_more', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - Partner - Learn More'])" target="_blank" rel="nofollow">
+								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_learn_more', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" target="_blank" rel="nofollow">
 									<?php _e( 'Learn More', 'ms' ); ?>
 								</a>
 							</p>
@@ -141,7 +141,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-live-chat.svg" alt="">
 							<h3><?php _e( 'Partner Privacy Policy', 'ms' ); ?></h3>
 							<p>
-								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_privacy_policy', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" onclick="_paq.push(['trackEvent', 'Activity', 'Integration', 'Integration <?php the_title(); ?> - Button - Partner - Privacy Policy'])" target="_blank" rel="nofollow">
+								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_privacy_policy', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" target="_blank" rel="nofollow">
 									<?php the_title(); ?> <?php _e( 'Privacy Policy', 'ms' ); ?>
 								</a>
 							</p>
@@ -154,9 +154,9 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__buttons">
-					<a href="<?php _e( '/integrations/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Back to Integrations'])"><span><?php _e( 'Back to Integrations', 'ms' ); ?></span></a>
+					<a href="<?php _e( '/integrations/', 'ms' ); ?>" class="Button Button--outline Button--back"><span><?php _e( 'Back to Integrations', 'ms' ); ?></span></a>
 
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 						<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 					</a>
 				</div>

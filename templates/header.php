@@ -24,7 +24,7 @@ if ( is_front_page() ) {
 <header class="Header urlslab-skip-keywords urlslab-skip-fragment urlslab-skip-all">
 	<div class="wrapper">
 		<div class="Header__logo">
-			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Logo'])">
+			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
 				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" width="121" height="30" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
 			</a>
 		</div>
@@ -57,15 +57,15 @@ if ( is_front_page() ) {
 				?>
 
 				<div class="Header__navigation__buttons">
-					<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Demo'])">
+					<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline">
 						<span><?php _e( 'Demo', 'ms' ); ?></span>
 					</a>
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Free Trial'])">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 						<span><?php _e( 'Free Trial', 'ms' ); ?></span>
 					</a>
 				</div>
 
-				<a href="<?php _e( '/login/', 'ms' ); ?>" class="Button Button--login" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Login'])">
+				<a href="<?php _e( '/login/', 'ms' ); ?>" class="Button Button--login">
 					<span><?php _e( 'Login', 'ms' ); ?></span>
 					<span class="tooltip"><?php _e( 'Login', 'ms' ); ?></span>
 				</a>
@@ -82,4 +82,3 @@ if ( is_front_page() ) {
 
 	</div>
 </header>
-

@@ -140,7 +140,7 @@ $page_header_args = array(
 					if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_pillar', true ) === 'on' ) {
 						echo 'pillar'; }
 					?>
-					" data-collections="<?= esc_attr( $collections ); ?>" data-type="<?= esc_attr( $data_type ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Go to <?php the_title(); ?> integration'])">
+					" data-collections="<?= esc_attr( $collections ); ?>" data-type="<?= esc_attr( $data_type ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>">
 						<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
 								<?php if ( has_post_thumbnail() ) { ?>
 										<?php the_post_thumbnail( 'archive_thumbnail' ); ?>
