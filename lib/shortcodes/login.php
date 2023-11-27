@@ -14,7 +14,7 @@ function ms_login() {
 			</div>
 
 			<div class="Signup__form__submit">
-				<div id="createButtonmain" class="Button Button--full createTrialButton" onclick="_paq.push(['trackEvent', 'Activity', 'Login', 'Login'])">
+				<div id="createButtonmain" class="Button Button--full createTrialButton">
 					<span><?php _e( 'Login', 'ms' ); ?></span>
 				</div>
 			</div>
@@ -28,7 +28,7 @@ function ms_login() {
 		<div class="h3"><?php _e( 'Hoops!', 'ms' ); ?></div>
 		<p><?php _e( "Looks like we couldn't find your LiveAgent account. No worries, we can help you.", 'ms' ); ?></p>
 
-		<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Login', 'Create new account'])">
+		<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 			<span><?php _e( 'Create new account', 'ms' ); ?></span>
 		</a>
 	</div>

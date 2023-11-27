@@ -224,8 +224,6 @@ function ms_signup_form_simple( $atts ) {
 							'event_label': 'all',
 							'value': 1
 						} );
-
-						_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 					}
 					if(!mailSecondary) {
 						gtag( 'event', 'Trial Signup', {
@@ -240,8 +238,6 @@ function ms_signup_form_simple( $atts ) {
 							'event': 'sign_up',
 							'emailType': 'Company Email'
 						});
-
-						_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 					}
 				}
 			}

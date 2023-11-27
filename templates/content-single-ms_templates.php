@@ -123,9 +123,9 @@
 				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__buttons">
-					<a href="<?php _e( '/templates/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Back to Templates'])"><span><?php _e( 'Back to Templates', 'ms' ); ?></span></a>
+					<a href="<?php _e( '/templates/', 'ms' ); ?>" class="Button Button--outline Button--back"><span><?php _e( 'Back to Templates', 'ms' ); ?></span></a>
 
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 						<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 					</a>
 				</div>

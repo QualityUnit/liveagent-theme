@@ -189,16 +189,9 @@
 			_paq.push(["disableCookies"]);
 		}
 
-		_paq.push(['enableLinkTracking']);
+		// _paq.push(['enableLinkTracking']);
 		_paq.push(['trackPageView']);
 		_paq.push(['enableCrossDomainLinking']);
-		window.onerror = function (msg, url, lineNo, columnNo, error) {
-			var stackT = "";
-			if (typeof(error) != 'undefined' && typeof(error.stack) != 'undefined') {
-				stackT = error.stack.replace(/\n/g, ' ').substring(0, 1000);
-			}
-			_paq.push(['trackEvent', 'error', 'js', msg + "::" + url + "::" + lineNo + "::" + stackT, navigator.userAgent]);
-		};
 		(function() {
 			_paq.push(['setSiteId', 'LA-web']);
 			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];

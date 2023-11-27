@@ -108,7 +108,7 @@ function ms_signup_form( $atts ) {
 							}
 					}
 			}
-			
+
 			function handleSend() {
 				const mailValue = mailInput.value;
 				const buttonText = document.querySelector('.createTrialButton span');
@@ -127,8 +127,6 @@ function ms_signup_form( $atts ) {
 							'event_label': 'all',
 							'value': 1
 						} );
-
-						_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 					}
 					if(!mailSecondary) {
 						gtag( 'event', 'Trial Signup', {
@@ -143,8 +141,6 @@ function ms_signup_form( $atts ) {
 							'event': 'sign_up',
 							'emailType': 'Company Email'
 						});
-
-						_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 					}
 				}
 			}

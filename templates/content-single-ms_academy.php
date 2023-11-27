@@ -63,9 +63,9 @@
 				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__buttons">
-					<a href="<?php _e( '/academy/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Back to Academy'])"><span><?php _e( 'Back to Academy', 'ms' ); ?></span></a>
+					<a href="<?php _e( '/academy/', 'ms' ); ?>" class="Button Button--outline Button--back"><span><?php _e( 'Back to Academy', 'ms' ); ?></span></a>
 
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 						<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 					</a>
 				</div>

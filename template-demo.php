@@ -5,7 +5,7 @@
 ?>
 
 <div class="FullScreen">
-	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="FullScreen__logo" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Demo Logo'])">
+	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="FullScreen__logo">
 		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent_black.svg" alt="<?php bloginfo( 'name' ); ?>">
 	</a>
 

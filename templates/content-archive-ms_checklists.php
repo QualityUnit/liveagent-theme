@@ -68,9 +68,9 @@ $page_header_args = array(
 						$category = substr( $category, 0, -1 );
 					?>
 
-					<li class="Category__item Category__item--blogLike" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Checklists', 'Go to <?= esc_attr( $post_title ); ?>'])">
+					<li class="Category__item Category__item--blogLike" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>">
 							<a href="<?php the_permalink(); ?>" class="Category__item--blogLike__thumbnail">
-								<?php 
+								<?php
 									the_post_thumbnail();
 								?>
 							</a>
@@ -96,4 +96,3 @@ $page_header_args = array(
 		</div>
 	</div>
 </div>
-

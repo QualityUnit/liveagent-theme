@@ -73,7 +73,7 @@ $page_header_args = array(
 					if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_pillar', true ) === 'on' ) {
 						echo 'pillar'; }
 					?>
-					" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Go to <?php the_title(); ?> article'])">
+					" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>">
 						<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
 						<?php if ( has_post_thumbnail() ) { ?>
 							<?php if ( get_post_meta( get_the_ID(), 'mb_templates_mb_templates_pillar', true ) === 'on' ) { ?>

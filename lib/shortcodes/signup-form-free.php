@@ -43,7 +43,7 @@ function ms_signup_form_free() {
 			<div data-id="signUpError"></div>
 
 			<div class="Signup__form__submit">
-				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form Free', 'Signup']); handleSend();">
+				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="handleSend();">
 					<div class="WorkingPanel" style="display: none;">
 						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
 					</div>
@@ -81,8 +81,6 @@ function ms_signup_form_free() {
 						'event_label': 'all',
 						'value': 1
 					} );
-
-					_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 				}
 				if(!mailSecondary) {
 					gtag( 'event', 'Trial Signup', {
@@ -91,8 +89,6 @@ function ms_signup_form_free() {
 						'event_label': 'workmail',
 						'value': 10
 					} );
-
-					_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']);
 				}
 			}
 		}
