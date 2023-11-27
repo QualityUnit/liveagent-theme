@@ -352,18 +352,6 @@
 		} );
 	}
 
-	/* Open an External Links in a New Tab */
-	const excludes = [ 'liveagent', 'live-agent' ];
-
-	queryAll( 'a[href^=http]' ).forEach( ( element ) => {
-		if (
-			! element.href.includes( excludes[ 0 ] ) &&
-			! element.href.includes( excludes[ 1 ] )
-		) {
-			element.setAttribute( 'target', '_blank' );
-		}
-	} );
-
 	/* Awards switching */
 	const awardsYears = document.querySelectorAll( '.Awards__switcher--year' );
 
