@@ -100,7 +100,7 @@
 
 		&::before {
 
-			@include posCustom(0, initial, 0, 0);
+			@include posCustom(0, 0, 0, 0);
 			content: "";
 			position: absolute;
 			z-index: 1;
@@ -153,6 +153,7 @@
 			&__content {
 				right: 5%;
 				width: 46%;
+
 
 				ul:not([class]) li {
 					font-size: 1rem;
@@ -371,6 +372,17 @@
 
 			padding-top: 3em;
 			padding-bottom: 3em;
+		}
+	}
+}
+
+
+.rtl {
+
+	.Trial {
+
+		&__sidebar__content {
+			left: 5%;
 		}
 	}
 }
