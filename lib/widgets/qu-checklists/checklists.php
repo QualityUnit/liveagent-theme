@@ -145,8 +145,10 @@ function qu_checklists_init() {
 
 	function render_checklist( $attr, $content ) {
 		$pagetitle = explode( '^', get_the_title() );
-		if ( isset( $pagetitle[1] ) ) {
+		if ( isset( $pagetitle[1] ) && isset( $pagetitle[2] ) ) {
 			$pagetitle = esc_html( $pagetitle[0] . ' ' . $pagetitle[1] . ' ' . $pagetitle[2] );
+		} elseif ( isset( $pagetitle[1] ) ) {
+			$pagetitle = esc_html( $pagetitle[0] . ' ' . $pagetitle[1] );
 		} else {
 			$pagetitle = get_the_title();
 		}
@@ -197,4 +199,4 @@ function qu_checklists_init() {
 }
 
 
-add_action( 'init', 'qu_checklists_init' );
+	add_action( 'init', 'qu_checklists_init' );
