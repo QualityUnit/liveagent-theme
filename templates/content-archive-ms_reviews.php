@@ -121,6 +121,12 @@ if ( isset( $subpage->slug ) ) {
 
 	// Category page level 2
 	if ( isset( $subpage->slug ) ) { 
+		// $main_page_id  = $main_page[0]->ID;
+		// $translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
+
+		// $mainpost     = get_post( $translated_id );
+		// $post_title   = $mainpost->post_title;
+		// $post_content = $mainpost->post_content;
 		?>
 		<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args_2 ); ?>
 		<?php require_once get_template_directory() . '/templates/content-archive-ms_reviews-posts.php'; ?>
@@ -153,8 +159,10 @@ if ( isset( $subpage->slug ) ) {
 			$whatis_post_id = get_term_meta( $subpage->term_id, 'category_whatis_article', true );
 			
 		if ( isset( $whatis_post_id ) ) {
-			$whatis_post       = get_post( $whatis_post_id )->post_content;
-			$whatis_post_title = get_post( $whatis_post_id )->post_title;
+			$translated_id = apply_filters( 'wpml_object_id', $whatis_post_id, 'ms_reviews' );
+
+			$whatis_post       = get_post( $translated_id )->post_content;
+			$whatis_post_title = get_post( $translated_id )->post_title;
 			$whatis_post_title = preg_replace( '/\^(.+?)\^/', '<span class="highlight-gradient">$1</span>', $whatis_post_title );
 			$whatis_post       = apply_filters( 'the_content', $whatis_post );
 
