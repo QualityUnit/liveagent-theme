@@ -19,7 +19,7 @@ function compact_header_toc( $custom_content = null, $items = null ) {
 		if ( isset( $custom_content ) ) {
 			$content = apply_filters( 'the_content', strip_shortcodes( $custom_content ) );
 		}
-		
+
 		$content = wp_kses(
 			$content,
 			array(
@@ -27,18 +27,18 @@ function compact_header_toc( $custom_content = null, $items = null ) {
 				'h3' => array( 'id' => array() ),
 			)
 		);
-		
+
 		if ( ! $content ) {
 			return $content;
 		}
-		
+
 		$dom = new DOMDocument();
 		libxml_use_internal_errors( true );
 		$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
 		libxml_clear_errors();
 		$xpath = new DOMXPath( $dom );
 		$tags  = $xpath->query( '*/h2 | */h3' );
-		
+
 		if ( count( $tags ) > 2 ) {
 			foreach ( $tags as $node ) {
 				$tag   = $node->tagName; //@codingStandardsIgnoreLine

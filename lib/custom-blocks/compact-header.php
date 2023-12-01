@@ -90,42 +90,81 @@
 						<?php } ?>
 					</div>
 				<?php } ?>
-				<?php if ( ! empty( $args['buttons'] ) ) { ?>
+
+				<?php
+				$cta_button_info = $args['cta_button'] ?? array();
+				$buttons = $args['buttons'] ?? array();
+
+				$render_cta_buttons = array();
+				foreach ( $cta_button_info as $cta_button ) {
+					if ( 'yes' === $cta_button['enabled'] ) {
+						$render_cta_buttons[] = array(
+							'url' => esc_url( $cta_button['url'] ),
+							'text' => esc_html( $cta_button['text'] ),
+						);
+					}
+				}
+
+				$render_buttons = array();
+				foreach ( $buttons as $button ) {
+					if ( isset( $button['title'], $button['href'] ) ) {
+						$button_classes = isset( $button['target'] ) && '_blank' === $button['target']
+							? 'Button Button--outline'
+							: 'Button Button--outline Button--outline-gray';
+
+						$render_buttons[] = array(
+							'href' => esc_url( $button['href'] ),
+							'title' => esc_attr( $button['title'] ),
+							'target' => isset( $button['target'] ) ? esc_attr( $button['target'] ) : '',
+							'rel' => isset( $button['rel'] ) ? esc_attr( $button['rel'] ) : '',
+							'onclick' => isset( $button['onclick'] ) ? esc_attr( $button['onclick'] ) : '',
+							'classes' => esc_attr( $button_classes ),
+						);
+					}
+				}
+
+				if ( ! empty( $render_buttons ) || ! empty( $render_cta_buttons ) ) {
+					?>
 					<div class="compact-header__buttons">
 						<div class="compact-header__buttons-items">
-							<?php foreach ( $args['buttons'] as $button ) { ?>
-								<?php if ( isset( $button['title'] ) && isset( $button['href'] ) ) { ?>
-									<?php
-									$button_classes = 'Button Button--outline Button--outline-gray';
-									if ( isset( $button['target'] ) ) {
-										if ( '_blank' == $button['target'] ) {
-											$button_classes = 'Button Button--outline';
-										}
-									}
+							<?php
+							foreach ( $render_cta_buttons as $cta_button ) :
+								if ( $cta_button['url'] && $cta_button['text'] ) {
 									?>
+
 									<div class="compact-header__buttons-item">
-										<a href="<?= esc_url( $button['href'] ); ?>"
-										   class="<?= esc_attr( $button_classes ); ?>"
-										   title="<?= esc_attr( $button['title'] ); ?>"
-											<?php if ( isset( $button['target'] ) ) { ?>
-												<?php $button_classes .= 'Button'; ?>
-												target="<?= esc_attr( $button['target'] ); ?>"
-											<?php } ?>
-											<?php if ( isset( $button['rel'] ) ) { ?>
-												rel="<?= esc_attr( $button['rel'] ); ?>"
-											<?php } ?>
-											<?php if ( isset( $button['onclick'] ) ) { ?>
-												onclick="<?= esc_attr( $button['onclick'] ); ?>"
-											<?php } ?>
-										>
-											<span><?= esc_html( $button['title'] ); ?></span>
+										<a class="Button Button--full Button--without-icon" href="<?= esc_url( $cta_button['url'] ) ?>">
+											<span><?= esc_html( $cta_button['text'] ) ?></span>
 										</a>
 									</div>
 								<?php } ?>
-							<?php } ?>
+								<?php endforeach; ?>
+
+							<?php
+							foreach ( $render_buttons as $button ) :
+								?>
+								<div class="compact-header__buttons-item">
+									<a href="<?= esc_url( $button['href'] ) ?>"
+										 class=" <?= esc_html( $button['classes'] ) ?>"
+										 title="<?= esc_attr( $button['title'] ) ?>"
+										 target="<?= esc_attr( $button['target'] ) ?>"
+										 rel="<?= esc_attr( $button['rel'] ) ?>"
+										 onclick="<?= esc_attr( $button['onclick'] ) ?>"
+									>
+										<span><?= esc_html( $button['title'] ) ?></span>
+									</a>
+								</div>
+							<?php endforeach; ?>
 						</div>
 					</div>
-				<?php } ?>
+					<?php
+				}
+				?>
+
+
+
+
+
 				<?php if ( ! empty( $args['tags'] ) ) { ?>
 					<div class="compact-header__tags">
 						<?php foreach ( $args['tags'] as $item ) { ?>
@@ -228,7 +267,7 @@
 								$filter_fields_count = $filter_fields_count + count( $filer_items );
 							}
 							?>
-							<div class=" compact-header__filters-wrap 
+							<div class=" compact-header__filters-wrap
 							<?php
 							if ( isset( $filer_count ) ) {
 								?>

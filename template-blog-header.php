@@ -24,6 +24,19 @@
 			'alt' => $page_title,
 		);
 	}
+	$cta_button_text = get_post_meta( get_the_ID(), 'cta_button_text', true );
+	$cta_button_url = get_post_meta( get_the_ID(), 'cta_button_url', true );
+	$cta_button_enabled = get_post_meta( get_the_ID(), 'cta_button_switch', true );
+
+	if ( $cta_button_text || $cta_button_url ) {
+		$header_cta_button = array();
+		$header_cta_button[] = array(
+			'enabled' => $cta_button_enabled,
+			'url' => $cta_button_url,
+			'text' => $cta_button_text,
+		);
+		$page_header_args['cta_button'] = $header_cta_button;
+	}
 	?>
 
 <?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
