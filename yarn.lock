@@ -1610,6 +1610,14 @@
     "@types/expect" "^1.20.4"
     "@types/node" "*"
 
+"@types/vinyl@^2.0.9":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@types/vinyl/-/vinyl-2.0.11.tgz#b95a5bb007e7a0a61dad5a8971dc9922abbc2629"
+  integrity sha512-vPXzCLmRp74e9LsP8oltnWKTH+jBwt86WgRUb4Pc9Lf3pkMVGyvIo2gm9bODeGfCay2DBB/hAWDuvf07JcK4rw==
+  dependencies:
+    "@types/expect" "^1.20.4"
+    "@types/node" "*"
+
 "@typescript-eslint/eslint-plugin@^5.3.0":
   version "5.62.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.62.0.tgz#aeef0328d172b9e37d9bab6dbc13b87ed88977db"
@@ -2611,6 +2619,11 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+chalk@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.3.0.tgz#67c20a7ebef70e7f3970a01f90fa210cb6860385"
+  integrity sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==
+
 change-case@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/change-case/-/change-case-4.1.2.tgz#fedfc5f136045e2398c0410ee441f95704641e12"
@@ -3408,6 +3421,11 @@ easy-extender@^2.3.4:
   integrity sha512-8cAwm6md1YTiPpOvDULYJL4ZS6WfM5/cTeVVh4JsvyYZAoqlRVUpHL9Gr5Fy7HA6xcSZicUia3DeAgO3Us8E+Q==
   dependencies:
     lodash "^4.17.10"
+
+easy-transform-stream@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/easy-transform-stream/-/easy-transform-stream-1.0.1.tgz#faffdd1839a03d14d76e694bd2e6315551a6a215"
+  integrity sha512-ktkaa6XR7COAR3oj02CF3IOgz2m1hCaY3SfzvKT4Svt2MhHw9XCt+ncJNWfe2TGz31iqzNGZ8spdKQflj+Rlog==
 
 eazy-logger@^4.0.1:
   version "4.0.1"
@@ -4715,6 +4733,15 @@ gulp-match@^1.1.0:
   dependencies:
     minimatch "^3.0.3"
 
+gulp-plugin-extras@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/gulp-plugin-extras/-/gulp-plugin-extras-0.3.0.tgz#ad2c15eb7d7153a75556c59ee81d84693ec42330"
+  integrity sha512-I/kOBSpo61QsGQZcqozZYEnDseKvpudUafVVWDLYgBFAUJ37kW5R8Sjw9cMYzpGyPUfEYOeoY4p+dkfLqgyJUQ==
+  dependencies:
+    "@types/vinyl" "^2.0.9"
+    chalk "^5.3.0"
+    easy-transform-stream "^1.0.1"
+
 gulp-plumber@^1.2:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/gulp-plumber/-/gulp-plumber-1.2.1.tgz#d38700755a300b9d372318e4ffb5ff7ced0b2c84"
@@ -4741,12 +4768,12 @@ gulp-replace@^1.1.4:
     replacestream "^4.0.3"
     yargs-parser ">=5.0.0-security.0"
 
-gulp-revert-path@^2:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-revert-path/-/gulp-revert-path-2.0.0.tgz#48690ffa6411fc4c6061874bca5b5c48e3df2784"
-  integrity sha512-xijEC/r4jPmi/r0yypk904EnklJ7I/lLLv+5Una1vV9AzcLR7sPx2pceOFHVc4z9cjPVb6IsdLYqqylPV6fWkw==
+gulp-revert-path@^3:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-revert-path/-/gulp-revert-path-3.0.0.tgz#b4dcbbdbd98fb62fc382b6fd74b7cdc194231336"
+  integrity sha512-BULKtIqwbQ+e7CrB9I6+48a6SIWNe44eVnLGMXeFT9E+shdV45GaZNg40+wwlr3wEZli5T0PQGDoZRTSjV+h0Q==
   dependencies:
-    through2 "^2.0.0"
+    gulp-plugin-extras "^0.3.0"
 
 gulp-rtlcss@^1.4:
   version "1.4.2"
