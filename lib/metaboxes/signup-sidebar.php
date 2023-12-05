@@ -11,6 +11,16 @@ function edit_signup_sidebar( $signup ) {
 		'opened'    => false,
 		'fields'    => array(
 			array(
+				'id' => 'signup_switch',
+				'type' => 'radio',
+				'label' => 'Show signup sidebar',
+				'options' => array(
+					'yes' => 'Show',
+					'no' => 'Hide',
+				),
+				'default' => 'yes',
+			),
+			array(
 				'id'    => 'signup_title',
 				'label' => 'Title',
 				'type'  => 'text',

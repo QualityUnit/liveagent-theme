@@ -15,6 +15,7 @@ function ms_signup_sidebar( $atts ) {
 		$atts,
 		'signup-sidebar'
 	);
+	$signup_switcher  = get_post_meta( get_the_ID(), 'signup_switch', true );
 
 	$title  = get_post_meta( get_the_ID(), 'signup_title', true );
 	$subtitle = get_post_meta( get_the_ID(), 'signup_subtitle', true );
@@ -32,9 +33,9 @@ function ms_signup_sidebar( $atts ) {
 
 	ob_start();
 	?>
-
+	<?php if ( 'yes' == $signup_switcher ) { ?>
 	<div class="Signup__sidebar urlslab-skip-keywords
-	<?php if ( $atts['js-sticky'] ) { ?>
+		<?php if ( $atts['js-sticky'] ) { ?>
 		js-sidebar-sticky
 	<?php } ?>
 	">
@@ -112,6 +113,8 @@ function ms_signup_sidebar( $atts ) {
 			</div>
 		</div>
 	</div>
+
+	<?php } ?>
 
 	<?php // @codingStandardsIgnoreStart ?>
 	<?php
