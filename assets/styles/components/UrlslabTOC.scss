@@ -1,0 +1,38 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/Checklist" as *;
+
+.urlslab-block-tableofcontents {
+	$mobile-divider: 1.25;
+
+	&-title {
+		font-size: math.div($font-size-h2, $mobile-divider);
+		line-height: math.div($line-height-h2, $mobile-divider);
+
+
+		@media (min-width: $breakpoint-tablet) {
+
+			font-size: $font-size-h2;
+			line-height: $line-height-h2;
+
+			&.larger {
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+	ul {
+
+		@extend %checklist;
+	}
+
+	a {
+
+		&::after {
+			display: none !important;
+		}
+	}
+}
