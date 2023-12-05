@@ -66,7 +66,7 @@ function ms_signup_form_redeem_code( $atts ) {
 			<div data-id="signUpError"></div>
 
 			<div class="Signup__form__submit">
-				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="handleSend();">
+				<div data-id="createButtonmain" class="Button Button--full createTrialButton">
 					<div class="WorkingPanel" style="display: none;">
 						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
 					</div>
@@ -85,26 +85,6 @@ function ms_signup_form_redeem_code( $atts ) {
 	<?php
 		add_action( 'wp_footer', function() {
 	?>
-	<script>
-			function handleSend() {
-				const mailInput = document.querySelector('input[type="email"]');
-				const mailValue = mailInput.value;
-				const buttonText = document.querySelector('.createTrialButton span');
-
-				buttonText.textContent = `${ textButtonSubmit }`;
-
-				if (mailValue) {
-					gtag('event', 'conversion', {'send_to': 'AW-966671101/wm4uCIGl0eQDEP31-MwD'});
-
-					gtag( 'event', 'Trial Signup', {
-						'event_category': 'SignUp',
-						'event_action': 'Redeem Code',
-						'event_label': 'redeemcode',
-						'value': 100
-					} );
-				}
-			}
-	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
 	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>

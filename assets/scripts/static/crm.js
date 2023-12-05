@@ -1102,7 +1102,7 @@
 						email: sF.mailField.value(),
 					} );
 
-					gtag( 'event', 'form_submit', { send_to: 'GTM-MR5X6FD' } );
+					gtag( 'event', 'Trial sign_up', { send_to: 'GTM-MR5X6FD' } );
 
 					sendSignupRequest( {
 						variation_id: variationId,

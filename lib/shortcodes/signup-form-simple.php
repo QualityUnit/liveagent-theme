@@ -127,7 +127,7 @@ function ms_signup_form_simple( $atts ) {
 					<div data-id="signUpError"></div>
 
 					<div class="Signup__form__submit">
-						<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="handleSend();">
+						<div data-id="createButtonmain" class="Button Button--full createTrialButton">
 							<div class="WorkingPanel" style="display: none;">
 								<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
 							</div>
@@ -205,42 +205,6 @@ function ms_signup_form_simple( $atts ) {
 			}
 
 			handleSteps();
-
-			function handleSend() {
-				const mailValue = document.querySelector('input[type="email"]').value;
-				const buttonText = document.querySelector('.createTrialButton span');
-
-				buttonText.textContent = `${ textButtonSubmit }`;
-
-				if (mailValue) {
-					const mailSecondary = new RegExp('@(gmail.com|outlook.com|yahoo.com|zoho.com|aol.com|icloud.com|yandex.com|gmx.us|@gmx.com)$').test(mailValue);
-
-					gtag('event', 'conversion', {'send_to': 'AW-966671101/wm4uCIGl0eQDEP31-MwD'});
-
-					if(mailSecondary) {
-						gtag( 'event', 'Trial Signup', {
-							'event_category': 'SignUp',
-							'event_action': 'Trial',
-							'event_label': 'all',
-							'value': 1
-						} );
-					}
-					if(!mailSecondary) {
-						gtag( 'event', 'Trial Signup', {
-							'event_category': 'SignUp',
-							'event_action': 'Trial',
-							'event_label': 'workmail',
-							'value': 10
-						} );
-
-						window.dataLayer = window.dataLayer || [];
-						window.dataLayer.push({
-							'event': 'sign_up',
-							'emailType': 'Company Email'
-						});
-					}
-				}
-			}
 	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
