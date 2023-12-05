@@ -903,12 +903,6 @@
 			subscription.domain
 		);
 
-		if ( typeof gtag !== 'undefined' ) {
-			gtag( 'event', $( '[data-id="plan"]' ).val(), {
-				event_category: 'SignUp',
-			} );
-		}
-
 		$( googleScript ).appendTo( '[data-id="signup"]' );
 		$( capterraScript ).appendTo( '[data-id="signup"]' );
 		if ( typeof fbq !== 'undefined' ) {
