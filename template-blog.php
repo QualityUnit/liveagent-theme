@@ -13,8 +13,7 @@
 ?>
 
 <div class="Post" itemscope itemtype="http://schema.org/Article">
-
-	<div class="BlogPost__header wrapper__wide">
+		<div class="BlogPost__header wrapper__wide">
 		<div class="BlogPost__thumbnail">
 			<?php the_post_thumbnail( 'blog_post_thumbnail' ); ?>
 		</div>

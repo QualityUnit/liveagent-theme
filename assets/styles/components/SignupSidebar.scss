@@ -37,7 +37,7 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 	&-wrapper {
 		display: none;
-		width: 16.875em;
+		width: 100%;
 		z-index: 3;
 		order: 2;
 
@@ -224,7 +224,7 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 		position: fixed;
 	}
 
-	@media (min-width: $breakpoint-desktop-box) {
+	@media (min-width: $breakpoint-tablet-landscape) {
 
 		&-wrapper {
 			display: block;

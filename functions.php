@@ -41,6 +41,7 @@ $theme_includes = array(
 	'functions/sitemap-filters.php', // Sitemap XML filters for YOAST SEO (https://developer.yoast.com/features/xml-sitemaps/api/)
 	'functions/widgets.php', // Import Widgets/Plugins
 	'functions/remove-base-classes.php', // Remove base classes
+	'functions/get-cta-button-data.php', // Get data from metaboxes for cta button in the compact header
 );
 
 foreach ( $theme_includes as $file ) {
