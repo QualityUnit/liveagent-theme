@@ -30,10 +30,9 @@ function ms_signup_sidebar( $atts ) {
 	if ( isset( $button ) && strlen( $button ) > 0 ) {
 		$atts['button'] = $button;
 	}
-
 	ob_start();
 	?>
-	<?php if ( 'yes' == $signup_switcher ) { ?>
+	<?php if ( 'no' !== $signup_switcher ) { ?>
 	<div class="Signup__sidebar urlslab-skip-keywords
 		<?php if ( $atts['js-sticky'] ) { ?>
 		js-sidebar-sticky

@@ -9,6 +9,7 @@ $page_header_args = array(
 	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
 	'date'  => true,
 	'toc'   => true,
+	'cta_button' => get_cta_button_data(),
 );
 $categories       = get_the_terms( $post->ID, 'category' );
 if ( isset( $categories ) ) {
@@ -22,20 +23,6 @@ if ( isset( $categories ) ) {
 	if ( isset( $page_header_tags[0]['list'] ) ) {
 		$page_header_args['tags'] = $page_header_tags;
 	}
-}
-
-$cta_button_text = get_post_meta( get_the_ID(), 'cta_button_text', true );
-$cta_button_url = get_post_meta( get_the_ID(), 'cta_button_url', true );
-$cta_button_enabled = get_post_meta( get_the_ID(), 'cta_button_switch', true );
-
-if ( $cta_button_text || $cta_button_url ) {
-	$header_cta_button = array();
-	$header_cta_button[] = array(
-		'enabled' => $cta_button_enabled,
-		'url' => $cta_button_url,
-		'text' => $cta_button_text,
-	);
-	$page_header_args['cta_button'] = $header_cta_button;
 }
 
 ?>
