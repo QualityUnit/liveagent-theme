@@ -20,17 +20,18 @@ add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
 function components_imports( $content ) {
 	$blocks = array(
-		'AlternativeTable' => 'components/AlternativeTable',
-		'SoftphoneTable'   => 'components/SoftphoneTable',
-		'BlockPoints'      => 'components/BlockPoints',
-		'FeaturesTableNew' => 'components/FeaturesTable-New',
-		'HeroBanner'       => 'components/HeroBanner',
-		'Block--video'     => 'components/BlockVideo',
-		'BlockSuccess'     => 'components/BlockSuccess',
-		'Boxes--image'     => 'components/BoxesImage',
-		'RequestDemo'      => 'layouts/tests/RequestDemo',
-		'ScheduleDemo'     => 'layouts/tests/ScheduleDemo',
-		'BlockCoupon'      => 'components/BlockCoupon',
+		'AlternativeTable'              => 'components/AlternativeTable',
+		'SoftphoneTable'                => 'components/SoftphoneTable',
+		'BlockPoints'                   => 'components/BlockPoints',
+		'FeaturesTableNew'              => 'components/FeaturesTable-New',
+		'HeroBanner'                    => 'components/HeroBanner',
+		'Block--video'                  => 'components/BlockVideo',
+		'BlockSuccess'                  => 'components/BlockSuccess',
+		'Boxes--image'                  => 'components/BoxesImage',
+		'RequestDemo'                   => 'layouts/tests/RequestDemo',
+		'ScheduleDemo'                  => 'layouts/tests/ScheduleDemo',
+		'BlockCoupon'                   => 'components/BlockCoupon',
+		'urlslab-block-tableofcontents' => 'components/UrlslabTOC',
 	);
 
 	if ( ! $content ) {
