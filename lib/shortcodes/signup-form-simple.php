@@ -27,13 +27,12 @@ function ms_signup_form_simple( $atts ) {
 				<div class="Signup__form__simple__fields">
 					<div data-id="nameFieldmain" class="Signup__form__item has-svg">
 						<svg width="18" height="20" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M18 19v-2c0-2.743-2.257-5-5-5H5c-2.743 0-5 2.257-5 5v2a1 1 0 0 0 2 0v-2c0-1.646 1.354-3 3-3h8c1.646 0 3 1.354 3 3v2a1 1 0 0 0 2 0Zm-9-9c2.743 0 5-2.257 5-5s-2.257-5-5-5-5 2.257-5 5 2.257 5 5 5Zm0-2C7.354 8 6 6.646 6 5s1.354-3 3-3 3 1.354 3 3-1.354 3-3 3Z"/></svg>
-
 						<input type="text" name="Full name" placeholder="<?php _e( 'Full name', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="100">
 						<div class="ErrorMessage"></div>
 					</div>
 
 					<div data-id="mailFieldmain" class="Signup__form__item fontello-mail">
-						<input type="email" name="Email" tabindex="-1" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+						<input type="email" name="Email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255">
 						<div class="ErrorMessage"></div>
 					</div>
 
@@ -99,38 +98,6 @@ function ms_signup_form_simple( $atts ) {
 	<?php
 		add_action( 'wp_footer', function() {
 	?>
-	<script>
-			function handleSteps() {
-				const stepsWrapper = document.querySelector('[data-id="signup"]');
-				const stepsWrapperWidth = stepsWrapper.getBoundingClientRect().width;
-				const buttonsContinue = document.querySelectorAll('[data-change-steps]');
-				const progressBars = document.querySelectorAll('[data-circlebar]');
-				const progressBarsTotal = progressBars.length;
-				let currentStep = stepsWrapper.dataset.step;
-
-				stepsWrapper.addEventListener('keydown', (event) => {
-					if(event.keyCode === 9) {
-						event.preventDefault();
-					}
-				})
-
-				buttonsContinue.forEach(btn => {
-					btn.addEventListener('click', () => {
-						if (! btn.disabled ) {
-							stepsWrapper.style.transform = `translateX(-${100 * currentStep}%`;
-							currentStep++;
-						}
-					})
-				});
-
-				for( let circle = 1; circle <= progressBarsTotal; circle++ ) {
-					const progress = (100 * circle) / progressBarsTotal ;
-					progressBars[circle - 1].style.background = `conic-gradient(var(--primary-color) ${ progress }%,var(--border-color-gray-icon) ${ progress }%)`;
-				};
-			}
-
-			handleSteps();
-	</script>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
 	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
