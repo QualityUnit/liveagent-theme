@@ -18,7 +18,7 @@ function ms_signup_form_simple( $atts ) {
 		<div class="Signup__form__steps flex flex-align-center" data-step="1" data-id="signup">
 			<div class="Signup__form__step" data-step="1">
 				<div class="Signup__form--simple__header">
-                    <div class="Signup__form--simple__title"><?= $atts['title']; // @codingStandardsIgnoreLine ?></div>
+					<div class="Signup__form--simple__title"><?= $atts['title']; ?></div>
 					<div class="Signup__form__step--text">
 						<div class="Signup__form__step--progress">
 							<div class="CircleProgressBar">
@@ -87,7 +87,7 @@ function ms_signup_form_simple( $atts ) {
 
 			<div class="Signup__form__step" data-step="2">
 				<div class="Signup__form--simple__header">
-					<div class="Signup__form--simple__title"></div>
+					<div class="Signup__form--simple__title"><?= $atts['title']; ?></div>
 					<div class="Signup__form__step--text">
 						<div class="Signup__form__step--progress">
 							<div class="CircleProgressBar">
