@@ -1,9 +1,13 @@
 <?php
 
 function ms_signup_form_simple( $atts ) {
+
 	$atts = shortcode_atts(
 		array(
-			'title'    => __( '<strong>Try LiveAgent,</strong> best rated cloud-based Help Desk Software for free', 'ms' ),
+			'title' => wp_kses(
+				__( '<strong>Try LiveAgent,</strong> best rated cloud-based Help Desk Software for free', 'ms' ),
+				array( 'strong' => array() )
+			),
 			'button'   => __( 'Create account for FREE', 'ms' ),
 			'trusted'  => __( 'Trusted by the best', 'ms' ),
 		),
@@ -169,7 +173,7 @@ function ms_signup_form_simple( $atts ) {
 		</div>
 	</div>
 
-	<?php // @codingStandardsIgnoreStart ?>
+
 
 	<?php
 		add_action( 'wp_footer', function() {
@@ -272,7 +276,7 @@ function ms_signup_form_simple( $atts ) {
 	<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) ); ?>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
 	<?php }, 999 ); ?>
-	<?php // @codingStandardsIgnoreEnd ?>
+
 
 	<?php
 	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js', array( 'jquery' ), THEME_VERSION, true );
