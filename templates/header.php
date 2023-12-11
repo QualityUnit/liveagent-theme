@@ -30,8 +30,10 @@ if ( is_front_page() ) {
 		</div>
 
 		<div class="Header__items">
-			<div class="Header__mobileNavigation">
-				<i class="fontello-bars-solid"></i>
+			<div class="Header__mobile__hamburger">
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
 			</div>
 
 			<div class="Header__navigation">
@@ -55,16 +57,31 @@ if ( is_front_page() ) {
 					);
 				endif;
 				?>
-
-				<div class="Header__navigation__buttons">
-					<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline">
-						<span><?php _e( 'Demo', 'ms' ); ?></span>
-					</a>
+				<div class="Header__flags__mobile">
+					<?php
+					if ( is_active_sidebar( 'header_flags_mobile' ) ) :
+						dynamic_sidebar( 'header_flags_mobile' );
+					endif;
+					?>
+				</div>
+				<div class="Header__navigation__buttons__mobile">
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 						<span><?php _e( 'Free Trial', 'ms' ); ?></span>
 					</a>
+					<a href="<?php _e( '/login/', 'ms' ); ?>" class="Button Button--login">
+						<span><?php _e( 'Login', 'ms' ); ?></span>
+						<span class="tooltip"><?php _e( 'Login', 'ms' ); ?></span>
+					</a>
 				</div>
+			</div>
 
+			<div class="Header__navigation__buttons">
+				<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline">
+					<span><?php _e( 'Demo', 'ms' ); ?></span>
+				</a>
+				<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
+					<span><?php _e( 'Free Trial', 'ms' ); ?></span>
+				</a>
 				<a href="<?php _e( '/login/', 'ms' ); ?>" class="Button Button--login">
 					<span><?php _e( 'Login', 'ms' ); ?></span>
 					<span class="tooltip"><?php _e( 'Login', 'ms' ); ?></span>

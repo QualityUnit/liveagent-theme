@@ -5,55 +5,56 @@
 
 	const activateMenuClick = () => {
 		/* Header Mobile Menu */
-		if ( query( '.Header__mobileNavigation' ) !== null ) {
-			query( '.Header__mobileNavigation' ).addEventListener(
-				'click',
-				() => {
-					query( '.Header__mobileNavigation' ).classList.toggle(
-						'active'
-					);
-					query( '.Header__navigation' ).classList.toggle( 'active' );
-				}
-			);
-		}
+		const hamburger = document.querySelector( '.Header__mobile__hamburger' );
+		const navigation = document.querySelector( '.Header__navigation' );
 
-		if (
-			queryAll( '.Header__navigation ul > .menu-item-has-children' )
-				.length > 0
-		) {
-			queryAll(
-				'.Header__navigation ul > .menu-item-has-children'
-			).forEach( ( element ) => {
-				const link = element.querySelector( "a[href='#']" );
-				const sub = element.querySelector( 'ul' );
+		if ( hamburger ) {
+			hamburger.addEventListener( 'click', () => {
+				hamburger.classList.toggle( 'active' );
+				navigation.classList.toggle( 'active' );
+				navigation.classList.toggle( 'mobile-active' );
 
-				if ( link !== null ) {
-					link.addEventListener( 'click', () => {
-						if (
-							! link.parentElement.classList.contains( 'active' )
-						) {
-							queryAll( '.Header__navigation .active' ).forEach(
-								( activated ) => {
-									activated.classList.remove( 'active' );
+				if ( navigation.classList.contains( 'mobile-active' ) ) {
+					const menuItems = document.querySelectorAll( '.Header__navigation ul.nav > li' );
+					const languageToggleLink = document.querySelector( '.Header__navigation .Header__flags__mobile .Header__flags--item-toggle' );
+
+					const closeOtherMenus = ( currentItem ) => {
+						menuItems.forEach( ( item ) => {
+							if ( item !== currentItem ) {
+								item.classList.remove( 'active' );
+								const submenu = item.querySelector( ':scope > ul' );
+								if ( submenu ) {
+									submenu.classList.remove( 'active' );
 								}
-							);
+							}
+						} );
+
+						if ( languageToggleLink !== currentItem ) {
+							languageToggleLink.classList.remove( 'active' );
+							languageToggleLink.nextElementSibling.classList.remove( 'active' );
 						}
-						link.parentElement.classList.toggle( 'active' );
-						sub.classList.toggle( 'active' );
+					};
+
+					menuItems.forEach( ( item ) => {
+						const link = item.querySelector( ':scope > a' );
+						const submenu = item.querySelector( ':scope > ul' );
+
+						link.addEventListener( 'click', () => {
+							closeOtherMenus( item );
+							item.classList.toggle( 'active' );
+							if ( submenu ) {
+								submenu.classList.toggle( 'active' );
+							}
+						} );
+					} );
+
+					languageToggleLink.addEventListener( 'click', () => {
+						closeOtherMenus( languageToggleLink );
+						languageToggleLink.classList.toggle( 'active' );
+						languageToggleLink.nextElementSibling.classList.toggle( 'active' );
 					} );
 				}
 			} );
-		}
-
-		/* Main Navigation */
-		if ( query( '.Header__navigation' ) !== null ) {
-			queryAll( ".Header__navigation a[href='#']" ).forEach(
-				( element ) => {
-					element.addEventListener( 'click', ( event ) => {
-						event.preventDefault();
-					} );
-				}
-			);
 		}
 	};
 
@@ -68,7 +69,7 @@
 		}
 	} );
 
-	/* Language switcher */
+	/* Language switcher desktop*/
 	function hideLanguageSwitcher( target ) {
 		if ( target.classList.contains( 'visible' ) ) {
 			target.classList.remove( 'visible' );
@@ -83,20 +84,8 @@
 			'.Header__flags #languageSwitcher-toggle'
 		);
 
-		/* Gets region of active language and activates mobile switcher for such region */
-		// const langActive = langSwitcherToggle.parentElement.getAttribute(
-		// 	'lang'
-		// );
-		// const matchRegion = langSwitcherToggle.parentElement.querySelector(
-		// 	`.Header__flags--item[lang=${ langActive }]`
-		// ).dataset.region;
-
-		// document.querySelector(
-		// 	`#${ matchRegion }.input--region`
-		// ).checked = true;
-
 		/* Toggles language switcher */
-		const langSwitcherMenu = query( '.Header__flags--mainmenu' );
+		const langSwitcherMenu = query( '.Header__flags .Header__flags--mainmenu' );
 		langSwitcherToggle.addEventListener( 'click', ( event ) => {
 			event.stopPropagation();
 			if ( ! langSwitcherMenu.classList.contains( 'visible' ) ) {

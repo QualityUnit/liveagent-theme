@@ -2,7 +2,6 @@
 
 function ms_languages( $atts ) {
 	if ( function_exists( 'icl_get_languages' ) ) {
-
 		$regions = array(
 			'europe'  => __( 'Europe', 'ms' ),
 			'asia'    => __( 'Asia', 'ms' ),
@@ -10,7 +9,7 @@ function ms_languages( $atts ) {
 			'america' => __( 'America', 'ms' ),
 		);
 
-		$atts      = shortcode_atts(
+		$atts = shortcode_atts(
 			array(
 				'europe_from'  => '0',
 				'europe_to'    => '22',
@@ -24,7 +23,14 @@ function ms_languages( $atts ) {
 			$atts,
 			'languages'
 		);
-		$flags     = get_template_directory_uri() . '/assets/images/flags.svg?ver=' . THEME_VERSION . '#';
+
+		$lang_codes = array();
+		$lang_flags = array();
+		$lang_urls = array();
+		$lang_names = array();
+		$lang_active = array();
+
+		$flags = get_template_directory_uri() . '/assets/images/flags.svg?ver=' . THEME_VERSION . '#';
 		$languages = icl_get_languages();
 		foreach ( $languages as $lang ) {
 			$lang_codes[]  = $lang['language_code'];
@@ -33,94 +39,51 @@ function ms_languages( $atts ) {
 			$lang_names[]  = $lang['native_name'];
 			$lang_active[] = $lang['active'];
 		}
-		function create_menu( $region, $atts, $lang_urls, $lang_flags, $lang_codes, $lang_names, $lang_active ) {
-			$flags = get_template_directory_uri() . '/assets/images/flags.svg?ver=' . THEME_VERSION . '#';
-			?>
-		<ul>
-			<?php
-			for ( $i = $atts[ $region . '_from' ]; $i < $atts[ $region . '_to' ]; $i++ ) {
-				?>
-			<li class="Header__flags--item Header__flags--item-<?= esc_html( $lang_codes[ $i ] ) ?>" data-region="<?= esc_attr( $region ) ?>" lang="<?= esc_attr( $lang_codes[ $i ] ) ?>">
-				<?php
-				if ( ! $lang_active[ $i ] ) {
-					?>
-				<a class="Header__flags--item-link urlslab-skip-lazy" href="<?= esc_url( $lang_urls[ $i ] ); ?>">
-					<svg class="Header__flags--item-flag" aria-label="<?= esc_attr( $lang_codes[ $i ] ) ?>"><use xlink:href="<?= esc_url( $flags ); ?>flag-<?= esc_html( $lang_flags[ $i ] ) ?>"></use></svg>
-					<?= esc_html( $lang_names[ $i ] ) ?>
-				</a>
-					<?php
-				} else {
-					?>
-				<span class="Header__flags--item-link active urlslab-skip-lazy">
-					<svg class="Header__flags--item-flag" aria-label="<?= esc_attr( $lang_codes[ $i ] ) ?>"><use xlink:href="<?= esc_url( $flags ); ?>flag-<?= esc_html( $lang_flags[ $i ] ) ?>"></use></svg>
-					<?= esc_html( $lang_names[ $i ] ) ?>
-				</span>
-					<?php
-				}
-				?>
-			</li>
-				<?php
-			}
-			?>
-		</ul>
-			<?php
-		}
+
 		ob_start();
 		?>
-<div class="Header__flags--main">
-	<ul>
-		<?php
-		foreach ( $languages as $lang ) {
-			if ( $lang['active'] ) {
-				$lang_flag = strtolower( preg_replace( '/.+?_/', '', $lang['default_locale'] ) );
-				echo '<li class="Header__flags--item Header__flags--item-active Header__flags--item-' . esc_html( $lang['language_code'] ) . '" lang="' . esc_attr( $lang['language_code'] ) . '"><span id="languageSwitcher-toggle" class="Header__flags--item-toggle"><svg class="Header__flags--item-flag" aria-label="' . esc_attr( $lang['language_code'] ) . '"><use xlink:href="' . esc_url( $flags ) . 'flag-' . esc_html( $lang_flag ) . '"></use></svg></span>';
-			}
-		}
-		?>
-
-		<div class="Header__flags--mainmenu">
-		<?php
-		foreach ( $regions as $region => $name ) {
-			if ( ! empty( $atts[ $region . '_from' ] || $atts[ $region . '_to' ] ) ) {
+		<div class="Header__flags--main">
+			<ul>
+				<?php
+				foreach ( $languages as $lang ) {
+					if ( $lang['active'] ) {
+						$lang_flag = strtolower( preg_replace( '/.+?_/', '', $lang['default_locale'] ) );
+						echo '<li class="Header__flags--item Header__flags--item-active Header__flags--item-' . esc_html( $lang['language_code'] ) . '" lang="' . esc_attr( $lang['language_code'] ) . '"><span id="languageSwitcher-toggle" class="Header__flags--item-toggle"><h3>' . esc_html( 'Languages' ) . '</h3><svg class="Header__flags--item-flag" aria-label="' . esc_attr( $lang['language_code'] ) . '"><use xlink:href="' . esc_url( $flags ) . 'flag-' . esc_html( $lang_flag ) . '"></use></svg></span>';
+					}
+				}
 				?>
-					<input class="input--region hidden" name="regions" type="radio" id="<?= esc_attr( $region ) ?>" />
+
+				<div class="Header__flags--mainmenu">
 					<?php
-			}
-		}
-		?>
-			<div class="Header__flags--region-switchers">
-				<?php
-				foreach ( $regions as $region => $name ) {
-					if ( ! empty( $atts[ $region . '_from' ] || $atts[ $region . '_to' ] ) ) {
-						?>
-				<label class="Header__flags--region-switcher" for="<?= esc_attr( $region ) ?>"><?= esc_html( $name ) ?></label>
-						<?php
-					}
-				}
-				?>
-			</div>
-			<div class="Header__flags--regions">
-				<?php
-
-				foreach ( $regions as $region => $name ) {
-					if ( ! empty( $atts[ $region . '_from' ] || $atts[ $region . '_to' ] ) ) {
-						?>
-					<div class="Header__flags--region Header__flags--region-<?= esc_html( $region ) ?>">
-						<div class="Header__flags--region-title h4"><?= esc_html( $name ) ?></div>
-							<?php
-								create_menu( $region, $atts, $lang_urls, $lang_flags, $lang_codes, $lang_names, $lang_active );
+					foreach ( $regions as $region => $name ) {
+						if ( ! empty( $atts[ $region . '_from' ] ) || ! empty( $atts[ $region . '_to' ] ) ) {
 							?>
-					</div>
-						<?php
+							<input class="input--region hidden" name="regions" type="radio" id="<?= esc_attr( $region ) ?>" />
+							<label class="Header__flags--region-switcher" for="<?= esc_attr( $region ) ?>"><?= esc_html( $name ) ?></label>
+							<?php
+						}
 					}
-				}
-				?>
-			</div>
+					?>
+					<div class="Header__flags--regions">
+						<?php
+						foreach ( $regions as $region => $name ) {
+							if ( ! empty( $atts[ $region . '_from' ] ) || ! empty( $atts[ $region . '_to' ] ) ) {
+								?>
+								<div class="Header__flags--region Header__flags--region-<?= esc_html( $region ) ?>">
+									<div class="Header__flags--region-title h4"><?= esc_html( $name ) ?></div>
+									<?php
+									create_language_menu( $region, $atts, $lang_urls, $lang_flags, $lang_codes, $lang_names, $lang_active );
+									?>
+								</div>
+								<?php
+							}
+						}
+						?>
+					</div>
+				</div>
+				</li>
+			</ul>
 		</div>
-		</li>
-		<!-- END OF LANGUAGE MENU -->
-	</ul>
-</div>
 		<?php
 		return ob_get_clean();
 	}

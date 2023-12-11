@@ -42,6 +42,7 @@ $theme_includes = array(
 	'functions/widgets.php', // Import Widgets/Plugins
 	'functions/remove-base-classes.php', // Remove base classes
 	'functions/get-cta-button-data.php', // Get data from metaboxes for cta button in the compact header
+	'functions/create-language-menu.php', // Function for generate languages
 );
 
 foreach ( $theme_includes as $file ) {
@@ -70,3 +71,5 @@ add_filter(
 		return $config;
 	}
 );
+
+

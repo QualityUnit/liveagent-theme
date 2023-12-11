@@ -3,16 +3,23 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-.Header__flags {
-	margin-left: 30px;
-	border-left: 1px solid #000;
+$bg-color: #f9f9fa;
 
-	@media (max-width: $breakpoint-desktop) {
-		margin-left: 0;
-		border-left: 0;
-		margin-right: 20px;
-		padding-right: 20px;
-		border-right: 1px solid #000;
+.Header__flags__mobile {
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: none;
+	}
+}
+
+.Header__flags {
+
+	display: none;
+
+	@media (min-width: $breakpoint-desktop) {
+		display: block;
+		margin-left: 30px;
+		border-left: 1px solid #000;
 	}
 
 	ul {
@@ -104,6 +111,10 @@
 
 			@media (min-width: $breakpoint-desktop) {
 				padding: 0 1.25em;
+
+				h3 {
+					display: none;
+				}
 			}
 		}
 	}
@@ -151,24 +162,6 @@
 		}
 	}
 
-	//Region switcher mobile - Prepared for more languages
-	// @for $input from 1 to 5 {
-	// 	.input--region:nth-of-type(#{$input}):checked {
-
-	// 		~ .Header__flags {
-
-	// 			&--region-switchers .Header__flags--region-switcher
-	// &:nth-of-type(#{$input}) {
-	// 				background-color: red;
-	// 			}
-
-	// 			&--regions .Header__flags--region:nth-of-type(#{$input}) {
-	// 				display: block;
-	// 			}
-	// 		}
-	// 	}
-	// }
-
 	&--region {
 		height: auto;
 		margin-right: 1em;
@@ -214,7 +207,7 @@
 		}
 
 		//Region switcher mobile - Prepared for more languages
-		&-switchers {
+		&-switcher {
 			display: none;
 			width: 100%;
 		}
@@ -256,4 +249,84 @@
 	&-no {
 		display: none !important;
 	}
+}
+
+.Header__navigation {
+
+	&.active {
+
+		&.mobile-active {
+
+			.Header__flags {
+
+				&__mobile__title {
+					display: none;
+				}
+
+				&--main {
+
+					> ul {
+						margin: 0;
+					}
+				}
+
+				&--mainmenu {
+					opacity: 1;
+					display: none;
+					position: relative;
+					padding: 0 1.5em;
+					height: auto;
+					top: unset;
+
+					&.active {
+						display: flex;
+						background-color: $bg-color;
+					}
+				}
+
+				&--item-toggle {
+					display: flex;
+					justify-content: space-between;
+					padding: 0 20px;
+					align-items: center;
+
+					&.active {
+						background-color: $pricing-gray;
+					}
+
+					h3 {
+						font-size: 16px;
+						line-height: 60px;
+						margin: 0;
+					}
+
+					svg {
+						display: none;
+					}
+				}
+
+				&--regions {
+					padding-left: 0.5em;
+				}
+
+				&--region {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+
+					> ul {
+						display: grid;
+						grid-template-columns: 1fr 1fr 1fr;
+						gap: 0.5em 1em;
+						width: 100%;
+					}
+
+					&.Header__flags--region-europe {
+						margin-top: 1em;
+					}
+				}
+			}
+		}
+	}
+
 }
