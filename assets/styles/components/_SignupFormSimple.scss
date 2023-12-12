@@ -5,7 +5,7 @@
 @forward "./BlockSignUpForm";
 @forward "../elements/CircleProgressBar";
 
-.Signup__form--simple {
+.Signup__form__simple {
 	$field-height: 2.75rem;
 	background: $medium-orange url(../../images/orange_effect_bg.svg) center center no-repeat;
 	background-size: cover;
@@ -25,7 +25,7 @@
 	input {
 
 		@include color(background-color, main-background);
-		@include color(color, font-color-level3);
+		color: $medium-gray-quotes;
 		width: 100%;
 		height: $field-height;
 		border: 1px solid $medium-gray-inputs;
@@ -44,14 +44,18 @@
 		margin-bottom: 1em;
 	}
 
+	.Signup__form__simple__wrap {
+		padding: 1.5em 2em;
+	}
+
 	&__header {
 		display: flex;
-		margin-bottom: 1.25em;
+		margin-bottom: 0.5em;
 	}
 
 	&__title {
 		line-height: 1.6;
-		font-size: 1.25em;
+		font-size: 1.1875em;
 	}
 
 	&__reviews {
@@ -121,6 +125,7 @@
 			position: relative;
 			margin-bottom: 0.75em;
 			z-index: 5;
+			flex-basis: 100%;
 
 			&::before {
 				top: 0;
@@ -128,9 +133,6 @@
 				transform: none;
 			}
 
-			.Button {
-				height: $field-height;
-			}
 
 			.ErrorMessage {
 				position: relative;
@@ -208,61 +210,8 @@
 			}
 		}
 
-		&__steps {
-			transition: transform 0.2s;
-		}
-
-		&__step {
-			flex: 0 0 100%;
-
-			&--text {
-
-				text-align: right;
-
-				&-text {
-					font-size: 0.75em;
-					font-weight: $font-weight-semi;
-					vertical-align: middle;
-				}
-
-				.emoji {
-					display: inline-block;
-					height: 1.42em;
-				}
-
-				.CircleProgressBar {
-
-					@include square(1.5em);
-					margin-right: 0.5em;
-
-					&__middle {
-						transform: scale(0.75);
-						background-color: $medium-orange;
-					}
-				}
-			}
-
-			&--progress {
-
-				&:not(:last-child) {
-					margin-bottom: 0.5em;
-				}
-
-				> * {
-					display: inline-block;
-					vertical-align: middle;
-				}
-
-				&-steps {
-
-					@include color(color, primary-color);
-					font-size: 0.875em;
-					font-weight: $font-weight-semi;
-				}
-			}
-		}
-
 		&__submit {
+			flex-basis: 100%;
 
 			.Button {
 				width: 100%;
@@ -270,6 +219,8 @@
 				font-size: 0.875em;
 			}
 		}
+
+
 	}
 
 	@media (min-width: $breakpoint-tablet) {
@@ -279,9 +230,16 @@
 			align-items: flex-end;
 		}
 
+
 		&__title {
-			max-width: 60%;
-			margin: 0 2em 0 0;
+			margin: 0 0.8em 0 0;
+		}
+
+
+		&__fields {
+			display: flex;
+			flex-wrap: wrap;
+
 		}
 
 		&__reviews {
@@ -307,26 +265,15 @@
 
 		.Signup__form {
 
-			&__step {
+			&__item {
 
-				padding: 1.25em 2em;
-
-				&--fields {
-					display: flex;
-					flex-wrap: wrap;
-
-					> * {
-						width: 100%;
-					}
+				&:first-child {
+					margin-right: 10px;
+					flex-basis: calc(50% - 5px);
 				}
 
-				&[data-step="2"] .Signup__form__item {
-
-					max-width: 49%;
-
-					&:first-child {
-						margin-right: 2%;
-					}
+				&:nth-child(2) {
+					flex-basis: calc(50% - 5px);
 				}
 			}
 		}
@@ -383,29 +330,6 @@
 					margin: 0.5em 0 0 0;
 					border-radius: 0.375em;
 					font-size: 0.8125rem;
-				}
-			}
-
-			&__step {
-
-				padding: 1.25em 1em;
-
-				&--text {
-					text-align: inherit;
-				}
-
-				&[data-step="1"] .Signup__form__item {
-
-					display: flex;
-					flex-direction: column;
-
-					.ErrorMessage {
-						order: 2;
-					}
-
-					.Button {
-						order: 3;
-					}
 				}
 			}
 		}
