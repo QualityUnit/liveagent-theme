@@ -379,4 +379,51 @@
 			} );
 		} );
 	}
+	/* Trial sticky button at the bottom of the page */
+	if ( query( '.trial__sticky__button' ) !== null ) {
+		window.addEventListener( 'load', function() {
+			if ( window.matchMedia( '(max-width: 1024px)' ).matches ) {
+				let hasScrolled = false;
+				const scrollTriggerHeight = 1;
+
+				const trialStickyButtonClosedValue = sessionStorage.getItem( 'trialStickyButtonClosed' );
+				let isClosed = trialStickyButtonClosedValue === 'true';
+
+				function showTrialStickyButton() {
+					const trialStickyButton = document.querySelector( '.trial__sticky__button' );
+					const contactUs = document.querySelector( '.ContactUs' );
+
+					if ( trialStickyButton && contactUs && hasScrolled && ! isClosed ) {
+						trialStickyButton.classList.add( 'active' );
+						contactUs.classList.add( 'active' );
+					}
+				}
+
+				function closeTrialStickyButton() {
+					const closeButton = document.querySelector( '.trial__sticky__button--close' );
+					const trialStickyButton = document.querySelector( '.trial__sticky__button' );
+					const contactUs = document.querySelector( '.ContactUs' );
+
+					if ( closeButton && trialStickyButton && contactUs ) {
+						closeButton.addEventListener( 'click', function() {
+							trialStickyButton.classList.remove( 'active' );
+							contactUs.classList.remove( 'active' );
+							sessionStorage.setItem( 'trialStickyButtonClosed', 'true' );
+							isClosed = true;
+						} );
+					}
+				}
+
+				window.addEventListener( 'scroll', function() {
+					if ( window.scrollY > scrollTriggerHeight && ! isClosed ) {
+						hasScrolled = true;
+						showTrialStickyButton();
+					}
+				} );
+
+				closeTrialStickyButton();
+			}
+		} );
+	}
 } )();
+

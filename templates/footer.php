@@ -428,3 +428,8 @@ if ( show_demo_bar() !== false ) {
 		</div>
 	</div>
 <?php } ?>
+
+<div class="trial__sticky__button">
+	<a href="<?= esc_url( '/trial/' ) ?>"><?= esc_html( 'Start Free Trial', 'ms' )?></a>
+	<span class="trial__sticky__button--close">x</span>
+</div>
