@@ -1,10 +1,10 @@
 ( () => {
-	const mobileTablet = window.matchMedia( '(max-width: 1380px)' );
+	const mobileTablet = window.matchMedia( '(max-width: 1023px)' );
 	const query = document.querySelector.bind( document );
 	const queryAll = document.querySelectorAll.bind( document );
 
-	const activateMenuClick = () => {
-		/* Header Mobile Menu */
+	/* Mobile menu */
+	const activateMobileMenuClick = () => {
 		const hamburger = document.querySelector( '.Header__mobile__hamburger' );
 		const navigation = document.querySelector( '.Header__navigation' );
 
@@ -13,61 +13,118 @@
 				hamburger.classList.toggle( 'active' );
 				navigation.classList.toggle( 'active' );
 				navigation.classList.toggle( 'mobile-active' );
+			} );
 
-				if ( navigation.classList.contains( 'mobile-active' ) ) {
-					const menuItems = document.querySelectorAll( '.Header__navigation ul.nav > li' );
-					const languageToggleLink = document.querySelector( '.Header__navigation .Header__flags__mobile .Header__flags--item-toggle' );
+			const menuItems = document.querySelectorAll( '.Header__navigation ul.nav > li' );
+			const languageToggleLink = document.querySelector( '.Header__navigation .Header__flags__mobile .Header__flags--item-toggle' );
 
-					const closeOtherMenus = ( currentItem ) => {
-						menuItems.forEach( ( item ) => {
-							if ( item !== currentItem ) {
-								item.classList.remove( 'active' );
-								const submenu = item.querySelector( ':scope > ul' );
-								if ( submenu ) {
-									submenu.classList.remove( 'active' );
-								}
-							}
+			menuItems.forEach( ( item ) => {
+				const link = item.querySelector( ':scope > a' );
+				const submenu = item.querySelector( ':scope > ul' );
+
+				link.addEventListener( 'click', () => {
+					closeOtherMenus( item, menuItems, languageToggleLink );
+					item.classList.toggle( 'active' );
+					if ( submenu ) {
+						submenu.classList.toggle( 'active' );
+						setSubMenuHeight( submenu );
+					}
+				} );
+			} );
+
+			if ( languageToggleLink ) {
+				languageToggleLink.addEventListener( 'click', () => {
+					closeOtherMenus( languageToggleLink, menuItems, null );
+					languageToggleLink.classList.toggle( 'active' );
+					const languageMenu = languageToggleLink.nextElementSibling;
+					if ( languageMenu ) {
+						languageMenu.classList.toggle( 'active' );
+						setSubMenuHeight( languageMenu );
+					}
+				} );
+			}
+
+			document.querySelectorAll( '.Header__navigation ul.nav > li > ul' ).forEach( ( submenu ) => {
+				submenu.style.height = '0';
+			} );
+		}
+
+		const setSubMenuHeight = ( submenu ) => {
+			if ( submenu.classList.contains( 'active' ) ) {
+				submenu.style.height = submenu.scrollHeight + 'px';
+			} else {
+				submenu.style.height = '0';
+			}
+		};
+
+		const closeOtherMenus = ( currentItem, menuItems, languageToggleLink ) => {
+			menuItems.forEach( ( item ) => {
+				if ( item !== currentItem ) {
+					item.classList.remove( 'active' );
+					const submenu = item.querySelector( ':scope > ul' );
+					if ( submenu ) {
+						submenu.classList.remove( 'active' );
+						setSubMenuHeight( submenu );
+					}
+				}
+			} );
+
+			if ( languageToggleLink && languageToggleLink !== currentItem ) {
+				languageToggleLink.classList.remove( 'active' );
+				const languageMenu = languageToggleLink.nextElementSibling;
+				if ( languageMenu ) {
+					languageMenu.classList.remove( 'active' );
+					setSubMenuHeight( languageMenu );
+				}
+			}
+		};
+	};
+
+	const activateDesktopMenuClick = () => {
+		const menuItems = document.querySelectorAll( '.Header__navigation ul.nav > li' );
+
+		const closeAllSubMenus = ( exceptItem ) => {
+			menuItems.forEach( ( item ) => {
+				if ( item !== exceptItem ) {
+					item.classList.remove( 'active' );
+					const submenu = item.querySelector( ':scope > ul' );
+					if ( submenu ) {
+						submenu.classList.remove( 'active' );
+
+						const allSubmenuSubmenu = submenu.querySelectorAll( ':scope > li > ul' );
+						allSubmenuSubmenu.forEach( ( subSub ) => {
+							subSub.classList.remove( 'active' );
 						} );
+					}
+				}
+			} );
+		};
 
-						if ( languageToggleLink !== currentItem ) {
-							languageToggleLink.classList.remove( 'active' );
-							languageToggleLink.nextElementSibling.classList.remove( 'active' );
-						}
-					};
+		menuItems.forEach( ( item ) => {
+			const link = item.querySelector( ':scope > a' );
+			const submenu = item.querySelector( ':scope > ul' );
 
-					menuItems.forEach( ( item ) => {
-						const link = item.querySelector( ':scope > a' );
-						const submenu = item.querySelector( ':scope > ul' );
+			link.addEventListener( 'click', () => {
+				closeAllSubMenus( item );
 
-						link.addEventListener( 'click', () => {
-							closeOtherMenus( item );
-							item.classList.toggle( 'active' );
-							if ( submenu ) {
-								submenu.classList.toggle( 'active' );
-							}
-						} );
-					} );
+				item.classList.toggle( 'active' );
+				if ( submenu ) {
+					submenu.classList.toggle( 'active' );
 
-					languageToggleLink.addEventListener( 'click', () => {
-						closeOtherMenus( languageToggleLink );
-						languageToggleLink.classList.toggle( 'active' );
-						languageToggleLink.nextElementSibling.classList.toggle( 'active' );
+					const allSubmenuSubmenu = submenu.querySelectorAll( ':scope > li > ul' );
+					allSubmenuSubmenu.forEach( ( subSub ) => {
+						subSub.classList.toggle( 'active' );
 					} );
 				}
 			} );
-		}
+		} );
 	};
 
 	if ( mobileTablet.matches ) {
-		activateMenuClick();
+		activateMobileMenuClick();
+	} else {
+		activateDesktopMenuClick();
 	}
-
-	// Handles case when user changes orientation of device from portrait > landscape, ie. iPad Pro
-	mobileTablet.addEventListener( 'change', ( event ) => {
-		if ( event.matches ) {
-			activateMenuClick();
-		}
-	} );
 
 	/* Language switcher desktop*/
 	function hideLanguageSwitcher( target ) {
@@ -369,3 +426,4 @@
 		} );
 	}
 } )();
+

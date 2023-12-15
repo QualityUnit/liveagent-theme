@@ -16,8 +16,11 @@ $bg-color: #f9f9fa;
 
 	display: none;
 
-	@media (min-width: $breakpoint-desktop) {
+	@media (min-width: $breakpoint-tablet-landscape) {
 		display: block;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
 		margin-left: 30px;
 		border-left: 1px solid #000;
 	}
@@ -109,7 +112,7 @@ $bg-color: #f9f9fa;
 				}
 			}
 
-			@media (min-width: $breakpoint-desktop) {
+			@media (min-width: $breakpoint-tablet-landscape) {
 				padding: 0 1.25em;
 
 				h3 {
@@ -124,7 +127,6 @@ $bg-color: #f9f9fa;
 		@include color(background-color, main-background);
 		position: fixed;
 		overflow: scroll;
-		display: none;
 		width: 100vw;
 		height: 100vh;
 		padding: 1.25em;
@@ -141,7 +143,7 @@ $bg-color: #f9f9fa;
 			}
 		}
 
-		@media (min-width: $breakpoint-tablet) {
+		@media (min-width: $breakpoint-tablet-landscape) {
 
 			@include clear;
 			position: absolute;
@@ -271,12 +273,12 @@ $bg-color: #f9f9fa;
 				}
 
 				&--mainmenu {
-					opacity: 1;
-					display: none;
+
 					position: relative;
 					padding: 0 1.5em;
 					height: auto;
 					top: unset;
+
 
 					&.active {
 						display: flex;
@@ -325,6 +327,20 @@ $bg-color: #f9f9fa;
 						margin-top: 1em;
 					}
 				}
+			}
+
+			.Header__flags__mobile {
+
+				.Header__flags--mainmenu {
+					transition: height 0.5s ease-out;
+					opacity: 1;
+					height: 0;
+
+					&.active {
+						transition: height 0.5s ease-out;
+					}
+				}
+
 			}
 		}
 	}
