@@ -284,8 +284,8 @@ $label-company-bg: $desaturated-red;
 									}
 
 									.icon {
-										left: 1.3em;
-										margin-top: 0.6em;
+										left: 1em;
+										margin-top: 0.7em;
 									}
 
 									> a {
@@ -375,6 +375,10 @@ $label-company-bg: $desaturated-red;
 			&.Button--outline {
 				display: flex;
 				width: 6.25em;
+			}
+
+			span {
+				white-space: nowrap;
 			}
 		}
 
@@ -652,7 +656,7 @@ $label-company-bg: $desaturated-red;
 	.icon-header-menu {
 		left: 0;
 		width: 1.5em;
-		background-size: 11em;
+		background-size: 8.8em;
 
 		&::before {
 
@@ -682,7 +686,7 @@ $label-company-bg: $desaturated-red;
 	@each $icon, $pos in $iconHeader {
 		.icon-header-menu-#{$icon}:before {
 			background: url(../../images/icons-menu-integrations.png) #{$pos};
-			background-size: 11em;
+			background-size: 8.8em;
 		}
 	}
 
