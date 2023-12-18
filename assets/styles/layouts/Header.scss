@@ -110,7 +110,7 @@ body {
 
 	@media (max-width: $breakpoint-tablet-landscape - 1px) {
 		position: fixed;
-		top: 4.6875em;
+		top: 5.625em;
 		left: 0;
 		background-color: $white;
 		width: 100%;
@@ -129,11 +129,12 @@ body {
 
 	&.active {
 		height: 100vh;
-		transition: all 0.3s ease-out;
+		transition: height 0.3s ease-out;
 		display: block;
 		overflow-y: scroll;
 		padding-bottom: 1.5em;
 		box-shadow: 0 0.25em 0.375em 0 rgba(0, 0, 0, 0.06);
+		border-top: 1px solid $light-gray;
 
 		> div {
 			opacity: 1;
