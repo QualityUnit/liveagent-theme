@@ -383,9 +383,6 @@
 	if ( query( '.trial__sticky__button' ) !== null ) {
 		window.addEventListener( 'load', function() {
 			if ( window.matchMedia( '(max-width: 1024px)' ).matches ) {
-				let hasScrolled = false;
-				const scrollTriggerHeight = 1;
-
 				const trialStickyButtonClosedValue = sessionStorage.getItem( 'trialStickyButtonClosed' );
 				let isClosed = trialStickyButtonClosedValue === 'true';
 
@@ -393,7 +390,7 @@
 					const trialStickyButton = document.querySelector( '.trial__sticky__button' );
 					const contactUs = document.querySelector( '.ContactUs' );
 
-					if ( trialStickyButton && contactUs && hasScrolled && ! isClosed ) {
+					if ( trialStickyButton && contactUs && ! isClosed ) {
 						trialStickyButton.classList.add( 'active' );
 						contactUs.classList.add( 'active' );
 					}
@@ -414,12 +411,7 @@
 					}
 				}
 
-				window.addEventListener( 'scroll', function() {
-					if ( window.scrollY > scrollTriggerHeight && ! isClosed ) {
-						hasScrolled = true;
-						showTrialStickyButton();
-					}
-				} );
+				setTimeout( showTrialStickyButton, 7000 );
 
 				closeTrialStickyButton();
 			}
