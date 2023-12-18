@@ -7,12 +7,14 @@
 	const activateMobileMenuClick = () => {
 		const hamburger = document.querySelector( '.Header__mobile__hamburger' );
 		const navigation = document.querySelector( '.Header__navigation' );
+		const bodyElement = document.querySelector( 'body' );
 
 		if ( hamburger ) {
 			hamburger.addEventListener( 'click', () => {
 				hamburger.classList.toggle( 'active' );
 				navigation.classList.toggle( 'active' );
 				navigation.classList.toggle( 'mobile-active' );
+				bodyElement.classList.toggle( 'no-scroll' );
 			} );
 
 			const menuItems = document.querySelectorAll( '.Header__navigation ul.nav > li' );

@@ -14,6 +14,15 @@ $label-product-bg: $medium-orange;
 $label-use-for-bg: $desaturated-blue;
 $label-company-bg: $desaturated-red;
 
+
+body {
+
+	&.no-scroll {
+		overflow: hidden;
+		height: 100%;
+	}
+}
+
 #app {
 	padding-top: $header-height;
 }
@@ -23,7 +32,7 @@ $label-company-bg: $desaturated-red;
 	@include color(background-color, header-background);
 	position: fixed;
 	top: 0;
-	z-index: 100;
+	z-index: 999999;
 	width: 100%;
 	height: $header-height;
 	padding: 0.9375em 0;
@@ -106,7 +115,7 @@ $label-company-bg: $desaturated-red;
 		background-color: $white;
 		width: 100%;
 		height: 0;
-		max-height: calc(85vh - 5.625em);
+		max-height: 100vh;
 		transition: height 0.2s ease-out;
 		z-index: -99;
 
@@ -119,9 +128,8 @@ $label-company-bg: $desaturated-red;
 	}
 
 	&.active {
-		height: calc(85vh - 5.625em);
+		height: 100vh;
 		transition: all 0.3s ease-out;
-		z-index: 9999999;
 		display: block;
 		overflow-y: scroll;
 		padding-bottom: 1.5em;
