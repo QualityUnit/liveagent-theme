@@ -143,6 +143,13 @@ $bg-color: #f9f9fa;
 			}
 		}
 
+		@media (min-width: $breakpoint-tablet) {
+
+			.Header__flags--region-asia {
+				margin-top: 1em;
+			}
+		}
+
 		@media (min-width: $breakpoint-tablet-landscape) {
 
 			@include clear;
@@ -157,6 +164,7 @@ $bg-color: #f9f9fa;
 			left: auto;
 			right: 6.5em;
 			box-shadow: 0 0.18em 4em 0 rgba($black-real, 0.15);
+			display: none;
 		}
 
 		@media (min-width: $breakpoint-desktop) {
@@ -343,6 +351,7 @@ $bg-color: #f9f9fa;
 
 			}
 		}
+
 	}
 
 }
