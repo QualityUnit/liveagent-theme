@@ -26,12 +26,12 @@ $label-company-bg: $desaturated-red;
 	z-index: 100;
 	width: 100%;
 	height: $header-height;
-	padding: 15px 0;
+	padding: 0.9375em 0;
 
 	.wrapper {
 
 		@media (max-width: $breakpoint-tablet-landscape - 1px) {
-			padding-inline: 20px !important;
+			padding-inline: 1.25em !important;
 		}
 		display: flex;
 		flex-flow: wrap row;
@@ -43,7 +43,7 @@ $label-company-bg: $desaturated-red;
 .admin-bar {
 
 	.Header {
-		top: 32px;
+		top: 2em;
 	}
 }
 
@@ -52,14 +52,13 @@ $label-company-bg: $desaturated-red;
 
 	a {
 		display: block;
-		width: 100%;
-		height: 100%;
-		padding: 15px 15px 15px 0;
+		@include square(100%);
+		padding: 0.9375em 0.9375em 0.9375em 0;
 
 		img {
 			display: block;
-			max-width: 130px;
-			height: 30px;
+			max-width: 8.125em;
+			height: 1.875em;
 		}
 	}
 }
@@ -101,12 +100,12 @@ $label-company-bg: $desaturated-red;
 
 	@media (max-width: $breakpoint-tablet-landscape - 1px) {
 		position: fixed;
-		top: 75px;
+		top: 4.6875em;
 		left: 0;
 		background-color: $white;
 		width: 100%;
 		height: 0;
-		max-height: calc(85vh - 90px);
+		max-height: calc(85vh - 5.625em);
 		transition: height 0.2s ease-out;
 		z-index: -99;
 
@@ -119,13 +118,13 @@ $label-company-bg: $desaturated-red;
 	}
 
 	&.active {
-		height: calc(85vh - 90px);
+		height: calc(85vh - 5.625em);
 		transition: all 0.3s ease-out;
 		z-index: 9999999;
 		display: block;
 		overflow-y: scroll;
 		padding-bottom: 1.5em;
-		box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.06);
+		box-shadow: 0 0.25em 0.375em 0 rgba(0, 0, 0, 0.06);
 
 		> div {
 			opacity: 1;
@@ -151,11 +150,11 @@ $label-company-bg: $desaturated-red;
 
 				@include color(color, font-color-level3);
 				display: block;
-				font-size: 12px;
+				font-size: 0.75em;
 				line-height: 1.5;
 				font-weight: $font-weight-normal;
-				margin-top: -3px;
-				width: calc(100% - 33px);
+				margin-top: -0.1875em;
+				width: calc(100% - 2.0625em);
 				white-space: break-spaces;
 			}
 
@@ -227,7 +226,7 @@ $label-company-bg: $desaturated-red;
 					}
 
 					> a {
-						padding: 0 20px;
+						padding: 0 1.25em;
 
 						&::before {
 							content: unset;
@@ -275,7 +274,7 @@ $label-company-bg: $desaturated-red;
 								background-color: $bg-color;
 
 								> li {
-									padding-block: 10px;
+									padding-block: 0.625em;
 									margin-bottom: 0;
 									background-color: $bg-color;
 
@@ -292,7 +291,7 @@ $label-company-bg: $desaturated-red;
 										display: flex;
 										flex-direction: column;
 										width: 100%;
-										padding: 0 50px;
+										padding: 0 3.125em;
 
 										&::after {
 											content: unset;
@@ -309,7 +308,7 @@ $label-company-bg: $desaturated-red;
 						li {
 
 							a {
-								padding: 0 20px;
+								padding: 0 1.25em;
 							}
 						}
 					}
@@ -320,7 +319,7 @@ $label-company-bg: $desaturated-red;
 	}
 
 	&__promo {
-		max-width: 184px;
+		max-width: 11.5em;
 		cursor: pointer;
 
 		* {
@@ -343,17 +342,17 @@ $label-company-bg: $desaturated-red;
 					height: auto;
 
 					span {
-						padding: 0 20px;
-						font-size: 16px;
-						line-height: 60px;
+						padding: 0 1.25em;
+						font-size: 1rem;
+						line-height: 3.75;
 						margin: 0;
 
 					}
 				}
 
 				&--full {
-					margin: 0.5em 20px;
-					width: calc(100% - 40px);
+					margin: 0.5em 1.25em;
+					width: calc(100% - 2.5em);
 				}
 			}
 
@@ -374,7 +373,7 @@ $label-company-bg: $desaturated-red;
 
 			&.Button--outline {
 				display: flex;
-				width: 100px;
+				width: 6.25em;
 			}
 		}
 
@@ -392,10 +391,10 @@ $label-company-bg: $desaturated-red;
 			&.one-column {
 
 				ul {
-					left: -25px;
+					left: -1.5625em;
 
 					li {
-						padding: 0 45px;
+						padding: 0 2.8125em;
 
 						ul {
 							padding-bottom: 0;
@@ -425,10 +424,10 @@ $label-company-bg: $desaturated-red;
 					@include color(background-color, main-nav-underline);
 					content: "";
 					position: absolute;
-					bottom: 13px;
+					bottom: 0.8125em;
 					left: 50%;
 					width: 0;
-					height: 3px;
+					height: 0.1875em;
 					transition: all 0.3s;
 				}
 			}
@@ -457,10 +456,10 @@ $label-company-bg: $desaturated-red;
 					&::after {
 						content: "\e821";
 						font-family: fontello, sans-serif;
-						font-size: 12px;
+						font-size: 0.75rem;
 						font-weight: 900;
 						display: inline-block;
-						margin-left: 10px;
+						margin-left: 0.625em;
 
 					}
 				}
@@ -522,11 +521,11 @@ $label-company-bg: $desaturated-red;
 			}
 
 			a[href="#"] {
-				margin-bottom: 20px;
-				font-size: 14px;
+				margin-bottom: 1.25em;
+				font-size: 0.875rem;
 				line-height: 0;
 				cursor: default;
-				padding: 10px 0;
+				padding: 0.625em 0;
 			}
 
 			ul {
@@ -543,7 +542,7 @@ $label-company-bg: $desaturated-red;
 					justify-content: flex-start;
 					align-items: center;
 					width: 100%;
-					margin-bottom: 20px;
+					margin-bottom: 1.25em;
 					padding: 0;
 					overflow: visible;
 
@@ -560,13 +559,13 @@ $label-company-bg: $desaturated-red;
 								@include color(color, font-color-light);
 								content: "";
 								position: absolute;
-								top: 8px;
+								top: 0.5em;
 								right: 0;
 								display: inline-block !important;
 								font-family: $font-primary !important;
-								padding: 2px 4px;
-								border-radius: 2px;
-								font-size: 10px;
+								padding: 0.125em 0.25em;
+								border-radius: 0.125em;
+								font-size: 0.625em;
 								line-height: 1;
 								text-transform: uppercase;
 							}
@@ -617,9 +616,9 @@ $label-company-bg: $desaturated-red;
 					&::after {
 						content: "";
 						position: absolute;
-						left: -20px;
-						bottom: -10px;
-						height: calc(100% + 20px);
+						left: -1.25em;
+						bottom: -0.625em;
+						height: calc(100% + 1.25em);
 						width: 0;
 						background-color: #feefe0;
 						transition: all 0.5s ease;
@@ -634,7 +633,7 @@ $label-company-bg: $desaturated-red;
 
 					a {
 						font-family: $font-secondary;
-						padding-left: 33px;
+						padding-left: 2.0625em;
 						z-index: 1;
 					}
 
@@ -651,8 +650,8 @@ $label-company-bg: $desaturated-red;
 
 	.icon-header-menu {
 		left: 0;
-		width: 24px;
-		background-size: 176px;
+		width: 1.5em;
+		background-size: 11em;
 
 		&::before {
 
@@ -662,9 +661,9 @@ $label-company-bg: $desaturated-red;
 			pointer-events: none;
 			z-index: 1;
 			content: "";
-			font-size: 20px;
+			font-size: 1.25rem;
 			left: 0;
-			top: 2px;
+			top: 0.125em;
 		}
 	}
 
@@ -682,7 +681,7 @@ $label-company-bg: $desaturated-red;
 	@each $icon, $pos in $iconHeader {
 		.icon-header-menu-#{$icon}:before {
 			background: url(../../images/icons-menu-integrations.png) #{$pos};
-			background-size: 176px;
+			background-size: 11em;
 		}
 	}
 
@@ -728,7 +727,7 @@ $label-company-bg: $desaturated-red;
 	}
 
 	.label-integrations {
-		padding: 0 70px 0 30px !important;
+		padding: 0 4.375em 0 1.875em !important;
 
 		ul li {
 			padding: 0 !important;
@@ -746,9 +745,9 @@ $label-company-bg: $desaturated-red;
 
 		::after {
 			background-color: $lightest-gray !important;
-			left: -10px !important;
-			bottom: 2px !important;
-			height: 30px !important;
+			left: -0.625em !important;
+			bottom: 0.125em !important;
+			height: 1.875em !important;
 			z-index: 0;
 		}
 
@@ -756,7 +755,7 @@ $label-company-bg: $desaturated-red;
 
 			a {
 				color: #ababab !important;
-				font-size: 12px !important;
+				font-size: 0.75rem !important;
 			}
 		}
 	}
@@ -843,7 +842,7 @@ $label-company-bg: $desaturated-red;
 			align-items: center;
 
 			li {
-				padding: 0 20px;
+				padding: 0 1.25em;
 
 				@media (hover: hover) {
 
@@ -873,7 +872,7 @@ $label-company-bg: $desaturated-red;
 			ul {
 
 				.admin-bar & {
-					top: 104px;
+					top: 6.5em;
 				}
 
 				&.active {
@@ -885,12 +884,12 @@ $label-company-bg: $desaturated-red;
 				justify-content: flex-start;
 				align-items: flex-start;
 				position: fixed;
-				top: 73px;
+				top: 4.5625em;
 				left: 0;
 				right: 0;
 				z-index: 2;
 				margin: auto;
-				padding: 45px 0 25px;
+				padding: 2.8125em 0 1.5625em;
 
 				&::after {
 					content: "";
@@ -900,13 +899,13 @@ $label-company-bg: $desaturated-red;
 					top: 0;
 					width: 100vw;
 					height: 100%;
-					box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.08);
+					box-shadow: 0 0.5em 0.375em -0.375em rgba(0, 0, 0, 0.08);
 					z-index: -1;
 				}
 
 				ul {
-					padding: 15px 0 0;
-					width: calc(100% + 30px);
+					padding: 0.9375em 0 0;
+					width: calc(100% + 1.875em);
 
 					li {
 
@@ -918,11 +917,11 @@ $label-company-bg: $desaturated-red;
 
 							@include color(color, font-color-level3);
 							display: block;
-							font-size: 12px;
+							font-size: 0.75rem;
 							line-height: 1.5;
 							font-weight: $font-weight-normal;
-							margin-top: -3px;
-							width: calc(100% - 33px);
+							margin-top: -0.1875em;
+							width: calc(100% - 2.0625em);
 							white-space: break-spaces;
 						}
 
@@ -930,7 +929,7 @@ $label-company-bg: $desaturated-red;
 				}
 
 				li {
-					padding: 0 0 0 30px;
+					padding: 0 0 0 1.875em;
 					width: 20%;
 				}
 			}
@@ -957,11 +956,11 @@ $label-company-bg: $desaturated-red;
 
 .Header__mobile__hamburger {
 	cursor: pointer;
-	margin-right: -4px;
+	margin-right: -0.25em;
 
 	.line {
 		width: 1.65em;
-		height: 2px;
+		height: 0.125em;
 		background-color: $black;
 		border-radius: $border-radius;
 		display: block;
@@ -1007,16 +1006,16 @@ html[lang="vi-VN"] {
 
 	.Header__navigation .icon-header-menu {
 		left: 0;
-		width: 24px !important;
-		background-size: 182px !important;
+		width: 1.5em !important;
+		background-size: 11.375em !important;
 	}
 
 	.Header__navigation .icon-header-menu-wordpress {
-		background: url(../../images/icons-menu-integrations.png) -19px 0;
+		background: url(../../images/icons-menu-integrations.png) -1.1875em 0;
 	}
 
 	.Header__navigation .icon-header-menu-magento {
-		background: url(../../images/icons-menu-integrations.png) 4px 0;
+		background: url(../../images/icons-menu-integrations.png) 0.25em 0;
 	}
 }
 
@@ -1032,7 +1031,7 @@ html[lang="lv-LV"] {
 html[lang="vi-VN"] {
 
 	.Header .Button--login {
-		margin-left: 28px !important;
+		margin-left: 1.75em !important;
 	}
 }
 

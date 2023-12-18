@@ -21,8 +21,8 @@ $bg-color: #f9f9fa;
 	}
 
 	@media (min-width: $breakpoint-desktop) {
-		margin-left: 30px;
-		border-left: 1px solid #000;
+		margin-left: 1.875em;
+		border-left: 0.0625em solid #000;
 	}
 
 	ul {
@@ -88,7 +88,6 @@ $bg-color: #f9f9fa;
 		}
 
 		&-toggle {
-			// padding: 5px 20px 5px 25px;
 			cursor: pointer;
 
 			.Header__flags--item-flag {
@@ -99,7 +98,7 @@ $bg-color: #f9f9fa;
 				content: "\e821";
 				font-family: fontello, sans-serif;
 				font-size: 0.75rem;
-				top: 9px;
+				top: 0.5625em;
 				right: 0;
 			}
 
@@ -190,7 +189,6 @@ $bg-color: #f9f9fa;
 
 		&-title {
 			position: relative;
-			// left: 3px;
 			font-size: 0.875rem;
 			line-height: 1.25;
 			margin: 0 0 0.25em 0;
@@ -297,7 +295,7 @@ $bg-color: #f9f9fa;
 				&--item-toggle {
 					display: flex;
 					justify-content: space-between;
-					padding: 0 20px;
+					padding: 0 1.25em;
 					align-items: center;
 
 					&.active {
@@ -305,8 +303,8 @@ $bg-color: #f9f9fa;
 					}
 
 					h3 {
-						font-size: 16px;
-						line-height: 60px;
+						font-size: 1rem;
+						line-height: 3.75;
 						margin: 0;
 					}
 
