@@ -4,7 +4,6 @@ add_filter( 'simple_register_taxonomy_settings', 'add_features_taxonomy_card' );
 
 function add_features_taxonomy_card( $settings ) {
 	global $integrations_posts;
-	global $features_posts;
 
 	$settings[] = array(
 		'id'       => 'ms_features',
