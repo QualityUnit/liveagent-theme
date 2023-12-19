@@ -1,25 +1,52 @@
 <?php
 if ( is_front_page() ) {
-	$is_announcement_hidden = true; // To display the announcement bar, set it to false and vice versa
+	$is_announcement_hidden   = true; // To display the announcement bar, set it to false and vice versa
 	$announcement_bar_classes = 'Announcement__bar Ai__whisper__assistent';
-	$announcement_bar_classes .= $is_announcement_hidden ? ' hidden' : '';
 
-	?>
-		<div class="<?php echo esc_attr( $announcement_bar_classes ); ?>">
-			<div class="wrapper">
-				<div class="Announcement__bar__col__left urlslab-skip-all">
-					<h2><?php _e( 'AI Whisper Assistant', 'ms' ); ?><small><?php _e( '/Private beta', 'ms' ); ?></small></h2>
-					<p><?php _e( 'Suggests the responses to your agent\'s needs', 'ms' ); ?></p>
-				</div>
-				<div class="Announcement__bar__col__right">
-					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/ai-announcement-bar-img-right.png" alt="">
+	if ( ! $is_announcement_hidden ) {
+		?>
+			<div class="Announcement__bars__slider">
+				<div class="negative <?= esc_attr( $announcement_bar_classes ); ?>">
+					<div class="wrapper">
+						<div class="Announcement__bar__col__left urlslab-skip-all">
+							<h2><?php _e( 'AI Whisper Assistant', 'ms' ); ?><small><?php _e( '/Private beta', 'ms' ); ?></small></h2>
+							<p><?php _e( 'Suggests the responses to your agent\'s needs', 'ms' ); ?></p>
+						</div>
+						<div class="Announcement__bar__col__right">
+							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/ai-announcement-bar-img-right.png" alt="">
+						</div>
+					</div>
+					<button class="Announcement__bar__close">X</button>
 				</div>
 			</div>
-			<button class="Announcement__bar__close">X</button>
-		</div>
-	<?php
+		<?php
+		set_custom_source( 'AnnouncementBar', 'js' );
+	}
 }
+
+header_banners(
+	'pricing',
+	array(
+		array(
+			'title'    => __( 'Turn Clicks into Cash', 'ms' ),
+			'subtitle' => __( 'Earn Effortlessly with Post Affiliate Pro!', 'ms' ),
+			'class'    => 'PAP',
+			'image'    => 'AnnouncementBar-PAP.png',
+			'bg'       => 'AnnouncementBar-PAP_bg.jpg',
+			'url'      => __( 'https://www.postaffiliatepro.com/', 'ms' ),
+		),
+		array(
+			'title'    => __( 'Unleash the Website Wizard', 'ms' ),
+			'subtitle' => __( 'Experience the power of the URLsLab plugin!', 'ms' ),
+			'class'    => 'URLslab',
+			'image'    => 'AnnouncementBar-Urlslab.png',
+			'bg'       => 'AnnouncementBar-Urlslab_bg.jpg',
+			'url'      => __( 'https://www.urlslab.com/', 'ms' ),
+		),
+	)
+)
 ?>
+
 
 <header class="Header urlslab-skip-keywords urlslab-skip-fragment urlslab-skip-all">
 	<div class="wrapper">

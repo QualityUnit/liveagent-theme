@@ -20,6 +20,7 @@ add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
 function components_imports( $content ) {
 	$blocks = array(
+		'Announcement__bar'             => 'components/AnnouncementBar',
 		'AlternativeTable'              => 'components/AlternativeTable',
 		'SoftphoneTable'                => 'components/SoftphoneTable',
 		'BlockPoints'                   => 'components/BlockPoints',
