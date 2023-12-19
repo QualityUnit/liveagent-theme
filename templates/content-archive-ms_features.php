@@ -195,7 +195,7 @@ $page_header_args = array(
 					);
 					if ( 'on' === $pillar_value ) :
 						?>
-							<li class="<?php echo esc_attr( $category_item_classes ); ?>"
+							<li class="<?= esc_attr( $category_item_classes ); ?>"
 										<?php
 										foreach ( $category_item_attributes as $name => $value ) {
 											echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
@@ -209,14 +209,14 @@ $page_header_args = array(
 								<h2 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								<div class="Category__item__excerpt item-excerpt">
 									<a href="<?php the_permalink(); ?>">
-						<?php echo esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
+						<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 									</a>
 								</div>
 								<a class="Category__item__cta" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
 							</div>
 							</li>
 		<?php else : ?>
-							<li class="<?php echo esc_attr( $category_item_classes ); ?>"
+							<li class="<?= esc_attr( $category_item_classes ); ?>"
 											<?php
 											foreach ( $category_item_attributes as $name => $value ) {
 												echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
@@ -231,7 +231,7 @@ $page_header_args = array(
 				the_post_thumbnail( 'archive_thumbnail' );
 			} else {
 				?>
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php esc_attr_e( 'Features', 'ms' ); ?>">
+					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php esc_attr_e( 'Features', 'ms' ); ?>">
 
 			<?php	} ?>
 			</div>
@@ -240,19 +240,14 @@ $page_header_args = array(
 										</div>
 									</div>
 									<?php
-									$default_link = get_the_permalink();
 									$custom_link = get_post_meta( get_the_ID(), 'mb_custom_url', true );
-
-									$default_link = $default_link ? esc_url( $default_link ) : '';
-									$custom_link = $custom_link ? esc_url( $custom_link ) : '';
-
-									$url = $custom_link ? $custom_link : $default_link;
+									$item_url = $custom_link ? $custom_link : get_the_permalink();
 									?>
 									<div class="Category__item__content">
-										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $url ) ?>"><?php the_title(); ?></a></h3>
+										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
-											<a href="<?= esc_url( $url ) ?>">
-												<?php echo esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
+											<a href="<?= esc_url( $item_url ) ?>">
+												<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 											</a>
 										</div>
 									</div>
