@@ -69,5 +69,5 @@ if ( announcementBars.length > 1 ) {
 
 		announcementBars.item( counter ).classList.add( 'active' );
 		announcementBars.item( counter - 1 ).classList.remove( 'active' );
-	}, 5000 );
+	}, 8000 );
 }
