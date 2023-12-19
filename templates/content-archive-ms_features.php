@@ -293,19 +293,10 @@ $page_header_args = array(
 											<span class="Category__item__header__label__text"><?= esc_html( $category ); ?></span>
 										</div>
 									</div>
-									<?php
-									$default_link = get_the_permalink();
-									$custom_link = get_post_meta( get_the_ID(), 'mb_custom_url', true );
-
-									$default_link = $default_link ? esc_url( $default_link ) : '';
-									$custom_link = $custom_link ? esc_url( $custom_link ) : '';
-
-									$url = $custom_link ? $custom_link : $default_link;
-									?>
 									<div class="Category__item__content">
-										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $url ) ?>"><?php the_title(); ?></a></h3>
+										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( get_the_permalink() ); ?>"><?php the_title(); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
-											<a href="<?= esc_url( $url ) ?>">
+											<a href="<?= esc_url( get_the_permalink() ); ?>">
 												<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 											</a>
 										</div>
@@ -313,9 +304,7 @@ $page_header_args = array(
 								</div>
 							</li>
 		<?php endif; ?>
-				
 				<?php endwhile; ?>
-				
 			</ul>
 		</div>
 	</div>
