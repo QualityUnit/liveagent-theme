@@ -290,133 +290,49 @@ if (
 			});
 		});
 	}
-</script>
-<script id="announcement-bar-scripts">
 
-	const announcementBar = document.querySelector(".Announcement__bar");
-	const isHidden = announcementBar && announcementBar?.classList.contains("hidden");
+document.addEventListener( 'DOMContentLoaded', ( e ) => {
+	if ( document.querySelector( '.Content .yoast-table-of-contents' ) ) {
+		const heights = { placeholderHeight: 0, stickyHeaderHeight: 0 };
+		let checked = false;
 
-	function showAnnouncementBar() {
-		const appContainer = document.getElementById("app");
-		const announcementBar = document.querySelector(".Announcement__bar");
-
-		if (announcementBar) {
-			announcementBar.style.display = "block";
+		function updateHeights() {
+			const placeholder = document.querySelector( '.compact-header__placeholder' );
+			const stickyHeader = document.querySelector( '.compact-header__placeholder .compact-header--sticky' );
+			if ( placeholder ) {
+				heights.placeholderHeight = placeholder.offsetHeight;
+			}
+			if ( stickyHeader ) {
+				heights.stickyHeaderHeight = stickyHeader.offsetHeight;
+			}
 		}
-		if (appContainer) {
-			appContainer.classList.add("announcement--active");
+
+		function checkScroll() {
+			if ( ! checked && window.scrollY >= heights.placeholderHeight * 2 ) {
+				updateHeights();
+				checked = true;
+				window.removeEventListener( 'scroll', checkScroll );
+			}
 		}
+
+		function handleLinkClick( event ) {
+			event.preventDefault();
+			const targetId = this.getAttribute( 'href' ).substring( 1 );
+			const targetElement = document.getElementById( targetId );
+
+			if ( targetElement ) {
+				const { placeholderHeight, stickyHeaderHeight } = heights;
+				const defaultSubHeaderHeight = 73;
+				const offset = stickyHeaderHeight || defaultSubHeaderHeight;
+				const targetPosition = targetElement.offsetTop + placeholderHeight - offset;
+
+				window.scrollTo( { top: targetPosition, behavior: 'smooth' } );
+			}
+		}
+
+		updateHeights();
+		window.addEventListener( 'scroll', checkScroll );
+		document.querySelectorAll( '.yoast-table-of-contents li a' ).forEach( ( link ) => link.addEventListener( 'click', handleLinkClick ) );
 	}
-
-	function hideAnnouncementBar() {
-		const appContainer = document.getElementById("app");
-
-		if (appContainer) {
-			appContainer.classList.remove("announcement--active");
-			appContainer.classList.add("announcement--hidden");
-			appContainer.classList.add("announcement--closed");
-		}
-		sessionStorage.setItem("announcementClosed", "true");
-	}
-
-	function initializeAnnouncementBar() {
-		const appContainer = document.getElementById("app");
-		const scrollHeight = window.scrollY;
-
-		if (appContainer) {
-			if (scrollHeight >= 800) {
-				appContainer.classList.remove("announcement--hidden");
-				appContainer.classList.add("announcement--active");
-			}
-		}
-
-		const closeButton = document.querySelector(".Announcement__bar__close");
-		if (closeButton) {
-			closeButton.addEventListener("click", function() {
-				hideAnnouncementBar();
-			});
-		}
-	}
-
-	function toggleAnnouncementBar() {
-		const appContainer = document.getElementById("app");
-		const scrollHeight = window.scrollY;
-
-		const announcementClosed = sessionStorage.getItem("announcementClosed");
-		if (appContainer) {
-			if (announcementClosed === "true") {
-				appContainer.classList.add("announcement--hidden");
-			} else if (scrollHeight >= 800) {
-				appContainer.classList.remove("announcement--active");
-				appContainer.classList.add("announcement--hidden");
-			} else if (!appContainer.classList.contains("announcement--closed")) {
-				if (appContainer.classList.contains("announcement--hidden")) {
-					appContainer.classList.add("announcement--active");
-					appContainer.classList.remove("announcement--hidden");
-				}
-			}
-		}
-	}
-
-
-
-	if (!isHidden) {
-		document.addEventListener("DOMContentLoaded", function() {
-			const announcementClosed = sessionStorage.getItem("announcementClosed");
-			if (!announcementClosed) {
-				showAnnouncementBar();
-			}
-		});
-
-		document.addEventListener("DOMContentLoaded", initializeAnnouncementBar);
-		window.addEventListener("scroll", toggleAnnouncementBar);
-	}
-
-
-	document.addEventListener('DOMContentLoaded', (e) => {
-
-		if (document.querySelector('.Content .yoast-table-of-contents'))  {
-
-			let heights = {placeholderHeight: 0, stickyHeaderHeight: 0};
-			let checked = false;
-
-			function updateHeights() {
-				const placeholder = document.querySelector('.compact-header__placeholder');
-				const stickyHeader = document.querySelector('.compact-header__placeholder .compact-header--sticky');
-				if (placeholder) heights.placeholderHeight = placeholder.offsetHeight;
-				if (stickyHeader) heights.stickyHeaderHeight = stickyHeader.offsetHeight;
-			}
-
-			function checkScroll() {
-				if (!checked && window.scrollY >= heights.placeholderHeight * 2) {
-					updateHeights();
-					checked = true;
-					window.removeEventListener('scroll', checkScroll);
-				}
-			}
-
-			function handleLinkClick(event) {
-				event.preventDefault();
-				const targetId = this.getAttribute('href').substring(1);
-				const targetElement = document.getElementById(targetId);
-
-				if (targetElement) {
-					const {placeholderHeight, stickyHeaderHeight} = heights;
-					const defaultSubHeaderHeight = 73;
-					const offset = stickyHeaderHeight || defaultSubHeaderHeight;
-					const targetPosition = targetElement.offsetTop + placeholderHeight - offset;
-
-					console.log(targetPosition);
-					window.scrollTo({top: targetPosition, behavior: 'smooth'});
-				}
-			}
-
-			updateHeights();
-			window.addEventListener('scroll', checkScroll);
-			document.querySelectorAll('.yoast-table-of-contents li a').forEach(link => link.addEventListener('click', handleLinkClick));
-		}
-	});
-
-
-
+} );
 </script>
