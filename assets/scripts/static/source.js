@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-/* global getCookie, setCookie, location */
+/* global getCookie, setCookie */
 
 function processAnchor( name ) {
 	const replacedName = name.replace( '#', '' );
