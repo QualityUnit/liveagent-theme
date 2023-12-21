@@ -3,7 +3,32 @@
 add_filter( 'simple_register_taxonomy_settings', 'add_features_taxonomy_card' );
 
 function add_features_taxonomy_card( $settings ) {
-	global $integrations_posts;
+	function get_integrations() {
+			$query_args = array(
+				'post_type'      => 'ms_integrations',
+				'posts_per_page' => -1,
+				'fields'         => 'ids',
+			);
+			
+			$show_posts = new WP_Query( $query_args );
+
+			foreach ( $show_posts->posts as $post_id ) {
+				$post_lang = apply_filters( 'wpml_post_language_details', null, $post_id );
+				if ( is_array( $post_lang ) && 'en' === $post_lang['language_code'] ) {
+						$integrations_posts[ $post_id ] = str_replace( '^', '', get_the_title( $post_id ) );
+				}
+			}
+
+			wp_reset_query();
+
+			return $integrations_posts;
+	}
+
+	$integrations_posts = array();
+
+	if ( is_admin() && isset( $_GET['taxonomy'] ) && 'ms_features_categories' === $_GET['taxonomy'] && ( ( isset( $_GET['post_type'] ) && 'ms_features' === $_GET['post_type'] || ( 'post.php' === $pagenow && isset( $_GET['post'] ) ) && 'ms_features' === get_post_type( $_GET['post'] ) ) ) ) {
+			$integrations_posts = get_integrations();
+	}
 
 	$settings[] = array(
 		'id'       => 'ms_features',
