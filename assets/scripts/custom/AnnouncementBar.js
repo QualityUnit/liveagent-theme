@@ -52,7 +52,25 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	initializeAnnouncementBar();
 } );
 
-window.addEventListener( 'scroll', toggleAnnouncementBar );
+const AnnouncementBarObserver = new IntersectionObserver(
+	( [ entry ] ) => {
+		console.log( entry.boundingClientRect );
+		if ( entry.isIntersecting ) {
+			console.log( 'picaaa' );
+		}
+		if ( entry.boundingClientRect.top > 800 ) {
+			console.log( 'gule' );
+		}
+	},
+	{
+		root: null,
+		rootMargin: `0px 0px -100% 0px`,
+	}
+);
+
+// AnnouncementBarObserver.observe( document.querySelector( '.AppContainer > *:first-child' ) );
+
+// window.addEventListener( 'scroll', toggleAnnouncementBar );
 
 if ( announcementBars.length > 1 ) {
 	let counter = 0;

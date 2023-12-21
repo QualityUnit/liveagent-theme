@@ -30,7 +30,18 @@ if ( trialStickyButton !== null ) {
 				}
 			}
 
-			setTimeout( showTrialStickyButton, 7000 );
+			const TrialButtonObserver = new IntersectionObserver(
+				( [ entry ] ) => {
+					if ( entry.isIntersecting ) {
+						showTrialStickyButton();
+					}
+				},
+				{
+					rootMargin: `0px 0px -100% 0px`,
+				}
+			);
+
+			TrialButtonObserver.observe( document.querySelector( '.AppContainer > *:first-child' ) );
 
 			closeTrialStickyButton();
 		}

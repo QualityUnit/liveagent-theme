@@ -2,6 +2,7 @@
 function header_banners( $page, $banners_array ) {
 	// $banners_array = array=(array(title, subtitle, image, class, url), array(title, subtitle, image, class, url))
 	if ( wp_head_content( $page ) ) {
+		set_custom_source( 'components/AnnouncementBar', 'css' );
 		?>
 		<div class="Announcement__bars__slider">
 		<?php 
