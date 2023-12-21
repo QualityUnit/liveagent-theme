@@ -124,6 +124,19 @@ function awards_years_redirect() {
 }
 add_action( 'template_redirect', 'awards_years_redirect' );
 
+
+/**
+ * Redirect Videos Categories
+ */
+function videos_category_redirect() {
+	if ( is_tax( 'ms_videos_categories' ) ) {
+		wp_safe_redirect( '/videos/', 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'videos_category_redirect' );
+
+
 /**
 	* Success Stories / Use case scenarios redirect
 	We have to use ms_success-stories everywhere to preserve old DB records
