@@ -30,32 +30,6 @@ if ( is_admin() && ( isset( $_GET['post_type'] ) && 'ms_reviews' === $_GET['post
 	$reviews_posts = get_reviews();
 }
 
-function get_integrations() {
-	$query_args = array(
-		'post_type'      => 'ms_integrations',
-		'posts_per_page' => 500,
-		'fields'         => 'ids',
-	);
-		
-	$show_posts = new WP_Query( $query_args );
-
-	foreach ( $show_posts->posts as $post_id ) {
-		$post_lang = apply_filters( 'wpml_post_language_details', null, $post_id );
-		if ( is_array( $post_lang ) && 'en' === $post_lang['language_code'] ) {
-			$integrations_posts[ $post_id ] = str_replace( '^', '', get_the_title( $post_id ) );
-		}
-	}
-
-	wp_reset_query();
-
-	return $integrations_posts;
-}
-
-$integrations_posts = array();
-
-if ( is_admin() && ( ( isset( $_GET['post_type'] ) && 'ms_features' === $_GET['post_type'] || ( 'post.php' === $pagenow && isset( $_GET['post'] ) ) && 'ms_features' === get_post_type( $_GET['post'] ) ) ) ) {
-		$integrations_posts = get_integrations();
-}
 
 	// Gets Directory posts IDs
 function get_directory_contacts() {
