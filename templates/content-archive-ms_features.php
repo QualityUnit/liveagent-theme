@@ -146,7 +146,7 @@ $page_header_args = array(
 			<ul class="Category__content__items list">
 				<?php
 				$item_order = 0;
-					
+
 				while ( have_posts() === true ) :
 					the_post();
 					?>
@@ -189,6 +189,10 @@ $page_header_args = array(
 					?>
 
 					<?php
+					// Custom link for items
+					$custom_link = get_post_meta( get_the_ID(), 'mb_custom_url', true );
+					$item_url = $custom_link ? $custom_link : get_the_permalink();
+
 					// Element classes.
 					$pillar_value = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) ?? '' );
 					$pillar_class = '';
@@ -205,8 +209,10 @@ $page_header_args = array(
 						'data-collections' => esc_attr( $collections ),
 						'data-size'        => esc_attr( $size ),
 						'data-category'    => esc_attr( $category ),
-						'data-href'        => get_permalink(),
+						'data-href'        => esc_url( $item_url ),
 					);
+
+
 					if ( 'on' === $pillar_value ) :
 						?>
 							<li class="<?= esc_attr( $category_item_classes ); ?>" style="order: <?= esc_attr( $item_order ); ?>"
@@ -216,17 +222,17 @@ $page_header_args = array(
 										}
 										?>
 							>
-							<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
+							<a href="<?= esc_url( $item_url ) ?>" class="Category__item__thumbnail">
 								<span class="Category__item__thumbnail__image"></span>
 							</a>
 							<div class="Category__item__wrap">
-								<h2 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								<h2 class="Category__item__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h2>
 								<div class="Category__item__excerpt item-excerpt">
-									<a href="<?php the_permalink(); ?>">
+									<a href="<?= esc_url( $item_url ) ?>">
 						<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 									</a>
 								</div>
-								<a class="Category__item__cta" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
+								<a class="Category__item__cta" href="<?= esc_url( $item_url ) ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
 							</div>
 							</li>
 							<?php
@@ -293,10 +299,6 @@ $page_header_args = array(
 											<span class="Category__item__header__label__text"><?= esc_html( $category ); ?></span>
 										</div>
 									</div>
-									<?php
-									$custom_link = get_post_meta( get_the_ID(), 'mb_custom_url', true );
-									$item_url = $custom_link ? $custom_link : get_the_permalink();
-									?>
 									<div class="Category__item__content">
 										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
