@@ -123,7 +123,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 			<div class="Content" itemprop="articleBody">
 
 				<div class="Directory__blocks">
-					<h2 id="customer-service-contacts" class="Post__sectiontitle"><?= esc_html( $page_header_args['title'] ), ' ' , esc_html_e( 'integration', 'ms' ); ?></h2>
+					<h2 id="customer-service-contacts" class="Post__sectiontitle"><span><?= esc_html( $page_header_args['title'] ), ' ' , esc_html_e( 'integration', 'ms' ); ?></span></h2>
 					<div class="Directory__blocks__items">
 						<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_learn_more', true ) ) { ?>
 						<div class="Directory__blocks__items__item">
