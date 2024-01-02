@@ -1,0 +1,95 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.trial__sticky__button {
+	position: fixed;
+	bottom: -100%;
+	left: 57%;
+	transform: translateX(-50%);
+	z-index: 1000;
+	opacity: 0;
+	display: flex;
+	transition: all 0.5s ease;
+
+	&.active {
+		bottom: 20px;
+		opacity: 1;
+		transition: all 0.5s ease;
+	}
+
+	a {
+		padding: 12px 26px;
+		background-color: $saturated-blue;
+		color: $white;
+		border: none;
+		border-radius: 100px;
+		font-weight: 600;
+		cursor: pointer;
+		text-decoration: none;
+		position: relative;
+		white-space: nowrap;
+
+		&:hover {
+			color: $white;
+			text-decoration: none;
+		}
+	}
+
+	.trial__sticky__button--close {
+		z-index: -1;
+		transform: translateX(-50%);
+		background-color: $desaturated-blue;
+		color: $saturated-blue;
+		padding: 12px 18px 12px 60px;
+		border-radius: 100px;
+		cursor: pointer;
+	}
+
+	@media (max-width: $breakpoint-iphone-old) {
+		left: 1em;
+		transform: translateX(0);
+	}
+}
+
+.ContactUs {
+
+	&__button {
+		overflow: hidden;
+		transition: max-width 0.5s ease, padding 0.5s ease, border-radius 0.1s ease;
+		display: inline-flex !important;
+		align-items: center;
+
+		> span {
+			transition: max-width 0.5s ease, opacity 0.5s ease;
+			max-width: 100px;
+			white-space: nowrap;
+			opacity: 1;
+
+		}
+	}
+
+
+	&.active {
+
+		.ContactUs__button {
+			padding: 0.5em;
+			transition: padding 0.5s ease, border-radius 0.5s ease;
+			transition-delay: 0.1s;
+			border-radius: 100%;
+
+			> span {
+				max-width: 0;
+				opacity: 0;
+				transition: opacity 0.5s ease, max-width 0.5s ease;
+			}
+
+			.ContactUs__button--icon__wrap {
+				margin-left: 0 !important;
+
+			}
+		}
+
+
+	}
+}

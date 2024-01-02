@@ -197,102 +197,6 @@
 		} );
 	}
 
-	/* Glossary */
-	if ( query( '.Archive__container--glossary' ) !== null ) {
-		queryAll( '.Archive__filter ul li a' ).forEach( ( element ) => {
-			const link = element.getAttribute( 'href' );
-
-			element.addEventListener( 'click', ( event ) => {
-				const scrollToPos =
-					query( link ).getBoundingClientRect().top +
-					window.pageYOffset;
-				event.preventDefault();
-				if ( window.matchMedia( '(min-width: 1180px)' ).matches ) {
-					window.scroll( {
-						top: scrollToPos - 215,
-						behavior: 'smooth',
-					} );
-				} else {
-					window.scroll( {
-						top: scrollToPos - 115,
-						behavior: 'smooth',
-					} );
-				}
-			} );
-		} );
-	}
-
-	// Custom tabs and accordion, replacing Elementor one
-	if ( queryAll( '.elementor-tab-title' ).length > 0 ) {
-		const tabItems = queryAll( '.elementor-tab-title' );
-		const firstItemRef = tabItems.item( 0 ).getAttribute( 'aria-controls' );
-		const parent = tabItems
-			.item( 0 )
-			.closest( '.elementor-widget-container' );
-
-		tabItems.forEach( ( element ) => {
-			const elemReference = element.getAttribute( 'aria-controls' );
-			const elemContent = document.querySelector( `#${ elemReference }` );
-
-			if (
-				parent.querySelectorAll( '.elementor-accordion-item' ).length >
-				0
-			) {
-				elemContent.dataset.height = `${ elemContent.clientHeight }px`;
-				elemContent.style.height = '0px';
-				elemContent.style.paddingBottom = '0px';
-			}
-			element.addEventListener( 'click', ( event ) => {
-				const nonActive = queryAll(
-					`[aria-controls=${ elemReference }], #${ elemReference }`
-				);
-
-				event.preventDefault();
-
-				if (
-					parent.querySelector(
-						'[data-active="elementor-active"].elementor-tab-content'
-					) !== null
-				) {
-					const activeElem = parent.querySelectorAll(
-						'[data-active="elementor-active"]'
-					);
-
-					if (
-						parent.querySelectorAll( '.elementor-accordion-item' )
-							.length > 0
-					) {
-						parent.querySelector(
-							'[data-active="elementor-active"].elementor-tab-content'
-						).style.height = '0px';
-					}
-					activeElem.forEach( ( elementorItem ) => {
-						elementorItem.dataset.active = '';
-					} );
-				}
-
-				nonActive.forEach( ( elementorItem ) => {
-					elementorItem.dataset.active = 'elementor-active';
-				} );
-
-				if (
-					parent.querySelectorAll( '.elementor-accordion-item' )
-						.length > 0
-				) {
-					elemContent.style.height = elemContent.dataset.height;
-				}
-			} );
-		} );
-
-		queryAll(
-			`[aria-controls=${ firstItemRef }], #${ firstItemRef }`
-		).forEach( ( item ) => {
-			item.dataset.active = 'elementor-active';
-			// eslint-disable-next-line no-param-reassign
-			item.style.height = 'auto';
-		} );
-	}
-
 	const form = query( '.Signup__form' );
 
 	function scroll( element ) {
@@ -352,41 +256,6 @@
 		}
 	}
 
-	/* Copy to clipboard */
-	if ( queryAll( '.Copy ' ).length > 0 ) {
-		queryAll( '.Copy ' ).forEach( ( item ) => {
-			item.querySelector( '.Button--copy' ).addEventListener(
-				'click',
-				() => {
-					const thisCopy = item;
-					const copyText = thisCopy.querySelector(
-						'.textarea-pseudo'
-					).innerText;
-					const defaultText = thisCopy.querySelector(
-						'.Button--copy span'
-					).textContent;
-
-					const textArea = document.createElement( 'textarea' );
-					textArea.value = copyText;
-					document.body.appendChild( textArea );
-					textArea.select();
-
-					document.execCommand( 'copy' );
-					document.body.removeChild( textArea );
-
-					thisCopy.querySelector( '.Button--copy span' ).textContent =
-						'Copied!';
-
-					setTimeout( () => {
-						thisCopy.querySelector(
-							'.Button--copy span'
-						).textContent = defaultText;
-					}, 5000 );
-				}
-			);
-		} );
-	}
-
 	/* Login */
 	if ( query( '.Login__overlay' ) !== null ) {
 		query( '.Login__overlay' ).addEventListener( 'click', () => {
@@ -397,34 +266,6 @@
 		query( '.Login__popup__close' ).addEventListener( 'click', () => {
 			query( '.Login__overlay' ).classList.remove( 'active' );
 			query( '.Login__popup' ).classList.remove( 'active' );
-		} );
-	}
-
-	/* Awards switching */
-	const awardsYears = document.querySelectorAll( '.Awards__switcher--year' );
-
-	if ( awardsYears.length > 0 ) {
-		awardsYears.forEach( ( year ) => {
-			year.addEventListener( 'click', () => {
-				const yearActive = document.querySelector(
-					'.Awards__switcher--year.active'
-				);
-				const yearContainerActive = document.querySelector(
-					'.Awards__container.active'
-				);
-
-				const thisYear = year;
-				const thisYearRef = year.dataset.year;
-
-				yearActive.classList.remove( 'active' );
-				thisYear.classList.add( 'active' );
-				yearContainerActive.classList.remove( 'active' );
-				document
-					.querySelector(
-						`.Awards__container[data-year='${ thisYearRef }']`
-					)
-					.classList.add( 'active' );
-			} );
 		} );
 	}
 } )();

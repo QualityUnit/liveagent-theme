@@ -1,4 +1,12 @@
 <?php // @codingStandardsIgnoreLine
+$query_args = array(
+	'post_type'      => 'ms_features',
+	'posts_per_page' => -1,
+	'fields'         => 'ids',
+);
+
+	$features_posts = new WP_Query( $query_args );
+		wp_reset_query();
 set_source( 'features', 'pages/Category', 'css' );
 set_source( 'features', 'pages/CategoryImages', 'css' );
 set_source( 'features', 'pages/CategoryItemBgs', 'css' );
@@ -137,6 +145,8 @@ $page_header_args = array(
 		<div class="Category__content">
 			<ul class="Category__content__items list">
 				<?php
+				$item_order = 0;
+
 				while ( have_posts() === true ) :
 					the_post();
 					?>
@@ -146,6 +156,7 @@ $page_header_args = array(
 					$plan        = '';
 					$size        = '';
 					$category    = '';
+					$cat_item    = '';
 
 					$future_plans       = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ?? '' );
 					$future_sizes       = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_size', true ) ?? '' );
@@ -169,6 +180,7 @@ $page_header_args = array(
 							$category_item = array_shift( $categories );
 							$category     .= $category_item->slug;
 							$category     .= ' ';
+							$cat_item      = $category_item;
 						}
 					}
 
@@ -177,13 +189,19 @@ $page_header_args = array(
 					?>
 
 					<?php
+					// Custom link for items
+					$custom_link = get_post_meta( get_the_ID(), 'mb_custom_url', true );
+					$item_url = $custom_link ? $custom_link : get_the_permalink();
+
 					// Element classes.
 					$pillar_value = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) ?? '' );
 					$pillar_class = '';
 					if ( 'on' === $pillar_value ) {
 							$pillar_class = 'pillar';
+							$item_order++;
 					}
 					$category_item_classes = 'Category__item redesign Category__item--features ' . $pillar_class . ' ' . esc_attr( $category ) . ' ' . esc_attr( $category_en );
+					$category_card_item_classes = 'Category__item redesign Category__item--features ' . esc_attr( $category ) . ' ' . esc_attr( $category_en );
 
 					// Element attributes.
 					$category_item_attributes = array(
@@ -191,32 +209,74 @@ $page_header_args = array(
 						'data-collections' => esc_attr( $collections ),
 						'data-size'        => esc_attr( $size ),
 						'data-category'    => esc_attr( $category ),
-						'data-href'        => get_permalink(),
+						'data-href'        => esc_url( $item_url ),
 					);
+
+
 					if ( 'on' === $pillar_value ) :
 						?>
-							<li class="<?php echo esc_attr( $category_item_classes ); ?>"
+							<li class="<?= esc_attr( $category_item_classes ); ?>" style="order: <?= esc_attr( $item_order ); ?>"
 										<?php
 										foreach ( $category_item_attributes as $name => $value ) {
 											echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
 										}
 										?>
 							>
-							<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
+							<a href="<?= esc_url( $item_url ) ?>" class="Category__item__thumbnail">
 								<span class="Category__item__thumbnail__image"></span>
 							</a>
 							<div class="Category__item__wrap">
-								<h2 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								<h2 class="Category__item__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h2>
 								<div class="Category__item__excerpt item-excerpt">
-									<a href="<?php the_permalink(); ?>">
-						<?php echo esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
+									<a href="<?= esc_url( $item_url ) ?>">
+						<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 									</a>
 								</div>
-								<a class="Category__item__cta" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
+								<a class="Category__item__cta" href="<?= esc_url( $item_url ) ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
 							</div>
 							</li>
-		<?php else : ?>
-							<li class="<?php echo esc_attr( $category_item_classes ); ?>"
+							<?php
+							$integrations = get_term_meta( $cat_item->term_id, 'card', true );
+							if ( ! empty( $integrations ) ) {
+								foreach ( $integrations as $integration ) {
+									$integration_id = $integration['integration_post'];
+									?>
+
+							<li class="<?= esc_attr( $category_card_item_classes ); ?>" style="order: <?= esc_attr( $item_order + 1 ); ?>"
+											<?php
+											foreach ( $category_item_attributes as $name => $value ) {
+													echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
+											}
+											?>
+								>
+								<div class="Category__item__wrap">
+									<div class="Category__item__header">
+										<div class="Category__item__header__image">
+											<img src="<?= esc_url( get_the_post_thumbnail_url( $integration_id, 'archive_thumbnail' ) ); ?>" alt="<?php esc_attr_e( 'Features', 'ms' ); ?>">
+										</div>
+										<div class="Category__item__header__label">
+											<span class="Category__item__header__label__text">
+												<?= esc_html( $category ); ?>
+											</span>
+										</div>
+									</div>
+									<div class="Category__item__content">
+										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( get_the_permalink( $integration_id ) ); ?>"><?= esc_html( get_the_title( $integration_id ) ); ?></a></h3>
+										<div class="Category__item__content__excerpt item-excerpt">
+											<a href="<?= esc_url( get_the_permalink( $integration_id ) ); ?>">
+									<?= esc_html( wp_trim_words( get_the_excerpt( $integration_id ), 14 ) ); ?>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+									<?php
+								}
+							}
+							?>
+					<?php else : ?>
+							<li class="<?= esc_attr( $category_item_classes ); ?>"
+									style="order: <?= esc_attr( $item_order ); ?>"
 											<?php
 											foreach ( $category_item_attributes as $name => $value ) {
 												echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
@@ -226,24 +286,24 @@ $page_header_args = array(
 								<div class="Category__item__wrap">
 									<div class="Category__item__header">
 										<div class="Category__item__header__image">
-			<?php
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail( 'archive_thumbnail' );
-			} else {
-				?>
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php esc_attr_e( 'Features', 'ms' ); ?>">
+						<?php
+						if ( has_post_thumbnail() ) {
+							the_post_thumbnail( 'archive_thumbnail' );
+						} else {
+							?>
+					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php esc_attr_e( 'Features', 'ms' ); ?>">
 
-			<?php	} ?>
+						<?php	} ?>
 			</div>
 										<div class="Category__item__header__label">
-											<span class="Category__item__header__label__text">Ticketing system</span>
+											<span class="Category__item__header__label__text"><?= esc_html( $category ); ?></span>
 										</div>
 									</div>
 									<div class="Category__item__content">
-										<h3 class="Category__item__content__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
-											<a href="<?php the_permalink(); ?>">
-												<?php echo esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
+											<a href="<?= esc_url( $item_url ) ?>">
+												<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 											</a>
 										</div>
 									</div>

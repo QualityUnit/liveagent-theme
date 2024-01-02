@@ -3,7 +3,7 @@
 /**
  * Setup variables
  */
-define( 'THEME_VERSION', '1.20.14' );
+define( 'THEME_VERSION', '1.20.24' );
 
 /**
  * Includes
@@ -42,6 +42,7 @@ $theme_includes = array(
 	'functions/widgets.php', // Import Widgets/Plugins
 	'functions/remove-base-classes.php', // Remove base classes
 	'functions/get-cta-button-data.php', // Get data from metaboxes for cta button in the compact header
+	'functions/header-banners.php', // Shows banners on selected pages
 	'functions/create-language-menu.php', // Function for generate languages
 );
 
@@ -71,5 +72,3 @@ add_filter(
 		return $config;
 	}
 );
-
-
