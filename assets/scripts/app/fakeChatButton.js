@@ -1,4 +1,4 @@
-/* global getCookie, navigator */
+/* global getCookie */
 
 const fakeChatButtons = document.querySelectorAll( '.fakeChatButton' );
 const cookieModal = document.querySelector( '.Medovnicky' );

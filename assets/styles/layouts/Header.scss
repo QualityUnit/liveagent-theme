@@ -4,7 +4,6 @@
 @use "../common/mixins" as *;
 @use "../components/HeaderLanguageSwitcher" as *;
 @use "../components/Login" as *;
-@forward "../components/AnnouncementBar";
 
 #app {
 	padding-top: $header-height;
