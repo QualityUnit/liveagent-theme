@@ -1,6 +1,6 @@
 /* stylelint-disable selector-class-pattern */
 
-$featured_items_bg: (
+$features_items_bg: (
 	"ticket-management": "features_ticketing_item_bg.jpg",
 	"live-chat": "features_livechat_item_bg.jpg",
 	"call-center": "features_callcenter_item_bg.jpg",
@@ -15,9 +15,62 @@ $featured_items_bg: (
 	"browser-extensions": "features_browser_extensions_item_bg.jpg",
 );
 
-@each $className, $image in $featured_items_bg {
+@each $className, $image in $features_items_bg {
 
 	.redesign.Category__item--features.#{$className} {
+
+		.Category__item {
+
+			&__header {
+
+				&::before {
+					background-image: url(../../images/#{$image});
+				}
+			}
+		}
+	}
+}
+
+$templates_pillar_bg: (
+	"business": "templates_business_pillar.jpg",
+	"ticketing": "templates_ticketing_pillar.jpg",
+	"customer-service": "templates_customer-service_pillar.jpg",
+	"customer-portal": "templates_customer-portal_pillar.jpg",
+	"social-customer-service": "templates_social-customer-service_pillar.jpg",
+);
+
+$templates_items_bg: (
+	"business": "templates_business_item_bg.jpg",
+	"ticketing": "templates_ticketing_item_bg.jpg",
+	"customer-service": "templates_customer-service_item_bg.jpg",
+	"customer-portal": "templates_customer-portal_item_bg.jpg",
+	"social-customer-service": "templates_social-customer-service_item_bg.jpg",
+	"reporting": "features_service_reporting_item_bg.jpg",
+	"support-portal": "features_supportportal_item_bg.jpg",
+	"gamification": "features_gamification_item_bg.jpg",
+	"multilingual": "features_multilingual_item_bg.jpg",
+	"mobile-apps": "features_mobileapps_item_bg.jpg",
+	"integrations": "features_integrations_item_bg.jpg",
+	"security": "features_security_item_bg.jpg",
+	"browser-extensions": "features_browser_extensions_item_bg.jpg",
+);
+
+@each $className,
+	$image in $templates_pillar_bg {
+
+	.redesign.Category__item--templates.#{$className} {
+
+		&.pillar {
+			background-image: url(../../images/#{$image});
+			background-size: cover;
+		}
+	}
+}
+
+@each $className,
+	$image in $templates_items_bg {
+
+	.redesign.Category__item--templates.#{$className} {
 
 		.Category__item {
 

@@ -355,7 +355,7 @@
 }
 
 
-.redesign.Category__item--features {
+.redesign[class*="redesign"] {
 	padding: 0 !important;
 	max-height: 23.125em;
 	box-shadow: 0 0 0 2px transparent;
@@ -530,10 +530,13 @@
 	}
 
 	&.pillar {
-		background: url(../../images/bg_circles_category_item.jpg)  center/cover no-repeat;
-		padding: 0;
-		z-index: 1;
 		margin-top: 1.25em;
+
+		&.Category__item--features {
+			background: url(../../images/bg_circles_category_item.jpg)  center/cover no-repeat;
+			padding: 0;
+			z-index: 1;
+		}
 
 		&:hover {
 			border: 1px solid;
@@ -561,7 +564,7 @@
 
 			&__wrap {
 				padding: 4.1875em;
-
+				padding-right: 2.5em;
 			}
 
 			&__title {
