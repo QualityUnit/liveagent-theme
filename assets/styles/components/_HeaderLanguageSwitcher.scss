@@ -3,16 +3,26 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-.Header__flags {
-	margin-left: 30px;
-	border-left: 1px solid #000;
+$bg-color: #f9f9fa;
 
-	@media (max-width: $breakpoint-desktop) {
-		margin-left: 0;
-		border-left: 0;
-		margin-right: 20px;
-		padding-right: 20px;
-		border-right: 1px solid #000;
+.Header__flags__mobile {
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: none;
+	}
+}
+
+.Header__flags {
+
+	display: none;
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: block;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		margin-left: 1.875em;
+		border-left: 0.0625em solid #000;
 	}
 
 	ul {
@@ -78,7 +88,6 @@
 		}
 
 		&-toggle {
-			// padding: 5px 20px 5px 25px;
 			cursor: pointer;
 
 			.Header__flags--item-flag {
@@ -89,7 +98,7 @@
 				content: "\e821";
 				font-family: fontello, sans-serif;
 				font-size: 0.75rem;
-				top: 9px;
+				top: 0.5625em;
 				right: 0;
 			}
 
@@ -102,8 +111,12 @@
 				}
 			}
 
-			@media (min-width: $breakpoint-desktop) {
+			@media (min-width: $breakpoint-tablet-landscape) {
 				padding: 0 1.25em;
+
+				h3 {
+					display: none;
+				}
 			}
 		}
 	}
@@ -113,7 +126,6 @@
 		@include color(background-color, main-background);
 		position: fixed;
 		overflow: scroll;
-		display: none;
 		width: 100vw;
 		height: 100vh;
 		padding: 1.25em;
@@ -132,6 +144,13 @@
 
 		@media (min-width: $breakpoint-tablet) {
 
+			.Header__flags--region-asia {
+				margin-top: 1em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
 			@include clear;
 			position: absolute;
 			overflow: visible;
@@ -144,30 +163,13 @@
 			left: auto;
 			right: 6.5em;
 			box-shadow: 0 0.18em 4em 0 rgba($black-real, 0.15);
+			display: none;
 		}
 
 		@media (min-width: $breakpoint-desktop) {
 			right: 2.5em;
 		}
 	}
-
-	//Region switcher mobile - Prepared for more languages
-	// @for $input from 1 to 5 {
-	// 	.input--region:nth-of-type(#{$input}):checked {
-
-	// 		~ .Header__flags {
-
-	// 			&--region-switchers .Header__flags--region-switcher
-	// &:nth-of-type(#{$input}) {
-	// 				background-color: red;
-	// 			}
-
-	// 			&--regions .Header__flags--region:nth-of-type(#{$input}) {
-	// 				display: block;
-	// 			}
-	// 		}
-	// 	}
-	// }
 
 	&--region {
 		height: auto;
@@ -187,7 +189,6 @@
 
 		&-title {
 			position: relative;
-			// left: 3px;
 			font-size: 0.875rem;
 			line-height: 1.25;
 			margin: 0 0 0.25em 0;
@@ -214,7 +215,7 @@
 		}
 
 		//Region switcher mobile - Prepared for more languages
-		&-switchers {
+		&-switcher {
 			display: none;
 			width: 100%;
 		}
@@ -256,4 +257,99 @@
 	&-no {
 		display: none !important;
 	}
+}
+
+.Header__navigation {
+
+	&.active {
+
+		&.mobile-active {
+
+			.Header__flags {
+
+				&__mobile__title {
+					display: none;
+				}
+
+				&--main {
+
+					> ul {
+						margin: 0;
+					}
+				}
+
+				&--mainmenu {
+
+					position: relative;
+					padding: 0 1.5em;
+					height: auto;
+					top: unset;
+
+
+					&.active {
+						display: flex;
+						background-color: $bg-color;
+					}
+				}
+
+				&--item-toggle {
+					display: flex;
+					justify-content: space-between;
+					padding: 0 1.25em;
+					align-items: center;
+
+					&.active {
+						background-color: $pricing-gray;
+					}
+
+					h3 {
+						font-size: 1rem;
+						line-height: 3.75;
+						margin: 0;
+					}
+
+					svg {
+						display: none;
+					}
+				}
+
+				&--regions {
+					padding-left: 0.5em;
+				}
+
+				&--region {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+
+					> ul {
+						display: grid;
+						grid-template-columns: 1fr 1fr 1fr;
+						gap: 0.5em 1em;
+						width: 100%;
+					}
+
+					&.Header__flags--region-europe {
+						margin-top: 1em;
+					}
+				}
+			}
+
+			.Header__flags__mobile {
+
+				.Header__flags--mainmenu {
+					transition: height 0.5s ease-out;
+					opacity: 1;
+					height: 0;
+
+					&.active {
+						transition: height 0.5s ease-out;
+					}
+				}
+
+			}
+		}
+
+	}
+
 }

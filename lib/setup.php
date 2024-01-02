@@ -134,5 +134,15 @@ add_action(
 				'after_title'   => '</div>',
 			)
 		);
+		register_sidebar(
+			array(
+				'name'          => __( 'Header Language Switcher mobile', 'ms' ),
+				'id'            => 'header_flags_mobile',
+				'before_widget' => '<div class="mobile %1$s %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<div class="Header__flags__mobile__title h4">',
+				'after_title'   => '</div>',
+			)
+		);
 	}
 );
