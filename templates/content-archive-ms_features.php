@@ -261,7 +261,7 @@ $page_header_args = array(
 										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( get_the_permalink( $integration_id ) ); ?>"><?= esc_html( get_the_title( $integration_id ) ); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
 											<a href="<?= esc_url( get_the_permalink( $integration_id ) ); ?>">
-									<?= esc_html( wp_trim_words( get_the_excerpt( $integration_id ), 14 ) ); ?>
+									<?= esc_html( wp_trim_words( get_the_excerpt( $integration_id ), 11 ) ); ?>
 											</a>
 										</div>
 									</div>
@@ -300,7 +300,7 @@ $page_header_args = array(
 										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
 											<a href="<?= esc_url( $item_url ) ?>">
-												<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
+												<?= esc_html( wp_trim_words( get_the_excerpt(), 11 ) ); ?>
 											</a>
 										</div>
 									</div>

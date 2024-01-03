@@ -147,10 +147,10 @@ $page_header_args = array(
 										</div>
 									</div>
 									<div class="Category__item__content">
-										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h3>
+										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ) ?>" title="<?= esc_attr( get_the_title() ); ?>"><?= esc_html( wp_trim_words( get_the_title(), 5 ) ); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
 											<a href="<?= esc_url( $item_url ) ?>">
-													<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
+													<?= esc_html( wp_trim_words( get_the_excerpt(), 11 ) ); ?>
 											</a>
 										</div>
 									</div>
