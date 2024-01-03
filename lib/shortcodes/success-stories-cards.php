@@ -68,7 +68,7 @@ function ms_success_stories_cards( $atts ) {
 								<a href="<?php the_permalink(); ?>" class="success__stories__item__link" title="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>"></a>
 								<div class="success__stories__item__thumbnail">
 									<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
-									<img data-splide-lazy="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>" />
+									<img data-splide-lazy="<?= esc_url( get_the_post_thumbnail_url( '', 'box_archive_thumbnail' ) ); ?>" alt="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>" />
 
 									<?php
 									$categories = get_the_terms( 0, 'ms_success-stories_categories' );
