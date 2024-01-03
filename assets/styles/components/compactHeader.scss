@@ -66,8 +66,9 @@ body.compact-header--active {
 		}
 		.#{$class-name}--lvl-2 & {
 			overflow: hidden;
-			padding-bottom: 60%;
+			padding-bottom: 52%;
 			border-radius: $border-radius-16;
+			border: 1px solid $light-gray;
 			.#{$class-name}__img {
 
 				@include square(100%);
@@ -80,15 +81,16 @@ body.compact-header--active {
 	}
 
 	&__logo {
-
-		@include color(background-color, main-background);
-		width: 22%;
+		width: 26%;
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: -1px;
+		left: -1px;
 		z-index: 2;
 		overflow: hidden;
-		border: 0.063em solid $light-gray-icon;
+		background-color: rgba($white, 0.85) !important;
+		backdrop-filter: blur(8.5px);
+		box-shadow: 5px 1px 7px 0 rgba($black-real, 0.04), 2px 2px 2px 0 rgba($white, 0.6) inset;
+		border: 1px solid $light-gray;
 		border-top-left-radius: $border-radius-16;
 		border-bottom-right-radius: $border-radius-16;
 
@@ -510,7 +512,7 @@ body.compact-header--active {
 		}
 
 		&__right {
-			max-width: 33%;
+			max-width: 31.5%;
 		}
 
 		&__bottom {
