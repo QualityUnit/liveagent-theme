@@ -149,21 +149,20 @@ $page_header_args = array(
 
 				while ( have_posts() === true ) :
 					the_post();
-					?>
 
-					<?php
-					$collections = '';
-					$plan        = '';
-					$size        = '';
-					$category    = '';
-					$cat_item    = '';
+					$collections    = '';
+					$plan           = '';
+					$size           = '';
+					$category       = '';
+					$cat_item       = '';
+					$category_title = '';
 
 					$future_plans       = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ?? '' );
 					$future_sizes       = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_size', true ) ?? '' );
 					$future_collections = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_collections', true ) ?? '' );
 
-					$plan = is_array( $future_plans ) ? implode( ' ', $future_plans ) : '';
-					$size = is_array( $future_sizes ) ? implode( ' ', $future_sizes ) : '';
+					$plan        = is_array( $future_plans ) ? implode( ' ', $future_plans ) : '';
+					$size        = is_array( $future_sizes ) ? implode( ' ', $future_sizes ) : '';
 					$collections = is_array( $future_collections ) ? implode( ' ', $future_collections ) : '';
 
 					$categories   = get_the_terms( 0, 'ms_features_categories' );
@@ -177,21 +176,19 @@ $page_header_args = array(
 					do_action( 'wpml_switch_language', $current_lang );
 					if ( ! empty( $categories ) ) {
 						foreach ( $categories as $category_item ) {
-							$category_item = array_shift( $categories );
-							$category     .= $category_item->slug;
-							$category     .= ' ';
-							$cat_item      = $category_item;
+							$category_item  = array_shift( $categories );
+							$category      .= $category_item->slug;
+							$category      .= ' ';
+							$cat_item       = $category_item;
+							$category_title = $category_item->name;
 						}
 					}
 
 					$category = substr( $category, 0, -1 );
 
-					?>
-
-					<?php
 					// Custom link for items
 					$custom_link = get_post_meta( get_the_ID(), 'mb_custom_url', true );
-					$item_url = $custom_link ? $custom_link : get_the_permalink();
+					$item_url    = $custom_link ? $custom_link : get_the_permalink();
 
 					// Element classes.
 					$pillar_value = ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) ?? '' );
@@ -200,7 +197,7 @@ $page_header_args = array(
 							$pillar_class = 'pillar';
 							$item_order++;
 					}
-					$category_item_classes = 'Category__item redesign Category__item--features ' . $pillar_class . ' ' . esc_attr( $category ) . ' ' . esc_attr( $category_en );
+					$category_item_classes      = 'Category__item redesign Category__item--features ' . $pillar_class . ' ' . esc_attr( $category ) . ' ' . esc_attr( $category_en );
 					$category_card_item_classes = 'Category__item redesign Category__item--features ' . esc_attr( $category ) . ' ' . esc_attr( $category_en );
 
 					// Element attributes.
@@ -256,7 +253,7 @@ $page_header_args = array(
 										</div>
 										<div class="Category__item__header__label">
 											<span class="Category__item__header__label__text">
-												<?= esc_html( $category ); ?>
+												<?= esc_html( $category_title ); ?>
 											</span>
 										</div>
 									</div>
@@ -264,7 +261,7 @@ $page_header_args = array(
 										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( get_the_permalink( $integration_id ) ); ?>"><?= esc_html( get_the_title( $integration_id ) ); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
 											<a href="<?= esc_url( get_the_permalink( $integration_id ) ); ?>">
-									<?= esc_html( wp_trim_words( get_the_excerpt( $integration_id ), 14 ) ); ?>
+									<?= esc_html( wp_trim_words( get_the_excerpt( $integration_id ), 11 ) ); ?>
 											</a>
 										</div>
 									</div>
@@ -296,14 +293,14 @@ $page_header_args = array(
 						<?php	} ?>
 			</div>
 										<div class="Category__item__header__label">
-											<span class="Category__item__header__label__text"><?= esc_html( $category ); ?></span>
+											<span class="Category__item__header__label__text"><?= esc_html( $category_title ); ?></span>
 										</div>
 									</div>
 									<div class="Category__item__content">
 										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
 											<a href="<?= esc_url( $item_url ) ?>">
-												<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
+												<?= esc_html( wp_trim_words( get_the_excerpt(), 11 ) ); ?>
 											</a>
 										</div>
 									</div>

@@ -1,7 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 @use "../common/variables" as *;
 
-$category_label_colors: (
+$features_label_colors: (
 	"ticket-management": $light-blue,
 	"live-chat": $dark-orange,
 	"call-center": $green,
@@ -16,8 +16,81 @@ $category_label_colors: (
 	"browser-extensions": "#9154CE",
 );
 
-@each $className, $color in $category_label_colors {
+@each $className, $color in $features_label_colors {
 	.redesign.Category__item--features.#{$className} {
+
+		&::after {
+
+			background-color: #{$color};
+		}
+
+		.Category__item__header__label__text {
+
+			&::before {
+				background-color: #{$color};
+			}
+		}
+
+	}
+}
+
+$academy_label_colors: (
+	"introduction": "#F8B517",
+	"theory": "#F3725F",
+	"soft-skills": "#B44B85",
+	"customer-appreciation": "#F69E85",
+	"customer-communication": "#F69E85",
+	"customer-feedback": "#4FC3CB",
+	"customer-service-department": "#F79528",
+	"help-desk-software": "#FFA085",
+	"customer-service": "#4FC3CB",
+	"ticketing": "#46A6FF",
+	"live-chat": "#F79528",
+	"customer-portal": "#9054CD",
+	"call-center-software": "#22B05C",
+	"customer-service-reporting": "#EB344C",
+	"automated-customer-service": "#4FC3CB",
+);
+
+@each $className,
+	$color in $academy_label_colors {
+	.redesign.Category__item--academy.#{$className} {
+
+		&::after {
+
+			background-color: #{$color};
+		}
+
+		.Category__item__header__label__text {
+
+			&::before {
+				background-color: #{$color};
+			}
+		}
+
+	}
+}
+
+$templates_label_colors: (
+	"business": "#00C2CA",
+	"ticketing": "#FBB626",
+	"customer-service": "#46A6FF",
+	"customer-portal": "#B44B85",
+	"social-customer-service": "#FA9531",
+	"help-desk": "#FFA085",
+	"live-chat": "#9054CD",
+	"sales": "#FFA085",
+	"informational": "#FBB626",
+	"marketing": "#FA9531",
+	"content": "#FFA085",
+	"knowledge-base": "#46A6FF",
+	"call-center": "#00C2CA",
+	"e-commerce": "#9054CD",
+);
+
+@each $className,
+	$color in $templates_label_colors {
+	.redesign.Category__item--templates.#{$className} {
 
 		&::after {
 

@@ -1,6 +1,6 @@
 /* stylelint-disable selector-class-pattern */
 
-$featured: (
+$features: (
 	"ticket-management": "features_ticketing.png",
 	"live-chat": "features_livechat.png",
 	"call-center": "features_callcenter.png",
@@ -15,8 +15,8 @@ $featured: (
 	"browser-extensions": "features_browser_extensions.png",
 );
 
-@each $className, $image in $featured {
-	.Category__item.pillar.#{$className} {
+@each $className, $image in $features {
+	.Category__item.Category__item--features.pillar.#{$className} {
 
 		.Category__item__thumbnail__image {
 			background-image: url(../../images/#{$image});

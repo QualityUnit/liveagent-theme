@@ -1,6 +1,6 @@
 /* stylelint-disable selector-class-pattern */
 
-$featured_items_bg: (
+$features_items_bg: (
 	"ticket-management": "features_ticketing_item_bg.jpg",
 	"live-chat": "features_livechat_item_bg.jpg",
 	"call-center": "features_callcenter_item_bg.jpg",
@@ -15,7 +15,7 @@ $featured_items_bg: (
 	"browser-extensions": "features_browser_extensions_item_bg.jpg",
 );
 
-@each $className, $image in $featured_items_bg {
+@each $className, $image in $features_items_bg {
 
 	.redesign.Category__item--features.#{$className} {
 
@@ -31,3 +31,130 @@ $featured_items_bg: (
 	}
 }
 
+$templates_pillar_bg: (
+	"business": "templates_business_pillar.jpg",
+	"ticketing": "templates_ticketing_pillar.jpg",
+	"customer-service": "templates_customer-service_pillar.jpg",
+	"customer-portal": "templates_customer-portal_pillar.jpg",
+	"social-customer-service": "templates_social-customer-service_pillar.jpg",
+	"help-desk": "templates_help-desk_pillar.jpg",
+	"live-chat": "templates_live-chat_pillar.jpg",
+	"sales": "templates_sales_pillar.jpg",
+	"informational": "templates_informational_pillar.jpg",
+	"marketing": "templates_marketing_pillar.jpg",
+	"content": "templates_content_pillar.jpg",
+	"knowledge-base": "templates_knowledge-base_pillar.jpg",
+	"call-center": "templates_call-center_pillar.jpg?v2",
+	"e-commerce": "templates_e-commerce_pillar.jpg",
+);
+
+$templates_items_bg: (
+	"business": "templates_business_item_bg.jpg",
+	"ticketing": "templates_ticketing_item_bg.jpg",
+	"customer-service": "templates_customer-service_item_bg.jpg",
+	"customer-portal": "templates_customer-portal_item_bg.jpg",
+	"social-customer-service": "templates_social-customer-service_item_bg.jpg",
+	"help-desk": "templates_help-desk_item_bg.jpg",
+	"live-chat": "templates_live-chat_item_bg.jpg",
+	"sales": "templates_sales_item_bg.jpg",
+	"informational": "templates_informational_item_bg.jpg",
+	"marketing": "templates_marketing_item_bg.jpg",
+	"content": "templates_content_item_bg.jpg",
+	"knowledge-base": "templates_knowledge-base_item_bg.jpg",
+	"call-center": "templates_call-center_item_bg.jpg",
+	"e-commerce": "templates_e-commerce_item_bg.jpg",
+);
+
+@each $className,
+	$image in $templates_pillar_bg {
+
+	.redesign.Category__item--templates.#{$className} {
+
+		&.pillar {
+			background-image: url(../../images/#{$image});
+			background-size: cover;
+		}
+	}
+}
+
+@each $className,
+	$image in $templates_items_bg {
+
+	.redesign.Category__item--templates.#{$className} {
+
+		.Category__item {
+
+			&__header {
+
+				&::before {
+					background-image: url(../../images/#{$image});
+				}
+			}
+		}
+	}
+}
+
+$academy_pillar_bg: (
+	"introduction": "academy_introduction_pillar.jpg",
+	"theory": "academy_theory_pillar.jpg",
+	"soft-skills": "academy_soft-skills_pillar.jpg",
+	"customer-appreciation": "academy_customer-appreciation_pillar.jpg",
+	"customer-communication": "academy_customer-communication_pillar.jpg",
+	"customer-feedback": "academy_customer-feedback_pillar.jpg",
+	"customer-service-department": "academy_customer-service-department_pillar.jpg",
+	"help-desk-software": "academy_help-desk-software_pillar.jpg",
+	"customer-service": "academy_customer-service_pillar.jpg",
+	"ticketing": "academy_ticketing_pillar.jpg",
+	"live-chat": "academy_live-chat_pillar.jpg",
+	"customer-portal": "academy_customer-portal_pillar.jpg",
+	"call-center-software": "academy_call-center-software_pillar.jpg",
+	"customer-service-reporting": "academy_customer-service-reporting_pillar.jpg",
+	"automated-customer-service": "academy_automated-customer-service_pillar.jpg",
+);
+
+$academy_items_bg: (
+	"introduction": "academy_introduction_item_bg.jpg",
+	"theory": "academy_theory_item_bg.jpg",
+	"soft-skills": "academy_soft-skills_item_bg.jpg",
+	"customer-appreciation": "academy_customer-appreciation_item_bg.jpg",
+	"customer-communication": "academy_customer-communication_item_bg.jpg",
+	"customer-feedback": "academy_customer-feedback_item_bg.jpg",
+	"customer-service-department": "academy_customer-service-department_item_bg.jpg",
+	"help-desk-software": "academy_help-desk-software_item_bg.jpg",
+	"customer-service": "academy_customer-service_item_bg.jpg",
+	"ticketing": "academy_ticketing_item_bg.jpg",
+	"live-chat": "academy_live-chat_item_bg.jpg",
+	"customer-portal": "academy_customer-portal_item_bg.jpg",
+	"call-center-software": "academy_call-center-software_item_bg.jpg",
+	"customer-service-reporting": "academy_customer-service-reporting_item_bg.jpg",
+	"automated-customer-service": "academy_automated-customer-service_item_bg.jpg",
+);
+
+@each $className,
+	$image in $academy_pillar_bg {
+
+	.redesign.Category__item--academy.#{$className} {
+
+		&.pillar {
+			background-image: url(../../images/#{$image});
+			background-size: cover;
+		}
+	}
+}
+
+@each $className,
+	$image in $academy_items_bg {
+
+	.redesign.Category__item--academy.#{$className} {
+
+		.Category__item {
+
+			&__header {
+
+				&::before {
+					background-image: url(../../images/#{$image});
+				}
+			}
+		}
+	}
+}
