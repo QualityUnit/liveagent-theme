@@ -10,7 +10,7 @@ $page_header_logo = array(
 if ( has_post_thumbnail() ) {
 	$page_header_logo['src'] = get_the_post_thumbnail_url( $post, 'logo_thumbnail' );
 }
-$page_header_image = 'features-category_' . $header_category . '.png';
+$page_header_image = 'features-category_' . $header_category . '.jpg';
 $page_header_args  = array(
 	'image' => array(
 		'src' => get_template_directory_uri() . '/assets/images/' . $page_header_image . '?ver=' . THEME_VERSION,
