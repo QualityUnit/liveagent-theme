@@ -419,23 +419,20 @@
 			}
 
 			&__image {
-				position: relative;
-				backdrop-filter: blur(8.5px);
-				margin-left: 24px;
-				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				backdrop-filter: blur(0.5em);
+				margin-left: 1.5em;
+				border-radius: 0.5em 0.5em 0 0;
+				background-color: rgba($white, 85%);
+				box-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
+				width: 4.625em;
+				height: 4.25em;
 
 				img {
-					z-index: 1;
-					background-color: $white;
-					opacity: 85% !important;
-					width: 74px;
-					height: 82px;
-					margin-bottom: -14px;
-					border-width: 12px 14px 24px 14px;
-					border-color: $white;
-					border-style: solid;
-					border-radius: $border-radius;
-					box-shadow: 0 1px 6px rgba(0, 0, 0, 0.16);
+
+					@include square(2.875em);
 				}
 			}
 
