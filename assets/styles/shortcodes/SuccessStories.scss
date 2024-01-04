@@ -28,8 +28,8 @@
 
 	&__list {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		column-gap: em(32);
+		grid-template-columns: 1fr;
+		row-gap: em(32);
 	}
 
 
@@ -125,5 +125,15 @@
 			@include learn-more;
 		}
 	}
+	@media (min-width: $breakpoint-tablet ) {
+		&__list {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: em(32);
+		}
 
+	}
 }
+
+
+

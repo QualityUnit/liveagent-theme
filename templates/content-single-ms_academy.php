@@ -1,7 +1,6 @@
 <?php // @codingStandardsIgnoreLine
 	set_source( 'single-post', 'common/splide', 'css' );
 	set_source( 'single-post', 'splide', 'js' );
-	//set_source( 'single-post', 'sidebar_toc', 'js' );
 	set_source( 'single-post', 'custom_lightbox', 'js' );
 
 	$current_lang    = apply_filters( 'wpml_current_language', null );

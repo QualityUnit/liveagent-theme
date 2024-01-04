@@ -99,7 +99,7 @@ if ( isset( $subpage->slug ) ) {
 }
 ?>
 <div id="blog" class="Blog" itemscope itemtype="http://schema.org/Blog">
-	<?php 
+	<?php
 	// Main page level 1
 	if ( ! isset( $subpage->slug ) ) {
 		get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args_1 );
@@ -120,7 +120,7 @@ if ( isset( $subpage->slug ) ) {
 	}
 
 	// Category page level 2
-	if ( isset( $subpage->slug ) ) { 
+	if ( isset( $subpage->slug ) ) {
 		// $main_page_id  = $main_page[0]->ID;
 		// $translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
 
@@ -134,7 +134,7 @@ if ( isset( $subpage->slug ) ) {
 		<div class="wrapper__wide">
 			<div class="Reviews__categoryAbout">
 				<div class="Reviews__categoryAbout--image__wrapper">
-					<img 
+					<img
 						class="Reviews__categoryAbout--image"
 						src="<?= esc_url( get_template_directory_uri() . '/assets/images/reviews_2nd_level_footer.png' ); ?>"
 						alt="<?= esc_attr( get_term_meta( $subpage->term_id, 'description_title', true ) ); ?>"
@@ -157,7 +157,7 @@ if ( isset( $subpage->slug ) ) {
 
 		<?php
 			$whatis_post_id = get_term_meta( $subpage->term_id, 'category_whatis_article', true );
-			
+
 		if ( isset( $whatis_post_id ) ) {
 			$translated_id = apply_filters( 'wpml_object_id', $whatis_post_id, 'ms_reviews' );
 
@@ -171,7 +171,6 @@ if ( isset( $subpage->slug ) ) {
 			set_custom_source( 'components/SignupSidebar', 'css' );
 			set_custom_source( 'common/splide', 'css' );
 			set_custom_source( 'splide', 'js' );
-			//set_custom_source( 'sidebar_toc', 'js' );
 			set_custom_source( 'custom_lightbox', 'js' );
 			?>
 

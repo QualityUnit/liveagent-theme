@@ -1,7 +1,6 @@
 <?php // @codingStandardsIgnoreLine
 	set_custom_source( 'common/splide', 'css' );
 	set_custom_source( 'splide', 'js' );
-	//set_custom_source( 'sidebar_toc', 'js' );
 	set_custom_source( 'research_post', 'js' );
 $page_title       = str_replace( '^', '', get_the_title() );
 $page_header_args = array(
@@ -16,13 +15,13 @@ $page_header_args = array(
 );
 ?>
 <div class="Post Research Post--sidebar-right" itemscope itemtype="http://schema.org/Article" data-id="<?php echo get_the_ID(); ?>">
-	
+
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	
+
 	<div class="wrapper Post__container">
 		<div class="Post__content">
 			<div class="Content" itemprop="articleBody">
-				
+
 				<?php the_content(); ?>
 
 				<div class="Research--toc__wrapper">
@@ -55,7 +54,7 @@ $page_header_args = array(
 												'order'   => 'ASC',
 											)
 										);
-								
+
 										while ( $query_research_posts->have_posts() ) :
 											$query_research_posts->the_post();
 											++$counter;
@@ -77,7 +76,7 @@ $page_header_args = array(
 													<?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?>
 												</a>
 											</li>
-								
+
 										<?php endwhile; ?>
 										<?php wp_reset_postdata(); ?>
 									</ul>
