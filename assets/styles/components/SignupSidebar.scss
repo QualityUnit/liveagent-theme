@@ -46,20 +46,24 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 		}
 	}
 
-	input {
+	.Signup__sidebar__item {
 
-		@include color(background-color, main-background);
-		@include color(color, font-color-level3);
-		width: 100%;
-		height: 2.75rem;
-		border: 1px solid $medium-gray-inputs;
-		font-size: 0.8125rem;
-		padding-left: 1em;
+		input {
 
-		@include input-placeholder() {
-			color: currentColor;
+			@include color(background-color, main-background);
+			@include color(color, font-color-level3);
+			width: 100%;
+			height: 2.75rem;
+			border: 1px solid $medium-gray-inputs;
+			font-size: 0.8125rem;
+			padding-left: 1em;
+
+			@include input-placeholder() {
+				color: currentColor;
+			}
 		}
 	}
+
 
 	.ErrorMessage {
 
