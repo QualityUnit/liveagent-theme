@@ -171,10 +171,21 @@ button,
 	}
 }
 
+.Button--dark {
+	background: $black;
+	color: $white;
+
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: #f98006;
+	}
+}
+
 .Button--white {
 
-	@include color(background, content-color-light);
-	@include color(color, content-color-dark);
+	background: $white;
+	color: $black;
 	overflow: hidden;
 
 	span {
@@ -185,9 +196,9 @@ button,
 
 	&::before {
 
-		@include color(background, content-color-light);
 		content: "";
 		position: absolute;
+		background: $white;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -200,9 +211,9 @@ button,
 
 	&::after {
 
-		@include color(background, content-color-dark);
 		content: "";
 		position: absolute;
+		background: $black;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -217,7 +228,7 @@ button,
 	&:focus,
 	&:hover {
 
-		@include color(color, content-color-light);
+		color: $white;
 
 		&::before {
 			opacity: 0;

@@ -1,0 +1,114 @@
+/* stylelint-disable selector-class-pattern, value-keyword-case */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.DemoBar {
+
+	position: fixed;
+	display: none;
+	background:
+		linear-gradient(87deg, rgba(254, 181, 109, 0.3) -2.57%, rgba(255, 172, 90, 0.3) -2.55%, rgba(169, 188, 255, 0.3) 103.31%),
+		$white;
+
+	left: 0;
+	bottom: 0;
+	transition: transform 0.5s;
+	transform: translate(0, 100%);
+	z-index: 5;
+	width: 100%;
+
+	&__wrapper {
+		position: relative;
+	}
+
+	&__text {
+
+		.checklist {
+			max-width: none;
+
+			li {
+				font-size: 0.85rem;
+			}
+		}
+	}
+
+	@media (min-width: ($breakpoint-tablet - 1px)) {
+
+		&__wrapper {
+			display: flex;
+		}
+
+		&.visible {
+			display: flex;
+		}
+
+		&.show {
+			transform: translate(0, 0);
+		}
+
+		&.hide {
+			transform: translate(0, 100%);
+		}
+
+		&__button {
+			margin-top: 1.5em;
+		}
+
+		&__image {
+			margin-top: 0.25em;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		&__image,
+		&__text {
+			width: 50%;
+		}
+
+		&__text {
+			padding: 3.125em;
+		}
+	}
+
+	@media (min-width: ($breakpoint-desktop-box - 1px)) {
+		display: flex;
+		align-items: center;
+
+		&__wrapper {
+			width: 70%;
+		}
+
+		&__button {
+			margin-top: auto;
+		}
+	}
+
+	&__main {
+		margin-right: 3.45em;
+	}
+
+	&__close {
+
+		@include square(1.125em);
+		position: absolute;
+		top: 1em;
+		right: 1em;
+		cursor: pointer;
+		z-index: 1;
+	}
+
+	&__title[class] {
+		display: block;
+		font-family: $font-primary;
+		font-weight: $font-weight-bold;
+		margin-bottom: 0.25em;
+	}
+
+	&__button {
+		white-space: nowrap;
+		overflow: visible;
+	}
+}

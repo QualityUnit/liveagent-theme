@@ -2,9 +2,22 @@
 @use "../../common/variables" as *;
 @use "../../common/mixins" as *;
 
+body.demo {
+
+	#app {
+		padding-top: 0;
+	}
+
+	header {
+		display: none;
+	}
+}
+
 .RequestDemo.Block {
 	margin-bottom: 0 !important;
 	padding: 0 !important;
+	background: url(../../images/demo_bg.jpg) center center no-repeat;
+	background-size: cover;
 
 	body.demo & {
 		margin-top: 0 !important;
@@ -15,8 +28,62 @@
 		margin-bottom: 10px !important;
 	}
 
+	.DemoWhatYoulearn {
+		display: none;
+
+		.checklist {
+			max-width: none;
+		}
+	}
+
+	.DemoVideo {
+
+		&.elementor-widget-video .elementor-widget-container {
+			overflow: visible;
+		}
+
+		video {
+			width: auto;
+			border: 0;
+			max-height: 60rem;
+			clip-path: polygon(-15% 0, 99.15% 0.47%, 99.68% 99.94%, -11.91% 100.46%);
+			max-width: none;
+			mask-image: linear-gradient(180deg, transparent 0%, rgba($black-real, 1) 15%, rgba($black-real, 1) 90%, transparent 95%), linear-gradient(to right, transparent 90%, rgba($black-real, 1) 100%);
+			mask-size: 100% 100%, 100% 100%;
+			mask-position: 0 0, 0 10%;
+			mask-repeat: no-repeat;
+			mask-composite: exclude;
+			mask-composite: xor;
+		}
+	}
+
+	.ScheduleForm {
+		position: relative;
+		z-index: 1;
+	}
+
 	.wrapper {
 		padding: 2rem !important;
+		position: relative;
+
+		&::after {
+			position: absolute;
+			content: "";
+			left: -50%;
+			top: 15%;
+			width: 100%;
+			height: 35%;
+			z-index: 0;
+			background: url(../../images/demo_this_can_be_you.png) center center no-repeat;
+			background-size: contain;
+		}
+
+		&--inn {
+
+			> .elementor-container {
+				align-items: center;
+			}
+		}
 	}
 
 	@media (max-width: $breakpoint-tablet) {
@@ -82,26 +149,6 @@
 		}
 	}
 
-	.quote .elementor-widget-container {
-		display: flex;
-		font-size: 1.125rem;
-		color: $medium-gray;
-
-		b {
-			color: #000;
-		}
-
-		.talkingHead {
-			width: 20%;
-			height: 0;
-			padding-bottom: 20%;
-			flex: 0 0 auto;
-			margin-right: 8%;
-			border-radius: 50%;
-			background: url(../../../images/talkinghead_brian.jpg) center center no-repeat;
-			background-size: cover;
-		}
-	}
 
 	.logos {
 		margin-left: -1.5em;

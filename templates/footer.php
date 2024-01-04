@@ -409,25 +409,9 @@ function show_demo_bar() {
 }
 
 if ( show_demo_bar() !== false ) {
-	?>
-	<div id="demobar" class="DemoBar__wrapper wrapper">
-		<div class="DemoBar">
-			<div class="DemoBar__close" id="demobar-close">&times;</div>
-			<div class="DemoBar__main">
-				<div class="DemoBar__title h3">
-					<?php _e( '<strong>Schedule a one-on-one call</strong> and discover how LiveAgent can benefit your business.', 'ms' ); ?>
-				</div>
-				<div class="DemoBar__dates">
-					<svg class=DemoBar__dates--icon" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg"><path d="m14.9678 17.7c1.3807 0 2.5-1.1193 2.5-2.5s-1.1193-2.5-2.5-2.5-2.5 1.1193-2.5 2.5 1.1193 2.5 2.5 2.5z" fill="#1ac65f"/><g fill="#fff"><path d="m16.4678 1v2h-8.00003v-2h-2v2h-1c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14.00003c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2h-1v-2zm3 18h-14.00003v-11h14.00003z"/><path d="m10.7676 14.2h-2.00002v2h2.00002z"/><path d="m10.7676 9.29999h-2.00002v2.00001h2.00002z"/><path d="m15.9678 9.29999h-2v2.00001h2z"/></g></svg>
-					<p class="DemoBar__dates--text"><?php _e( 'We’re available on multiple dates', 'ms' ); ?></p>
-				</div>
-			</div>
-			<a href="<?php _e( '/demo/', 'ms' ); ?>" onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a demo' )" class="DemoBar__button Button Button--full">
-				<span><?php _e( 'Schedule a demo', 'ms' ); ?></span>
-			</a>
-		</div>
-	</div>
-<?php } ?>
+	include_once get_template_directory() . '/demobar.php';
+}
+?>
 
 <div class="trial__sticky__button">
 	<a href="<?= esc_url( '/trial/' ) ?>"><?= esc_html( 'Start Free Trial', 'ms' )?></a>
