@@ -125,7 +125,9 @@
 			@include learn-more;
 		}
 	}
+
 	@media (min-width: $breakpoint-tablet ) {
+
 		&__list {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
@@ -134,6 +136,4 @@
 
 	}
 }
-
-
 
