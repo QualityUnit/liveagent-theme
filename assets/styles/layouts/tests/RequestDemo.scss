@@ -28,11 +28,34 @@ body.demo {
 		margin-bottom: 10px !important;
 	}
 
+	.DemoLogo {
+		text-align: left;
+		margin-bottom: 1.5em !important;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			position: fixed;
+			top: 4em;
+			left: 2em;
+		}
+	}
+
 	.DemoWhatYoulearn {
-		display: none;
+		background-color: #feefe0;
+		padding: 1em 1.5em;
+		margin-bottom: 1.5em;
+		border-radius: 8px;
+
+		* {
+			font-size: 0.75rem;
+		}
+
+		h5 {
+			margin-bottom: 0.5em;
+		}
 
 		.checklist {
 			max-width: none;
+			margin-bottom: 0;
 		}
 	}
 
@@ -69,10 +92,10 @@ body.demo {
 		&::after {
 			position: absolute;
 			content: "";
-			left: -50%;
-			top: 15%;
-			width: 100%;
-			height: 35%;
+			left: -26%;
+			top: 14%;
+			width: 50%;
+			height: 41%;
 			z-index: 0;
 			background: url(../../images/demo_this_can_be_you.png) center center no-repeat;
 			background-size: contain;
@@ -83,6 +106,10 @@ body.demo {
 			> .elementor-container {
 				align-items: center;
 			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				margin-top: 4em;
+			}
 		}
 	}
 
@@ -91,14 +118,7 @@ body.demo {
 		padding-bottom: 0 !important;
 
 		.wrapper {
-			margin-top: 0;
-		}
-	}
-
-	.elementor-spacer-inner {
-
-		@media (max-width: $breakpoint-desktop) {
-			height: 2em !important;
+			margin-top: 0 !important;
 		}
 	}
 
@@ -116,61 +136,13 @@ body.demo {
 			border-radius: $border-radius-16;
 
 			@media (min-width: $breakpoint-desktop) {
-				padding: 0 2em !important;
+				width: 65% !important;
+				padding: 1em 3em !important;
 			}
 		}
 
-		.narrow-left {
-			display: block;
-			color: $medium-gray;
-			font-size: 1rem;
-			line-height: 1.5;
-
-			h5 {
-				font-family: "Open Sans", sans-serif;
-			}
-
-			p {
-				font-size: inherit;
-				line-height: inherit;
-			}
-
-			.checklist {
-
-				@include color(color, font-color-normal);
-				font-size: inherit;
-				max-width: 50ch;
-			}
-
-			@media (min-width: $breakpoint-tablet) {
-				padding-top: 2em;
-				padding-left: 5.75em;
-			}
-		}
-	}
-
-
-	.logos {
-		margin-left: -1.5em;
-		margin-bottom: 1em;
-
-		.Clients {
-			margin-top: 0;
-
-			&__item {
-				margin: 0 !important;
-
-				@media (max-width: $breakpoint-mobile) {
-					width: 25% !important;
-					margin-right: 1.75em !important;
-				}
-			}
-		}
-
-		img {
-			height: 1.25rem;
-			max-width: none;
-			filter: grayscale(100%) contrast(0) brightness(125%);
+		.DemoVideo--wrap {
+			width: 40%;
 		}
 	}
 }
