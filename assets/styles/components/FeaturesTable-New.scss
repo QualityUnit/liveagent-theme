@@ -25,8 +25,12 @@
 
 	&__feature {
 		position: relative;
+		background: $lightest-gray;
+		border-radius: $border-radius-16;
 
-		filter: drop-shadow(0 0.625em 1.25em rgba(145, 145, 145, 0.28));
+		.elementor-widget-image {
+			order: -1;
+		}
 
 		.elementor-widget-text-editor.elementor-element {
 
@@ -42,7 +46,7 @@
 				&:not([target*="_blank"]) {
 
 					@include learn-more();
-					margin-top: 1.7em;
+					margin-top: 1em;
 
 					&::before {
 
@@ -62,7 +66,6 @@
 			}
 
 			* {
-				font-size: 1rem;
 				margin-bottom: 0.5em;
 				text-align: left !important;
 				color: currentcolor;
@@ -71,25 +74,24 @@
 			p {
 				font-size: 0.875rem;
 				margin-bottom: 0;
+
+				&:last-of-type a:first-of-type:last-of-type {
+					display: flex !important;
+					align-items: center;
+
+					&::after {
+						position: relative;
+						top: 0.15em;
+						content: url(../../images/arrow_small_right.svg);
+						margin-left: 0.25em;
+					}
+				}
 			}
 
-			h3 {
-				font-size: 1.875em !important;
-			}
-
+			h3,
 			h4 {
-				font-size: 1.5em !important;
+				font-size: 1rem !important;
 			}
-		}
-
-		&::after {
-
-			@include posCustom(0);
-			content: "";
-			position: absolute;
-			background-color: $white;
-			box-shadow: inset 0 -15px 20px rgba(157, 157, 157, 0.07);
-			border-radius: $border-radius-16;
 		}
 
 		@media (max-width: $breakpoint-tablet-landscape) {
@@ -101,18 +103,6 @@
 			&.elementor-column {
 				width: 100% !important;
 				padding: 1.5em !important;
-			}
-
-			.bg-right {
-				display: none;
-			}
-
-			.elementor-widget-text-editor {
-				order: 1;
-			}
-
-			.elementor-widget-image {
-				order: 2;
 			}
 		}
 
@@ -129,228 +119,24 @@
 			}
 
 			.elementor-widget-image {
-
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 40%;
+				width: 35%;
 				height: auto !important;
-				padding: 0.5em !important;
-			}
-
-			.FeaturesTableNew__section--rectangular & {
-				$featureRadius: 2.8125rem;
-
-				&.elementor-col-100 {
-					border-radius: $featureRadius;
-				}
-
-				.elementor-widget-image {
-					width: 50%;
-					max-width: 18.75em;
-					max-height: 13.75em;
-					border-radius: 1.875rem;
-					background-color: $white;
-					margin: 0.5em !important;
-					overflow: hidden;
-
-					[class*="elementor"] {
-						display: flex;
-						justify-content: center;
-						align-content: center;
-						max-width: none !important;
-						max-height: 13.75rem;
-					}
-
-					img {
-
-						@include square(100%);
-						object-fit: contain;
-					}
-				}
-
-				.elementor-widget-text-editor {
-					position: relative;
-					z-index: 5;
-					width: 50% !important;
-					padding: 0 1.5em;
-				}
-
-				.bg-right {
-					position: absolute;
-					right: 0;
-					top: -1em;
-					bottom: -1em;
-					width: 25%;
-					border-radius: 0;
-					padding: 0 !important;
-					margin: 0 !important;
-					z-index: 0;
-					max-width: none;
-					max-height: none;
-					background-color: transparent;
-					transition: opacity $transition;
-
-					*[class] {
-
-						@include square(100%);
-						max-width: initial !important;
-						max-height: initial !important;
-					}
-
-					img {
-						object-fit: cover !important;
-					}
-				}
-
-				&:hover {
-
-					.bg-right {
-						opacity: 0;
-					}
-				}
-
-				&:nth-of-type(even) .elementor-widget-wrap {
-					justify-content: flex-end;
-				}
+				margin-right: 1.5em !important;
 			}
 
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
-			$featureRadius: 12em;
-			border-radius: $featureRadius $border-radius-16 $border-radius-16 $featureRadius;
-
-			.FeaturesTableNew__section--rectangular & {
-				$featureRadius: 2.8125rem;
-
-				&::before {
-
-					@include square(2.5em);
-				}
-
-				&::after {
-					mask-size: 100% 100%, 2.25em 10em;
-					mask-position: 0 0, calc(100% + 2px) 50%;
-				}
-
-				&:hover {
-
-					.elementor-widget-image img {
-						border-radius: 0;
-						box-shadow: none;
-					}
-				}
-
-				.elementor-widget-text-editor.elementor-element {
-					padding-left: 2em !important;
-					padding-right: 2em !important;
-
-					* {
-						font-size: 1rem;
-					}
-				}
-
-				&.elementor-col-100 {
-					border-radius: $featureRadius;
-
-					&::after {
-						border-radius: $featureRadius;
-					}
-
-					.elementor-widget-text-editor {
-						padding-right: 25%;
-					}
-				}
-			}
-
-			&::before {
-
-				@include square(1.85em);
-				content: "";
-				position: absolute;
-				border-radius: 50%;
-				border: 1px dotted $light-gray-icon;
-				right: -1em;
-				top: 50%;
-				transform: translateY(-50%);
-				transition: all $transition;
-			}
-
-			&::after {
-				mask-image: linear-gradient($black-real, $black-real), url('data:image/svg+xml,%3Csvg viewBox="0 0 21 75" xmlns="http://www.w3.org/2000/svg" %3E%3Cpath d="M20.194 0s1.477 7.296-7.545 15.659C3.968 23.704.157 28.522.004 37.479c-.173 10.11 6.472 17.007 9.697 19.813 2.94 2.56 10.458 10.066 10.493 17.09.035 6.982 0-74.383 0-74.383Z"/%3E%3C/svg%3E'); /* stylelint-disable-line */
-				mask-size:
-					100% 100%,
-					1.25em 7em;
-				mask-position: 0 0, calc(100% + 1px) 50%;
-				mask-repeat: no-repeat;
-				mask-composite: exclude;
-				mask-composite: xor;
-				border-radius: $featureRadius $border-radius-16 $border-radius-16 $featureRadius;
-				transition: all $transition;
-			}
 
 			&:hover {
 
-				filter: none;
+				@include color(background, background);
 				cursor: pointer;
-
-				&::after,
-				&::before {
-
-					@include color(background, background);
-					border-color: $dark-orange;
-				}
-
-				&::before {
-					box-shadow: inset 0 0 0 3px #f2f2f2;
-				}
 
 				.elementor-widget-text-editor.elementor-element {
 
 					@include color(color, font-color-light);
 					transition: color $transition;
-				}
-
-				.elementor-widget-image img {
-					border-radius: 50%;
-					box-shadow: 0 4px 40px 0 rgba($black-real, 0.12);
-				}
-			}
-
-			&:nth-of-type(even) {
-				border-radius: $border-radius-16 $featureRadius $featureRadius $border-radius-16;
-
-				&::after {
-					transform: scaleX(-1);
-				}
-
-				&::before {
-					right: auto;
-					left: -1em;
-				}
-
-				.elementor-widget-text-editor.elementor-element {
-					padding-left: 1.5em;
-					padding-right: 0;
-				}
-			}
-
-			&.elementor-col-100 {
-
-				&::before {
-
-					@include square(3.25em);
-					top: calc(100% - 1.65em);
-					right: 50%;
-					transform: translate(50%);
-				}
-
-				&::after {
-					mask-image: url('data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2075%2021%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20style%3D%22fill-rule%3Aevenodd%3Bclip-rule%3Aevenodd%3Bstroke-linejoin%3Around%3Bstroke-miterlimit%3A2%22%3E%3Cpath%20d%3D%22M20.194%200s1.477%207.296-7.545%2015.659C3.968%2023.704.157%2028.522.004%2037.479c-.173%2010.11%206.472%2017.007%209.697%2019.813%202.94%202.56%2010.458%2010.066%2010.493%2017.09.035%206.982%200-74.383%200-74.383V0Z%22%20style%3D%22fill-rule%3Anonzero%22%20transform%3D%22rotate%2890%2037.404%2037.403%29%22%2F%3E%3C%2Fsvg%3E'), linear-gradient($black-real, $black-real); /*
-					stylelint-disable-line */
-					mask-size: 12em 2.5em, 100% 100%;
-					mask-position: 50% calc(100% + 2px), 0 0;
 				}
 			}
 
@@ -367,13 +153,7 @@
 				&.#{$color} {
 
 					&:hover {
-
-						&::after,
-						&::before {
-
-							background: $value;
-							border-color: $value;
-						}
+						background: $value;
 					}
 				}
 			}
@@ -388,64 +168,9 @@
 			display: flex;
 		}
 
-		&::before,
-		&::after {
-			content: "";
-			position: absolute;
-			left: 50%;
-		}
-
-		&::before {
-			top: 0;
-			bottom: 0;
-			border-left: 1px dotted $light-gray-icon;
-		}
-
-		&::after {
-			width: 5.5em;
-			top: calc(50% - 1em + 1px);
-			transform: translate(-50%, -50%);
-			border-bottom: 1px dotted $light-gray-icon;
-		}
-
-		&.full {
-
-			&::before,
-			&::after {
-				display: none;
-			}
-
-			+ .FeaturesTableNew:not(.full)::before {
-				top: -6px;
-			}
-		}
-
-		&.nopair::after {
-			width: 2.75em;
-			transform: translate(-100%, -50%);
-		}
-
-		&:first-of-type,
-		&:last-of-type {
-
-			&::before {
-				mask-image: linear-gradient(transparent, $black-real);
-				mask-size: 100% 100%;
-				mask-position: 0, 0;
-				mask-repeat: no-repeat;
-			}
-		}
-
-		&:last-of-type {
-
-			&::before {
-				mask-image: linear-gradient($black-real, transparent);
-			}
-		}
-
 		&__feature + &__feature {
 			margin-top: 0;
-			margin-left: 7.5em;
+			margin-left: 1.5em;
 		}
 	}
 }
