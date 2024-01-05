@@ -27,6 +27,7 @@
 		position: relative;
 		background: $lightest-gray;
 		border-radius: $border-radius-16;
+		overflow: hidden;
 
 		.elementor-widget-image {
 			order: -1;
@@ -35,8 +36,7 @@
 		.elementor-widget-text-editor.elementor-element {
 
 			@include color(color, font-color-dark);
-			padding: 0;
-			padding-right: 1.5em;
+			padding: 1.5em 2em;
 
 			a {
 				font-size: inherit;
@@ -102,12 +102,10 @@
 
 			&.elementor-column {
 				width: 100% !important;
-				padding: 1.5em !important;
 			}
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			padding: 1em;
 
 			.elementor-widget-wrap.elementor-widget-wrap {
 				flex-wrap: nowrap;
@@ -121,7 +119,10 @@
 			.elementor-widget-image {
 				width: 35%;
 				height: auto !important;
-				margin-right: 1.5em !important;
+			}
+
+			.elementor-widget-text-editor.elementor-element {
+				height: 100% !important;
 			}
 
 		}
@@ -130,11 +131,11 @@
 
 			&:hover {
 
-				@include color(background, background);
 				cursor: pointer;
 
 				.elementor-widget-text-editor.elementor-element {
 
+					@include color(background, background);
 					@include color(color, font-color-light);
 					transition: color $transition;
 				}
@@ -153,7 +154,10 @@
 				&.#{$color} {
 
 					&:hover {
-						background: $value;
+
+						.elementor-widget-text-editor.elementor-element {
+							background: $value;
+						}
 					}
 				}
 			}
