@@ -48,7 +48,7 @@ function ms_languages( $atts ) {
 				foreach ( $languages as $lang ) {
 					if ( $lang['active'] ) {
 						$lang_flag = strtolower( preg_replace( '/.+?_/', '', $lang['default_locale'] ) );
-						echo '<li class="Header__flags--item Header__flags--item-active Header__flags--item-' . esc_html( $lang['language_code'] ) . '" lang="' . esc_attr( $lang['language_code'] ) . '"><span id="languageSwitcher-toggle" class="Header__flags--item-toggle"><strong>' . esc_html( 'Languages' ) . '</strong><svg class="Header__flags--item-flag" aria-label="' . esc_attr( $lang['language_code'] ) . '"><use xlink:href="' . esc_url( $flags ) . 'flag-' . esc_html( $lang_flag ) . '"></use></svg></span>';
+						echo '<li class="Header__flags--item Header__flags--item-active Header__flags--item-' . esc_html( $lang['language_code'] ) . '" lang="' . esc_attr( $lang['language_code'] ) . '"><span id="languageSwitcher-toggle" class="Header__flags--item-toggle"><svg class="Header__flags--item-flag" aria-label="' . esc_attr( $lang['language_code'] ) . '"><use xlink:href="' . esc_url( $flags ) . 'flag-' . esc_html( $lang_flag ) . '"></use></svg></span>';
 					}
 				}
 				?>
