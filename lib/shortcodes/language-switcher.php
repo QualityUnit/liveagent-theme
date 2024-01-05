@@ -24,13 +24,13 @@ function ms_languages( $atts ) {
 			'languages'
 		);
 
-		$lang_codes = array();
-		$lang_flags = array();
-		$lang_urls = array();
-		$lang_names = array();
+		$lang_codes  = array();
+		$lang_flags  = array();
+		$lang_urls   = array();
+		$lang_names  = array();
 		$lang_active = array();
 
-		$flags = get_template_directory_uri() . '/assets/images/flags.svg?ver=' . THEME_VERSION . '#';
+		$flags     = get_template_directory_uri() . '/assets/images/flags.svg?ver=' . THEME_VERSION . '#';
 		$languages = icl_get_languages();
 		foreach ( $languages as $lang ) {
 			$lang_codes[]  = $lang['language_code'];
@@ -48,7 +48,7 @@ function ms_languages( $atts ) {
 				foreach ( $languages as $lang ) {
 					if ( $lang['active'] ) {
 						$lang_flag = strtolower( preg_replace( '/.+?_/', '', $lang['default_locale'] ) );
-						echo '<li class="Header__flags--item Header__flags--item-active Header__flags--item-' . esc_html( $lang['language_code'] ) . '" lang="' . esc_attr( $lang['language_code'] ) . '"><span id="languageSwitcher-toggle" class="Header__flags--item-toggle"><h3>' . esc_html( 'Languages' ) . '</h3><svg class="Header__flags--item-flag" aria-label="' . esc_attr( $lang['language_code'] ) . '"><use xlink:href="' . esc_url( $flags ) . 'flag-' . esc_html( $lang_flag ) . '"></use></svg></span>';
+						echo '<li class="Header__flags--item Header__flags--item-active Header__flags--item-' . esc_html( $lang['language_code'] ) . '" lang="' . esc_attr( $lang['language_code'] ) . '"><span id="languageSwitcher-toggle" class="Header__flags--item-toggle"><strong>' . esc_html( 'Languages' ) . '</strong><svg class="Header__flags--item-flag" aria-label="' . esc_attr( $lang['language_code'] ) . '"><use xlink:href="' . esc_url( $flags ) . 'flag-' . esc_html( $lang_flag ) . '"></use></svg></span>';
 					}
 				}
 				?>
