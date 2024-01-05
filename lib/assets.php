@@ -57,7 +57,6 @@ add_action(
 			wp_enqueue_style( 'elementor-custom', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 
 			if ( is_page_template( 'template-blog-header.php' ) ) {
-				wp_enqueue_style( 'signup-sidebar', get_template_directory_uri() . '/assets/dist/components/SignupSidebar' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 				wp_enqueue_style( 'post', get_template_directory_uri() . '/assets/dist/pages/post' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 			}
 		}
