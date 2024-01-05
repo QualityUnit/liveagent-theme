@@ -32,6 +32,10 @@ body.demo {
 		text-align: left;
 		margin-bottom: 1.5em !important;
 
+		&.elementor-widget-image a img[src$=".svg"] {
+			width: 100%;
+		}
+
 		@media (min-width: $breakpoint-tablet-landscape) {
 			position: fixed;
 			top: 4em;
@@ -78,6 +82,10 @@ body.demo {
 			mask-composite: exclude;
 			mask-composite: xor;
 		}
+
+		@media (min-width: $breakpoint-desktop) {
+			min-height: 60rem;
+		}
 	}
 
 	.ScheduleForm {
@@ -108,7 +116,7 @@ body.demo {
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
-				margin-top: 4em;
+				margin-top: 1em;
 			}
 		}
 	}
