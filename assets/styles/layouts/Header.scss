@@ -51,7 +51,11 @@ body {
 .admin-bar {
 
 	.Header {
-		top: 2em;
+		top: 3em;
+
+		&__navigation {
+			top: 8.625em;
+		}
 	}
 }
 
@@ -525,12 +529,6 @@ body {
 				white-space: nowrap;
 				text-align: left;
 
-				&:active,
-				&:focus,
-				&:hover {
-
-					@include color(color, main-nav-submenu-font-color-hover, !important);
-				}
 			}
 
 			a[href="#"] {
