@@ -2,76 +2,76 @@
 function la_introduction_videos() {
 	$atts = array(
 		array(
-			'class' => 'chat',
-			'name' => __( 'Chat', 'ms' ),
+			'class'    => 'chat',
+			'name'     => __( 'Chat', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-chat.svg',
-			'url' => '/assets/videos/contact-form.mp4',
+			'url'      => '/assets/videos/contact-form.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'calls',
-			'name' => __( 'Calls', 'ms' ),
+			'class'    => 'calls',
+			'name'     => __( 'Calls', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-calls.svg',
-			'url' => '/assets/videos/phone-call.mp4',
+			'url'      => '/assets/videos/phone-call.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'video-calls',
-			'name' => __( 'Video calls', 'ms' ),
+			'class'    => 'video-calls',
+			'name'     => __( 'Video calls', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-video-calls.svg',
-			'url' => '/assets/videos/video-call.mp4',
+			'url'      => '/assets/videos/video-call.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'contact-forms',
-			'name' => __( 'Contact forms', 'ms' ),
+			'class'    => 'contact-forms',
+			'name'     => __( 'Contact forms', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-contact-forms.svg',
-			'url' => '/assets/videos/contact-form.mp4',
+			'url'      => '/assets/videos/contact-form.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'forum',
-			'name' => __( 'Forum', 'ms' ),
+			'class'    => 'forum',
+			'name'     => __( 'Forum', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-forum.svg',
-			'url' => '/assets/videos/forum.mp4',
+			'url'      => '/assets/videos/forum.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'feedbacks',
-			'name' => __( 'Feedbacks', 'ms' ),
+			'class'    => 'feedbacks',
+			'name'     => __( 'Feedbacks', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-feedbacks.svg',
-			'url' => '/assets/videos/feedback.mp4',
+			'url'      => '/assets/videos/feedback.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'twitter',
-			'name' => __( 'Twitter', 'ms' ),
+			'class'    => 'twitter',
+			'name'     => __( 'Twitter', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-twitter.svg',
-			'url' => '/assets/videos/twitter.mp4',
+			'url'      => '/assets/videos/twitter.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'gmail',
-			'name' => __( 'Gmail', 'ms' ),
+			'class'    => 'gmail',
+			'name'     => __( 'Gmail', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-gmail.svg',
-			'url' => '/assets/videos/mail.mp4',
+			'url'      => '/assets/videos/mail.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'facebook',
-			'name' => __( 'Facebook', 'ms' ),
+			'class'    => 'facebook',
+			'name'     => __( 'Facebook', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-facebook.svg',
-			'url' => '/assets/videos/facebook.mp4',
+			'url'      => '/assets/videos/facebook.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'viber',
-			'name' => __( 'Viber', 'ms' ),
+			'class'    => 'viber',
+			'name'     => __( 'Viber', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-viber.svg',
-			'url' => '/assets/videos/viber.mp4',
+			'url'      => '/assets/videos/viber.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'whatsapp',
-			'name' => __( 'Whatsapp', 'ms' ),
+			'class'    => 'whatsapp',
+			'name'     => __( 'Whatsapp', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-whatsapp.svg',
-			'url' => '/assets/videos/whatsapp.mp4',
+			'url'      => '/assets/videos/whatsapp.mp4?ver=' . THEME_VERSION,
 		),
 		array(
-			'class' => 'slack',
-			'name' => __( 'Slack', 'ms' ),
+			'class'    => 'slack',
+			'name'     => __( 'Slack', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-slack.svg',
-			'url' => '/assets/videos/slack.mp4',
+			'url'      => '/assets/videos/slack.mp4?ver=' . THEME_VERSION,
 		),
 	);
 
@@ -86,9 +86,9 @@ function la_introduction_videos() {
 
 			echo '<div class="Introduction__videos__tabs">';
 		foreach ( $atts as $att ) {
-			$class_name = $att['class'];
+			$class_name   = $att['class'];
 			$display_name = $att['name'];
-			$icon_url = $att['icon-url'];
+			$icon_url     = $att['icon-url'];
 
 			echo '<div class="Introduction__videos__tab RadioInputContainer" data-tab="' . esc_attr( $class_name ) . '"  onclick="selectRadioTab(\'' . esc_attr( $class_name ) . '\')">
 			<input type="radio" id="' . esc_attr( $class_name ) . '" name="radio" checked/>
@@ -102,13 +102,13 @@ function la_introduction_videos() {
 			<div class="Introduction__videos__contents">
 				<?php
 				foreach ( $atts as $att ) {
-					$video_url = $att['url'];
+					$video_url  = $att['url'];
 					$class_name = $att['class'];
 					?>
 
 			<div class="tab-content" data-tab="<?php echo esc_attr( $class_name ); ?>">
 				<video src="" data-src-trial="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" autoplay muted loop playsinline>
-					<source data-src-trial="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" type="video/mp4" />
+					<source data-src-trial="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" type="video/mp4?ver=' . THEME_VERSION" />
 				</video>
 			</div>
 					<?php

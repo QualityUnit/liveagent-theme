@@ -254,12 +254,27 @@ function url_space_replace( $content ) {
 	libxml_use_internal_errors( true );
 	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
 	libxml_clear_errors();
+	$xpath = new DOMXpath( $dom );
 
 	foreach ( $dom->getElementsByTagName( 'a' ) as $link ) {
 		$href  = $link->getAttribute( 'href' ); //@codingStandardsIgnoreLine
 		$fixed = str_replace( ' ', '', $href );
 		$fixed = str_replace( '%20', '', $fixed );
+		$fixed = str_replace( '%20', '', $fixed );
 		$link->setAttribute( 'href', $fixed );
+	}
+
+	// Fixes liveagent.local from CDN url on localhost
+	$images_videos = $xpath->query( '//img | //video' );
+	$imageslength  = $images_videos->length;
+
+	for ( $i = 0; $i < $imageslength; $i++ ) {
+		$element = $images_videos->item( $i );
+		$src  = $element->getAttribute( 'src' ); //@codingStandardsIgnoreLine
+		if ( WP_ENV === 'local' ) {
+			$src = preg_replace( '/https:\/\/(www\.)?live.+?\/(.+)/', 'http://liveagent.local/$2', $src );
+		}
+		$element->setAttribute( 'src', $src );
 	}
 
 	$dom->removeChild( $dom->doctype );

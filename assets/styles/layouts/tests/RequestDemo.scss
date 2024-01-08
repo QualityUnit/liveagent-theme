@@ -2,128 +2,174 @@
 @use "../../common/variables" as *;
 @use "../../common/mixins" as *;
 
-.RequestDemo.Block {
-	margin-bottom: 0 !important;
-	padding: 0 !important;
+body.demo {
 
-	body.demo & {
-		margin-top: 0 !important;
-		margin-bottom: 3em !important;
+	#app {
+		padding-top: 0;
 	}
 
-	.elementor-widget-heading h2.elementor-heading-title {
-		margin-bottom: 10px !important;
+	header {
+		display: none;
 	}
+}
 
-	.wrapper {
-		padding: 2rem !important;
-	}
+.RequestDemo {
 
-	@media (max-width: $breakpoint-tablet) {
-		padding-top: 0 !important;
-		padding-bottom: 0 !important;
+	&.DemoLogo {
 
-		.wrapper {
-			margin-top: 0;
-		}
-	}
+		&--wrapper {
+			height: 0;
 
-	.elementor-spacer-inner {
+			.elementor-widget-wrap {
+				height: 0;
+			}
 
-		@media (max-width: $breakpoint-desktop) {
-			height: 2em !important;
-		}
-	}
+			.DemoLogo {
+				top: 1.5em;
+				z-index: 2;
+				margin-left: 1em;
 
-	iframe {
-		width: 100% !important;
-	}
+				&.elementor-widget-image {
+					text-align: left;
 
-	.elementor-section .elementor-container {
+					a img[src$=".svg"] {
+						width: 8.125rem;
+					}
+				}
 
-		.Box--shadow:first-of-type {
-
-			@include color(box-shadow, box-shadow);
-			@include color(background-color, main-background);
-			padding: 1em !important;
-			border-radius: $border-radius-16;
-
-			@media (min-width: $breakpoint-desktop) {
-				padding: 0 2em !important;
+				@media (min-width: $breakpoint-tablet-landscape) {
+					margin-left: 2em;
+				}
 			}
 		}
+	}
 
-		.narrow-left {
-			display: block;
-			color: $medium-gray;
-			font-size: 1rem;
-			line-height: 1.5;
+	&.Block {
+		margin-bottom: 0 !important;
+		padding: 0 !important;
+		background: url(../../images/demo_bg.jpg) center center no-repeat;
+		background-size: cover;
+
+		body.demo & {
+			margin-top: 0 !important;
+			margin-bottom: 3em !important;
+		}
+
+		.elementor-widget-heading h2.elementor-heading-title {
+			margin-bottom: 10px !important;
+		}
+
+
+		.DemoWhatYoulearn {
+			background-color: #feefe0;
+			padding: 1em 1.5em;
+			margin-bottom: 1.5em;
+			border-radius: 8px;
+
+			* {
+				font-size: 0.75rem;
+			}
 
 			h5 {
-				font-family: "Open Sans", sans-serif;
-			}
-
-			p {
-				font-size: inherit;
-				line-height: inherit;
+				margin-bottom: 0.5em;
 			}
 
 			.checklist {
-
-				@include color(color, font-color-normal);
-				font-size: inherit;
-				max-width: 50ch;
-			}
-
-			@media (min-width: $breakpoint-tablet) {
-				padding-top: 2em;
-				padding-left: 5.75em;
+				max-width: none;
+				margin-bottom: 0;
 			}
 		}
-	}
 
-	.quote .elementor-widget-container {
-		display: flex;
-		font-size: 1.125rem;
-		color: $medium-gray;
+		.DemoVideo {
 
-		b {
-			color: #000;
+			&.elementor-widget-video .elementor-widget-container {
+				overflow: visible;
+			}
+
+			video {
+				width: auto;
+				border: 0;
+				max-height: 60rem;
+				clip-path: polygon(-15% 0, 99.15% 0.47%, 99.68% 99.94%, -11.91% 100.46%);
+				max-width: none;
+				mask-image: linear-gradient(180deg, transparent 0%, rgba($black-real, 1) 15%, rgba($black-real, 1) 90%, transparent 95%), linear-gradient(to right, transparent 90%, rgba($black-real, 1) 100%);
+				mask-size: 100% 100%, 100% 100%;
+				mask-position: 0 0, 0 10%;
+				mask-repeat: no-repeat;
+				mask-composite: exclude;
+				mask-composite: xor;
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				min-height: 60rem;
+			}
 		}
 
-		.talkingHead {
-			width: 20%;
-			height: 0;
-			padding-bottom: 20%;
-			flex: 0 0 auto;
-			margin-right: 8%;
-			border-radius: 50%;
-			background: url(../../../images/talkinghead_brian.jpg) center center no-repeat;
-			background-size: cover;
+		.ScheduleForm {
+			position: relative;
+			z-index: 1;
 		}
-	}
 
-	.logos {
-		margin-left: -1.5em;
-		margin-bottom: 1em;
+		.wrapper {
+			padding: 2rem !important;
+			position: relative;
 
-		.Clients {
-			margin-top: 0;
+			&::after {
+				position: absolute;
+				content: "";
+				left: -26%;
+				top: 14%;
+				width: 50%;
+				height: 41%;
+				z-index: 0;
+				background: url(../../images/demo_this_can_be_you.png) center center no-repeat;
+				background-size: contain;
+			}
 
-			&__item {
-				margin: 0 !important;
+			&--inn {
 
-				@media (max-width: $breakpoint-mobile) {
-					width: 25% !important;
-					margin-right: 1.75em !important;
+				> .elementor-container {
+					align-items: center;
+				}
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					margin-top: 1em;
 				}
 			}
 		}
 
-		img {
-			height: 1.25rem;
-			max-width: none;
-			filter: grayscale(100%) contrast(0) brightness(125%);
+		@media (max-width: $breakpoint-tablet) {
+			padding-top: 0 !important;
+			padding-bottom: 0 !important;
+
+			.wrapper {
+				margin-top: 0 !important;
+			}
+		}
+
+		iframe {
+			width: 100% !important;
+		}
+
+		.elementor-section .elementor-container {
+
+			.Box--shadow:first-of-type {
+
+				@include color(box-shadow, box-shadow);
+				@include color(background-color, main-background);
+				padding: 1em !important;
+				border-radius: $border-radius-16;
+
+				@media (min-width: $breakpoint-desktop) {
+					width: 65% !important;
+					padding: 1em 3em !important;
+				}
+			}
+
+			.DemoVideo--wrap {
+				width: 40%;
+			}
 		}
 	}
 }
+
