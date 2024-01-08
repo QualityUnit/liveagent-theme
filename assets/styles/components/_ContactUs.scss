@@ -75,6 +75,7 @@ $colors: (
 			}
 
 			.ContactUs__button--icon {
+				fill: $dark-orange !important; // Fall back if gradient don't work on mobile devices
 				fill: url(#Gradient) !important;
 
 				&__wrap {
