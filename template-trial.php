@@ -23,7 +23,7 @@
 			<img class="FullScreen__main__container__image" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" alt="<?php bloginfo( 'name' ); ?>">
 
 			<h1 class="FullScreen__main__container__title"><?php _e( 'Get started absolutely free', 'ms' ); ?></h1>
-			<p class="FullScreen__main__container__text"><?php _e( 'Sign up for LiveAgent in less than 60 seconds. Experience working with LiveAgent for free with our 7-day or 30-day trial. You can enjoy every feature available in the Large plan for free without any strings attached, and select your new LiveAgent plan at the end of your trial.', 'ms' ); ?></p>
+			<p class="FullScreen__main__container__text"><?php _e( 'Sign up for LiveAgent in less than 60 seconds. Experience working with LiveAgent for free with our 14 or 30 days free trial. You can enjoy every feature available in the Large plan for free without any strings attached, and select your new LiveAgent plan at the end of your trial.', 'ms' ); ?></p>
 
 			<?= do_shortcode( '[signupform]' ); ?>
 
