@@ -4,6 +4,7 @@
 	 */
 
 	set_custom_source( 'pages/blog', 'css' );
+	set_custom_source( 'components/SignupSidebar', 'css' );
 	set_custom_source( 'common/splide', 'css' );
 	set_custom_source( 'splide', 'js' );
 	set_custom_source( 'custom_lightbox', 'js' );
