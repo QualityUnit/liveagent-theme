@@ -138,6 +138,18 @@ add_action( 'template_redirect', 'videos_category_redirect' );
 
 
 /**
+ * Redirect Areacodes Regions
+ */
+function areacodes_regions_redirect() {
+	if ( is_tax( 'ms_areacodes_regions' ) ) {
+		wp_safe_redirect( '/areacodes/', 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'areacodes_regions_redirect' );
+
+
+/**
 	* Success Stories / Use case scenarios redirect
 	We have to use ms_success-stories everywhere to preserve old DB records
 	*/

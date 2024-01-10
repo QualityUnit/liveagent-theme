@@ -103,7 +103,13 @@ body.compact-header--active {
 		}
 	}
 
+	&__title-logo {
+		height: 0.75em;
+		margin-right: 0.25em;
+	}
+
 	&__title {
+		align-items: center;
 		margin: 0;
 		line-height: 1.33;
 		font-family: $font-secondary;

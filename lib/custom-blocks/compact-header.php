@@ -26,7 +26,7 @@
 	if ( ! empty( $args['search'] ) ) {
 		$filer_search = $args['search'];
 		if ( ! empty( $filer_search['type'] ) ) {
-			$search_type = $filer_search['type'];
+			$search_type  = $filer_search['type'];
 			$search_class = ' search--' . $search_type;
 		}
 	}
@@ -55,7 +55,17 @@
 				}
 				?>
 				<?php if ( ! empty( $args['title'] ) ) { ?>
-					<h1 itemprop="name" class="compact-header__title"><?= esc_html( $args['title'] ); ?></h1>
+					
+					<h1 itemprop="name" class="compact-header__title flex">
+						<?php 
+						if ( ! empty( $args['titlelogo'] ) ) {
+							?>
+						<img class="compact-header__title-logo" src="<?= esc_url( $args['titlelogo']['src'] ); ?>" alt="<?= esc_attr( $args['title'] ); ?>" />
+							<?php	
+						}
+						?>
+						<?= esc_html( $args['title'] ); ?>
+					</h1>
 				<?php } ?>
 				<?php if ( ! empty( $args['update'] ) ) { ?>
 					<div class="compact-header__update">
@@ -72,8 +82,8 @@
 				<?php } ?>
 				<?php if ( ! empty( $args['date'] ) ) { ?>
 					<?php
-						$date_machine = get_the_time( 'Y-m-d' );
-						$date_human = get_the_time( 'F j, Y' );
+						$date_machine  = get_the_time( 'Y-m-d' );
+						$date_human    = get_the_time( 'F j, Y' );
 						$date_modified = get_the_modified_time( 'F j, Y' );
 						$time_modified = get_the_modified_time( 'g:i a' );
 					?>
@@ -93,13 +103,13 @@
 
 				<?php
 				$cta_button_info = $args['cta_button'] ?? array();
-				$buttons = $args['buttons'] ?? array();
+				$buttons         = $args['buttons'] ?? array();
 
 				$render_cta_buttons = array();
 				foreach ( $cta_button_info as $cta_button ) {
 					if ( 'yes' === $cta_button['enabled'] ) {
 						$render_cta_buttons[] = array(
-							'url' => esc_url( $cta_button['url'] ),
+							'url'  => esc_url( $cta_button['url'] ),
 							'text' => esc_html( $cta_button['text'] ),
 						);
 					}
@@ -113,10 +123,10 @@
 							: 'Button Button--outline Button--outline-gray';
 
 						$render_buttons[] = array(
-							'href' => esc_url( $button['href'] ),
-							'title' => esc_attr( $button['title'] ),
-							'target' => isset( $button['target'] ) ? esc_attr( $button['target'] ) : '',
-							'rel' => isset( $button['rel'] ) ? esc_attr( $button['rel'] ) : '',
+							'href'    => esc_url( $button['href'] ),
+							'title'   => esc_attr( $button['title'] ),
+							'target'  => isset( $button['target'] ) ? esc_attr( $button['target'] ) : '',
+							'rel'     => isset( $button['rel'] ) ? esc_attr( $button['rel'] ) : '',
 							'onclick' => isset( $button['onclick'] ) ? esc_attr( $button['onclick'] ) : '',
 							'classes' => esc_attr( $button_classes ),
 						);
@@ -369,7 +379,7 @@
 																	<?php foreach ( $filer_list as $filer_list_item ) { ?>
 																		<?php
 																		$item_checked = false;
-																		$item_value = '';
+																		$item_value   = '';
 																		if ( ! empty( $filer_list_item['checked'] ) ) {
 																			$item_checked = $filer_list_item['checked'];
 																		}
