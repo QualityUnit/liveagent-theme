@@ -206,11 +206,11 @@
 			listItems.forEach( ( element ) => {
 				const listItem = element;
 				const title = listItem
-					.querySelector( '.item-title' )
-					.textContent.toLowerCase();
+					?.querySelector( '.item-title' )
+					?.textContent?.toLowerCase();
 				const excerpt = listItem
-					.querySelector( '.item-excerpt' )
-					.textContent.toLowerCase();
+					?.querySelector( '.item-excerpt' )
+					?.textContent?.toLowerCase();
 
 				if (
 					listItem.style.display === 'none' &&
@@ -226,7 +226,7 @@
 					listItem.style.display = 'flex';
 				}
 
-				if ( ! title.includes( val ) && ! excerpt.includes( val ) ) {
+				if ( ! title?.includes( val ) && ! excerpt?.includes( val ) ) {
 					listItem.style.display = 'none';
 				}
 
