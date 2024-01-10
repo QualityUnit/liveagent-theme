@@ -124,30 +124,30 @@
 
 					/* Gets currenty category ID */
 					$categories = get_the_category();
-				if ( isset( $categories[1] ) ) {
-					$category_id = $categories[1]->cat_ID;
-				}
 
-				$this_category = get_queried_object();
+					if ( isset( $categories[1] ) ) {
+						$category_id = $categories[1]->cat_ID;
+					}
 
-				$query_args = array(
-					'ignore_sticky_posts' => true,
-					'posts_per_page'      => 9,
-					'post_status'         => 'publish',
-					'orderby'             => 'date',
-					'no_found_rows'       => true,
-				);
+					$this_category = get_queried_object();
+					$sticky_posts = get_option('sticky_posts');
+					$newest_sticky_post = $sticky_posts ? max($sticky_posts) : null;
 
-        if ( ( $this_category && isset ( $this_category->parent ) ) && 0 != $this_category->parent ) { // @codingStandardsIgnoreLine
 					$query_args = array(
 						'ignore_sticky_posts' => true,
 						'posts_per_page'      => 9,
 						'post_status'         => 'publish',
 						'orderby'             => 'date',
-						'cat'                 => ( isset( $categories[1] ) ? $category_id : '' ),
 						'no_found_rows'       => true,
 					);
-				}
+
+					if ($newest_sticky_post) {
+						$query_args['post__not_in'] = array($newest_sticky_post);
+					}
+
+					if ( ( $this_category && isset ( $this_category->parent ) ) && 0 != $this_category->parent ) {
+						$query_args['cat'] = $this_category->term_id;
+					}
 
 					/* Query Other Posts */
 				$show_other_posts = new WP_Query( $query_args );
