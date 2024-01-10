@@ -12,7 +12,7 @@ add_action(
 			'name_admin_bar' => __( 'Area Codes', 'ms' ),
 		);
 		$rewrite = array(
-			'slug'       => 'areacodes/areacodes',
+			'slug'       => 'areacodes/codes',
 			'with_front' => true,
 			'pages'      => true,
 			'feeds'      => false,
@@ -52,7 +52,7 @@ add_action(
 			'name_admin_bar' => __( 'Countries', 'ms' ),
 		);
 		$rewrite = array(
-			'slug'       => 'areacodes',
+			'slug'       => 'areacodes/countries',
 			'with_front' => true,
 			'pages'      => true,
 			'feeds'      => false,
@@ -92,7 +92,7 @@ add_action(
 			'name_admin_bar' => __( 'US States', 'ms' ),
 		);
 		$rewrite = array(
-			'slug'       => 'areacodes',
+			'slug'       => 'areacodes/usa',
 			'with_front' => true,
 			'pages'      => true,
 			'feeds'      => false,
