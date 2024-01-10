@@ -14,3 +14,4 @@
 	require_once get_template_directory() . '/lib/taxonomies/success-stories-categories.php';
 	require_once get_template_directory() . '/lib/taxonomies/reviews-categories.php';
 	require_once get_template_directory() . '/lib/taxonomies/videos-categories.php';
+	require_once get_template_directory() . '/lib/taxonomies/areacodes-categories.php';
