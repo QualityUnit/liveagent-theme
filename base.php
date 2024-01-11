@@ -31,5 +31,6 @@
 		wp_footer();
 		include_once( 'base-scripts.php' );
 	?>
+	<script src="https://cdn.debugbear.com/LbEOqVOEwFx2.js" async></script>
 	</body>
 </html>
