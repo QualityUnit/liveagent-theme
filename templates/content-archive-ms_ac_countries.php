@@ -38,6 +38,7 @@ $page_header_args = array(
 							$query_regions_posts = new WP_Query(
 								array(
 									'ms_areacodes_regions' => $region->slug,
+									'post_type'            => 'ms_ac_countries',
 									// @codingStandardsIgnoreLine
 									'posts_per_page' => 500,
 									'orderby'              => 'title',
@@ -46,10 +47,11 @@ $page_header_args = array(
 							);
 							while ( $query_regions_posts->have_posts() ) :
 								$query_regions_posts->the_post();
+								$flag_path = get_template_directory_uri() . '/assets/country_flags/' . get_post_meta( get_the_ID() )['iso_code'][0] . '.svg';
 								?>
 								<li itemscope itempro="location" itemtype="https://schema.org/Place">
 									<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
-										<img class="Country_flag" src="<?= esc_url( get_the_post_thumbnail_url( get_the_ID(), 'archive_small_thumbnail' ) ); ?>" alt="<?php esc_attr( get_the_title() ); ?>" />
+										<img class="Country_flag" src="<?= esc_url( $flag_path ); ?>" alt="<?php esc_attr( get_the_title() ); ?>" />
 										<span class="item-title" itemprop="name"><?php the_title(); ?></span>
 									</a>
 								</li>

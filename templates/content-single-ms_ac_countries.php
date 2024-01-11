@@ -1,13 +1,13 @@
 <?php // @codingStandardsIgnoreLine
 global $post;
 $post_slug        = $post->post_name;
+$post_meta        = get_post_meta( get_the_ID() );
+$flag_path        = get_template_directory_uri() . '/assets/country_flags/' . $post_meta['iso_code'][0] . '.svg';
 $page_header_logo = array(
-	'src' => get_template_directory_uri() . '/assets/images/icon-book.svg?ver=' . THEME_VERSION,
-	'alt' => __( 'Glossary', 'ms' ),
+	'src' => $flag_path . '?ver=' . THEME_VERSION,
+	'alt' => get_the_title(),
 );
-if ( has_post_thumbnail() ) {
-	$page_header_logo['src'] = get_the_post_thumbnail_url( $post, 'logo_thumbnail' );
-}
+
 $page_header_args = array(
 	'image'      => array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_glossary.png?ver=' . THEME_VERSION,
@@ -15,7 +15,7 @@ $page_header_args = array(
 	),
 	'logo'       => $page_header_logo,
 	'titlelogo'  => $page_header_logo,
-	'title'      => get_the_title(),
+	'title'      => get_the_title() . ' (+' . $post_meta['calling_prefix'][0] . ')',
 	'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
 	'toc'        => true,
 	'cta_button' => get_cta_button_data(),
@@ -39,7 +39,7 @@ $page_header_args = array(
 				<?php the_content(); ?>
 
 				<?php 
-				if ( 'usa' === $post_slug ) {
+				if ( 'unites-states' === $post_slug ) {
 					get_template_part( 'lib/custom-blocks/us-area-codes', null );
 				}
 				?>
