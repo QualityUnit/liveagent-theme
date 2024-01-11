@@ -124,39 +124,39 @@
 
 					/* Gets currenty category ID */
 					$categories = get_the_category();
+
 				if ( isset( $categories[1] ) ) {
 					$category_id = $categories[1]->cat_ID;
 				}
 
-				$this_category = get_queried_object();
+					$this_category = get_queried_object();
+					$sticky_posts = get_option( 'sticky_posts' );
+					$newest_sticky_post = $sticky_posts ? max( $sticky_posts ) : null;
 
-				$query_args = array(
-					'ignore_sticky_posts' => true,
-					'posts_per_page'      => 9,
-					'post_status'         => 'publish',
-					'orderby'             => 'date',
-					'no_found_rows'       => true,
-				);
-
-        if ( ( $this_category && isset ( $this_category->parent ) ) && 0 != $this_category->parent ) { // @codingStandardsIgnoreLine
 					$query_args = array(
 						'ignore_sticky_posts' => true,
 						'posts_per_page'      => 9,
 						'post_status'         => 'publish',
 						'orderby'             => 'date',
-						'cat'                 => ( isset( $categories[1] ) ? $category_id : '' ),
 						'no_found_rows'       => true,
 					);
-				}
+
+					if ( $newest_sticky_post ) {
+						$query_args['post__not_in'] = array( $newest_sticky_post );
+					}
+
+					if ( ( $this_category && isset( $this_category->parent ) ) && 0 != $this_category->parent ) {
+						$query_args['cat'] = $this_category->term_id;
+					}
 
 					/* Query Other Posts */
-				$show_other_posts = new WP_Query( $query_args );
-				$original_query   = $wp_query;
+					$show_other_posts = new WP_Query( $query_args );
+					$original_query   = $wp_query;
 				$wp_query       = $show_other_posts; // @codingStandardsIgnoreLine
 
-				while ( $show_other_posts->have_posts() ) :
-					$show_other_posts->the_post();
-					?>
+					while ( $show_other_posts->have_posts() ) :
+						$show_other_posts->the_post();
+						?>
 				<li itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" <?php post_class( 'Blog__item' ); ?>>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
 						<div class="Blog__item__thumbnail">
@@ -193,7 +193,7 @@
 									<?php the_title(); ?>
 							</h3>
 							<p itemprop="abstract">
-								<?= esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?>
+									<?= esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?>
 
 								<span class="learn-more">
 									<?php _e( 'Learn More', 'ms' ); ?>
@@ -205,7 +205,7 @@
 						</div>
 				</a>
 				</li>
-				<?php endwhile; ?>
+					<?php endwhile; ?>
 				<?php
 				$wp_query = $original_query; // @codingStandardsIgnoreLine
 				wp_reset_postdata();

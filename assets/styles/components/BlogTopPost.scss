@@ -6,8 +6,8 @@
 .blog__top__post {
 	max-width: 73.75em;
 	margin: 0 auto 3em;
-	padding-left: 1.25em;
-	padding-right: 1.25em;
+	padding-left: 40px;
+	padding-right: 40px;
 	position: relative;
 
 
@@ -104,5 +104,10 @@
 		&__content {
 			padding: 0 3.5em;
 		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		padding-left: 1.25em;
+		padding-right: 1.25em;
 	}
 }
