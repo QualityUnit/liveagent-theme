@@ -1,0 +1,82 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.AreaCodes {
+
+	&__list {
+
+		.AreaCodes__Region {
+			margin-top: 3em;
+		}
+
+		.Country {
+			display: flex;
+			align-items: center;
+			background: $lightest-gray;
+			border-radius: 10px;
+			font-weight: 700;
+
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+				margin-top: 1.5em;
+			}
+
+			@media (hover: hover) {
+
+				&:hover {
+					background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
+					box-shadow: 0 22px 15px -10px rgba($black-real, 0.18);
+					color: $white;
+
+					.Country {
+
+						&__flag {
+							box-shadow: 0 0 0 2px $white;
+						}
+
+						&__arrow {
+							opacity: 1 !important;
+						}
+					}
+				}
+			}
+
+			a {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				text-decoration: none;
+				padding: 0.75em 1.25em;
+				color: currentColor;
+			}
+
+			&__list {
+
+				@media (min-width: $breakpoint-tablet) {
+					display: grid;
+					column-gap: 1.5em;
+					row-gap: 1.5em;
+					grid-template-columns: repeat(2, 50%);
+				}
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					grid-template-columns: repeat(3, 33.33%);
+				}
+			}
+
+			&__flag {
+				width: 2rem;
+				margin-right: 0.5em;
+				border-radius: 6px;
+				box-shadow: 0 0 0 1px $lighter-gray;
+			}
+
+			&__arrow {
+				opacity: 0 !important;
+				margin-left: auto;
+			}
+		}
+	}
+}
