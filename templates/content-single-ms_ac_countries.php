@@ -35,7 +35,7 @@ $page_header_args = array(
 			<div class="Content" itemprop="articleBody">
 				<div style="position: relative; width: 100%; height: 0; padding-bottom: 40%; overflow: hidden"><iframe frameborder="0" style="border:0; position: absolute; top: 0; left: 0;	margin: 0 !important;	width: 100% !important;	height: 100% !important;" scrolling="no" src="https://maps.google.com/maps?hl=en&amp;q='<?= esc_attr( get_the_title() ); ?>&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
 
-				<?php do_shortcode( '[urlslab-generator id="7" country_name="' . get_the_title() . '"]' ); ?>
+				<?= do_shortcode( '[urlslab-generator id="7" country_name="' . get_the_title() . '"]' ); ?>
 
 				<?php 
 				if ( 'us' === $post_meta['iso_code'][0] ) {

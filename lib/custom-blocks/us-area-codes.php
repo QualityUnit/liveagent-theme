@@ -26,7 +26,7 @@ require get_template_directory() . '/functions/us-states.php';
 			foreach ( $values['area_codes'] as $area_code ) {
 				?>
 					<li class="area-code mr-xs">
-						<a class="item-excerpt" href="../../codes/usa_<?= $area_code; // @codingStandardsIgnoreLine ?>"><?= esc_html( $area_code ); ?></a>
+						<a class="item-excerpt" href="../../codes/us_<?= $area_code; // @codingStandardsIgnoreLine ?>"><?= esc_html( $area_code ); ?></a>
 					</li>
 					<?php
 			}

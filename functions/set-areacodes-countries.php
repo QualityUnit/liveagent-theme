@@ -105,9 +105,50 @@ function insert_us_states() {
 	}
 }
 
+function insert_us_areacodes() {
+	require get_template_directory() . '/functions/us-states.php';
+
+	$states_posts = get_posts(
+		array(
+			'post_type'      => 'ms_areacodes',
+			'posts_per_page' => 50,
+		)
+	);
+	
+	foreach ( $us_states as $state => $values ) {
+		if ( count( $states_posts ) !== 0 ) {
+			break;
+		}
+
+		foreach ( $values['area_codes'] as $areacode ) {
+
+				$capital  = $values['major_city'];
+				$gtm_diff = $values['gmt_timezone_diff'];
+
+				// Insert state as a custom post type
+					$post_id = wp_insert_post(
+						array(
+							'post_title'  => $areacode,
+							'post_type'   => 'ms_areacodes',
+							'post_status' => 'publish',
+							'post_name'   => 'us_' . $areacode,
+						)
+					);
+				
+					// Save state capital as post meta
+					update_post_meta( $post_id, 'state', $state );
+					update_post_meta( $post_id, 'capital_city', $capital );
+			
+					// Save GTM time difference as meta
+					update_post_meta( $post_id, 'gtm_diff', $gtm_diff );
+		}   
+	}
+}
+
 if ( is_admin() ) {
 
-	// Run the function with the path to your CSV file
+	// Run the function
 	add_action( 'init', 'insert_countries', 0 );
 	add_action( 'init', 'insert_us_states', 0 );
+	add_action( 'init', 'insert_us_areacodes', 0 );
 }
