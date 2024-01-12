@@ -1,6 +1,5 @@
 <?php // @codingStandardsIgnoreLine
 global $post;
-$post_slug        = $post->post_name;
 $post_meta        = get_post_meta( get_the_ID() );
 $flag_path        = get_template_directory_uri() . '/assets/country_flags/' . $post_meta['iso_code'][0] . '.svg';
 $page_header_logo = array(
@@ -13,7 +12,6 @@ $page_header_args = array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_glossary.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
-	'logo'       => $page_header_logo,
 	'titlelogo'  => $page_header_logo,
 	'title'      => get_the_title() . ' (+' . $post_meta['calling_prefix'][0] . ')',
 	'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
@@ -36,10 +34,16 @@ $page_header_args = array(
 		<div class="Post__content">
 
 			<div class="Content" itemprop="articleBody">
+				<div style="position: relative; width: 100%; height: 0; padding-bottom: 40%; overflow: hidden"><iframe frameborder="0" style="border:0; position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0 !important;
+	width: 100% !important;
+	height: 100% !important;" scrolling="no" src="https://maps.google.com/maps?hl=en&amp;q='<?= esc_attr( get_the_title() ); ?>&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
 				<?php the_content(); ?>
 
 				<?php 
-				if ( 'unites-states' === $post_slug ) {
+				if ( 'us' === $post_meta['iso_code'][0] ) {
 					get_template_part( 'lib/custom-blocks/us-area-codes', null );
 				}
 				?>
