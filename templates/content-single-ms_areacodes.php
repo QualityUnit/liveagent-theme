@@ -1,4 +1,5 @@
 <?php // @codingStandardsIgnoreLine
+set_custom_source( 'pages/AreaCodes', 'css' );
 require get_template_directory() . '/functions/us-states.php';
 $post_meta = get_post_meta( get_the_ID() );
 $state     = $post_meta['state'][0];

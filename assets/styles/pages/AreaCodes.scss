@@ -79,4 +79,80 @@
 			}
 		}
 	}
+
+	&__table {
+		table-layout: fixed;
+		font-size: 0.8125rem;
+
+		th,
+		td {
+			text-align: left;
+			padding: 1em 1.5em !important;
+
+			&:not(:first-of-type) {
+				border-left: 1px solid $light-gray;
+			}
+		}
+
+		th {
+			font-size: 0.875rem;
+			text-transform: uppercase;
+		}
+
+		tr {
+			border: none !important;
+			border-bottom: 1px dashed $medium-gray !important;
+		}
+
+		tbody tr {
+			font-size: 0.8125rem;
+
+			&:nth-of-type(odd):not(:last-child) {
+				background-color: $lightest-gray;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			&--state {
+				width: 30%;
+			}
+
+			&--areacodes {
+				width: 70%;
+			}
+		}
+
+		h4,
+		ul {
+			margin: 0 !important;
+			font-size: inherit;
+		}
+
+		h4 {
+			display: inline;
+		}
+
+		.state,
+		.area-codes {
+
+			li {
+				margin: 0;
+			}
+
+			a {
+				display: inline-block;
+				margin: 0.15em;
+				text-decoration: none;
+				border-radius: 0.25rem;
+				background-color: $white;
+				padding: 0.25em 1em;
+				box-shadow: 0 2px 4px 0 rgba(144, 144, 144, 0.16);
+
+				&:hover {
+					box-shadow: 0 -20px 20px -16px rgba(157, 157, 157, 0.12) inset, 0 4px 8px 0 rgba(144, 144, 144, 0.28);
+				}
+			}
+		}
+	}
 }

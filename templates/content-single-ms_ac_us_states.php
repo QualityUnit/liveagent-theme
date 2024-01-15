@@ -1,4 +1,5 @@
 <?php // @codingStandardsIgnoreLine
+set_custom_source( 'pages/AreaCodes', 'css' );
 require get_template_directory() . '/functions/us-states.php';
 $state        = get_the_title();
 $capital_city = $us_states[ $state ]['major_city'];

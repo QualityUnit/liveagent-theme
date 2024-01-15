@@ -16,23 +16,36 @@ require get_template_directory() . '/functions/us-states.php';
 	</span>
 			</div>
 		</div>
-	<div class="list">
+	<table class="AreaCodes__table list">
+		<thead class="AreaCodes__table--head">
+			<tr class="AreaCodes__table--row">
+				<th class="AreaCodes__table--state"><?php _e( 'State', 'areacodes' ); ?></th>
+				<th class="AreaCodes__table--areacodes"><?php _e( 'Area codes', 'areacodes' ); ?></th>
+			</tr>
+		</thead>
+		<tbody>
 		<?php
 		foreach ( $us_states as $state => $values ) {
 			?>
-		<h4 class="state" itemprop="name"><a class="item-title" href="../../usa/<?= $values['slug']; // @codingStandardsIgnoreLine ?>"><?= esc_html( $state ); ?></a></h4>
-		<ul class="area-codes flex flex-wrap">
-			<?php
-			foreach ( $values['area_codes'] as $area_code ) {
-				?>
-					<li class="area-code mr-xs">
-						<a class="item-excerpt" href="../../codes/us_<?= $area_code; // @codingStandardsIgnoreLine ?>"><?= esc_html( $area_code ); ?></a>
-					</li>
-					<?php
-			}
-			?>
-			</ul>
+			<tr class="AreaCodes__table--row">
+				<td class="AreaCodes__table--state">
+					<h4 class="state" itemprop="name"><a class="item-title" href="../../usa/<?= $values['slug']; // @codingStandardsIgnoreLine ?>"><?= esc_html( $state ); ?></a></h4>
+				</td>
+				<td class="AreaCodes__table--areacodes">
+					<ul class="area-codes flex flex-wrap">
+						<?php
+						foreach ( $values['area_codes'] as $area_code ) {
+							?>
+								<li class="area-code mr-xs">
+									<a class="item-excerpt" href="../../codes/us_<?= $area_code; // @codingStandardsIgnoreLine ?>"><?= esc_html( $area_code ); ?></a>
+								</li>
+								<?php
+						}
+						?>
+						</ul>
+				</td>
 			<?php
 		}
 		?>
-	</div>
+		</tbody>
+	</table>
