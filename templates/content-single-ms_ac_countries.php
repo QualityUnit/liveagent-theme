@@ -43,44 +43,7 @@ $page_header_args = array(
 					get_template_part( 'lib/custom-blocks/us-area-codes', null );
 				}
 				?>
-				<div class="Post__buttons">
-					<a href="<?php _e( '/customer-support-glossary/', 'ms' ); ?>" class="Button Button--outline Button--back"><span><?php _e( 'Back to Glossary', 'ms' ); ?></span></a>
 
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
-						<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
-					</a>
-				</div>
-
-				<?php
-				$shortcode_text = do_shortcode( '[urlslab-generator id="1"]' );
-
-				if ( ! empty( $shortcode_text ) ) {
-					?>
-
-					<div class="BlockDiscover BlockDiscover--expert">
-						<p class="BlockDiscover__title"><?php _e( 'Expert note', 'ms' ); ?></p>
-						<p class="BlockDiscover__text"><?php echo $shortcode_text; //@codingStandardsIgnoreLine ?></p>
-
-						<div class="BlockDiscover__buttons">
-							<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--knockout">
-								<span><?php _e( 'Try LiveAgent', 'ms' ); ?></span>
-							</a>
-							<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline Button--outline__white">
-								<span><?php _e( 'Schedule a Demo', 'ms' ); ?></span>
-							</a>
-						</div>
-
-						<div class="BlockDiscover__agent">
-							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/agent-saxon.png" alt="<?php _e( 'Andrej Saxon', 'ms' ); ?>" class="BlockDiscover__agent__photo">
-							<div>
-								<div class="BlockDiscover__agent__name"><?php _e( 'Andrej Saxon', 'ms' ); ?></div>
-								<div class="BlockDiscover__agent__position"><?php _e( 'Sales manager', 'ms' ); ?></div>
-							</div>
-						</div>
-					</div>
-
-					<?php set_custom_source( 'shortcodes/BlockDiscover' ); ?>
-				<?php } ?>
 
 				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
