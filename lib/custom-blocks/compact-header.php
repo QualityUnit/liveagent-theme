@@ -77,6 +77,34 @@
 						</time>
 					</div>
 				<?php } ?>
+				<?php if ( ! empty( $args['areacode_info'] ) ) { ?>
+					<dl class="compact-header__info">
+					<?php foreach ( $args['areacode_info'] as $name => $info ) { ?>
+						<dt><?= esc_html( $name ); ?></dt>
+						<dd><?= esc_html( $info ); ?></dd>
+					<?php } ?>
+					<?php if ( ! empty( $args['areacode_gmt_diff'] ) ) { ?>
+						<dt><?php _e( 'Current time in this zone', 'areacodes' ); ?></dt>
+						<dd><time id="compactHeaderGtmTime"></time></dd>
+						<script>
+							(() => {
+								const gmtDiff =  <?= esc_html( $args['areacode_gmt_diff'] ); ?>;
+								const lang = document.documentElement.lang;
+								const timeElement = document.querySelector('#compactHeaderGtmTime');
+	
+								function setTime() {
+									const date = new Date();
+									const utcHours = date.setUTCHours(date.getUTCHours() + gmtDiff);
+									let time = date.toLocaleTimeString(lang, {hour: '2-digit', minute:'2-digit'});
+									timeElement.innerText = time;
+								}
+								setTime();
+								setInterval(setTime, 60000);
+							})();
+						</script>
+					<?php } ?>
+					</dl>
+					<?php } ?>
 				<?php if ( ! empty( $args['text'] ) ) { ?>
 					<div class="compact-header__text"><?= wp_kses_post( $args['text'] ); ?></div>
 				<?php } ?>

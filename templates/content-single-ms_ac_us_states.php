@@ -1,22 +1,36 @@
 <?php // @codingStandardsIgnoreLine
-$post_meta = get_post_meta( get_the_ID() );
+require get_template_directory() . '/functions/us-states.php';
+$state        = get_the_title();
+$capital_city = $us_states[ $state ]['major_city'];
+$gmt_zone     = $us_states[ $state ]['gmt_timezone_info'];
+$gmt_diff     = $us_states[ $state ]['gmt_timezone_diff'];
 
-$flag_path        = get_template_directory_uri() . '/assets/us_states_flags/flags/' . str_replace( ' ', '_', get_the_title() ) . '.svg';
+$state_args = array(
+	'state' => $state,
+);
+
+$flag_path = get_template_directory_uri() . '/assets/us_states_flags/flags/' . str_replace( ' ', '_', $state ) . '.svg';
+
 $page_header_logo = array(
 	'src' => $flag_path . '?ver=' . THEME_VERSION,
-	'alt' => get_the_title(),
+	'alt' => $state,
 );
 
 $page_header_args = array(
-	'image'      => array(
+	'image'             => array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_glossary.png?ver=' . THEME_VERSION,
-		'alt' => get_the_title(),
+		'alt' => $state,
 	),
-	'titlelogo'  => $page_header_logo,
-	'title'      => get_the_title(),
-	'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
-	'toc'        => true,
-	'cta_button' => get_cta_button_data(),
+	'titlelogo'         => $page_header_logo,
+	'title'             => $state,
+	'areacode_info'     => array(
+		__( 'State', 'areacodes' )      => $state,
+		__( 'Major city', 'areacodes' ) => $capital_city,
+		__( 'Time zone', 'areacodes' )  => $gmt_zone,
+	),
+	'areacode_gmt_diff' => $gmt_diff,
+	'toc'               => true,
+	'cta_button'        => get_cta_button_data(),
 );
 
 ?>
@@ -39,6 +53,8 @@ $page_header_args = array(
 				<?= do_shortcode( '[urlslab-generator id="7" country_name="' . get_the_title() . '"]' ); ?>
 
 				<?php the_content(); ?>
+
+				<?php get_template_part( 'lib/custom-blocks/us-state-area-codes', null, $state_args ); ?>
 
 				<h3><?php _e( 'Area code and other parts of a phone number', 'areacodes' ); ?></h3>
 				<p>

@@ -1,10 +1,15 @@
 <?php // @codingStandardsIgnoreLine
 require get_template_directory() . '/functions/us-states.php';
+$post_meta = get_post_meta( get_the_ID() );
+$state     = $post_meta['state'][0];
 
-$post_meta    = get_post_meta( get_the_ID() );
-$state        = $post_meta['state'][0];
-$capital_city = $post_meta['capital_city'][0];
-// $gmt          = $post_meta['gmt_diff'][0];
+$capital_city = $us_states[ $state ]['major_city'];
+$gmt_zone     = $us_states[ $state ]['gmt_timezone_info'];
+$gmt_diff     = $us_states[ $state ]['gmt_timezone_diff'];
+
+$state_args = array(
+	'state' => $state,
+);
 
 $page_header_logo = array(
 	'src' => get_template_directory_uri() . '/assets/images/icon-areacode.svg?ver=' . THEME_VERSION,
@@ -12,15 +17,21 @@ $page_header_logo = array(
 );
 
 $page_header_args = array(
-	'image'      => array(
+	'image'             => array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_glossary.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
-	'titlelogo'  => $page_header_logo,
-	'title'      => get_the_title(),
-	'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
-	'toc'        => true,
-	'cta_button' => get_cta_button_data(),
+	'titlelogo'         => $page_header_logo,
+	'title'             => get_the_title(),
+	'text'              => do_shortcode( '[urlslab-generator id="6"]' ),
+	'areacode_info'     => array(
+		__( 'State', 'areacodes' )      => $state,
+		__( 'Major city', 'areacodes' ) => $capital_city,
+		__( 'Time zone', 'areacodes' )  => $gmt_zone,
+	),
+	'areacode_gmt_diff' => $gmt_diff,
+	'toc'               => true,
+	'cta_button'        => get_cta_button_data(),
 );
 
 ?>
@@ -41,6 +52,7 @@ $page_header_args = array(
 
 			<div style="position: relative; width: 100%; height: 0; padding-bottom: 40%; overflow: hidden"><iframe frameborder="0" style="border:0; position: absolute; top: 0; left: 0;	margin: 0 !important;	width: 100% !important;	height: 100% !important;" scrolling="no" src="https://maps.google.com/maps?hl=en&amp;q='<?= esc_attr( $state ); ?>&amp;t=&amp;z=5&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
 				<?php the_content(); ?>
+				<?php get_template_part( 'lib/custom-blocks/us-state-area-codes', null, $state_args ); ?>
 
 				<h3><?php _e( 'Area code and other parts of a phone number', 'areacodes' ); ?></h3>
 				<p>

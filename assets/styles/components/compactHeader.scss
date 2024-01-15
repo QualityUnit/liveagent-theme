@@ -125,6 +125,36 @@ body.compact-header--active {
 		}
 	}
 
+	&__info {
+
+		font-size: 0.875rem;
+		line-height: 1.15;
+
+		dt {
+			flex-basis: 25%;
+			font-weight: 700;
+			padding: 0.15em 0;
+		}
+
+		dd {
+			flex-basis: 70%;
+			text-align: left;
+			padding: 0.15em 0;
+			margin: 0;
+			flex-grow: 1;
+			color: $dark-gray;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+			flex-flow: row wrap;
+
+			dd {
+				padding: 0.15em 1em;
+			}
+		}
+	}
+
 	&__text {
 
 		&:not(:last-child) {
