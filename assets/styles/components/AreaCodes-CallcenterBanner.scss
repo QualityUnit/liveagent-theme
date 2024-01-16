@@ -1,0 +1,56 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+.AreaCodes__CallcenterBanner {
+	display: block;
+	background: url(../../images/areacodes_banner_callcenter_bg.jpg?ver=#{$version});
+	background-size: cover;
+	border-radius: 1rem;
+	color: $white;
+
+	* {
+		color: inherit;
+	}
+
+	&__img {
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	&__text {
+		margin-top: 1.5em;
+
+		&--title {
+			line-height: 1.25;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: flex;
+		position: relative;
+		margin-top: 10em;
+
+		&__img {
+			position: absolute;
+			right: -5.5em;
+			bottom: -2.75em;
+			width: calc(50% + 2.75em * 2);
+		}
+
+		&__text {
+			margin-top: 0;
+			width: 50%;
+			padding-right: 2.75em;
+			order: -1;
+
+			&--title {
+				font-size: 2.5rem;
+			}
+		}
+	}
+}

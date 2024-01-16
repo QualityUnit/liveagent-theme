@@ -9,7 +9,7 @@ $page_header_logo = array(
 
 $page_header_args = array(
 	'image'      => array(
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_glossary.png?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_areacodes_country.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
 	'titlelogo'  => $page_header_logo,
@@ -43,16 +43,16 @@ $page_header_args = array(
 					get_template_part( 'lib/custom-blocks/us-area-codes', null );
 				}
 				?>
-
-
-				<div class="Post__content__resources">
-					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
-
-					<div class="SimilarSources">
-						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
-					</div>
-				</div>
 			</div>
+		</div>
+	</div>
+	<?php require_once get_template_directory() . '/lib/custom-blocks/areacodes-callcenter-banner.php'; ?>
+
+	<div class="Post__content__resources wrapper">
+		<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
+
+		<div class="SimilarSources">
+			<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
 		</div>
 	</div>
 </div>

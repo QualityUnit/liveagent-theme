@@ -4,6 +4,14 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+.compact-header__image {
+	border: none !important;
+
+	.compact-header__img[class] {
+		object-fit: contain;
+	}
+}
+
 .AreaCodes {
 
 	&__list {

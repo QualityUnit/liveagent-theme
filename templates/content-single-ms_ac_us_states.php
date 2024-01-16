@@ -17,9 +17,16 @@ $page_header_logo = array(
 	'alt' => $state,
 );
 
+$page_header_breadcrumb = array(
+	array( __( 'Countries', 'areacodes' ), __( '/areacodes/countries/', 'areacodes' ) ),
+	array( __( 'United States of America', 'areacodes' ), __( '/areacodes/countries/united-states-of-america/', 'areacodes' ) ),
+	array( get_the_title() ),
+);
+
 $page_header_args = array(
+	'breadcrumb'        => $page_header_breadcrumb,
 	'image'             => array(
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_glossary.png?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_areacodes_state.png?ver=' . THEME_VERSION,
 		'alt' => $state,
 	),
 	'titlelogo'         => $page_header_logo,
@@ -61,15 +68,17 @@ $page_header_args = array(
 				<p>
 					<?php _e( 'You`ve gone through the different area codes in the United States, but what do these numbers really mean? Phone numbers in the United States typically consist of 11 digits — the 1-digit country code, a 3-digit area code and a 7-digit telephone number. The 7-digit telephone number is further comprised of a 3-digit central office or exchange code and a 4-digit subscriber number. The country code of USA is +1. It is unique for every country. Area codes are of two types — local and toll-free. 800, 844, 855, 866, 877, and 888 are the different toll-free codes. All the remaining area codes represent the geopgraphic region to which a phone number belongs. The central office code denotes the telephone exchange to which the phone number is mapped. The last four digits, the subscriber number, is unique to each telephone line in the area served by the associated central exchange. These four digits are typically used by businesses to provide vanity numbers that offer great top-of-the-mind recall.', 'areacodes' ); ?>
 				</p>
-
-				<div class="Post__content__resources">
-					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
-
-					<div class="SimilarSources">
-						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
-					</div>
-				</div>
 			</div>
+		</div>
+	</div>
+
+	<?php require_once get_template_directory() . '/lib/custom-blocks/areacodes-callcenter-banner.php'; ?>
+
+	<div class="Post__content__resources wrapper">
+		<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
+
+		<div class="SimilarSources">
+			<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
 		</div>
 	</div>
 </div>
