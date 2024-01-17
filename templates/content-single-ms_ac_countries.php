@@ -9,15 +9,16 @@ $page_header_logo = array(
 );
 
 $page_header_args = array(
-	'image'      => array(
+	'image'       => array(
 		'src' => get_template_directory_uri() . '/assets/images/compact_header_areacodes_country.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
-	'titlelogo'  => $page_header_logo,
-	'title'      => get_the_title() . ' (+' . $post_meta['calling_prefix'][0] . ')',
-	'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
-	'toc'        => true,
-	'cta_button' => get_cta_button_data(),
+	'titlelogo'   => $page_header_logo,
+	'title'       => get_the_title() . ' (+' . $post_meta['calling_prefix'][0] . ')',
+	'title_small' => __( 'area codes', 'areacodes' ),
+	'text'        => do_shortcode( '[urlslab-generator id="6"]' ),
+	'toc'         => true,
+	'cta_button'  => get_cta_button_data(),
 );
 
 ?>

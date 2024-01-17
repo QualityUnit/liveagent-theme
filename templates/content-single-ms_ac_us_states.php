@@ -36,6 +36,7 @@ $page_header_args = array(
 	),
 	'titlelogo'         => $page_header_logo,
 	'title'             => $state,
+	'title_small'       => __( 'area codes', 'areacodes' ),
 	'areacode_info'     => array(
 		__( 'State', 'areacodes' )      => $state,
 		__( 'Major city', 'areacodes' ) => $capital_city,

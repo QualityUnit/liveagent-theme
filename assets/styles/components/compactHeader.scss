@@ -103,11 +103,6 @@ body.compact-header--active {
 		}
 	}
 
-	&__title-logo {
-		height: 0.75em;
-		margin-right: 0.25em;
-	}
-
 	&__title {
 		align-items: center;
 		margin: 0;
@@ -122,6 +117,22 @@ body.compact-header--active {
 
 		&:not(:last-child) {
 			margin-bottom: 0.25em;
+		}
+
+		&-logo {
+			height: 0.85em;
+			margin-right: 0.25em;
+			border-radius: 6px;
+			box-shadow: 0 0 0 2px  $white;
+		}
+
+		&-small {
+			white-space: nowrap;
+			margin-top: auto;
+			margin-left: 0.5em;
+			margin-bottom: 0.33em;
+			font-size: 0.5em;
+			color: $dark-gray;
 		}
 	}
 

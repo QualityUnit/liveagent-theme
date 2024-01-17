@@ -38,6 +38,7 @@ $page_header_args = array(
 	),
 	'titlelogo'         => $page_header_logo,
 	'title'             => get_the_title(),
+	'title_small'       => __( 'area code', 'areacodes' ),
 	'text'              => do_shortcode( '[urlslab-generator id="6"]' ),
 	'areacode_info'     => array(
 		__( 'State', 'areacodes' )      => $state,

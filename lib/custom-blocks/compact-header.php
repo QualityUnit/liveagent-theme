@@ -72,6 +72,13 @@
 						}
 						?>
 						<?= esc_html( $args['title'] ); ?>
+						<?php 
+						if ( ! empty( $args['title_small'] ) ) {
+							?>
+							<span class="compact-header__title-small"><?= esc_html( $args['title_small'] ); ?></span>
+							<?php	
+						}
+						?>
 					</h1>
 				<?php } ?>
 				<?php if ( ! empty( $args['update'] ) ) { ?>
