@@ -52,7 +52,7 @@ header_banners(
 			'class'    => 'ai-assistant',
 			'image'    => 'announcementBar-ai-assistant.png',
 			'bg'       => 'announcementBar-ai-assistant-bg.jpg',
-			'url'      => __( '#0', 'ms' ),
+			'url'      => __( '/pricing/', 'ms' ),
 			'icon-class'       => 'pencil-with-stars', // Here insert icon class from our wordpress icons
 		),
 	)
