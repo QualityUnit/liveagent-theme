@@ -73,6 +73,8 @@ if ( $categories && $categories_url ) {
 
 				<?php the_content(); ?>
 
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
+
 				<div class="Post__buttons" style="margin-top: 2em;">
 					<a href="<?php _e( '/videos/', 'ms' ); ?>" class="Button Button--outline Button--back"><span><?php _e( 'Back to Videos', 'ms' ); ?></span></a>
 
