@@ -14,7 +14,7 @@ $page_header_args = array(
 	'toc'          => true,
 );
 ?>
-<div class="Post Research Post--sidebar-right" itemscope itemtype="http://schema.org/Article" data-id="<?php echo get_the_ID(); ?>">
+<div class="Post Research Post--sidebar-right" itemscope itemtype="http://schema.org/Article" data-id="<?= esc_attr( get_the_ID() ); ?>">
 
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 

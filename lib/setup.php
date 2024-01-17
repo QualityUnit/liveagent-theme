@@ -1,9 +1,9 @@
 <?php
-	namespace Roots\Sage\Setup;
-
 /**
-	* Theme setup
-	*/
+ * Theme setup
+ */
+
+namespace Roots\Sage\Setup;
 
 add_action(
 	'after_setup_theme',
