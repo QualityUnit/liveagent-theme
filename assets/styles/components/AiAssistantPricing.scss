@@ -6,6 +6,7 @@
 .pricing-ai-assistant-banner {
 	padding-top: 3.75em;
 	margin-bottom: -2em;
+
 	> .elementor-container {
 		display: grid;
 		grid-template-columns: repeat(1, auto);
@@ -51,6 +52,7 @@
 			}
 
 			svg {
+
 				@include square(1.25em);
 				margin-left: 0.5em;
 
@@ -83,6 +85,7 @@
 	}
 
 	@media (min-width: $breakpoint-tablet-small ) {
+
 		> .elementor-container {
 			grid-template-columns: repeat(2, auto);
 
@@ -95,10 +98,12 @@
 				grid-column: span 1;
 				grid-row: 1;
 			}
+
 			&--second {
 				grid-column: span 1;
 				grid-row: 2;
 			}
+
 			&--third {
 				grid-column: span 1;
 				grid-row: span 2;
@@ -111,9 +116,10 @@
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape ) {
-		 > .elementor-container {
-			 grid-template-columns: 16.875em auto 10.625em ;
-			 grid-template-rows: auto;
+
+		> .elementor-container {
+			grid-template-columns: 16.875em auto 10.625em;
+			grid-template-rows: auto;
 		}
 
 		&__column {
@@ -123,6 +129,7 @@
 				grid-row: 1;
 
 			}
+
 			&--second,
 			&--third {
 				grid-column: span 1;
@@ -130,4 +137,4 @@
 			}
 		}
 	}
-	}
+}
