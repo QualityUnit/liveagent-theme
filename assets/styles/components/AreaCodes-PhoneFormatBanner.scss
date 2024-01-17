@@ -6,24 +6,22 @@
 
 .AreaCodes__PhoneFormatBanner {
 	display: flex;
+	justify-content: space-between;
 	background: url(../../images/areacodes_banner_phoneformat_bg.jpg?ver=#{$version});
 	background-size: cover;
 	text-align: center;
-	padding: 2.5em;
+	padding: 1em 0.75em;
 	border-radius: 1rem;
+	margin: 1.5em 0;
 
 	> div {
-		flex-basis: calc(25% - 4.5em);
-
-		+ div {
-			margin-left: 1.5em;
-		}
+		flex-basis: calc(25% - 1em);
 	}
 
 	.phoneCode {
 		display: inline-block;
-		font-size: 3.125rem;
-		padding: 0.5em 0.5em;
+		font-size: 1.5rem;
+		padding: 0.5em 0.75em;
 		background-color: $white;
 		box-shadow: 0 -20px 20px -1rem rgba(157, 157, 157, 0.12) inset, 0 8px 13px 0 rgba(144, 144, 144, 0.28);
 		border-radius: 10px;
@@ -34,6 +32,12 @@
 			display: block;
 			color: $white;
 			font-weight: 700;
+			font-size: 0.75rem;
+			line-height: 1.25;
+			hyphens: auto;
+			left: 50%;
+			transform: translateX(-50%);
+			width: calc(100% + 0.75em);
 
 			&::before {
 				display: block;
@@ -56,6 +60,30 @@
 				left: 50%;
 				transform: translateX(-50%);
 			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 4em 2.5em;
+
+		> div {
+			flex-basis: calc(25% - 2.5em);
+		}
+
+		.phoneCode {
+			font-size: 2.75rem;
+
+			&__desc {
+				font-size: 1rem;
+				width: calc(100% + 2em);
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.phoneCode {
+			padding: 0.5em;
 		}
 	}
 }

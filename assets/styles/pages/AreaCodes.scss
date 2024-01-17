@@ -117,7 +117,7 @@
 		th,
 		td {
 			text-align: left;
-			padding: 1em 1.5em !important;
+			padding: 0.75em !important;
 
 			&:not(:first-of-type) {
 				border-left: 1px solid $light-gray;
@@ -142,7 +142,20 @@
 			}
 		}
 
+		&--state {
+			width: 40%;
+		}
+
+		&--areacodes {
+			width: 60%;
+		}
+
 		@media (min-width: $breakpoint-tablet) {
+
+			th,
+			td {
+				padding: 1em 1.5em !important;
+			}
 
 			&--state {
 				width: 30%;
@@ -176,11 +189,15 @@
 				text-decoration: none;
 				border-radius: 0.25rem;
 				background-color: $white;
-				padding: 0.25em 1em;
+				padding: 0.25em 0.75em;
 				box-shadow: 0 2px 4px 0 rgba(144, 144, 144, 0.16);
 
 				&:hover {
 					box-shadow: 0 -20px 20px -16px rgba(157, 157, 157, 0.12) inset, 0 4px 8px 0 rgba(144, 144, 144, 0.28);
+				}
+
+				@media (min-width: $breakpoint-tablet) {
+					padding: 0.25em 1em;
 				}
 			}
 		}
