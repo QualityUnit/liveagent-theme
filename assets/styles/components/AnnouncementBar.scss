@@ -66,6 +66,9 @@ body {
 							font-size: 0.9rem;
 							margin-left: 0.7em;
 						}
+						svg {
+							@include square(1em);
+						}
 					}
 
 					p {
@@ -111,6 +114,12 @@ body {
 					}
 				}
 
+			}
+
+			&.ai-assistant {
+				svg {
+					fill: #9154ce;
+				}
 			}
 		}
 
