@@ -1,6 +1,7 @@
 <?php // @codingStandardsIgnoreLine
 set_custom_source( 'pages/AreaCodes', 'css' );
 $post_meta        = get_post_meta( get_the_ID() );
+$phone_format     = array( 'calling_prefix' => '+' . $post_meta['calling_prefix'][0] );
 $flag_path        = get_template_directory_uri() . '/assets/country_flags/' . $post_meta['iso_code'][0] . '.svg';
 $page_header_logo = array(
 	'src' => $flag_path . '?ver=' . THEME_VERSION,
@@ -34,7 +35,7 @@ $page_header_args = array(
 		<div class="Post__content">
 
 			<div class="Content" itemprop="articleBody">
-				<div style="position: relative; width: 100%; height: 0; padding-bottom: 40%; overflow: hidden"><iframe frameborder="0" style="border:0; position: absolute; top: 0; left: 0;	margin: 0 !important;	width: 100% !important;	height: 100% !important;" scrolling="no" src="https://maps.google.com/maps?hl=en&amp;q='<?= esc_attr( get_the_title() ); ?>&amp;t=&amp;z=5&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+				<div class="AreaCodes__map"><iframe frameborder="0" scrolling="no" src="https://maps.google.com/maps?hl=en&amp;q='<?= esc_attr( get_the_title() ); ?>&amp;t=&amp;z=5&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
 
 				<?= do_shortcode( '[urlslab-generator id="7" country_name="' . get_the_title() . '"]' ); ?>
 
@@ -42,6 +43,7 @@ $page_header_args = array(
 				if ( 'us' === $post_meta['iso_code'][0] ) {
 					get_template_part( 'lib/custom-blocks/us-area-codes', null );
 				}
+				get_template_part( '/lib/custom-blocks/areacodes-phone-format-banner', null, $phone_format );
 				?>
 			</div>
 		</div>

@@ -126,31 +126,34 @@ body.compact-header--active {
 	}
 
 	&__info {
-
+		display: flex;
+		flex-flow: row wrap;
 		font-size: 0.875rem;
 		line-height: 1.15;
 
 		dt {
-			flex-basis: 25%;
+			flex-basis: 30%;
 			font-weight: 700;
 			padding: 0.15em 0;
 		}
 
 		dd {
-			flex-basis: 70%;
+			flex-basis: 60%;
 			text-align: left;
-			padding: 0.15em 0;
+			padding: 0.15em 1em;
 			margin: 0;
 			flex-grow: 1;
 			color: $dark-gray;
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			display: flex;
-			flex-flow: row wrap;
+
+			dt {
+				flex-basis: 25%;
+			}
 
 			dd {
-				padding: 0.15em 1em;
+				flex-basis: 70%;
 			}
 		}
 	}

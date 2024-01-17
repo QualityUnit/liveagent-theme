@@ -1,0 +1,61 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+.AreaCodes__PhoneFormatBanner {
+	display: flex;
+	background: url(../../images/areacodes_banner_phoneformat_bg.jpg?ver=#{$version});
+	background-size: cover;
+	text-align: center;
+	padding: 2.5em;
+	border-radius: 1rem;
+
+	> div {
+		flex-basis: calc(25% - 4.5em);
+
+		+ div {
+			margin-left: 1.5em;
+		}
+	}
+
+	.phoneCode {
+		display: inline-block;
+		font-size: 3.125rem;
+		padding: 0.5em 0.5em;
+		background-color: $white;
+		box-shadow: 0 -20px 20px -1rem rgba(157, 157, 157, 0.12) inset, 0 8px 13px 0 rgba(144, 144, 144, 0.28);
+		border-radius: 10px;
+
+		&__desc {
+			$dashHeight: 3.75rem;
+			position: relative;
+			display: block;
+			color: $white;
+			font-weight: 700;
+
+			&::before {
+				display: block;
+				content: "";
+				height: $dashHeight;
+				width: 1px;
+				margin: 0 auto 1em;
+				border-left: 2px dashed currentcolor;
+			}
+
+			&::after {
+
+				@include square(0.65em);
+				content: "";
+				display: block;
+				position: absolute;
+				border-radius: 50%;
+				background-color: $white;
+				top: $dashHeight;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+	}
+}

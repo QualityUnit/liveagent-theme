@@ -26,20 +26,42 @@
 		margin-top: 1.5em;
 
 		&--title {
+			font-size: 1.75rem;
 			line-height: 1.25;
 		}
 	}
 
-	@media (min-width: $breakpoint-tablet-landscape) {
-		display: flex;
-		position: relative;
+	@media (min-width: $breakpoint-tablet) {
 		margin-top: 10em;
+
+		.wrapper {
+			position: relative;
+		}
+
+		&__img {
+			width: 50%;
+			margin: -10em auto 0;
+		}
+
+		&__text {
+
+			&--title {
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper {
+			display: flex;
+		}
 
 		&__img {
 			position: absolute;
-			right: -5.5em;
+			right: 0;
 			bottom: -2.75em;
-			width: calc(50% + 2.75em * 2);
+			width: 50%;
 		}
 
 		&__text {
@@ -47,10 +69,14 @@
 			width: 50%;
 			padding-right: 2.75em;
 			order: -1;
+		}
+	}
 
-			&--title {
-				font-size: 2.5rem;
-			}
+	@media (min-width: $breakpoint-desktop-box) {
+
+		&__img {
+			width: calc(50% + 2.75em * 2);
+			right: -5.5em;
 		}
 	}
 }

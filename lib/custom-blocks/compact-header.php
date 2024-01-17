@@ -42,6 +42,13 @@
 	if ( ! empty( $args['checklist'] ) ) {
 		$checklist = $args['checklist'];
 	}
+
+	if ( ! empty( $args['areacode_gmt_diff'] ) ) {
+		$time      = gmdate( 'H:i', time() );
+		$timestamp = strtotime( $time );
+		$time      = $timestamp + ( $args['areacode_gmt_diff'] * 60 * 60 );
+		$time      = gmdate( 'H:i', $time );
+	}
 	?>
 	<div class="compact-header__placeholder">
 	<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?> urlslab-skip-lazy">
@@ -85,7 +92,13 @@
 					<?php } ?>
 					<?php if ( ! empty( $args['areacode_gmt_diff'] ) ) { ?>
 						<dt><?php _e( 'Current time in this zone', 'areacodes' ); ?></dt>
-						<dd><time id="compactHeaderGtmTime"></time></dd>
+						<dd>
+							<time 
+							id="compactHeaderGtmTime" class="Reviews__update"
+							content="<?= esc_attr( $time ); ?>">
+								<?= esc_html( $time ); ?>
+							</time>
+						</dd>
 						<script>
 							(() => {
 								const gmtDiff =  <?= esc_html( $args['areacode_gmt_diff'] ); ?>;
@@ -93,8 +106,8 @@
 								const timeElement = document.querySelector('#compactHeaderGtmTime');
 	
 								function setTime() {
-									const date = new Date();
-									const utcHours = date.setUTCHours(date.getUTCHours() + gmtDiff);
+									let date = new Date();
+									date.setHours(date.getUTCHours() + gmtDiff);
 									let time = date.toLocaleTimeString(lang, {hour: '2-digit', minute:'2-digit'});
 									timeElement.innerText = time;
 								}
