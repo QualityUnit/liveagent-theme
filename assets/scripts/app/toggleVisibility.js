@@ -1,92 +1,72 @@
-window.addEventListener( 'load', () => {
+window.addEventListener( 'DOMContentLoaded', () => {
 	const activators = document.querySelectorAll( '[data-target]' );
 	const closers = document.querySelectorAll( `[data-close-target]` );
 
-	const hideVisible = ( target ) => {
-		let activatorElements = document.querySelectorAll( `[data-target]:not([data-target^="switcher"])` );
-		let closeTargets = document.querySelectorAll( `[data-targetId]:not([data-targetId^="switcher"])` );
+	// Define a function to toggle the visibility of target elements
+	const toggleVisibility = ( target ) => {
+		const targetElements = document.querySelectorAll( `[data-targetId="${ target }"]` );
+		const activator = document.querySelector( `[data-target="${ target }"]` );
+		const isActive = activator.classList.contains( 'active' );
 
-		if ( target && target.includes( 'switcher' ) ) {
-			activatorElements = document.querySelectorAll( `[data-target]:not([data-target="${ target }"])` );
-			closeTargets = document.querySelectorAll( `[data-targetId]:not([data-targetId="${ target }"]` );
-		}
-
-		if ( target && ! target.includes( 'switcher' ) ) {
-			activatorElements = document.querySelectorAll( `[data-target="${ target }"]` );
-			closeTargets = document.querySelectorAll( `[data-targetId="${ target }"]` );
-		}
-
-		activatorElements.forEach( ( activatorElem ) => {
-			if ( activatorElem && activatorElem.classList.contains( 'active' ) ) {
+		// Iterate over each target element to toggle its visibility
+		targetElements.forEach( ( targetElement ) => {
+			if ( isActive ) {
+				// If active hide the element
+				targetElement.classList.remove( 'visible' );
 				setTimeout( () => {
-					activatorElem.classList.remove( 'active' );
-				}, 10 );
+					targetElement.classList.add( 'hidden' );
+				}, 400 ); // Delay for the hide transition same as in css
+			} else {
+				// If not active show the element
+				targetElement.classList.remove( 'hidden' );
+				setTimeout( () => {
+					targetElement.classList.add( 'visible' );
+				}, 10 ); // Delay for the show transition
 			}
 		} );
-		closeTargets.forEach( ( targetElement ) => {
-			let hidedelay = targetElement.dataset.hideDelay;
-			if ( ! hidedelay ) {
-				hidedelay = 10;
-			}
 
-			targetElement.classList.remove( 'visible' );
-			targetElement.addEventListener( 'transitionend', () => {
-				if ( targetElement && ! targetElement.classList.contains( 'visible' ) ) {
-					setTimeout( () => {
-						targetElement.classList.add( 'hidden' );
-					}, hidedelay );
-				}
-			} );
-		} );
+		// Toggle the class on the activator
+		activator.classList.toggle( 'active' );
 	};
 
-	if ( activators.length > 0 ) {
-		activators.forEach( ( elem ) => {
-			const activator = elem;
+	// Attach click event listeners to each activator
+	activators.forEach( ( activator ) => {
+		activator.addEventListener( 'click', ( event ) => {
+			event.stopPropagation();
+			const target = activator.dataset.target;
+			toggleVisibility( target );
+		} );
+	} );
 
-			activator.addEventListener( 'click', ( event ) => {
-				event.stopPropagation();
-				const thisActivator = activator;
-				const thisTarget = document.querySelectorAll(
-					`[data-targetId="${ thisActivator.dataset.target }"]`
-				);
-
-				if ( ! thisActivator.classList.contains( 'active' ) ) {
-					thisTarget.forEach( ( target ) => {
-						target.classList.remove( 'hidden' );
-						setTimeout( () => {
-							thisActivator.classList.add( 'active' );
-							target.classList.add( 'visible' );
-						}, 10 );
-					} );
+	// Close the visible elements when clicking outside
+	document.body.addEventListener( 'click', ( event ) => {
+		if ( ! event.target.closest( '[data-close-target], [data-target]' ) ) {
+			activators.forEach( ( activator ) => {
+				const target = activator.dataset.target;
+				if ( activator.classList.contains( 'active' ) ) {
+					toggleVisibility( target );
 				}
-				hideVisible( thisActivator.dataset.target );
 			} );
-		} );
+		}
+	} );
 
-		document.querySelector( 'body' ).addEventListener( 'click', ( event ) => {
-			if ( ! event.target.closest( '[data-close-target]' ) && ! event.target.closest( '[data-target]' ) && ! event.target.closest( '[data-targetId]' ) ) {
-				hideVisible( null );
-			}
-		} );
-
-		document.querySelector( 'body' ).removeEventListener( 'click', hideVisible );
-
-		document.addEventListener( 'keyup', ( e ) => {
-			if ( e.key === 'Escape' ) {
-				hideVisible( null );
-			}
-		} );
-		document.removeEventListener( 'keyup', hideVisible );
-	}
-
-	if ( closers.length > 0 ) {
-		closers.forEach( ( closeBtn ) => {
-			closeBtn.addEventListener( 'click', () => {
-				const target = closeBtn.dataset.closeTarget;
-				hideVisible( target );
+	// Close the visible elements when pressing the 'ESC' key
+	document.addEventListener( 'keyup', ( e ) => {
+		if ( e.key === 'Escape' ) {
+			activators.forEach( ( activator ) => {
+				const target = activator.dataset.target;
+				if ( activator.classList.contains( 'active' ) ) {
+					toggleVisibility( target ); // Toggle visibility if the activator is active
+				}
 			} );
+		}
+	} );
+
+	// Attach click event listeners to each close button
+	closers.forEach( ( closeBtn ) => {
+		closeBtn.addEventListener( 'click', () => {
+			const target = closeBtn.dataset.closeTarget;
+			toggleVisibility( target );
 		} );
-	}
+	} );
 } );
-
