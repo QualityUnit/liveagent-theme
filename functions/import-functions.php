@@ -22,15 +22,15 @@ function get_en_category( $post_type, $post_id ) {
 function wp_head_content( $page ) {
 	$body_classes = get_body_class();
 
-	if ( is_array($page) ) {
-		foreach ($page as $page_class) {
-			if ( in_array($page_class, $body_classes) ) {
+	if ( is_array( $page ) ) {
+		foreach ( $page as $page_class ) {
+			if ( in_array( $page_class, $body_classes ) ) {
 				return true;
 			}
 		}
 		return false;
 	} else {
-		return in_array($page, $body_classes);
+		return in_array( $page, $body_classes );
 	}
 }
 

@@ -13,8 +13,8 @@ function header_banners( $page, $banners_array ) {
 					<div class="Announcement__bar__col__left">
 						<h2><?= esc_html( $banner['title'] ); ?>
 						<!-- added icon after title	-->
-						<?php if (isset($banner['icon-class'])) { ?>
-							<svg class="icon icon-<?= esc_html( $banner['icon-class'] ); ?>">
+						<?php if ( isset( $banner[ 'icon-class' ] ) ) { ?>
+							<svg class="icon icon-<?= esc_html( $banner[ 'icon-class' ] ); ?>">
 								<use xlink:href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icons.svg#<?= esc_attr( $banner['icon-class'] ); ?>"></use>
 							</svg>
 						<?php } ?>
