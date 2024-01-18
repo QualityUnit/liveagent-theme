@@ -214,10 +214,12 @@ $colors: (
 			background-color: $white;
 			filter: drop-shadow(0 0.25em 1.375em rgba($black-real, 0.12));
 			max-height: 0;
+
 			overflow: hidden;
-			transition: max-height 0.4s ease-out, visibility 0.4s ease-out, opacity 0.4s ease-out;
+			transition: max-height 0.4s ease-out, visibility 0.4s ease-out, opacity 0.2s ease-out;
 			visibility: hidden;
 			opacity: 0;
+			display: unset !important;
 
 
 			&::before,
@@ -323,16 +325,17 @@ $colors: (
 
 			&.chat[class] {
 
+
 				.circleChatButtonWrap.circleChatButtonWrap[class] {
 
 					position: relative;
 					transform: scale(0.6115);
 					transform-origin: 0 0;
 					box-shadow: none !important;
-					filter: drop-shadow(0 0.25em 1em rgba($black-real, 0.15));
 
 					&:hover {
 						box-shadow: none !important;
+						filter: none;
 					}
 
 					&::after {
@@ -367,7 +370,6 @@ $colors: (
 			> div:not(.fakeChatButton) {
 
 				@include square(2.5em);
-				filter: drop-shadow(0 0.25em 1em rgba($black-real, 0.15));
 				margin-left: 1em;
 
 				@media (min-width: $breakpoint-tablet) {
