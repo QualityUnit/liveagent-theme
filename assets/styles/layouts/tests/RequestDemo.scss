@@ -86,6 +86,13 @@ body.demo {
 				overflow: visible;
 			}
 
+			.e-hosted-video {
+				width: 300%;
+				mask-image:
+					linear-gradient(180deg, transparent 0%, $black-real 15%, $black-real 90%, transparent 95%),
+					linear-gradient(to right, transparent 90%, $black-real 100%);
+			}
+
 			video {
 				width: auto;
 				border: 0;

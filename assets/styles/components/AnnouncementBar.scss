@@ -17,6 +17,10 @@ body {
 		left: 0;
 		top: 0;
 
+		@media (max-width: ($breakpoint-tablet - 1px)) {
+			display: none;
+		}
+
 		.Announcement__bar {
 
 			@include square(100%);
@@ -26,6 +30,8 @@ body {
 			opacity: 0;
 			text-decoration: none;
 			transition: opacity 0.5s;
+			background-size: cover !important;
+			background-repeat: no-repeat !important;
 
 			&.active {
 				opacity: 1;
@@ -136,7 +142,6 @@ body {
 		button.Announcement__bar__close {
 
 			@include square(1.5em);
-			content: url(../../images/close-announcements-bar-icon.svg);
 			position: absolute;
 			top: 0.625em;
 			right: 0.625em;

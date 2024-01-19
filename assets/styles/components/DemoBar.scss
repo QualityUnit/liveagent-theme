@@ -33,58 +33,6 @@
 		}
 	}
 
-	@media (min-width: ($breakpoint-tablet - 1px)) {
-
-		&__wrapper {
-			display: flex;
-		}
-
-		&.visible {
-			display: flex;
-		}
-
-		&.show {
-			transform: translate(0, 0);
-		}
-
-		&.hide {
-			transform: translate(0, 100%);
-		}
-
-		&__button {
-			margin-top: 1.5em;
-		}
-
-		&__image {
-			margin-top: 0.25em;
-
-			img {
-				width: 100%;
-			}
-		}
-
-		&__image,
-		&__text {
-			width: 50%;
-		}
-
-		&__text {
-			padding: 3.125em;
-		}
-	}
-
-	@media (min-width: ($breakpoint-desktop-box - 1px)) {
-		display: flex;
-		align-items: center;
-
-		&__wrapper {
-			width: 70%;
-		}
-
-		&__button {
-			margin-top: auto;
-		}
-	}
 
 	&__main {
 		margin-right: 3.45em;
@@ -111,4 +59,72 @@
 		white-space: nowrap;
 		overflow: visible;
 	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__wrapper {
+			display: flex;
+		}
+
+		&.visible {
+			display: flex;
+		}
+
+		&.show {
+			transform: translate(0, 0);
+		}
+
+		&.hide {
+			transform: translate(0, 100%);
+		}
+
+		&__button {
+			margin-top: 1.5em;
+		}
+
+		&__image {
+			margin-top: auto;
+			width: 40%;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		&__text {
+			width: 60%;
+			padding: 1.5em;
+		}
+	}
+
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+
+		&__wrapper {
+			padding: 0 1.5em;
+		}
+
+		&__title[class] {
+			font-size: 1.85rem;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: flex;
+		align-items: center;
+
+		&__button {
+			margin-top: auto;
+		}
+
+
+		&__image,
+		&__text {
+			width: 50%;
+		}
+
+		&__text {
+			padding: 3.125em;
+		}
+	}
+
 }
