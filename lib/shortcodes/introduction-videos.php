@@ -125,7 +125,7 @@ function la_introduction_videos() {
 	<?php
 		add_action(
 			'wp_footer',
-			function() {
+			function () {
 				?>
 	<script>
 	let selectedParent = null;

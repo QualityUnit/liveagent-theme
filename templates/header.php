@@ -37,12 +37,12 @@ header_banners(
 			'url'      => __( 'https://www.postaffiliatepro.com/', 'ms' ),
 		),
 		// array(
-		// 	'title'    => __( 'Unleash the Website Wizard', 'ms' ),
-		// 	'subtitle' => __( 'Experience the power of the URLsLab plugin!', 'ms' ),
-		// 	'class'    => 'URLslab',
-		// 	'image'    => 'AnnouncementBar-Urlslab.png',
-		// 	'bg'       => 'AnnouncementBar-Urlslab_bg.jpg',
-		// 	'url'      => __( 'https://www.urlslab.com/', 'ms' ),
+		//  'title'    => __( 'Unleash the Website Wizard', 'ms' ),
+		//  'subtitle' => __( 'Experience the power of the URLsLab plugin!', 'ms' ),
+		//  'class'    => 'URLslab',
+		//  'image'    => 'AnnouncementBar-Urlslab.png',
+		//  'bg'       => 'AnnouncementBar-Urlslab_bg.jpg',
+		//  'url'      => __( 'https://www.urlslab.com/', 'ms' ),
 		// ),
 	)
 )
