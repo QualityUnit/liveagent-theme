@@ -21,4 +21,3 @@ function custom_url_for_archive_items( $custom_url ) {
 
 	return $custom_url;
 }
-

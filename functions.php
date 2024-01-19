@@ -3,7 +3,7 @@
 /**
  * Setup variables
  */
-define( 'THEME_VERSION', '1.22.9' );
+define( 'THEME_VERSION', '1.22.10' );
 
 /**
  * Includes
@@ -64,7 +64,7 @@ unset( $file, $filepath );
 
 add_filter(
 	'tiny_mce_before_init',
-	function( $config ) {
+	function ( $config ) {
 		if ( defined( 'ELEMENTOR_VERSION' ) && did_action( 'admin_init' ) && get_current_screen()->id === 'wpml_page_tm/menu/translations-queue' ) {
 			$config['wpautop'] = false;
 		}

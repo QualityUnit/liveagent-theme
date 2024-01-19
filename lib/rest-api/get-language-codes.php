@@ -6,7 +6,7 @@ function get_current_lang() {
 
 add_action(
 	'rest_api_init',
-	function() {
+	function () {
 		register_rest_route(
 			'wp/v2',
 			'/lang/',
@@ -34,7 +34,7 @@ function assign_lang_to_domain() {
 
 add_action(
 	'rest_api_init',
-	function() {
+	function () {
 		register_rest_route(
 			'wp/v2',
 			'/languages/',
@@ -46,4 +46,3 @@ add_action(
 		);
 	} 
 );
-

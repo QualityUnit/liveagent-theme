@@ -216,8 +216,6 @@ function learnmore_sidebars( $content ) {
 	$content = str_replace( '<html><body>', '', $content );
 	$content = str_replace( '</body></html>', '', $content );
 	return $content;
-
-	
 }
 add_filter( 'the_content', 'learnmore_sidebars', 9999 );
 
@@ -363,6 +361,5 @@ function learnmore_image( $content ) {
 	$content = str_replace( '<html><body>', '', $content );
 	$content = str_replace( '</body></html>', '', $content );
 	return $content;
-	
 }
 add_filter( 'the_content', 'learnmore_image', 9999 );
