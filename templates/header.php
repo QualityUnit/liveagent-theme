@@ -26,7 +26,9 @@ if ( is_front_page() ) {
 }
 
 header_banners(
-	'pricing',
+	array(
+		'pricing',
+	),
 	array(
 		array(
 			'title'    => __( 'Turn Clicks into Cash', 'ms' ),
@@ -44,6 +46,23 @@ header_banners(
 		//  'bg'       => 'AnnouncementBar-Urlslab_bg.jpg',
 		//  'url'      => __( 'https://www.urlslab.com/', 'ms' ),
 		// ),
+	)
+);
+
+header_banners(
+	array(
+		'home',
+	),
+	array(
+		array(
+			'title'    => __( 'AI Assistant', 'ms' ),
+			'subtitle' => __( 'Suggests the responses to your agents need lorem ipsum', 'ms' ),
+			'class'    => 'ai-assistant',
+			'image'    => 'announcementBar-ai-assistant.png',
+			'bg'       => 'announcementBar-ai-assistant-bg.jpg',
+			'url'      => __( '/pricing/', 'ms' ),
+			'icon-class'       => 'pencil-with-stars', // Here insert icon class from our wordpress icons
+		),
 	)
 )
 ?>

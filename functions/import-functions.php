@@ -20,12 +20,18 @@ function get_en_category( $post_type, $post_id ) {
 
 // Function to get content of <head> to identify page for CSS/JS import
 function wp_head_content( $page ) {
-	$body_class     = preg_match( '/.+' . $page . '.+/', implode( get_body_class() ) );
+	$body_classes = get_body_class();
 
-	if ( $body_class ) {
-		return true;
+	if ( is_array( $page ) ) {
+		foreach ( $page as $page_class ) {
+			if ( in_array( $page_class, $body_classes ) ) {
+				return true;
+			}
+		}
+		return false;
+	} else {
+		return in_array( $page, $body_classes );
 	}
-	return false;
 }
 
 // Calling specific JS/CSS for page or subpage, ie. features/pageXXX will be $page = features
@@ -62,7 +68,7 @@ function is_subcategory() {
 function site_breadcrumb( $breadcrumb = array() ) {
 	if ( empty( $breadcrumb ) ) {
 		$home = array( __( 'Home' ), home_url( '/', 'relative' ) );
-		
+
 		if ( is_single() ) {
 			$post_type = get_post_type_object( get_post_type() );
 			if ( $post_type ) {
@@ -111,7 +117,7 @@ function site_breadcrumb( $breadcrumb = array() ) {
 			$breadcrumb[] = array( get_search_query() );
 		}
 	}
- 
+
 	$allowed_html = array(
 		'div' => array(
 			'class' => array(),

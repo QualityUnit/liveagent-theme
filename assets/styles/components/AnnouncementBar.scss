@@ -66,6 +66,11 @@ body {
 							font-size: 0.9rem;
 							margin-left: 0.7em;
 						}
+
+						svg {
+
+							@include square(1em);
+						}
 					}
 
 					p {
@@ -85,6 +90,19 @@ body {
 						object-fit: cover;
 						object-position: left;
 						overflow: visible;
+					}
+				}
+			}
+
+			&.ai-assistant {
+
+				.Announcement__bar__col__left {
+
+					h2 {
+
+						svg {
+							fill: #9154ce;
+						}
 					}
 				}
 			}
@@ -112,6 +130,7 @@ body {
 				}
 
 			}
+
 		}
 
 		button.Announcement__bar__close {
