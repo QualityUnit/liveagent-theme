@@ -15,7 +15,7 @@ window.addEventListener( 'DOMContentLoaded', () => {
 				targetElement.classList.remove( 'visible' );
 				setTimeout( () => {
 					targetElement.classList.add( 'hidden' );
-				}, 400 ); // Delay for the hide transition same as in css
+				}, 10 );
 			} else {
 				// If not active show the element
 				targetElement.classList.remove( 'hidden' );
