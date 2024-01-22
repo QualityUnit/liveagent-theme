@@ -20,18 +20,12 @@ function get_en_category( $post_type, $post_id ) {
 
 // Function to get content of <head> to identify page for CSS/JS import
 function wp_head_content( $page ) {
-	$body_classes = get_body_class();
+	$body_class     = preg_match( '/.+' . $page . '.+/', implode( get_body_class() ) );
 
-	if ( is_array( $page ) ) {
-		foreach ( $page as $page_class ) {
-			if ( in_array( $page_class, $body_classes ) ) {
-				return true;
-			}
-		}
-		return false;
-	} else {
-		return in_array( $page, $body_classes );
+	if ( $body_class ) {
+		return true;
 	}
+	return false;
 }
 
 // Calling specific JS/CSS for page or subpage, ie. features/pageXXX will be $page = features
