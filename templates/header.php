@@ -49,22 +49,22 @@ header_banners(
 	)
 );
 
-//header_banners(
-//	array(
-//		'home',
-//	),
-//	array(
-//		array(
-//			'title'    => __( 'AI Assistant', 'ms' ),
-//			'subtitle' => __( 'Suggests the responses to your agents need lorem ipsum', 'ms' ),
-//			'class'    => 'ai-assistant',
-//			'image'    => 'announcementBar-ai-assistant.png',
-//			'bg'       => 'announcementBar-ai-assistant-bg.jpg',
-//			'url'      => __( '/pricing/', 'ms' ),
-//			'icon-class'       => 'pencil-with-stars', // Here insert icon class from our wordpress icons
-//		),
-//	)
-//)
+// header_banners(
+//     array(
+//         'home',
+//     ),
+//     array(
+//         array(
+//             'title'    => __( 'AI Assistant', 'ms' ),
+//             'subtitle' => __( 'Suggests the responses to your agents need lorem ipsum', 'ms' ),
+//             'class'    => 'ai-assistant',
+//             'image'    => 'announcementBar-ai-assistant.png',
+//             'bg'       => 'announcementBar-ai-assistant-bg.jpg',
+//             'url'      => __( '/pricing/', 'ms' ),
+//             'icon-class'       => 'pencil-with-stars', // Here insert icon class from our wordpress icons
+//         ),
+//     )
+// )
 ?>
 
 
