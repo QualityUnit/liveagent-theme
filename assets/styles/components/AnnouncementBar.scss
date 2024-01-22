@@ -183,14 +183,13 @@ body {
 	}
 
 	.announcement--active {
-		padding-top: calc($Announcement_bar_height_mobile + 5.625em) !important;
 
 		.Header {
-			top: $Announcement_bar_height_mobile;
 			animation: top 0.3s ease;
 		}
 
-		@media (min-width: $breakpoint-mobile ) {
+		@media (min-width: $breakpoint-tablet-landscape ) {
+			padding-top: calc($Announcement_bar_height + 5.625em) !important;
 
 			.Header {
 				top: $Announcement_bar_height;
