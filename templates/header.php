@@ -26,9 +26,7 @@ if ( is_front_page() ) {
 }
 
 header_banners(
-	array(
-		'pricing',
-	),
+	'pricing',
 	array(
 		array(
 			'title'    => __( 'Turn Clicks into Cash', 'ms' ),
