@@ -44,7 +44,6 @@ $theme_includes = array(
 	'functions/get-cta-button-data.php', // Get data from metaboxes for cta button in the compact header
 	'functions/header-banners.php', // Shows banners on selected pages
 	'functions/create-language-menu.php', // Function for generate languages
-	'functions/set-areacodes-countries.php', // Function for set country info for area codes
 );
 
 foreach ( $theme_includes as $file ) {
