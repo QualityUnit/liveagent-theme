@@ -219,6 +219,7 @@
 					<?php if ( isset( $image['src'] ) ) { ?>
 						<div class="compact-header__image">
 							<img
+								fetchpriority="high"
 								src="<?= esc_url( $image['src'] ); ?>"
 								alt="<?= esc_attr( $image['alt'] ); ?>"
 								class="compact-header__img"
@@ -228,6 +229,7 @@
 								<?php if ( isset( $logo['src'] ) ) { ?>
 									<div class="compact-header__logo">
 										<img
+											fetchpriority="high"
 											src="<?= esc_url( $logo['src'] ); ?>"
 											<?php if ( isset( $logo['alt'] ) ) { ?>
 												alt="<?= esc_attr( $logo['alt'] ); ?>"
