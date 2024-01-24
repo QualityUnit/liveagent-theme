@@ -25,12 +25,9 @@
 		<div id="papPlaceholder"></div>
 	</div>
 
-<!--	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Patrick+Hand&family=Poppins:wght@400;600;700&display=swap">-->
-
 	<?php
 		wp_footer();
 		include_once 'base-scripts.php';
 	?>
-	<script src="https://cdn.debugbear.com/LbEOqVOEwFx2.js" async></script>
 	</body>
 </html>
