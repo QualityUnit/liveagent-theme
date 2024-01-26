@@ -51,7 +51,7 @@ add_action( 'admin_head', 'add_style_to_gutenberg' );
 
 add_action(
 	'wp_print_styles',
-	function() {
+	function () {
 		if ( ! is_user_logged_in() ) {
 				wp_dequeue_style( 'font-awesome' );
 				wp_dequeue_style( 'font-awesome-5-all' );
@@ -79,7 +79,7 @@ add_action(
 
 add_action(
 	'elementor/frontend/after_enqueue_styles',
-	function() {
+	function () {
 		if ( ! is_user_logged_in() ) {
 			wp_deregister_style( 'elementor' );
 			wp_deregister_style( 'elementor-frontend' );

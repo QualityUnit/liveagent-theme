@@ -17,6 +17,10 @@ body {
 		left: 0;
 		top: 0;
 
+		@media (max-width: ($breakpoint-tablet - 1px)) {
+			display: none;
+		}
+
 		.Announcement__bar {
 
 			@include square(100%);
@@ -26,6 +30,8 @@ body {
 			opacity: 0;
 			text-decoration: none;
 			transition: opacity 0.5s;
+			background-size: cover !important;
+			background-repeat: no-repeat !important;
 
 			&.active {
 				opacity: 1;
@@ -66,6 +72,11 @@ body {
 							font-size: 0.9rem;
 							margin-left: 0.7em;
 						}
+
+						svg {
+
+							@include square(1em);
+						}
 					}
 
 					p {
@@ -80,11 +91,36 @@ body {
 
 					img {
 
-						@include square(100%);
-
-						object-fit: cover;
+						width: 100%;
+						height: auto;
+						object-fit: contain;
 						object-position: left;
 						overflow: visible;
+					}
+				}
+			}
+
+			&.ai-assistant {
+
+				.wrapper {
+
+					.Announcement__bar__col__right {
+
+						img {
+							height: 100%;
+							object-fit: cover;
+						}
+					}
+				}
+
+
+				.Announcement__bar__col__left {
+
+					h2 {
+
+						svg {
+							fill: #9154ce;
+						}
 					}
 				}
 			}
@@ -112,12 +148,12 @@ body {
 				}
 
 			}
+
 		}
 
 		button.Announcement__bar__close {
 
 			@include square(1.5em);
-			content: url(../../images/close-announcements-bar-icon.svg);
 			position: absolute;
 			top: 0.625em;
 			right: 0.625em;
@@ -135,7 +171,9 @@ body {
 					grid-template-columns: repeat(2, 1fr);
 
 					.Announcement__bar__col__right {
-						display: block;
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-end;
 					}
 
 					.Announcement__bar__col__left {
@@ -159,14 +197,13 @@ body {
 	}
 
 	.announcement--active {
-		padding-top: calc($Announcement_bar_height_mobile + 5.625em) !important;
 
 		.Header {
-			top: $Announcement_bar_height_mobile;
 			animation: top 0.3s ease;
 		}
 
-		@media (min-width: $breakpoint-mobile ) {
+		@media (min-width: $breakpoint-tablet-landscape ) {
+			padding-top: calc($Announcement_bar_height + 5.625em) !important;
 
 			.Header {
 				top: $Announcement_bar_height;

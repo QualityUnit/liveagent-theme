@@ -1,0 +1,139 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "sass:math";
+@use "../common/mixins" as *;
+@use "../common/variables" as *;
+
+.Block {
+
+	.success__stories {
+
+		.Button {
+			margin: 0;
+
+			&::after {
+				display: block !important;
+			}
+		}
+	}
+}
+
+.success__stories {
+	$item-space-h: 32;
+	$shadow-size: 38;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__list {
+		display: grid;
+		grid-template-columns: 1fr;
+		row-gap: em(32);
+	}
+
+
+	&__item {
+
+		&__article {
+			position: relative;
+			border-radius: $border-radius-16;
+			box-shadow: em(0) em(0) em($shadow-size) em(-16) rgba($black-real, 0.12);
+			background-color: $white;
+			cursor: pointer;
+
+			img {
+				max-width: 100%;
+			}
+
+			@include hover {
+
+				.learn-more a {
+
+					@include learn-more-hover;
+				}
+			}
+		}
+
+		&__link {
+
+			@include posZero;
+			position: absolute;
+			z-index: 10;
+		}
+
+		&__thumbnail {
+			position: relative;
+			display: block;
+			height: 9.375em;
+
+			.postLabels {
+				position: absolute;
+				display: flex;
+				flex-direction: column;
+				top: 2.5em;
+				right: -0.5em;
+				font-size: 0.625rem;
+			}
+
+			.postLabel {
+				position: relative;
+				display: flex;
+				align-items: center;
+				border-radius: 5px;
+				background-color: $saturated-blue;
+				color: $white;
+				margin-left: auto;
+				padding: 0.75em 1em 0.75em 0.15em;
+				font-weight: $font-weight-semi;
+				line-height: 1.25;
+				z-index: 2;
+
+				+ .postLabel {
+					margin-top: 1em;
+				}
+
+				svg {
+					fill: $saturated-blue;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					right: calc(100% - 3px);
+					z-index: -1;
+				}
+			}
+
+			img {
+
+				@include square(100%);
+				object-fit: cover;
+				border-radius: $border-radius-16 $border-radius-16 0 0;
+			}
+		}
+
+		&__content {
+			padding: 2em;
+		}
+
+		a {
+
+			@include color(color, font-color-dark);
+		}
+
+		.learn-more {
+
+			@include learn-more;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet ) {
+
+		&__list {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: em(32);
+		}
+
+	}
+}
+

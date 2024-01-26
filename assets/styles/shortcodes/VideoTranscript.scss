@@ -36,19 +36,28 @@
 		padding: 1.5em 1.5em 4.5em;
 		margin-bottom: -0.01em;
 		max-height: 18em;
-		overflow: hidden auto;
+		overflow-y: scroll;
+		position: relative;
+		text-align: justify;
+
+		br {
+			display: none;
+		}
 	}
 
 	&-activator,
 	&-deactivator {
 		position: absolute;
-		left: 0;
-		right: 1.5em;
-		bottom: -0.01em;
-		padding: 1.5em 0;
+		left: 50%;
+		bottom: 1em;
+		padding: 0.5em 2em;
 		text-align: center;
-		background-color: #f9f9fa;
 		cursor: pointer;
+		border-radius: 24px;
+		transform: translateX(-50%);
+		background-color: $dark-gray;
+		color: $white;
+		width: max-content;
 
 		&::after {
 			content: "\e821";

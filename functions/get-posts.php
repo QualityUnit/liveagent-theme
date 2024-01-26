@@ -58,6 +58,3 @@ $details_posts = array();
 if ( is_admin() && 'post.php' === $pagenow && isset( $_GET['post'] ) && 'ms_reviews' === get_post_type( $_GET['post'] ) ) {
 		$details_posts = get_directory_contacts();
 }
-
-
-

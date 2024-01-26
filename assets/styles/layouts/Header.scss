@@ -31,7 +31,7 @@ body {
 	@include color(background-color, header-background);
 	position: fixed;
 	top: 0;
-	z-index: 999999;
+	z-index: 99991;
 	width: 100%;
 	height: $header-height;
 	padding: 0.9375em 0;
@@ -51,8 +51,21 @@ body {
 .admin-bar {
 
 	.Header {
-		top: 2em;
+		top: 3em;
+
+		&__navigation {
+			top: 8.625em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			top: 2em;
+
+			&__navigation {
+				top: unset;
+			}
+		}
 	}
+
 }
 
 .Header__logo {
@@ -525,12 +538,6 @@ body {
 				white-space: nowrap;
 				text-align: left;
 
-				&:active,
-				&:focus,
-				&:hover {
-
-					@include color(color, main-nav-submenu-font-color-hover, !important);
-				}
 			}
 
 			a[href="#"] {

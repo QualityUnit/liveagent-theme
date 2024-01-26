@@ -55,6 +55,10 @@ add_action(
 
 		if ( is_page_template( 'template-blog-header.php' ) || is_page_template( 'template-academy-header.php' ) ) {
 			wp_enqueue_style( 'elementor-custom', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+
+			if ( is_page_template( 'template-blog-header.php' ) ) {
+				wp_enqueue_style( 'post', get_template_directory_uri() . '/assets/dist/pages/post' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+			}
 		}
 
 		if ( ! is_page_template( 'elementor.php' ) ) {

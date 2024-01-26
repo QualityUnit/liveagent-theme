@@ -37,15 +37,32 @@ header_banners(
 			'url'      => __( 'https://www.postaffiliatepro.com/', 'ms' ),
 		),
 		// array(
-		// 	'title'    => __( 'Unleash the Website Wizard', 'ms' ),
-		// 	'subtitle' => __( 'Experience the power of the URLsLab plugin!', 'ms' ),
-		// 	'class'    => 'URLslab',
-		// 	'image'    => 'AnnouncementBar-Urlslab.png',
-		// 	'bg'       => 'AnnouncementBar-Urlslab_bg.jpg',
-		// 	'url'      => __( 'https://www.urlslab.com/', 'ms' ),
+		//  'title'    => __( 'Unleash the Website Wizard', 'ms' ),
+		//  'subtitle' => __( 'Experience the power of the URLsLab plugin!', 'ms' ),
+		//  'class'    => 'URLslab',
+		//  'image'    => 'AnnouncementBar-Urlslab.png',
+		//  'bg'       => 'AnnouncementBar-Urlslab_bg.jpg',
+		//  'url'      => __( 'https://www.urlslab.com/', 'ms' ),
 		// ),
 	)
-)
+);
+
+// header_banners(
+//     array(
+//         'home',
+//     ),
+//     array(
+//         array(
+//             'title'    => __( 'AI Assistant', 'ms' ),
+//             'subtitle' => __( 'Suggests the responses to your agents need lorem ipsum', 'ms' ),
+//             'class'    => 'ai-assistant',
+//             'image'    => 'announcementBar-ai-assistant.png',
+//             'bg'       => 'announcementBar-ai-assistant-bg.jpg',
+//             'url'      => __( '/pricing/', 'ms' ),
+//             'icon-class'       => 'pencil-with-stars', // Here insert icon class from our wordpress icons
+//         ),
+//     )
+// )
 ?>
 
 

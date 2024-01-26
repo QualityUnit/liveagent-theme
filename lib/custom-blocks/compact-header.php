@@ -219,6 +219,7 @@
 					<?php if ( isset( $image['src'] ) ) { ?>
 						<div class="compact-header__image">
 							<img
+								fetchpriority="high"
 								src="<?= esc_url( $image['src'] ); ?>"
 								alt="<?= esc_attr( $image['alt'] ); ?>"
 								class="compact-header__img"
@@ -228,6 +229,7 @@
 								<?php if ( isset( $logo['src'] ) ) { ?>
 									<div class="compact-header__logo">
 										<img
+											fetchpriority="high"
 											src="<?= esc_url( $logo['src'] ); ?>"
 											<?php if ( isset( $logo['alt'] ) ) { ?>
 												alt="<?= esc_attr( $logo['alt'] ); ?>"
@@ -494,7 +496,7 @@
 								<div class="Research--navigation__title"><?php _e( 'Navigation', 'ms' ); ?></div>
 								<div class="Research--navigation__posts">
 
-									<div class="Research--navigation__selected" data-id="<?php echo get_the_ID(); ?>"> <?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?> </div>
+									<div class="Research--navigation__selected" data-id="<?= esc_attr( get_the_ID() ); ?>"> <?php echo esc_html( str_replace( '^', '', get_the_title() ) ); ?> </div>
 
 									<div class="Research--navigation__menu hidden">
 										<ul class="Research--navigation__menu__inn">
@@ -523,7 +525,7 @@
 														$color = $counter % 9;
 													}
 													?>
-													<li data-id="<?php echo get_the_ID(); ?>" data-color="<?php echo esc_attr( $color ); ?>" class="Research--navigation__post Research--color-<?php echo esc_html( $color ); ?>">
+													<li data-id="<?= esc_attr( get_the_ID() ); ?>" data-color="<?php echo esc_attr( $color ); ?>" class="Research--navigation__post Research--color-<?php echo esc_html( $color ); ?>">
 														<a class="Research--navigation__post__title" href="<?php the_permalink(); ?>">
 													<span class="Research--navigation__counter">
 													<?php

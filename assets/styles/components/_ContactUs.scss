@@ -5,7 +5,7 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 @use "../elements/Typography" as *;
 @forward "../elements/FakeChatButton";
 
-$links: 8;
+$links: 4;
 $minWidth: 15.125em;
 
 $colors: (
@@ -75,7 +75,7 @@ $colors: (
 			}
 
 			.ContactUs__button--icon {
-				fill: url(#Gradient) !important;
+				fill: $dark-orange !important;
 
 				&__wrap {
 
@@ -209,9 +209,18 @@ $colors: (
 			border-radius: $border-radius-16;
 			bottom: calc(100% + 1em);
 			right: 0;
-			transition: all 0.25s;
 			text-align: right;
 			padding: 0.75em;
+			background-color: $white;
+			filter: drop-shadow(0 0.25em 1.375em rgba($black-real, 0.12));
+			max-height: 0;
+
+			overflow: hidden;
+			transition: max-height 0.4s ease-out, visibility 0.4s ease-out, opacity 0.2s ease-out;
+			visibility: hidden;
+			opacity: 0;
+			display: unset !important;
+
 
 			&::before,
 			&::after {
@@ -226,31 +235,16 @@ $colors: (
 				left: 0;
 				bottom: 0;
 				border-radius: 0 0 $border-radius-16 $border-radius-16;
-				transition: opacity 0.15s $links * 0.075s;
 				opacity: 0;
 			}
 
-			&::after {
-
-				@include posZero;
-				bottom: 0.9em;
-				z-index: -1;
-				border-radius: $border-radius-16 $border-radius-16 0 0;
-				transform: scaleY(0);
-				transform-origin: 50% bottom;
-				transition: transform 0.25s 0.35s;
-				filter: drop-shadow(0 0.25em 1.375em rgba($black-real, 0.12));
-			}
-
 			&.visible {
+				max-height: 800px;
+				visibility: visible;
+				opacity: 1;
 
 				&::before {
 					opacity: 1;
-					transition-delay: 0s;
-				}
-
-				&::after {
-					transform: scaleY(1);
 					transition-delay: 0s;
 				}
 
@@ -261,18 +255,12 @@ $colors: (
 						&--close,
 						&--text {
 							opacity: 1;
-							transition: opacity 0.35s $links * 0.075s;
 						}
 
 						&--link {
 							opacity: 1;
 						}
 
-						@for $i from 1 to $links {
-							&--item:nth-of-type(#{$i}) .ContactUs__menu--link {
-								transition-delay: ($links - $i) * 0.085 + s;
-							}
-						}
 					}
 				}
 			}
@@ -335,13 +323,8 @@ $colors: (
 				}
 			}
 
-			@for $i from 1 to $links {
-				.ContactUs__menu--item:nth-of-type(#{$i}) & {
-					transition-delay: $i * 0.05 + s;
-				}
-			}
-
 			&.chat[class] {
+
 
 				.circleChatButtonWrap.circleChatButtonWrap[class] {
 
@@ -349,10 +332,10 @@ $colors: (
 					transform: scale(0.6115);
 					transform-origin: 0 0;
 					box-shadow: none !important;
-					filter: drop-shadow(0 0.25em 1em rgba($black-real, 0.15));
 
 					&:hover {
 						box-shadow: none !important;
+						filter: none;
 					}
 
 					&::after {
@@ -387,7 +370,6 @@ $colors: (
 			> div:not(.fakeChatButton) {
 
 				@include square(2.5em);
-				filter: drop-shadow(0 0.25em 1em rgba($black-real, 0.15));
 				margin-left: 1em;
 
 				@media (min-width: $breakpoint-tablet) {
@@ -420,7 +402,7 @@ $colors: (
 		&--close,
 		&--text {
 			opacity: 0;
-			transition-delay: 0;
+			transition-delay: 0s;
 		}
 	}
 }

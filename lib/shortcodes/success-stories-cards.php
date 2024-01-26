@@ -1,9 +1,9 @@
 <?php
 
-function ms_slider_success_stories( $atts ) {
+function ms_success_stories_cards( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'posts'    => '6',
+			'posts'    => '2',
 			'category' => '',
 		),
 		$atts,
@@ -12,10 +12,10 @@ function ms_slider_success_stories( $atts ) {
 	ob_start();
 	?>
 
-	<div class="SliderSuccessStories SliderSuccessStories__slider">
-		<section class="slider splide">
-			<div class="splide__track">
-				<ul class="splide__list">
+
+		<section class="success__stories">
+				<?php $archive_url = get_post_type_archive_link( 'ms_success-stories' ); ?>
+				<ul class="success__stories__list">
 				<?php
 				$tax_query = array( 'relation' => 'AND' );
 
@@ -63,15 +63,16 @@ function ms_slider_success_stories( $atts ) {
 					$category = substr( $category, 0, -1 );
 					?>
 
-					<li class="splide__slide">
-						<article data-category="<?= esc_attr( $category ) ?>" data-region="<?= esc_attr( $region ) ?>" <?php post_class( 'SliderSuccessStories__article' ); ?>>
-								<a href="<?php the_permalink(); ?>" class="SliderSuccessStories__link" title="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>"></a>
-								<div class="SliderSuccessStories__thumbnail">
+					<li class="success__stories__item">
+						<article data-category="<?= esc_attr( $category ) ?>" data-region="<?= esc_attr( $region ) ?>" <?php post_class( 'success__stories__item__article' ); ?>>
+								<a href="<?php the_permalink(); ?>" class="success__stories__item__link" title="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>"></a>
+								<div class="success__stories__item__thumbnail">
 									<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
-									<img data-splide-lazy="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>" />
+									<img data-splide-lazy="<?= esc_url( get_the_post_thumbnail_url( '', 'box_archive_thumbnail' ) ); ?>" alt="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>" />
 
 									<?php
 									$categories = get_the_terms( 0, 'ms_success-stories_categories' );
+
 									if ( ! empty( $categories ) ) {
 										?>
 										<div class="postLabels">
@@ -95,11 +96,11 @@ function ms_slider_success_stories( $atts ) {
 									}
 									?>
 								</div>
-								<div class="SliderSuccessStories__content">
-									<h3 class="SliderSuccessStories__title">
+								<div class="success__stories__item__content">
+									<h3 class="success__stories__item__title">
 										<?php the_title(); ?>
 									</h3>
-									<div class="SliderSuccessStories__excerpt">
+									<div class="success__stories__item__excerpt">
 										<p itemprop="abstract" class="item-excerpt">
 											<?= esc_html( wp_trim_words( get_the_excerpt(), 30 ) ); ?>
 										</p>
@@ -116,16 +117,14 @@ function ms_slider_success_stories( $atts ) {
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); ?>
 				</ul>
-			</div>
+				<a href="<?= esc_url( $archive_url );  ?>" class="Button Button--full"><span><?= esc_html_e( 'View all', 'ms' ) ?></span></a>
 		</section>
-	</div>
 
 	<?php
-	set_custom_source( 'common/splide' );
-	set_custom_source( 'shortcodes/SliderSuccessStories' );
-	set_custom_source( 'splide', 'js' );
-	set_custom_source( 'slider', 'js' );
+
+	set_custom_source( 'shortcodes/SuccessStories' );
 
 	return ob_get_clean();
 }
-add_shortcode( 'slider_success_stories', 'ms_slider_success_stories' );
+// slider_success_stories is the old name of the shortcode( we are removed slider form this shortcode ), but we can't change it because we had this shortcode implemented in many places in elementor
+add_shortcode( 'slider_success_stories', 'ms_success_stories_cards' );

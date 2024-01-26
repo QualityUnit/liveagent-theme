@@ -2,6 +2,7 @@
 	set_custom_source( 'components/Demobar', 'css' );
 	set_custom_source( 'demobar', 'js', array( 'app_js' ) );
 ?>
+
 <div id="demobar" class="DemoBar">
 	<div class="DemoBar__wrapper wrapper">
 		<span class="DemoBar__close" id="demobar-close">

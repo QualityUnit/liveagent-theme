@@ -3,7 +3,7 @@
 set_source( 'single-post', 'pages/blog', 'css' );
 set_source( 'single-post', 'common/splide', 'css' );
 set_source( 'single-post', 'splide', 'js' );
-//set_source( 'single-post', 'sidebar_toc', 'js' );
+
 set_source( 'single-post', 'custom_lightbox', 'js' );
 
 // Archive type pages
@@ -29,7 +29,6 @@ $category_pages = array( 'features', 'glossary', 'academy', 'integrations', 'rev
 foreach ( $category_pages as $pagename ) {
 	set_source( 'single-ms_' . $pagename, 'common/splide', 'css' );
 	set_source( 'single-ms_' . $pagename, 'splide', 'js' );
-	//set_source( 'single-ms_' . $pagename, 'sidebar_toc', 'js' );
 }
 
 // Pricing page

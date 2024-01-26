@@ -62,7 +62,7 @@ function is_subcategory() {
 function site_breadcrumb( $breadcrumb = array() ) {
 	if ( empty( $breadcrumb ) ) {
 		$home = array( __( 'Home' ), home_url( '/', 'relative' ) );
-		
+
 		if ( is_single() ) {
 			$post_type = get_post_type_object( get_post_type() );
 			if ( $post_type ) {
@@ -111,7 +111,7 @@ function site_breadcrumb( $breadcrumb = array() ) {
 			$breadcrumb[] = array( get_search_query() );
 		}
 	}
- 
+
 	$allowed_html = array(
 		'div' => array(
 			'class' => array(),

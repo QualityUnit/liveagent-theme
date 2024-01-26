@@ -285,69 +285,6 @@ if ( gutenSliders.length > 0 ) {
 	} );
 }
 
-/* Base of new testimonials slider */
-const successStories = document.querySelectorAll(
-	'.elementor-shortcode .SliderSuccessStories__slider .slider'
-);
-if ( successStories.length > 0 ) {
-	successStories.forEach( ( slider ) => {
-		slider.querySelectorAll( '[data-src]' ).forEach( ( image ) => {
-			const img = image;
-			img.setAttribute( 'src', img.dataset.src );
-			img.style.cssText = null;
-		} );
-		const horizontalSlider = new Splide( slider, {
-			type: 'loop',
-			lazyLoad: 'sequential',
-			autoplay: true,
-			autoHeight: false,
-			speed: 500,
-			interval: 5000,
-			perPage: 2,
-			perMove: 1,
-			pagination: false,
-			arrows: true,
-			arrowPath: 'M 11.304316,-1.4038072e-8 A 2.6087213,2.6087213 0 0 0 9.4598685,0.76427379 a 2.6087213,2.6087213 0 0 0 0,3.68889511 L 25.006897,20.000197 9.4598685,35.547225 a 2.6087213,2.6087213 0 0 0 0,3.688895 2.6087213,2.6087213 0 0 0 3.6888955,0 L 30.540239,21.844645 a 2.6089822,2.6089822 0 0 0 0,-3.688896 L 13.148764,0.76427379 A 2.6087213,2.6087213 0 0 0 11.304316,-1.4038072e-8 Z',
-			trimspace: true,
-			gap: '0',
-			breakpoints: {
-				767: {
-					perPage: 1,
-				},
-			},
-		} );
-
-		// Fix to achieve fluid opacity animation on move, not after move
-		horizontalSlider.on( 'move', () => {
-			const visibles = slider.querySelectorAll( '.is-visible' );
-			if ( visibles.length > 0 ) {
-				visibles.item( 0 ).classList.add( 'is-active' );
-				slider
-					.querySelector( '.is-visible + li:not(.is-visible)' )
-					.classList.add( 'is-visible' );
-			}
-		} );
-
-		if ( 'IntersectionObserver' in window && successStories.length > 0 ) {
-			const horizontalSliderObserver = new IntersectionObserver(
-				( entries ) => {
-					entries.forEach( ( entry ) => {
-						if ( entry.isIntersecting ) {
-							horizontalSlider.mount( );
-
-							const sliderObject = entry.target;
-							horizontalSliderObserver.unobserve( sliderObject );
-						}
-					} );
-				}
-			);
-			successStories.forEach( ( sliderObject ) => {
-				horizontalSliderObserver.observe( sliderObject );
-			} );
-		}
-	} );
-}
-
 /* Demo Slider */
 if ( document.querySelectorAll( '.FullScreen__sidebar .slider' ).length > 0 ) {
 	document
@@ -469,25 +406,6 @@ if ( referenceSlider.length > 0 ) {
 		main.sync( thumbnails );
 		thumbnails.mount();
 		main.mount();
-	} );
-}
-
-const sliderCutted = document.querySelectorAll( '.SliderCutted' );
-
-if ( sliderCutted.length > 0 ) {
-	sliderCutted.forEach( ( slider ) => {
-		new Splide( slider, {
-			type: 'slide',
-			rewind: true,
-			autoplay: true,
-			direction: direction(),
-			speed: 500,
-			interval: 10000,
-			perPage: 1,
-			perMove: 1,
-			pagination: true,
-			arrows: true,
-		} ).mount();
 	} );
 }
 
