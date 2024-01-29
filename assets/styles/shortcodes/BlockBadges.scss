@@ -7,19 +7,9 @@
 
 	&__bg {
 		position: relative;
-
-		&::before {
-			content: "";
-			position: absolute;
-			z-index: 1;
-			display: block;
-			overflow: hidden;
-			background-image: url(../../images/bg_glassy.jpg?ver=#{$version});
-			background-image: url(../../images/bg_glassy.webp?ver=#{$version});
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
+		background-position: left center;
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
 
 	&__wrap {
@@ -49,12 +39,7 @@
 
 		&__bg {
 			padding: $block-bg-space 0;
-
-			&::before {
-
-				@include posCustom($right: 7.5em);
-				border-radius: 1rem 35rem 35rem 1rem;
-			}
+			border-radius: 1rem 35rem 35rem 1rem;
 		}
 
 		&__wrap {
@@ -88,12 +73,6 @@
 
 				&__bg {
 					padding: $block-bg-space-sm 0;
-
-					&::before {
-
-						@include posCustom();
-						border-radius: 1rem;
-					}
 				}
 
 				&__wrap {
@@ -124,12 +103,6 @@
 
 		&__bg {
 			padding: $block-bg-space-sm 0;
-
-			&::before {
-
-				@include posCustom();
-				border-radius: 1rem;
-			}
 		}
 
 		&__wrap {

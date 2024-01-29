@@ -2,10 +2,12 @@
 
 function ms_awards_badges() {
 	ob_start();
+
+	$img_bg = get_template_directory_uri() . '/assets/images/bg_glassy.jpg';
 	?>
- 
+
 	<section class="block-badges">
-		<div class="block-badges__bg">
+		<div class="block-badges__bg" style="background-image: url(<?= $img_bg ?>)">
 			<div class="block-badges__wrap">
 				<div class="block-badges__content">
 					<h5 class="block-badges__subtitle">
@@ -27,7 +29,7 @@ function ms_awards_badges() {
 			</div>
 		</div>
 	</section>
- 
+
 	<?php
 	set_custom_source( 'shortcodes/BlockBadges' );
 	return ob_get_clean();
