@@ -14,6 +14,60 @@ no-descending-specificity, value-keyword-case
 	font-size: 0.75rem;
 	padding: 0.25em 1.166em;
 
+	&--free--months {
+		color: #b44b85;
+		display: flex;
+		align-items: center;
+		column-gap: 0.3125em;
+		margin-left: auto;
+		position: relative;
+
+		.LabelTag {
+			padding: 0.25em 1em 0.25em 1.1em;
+
+			&--small {
+				width: fit-content;
+				margin: 0 !important;
+				position: absolute;
+				right: 0;
+				top: 14px;
+				font-size: 12px;
+				padding: 2px 8px;
+				line-height: 1.4;
+				font-weight: $font-weight-semi;
+
+				&.pink {
+					color: #b44b85;
+					background: rgba(180, 75, 133, 0.2);
+				}
+
+			}
+		}
+
+		&--enterprise {
+			align-items: flex-start;
+			margin-bottom: 1em;
+
+			.LabelTag--small {
+				position: relative;
+				left: 0;
+				right: unset;
+				top: 0;
+				width: fit-content !important;
+			}
+		}
+
+		.pink {
+			background: linear-gradient(45deg, #b44b85, #f478a5);
+			color: $white;
+		}
+
+		strong {
+			font-size: 24px;
+			margin-right: 0.3em;
+		}
+	}
+
 	&.popular {
 		background-color: $medium-orange;
 	}
@@ -33,6 +87,7 @@ no-descending-specificity, value-keyword-case
 		font-weight: $font-weight-semi;
 		padding: 0.25em 1.5em;
 	}
+
 
 	.icon {
 
