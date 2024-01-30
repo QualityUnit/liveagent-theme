@@ -44,6 +44,7 @@ $theme_includes = array(
 	'functions/get-cta-button-data.php', // Get data from metaboxes for cta button in the compact header
 	'functions/header-banners.php', // Shows banners on selected pages
 	'functions/create-language-menu.php', // Function for generate languages
+	'functions/dynamic-award-badges.php', // Function to place award badges dynamically
 );
 
 foreach ( $theme_includes as $file ) {

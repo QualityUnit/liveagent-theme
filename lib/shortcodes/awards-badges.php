@@ -21,8 +21,14 @@ function ms_awards_badges() {
 						<a href="<?= esc_url( __( '/awards/', 'ms' ) ); ?>" class="Button Button--full"><span><?php _e( 'View more' ); ?></span></a>
 					</p>
 				</div>
-				<div class="block-badges__image">
-					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/badges.png" alt="<?php _e( 'Badges', 'ms' ); ?>">
+				<div class="award-badges">
+					<?php
+					foreach ( get_awards( 6 ) as $award_id ) {
+						?>
+						<div style="background-image: url(<?= esc_attr( get_the_post_thumbnail_url( $award_id, 'box_archive_thumbnail' ) ); ?>)" alt="<?php _e( 'Badges', 'ms' ); ?>"></div>
+						<?php
+					}
+					?>
 				</div>
 			</div>
 		</div>
