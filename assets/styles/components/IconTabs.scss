@@ -23,33 +23,44 @@
 
 		.elementor-icon-list-icon {
 
-			@include square(2.75em);
+			@include square(2.875em);
 			position: relative;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			top: -0.1em;
 			border-radius: 50%;
-			background-color: rgba($medium-orange, 0);
-			transition: background-color 0.3s;
-			margin-right: 0.25em;
+			background-color: $lighter-gray;
+			transition: background-color 0.15s;
+			margin-right: 0.5em;
+			padding: 0.25em !important;
 
 			svg {
-				--e-icon-list-icon-size: 1.25em;
+				--e-icon-list-icon-size: 1.5em;
 				margin: 0 !important;
-				fill: $light-gray-icon;
+				fill: currentcolor;
 			}
 		}
 
-		.elementor-icon-list-item.active svg {
-			fill: currentcolor;
-		}
-
 		ul {
-			justify-content: center;
 
 			li {
+				position: relative;
+				$counter: 10;
 
+				@for $i from 1 through $counter {
+					&:nth-child(#{$i}) {
+						z-index: $counter - $i;
+					}
+				}
+
+				&:not(:first-of-type) {
+					margin-left: -0.5rem;
+				}
+
+				&:last-of-type a {
+					box-shadow: none;
+				}
 
 				a {
 
@@ -57,25 +68,25 @@
 					display: flex;
 					align-items: center;
 					position: relative;
-					margin: 0 10px;
 					line-height: 1.3;
 					font-weight: $font-weight-semi;
 					font-family: $font-secondary;
 					text-transform: none;
-					transition: all 0.3s;
+					transition: all 0.15s;
 					text-decoration: none !important;
+					border-radius: 0.5rem 0.5rem 0 0;
+					background: $lightest-gray;
+					box-shadow: 5px 0 5px 0 rgba($black-real, 0.05);
 
 					&::after {
 
-						@include color(background, primary-color);
 						content: "";
 						position: absolute;
 						bottom: 0;
-						left: 50%;
-						width: 0;
-						height: 5px;
-						border-radius: 16px 16px 0 0;
-						transition: all 0.3s ease;
+						left: 0;
+						width: 100%;
+						height: 2px;
+						background-color: $lighter-gray;
 					}
 				}
 
@@ -83,16 +94,38 @@
 				&.active {
 
 					.elementor-icon-list-icon {
-						background-color: rgba($medium-orange, 1);
+						background-color: transparent;
+					}
+				}
+
+				&:hover {
+
+					a {
+
+						background: $medium-orange;
+						color: $dark-orange;
+
+						&::after {
+							background-color: $dark-orange;
+						}
+					}
+				}
+
+				&.active {
+					z-index: 12;
+					box-shadow: none;
+
+					.elementor-icon-list-icon {
+						box-shadow: inset 0 0 0 2px currentcolor;
 					}
 
 					a {
 
-						@include color(color, primary-color, !important);
+						@include color(background, background);
+						color: $white;
 
 						&::after {
-							left: 0;
-							width: 100%;
+							background-color: $dark-orange;
 						}
 					}
 				}
@@ -100,7 +133,7 @@
 				@media (min-width: $breakpoint-tablet-landscape) {
 
 					a {
-						padding: 1em;
+						padding: 0.65em 1.5em;
 					}
 				}
 			}
@@ -141,6 +174,11 @@
 	&__block {
 		position: relative;
 
+		&.wrapper {
+			opacity: 0.7;
+			background: radial-gradient(103.53% 342.47% at 18.26% 29.64%, $white 0%, #fff4f4 33.92%, #ffe9dc 83.38%, #ffeef3 100%);
+		}
+
 		&.active {
 			transform: translateX(0);
 		}
@@ -180,23 +218,31 @@
 			text-align: center;
 
 			font-size: 3.5rem;
-			line-height: 1.625;
+			line-height: 1;
 			font-family: $font-third;
+
+			&.big {
+				font-size: 5rem;
+			}
 		}
 
 		&.big {
 			margin-top: -7em;
 
-			p {
+			p:not(.big) {
 				font-size: 5rem;
 			}
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
-			margin-top: -10em;
+			margin-top: -8em;
 
 			p {
 				font-size: 6.25rem;
+
+				&.big {
+					font-size: 9.375rem;
+				}
 			}
 
 			&.big {
@@ -215,7 +261,7 @@
 		@include color(background, main-background);
 		position: relative;
 		border-radius: $border-radius-16;
-		margin: 0 auto 0;
+		margin: -1em auto 0;
 		padding: 2em;
 		max-width: 30.25em;
 		box-shadow: 0 15px 41px rgba(145, 145, 145, 0.28), inset 0 -15px 20px rgba(157, 157, 157, 0.1);
@@ -240,7 +286,7 @@
 			top: -0.75em;
 			left: 50%;
 			transform: translateX(-50%) rotate(45deg);
-			border-radius: 8px;
+			border-radius: 6px;
 		}
 
 		.active & {

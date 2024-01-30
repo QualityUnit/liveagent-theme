@@ -31,6 +31,7 @@ if ( iconTabs.length > 0 ) {
 					if ( ! chartPercentageText[ 1 ] ) {
 						const secs = 2500 / number1;
 						let count = 0;
+						chartPercentage.classList.add( 'big' );
 						const counter = setInterval( () => {
 							count += 1;
 							chartPercentage.innerHTML = `${ count }%`;
