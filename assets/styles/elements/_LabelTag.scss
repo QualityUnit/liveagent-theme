@@ -15,29 +15,29 @@ no-descending-specificity, value-keyword-case
 	padding: 0.25em 1.166em;
 
 	&--free--months {
-		color: #b44b85;
+		position: relative;
 		display: flex;
 		align-items: center;
 		column-gap: 0.3125em;
+		color: $dark-pink;
 		margin-left: auto;
-		position: relative;
 
 		.LabelTag {
 			padding: 0.25em 1em 0.25em 1.1em;
 
 			&--small {
+
+				@include posCustom(0.875em, 0, auto, auto);
+				position: absolute;
 				width: fit-content;
 				margin: 0 !important;
-				position: absolute;
-				right: 0;
-				top: 14px;
-				font-size: 12px;
-				padding: 2px 8px;
+				padding: 0.125em 0.5em;
+				font-size: 0.75rem;
 				line-height: 1.4;
 				font-weight: $font-weight-semi;
 
 				&.pink {
-					color: #b44b85;
+					color: $dark-pink;
 					background: rgba(180, 75, 133, 0.2);
 				}
 
@@ -49,21 +49,20 @@ no-descending-specificity, value-keyword-case
 			margin-bottom: 1em;
 
 			.LabelTag--small {
+
+				@include posCustom(0,unset,0,0);
 				position: relative;
-				left: 0;
-				right: unset;
-				top: 0;
 				width: fit-content !important;
 			}
 		}
 
 		.pink {
-			background: linear-gradient(45deg, #b44b85, #f478a5);
+			background: linear-gradient(45deg, $dark-pink, $light-pink);
 			color: $white;
 		}
 
 		strong {
-			font-size: 24px;
+			font-size: 1.5rem;
 			margin-right: 0.3em;
 		}
 	}
