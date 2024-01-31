@@ -6,3 +6,4 @@
 	require_once get_template_directory() . '/lib/widgets/qu-usecase/usecase.php';
 	require_once get_template_directory() . '/lib/widgets/qu-reviews/reviews.php';
 	require_once get_template_directory() . '/lib/widgets/qu-commonproblems/commonproblems.php';
+	require_once get_template_directory() . '/lib/widgets/qu-banners/banners.php';

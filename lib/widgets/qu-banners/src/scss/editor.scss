@@ -1,0 +1,278 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
+@use "../../../../../assets/styles/common/ResearchColors" as *;
+@use "../../../../../assets/styles/elements/ResearchBlock" as *;
+
+.wp-block.display-inline {
+	display: inline;
+}
+
+.URLInput {
+
+	position: relative;
+
+	&__link {
+
+		@include color(background-color, secondary-background);
+		@include color(box-shadow, box-shadow);
+		position: absolute;
+		width: calc(100% + 2em);
+		max-width: 15em;
+		left: -1em;
+		bottom: 100%;
+		padding: 1em;
+		border: 1px solid $black;
+		opacity: 0;
+		transform: scale(0.5) translateY(100%);
+		transition: all 0.2s;
+
+		&.active {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+
+		label,
+		input {
+
+			@include color(color, font-color-dark, !important);
+		}
+	}
+
+	&__text input {
+		font-size: 0.875rem;
+		font-weight: $font-weight-semi;
+		float: right;
+		text-align: right;
+		color: var(--post-color) !important;
+
+		&::after {
+			display: none !important;
+		}
+
+		.Statistics--block__negative & {
+
+			@include color(color, font-color-light, !important);
+		}
+	}
+}
+
+.Statistics {
+
+	&--block {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+
+		&__input {
+
+			textarea,
+			input {
+				background-color: transparent;
+				border: 1px solid rgba(0, 204, 255, 0.6) !important;
+			}
+
+			&.text,
+			&.source,
+			&.value,
+			&.header {
+
+				textarea,
+				input {
+					padding: 0 !important;
+				}
+			}
+		}
+
+		&.align {
+
+			&-left {
+				float: left;
+			}
+
+			&-right {
+				float: right;
+			}
+
+			&-center {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
+		&.Statistics--block {
+
+			.text,
+			.source {
+				font-size: 1rem;
+				line-height: 1.75;
+			}
+
+			.source {
+				margin-top: 1em;
+				font-size: 0.8rem;
+
+				input {
+					font-size: inherit;
+				}
+			}
+
+			.value input {
+				font-size: 4.75rem !important;
+			}
+		}
+
+		.value.value input {
+			font-size: 4.75rem !important;
+			margin-bottom: 0;
+		}
+
+		&__grey {
+
+			.text input {
+
+				@include color(color, font-color-normal, !important);
+			}
+
+			.Research--block {
+
+				&__buttons {
+					filter: none !important;
+				}
+			}
+		}
+
+		&__wide {
+
+			&--header input[type="text"] {
+
+				@include color(color, font-color-light);
+				font-size: 1.5rem !important;
+				line-height: 1 !important;
+				font-weight: $font-weight-bold;
+			}
+
+			&--top {
+				margin: 3em 0 2em;
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					display: flex;
+					align-items: center;
+
+					.value {
+						display: inline-block;
+
+						input {
+							width: 2.5em !important;
+						}
+
+						* {
+							display: inline-block;
+							font-size: 5.875rem;
+							line-height: 1;
+							margin: 0 !important;
+						}
+					}
+
+					.text.text {
+						margin-left: 1.5em;
+						flex: 1;
+
+						textarea {
+
+							@include color(color, font-color-normal, !important);
+						}
+					}
+
+					.source.source input {
+
+						@include color(color, font-color-normal, !important);
+					}
+				}
+			}
+
+			&--image {
+				width: 100%;
+			}
+
+			.URLInput__text input {
+
+				@include color(color, font-color-light, !important);
+				display: inline-block;
+				float: none;
+				padding: 1em 2em;
+				text-align: center;
+				font-weight: $font-weight-bold;
+				background-color: var(--post-color);
+				border-radius: 6px;
+				width: auto;
+			}
+
+			.Research--block {
+
+				&__buttons {
+					left: auto;
+					right: 2.625em;
+					filter: brightness(200%);
+				}
+			}
+		}
+
+		.Research--block {
+
+			&__buttons {
+				left: 2.625em;
+				right: auto;
+			}
+		}
+
+		&__popover {
+
+			.components-popover__content {
+				width: 40em;
+			}
+
+			&-color {
+
+				@extend %researchColors;
+
+				.components-popover__content {
+
+					width: calc(9em + 2px);
+
+					> div {
+						display: flex;
+						flex-wrap: wrap;
+					}
+				}
+			}
+
+			&-colorButton {
+
+				@include square(3em);
+				display: block;
+				border-radius: 0;
+				border: 1px solid $white;
+				background: var(--post-color);
+				overflow: hidden;
+				text-indent: -9999px;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&:not(.Statistics--block__wide) {
+				max-width: 15.875em;
+			}
+		}
+	}
+
+	&__columns {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
