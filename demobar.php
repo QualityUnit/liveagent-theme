@@ -1,4 +1,5 @@
 <?php
+	set_custom_source( 'components/DemoBar', 'css' );
 	set_custom_source( 'demobar', 'js', array( 'app_js' ) );
 ?>
 
