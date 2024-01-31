@@ -1,38 +1,20 @@
 <?php 
-function banner1( $block, $attr, $styling = 'activeStyle' ) {
+function banner1( $attr ) {
+		$banner = $attr['layout'];
 		return '
-			<div
-			class="Statistics--block Research--color-' . $attr['color'] . ' ' . ( $styling === 'activeStyle' ? $attr[$styling] : $attr['style'][$styling] ) . ' ' . ( isset( $attr['align'] ) ? 'align-' . $attr['align'] : '' ) . /*@codingStandardsIgnoreLine */ '">
-			<div class="elementor-widget-text-editor text">
-				<p>' . $attr[ $block ]['text'] . '</p>
+			<div class="qu-Banner qu-Banner-' . $banner . ' ' . $attr[$banner]['activeStyle'] . /*@codingStandardsIgnoreLine */ '">
+				<h3 class="qu-Banner--head">
+					' . $attr[ $banner ]['header'] . '
+				</h3>
+			<div class="qu-Banner__content">
+				' . $attr[ $banner ]['content'] . '
 			</div>
-			<div class="value">
-				<h4 class="elementor-heading-title">
-					' . $attr[ $block ]['value'] . '
-				</h4>
-			</div>
-			<div class="elementor-widget-text-editor source">
-				<p>
-					' . $attr[ $block ]['sourceData'] . '
-				</p>
-			</div>' .
 			
-			( $attr[ $block ]['url'] ? '
-			<div class="to-bottom">
 				<a
-					class="Statistics--block__url"
-					href="' . $attr[ $block ]['url'] . '" ' . ( $attr[ $block ]['urlInTab'] ? 'target="_blank"' : '' ) . '
+					class="Button Button--full"
+					href="' . $attr[ $banner ]['buttonUrl'] . '" ' . ( $attr[ $banner ]['openInTab'] ? 'target="_blank"' : '' ) . '
 				>
-					' . $attr[ $block ]['urlText'] . '
-					<svg
-						width="8"
-						height="12"
-						viewBox="0 0 8 12"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path d="M0 10.59L4.58 6L0 1.41L1.41 0L7.41 6L1.41 12L0 10.59Z" />
-					</svg>
+					<span>' . $attr[ $banner ]['buttonText'] . '</span>
 				</a>
-			</div></div>' : '
-		</div>' );
+		</div>';
 }

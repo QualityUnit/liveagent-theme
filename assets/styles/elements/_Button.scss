@@ -90,7 +90,8 @@ button,
 	}
 }
 
-.Button--full {
+.Button--full,
+%Button--full {
 
 	@include color(background, background);
 	@include color(color, button-full-font-color);

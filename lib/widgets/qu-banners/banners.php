@@ -44,6 +44,14 @@ function banners_block_init() {
 			$version,
 			false
 		);
+
+		wp_enqueue_style(
+			'qu_banners_block_frontend_style',
+			$path_uri . 'build/style-qu_banners_edit.css',
+			array( 'wp-edit-blocks' ),
+			$version,
+			false
+		);
 	}
 
 	add_action( 'enqueue_block_editor_assets', 'banners_editor_assets' );
@@ -72,7 +80,7 @@ function banners_block_init() {
 	function render_banners( $attr ) {
 		$layout = $attr['layout'];
 		if ( $layout === 'banner1' ) {/*@codingStandardsIgnoreLine */
-			return banner1( 'block1', $attr );
+			return banner1( $attr );
 		};
 	}
 
@@ -84,28 +92,25 @@ function banners_block_init() {
 			'qu_banners_style'         => 'qu_banners_block_frontend_style',
 			'render_callback'          => 'render_banners',
 			'attributes'               => array(
-				'bannerId'    => array(
+				'bannerId' => array(
 					'type' => 'string',
 				),
-				'banner1'     => array(
+				'banner1'  => array(
 					'type'    => 'object',
 					'default' => array(
-						'header'     => 'Improve your customer service with the right help desk software',
-						'content'    => '',
-						'buttonText' => 'Try for free',
-						'buttonUrl'  => '',
-						'openInTab'  => false,
+						'header'      => 'Improve your customer service with the right help desk software',
+						'content'     => '<ul><li>Ticketing</li><li>Live Chat</li><li>Social media</li><li>Call center</li><li>Knowledge base</li></ul>',
+						'buttonText'  => 'Try for free',
+						'buttonUrl'   => '',
+						'openInTab'   => false,
+						'activeStyle' => 'Improve__service',
 					),
 				),
-				'layout'      => array(
+				'layout'   => array(
 					'type'    => 'string',
 					'default' => 'banner1',
 				),
-				'align'       => array(
-					'type'    => 'string',
-					'default' => '',
-				),
-				'style'       => array(
+				'style'    => array(
 					'type'    => 'array',
 					'default' => array(
 						'banners--block__negative has-bg',
@@ -113,10 +118,7 @@ function banners_block_init() {
 						'banners--block__grey',
 					),
 				),
-				'activeStyle' => array(
-					'type'    => 'string',
-					'default' => 'banners--block__negative has-bg',
-				),
+				
 			),
 		)
 	);

@@ -2,22 +2,20 @@
 
 @use "../../../../../assets/styles/common/variables" as *;
 @use "../../../../../assets/styles/common/mixins" as *;
-@use "../../../../../assets/styles/common/ResearchColors" as *;
-@use "../../../../../assets/styles/elements/ResearchBlock" as *;
 
 .wp-block.display-inline {
 	display: inline;
 }
 
-.URLInput {
+.Button {
 
 	position: relative;
 
 	&__link {
 
-		@include color(background-color, secondary-background);
-		@include color(box-shadow, box-shadow);
 		position: absolute;
+		background-color: $white;
+		box-shadow: 0 0 16px 0 rgba($black-real, 0.08);
 		width: calc(100% + 2em);
 		max-width: 15em;
 		left: -1em;
@@ -35,244 +33,179 @@
 
 		label,
 		input {
-
-			@include color(color, font-color-dark, !important);
+			display: block;
+			color: $black !important;
 		}
 	}
 
 	&__text input {
 		font-size: 0.875rem;
 		font-weight: $font-weight-semi;
-		float: right;
-		text-align: right;
-		color: var(--post-color) !important;
+		text-align: center;
 
 		&::after {
 			display: none !important;
 		}
-
-		.Statistics--block__negative & {
-
-			@include color(color, font-color-light, !important);
-		}
 	}
 }
 
-.Statistics {
+.qu-Banner {
+	position: relative;
+	border: 1px solid $medium-gray-quotes;
+	padding-bottom: 1.5em;
 
-	&--block {
-		display: flex;
-		flex-direction: column;
-		overflow: hidden;
+	&::before {
+		content: "Banner block";
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		display: inline-block;
+		padding: 0.25em 1.5em;
+		background-color: $light-gray;
+		text-align: center;
+	}
 
-		&__input {
+	.block-editor-block-toolbar {
+		background: $white;
+	}
 
-			textarea,
-			input {
-				background-color: transparent;
-				border: 1px solid rgba(0, 204, 255, 0.6) !important;
-			}
+	[data-type="qu/banners"] {
 
-			&.text,
-			&.source,
-			&.value,
-			&.header {
+		.block-list-appender,
+		.block-editor-inserter {
+			position: static !important;
+			display: flex;
+			justify-content: center;
 
-				textarea,
-				input {
-					padding: 0 !important;
+			button {
+				width: 10em !important;
+				margin: 0 auto;
+				background: #000;
+				color: $white !important;
+
+				&::after {
+					content: attr(aria-label);
+					color: currentcolor;
+					margin-left: 1em;
 				}
-			}
-		}
 
-		&.align {
-
-			&-left {
-				float: left;
-			}
-
-			&-right {
-				float: right;
-			}
-
-			&-center {
-				margin-left: auto;
-				margin-right: auto;
-			}
-		}
-
-		&.Statistics--block {
-
-			.text,
-			.source {
-				font-size: 1rem;
-				line-height: 1.75;
-			}
-
-			.source {
-				margin-top: 1em;
-				font-size: 0.8rem;
-
-				input {
-					font-size: inherit;
+				svg {
+					fill: currentcolor !important;
 				}
-			}
-
-			.value input {
-				font-size: 4.75rem !important;
-			}
-		}
-
-		.value.value input {
-			font-size: 4.75rem !important;
-			margin-bottom: 0;
-		}
-
-		&__grey {
-
-			.text input {
-
-				@include color(color, font-color-normal, !important);
-			}
-
-			.Research--block {
-
-				&__buttons {
-					filter: none !important;
-				}
-			}
-		}
-
-		&__wide {
-
-			&--header input[type="text"] {
-
-				@include color(color, font-color-light);
-				font-size: 1.5rem !important;
-				line-height: 1 !important;
-				font-weight: $font-weight-bold;
-			}
-
-			&--top {
-				margin: 3em 0 2em;
-
-				@media (min-width: $breakpoint-tablet-landscape) {
-					display: flex;
-					align-items: center;
-
-					.value {
-						display: inline-block;
-
-						input {
-							width: 2.5em !important;
-						}
-
-						* {
-							display: inline-block;
-							font-size: 5.875rem;
-							line-height: 1;
-							margin: 0 !important;
-						}
-					}
-
-					.text.text {
-						margin-left: 1.5em;
-						flex: 1;
-
-						textarea {
-
-							@include color(color, font-color-normal, !important);
-						}
-					}
-
-					.source.source input {
-
-						@include color(color, font-color-normal, !important);
-					}
-				}
-			}
-
-			&--image {
-				width: 100%;
-			}
-
-			.URLInput__text input {
-
-				@include color(color, font-color-light, !important);
-				display: inline-block;
-				float: none;
-				padding: 1em 2em;
-				text-align: center;
-				font-weight: $font-weight-bold;
-				background-color: var(--post-color);
-				border-radius: 6px;
-				width: auto;
-			}
-
-			.Research--block {
-
-				&__buttons {
-					left: auto;
-					right: 2.625em;
-					filter: brightness(200%);
-				}
-			}
-		}
-
-		.Research--block {
-
-			&__buttons {
-				left: 2.625em;
-				right: auto;
-			}
-		}
-
-		&__popover {
-
-			.components-popover__content {
-				width: 40em;
-			}
-
-			&-color {
-
-				@extend %researchColors;
-
-				.components-popover__content {
-
-					width: calc(9em + 2px);
-
-					> div {
-						display: flex;
-						flex-wrap: wrap;
-					}
-				}
-			}
-
-			&-colorButton {
-
-				@include square(3em);
-				display: block;
-				border-radius: 0;
-				border: 1px solid $white;
-				background: var(--post-color);
-				overflow: hidden;
-				text-indent: -9999px;
-			}
-		}
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-
-			&:not(.Statistics--block__wide) {
-				max-width: 15.875em;
 			}
 		}
 	}
 
-	&__columns {
+	input,
+	textarea {
+		background-color: transparent !important;
+	}
 
-		@media (min-width: $breakpoint-tablet-landscape) {
-			display: flex;
-			justify-content: space-between;
+	.Button {
+
+		background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
+		color: $white;
+
+		input {
+			color: currentcolor !important;
+		}
+	}
+
+	.editor-styles-wrapper {
+		// padding: 1em !important;
+		// margin: 1em !important;
+		// border: 1px solid #000;
+	}
+
+	.editor-styles-wrapper,
+	.qu-Banner__content {
+		background: transparent !important;
+		color: $black;
+		font-size: 1rem;
+
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: $font-secondary;
+		}
+
+		p {
+			font-size: inherit;
+			line-height: inherit;
+		}
+
+		ul,
+		ol {
+			margin: 0 0 1em;
+			padding: 0;
+		}
+
+		ul li,
+		ol li {
+			// This overrides a bottom margin globally applied to list items in wp-admin.
+			margin-bottom: initial;
+		}
+
+		img,
+		iframe,
+		.components-resizable-box__container {
+			max-width: 100%;
+			width: 100% !important;
+		}
+
+		.wp-block[data-align="wide"],
+		.wp-block.alignwide {
+			max-width: 100%;
+		}
+
+		.wp-block[data-align="full"],
+		.wp-block.alignfull {
+			max-width: none;
+		}
+
+		.wp-block-table {
+
+			table {
+				font-size: 0.875rem;
+				text-align: center;
+				table-layout: fixed;
+			}
+
+			tr,
+			td {
+				border: none;
+			}
+
+			tr:nth-of-type(even) {
+
+				background-color: $white;
+			}
+
+			td {
+				padding: 1.25em;
+
+				&:first-of-type {
+					font-weight: $font-weight-bold;
+					text-align: left;
+				}
+
+				+td {
+					border-left: 1px solid $light-gray;
+				}
+			}
+
+			tr {
+
+				&:first-of-type {
+					font-weight: $font-weight-bold;
+				}
+
+				+tr {
+					border-top: 1px dotted $light-gray-icon;
+				}
+			}
 		}
 	}
 }
