@@ -32,7 +32,8 @@
 		}
 
 		label,
-		input {
+		input,
+		&--input input {
 			display: block;
 			color: $black !important;
 		}
@@ -106,16 +107,10 @@
 
 		background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
 		color: $white;
-
-		input {
-			color: currentcolor !important;
-		}
 	}
 
-	.editor-styles-wrapper {
-		// padding: 1em !important;
-		// margin: 1em !important;
-		// border: 1px solid #000;
+	.bannerEditor {
+		margin: 0 auto !important;
 	}
 
 	.editor-styles-wrapper,

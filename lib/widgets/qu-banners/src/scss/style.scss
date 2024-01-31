@@ -37,16 +37,24 @@
 			font-size: 1.5rem;
 			font-weight: 600;
 			text-align: center;
+			margin: 0 auto 1em;
 			width: 100%;
 
 			* {
 				all: inherit;
+				width: 100% !important;
+				margin: 0 !important;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				width: 75%;
 			}
 		}
 
 		ul {
 			display: flex;
 			justify-content: center;
+			flex-wrap: wrap;
 
 			li {
 				display: inline-flex;
@@ -61,7 +69,7 @@
 					content: "";
 					border-radius: 50%;
 					background-color: $black;
-					margin-right: 0.25em;
+					margin-right: 0.5em;
 				}
 			}
 		}
@@ -69,6 +77,10 @@
 		.Button {
 			color: $white;
 			margin: 0 auto;
+
+			&::after {
+				display: none !important;
+			}
 		}
 	}
 }
