@@ -1,0 +1,86 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
+
+.qu-Banner {
+	border-radius: 1rem;
+	margin: 1.5em auto;
+
+	&.Improve__service {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		background: url(../../assets/images/improve_customer_service_bg.jpg) center center no-repeat;
+		background-size: cover;
+		padding: 2.5em;
+
+		* {
+			z-index: 2;
+		}
+
+		&::after {
+			position: absolute;
+			content: "";
+			background: url(../../assets/images/improve_customer_service_elements.png) center center no-repeat;
+			background-size: cover;
+			width: 100%;
+			height: 0;
+			left: 0;
+			bottom: 0;
+			padding-bottom: 40.82%;
+			z-index: 1;
+		}
+
+		.qu-Banner--head {
+			display: block;
+			font-size: 1.5rem;
+			font-weight: 600;
+			text-align: center;
+			margin: 0 auto 1em;
+			width: 100%;
+
+			* {
+				all: inherit;
+				width: 100% !important;
+				margin: 0 !important;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				width: 75%;
+			}
+		}
+
+		ul {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+
+			li {
+				display: inline-flex;
+				align-items: center;
+				margin: 0 !important;
+				margin-left: 1em !important;
+
+				&::before {
+
+					@include square(0.25em);
+					display: inline-block;
+					content: "";
+					border-radius: 50%;
+					background-color: $black;
+					margin-right: 0.5em;
+				}
+			}
+		}
+
+		.Button {
+			color: $white;
+			margin: 0 auto;
+
+			&::after {
+				display: none !important;
+			}
+		}
+	}
+}

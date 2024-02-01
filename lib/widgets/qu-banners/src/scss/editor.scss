@@ -1,0 +1,206 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
+
+.wp-block.display-inline {
+	display: inline;
+}
+
+.Button {
+
+	position: relative;
+
+	&__link {
+
+		position: absolute;
+		background-color: $white;
+		box-shadow: 0 0 16px 0 rgba($black-real, 0.08);
+		width: calc(100% + 2em);
+		max-width: 15em;
+		left: -1em;
+		bottom: 100%;
+		padding: 1em;
+		border: 1px solid $black;
+		opacity: 0;
+		transform: scale(0.5) translateY(100%);
+		transition: all 0.2s;
+
+		&.active {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+
+		label,
+		input,
+		&--input input {
+			display: block;
+			color: $black !important;
+		}
+	}
+
+	&__text input {
+		font-size: 0.875rem;
+		font-weight: $font-weight-semi;
+		text-align: center;
+
+		&::after {
+			display: none !important;
+		}
+	}
+}
+
+.qu-Banner {
+	position: relative;
+	border: 1px solid $medium-gray-quotes;
+	padding-bottom: 1.5em;
+
+	&::before {
+		content: "Banner block";
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		display: inline-block;
+		padding: 0.25em 1.5em;
+		background-color: $light-gray;
+		text-align: center;
+	}
+
+	.block-editor-block-toolbar {
+		background: $white;
+	}
+
+	[data-type="qu/banners"] {
+
+		.block-list-appender,
+		.block-editor-inserter {
+			position: static !important;
+			display: flex;
+			justify-content: center;
+
+			button {
+				width: 10em !important;
+				margin: 0 auto;
+				background: #000;
+				color: $white !important;
+
+				&::after {
+					content: attr(aria-label);
+					color: currentcolor;
+					margin-left: 1em;
+				}
+
+				svg {
+					fill: currentcolor !important;
+				}
+			}
+		}
+	}
+
+	input,
+	textarea {
+		background-color: transparent !important;
+	}
+
+	.Button {
+
+		background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
+		color: $white;
+	}
+
+	.bannerEditor {
+		margin: 0 auto !important;
+	}
+
+	.editor-styles-wrapper,
+	.qu-Banner__content {
+		background: transparent !important;
+		color: $black;
+		font-size: 1rem;
+
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: $font-secondary;
+		}
+
+		p {
+			font-size: inherit;
+			line-height: inherit;
+		}
+
+		ul,
+		ol {
+			margin: 0 0 1em;
+			padding: 0;
+		}
+
+		ul li,
+		ol li {
+			// This overrides a bottom margin globally applied to list items in wp-admin.
+			margin-bottom: initial;
+		}
+
+		img,
+		iframe,
+		.components-resizable-box__container {
+			max-width: 100%;
+			width: 100% !important;
+		}
+
+		.wp-block[data-align="wide"],
+		.wp-block.alignwide {
+			max-width: 100%;
+		}
+
+		.wp-block[data-align="full"],
+		.wp-block.alignfull {
+			max-width: none;
+		}
+
+		.wp-block-table {
+
+			table {
+				font-size: 0.875rem;
+				text-align: center;
+				table-layout: fixed;
+			}
+
+			tr,
+			td {
+				border: none;
+			}
+
+			tr:nth-of-type(even) {
+
+				background-color: $white;
+			}
+
+			td {
+				padding: 1.25em;
+
+				&:first-of-type {
+					font-weight: $font-weight-bold;
+					text-align: left;
+				}
+
+				+td {
+					border-left: 1px solid $light-gray;
+				}
+			}
+
+			tr {
+
+				&:first-of-type {
+					font-weight: $font-weight-bold;
+				}
+
+				+tr {
+					border-top: 1px dotted $light-gray-icon;
+				}
+			}
+		}
+	}
+}
