@@ -169,9 +169,23 @@
 					padding: 0.5em;
 				}
 
+			}
+
+			@media (max-width: $breakpoint-tablet-landscape - 1px) {
+
 				.LabelTag {
 					order: -1;
 					margin: 0 auto 1.5em;
+				}
+
+				.LabelTag--free--months {
+					order: -1;
+					margin: 0 auto 1em;
+
+					.LabelTag {
+						margin: 0;
+						order: unset;
+					}
 				}
 			}
 		}
