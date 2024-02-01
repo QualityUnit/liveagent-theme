@@ -11,6 +11,7 @@
  * Text Domain:       statistics
 */
 
+
 function statistics_block_init() {
 	$path = get_template_directory() . '/lib/widgets/statistics/';
 

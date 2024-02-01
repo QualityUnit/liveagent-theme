@@ -11,6 +11,7 @@
  * Text Domain:       usecase
 */
 
+
 function qu_usecase_init() {
 	$domain = 'qu-usecase/';
 	$path   = get_parent_theme_file_path( '/lib/widgets/' . $domain );

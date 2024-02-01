@@ -118,7 +118,7 @@ function banners_block_init() {
 						'banners--block__grey',
 					),
 				),
-				
+
 			),
 		)
 	);
