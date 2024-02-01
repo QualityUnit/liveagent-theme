@@ -11,7 +11,6 @@
  * Text Domain:       reviews
 */
 
-
 function qu_reviews_init() {
 	$domain = 'qu-reviews/';
 	$path   = get_parent_theme_file_path( '/lib/widgets/' . $domain );

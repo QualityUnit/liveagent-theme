@@ -11,7 +11,6 @@
  * Text Domain:       expertnote
 */
 
-
 function qu_expertnote_init() {
 	$domain = 'qu-expertnote/';
 	$path   = get_parent_theme_file_path( '/lib/widgets/' . $domain );
