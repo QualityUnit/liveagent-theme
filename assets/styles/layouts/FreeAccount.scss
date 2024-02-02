@@ -2,10 +2,15 @@
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@use "../elements/Checklist" as *;
 
 .FreeAccount {
 	flex-flow: nowrap row;
 	background-color: $lightest-gray;
+
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		display: block;
+	}
 
 	&__sidebar {
 		padding: 1.5em;
@@ -34,49 +39,50 @@
 			}
 		}
 
+		.showMainSection {
+			width: 100%;
+
+			svg {
+
+				@include square(1.5em);
+				margin-left: 0.5em;
+			}
+
+			&__image {
+				width: 80%;
+				margin-left: auto;
+				margin-right: 1em;
+			}
+		}
+
 		@media (min-width: $breakpoint-tablet-landscape) {
 			padding: 3em;
+			width: 50%;
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
 			width: 41%;
+
+			.Signup__form {
+				width: calc(65.56% + 6em);
+				margin: auto;
+			}
 		}
 	}
 
 	&__main {
-		background-color: $white;
+		padding: 1.5em;
 
 		&__included {
-			font-size: 0.875rem;
+			display: none;
 
-			h3 {
-				font-size: 0.875em;
-				font-weight: 400;
-				color: $medium-gray;
-			}
+			&--mobile {
+				display: block !important;
 
-			&--list {
-				font-size: 1em;
-			}
+				.checklist {
 
-			&--item {
-				display: flex;
-				align-items: center;
-
-				+ li {
-					margin-top: 1em;
-				}
-
-				img {
-					flex-basis: 33%;
-					max-width: 9.375em;
-				}
-			}
-
-			&--text {
-				margin-left: 1.5em;
-				flex-basis: 66%;
-
-				h4 {
-					font-size: 1.25em;
-					margin: 0;
+					@extend %checklist;
+					max-width: none;
 				}
 			}
 		}
@@ -90,6 +96,7 @@
 				background-size: 95% 0.15em;
 
 				&__option {
+					display: none;
 					position: absolute;
 					bottom: 1.5em;
 					right: 0;
@@ -98,6 +105,7 @@
 			}
 
 			&--pricing {
+				margin-top: 1.5em;
 				align-items: flex-end;
 
 				h3 {
@@ -150,27 +158,101 @@
 			&--logos {
 				margin-top: 3em;
 				justify-content: space-between;
+				align-items: center;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			background-color: $white;
+
+			&.hidden {
+				display: block !important;
 			}
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 			display: flex;
 			justify-content: flex-start;
-			width: 59%;
+			width: 50%;
 			border-radius: 1em 0 0 1em;
 			box-shadow: 0 0 2.5em 0.25em rgba($black-real, 0.08);
 
+			&__try {
+				position: relative;
+				padding: 0 3.375em;
+
+				&::before {
+					position: absolute;
+					content: "";
+					left: 0;
+					top: 50%;
+					transform: translateY(-50%);
+					width: 1px;
+					height: calc(100% + 7em);
+					background-color: $light-gray;
+				}
+
+				&--title {
+					font-size: 2.5rem;
+
+					&__option {
+						display: block;
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			width: 59%;
+
+
 			&__included {
+				display: block;
 				flex-basis: 44%;
 				padding: 0 3.375em;
+				font-size: 0.875rem;
+
+				h3 {
+					font-size: 0.875em;
+					font-weight: 400;
+					color: $medium-gray;
+				}
+
+				&--mobile {
+					display: none !important;
+				}
+
+				&--list {
+					font-size: 1em;
+				}
+
+				&--item {
+					display: flex;
+					align-items: center;
+
+					+li {
+						margin-top: 1em;
+					}
+
+					img {
+						flex-basis: 33%;
+						max-width: 9.375em;
+					}
+				}
+
+				&--text {
+					margin-left: 1.5em;
+					flex-basis: 66%;
+
+					h4 {
+						font-size: 1.25em;
+						margin: 0;
+					}
+				}
 			}
 
 			&__try {
 				flex-basis: 56%;
-
-				&--title {
-					font-size: 2.5rem;
-				}
 			}
 		}
 	}
