@@ -2,50 +2,98 @@
 	/**
 	 * Template Name: Free Account
 	 */
+
+	 set_custom_source( 'layouts/FreeAccount', 'css' );
 ?>
 
-<div class="FullScreen">
-	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="FullScreen__logo">
-		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent_black.svg" alt="<?php bloginfo( 'name' ); ?>">
+<div class="FullScreen FreeAccount">
+
+	<div class="FullScreen__sidebar FreeAccount__sidebar">
+
+	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="FreeAccount__sidebar__logo">
+		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" alt="<?php bloginfo( 'name' ); ?>">
 	</a>
 
-	<div class="FullScreen__sidebar">
-		<div class="FullScreen__sidebar__item" style="background-image: url(https://www.liveagent.com/app/uploads/2020/01/bg_trial.jpg);">
-			<div class="FullScreen__sidebar__item__text">
-				<?php _e( '<p>"LiveAgent combines excellent live chat, ticketing and automation that allow us to provide exceptional support to our customers."</p><p>Peter Komornik, <strong>CEO</strong></p>', 'ms' ); ?>
-				<img src="https://www.liveagent.com/app/uploads/2019/11/logo_slido_white.svg" alt="<?php _e( 'Review', 'ms' ); ?>">
-			</div>
-		</div>
+			<?= do_shortcode( '[signupform-free]' ); ?>
 	</div>
 
-	<div class="FullScreen__main">
-		<div class="FullScreen__main__container">
-			<img class="FullScreen__main__container__image" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" alt="<?php bloginfo( 'name' ); ?>">
+	<div class="FullScreen__main FreeAccount__main">
+		<div class="FreeAccount__main__included">
+			<h3><?php _e( 'Included in Small business plan:', 'ms' ); ?></h3>
+			<ul class="FreeAccount__main__included--list">
+				<li class="FreeAccount__main__included--item">
+					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/ticket_history.png?ver=' . THEME_VERSION ); ?>" />
+					<div class="FreeAccount__main__included--text">
+						<h4><?php _e( 'Ticket history', 'ms' ); ?></h4>
+						<?php _e( 'for 7 days', 'ms' ); ?>
+					</div>
+				</li>
+	
+				<li class="FreeAccount__main__included--item">
+					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/integrations.png?ver=' . THEME_VERSION ); ?>" />
+					<div class="FreeAccount__main__included--text">
+						<h4><?php _e( 'Integrations', 'ms' ); ?></h4>
+						<?php _e( 'over 190 available', 'ms' ); ?>
+					</div>
+				</li>
+	
+				<li class="FreeAccount__main__included--item">
+					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/more_email_accounts.png?ver=' . THEME_VERSION ); ?>" />
+					<div class="FreeAccount__main__included--text">
+						<h4><?php _e( 'More email accounts', 'ms' ); ?></h4>
+						<?php _e( '+ departments, contact forms, and more', 'ms' ); ?>
+					</div>
+				</li>
+	
+				<li class="FreeAccount__main__included--item">
+					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/chat_transcripts.png?ver=' . THEME_VERSION ); ?>" />
+					<div class="FreeAccount__main__included--text">
+						<h4><?php _e( 'Chat Transcripts', 'ms' ); ?></h4>
+						<?php _e( 'with satisfactions surveys', 'ms' ); ?>
+					</div>
+				</li>
+	
+				<li class="FreeAccount__main__included--item">
+					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/canned_messages.png?ver=' . THEME_VERSION ); ?>" />
+					<div class="FreeAccount__main__included--text">
+						<h4><?php _e( 'Canned messages', 'ms' ); ?></h4>
+						<?php _e( 'with predefined answers (20)', 'ms' ); ?>
+					</div>
+				</li>
+				<li class="FreeAccount__main__included--item">
+					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/social_networks.png?ver=' . THEME_VERSION ); ?>" />
+					<div class="FreeAccount__main__included--text">
+						<h4><?php _e( 'Social networks', 'ms' ); ?></h4>
+						<?php _e( 'option to buy access to our social media integrations', 'ms' ); ?>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="FreeAccount__main__try">
+			<h2 class="FreeAccount__main__try--title pos-relative highlight__underline"><?php _e( 'Try small business plan', 'ms' ); ?>
+			<img class="FreeAccount__main__try--title__option" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/we_have_better_option.png?ver=' . THEME_VERSION ); ?>" /></h2>
+			<p class="FreeAccount__main__try--subtitle"><?php _e( 'While the Free account is great, it doesn’t provide the best value. Our Small plan has better features for a very small price.', 'ms' ); ?></p>
 
-			<h1 class="FullScreen__main__container__title"><?php _e( 'Create Free Account', 'ms' ); ?></h1>
-			<p class="FullScreen__main__container__text"><?php _e( 'Sign up for LiveAgent in less than 60 seconds. Enjoy forever free account!', 'ms' ); ?></p>
+			<div class="FreeAccount__main__try--pricing pos-relative flex">
+				<h3><sup>$</sup><span class="big">9/</span><?php _e( 'agent', 'ms' ); ?></h3>
+				<img class="FreeAccount__main__try--pricing__beers" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/less_than_3_beers.png?ver=' . THEME_VERSION ); ?>" />
+			</div>
+			<p class="FreeAccount__main__try--pricing__monthly"><?php _e( 'per month billed annualy or', 'ms' ); ?> <sup>$</sup><strong>12</strong> <?php _e( 'monthly billing', 'ms' ); ?></p>
 
-			<?= do_shortcode( '[signupform-free]' ); ?>
+			<a class="Button Button--full FreeAccount__main__try--trial" href="<?php _e( '/trial', 'ms' ); ?>"><span><?php _e( 'Try for FREE', 'ms' ); ?></span></a>
 
-			<div class="FullScreen__main__container__logos">
-				<div class="FullScreen__main__container__logos__item">
-					<a href="<?php _e( '/awards/', 'ms' ); ?>">
-						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_g2_black.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>">
-					</a>
-				</div>
-
-				<div class="FullScreen__main__container__logos__item">
-					<a href="<?php _e( '/awards/', 'ms' ); ?>">
-						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_trustpilot_black.svg" alt="<?php _e( 'Trustpilot', 'ms' ); ?>">
-					</a>
-				</div>
-
-				<div class="FullScreen__main__container__logos__item">
-					<a href="<?php _e( '/awards/', 'ms' ); ?>">
-						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_getapp_black.svg" alt="<?php _e( 'GetApp', 'ms' ); ?>">
-					</a>
+			<div class="FreeAccount__main__try--citation flex-tablet">
+				<img class="FreeAccount__main__try--citation__image" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/peter_komorik.jpg?ver=' . THEME_VERSION ); ?>" />
+				<div class="FreeAccount__main__try--citation__text">
+					<p><i><?php _e( '“LiveAgent combines excellent live chat, ticketing and automation that allow us to provide exceptional support to our customers.”', 'ms' ); ?></i></p>
+					<strong>Peter Komornik, CEO, Slido</strong>
 				</div>
 			</div>
+			<ul class="FreeAccount__main__try--logos flex-tablet">
+				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/trustpilot.svg?ver=' . THEME_VERSION ); ?>" /></li>
+				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/capterra.svg?ver=' . THEME_VERSION ); ?>" /></li>
+				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/g2.svg?ver=' . THEME_VERSION ); ?>" /></li>
+			</ul>
 		</div>
 	</div>
 </div>

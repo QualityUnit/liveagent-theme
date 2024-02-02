@@ -1,0 +1,177 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.FreeAccount {
+	flex-flow: nowrap row;
+	background-color: $lightest-gray;
+
+	&__sidebar {
+		padding: 1.5em;
+
+		&__logo {
+
+			img {
+				height: 2rem;
+			}
+		}
+
+		.Signup__form {
+			background-color: transparent;
+			box-shadow: none;
+			padding: 0 0.5em;
+			margin-right: -0.25em;
+			width: 100%;
+			max-width: none;
+
+			&__title {
+				background-color: transparent;
+			}
+
+			.Button.createTrialButton {
+				background-color: $white;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 3em;
+			width: 41%;
+		}
+	}
+
+	&__main {
+		background-color: $white;
+
+		&__included {
+			font-size: 0.875rem;
+
+			h3 {
+				font-size: 0.875em;
+				font-weight: 400;
+				color: $medium-gray;
+			}
+
+			&--list {
+				font-size: 1em;
+			}
+
+			&--item {
+				display: flex;
+				align-items: center;
+
+				+ li {
+					margin-top: 1em;
+				}
+
+				img {
+					flex-basis: 33%;
+					max-width: 9.375em;
+				}
+			}
+
+			&--text {
+				margin-left: 1.5em;
+				flex-basis: 66%;
+
+				h4 {
+					font-size: 1.25em;
+					margin: 0;
+				}
+			}
+		}
+
+		&__try {
+
+			&--title {
+				display: block;
+				padding-bottom: 1.65em;
+				margin-bottom: -1em;
+				background-size: 95% 0.15em;
+
+				&__option {
+					position: absolute;
+					bottom: 1.5em;
+					right: 0;
+					transform: scale(0.675);
+				}
+			}
+
+			&--pricing {
+				align-items: flex-end;
+
+				h3 {
+					font-weight: 600;
+					margin-bottom: 0;
+				}
+
+				sup {
+					font-weight: 400;
+				}
+
+				.big {
+					font-size: 1.5em;
+				}
+
+				&__beers {
+					width: 52%;
+					max-width: 16.75em;
+					margin-left: 1em;
+				}
+
+				&__monthly {
+					margin: 0 0 3em;
+				}
+			}
+
+			&--trial[class] {
+				width: 100%;
+			}
+
+			&--citation {
+				margin-top: 2.5em;
+				align-items: flex-start;
+
+				&__image {
+					width: 11.62%;
+				}
+
+				&__text {
+					width: 83.72%;
+					margin-left: auto;
+
+					strong {
+						color: $dark-gray;
+						font-size: 0.875em;
+					}
+				}
+			}
+
+			&--logos {
+				margin-top: 3em;
+				justify-content: space-between;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: flex;
+			justify-content: flex-start;
+			width: 59%;
+			border-radius: 1em 0 0 1em;
+			box-shadow: 0 0 2.5em 0.25em rgba($black-real, 0.08);
+
+			&__included {
+				flex-basis: 44%;
+				padding: 0 3.375em;
+			}
+
+			&__try {
+				flex-basis: 56%;
+
+				&--title {
+					font-size: 2.5rem;
+				}
+			}
+		}
+	}
+}
