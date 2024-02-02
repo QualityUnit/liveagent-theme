@@ -16,7 +16,7 @@
 
 		<?= do_shortcode( '[signupform-free]' ); ?>
 
-		<div class="pos-relative flex flex-direction-column mobile--only">
+		<div class="showMainSection__wrapper pos-relative flex flex-direction-column">
 			<div class="showMainSection__image"><img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/free_account/we_have_better_option__mobile.svg" alt="We have better option"></div>
 			<button class="Button Button--full showMainSection" data-target="mainSection" type="button">
 				<span class="flex flex-align-center"><?php _e( 'Show', 'ms' ); ?>
@@ -120,14 +120,14 @@
 
 			<a class="Button Button--full FreeAccount__main__try--trial" href="<?php _e( '/trial', 'ms' ); ?>"><span><?php _e( 'Try for FREE', 'ms' ); ?></span></a>
 
-			<div class="FreeAccount__main__try--citation flex-tablet">
+			<div class="FreeAccount__main__try--citation flex">
 				<img class="FreeAccount__main__try--citation__image" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/peter_komorik.jpg?ver=' . THEME_VERSION ); ?>" alt="Peter Komorik image" />
 				<div class="FreeAccount__main__try--citation__text">
 					<p><i><?php _e( '“LiveAgent combines excellent live chat, ticketing and automation that allow us to provide exceptional support to our customers.”', 'ms' ); ?></i></p>
 					<strong>Peter Komornik, CEO, Slido</strong>
 				</div>
 			</div>
-			<ul class="FreeAccount__main__try--logos flex-tablet">
+			<ul class="FreeAccount__main__try--logos flex">
 				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/trustpilot.svg?ver=' . THEME_VERSION ); ?>" alt="Trustpilot logo" /></li>
 				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/capterra.svg?ver=' . THEME_VERSION ); ?>" alt="Capterra logo" /></li>
 				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/g2.svg?ver=' . THEME_VERSION ); ?>" alt="G2 logo" /></li>

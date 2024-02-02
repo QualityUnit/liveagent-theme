@@ -35,7 +35,7 @@ function ms_signup_form_free() {
 				</div>
 			</div>
 
-			<div data-id="promoFieldmain" class="Signup__form__item">
+			<div data-id="promoFieldmain" class="Signup__form__item promoFieldmain">
 				<input type="checkbox" name="Promo" id="sendOffersSignup" data-id="sendOffers">
 				<label for="sendOffersSignup"><p><?php _e( 'Send me product updates and other promotional offers.', 'ms' ); ?></p></label>
 			</div>
