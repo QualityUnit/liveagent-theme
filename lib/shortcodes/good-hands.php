@@ -12,83 +12,75 @@ function ms_good_hands( $atts ) {
 	ob_start();
 	?>
 
-	<section class="elementor-section Reviews" style="margin-top: 50px">
-		<div class="elementor-container">
-			<div class="elementor-row">
-				<div class="elementor-column elementor-col-100 elementor-top-column wrapper">
-					<div class="elementor-column-wrap elementor-element-populated">
-						<div class="elementor-widget-wrap">
-							<div class="elementor-element elementor-widget elementor-widget-heading">
-								<div class="elementor-widget-container">
-									<h2 class="elementor-heading-title elementor-size-default"><?php _e( 'You Will Be in <span class="highlight-gradient">Good Hands!</span>', 'ms' ); ?></h2>
-								</div>
-							</div>
+	<section class="GoodHands">
+		<div class="wrapper">
+			<div class="GoodHands__text">
+				<h3><?php _e( 'You will be<br/>in Good Hands!', 'ms' ); ?></h3>
+				<p><?php _e( 'Join our community of happy clients and provide excellent customer support with LiveAgent.', 'ms' ); ?></p>
 
-							<div class="elementor-element elementor-widget elementor-widget-text-editor">
-								<div class="elementor-widget-container">
-									<div class="elementor-text-editor elementor-clearfix">
-										<p><?php _e( 'Do you know what Huawei, BMW, Yamaha and O2 have in common? You guessed right… LiveAgent!', 'ms' ); ?></p>
-									</div>
-								</div>
-							</div>
-
+				<div class="Buttons">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
+						<span><?php _e( 'Start 14-days free trial', 'ms' ); ?></span>
+					</a>
+					<a href="<?php _e( '/demo/', 'ms' ); ?>" onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a demo' )" class="Button Button--outline">
+						<span><?php _e( 'Schedule a demo', 'ms' ); ?></span>
+					</a>
+				</div>
+	
+				<ul class="GoodHands__logos flex">
+					<li class="GoodHands__logo">
+						<a href="<?php _e( '/awards/', 'ms' ); ?>" title="Capterra">
+							<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/logo-capterra.svg?ver=' . THEME_VERSION ); ?>" alt="Capterra">
+						</a>
+						<div class="GoodHands__stars">
 							<?php
-							if ( 0 === $atts['clients'] ) {
+								$logos = 1;
+							while ( $logos <= 5 ) {
 								?>
-							<div class="elementor-element elementor-widget elementor-widget-html">
-								<div class="elementor-widget-container">
-									<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--medium Button--full"><span><?php _e( 'Try it now for free', 'ms' ); ?></span></a>
-									<span class="no-cc"><?php _e( 'No Credit Card Required', 'ms' ); ?></span>
-
-									<div class="Reviews__items">
-										<div class="Reviews__items__item">
-											<a href="<?php _e( '/awards/', 'ms' ); ?>" title="G2 Crowd">
-												<img src="https://www.liveagent.com/app/uploads/2019/11/logo_g2.svg" alt="G2 Crowd">
-											</a>
-											<div class="Reviews__items__item__stars">
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-											</div>
-										</div>
-										<div class="Reviews__items__item">
-											<a href="<?php _e( '/awards/', 'ms' ); ?>" title="Trustpilot">
-												<img src="https://www.liveagent.com/app/uploads/2023/05/logo-capterra.svg" alt="Capterra">
-											</a>
-											<div class="Reviews__items__item__stars">
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-											</div>
-										</div>
-										<div class="Reviews__items__item">
-											<a href="<?php _e( '/awards/', 'ms' ); ?>" title="GetApp">
-												<img src="https://www.liveagent.com/app/uploads/2019/11/logo_getapp.svg" alt="GetApp">
-											</a>
-											<div class="Reviews__items__item__stars">
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-												<span class="Reviews__items__item__stars__item"></span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+									<svg class="GoodHands__star"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#star-solid' ); ?>"></use></svg>
 								<?php
-							}
-							if ( $atts['clients'] > 0 ) {
-								echo do_shortcode( '[clients posts=' . $atts['clients'] . ']' );
+								$logos++;
 							}
 							?>
 						</div>
-					</div>
-				</div>
+					</li>
+					<li class="GoodHands__logo">
+						<a href="<?php _e( '/awards/', 'ms' ); ?>" title="G2 Crowd">
+							<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/logo_g2.svg?ver=' . THEME_VERSION ); ?>" alt="G2 Crowd">
+						</a>
+						<div class="GoodHands__stars">
+							<?php
+								$logos = 1;
+							while ( $logos <= 5 ) {
+								?>
+									<svg class="GoodHands__star"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#star-solid' ); ?>"></use></svg>
+								<?php
+								$logos++;
+							}
+							?>
+						</div>
+					</li>
+					<li class="GoodHands__logo">
+						<a href="<?php _e( '/awards/', 'ms' ); ?>" title="GetApp">
+							<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/logo_getapp.svg?ver=' . THEME_VERSION ); ?>" alt="GetApp">
+						</a>
+						<div class="GoodHands__stars">
+							<?php
+								$logos = 1;
+							while ( $logos <= 5 ) {
+								?>
+									<svg class="GoodHands__star"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#star-solid' ); ?>"></use></svg>
+								<?php
+								$logos++;
+							}
+							?>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="GoodHands__image">
+				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/goodhands_image.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Schedule a demo', 'demobar' ); ?>" />
 			</div>
 		</div>
 	</section>
