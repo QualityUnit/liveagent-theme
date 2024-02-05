@@ -4,27 +4,50 @@
 @use "../common/mixins" as *;
 
 .LoginBlock {
-	margin-bottom: 0 !important;
+	margin: 0 !important;
+	height: calc(100vh - 90px);
 
-	h1,
-	h2 {
-		font-size: 32px;
-		line-height: 48px !important;
-		letter-spacing: 0.32px;
-		max-width: 385px;
+	.wrapper .elementor-widget-wrap {
+		display: block !important;
 	}
 
-	p {
-		color: #777;
-		letter-spacing: 0.16px;
-		max-width: 385px;
+	.elementor-inner-section {
+		max-width: 55em;
+		margin: 0 auto;
+		width: auto !important;
+
+		&::after {
+			position: absolute;
+			content: "";
+			height: calc(100% + 16em);
+			width: 100%;
+			top: -8em;
+			background: url(../../images/login_bg.png?ver=#{$version}) center center no-repeat;
+			background-size: contain;
+		}
+	}
+
+	.elementor-col-50 {
+
+		&:first-of-type {
+			display: none;
+		}
+
+		&:last-of-type {
+			text-align: center;
+			width: 100% !important;
+			background-color: $lightest-gray;
+			box-shadow: 0 4px 10px 0 rgba($black-real, 0.2);
+			z-index: 1;
+
+		}
 	}
 }
 
 .Login {
 	position: relative;
 	max-width: 470px;
-	margin-top: 20px;
+	margin: 0 auto;
 
 	input[type="url"] {
 		width: 100%;
