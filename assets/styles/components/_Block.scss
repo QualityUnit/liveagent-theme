@@ -543,6 +543,52 @@ scss/at-extend-no-missing-placeholder */
 	}
 }
 
+.Reviews {
+
+	&__images-hover {
+
+		.elementor-column {
+
+			width: 100%;
+
+			&:first-child {
+
+				@include posZero();
+				position: absolute;
+				z-index: 5;
+				opacity: 0;
+				background-color: transparent;
+				transition: all 0.3s;
+				cursor: pointer;
+
+				&:active,
+				&:focus,
+				&:hover {
+					opacity: 1;
+				}
+
+				[class^="elementor"] {
+
+					@include fullSize();
+					position: relative;
+				}
+
+				a {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					justify-content: center;
+					align-items: center;
+					display: flex;
+					margin: 0;
+					transform: translate3d(-50%, -50%, 0);
+				}
+			}
+		}
+	}
+
+}
+
 .elementor-section-wrap {
 
 	.Block:not(.Block--background).no-margin-top:first-child {
