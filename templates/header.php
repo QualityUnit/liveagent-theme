@@ -26,7 +26,9 @@ if ( is_front_page() ) {
 }
 
 header_banners(
-	'pricing',
+	array(
+		'pricing',
+	),
 	array(
 		array(
 			'title'    => __( 'Turn Clicks into Cash', 'ms' ),
@@ -47,22 +49,22 @@ header_banners(
 	)
 );
 
-// header_banners(
-//     array(
-//         'home',
-//     ),
-//     array(
-//         array(
-//             'title'    => __( 'AI Assistant', 'ms' ),
-//             'subtitle' => __( 'Suggests the responses to your agents need lorem ipsum', 'ms' ),
-//             'class'    => 'ai-assistant',
-//             'image'    => 'announcementBar-ai-assistant.png',
-//             'bg'       => 'announcementBar-ai-assistant-bg.jpg',
-//             'url'      => __( '/pricing/', 'ms' ),
-//             'icon-class'       => 'pencil-with-stars', // Here insert icon class from our wordpress icons
-//         ),
-//     )
-// )
+//header_banners(
+//  array(
+//      'home',
+//  ),
+//  array(
+//      array(
+//          'title'    => __( 'AI Assistant', 'ms' ),
+//          'subtitle' => __( 'Unlock the future of support with LiveAgent’s AI Assistant!', 'ms' ),
+//          'class'    => 'ai-assistant',
+//          'image'    => 'announcementBar-ai-assistant.png',
+//          'bg'       => 'announcementBar-ai-assistant-bg.jpg',
+//          'url'      => __( '/ai-assist/', 'ms' ),
+//          'icon-class'       => 'pencil-with-stars', // Here insert icon class from our wordpress icons - icon after title
+//      ),
+//  )
+//)
 ?>
 
 

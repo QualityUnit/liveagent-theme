@@ -3,6 +3,22 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+body {
+
+	&.enterprise {
+
+		.pricing-ai-assistant-banner {
+
+			.pricing-ai-assistant-banner__column--second {
+
+				.elementor-heading-title {
+					font-size: 1rem;
+				}
+			}
+		}
+	}
+}
+
 .pricing-ai-assistant-banner {
 	padding-top: 3.75em;
 	margin-bottom: -2em;

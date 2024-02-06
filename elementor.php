@@ -10,7 +10,7 @@ while ( have_posts() ) :
 	<?php the_content(); ?>
 
 	<?php
-	if ( ! is_page( array( 'sitemap' ) ) ) {
+	if ( ! is_page( array( 'sitemap' ) ) && ! is_front_page() ) {
 		?>
 		<div class="SimilarSources">
 			<div class="wrapper">
@@ -19,5 +19,6 @@ while ( have_posts() ) :
 			</div>
 		</div>
 	<?php } ?>
+	<?php echo do_shortcode( '[good-hands-redesign]' ); ?>
 
 <?php endwhile; ?>

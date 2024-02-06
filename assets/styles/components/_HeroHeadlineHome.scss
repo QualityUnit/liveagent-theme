@@ -429,19 +429,6 @@ value-keyword-case */
 			background-size: cover;
 		}
 
-		&::after {
-			position: absolute;
-			content: "";
-			background: url(../images/heroHeadline_badges.svg) center top no-repeat;
-			background-size: contain;
-			z-index: 1;
-			width: 20%;
-			height: 0;
-			padding-bottom: 49%;
-			top: 0;
-			right: -2%;
-		}
-
 		&.align-center .elementor-widget-wrap {
 			align-items: center;
 			align-content: center;

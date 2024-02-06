@@ -106,9 +106,12 @@
 			}
 
 			&:last-of-type {
-
-				@include color(color, font-color-medium);
+				color: $black;
 				background-color: transparent;
+
+				&::after {
+					content: "…";
+				}
 			}
 		}
 	}

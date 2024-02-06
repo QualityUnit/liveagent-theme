@@ -106,7 +106,8 @@ body {
 
 					.Announcement__bar__col__right {
 
-						img {
+						img,
+						picture {
 							height: 100%;
 							object-fit: cover;
 						}
@@ -122,6 +123,11 @@ body {
 							fill: #9154ce;
 						}
 					}
+
+					p {
+						font-size: 1.275rem !important;
+					}
+
 				}
 			}
 
@@ -233,11 +239,14 @@ body {
 					top: 1.85em;
 				}
 
-				.Header {
-					top: calc($Announcement_bar_height + 1.4375em);
+				@media (min-width: $breakpoint-tablet-landscape ) {
 
-					.sub-menu {
-						top: calc($Announcement_bar_height + 4.5em + 1.4375em);
+					.Header {
+						top: calc($Announcement_bar_height + 1.4375em);
+
+						.sub-menu {
+							top: calc($Announcement_bar_height + 4.5em + 1.4375em);
+						}
 					}
 				}
 			}

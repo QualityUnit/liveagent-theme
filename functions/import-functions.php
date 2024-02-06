@@ -19,12 +19,20 @@ function get_en_category( $post_type, $post_id ) {
 }
 
 // Function to get content of <head> to identify page for CSS/JS import
-function wp_head_content( $page ) {
-	$body_class     = preg_match( '/.+' . $page . '.+/', implode( get_body_class() ) );
+function wp_head_content( $pages ) {
+	$body_classes = implode( ' ', get_body_class() );
 
-	if ( $body_class ) {
-		return true;
+	// Check if $pages is an array or a simple string
+	if ( ! is_array( $pages ) ) {
+		$pages = array( $pages );  // Convert to an array if not an array
 	}
+
+	foreach ( $pages as $page ) {
+		if ( preg_match( '/\b' . preg_quote( $page, '/' ) . '\b|' . preg_quote( $page, '/' ) . '/', $body_classes ) ) {
+			return true;
+		}
+	}
+
 	return false;
 }
 

@@ -5,6 +5,10 @@
 @use "../../../../../assets/styles/common/variables" as *;
 @use "../../../../../assets/styles/common/mixins" as *;
 
+.block-editor-block-toolbar {
+	background: $white !important;
+}
+
 .qu-Checklist {
 	position: relative;
 	border: 1px solid $medium-gray-quotes;
