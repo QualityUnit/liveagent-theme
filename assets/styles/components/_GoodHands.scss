@@ -10,9 +10,11 @@
 	width: 100vw;
 	left: 50%;
 	transform: translateX(-50%);
+	text-align: center;
 
 	h3 {
-
+		font-size: 2.5rem;
+		line-height: 1.33;
 	}
 
 	&__image {
@@ -32,6 +34,13 @@
 	}
 
 	&__logo {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		+li {
+			margin-top: 1em;
+		}
 
 		img {
 			height: 1.5em;
@@ -53,16 +62,20 @@
 		}
 	}
 
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+
+		.Button + .Button {
+			margin-left: 0;
+			margin-top: 1em;
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet) {
+		text-align: left;
 
 		.wrapper {
 			display: flex;
-			padding: 0 !important;
-		}
-
-		h3 {
-			font-size: 2.5rem;
-			line-height: 1.33;
+			padding: 1.5em 0 0 1.5em !important;
 		}
 
 		&__button {
@@ -87,7 +100,12 @@
 		}
 
 		&__logo {
+			display: block;
 			width: calc(33% - 2em);
+
+			+ li {
+				margin-top: 0;
+			}
 		}
 	}
 }
