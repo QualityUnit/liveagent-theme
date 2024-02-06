@@ -80,7 +80,7 @@ function ms_good_hands( $atts ) {
 			</div>
 
 			<div class="GoodHands__image">
-				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/goodhands_image.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Schedule a demo', 'demobar' ); ?>" />
+				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/goodhands_image.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Schedule a demo', 'ms' ); ?>" />
 			</div>
 		</div>
 	</section>
