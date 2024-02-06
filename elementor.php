@@ -10,7 +10,7 @@ while ( have_posts() ) :
 	<?php the_content(); ?>
 
 	<?php
-	if ( ! is_page( array( 'sitemap' ) ) ) {
+	if ( ! is_page( array( 'sitemap' ) ) && ! is_front_page() ) {
 		?>
 		<div class="SimilarSources">
 			<div class="wrapper">
