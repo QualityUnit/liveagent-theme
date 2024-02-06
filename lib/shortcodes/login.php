@@ -18,7 +18,7 @@ function ms_login() {
 					<span><?php _e( 'Login', 'ms' ); ?></span>
 				</div>
 			</div>
-			<p><?php _e( 'Don’t have an account?', 'ms' ); ?> <strong><a href="<?php _e( '/trial', 'ms' ); ?>"><?php _e( 'Create your account', 'ms' ); ?></a></strong></p>
+			<p><?php _e( 'Don’t have an account?', 'ms' ); ?> <strong><a href="<?php _e( '/trial/', 'ms' ); ?>"><?php _e( 'Create your account', 'ms' ); ?></a></strong></p>
 		</div>
 	</div>
 
