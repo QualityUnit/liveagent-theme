@@ -5,8 +5,8 @@ function ms_signup_form_free() {
 	?>
 
 	<div class="Signup__form ">
-		<h1 class="Signup__form__title h3"><?php _e( 'Create Free account', 'ms' ); ?></h1>
-		<p class="Signup__form__subtitle"><?php _e( 'The Free account is free forever, but it comes with limited features.', 'ms' ); ?></p>
+		<h1 class="Signup__form__title h3"><?php _e( 'Create FREE account', 'ms' ); ?></h1>
+		<p class="Signup__form__subtitle"><?php _e( 'The FREE account is free forever, but it comes with limited features.', 'ms' ); ?></p>
 
 		<div data-id="signup" data-type='free'>
 			<input data-id="plan" type="hidden" value="FreeTrial" autocomplete="off">
@@ -47,7 +47,7 @@ function ms_signup_form_free() {
 					<div class="WorkingPanel" style="display: none;">
 						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
 					</div>
-					<span><?php _e( 'Create free account', 'ms' ); ?></span>
+					<span><?php _e( 'Create FREE account', 'ms' ); ?></span>
 				</div>
 
 				<div class="Signup__form__terms">
