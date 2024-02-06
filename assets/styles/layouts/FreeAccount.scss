@@ -1,0 +1,376 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/Checklist" as *;
+
+.FreeAccount {
+	flex-flow: nowrap row;
+	background-color: $lightest-gray;
+	min-height: 100vh;
+	height: auto;
+
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		display: block;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape ) {
+		align-items: stretch;
+	}
+
+	&__sidebar {
+		padding: 1.5em;
+
+		&__logo {
+
+			img {
+				height: 2rem;
+			}
+		}
+
+		.Signup__form {
+			background-color: transparent;
+			box-shadow: none;
+			padding: 0.5em;
+			margin-right: -0.25em;
+			width: 100%;
+			max-width: none;
+
+			&__title {
+				background-color: transparent;
+			}
+
+			&__subtitle {
+				text-align: center;
+			}
+
+			.Button.createTrialButton {
+				background-color: $white;
+			}
+		}
+
+		.showMainSection {
+			width: 100%;
+
+			svg {
+
+				@include square(1.5em);
+				margin-left: 0.5em;
+			}
+
+			&__image {
+				width: 80%;
+				max-width: 24em;
+				margin-left: auto;
+				margin-right: 10%;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 2em 3em;
+			width: 50%;
+
+			&__logo {
+
+				img {
+					height: 2.5rem;
+				}
+			}
+
+			.showMainSection__wrapper {
+				display: none !important;
+			}
+
+			.Signup__form {
+				padding: 6em 0.5em 0;
+
+				&__subtitle {
+					width: 70%;
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				.promoFieldmain {
+					position: relative;
+
+					label {
+						display: block;
+						position: relative;
+						z-index: 1;
+						padding: 0 0.5em;
+						background-color: $lightest-gray;
+					}
+
+					&::after {
+						position: absolute;
+						content: "";
+						width: 100%;
+						height: 1px;
+						left: 0;
+						top: calc(50% + 1px);
+						transform: translateY(-50%);
+						background-color: $medium-gray-inputs;
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+
+			.Signup__form {
+
+				padding-top: 5.5em;
+			}
+		}
+
+		@media (min-width: 1366px) {
+
+			.Signup__form {
+
+				padding-top: 6.5em;
+
+				&__title {
+					font-size: 2.5rem;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			width: 41%;
+
+			.Signup__form {
+				width: calc(65.56% + 6em);
+				padding-top: 8.5em;
+				margin: auto;
+			}
+		}
+	}
+
+	&__main {
+		padding: 1.5em;
+
+		&__included {
+			display: none;
+
+			&--mobile {
+				display: block !important;
+
+				.checklist {
+
+					@extend %checklist;
+					max-width: none;
+				}
+			}
+		}
+
+		&__try {
+
+			&--title {
+				display: block;
+				padding-bottom: 1.65em;
+				margin-bottom: -1em;
+				background-size: 95% 0.15em;
+				font-size: 1.875em;
+
+				&__option {
+					display: none;
+					position: absolute;
+					bottom: 1.5em;
+					right: 0;
+					transform: scale(0.675);
+				}
+			}
+
+			&--pricing {
+				margin-top: 1.5em;
+				align-items: flex-end;
+
+				h3 {
+					font-weight: 600;
+					margin-bottom: 0;
+				}
+
+				sup {
+					font-weight: 400;
+				}
+
+				.big {
+					font-size: 1.7em;
+				}
+
+				&__beers {
+					width: 52%;
+					max-width: 16.75em;
+					margin-left: 1em;
+				}
+
+				&__monthly {
+					margin: 0 0 3em;
+				}
+			}
+
+			&--trial[class] {
+				width: 100%;
+			}
+
+			&--citation {
+				margin-top: 2.5em;
+				align-items: flex-start;
+
+				&__image {
+					width: 11.62%;
+				}
+
+				&__text {
+					width: 83.72%;
+					margin-left: auto;
+
+					strong {
+						color: $dark-gray;
+						font-size: 0.875em;
+					}
+				}
+			}
+
+			&--logos {
+				margin-top: 3em;
+				flex-direction: column;
+				align-items: center;
+
+				li + li {
+					margin-top: 2em;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: block !important;
+			background-color: $white;
+
+			&__try {
+
+				&--logos {
+					flex-direction: row;
+					justify-content: space-between;
+
+					li + li {
+						margin-top: 0;
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) and (max-height: 1366px) {
+			margin-top: -12em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: flex !important;
+			justify-content: flex-start;
+			align-items: center;
+			width: 50%;
+			height: auto;
+
+			border-radius: 1em 0 0 1em;
+			box-shadow: 0 0 2.5em 0.25em rgba($black-real, 0.08);
+
+			&__try {
+				position: relative;
+				padding: 0 2em;
+
+				&--title {
+
+					&__option {
+						display: block;
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			padding-top: 11em;
+			margin-top: 0;
+		}
+
+		@media (min-width: 1366px) {
+
+			&__try {
+
+				&--title {
+					font-size: 2.5rem;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			width: 59%;
+			margin-top: -10em;
+
+			&__included {
+				position: relative;
+				display: block;
+				flex-basis: 44%;
+				padding: 0 2.5em;
+				font-size: 0.875rem;
+
+				h3 {
+					position: absolute;
+					top: 0;
+					left: calc(48% - 1.5em);
+					font-size: 1em;
+					font-weight: 400;
+					color: $medium-gray;
+				}
+
+				&--mobile {
+					display: none !important;
+				}
+
+				&--list {
+					font-size: 1em;
+				}
+
+				&--item {
+					display: flex;
+					align-items: center;
+
+					+li {
+						margin-top: 1em;
+					}
+
+					img {
+						width: 48%;
+						max-width: 10.75em;
+					}
+				}
+
+				&--text {
+					margin-left: 1.5em;
+					flex-basis: 52%;
+
+					h4 {
+						font-size: 1.42em;
+						font-weight: 600;
+						margin: 0;
+					}
+				}
+			}
+
+			&__try {
+				flex-basis: 56%;
+				padding: 0 3.375em;
+
+				&::before {
+					position: absolute;
+					content: "";
+					left: 0;
+					top: 50%;
+					transform: translateY(-50%);
+					width: 1px;
+					height: calc(100% + 7em);
+					background-color: $light-gray;
+				}
+			}
+		}
+	}
+}
