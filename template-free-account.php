@@ -128,7 +128,6 @@
 				</div>
 			</div>
 			<ul class="FreeAccount__main__try--logos flex">
-				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/trustpilot.svg?ver=' . THEME_VERSION ); ?>" alt="Trustpilot logo" /></li>
 				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/capterra.svg?ver=' . THEME_VERSION ); ?>" alt="Capterra logo" /></li>
 				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/g2.svg?ver=' . THEME_VERSION ); ?>" alt="G2 logo" /></li>
 			</ul>
