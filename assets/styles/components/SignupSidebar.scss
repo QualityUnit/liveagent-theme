@@ -55,12 +55,26 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 			width: 100%;
 			height: 2.75rem;
 			border: 1px solid $medium-gray-inputs;
+			border-radius: ($border-radius - 2);
 			font-size: 0.8125rem;
 			padding-left: 1em;
 
 			@include input-placeholder() {
 				color: currentColor;
 			}
+
+			&::placeholder {
+
+				color: currentcolor;
+				opacity: 1;
+			}
+
+			&:focus {
+
+				@include color(border-color, font-color-dark);
+				@include color(color, font-color-dark);
+			}
+
 		}
 	}
 
