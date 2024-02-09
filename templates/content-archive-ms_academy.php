@@ -78,11 +78,6 @@ $page_header_args = array(
 
 								do_action( 'wpml_switch_language', $current_lang ); // Go back to original language
 
-								// Generate thumbnail HTML using output buffering
-								ob_start();
-								the_post_thumbnail( 'archive_thumbnail' );
-								$thumbnail_html = ob_get_clean();
-
 								// Prepare and store post information in the array
 								$posts_by_category[ $category->name ][] = array(
 									'title' => get_the_title(),
@@ -93,8 +88,8 @@ $page_header_args = array(
 									'permalink' => get_permalink(),
 									'pillar_value' => get_post_meta( get_the_ID(), 'mb_academy_mb_academy_pillar', true ) ?? '',
 									'custom_url' => get_post_meta( get_the_ID(), 'mb_custom_url', true ) ?? '',
-									'backgrounds_urls' => get_archive_items_images( $post_type_category, 'academy' ),
-									'icons_html' => $thumbnail_html,
+									'backgrounds_urls' => get_archive_items_images( $post_type_category, 'academy' ) ?? '',
+									'icons_url' => get_the_post_thumbnail_url( get_the_ID(), 'archive_thumbnail' ),
 								);
 							}
 						}
@@ -115,7 +110,7 @@ $page_header_args = array(
 						$category_name = $item['category_name'];
 						$category_en_slug = $item['category_en_slug'];
 
-						$item_icons_html = $item['icons_html'];
+						$item_icons_url = $item['icons_url'];
 
 						// Prepare data attributes
 						$custom_link = $item['custom_url'];
@@ -173,10 +168,9 @@ $page_header_args = array(
 									<div class="Category__item__header" style="background-image: url( <?= esc_url( $backgrounds_urls['background'] ) ?> );">
 										<div class="Category__item__header__image">
 											<?php
-											if ( $item_icons_html ) {
-												echo esc_html( $item_icons_html );
+											if ( $item_icons_url ) {
 												?>
-
+												<img src="<?= esc_url( $item_icons_url ); ?>" alt="<?php esc_attr_e( 'Academy', 'ms' ); ?>">
 												<?php
 											} else {
 												?>

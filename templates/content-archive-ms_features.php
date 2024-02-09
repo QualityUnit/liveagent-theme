@@ -7,10 +7,8 @@ $query_args = array(
 
 	$features_posts = new WP_Query( $query_args );
 		wp_reset_query();
-set_source( 'features', 'pages/Category', 'css' );
-set_source( 'features', 'pages/CategoryImages', 'css' );
-set_source( 'features', 'pages/CategoryItemBgs', 'css' );
-set_source( 'features', 'pages/CategoryColorScheme', 'css' );
+set_source( 'features', 'pages/Category' );
+set_source( 'features', 'pages/CategoryColorScheme' );
 set_source( 'features', 'filter', 'js' );
 $categories = array_unique( get_categories( array( 'taxonomy' => 'ms_features_categories' ) ), SORT_REGULAR );
 if ( is_tax( 'ms_features_categories' ) === true ) :
