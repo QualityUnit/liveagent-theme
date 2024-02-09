@@ -26,7 +26,7 @@
 	if ( ! empty( $args['search'] ) ) {
 		$filer_search = $args['search'];
 		if ( ! empty( $filer_search['type'] ) ) {
-			$search_type = $filer_search['type'];
+			$search_type  = $filer_search['type'];
 			$search_class = ' search--' . $search_type;
 		}
 	}
@@ -72,8 +72,8 @@
 				<?php } ?>
 				<?php if ( ! empty( $args['date'] ) ) { ?>
 					<?php
-						$date_machine = get_the_time( 'Y-m-d' );
-						$date_human = get_the_time( 'F j, Y' );
+						$date_machine  = get_the_time( 'Y-m-d' );
+						$date_human    = get_the_time( 'F j, Y' );
 						$date_modified = get_the_modified_time( 'F j, Y' );
 						$time_modified = get_the_modified_time( 'g:i a' );
 					?>
@@ -93,13 +93,13 @@
 
 				<?php
 				$cta_button_info = $args['cta_button'] ?? array();
-				$buttons = $args['buttons'] ?? array();
+				$buttons         = $args['buttons'] ?? array();
 
 				$render_cta_buttons = array();
 				foreach ( $cta_button_info as $cta_button ) {
 					if ( 'yes' === $cta_button['enabled'] ) {
 						$render_cta_buttons[] = array(
-							'url' => esc_url( $cta_button['url'] ),
+							'url'  => esc_url( $cta_button['url'] ),
 							'text' => esc_html( $cta_button['text'] ),
 						);
 					}
@@ -113,10 +113,10 @@
 							: 'Button Button--outline Button--outline-gray';
 
 						$render_buttons[] = array(
-							'href' => esc_url( $button['href'] ),
-							'title' => esc_attr( $button['title'] ),
-							'target' => isset( $button['target'] ) ? esc_attr( $button['target'] ) : '',
-							'rel' => isset( $button['rel'] ) ? esc_attr( $button['rel'] ) : '',
+							'href'    => esc_url( $button['href'] ),
+							'title'   => esc_attr( $button['title'] ),
+							'target'  => isset( $button['target'] ) ? esc_attr( $button['target'] ) : '',
+							'rel'     => isset( $button['rel'] ) ? esc_attr( $button['rel'] ) : '',
 							'onclick' => isset( $button['onclick'] ) ? esc_attr( $button['onclick'] ) : '',
 							'classes' => esc_attr( $button_classes ),
 						);
@@ -216,14 +216,23 @@
 					<?php
 					$image = $args['image'];
 					?>
-					<?php if ( isset( $image['src'] ) ) { ?>
+					<?php if ( isset( $image['src'] ) || isset( $image['screenshot'] ) ) { ?>
 						<div class="compact-header__image">
+							<?php 
+							if ( isset( $image['src'] ) ) {
+								?>
 							<img
 								fetchpriority="high"
 								src="<?= esc_url( $image['src'] ); ?>"
 								alt="<?= esc_attr( $image['alt'] ); ?>"
 								class="compact-header__img"
 							>
+							<?php } ?>
+							<?php 
+							if ( isset( $image['screenshot'] ) ) {
+								echo $image['screenshot'];
+							} 
+							?>
 							<?php if ( ! empty( $args['logo'] ) ) { ?>
 								<?php $logo = $args['logo']; ?>
 								<?php if ( isset( $logo['src'] ) ) { ?>
@@ -371,7 +380,7 @@
 																	<?php foreach ( $filer_list as $filer_list_item ) { ?>
 																		<?php
 																		$item_checked = false;
-																		$item_value = '';
+																		$item_value   = '';
 																		if ( ! empty( $filer_list_item['checked'] ) ) {
 																			$item_checked = $filer_list_item['checked'];
 																		}

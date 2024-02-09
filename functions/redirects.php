@@ -162,3 +162,15 @@ function reviews_category_redirect( $post_link, $post ) {
 	return $post_link;
 }
 add_action( 'post_type_link', 'reviews_category_redirect', 1, 2 );
+
+/**
+	* Alternatives
+	*/
+
+function alternatives_category_redirect() {
+	if ( is_tax( 'ms_alternatives_categories' ) ) {
+		wp_safe_redirect( '/alternatives/', 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'alternatives_category_redirect' );

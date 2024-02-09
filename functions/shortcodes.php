@@ -12,6 +12,7 @@ require_once get_template_directory() . '/lib/shortcodes/small-photo-slider.php'
 	require_once get_template_directory() . '/lib/shortcodes/success-stories-cards.php';
 	require_once get_template_directory() . '/lib/shortcodes/slider-testimonials.php';
 	require_once get_template_directory() . '/lib/shortcodes/slider-testimonials-home.php';
+	require_once get_template_directory() . '/lib/shortcodes/slider-testimonials-custom.php'; // to be removed (alternatives)
 	require_once get_template_directory() . '/lib/shortcodes/testimonials.php';
 	require_once get_template_directory() . '/lib/shortcodes/success-stories.php';
 	require_once get_template_directory() . '/lib/shortcodes/author.php';
