@@ -10,18 +10,23 @@ $page_header_logo = array(
 );
 
 $screenshot        = isset( $post_meta['screenshot_url'] ) ? $post_meta['screenshot_url'][0] : null;
-$page_header_image = '';
+$page_header_image = array(
+	'src' => get_template_directory_uri() . '/assets/images/alternatives-header_img.png?ver=' . THEME_VERSION,
+	'alt' => get_the_title(),
+);
 
 if ( isset( $screenshot ) ) {
 
-	$page_header_image = do_shortcode( '[urlslab-screenshot url="' . $screenshot . '" alt="' . get_the_title() . '" default-image="' . get_template_directory_uri() . '/assets/images/alternatives-header_img.png?ver=' . THEME_VERSION . '"]' );
+	$img = do_shortcode( '[urlslab-screenshot url="' . $screenshot . '" alt="' . get_the_title() . '" default-image="' . get_template_directory_uri() . '/assets/images/alternatives-header_img.png?ver=' . THEME_VERSION . '"]' );
+
+	$page_header_image = array(
+		'screenshot' => $img,
+	);
 }
 
 
 $page_header_args = array(
-	'image' => array(
-		'screenshot' => $page_header_image,
-	),
+	'image' => $page_header_image,
 	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
 	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
