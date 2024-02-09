@@ -9,7 +9,14 @@ $page_header_logo = array(
 	'alt' => __( 'Alternative', 'ms' ),
 );
 
-$page_header_image = do_shortcode( '[urlslab-screenshot url="' . $post_meta['screenshot_url'][0] . '" alt="' . get_the_title() . '" default-image="' . get_template_directory_uri() . '/assets/images/alternatives-header_img.png?ver=' . THEME_VERSION . '"]' );
+$screenshot        = isset( $post_meta['screenshot_url'] ) ? $post_meta['screenshot_url'][0] : null;
+$page_header_image = '';
+
+if ( isset( $screenshot ) ) {
+
+	$page_header_image = do_shortcode( '[urlslab-screenshot url="' . $screenshot . '" alt="' . get_the_title() . '" default-image="' . get_template_directory_uri() . '/assets/images/alternatives-header_img.png?ver=' . THEME_VERSION . '"]' );
+}
+
 
 $page_header_args = array(
 	'image' => array(
