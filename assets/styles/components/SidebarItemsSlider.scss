@@ -12,8 +12,7 @@
 	transition: transform 0.5s;
 
 	&__wrapper {
-		position: sticky;
-		top: 15px + $header-height;
+		position: relative;
 		width: 100%;
 		z-index: 2;
 	}
