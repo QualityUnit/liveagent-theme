@@ -1,12 +1,9 @@
 <?php
 wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-?>
 
-<?php
-if ( ! is_page( array( 'login' ) ) ) {
+if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-proposal' ) ) ) {
 	echo do_shortcode( '[good-hands-redesign]' );
-}
-?>
+	?>
 
 <footer class="Footer urlslab-skip-keywords urlslab-skip-fragment" data-scrollsidebars="true">
 	<div class="Footer__top">
@@ -160,6 +157,8 @@ if ( ! is_page( array( 'login' ) ) ) {
 		</div>
 	</div>
 </footer>
+
+<?php } ?>
 
 <div id="loader" class="invisible urlslab-skip-all">
 	<div class="loaderIn">

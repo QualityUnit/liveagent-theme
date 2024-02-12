@@ -182,7 +182,7 @@
 					? listItem.dataset.category
 					: '';
 
-				if ( ! dataCategory.includes( filteredHash ) ) {
+				if ( dataCategory && ! dataCategory.includes( filteredHash ) ) {
 					listItem.style.display = 'none';
 				}
 			} );
