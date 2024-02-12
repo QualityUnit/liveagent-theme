@@ -2,6 +2,12 @@
 wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 ?>
 
+<?php
+if ( ! is_page( array( 'login' ) ) ) {
+	echo do_shortcode( '[good-hands-redesign]' );
+}
+?>
+
 <footer class="Footer urlslab-skip-keywords urlslab-skip-fragment" data-scrollsidebars="true">
 	<div class="Footer__top">
 		<div class="wrapper">

@@ -24,4 +24,3 @@
 	</div>
 
 </div>
-<?php echo do_shortcode( '[good-hands-redesign]' ); ?>
