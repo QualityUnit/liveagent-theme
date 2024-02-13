@@ -45,7 +45,7 @@ $page_header_args         = array(
 	<div class="wrapper Post__container">
 
 		<div class="Post__sidebar urlslab-skip-keywords">
-				<div class="SidebarItemsSlider__wrapper js-sidebar-sticky">
+				<div class="SidebarItemsSlider__wrapper">
 					<div class="SidebarItemsSlider">
 						<?php if ( $categories ) { ?>
 						<div class="Post__sidebar__title"><strong><?php _e( 'Other', 'ms' ); ?> <?= esc_html( $category_name ); ?> <?php _e( 'checklists', 'ms' ); ?></strong></div>
