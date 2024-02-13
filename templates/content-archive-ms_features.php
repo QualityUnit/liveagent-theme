@@ -7,10 +7,8 @@ $query_args = array(
 
 	$features_posts = new WP_Query( $query_args );
 		wp_reset_query();
-set_source( 'features', 'pages/Category', 'css' );
-set_source( 'features', 'pages/CategoryImages', 'css' );
-set_source( 'features', 'pages/CategoryItemBgs', 'css' );
-set_source( 'features', 'pages/CategoryColorScheme', 'css' );
+set_source( 'features', 'pages/Category' );
+set_source( 'features', 'pages/CategoryColorScheme' );
 set_source( 'features', 'filter', 'js' );
 $categories = array_unique( get_categories( array( 'taxonomy' => 'ms_features_categories' ) ), SORT_REGULAR );
 if ( is_tax( 'ms_features_categories' ) === true ) :
@@ -209,6 +207,7 @@ $page_header_args = array(
 						'data-href'        => esc_url( $item_url ),
 					);
 
+					$backgrounds_urls = get_archive_items_images( 'ms_features_categories', 'features' );
 
 					if ( 'on' === $pillar_value ) :
 						?>
@@ -220,7 +219,7 @@ $page_header_args = array(
 										?>
 							>
 							<a href="<?= esc_url( $item_url ) ?>" class="Category__item__thumbnail">
-								<span class="Category__item__thumbnail__image"></span>
+								<span class="Category__item__thumbnail__image" style="background-image: url( <?= esc_url( $backgrounds_urls['pillar'] ) ?> );"></span>
 							</a>
 							<div class="Category__item__wrap">
 								<h2 class="Category__item__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h2>
@@ -273,7 +272,7 @@ $page_header_args = array(
 							?>
 					<?php else : ?>
 							<li class="<?= esc_attr( $category_item_classes ); ?>"
-									style="order: <?= esc_attr( $item_order ); ?>"
+									style="background-image: url( <?= esc_url( $backgrounds_urls['pillar'] ) ?> ); order: <?= esc_attr( $item_order ); ?>"
 											<?php
 											foreach ( $category_item_attributes as $name => $value ) {
 												echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
@@ -281,7 +280,7 @@ $page_header_args = array(
 											?>
 								>
 								<div class="Category__item__wrap">
-									<div class="Category__item__header">
+									<div class="Category__item__header" style="background-image: url( <?= esc_url( $backgrounds_urls['background'] ) ?> );">
 										<div class="Category__item__header__image">
 						<?php
 						if ( has_post_thumbnail() ) {

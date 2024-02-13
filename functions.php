@@ -45,6 +45,8 @@ $theme_includes = array(
 	'functions/header-banners.php', // Shows banners on selected pages
 	'functions/create-language-menu.php', // Function for generate languages
 	'functions/dynamic-award-badges.php', // Function to place award badges dynamically
+	'functions/get-archive-items-images.php', // Get backgrounds for item on  the archive pages
+
 );
 
 foreach ( $theme_includes as $file ) {

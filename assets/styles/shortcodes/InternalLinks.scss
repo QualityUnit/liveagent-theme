@@ -56,9 +56,6 @@
 		flex-direction: row;
 		align-items: center;
 		padding: 0.5rem 2rem;
-		background-image: url(../../images/bg_internal_link.png);
-		background-position: 0%;
-		background-size: contain;
 		border-radius: 16px;
 		border: solid 1px $medium-gray-inputs;
 
@@ -96,7 +93,6 @@
 		}
 
 		&__button {
-			background-image: url(../../images/arrow-right.svg);
 			content: "";
 			background-repeat: no-repeat;
 			width: 105px;
