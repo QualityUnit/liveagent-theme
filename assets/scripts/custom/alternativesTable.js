@@ -1,6 +1,8 @@
 const tables = document.querySelectorAll( 'body.alternatives.single table' );
 
-if ( tables.length > 0 ) {
+if ( tables.length ) {
+	const hasTooltip = new RegExp( /(.+?)<i>(.+?)<\/i>/gi );
+
 	tables.forEach( ( table ) => {
 		const tr = table.querySelectorAll( 'tr' );
 
@@ -15,29 +17,47 @@ if ( tables.length > 0 ) {
 		} );
 
 		//Sets check or crossover for Y or N vals
-		for ( let i = 0; i <= tr.length; i++ ) {
+		for ( let i = 1; i <= tr.length; i++ ) {
 			const vals = tr[ i ].querySelectorAll( 'td:not(:empty):not(:first-of-type)' );
-			vals.forEach( ( val ) => {
-				if ( val.textContent === 'y' ) {
-					val.textContent = null;
-					val.classList.add( 'icn-after-check' );
-					val.insertAdjacentHTML( 'afterbegin', `
-            <svg class="icon icon-check">
-              <use xlink:href="/app/themes/liveagent/assets/images/icons.svg#check"></use>
-            </svg>`
-					);
-					return;
-				}
-				if ( val.textContent === 'n' ) {
-					val.textContent = null;
-					val.classList.add( 'icn-after-close' );
-					val.insertAdjacentHTML( 'afterbegin', `
-            <svg class="icon icon-close">
-              <use xlink:href="/app/themes/liveagent/assets/images/icons.svg#close"></use>
-            </svg>`
-					);
-				}
-			} );
+			const firstColCells = tr[ i ].querySelectorAll( 'td:first-of-type:not(:empty)' );
+
+			if ( vals.length ) {
+				vals.forEach( ( val ) => {
+					if ( val.textContent === 'y' ) {
+						val.textContent = null;
+						val.classList.add( 'icn-after-check' );
+						val.insertAdjacentHTML( 'afterbegin', `
+							<svg class="icon icon-check">
+								<use xlink:href="/app/themes/liveagent/assets/images/icons.svg#check"></use>
+							</svg>`
+						);
+						return;
+					}
+					if ( val.textContent === 'n' ) {
+						val.textContent = null;
+						val.classList.add( 'icn-after-close' );
+						val.insertAdjacentHTML( 'afterbegin', `
+							<svg class="icon icon-close">
+								<use xlink:href="/app/themes/liveagent/assets/images/icons.svg#close"></use>
+							</svg>`
+						);
+					}
+				} );
+			}
+
+			if ( firstColCells.length ) {
+				firstColCells.forEach( ( cell ) => {
+					const text = cell.textContent;
+
+					if ( hasTooltip.test( text ) ) {
+						const infoIcon = `<svg class="icon icon-info-circle">
+							<use xlink:href="/app/themes/liveagent/assets/images/icons.svg#info-circle"></use>
+							</svg>`;
+						cell.classList.add( 'hasTooltip' );
+						cell.innerHTML = text.replaceAll( hasTooltip, `$1<div class="ComparePlans__tooltip">${ infoIcon }<span class="ComparePlans__tooltip__text">$2</span></div>` );
+					}
+				} );
+			}
 		}
 	} );
 }
