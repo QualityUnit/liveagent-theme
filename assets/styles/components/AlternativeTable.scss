@@ -3,6 +3,81 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+body.alternatives.single {
+
+	figure.wp-block-table table {
+		width: 100%;
+
+		tr,
+		td {
+			padding: 0;
+		}
+
+		td {
+			padding: 0.25em;
+			vertical-align: middle;
+
+			&:first-of-type {
+				width: 10.5em;
+			}
+
+			&:not(:first-of-type) {
+				text-align: center;
+			}
+		}
+
+		tr {
+
+			&:first-of-type {
+				font-weight: 600;
+
+				td:first-of-type {
+					border-left: none;
+					border-top: none;
+				}
+			}
+
+			&:not(:first-of-type) {
+
+				&.stars td:not(:first-of-type):not(:empty) {
+
+					&::after {
+						content: "★★★★★";
+						display: block;
+						font-size: 1.25rem;
+						font-family: $font-primary;
+						line-height: 1;
+						letter-spacing: 1px;
+						background: linear-gradient(90deg, #ffbe35 calc(var(--rating) / 5 * 100%), #dedede calc(var(--rating) / 5 * 100%));
+						background-clip: text;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
+				}
+			}
+		}
+
+		svg {
+
+			@include square(1em);
+
+			&.icon {
+
+				&-check {
+
+					@include square(1em);
+					fill: $saturated-green;
+				}
+
+				&-close {
+
+					@include square(0.875em);
+					fill: $saturated-red;
+				}
+			}
+		}
+	}
+}
 
 .AlternativeTable {
 

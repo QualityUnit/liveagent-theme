@@ -10,7 +10,7 @@
 		),
 		'title'  => $page_header_title,
 		'text'   => __( 'If you are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'alternatives' ),
-		'search' => array( 'type' => 'dsada' ),
+		'search' => array( 'type' => 'alternative' ),
 	);
 	?>
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
