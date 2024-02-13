@@ -5,8 +5,10 @@
 
 body.alternatives.single {
 
-	figure.wp-block-table table {
+	figure.wp-block-table {
 		width: 100%;
+		max-width: none;
+
 
 		tr,
 		td {
@@ -18,24 +20,67 @@ body.alternatives.single {
 			vertical-align: middle;
 			border-color: $light-gray;
 
-			&:first-of-type {
-				width: 10.5em;
-				padding: 0.75em 1.5em;
-			}
-
-			&:not(:first-of-type) {
-				text-align: center;
-			}
-
 			&.hasTooltip {
 
 				svg {
+					margin-left: 0.25em;
 					fill: $light-gray-icon;
+				}
+			}
+
+			.AlternativeName {
+				position: relative;
+				width: 8em;
+				margin-right: 1em;
+
+				&::after {
+					content: "";
+					display: block;
+					position: absolute;
+					top: -0.75em;
+					right: 0;
+					bottom: -0.75em;
+					border-right: 1px solid $light-gray;
+				}
+			}
+
+			&:nth-of-type(2) {
+				background-color: $medium-orange;
+			}
+
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+				display: flex;
+				align-items: center;
+
+				&:first-of-type {
+					background-color: $medium-gray-inputs;
+				}
+
+				&:nth-of-type(even) {
+					background-color: $lightest-gray;
+				}
+
+				&.hasTooltip {
+
+					svg {
+						fill: $black;
+					}
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				&:not(:first-of-type) {
+					text-align: center;
 				}
 			}
 		}
 
 		tr {
+
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+				display: block;
+			}
 
 			&:first-of-type {
 				font-weight: 700;
@@ -44,13 +89,13 @@ body.alternatives.single {
 					border-left: none;
 					border-top: none;
 				}
+
+				@media (max-width: ($breakpoint-tablet - 1px)) {
+					display: none;
+				}
 			}
 
 			&:not(:first-of-type) {
-
-				&:nth-of-type(even) {
-					background-color: $lightest-gray;
-				}
 
 				&.stars td:not(:first-of-type):not(:empty) {
 
@@ -67,14 +112,22 @@ body.alternatives.single {
 						-webkit-text-fill-color: transparent;
 					}
 				}
-			}
 
-			&:last-of-type {
+				@media (min-width: $breakpoint-tablet) {
 
-				td:first-of-type {
-					border-bottom-left-radius: 16px;
+					&:nth-of-type(even) {
+						background-color: $lightest-gray;
+					}
+
+					&:last-of-type {
+
+						td:first-of-type {
+							border-bottom-left-radius: 16px;
+						}
+					}
 				}
 			}
+
 		}
 
 		svg {

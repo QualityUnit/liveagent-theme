@@ -6,8 +6,12 @@
 .Alternatives__list {
 	max-width: $breakpoint-desktop;
 	margin: 1.5em auto;
+	padding: 0 1.5em;
+	columns: 2;
+	column-gap: 1.5em;
 
 	.Alternative {
+		break-inside: avoid-column;
 
 		+ li {
 			margin-top: 0.75em;
@@ -15,8 +19,9 @@
 
 		&__inn {
 			display: flex;
-			flex-direction: column;
-			justify-content: center;
+			justify-content: flex-start;
+			align-items: center;
+
 			padding: 0.875em 1em;
 			text-decoration: none;
 			background: $lightest-gray;
@@ -62,17 +67,21 @@
 
 	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
-		&__icon {
-			display: none;
+		.Alternative {
+
+			&__icon,
+			&__excerpt {
+				display: none;
+			}
 		}
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 		columns: 3;
 		column-gap: 1.5em;
+		padding: 0;
 
 		.Alternative {
-			break-inside: avoid-column;
 
 			&__icon {
 
@@ -83,12 +92,6 @@
 				&.hasExcerpt {
 					margin-bottom: auto;
 				}
-			}
-
-			&__inn {
-				flex-direction: row;
-				justify-content: flex-start;
-				align-items: center;
 			}
 
 			&__content {

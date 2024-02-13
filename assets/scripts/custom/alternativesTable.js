@@ -18,11 +18,12 @@ if ( tables.length ) {
 
 		//Sets check or crossover for Y or N vals
 		for ( let i = 1; i <= tr.length; i++ ) {
-			const vals = tr[ i ].querySelectorAll( 'td:not(:empty):not(:first-of-type)' );
-			const firstColCells = tr[ i ].querySelectorAll( 'td:first-of-type:not(:empty)' );
+			const headers = tr[ 0 ].querySelectorAll( 'td:not(:first-of-type)' );
+			const vals = tr[ i ].querySelectorAll( 'td:not(:first-of-type)' );
+			const firstColumnCells = tr[ i ].querySelectorAll( 'td:first-of-type:not(:empty)' );
 
 			if ( vals.length ) {
-				vals.forEach( ( val ) => {
+				vals.forEach( ( val, index ) => {
 					if ( val.textContent === 'y' ) {
 						val.textContent = null;
 						val.classList.add( 'icn-after-check' );
@@ -31,7 +32,6 @@ if ( tables.length ) {
 								<use xlink:href="/app/themes/liveagent/assets/images/icons.svg#check"></use>
 							</svg>`
 						);
-						return;
 					}
 					if ( val.textContent === 'n' ) {
 						val.textContent = null;
@@ -42,11 +42,13 @@ if ( tables.length ) {
 							</svg>`
 						);
 					}
+
+					val.insertAdjacentHTML( 'afterbegin', `<div class="mobile--only AlternativeName">${ headers[ index ].textContent }</div>` );
 				} );
 			}
 
-			if ( firstColCells.length ) {
-				firstColCells.forEach( ( cell ) => {
+			if ( firstColumnCells.length ) {
+				firstColumnCells.forEach( ( cell ) => {
 					const text = cell.textContent;
 
 					if ( hasTooltip.test( text ) ) {
