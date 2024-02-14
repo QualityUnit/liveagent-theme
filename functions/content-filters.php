@@ -285,6 +285,17 @@ function url_space_replace( $content ) {
 }
 add_filter( 'the_content', 'url_space_replace', 9999 );
 
+// Fixes spaces in href attribute of URLs in content
+function highlight_text( $content ) {
+	if ( ! $content ) {
+		return $content;
+	}
+
+	$content = preg_replace( '/\^(.+?)\^/', '<span class="highlight">$1</span>', $content );
+	return $content;
+}
+add_filter( 'the_content', 'highlight_text', 9999 );
+
 
 // Function to remove ^ in title for highlight gradient
 function start_wp_head_buffer() {

@@ -17,12 +17,26 @@ if ( tables.length ) {
 		} );
 
 		//Sets check or crossover for Y or N vals
-		for ( let i = 1; i <= tr.length; i++ ) {
-			const headers = tr[ 0 ].querySelectorAll( 'td:not(:first-of-type)' );
-			const vals = tr[ i ].querySelectorAll( 'td:not(:first-of-type)' );
-			const firstColumnCells = tr[ i ].querySelectorAll( 'td:first-of-type:not(:empty)' );
+		for ( let i = 0; i <= tr.length; i++ ) {
+			const headers = tr[ 0 ].querySelectorAll( 'th:not(:first-of-type)' );
+			const vals = tr[ i + 1 ] && tr[ i + 1 ].querySelectorAll( 'td:not(:first-of-type)' );
+			const allCells = tr[ i ] && tr[ i ].querySelectorAll( 'td, th' );
 
-			if ( vals.length ) {
+			if ( allCells?.length ) {
+				allCells.forEach( ( cell ) => {
+					const text = cell.textContent;
+
+					if ( hasTooltip.test( text ) ) {
+						const infoIcon = `<svg class="icon icon-info-circle">
+							<use xlink:href="/app/themes/liveagent/assets/images/icons.svg#info-circle"></use>
+							</svg>`;
+						cell.classList.add( 'hasTooltip' );
+						cell.innerHTML = text.replaceAll( hasTooltip, `$1<div class="ComparePlans__tooltip">${ infoIcon }<span class="ComparePlans__tooltip__text">$2</span></div>` );
+					}
+				} );
+			}
+
+			if ( vals?.length ) {
 				vals.forEach( ( val, index ) => {
 					if ( val.textContent === 'y' ) {
 						val.textContent = null;
@@ -43,21 +57,7 @@ if ( tables.length ) {
 						);
 					}
 
-					val.insertAdjacentHTML( 'afterbegin', `<div class="mobile--only AlternativeName">${ headers[ index ].textContent }</div>` );
-				} );
-			}
-
-			if ( firstColumnCells.length ) {
-				firstColumnCells.forEach( ( cell ) => {
-					const text = cell.textContent;
-
-					if ( hasTooltip.test( text ) ) {
-						const infoIcon = `<svg class="icon icon-info-circle">
-							<use xlink:href="/app/themes/liveagent/assets/images/icons.svg#info-circle"></use>
-							</svg>`;
-						cell.classList.add( 'hasTooltip' );
-						cell.innerHTML = text.replaceAll( hasTooltip, `$1<div class="ComparePlans__tooltip">${ infoIcon }<span class="ComparePlans__tooltip__text">$2</span></div>` );
-					}
+					val.insertAdjacentHTML( 'afterbegin', `<div class="mobile--only AlternativeName">${ headers[ index ].innerHTML }</div>` );
 				} );
 			}
 		}
