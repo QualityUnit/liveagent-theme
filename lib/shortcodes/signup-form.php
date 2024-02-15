@@ -83,7 +83,7 @@ function ms_signup_form( $atts ) {
 								<div class="checkbox FilterMenu__item">
 									<input class="filter-item" type="radio" name="signup_region" id="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" value="<?php echo esc_attr( $region_code ); ?>" data-title="<?php esc_attr( $region_name ); ?>"  />
 									<label for="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" >
-										<span><?php esc_html_e( $region_name ); ?></span>
+										<span><?php echo esc_html( $region_name ); ?></span>
 									</label>
 								</div>
 							<?php } ?>
