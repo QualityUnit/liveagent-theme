@@ -215,6 +215,39 @@
 				}
 			}
 
+			.FilterMenu {
+
+				&__title {
+
+					@include color(border-color, border-color-inputs);
+					@include color(color, font-color-level3);
+					@include color(background-color, main-background);
+					height: $input-height-normal;
+					border-width: $input-border-width-normal;
+					border-style: solid;
+					border-radius: ($border-radius - 2);
+					font-size: $input-font-size-normal;
+					font-family: $font-primary;
+					font-weight: $font-weight-normal;
+					padding-left: 60px;
+
+					&.active {
+
+						@include color(border-color, font-color-dark);
+						@include color(color, font-color-dark);
+					}
+				}
+
+				&.active {
+
+					svg {
+
+						@include color(fill, font-color-dark);
+					}
+				}
+
+			}
+
 			.Button {
 				position: absolute;
 				right: 0;
@@ -251,6 +284,7 @@
 					top: 50%;
 					left: 20px;
 					transform: translateY(-50%);
+					z-index: 4; // FilterMenu with icon
 				}
 			}
 
@@ -393,6 +427,22 @@
 					}
 				}
 
+				.FilterMenu {
+
+					&__title {
+
+						@include color(border-color, successful-color);
+						@include color(color, successful-color);
+
+					}
+
+					svg {
+
+						@include color(fill, successful-color);
+					}
+
+				}
+
 				&::before {
 
 					@include color(color, successful-color);
@@ -427,6 +477,22 @@
 						@include color(color, error-color);
 						opacity: 1;
 					}
+				}
+
+				.FilterMenu {
+
+					&__title {
+
+						@include color(border-color, error-color);
+						@include color(color, error-color);
+
+					}
+
+					svg {
+
+						@include color(fill, error-color);
+					}
+
 				}
 
 				&::before {
