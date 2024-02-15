@@ -81,7 +81,7 @@ function ms_signup_form( $atts ) {
 						<div class="FilterMenu__items--inn">
 							<?php foreach ( $regions as $region_code => $region_name ) { ?>
 								<div class="checkbox FilterMenu__item">
-									<input class="filter-item" type="radio" name="signup_region" id="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" value="<?php echo esc_attr( $region_code ); ?>" data-title="<?php esc_html_e( $region_name ); ?>"  />
+									<input class="filter-item" type="radio" name="signup_region" id="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" value="<?php echo esc_attr( $region_code ); ?>" data-title="<?php esc_attr( $region_name ); ?>"  />
 									<label for="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" >
 										<span><?php esc_html_e( $region_name ); ?></span>
 									</label>
