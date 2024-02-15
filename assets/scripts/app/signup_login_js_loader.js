@@ -38,6 +38,11 @@ const signuplogin = () => {
 		} );
 	}
 
+	function runLoadScript( element ) {
+		const type = element.closest( '[data-id="signup"]' ).dataset.type;
+		sessionStorage.setItem( 'crmType', type );
+		loadScripts( );
+	}
 	if ( document.querySelectorAll( 'script[data-src]' ).length ) {
 		const scriptParent = document.querySelectorAll(
 			'[data-id="signup"] input:not([type="hidden"])'
@@ -45,14 +50,27 @@ const signuplogin = () => {
 
 		scriptParent.forEach( ( input ) => {
 			input.addEventListener( 'focus', ( event ) => {
-				const type = event.target.closest( '[data-id="signup"]' ).dataset.type;
-				sessionStorage.setItem( 'crmType', type );
-				loadScripts( );
+				runLoadScript( event.target );
 			} );
 		} );
 
 		scriptParent.forEach( ( input ) => {
 			input.removeEventListener( 'focus', loadScripts );
+		} );
+
+		// load scripts also on selections event, not only inputs
+		const scriptParentSelections = document.querySelectorAll(
+			'[data-id="signup"] .FilterMenu.isSingleSelect'
+		);
+
+		scriptParentSelections.forEach( ( input ) => {
+			input.addEventListener( 'openedFilterMenu', ( event ) => {
+				runLoadScript( event.target );
+			} );
+		} );
+
+		scriptParentSelections.forEach( ( input ) => {
+			input.removeEventListener( 'openedFilterMenu', loadScripts );
 		} );
 	}
 
