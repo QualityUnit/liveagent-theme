@@ -677,6 +677,7 @@
 		field.nameField = identifier;
 		field.mailField = identifier;
 		field.domainField = identifier;
+		field.promoField = identifier;
 		field.regionField = identifier;
 
 		Object.keys( field ).forEach( ( property ) => {
