@@ -142,7 +142,7 @@ $page_header_args = array(
 								?>
 									style="order: <?= esc_attr( $item_order ); ?>">
 								<a href="<?= esc_url( $item_url ) ?>" class="Category__item__thumbnail">
-									<span class="Category__item__thumbnail__image" style="background-image: url( <?= esc_url( $backgrounds_urls['pillar'] ) ?> );"></span>
+									<span class="Category__item__thumbnail__image" style="background-image: url(<?= esc_url( $backgrounds_urls['pillar'] ) ?>);"></span>
 								</a>
 								<div class="Category__item__wrap">
 									<h2 class="Category__item__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?= esc_html( $item_title ) ?></a></h2>
@@ -165,7 +165,7 @@ $page_header_args = array(
 								?>
 									style="order: <?= esc_attr( $item_order + 1 ); ?>">
 								<div class="Category__item__wrap">
-									<div class="Category__item__header" style="background-image: url( <?= esc_url( $backgrounds_urls['background'] ) ?> );">
+									<div class="Category__item__header" style="background-image: url(<?= esc_url( $backgrounds_urls['background'] )?>);">
 										<div class="Category__item__header__image">
 											<?php
 											if ( $item_icons_url ) {
