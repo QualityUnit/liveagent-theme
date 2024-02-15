@@ -38,7 +38,8 @@ scss/at-extend-no-missing-placeholder */
 	input[type="time"],
 	input[type="url"],
 	textarea,
-	select {
+	select,
+	input {
 		display: block;
 		min-width: 100%;
 		margin-bottom: 20px;
@@ -51,6 +52,7 @@ scss/at-extend-no-missing-placeholder */
 	input[type="checkbox"] {
 		display: inline-block;
 		margin-right: 10px;
+		height: auto;
 
 		+ label {
 			display: inline-block;

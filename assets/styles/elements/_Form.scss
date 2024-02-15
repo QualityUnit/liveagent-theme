@@ -12,6 +12,7 @@ input[type="search"],
 input[type="tel"],
 input[type="time"],
 input[type="url"],
+input,
 .Input {
 
 	@include color(border-color, border-color-inputs);
