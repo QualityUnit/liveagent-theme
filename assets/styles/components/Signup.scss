@@ -4,6 +4,7 @@
 @use "../common/mixins" as *;
 @use "../common/variables" as *;
 @forward "./SignupFormSimple";
+@forward "../elements/FilterMenu";
 
 .Signup {
 

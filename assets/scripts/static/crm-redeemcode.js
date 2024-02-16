@@ -91,6 +91,7 @@
 		this.active = true;
 		this.validators = [];
 		this.validationTimer = undefined;
+		this.type = undefined;
 	}
 
 	FormField.prototype = {
@@ -107,6 +108,19 @@
 		input: generateAccessor( '_input', function i( reset ) {
 			return this.main( reset ).find( 'input' );
 		} ),
+
+		selectedValue() {
+			const inputs = this.main().find( 'input.filter-item' );
+			let value = '';
+			if ( inputs ) {
+				inputs.each( ( i, elm ) => {
+					if ( $( elm ).prop( 'checked' ) ) {
+						value = $( elm ).val();
+					}
+				} );
+			}
+			return value;
+		},
 
 		value( reset ) {
 			let rst = reset;
@@ -347,6 +361,36 @@
 		},
 	};
 
+	FieldValidator.selection = function selection( errorMessage, selector ) {
+		let em = errorMessage;
+		let sel = selector;
+		em = typeof em !== 'undefined' ? em : textEmpty; // keep the same text as text input field, so selection cannot be empty...
+		sel = typeof sel !== 'undefined' ? sel : 'input.filter-item';
+
+		const validator = new FieldValidator();
+		validator.message = em;
+
+		validator.validate = function validate( formField, notifyResult ) {
+			const inputs = formField.main().find( sel );
+			let selected = false;
+			if ( inputs ) {
+				inputs.each( ( i, elm ) => {
+					if ( $( elm ).prop( 'checked' ) ) {
+						selected = true;
+					}
+				} );
+			}
+			if ( selected ) {
+				validator.valid();
+			} else {
+				validator.error( em );
+			}
+			notifyResult( this );
+		};
+
+		return validator;
+	};
+
 	FieldValidator.textLength = function tl( errorMessage, minimum, selector ) {
 		let em = errorMessage;
 		let sel = selector;
@@ -562,6 +606,7 @@
 		field.mailField = identifier;
 		field.domainField = identifier;
 		field.promoField = identifier;
+		field.regionField = identifier;
 
 		Object.keys( field ).forEach( ( property ) => {
 			if (
@@ -587,6 +632,10 @@
 	}
 
 	function setEvents( formField ) {
+		if ( formField.type === 'select' ) {
+			formField.validateOn( 'closedFilterMenu', 0, '.FilterMenu' );
+			return;
+		}
 		formField
 			.validateOn( 'focusout' )
 			.validateOn( 'keyup', 500 )
@@ -686,11 +735,19 @@
 		} );
 	}
 
+	function initRegionField() {
+		const { regionField } = sF;
+		regionField.type = 'select';
+		regionField.registerValidator( FieldValidator.selection() );
+		setEvents( regionField );
+	}
+
 	function initFormFields() {
 		initCodeField();
 		initNameField();
 		initMailField();
 		initDomainField();
+		initRegionField();
 	}
 
 	function getCookie( name ) {
@@ -1048,6 +1105,7 @@
 						name: sF.nameField.value(),
 						email: sF.mailField.value(),
 						subdomain: sF.domainField.value(),
+						region: sF.regionField.selectedValue(),
 						grtoken: token,
 						source_id: getSourceId(),
 						pap_visitor_id: papVisitorId,

@@ -14,7 +14,7 @@ function ms_signup_form( $atts ) {
 	);
 
 	$regions = array(
-		'US' => __( 'Americas', 'ms' ),
+		'NA' => __( 'Americas (US)', 'ms' ),
 		'EU' => __( 'European Union', 'ms' ),
 		'AS' => __( 'Asia', 'ms' ),
 	);
