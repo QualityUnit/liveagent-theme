@@ -1,4 +1,5 @@
 <?php
+	set_custom_source( 'contactUsFunctions', 'js');
 	$icons     = get_template_directory_uri() . '/assets/images/contact/';
 	require_once get_template_directory() . '/chat-button.php';
 ?>
@@ -90,16 +91,16 @@
 				</span>
 			</li>
 			<li class="ContactUs__menu--item">
-				<a href="https://m.me/LiveAgent/" class="ContactUs__menu--link violet" data-close-target="contactUsMenu" rel="nofollow noopener external">
+				<button class="ContactUs__menu--link violet" onclick="contactUsMessenger();" data-close-target="contactUsMenu" rel="nofollow noopener external">
 					Messenger
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" />
-				</a>
+				</button>
 			</li>
 			<li class="ContactUs__menu--item whatsapp">
-				<a href="#"  class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener external">
+				<button class="ContactUs__menu--link green" onclick="contactUsWhatsApp();" data-close-target="contactUsMenu"  rel="nofollow noopener external">
 					Whatsapp
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" />
-				</a>
+				</button>
 			</li>
 			<li class="ContactUs__menu--item">
 				<div class="ContactUs__menu--link fakeChatButton hidden">
@@ -115,16 +116,3 @@
 	</nav>
 </div>
 
-<script>
-	document.addEventListener("DOMContentLoaded", function() {
-		var button = document.querySelector(".ContactUs .ContactUs__button");
-		var link = document.querySelector(".ContactUs__menu--item.whatsapp .ContactUs__menu--link");
-		var text = "Hi! I am contacting you from " + window.location.href + ", and I am contacting you about...";
-		var number = "17862041375";
-
-		button.addEventListener("click", function() {
-			var whatsappLink = "https://wa.me/" + number + "?text=" + encodeURIComponent(text);
-			link.href = whatsappLink;
-		});
-	});
-</script>
