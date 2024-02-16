@@ -3,31 +3,37 @@
 function ms_signup_form( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'title'  => __( 'Start Free Trial', 'ms' ),
-			'label1' => __( '14 or 30 days free trial', 'ms' ),
+			'title'    => __( 'Start Free Trial', 'ms' ),
+			'label1'   => __( '14 or 30 days free trial', 'ms' ),
 			'tooltip1' => __( 'Free trial for 14 days with a free email, or 30 days with a company email', 'ms' ),
-			'label2' => __( 'No Credit Card required', 'ms' ),
-			'button' => __( 'Create account for FREE', 'ms' ),
+			'label2'   => __( 'No Credit Card required', 'ms' ),
+			'button'   => __( 'Create account for FREE', 'ms' ),
 		),
 		$atts,
 		'people'
+	);
+
+	$regions = array(
+		'US' => __( 'Americas', 'ms' ),
+		'EU' => __( 'European Union', 'ms' ),
+		'AS' => __( 'Asia', 'ms' ),
 	);
 
 	ob_start();
 	?>
 
 	<div class="Signup__form">
-		<div class="Signup__form__title h3"><?= esc_html( $atts['title'] ); ?></div>
+		<div class="Signup__form__title h3"><?php echo esc_html( $atts['title'] ); ?></div>
 
 		<div class="Signup__form__labels">
 			<span class="Signup__form__labels__label">
-				<?= esc_html( $atts['label1'] ); ?>&nbsp;
+				<?php echo esc_html( $atts['label1'] ); ?>&nbsp;
 				<span class="ComparePlans__tooltip">
 					<span class="fontello-info"></span>
-					<span class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?= esc_html( $atts['tooltip1'] ); ?></span>
+					<span class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?php echo esc_html( $atts['tooltip1'] ); ?></span>
 				</span>
 			</span>
-			<span class="Signup__form__labels__label"><?= esc_html( $atts['label2'] ); ?></span>
+			<span class="Signup__form__labels__label"><?php echo esc_html( $atts['label2'] ); ?></span>
 		</div>
 
 		<div data-id="signup">
@@ -45,7 +51,7 @@ function ms_signup_form( $atts ) {
 				<input type="email" name="Email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255" onKeyUp="checkCompanyMail()">
 				<div data-id="messageTrial" class="InfoMessage hidden">
 					<svg class="InfoMessage__icon">
-						<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#info-solid' ) ?>"></use>
+						<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#info-solid' ); ?>"></use>
 					</svg>
 					<span class="InfoMessage__text"><?php _e( 'Use your company email to get a 30 day trial for free.', 'ms' ); ?></span>
 				</div>
@@ -64,6 +70,28 @@ function ms_signup_form( $atts ) {
 					</div>
 				</div>
 			</div>
+			
+			<div data-id="regionFieldmain" class="Signup__form__item has-svg">
+				<div class="FilterMenu isSingleSelect">
+					<svg width="23" height="23" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M19.632 3.368A11.5 11.5 0 1 0 23 11.5a11.425 11.425 0 0 0-3.368-8.132zm1.691 7.31h-3.235a17.9 17.9 0 0 0-.781-4.568 12.689 12.689 0 0 0 1.7-1 9.815 9.815 0 0 1 2.316 5.569zm-9-8.87a5.457 5.457 0 0 1 2.471 2.539q.225.406.422.845a11.648 11.648 0 0 1-2.892.563zm3.254.717a9.881 9.881 0 0 1 2.238 1.411 11.028 11.028 0 0 1-1.087.628 11.4 11.4 0 0 0-1.152-2.038zM8.209 4.347a5.457 5.457 0 0 1 2.471-2.539v3.948a11.648 11.648 0 0 1-2.892-.563q.195-.438.42-.845zm-1.935.216a11.034 11.034 0 0 1-1.087-.628 9.881 9.881 0 0 1 2.238-1.411 11.4 11.4 0 0 0-1.152 2.04zM10.679 7.4v3.276H6.556a16.256 16.256 0 0 1 .657-3.944 13.286 13.286 0 0 0 3.466.668zm0 4.919V15.6a13.29 13.29 0 0 0-3.465.668 16.255 16.255 0 0 1-.657-3.944zm0 4.922v3.948a5.457 5.457 0 0 1-2.471-2.539q-.225-.406-.422-.845a11.645 11.645 0 0 1 2.893-.561zm-3.254 3.231a9.879 9.879 0 0 1-2.238-1.411 11.036 11.036 0 0 1 1.087-.628 11.4 11.4 0 0 0 1.15 2.041zm7.368-1.822a5.457 5.457 0 0 1-2.471 2.539v-3.945a11.646 11.646 0 0 1 2.892.563q-.197.438-.422.845zm1.935-.216a11.035 11.035 0 0 1 1.087.628 9.879 9.879 0 0 1-2.238 1.411 11.4 11.4 0 0 0 1.15-2.037zM12.321 15.6v-3.279h4.122a16.254 16.254 0 0 1-.657 3.944 13.287 13.287 0 0 0-3.465-.665zm0-4.919V7.4a13.287 13.287 0 0 0 3.465-.668 16.254 16.254 0 0 1 .657 3.944zM4 5.115a12.7 12.7 0 0 0 1.7 1 17.9 17.9 0 0 0-.781 4.568H1.677A9.815 9.815 0 0 1 4 5.115zm-2.32 7.207h3.235a17.9 17.9 0 0 0 .781 4.568 12.692 12.692 0 0 0-1.7 1 9.814 9.814 0 0 1-2.319-5.569zM19 17.885a12.7 12.7 0 0 0-1.7-1 17.9 17.9 0 0 0 .781-4.568h3.235A9.814 9.814 0 0 1 19 17.885z"/></svg>
+					<div class="FilterMenu__title flex flex-align-center">
+						<?php _e( 'Choose your region', 'ms' ); ?>
+					</div>
+					<div class="FilterMenu__items">
+						<div class="FilterMenu__items--inn">
+							<?php foreach ( $regions as $region_code => $region_name ) { ?>
+								<div class="checkbox FilterMenu__item">
+									<input class="filter-item" type="radio" name="signup_region" id="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" value="<?php echo esc_attr( $region_code ); ?>" data-title="<?php echo esc_attr( $region_name ); ?>"  />
+									<label for="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" >
+										<span><?php echo esc_html( $region_name ); ?></span>
+									</label>
+								</div>
+							<?php } ?>
+						</div>
+					</div>
+				</div>
+				<div class="ErrorMessage"></div>
+			</div>
 
 			<div data-id="promoFieldmain" class="Signup__form__item">
 				<input type="checkbox" name="Promo" id="sendOffersSignup" data-id="sendOffers">
@@ -75,9 +103,9 @@ function ms_signup_form( $atts ) {
 			<div class="Signup__form__submit">
 				<div data-id="createButtonmain" class="Button Button--full createTrialButton">
 					<div class="WorkingPanel" style="display: none;">
-						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
+						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
 					</div>
-					<span><?= esc_html( $atts['button'] ); ?></span>
+					<span><?php echo esc_html( $atts['button'] ); ?></span>
 				</div>
 
 				<div class="Signup__form__terms">
@@ -176,11 +204,12 @@ function ms_signup_form( $atts ) {
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
 	<?php }, 999 ); ?>
 	<?php // @codingStandardsIgnoreEnd ?>
-
+	
 	<?php
 	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js', array( 'jquery' ), THEME_VERSION, true );
 	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
 	set_custom_source( 'components/Signup' );
+	set_custom_source( 'filterMenu', 'js' );
 	return ob_get_clean();
 }
 add_shortcode( 'signupform', 'ms_signup_form' );
