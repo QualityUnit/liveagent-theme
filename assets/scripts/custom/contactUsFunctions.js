@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 function contactUsWhatsApp() {
 	const text = 'Hi! I am contacting you from ' + window.location.href + ', and I am contacting you about...';
 	const number = '17862041375';

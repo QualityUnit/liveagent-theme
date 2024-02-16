@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 function shareOnFacebook( element ) {
 	const permalink = element.getAttribute( 'data-permalink' );
 	const shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent( permalink );
