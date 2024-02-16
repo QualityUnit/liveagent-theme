@@ -51,7 +51,7 @@ $page_header_args = array(
 				if ( ! empty( $shortcode_text ) ) {
 					?>
 
-					<div class="BlockDiscover BlockDiscover--expert" style="background-image: url('<?= esc_attr( $background_url )?>')">
+					<div class="BlockDiscover BlockDiscover--expert" style="background-image: url(<?= esc_attr( $background_url )?>)">
 						<p class="BlockDiscover__title"><?php _e( 'Expert note', 'ms' ); ?></p>
 						<p class="BlockDiscover__text"><?php echo $shortcode_text; //@codingStandardsIgnoreLine ?></p>
 
