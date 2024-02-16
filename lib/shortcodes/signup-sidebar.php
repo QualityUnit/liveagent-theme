@@ -82,8 +82,8 @@ function ms_signup_sidebar( $atts ) {
 						<div class="FilterMenu__items--inn">
 							<?php foreach ( $regions as $region_code => $region_name ) { ?>
 								<div class="checkbox FilterMenu__item">
-									<input class="filter-item" type="radio" name="signup_region" id="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" value="<?php echo esc_attr( $region_code ); ?>" data-title="<?php echo esc_attr( $region_name ); ?>"  />
-									<label for="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" >
+									<input class="filter-item" type="radio" name="signup_region" id="<?php echo esc_attr( "signup_sidebar_region_{$region_code}" ); ?>" value="<?php echo esc_attr( $region_code ); ?>" data-title="<?php echo esc_attr( $region_name ); ?>"  />
+									<label for="<?php echo esc_attr( "signup_sidebar_region_{$region_code}" ); ?>" >
 										<span><?php echo esc_html( $region_name ); ?></span>
 									</label>
 								</div>
