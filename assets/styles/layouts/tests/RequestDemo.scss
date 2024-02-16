@@ -11,9 +11,21 @@ body.demo {
 	header {
 		display: none;
 	}
+
+	.Urlslab-Faq__items {
+		padding: 0 1.5em;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.Urlslab-Faq__items {
+			columns: 2;
+		}
+	}
 }
 
 .RequestDemo {
+
 
 	&.DemoLogo {
 
@@ -37,7 +49,12 @@ body.demo {
 					}
 				}
 
-				@media (min-width: $breakpoint-tablet-landscape) {
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+
+				.DemoLogo {
 					margin-left: 2em;
 				}
 			}
@@ -89,7 +106,7 @@ body.demo {
 			video {
 				width: auto;
 				border: 0;
-				clip-path: polygon(-15% 0, 99.15% 0.47%, 99.68% 99.94%, -11.91% 100.46%);
+				clip-path: polygon(-15% 0, 99.15% 0.47%, 99.78% 80.72%, 99.65% 89.97%, 87.82% 96.97%, -11.91% 100.46%);
 				max-width: none;
 				mask-image: linear-gradient(180deg, transparent 0%, rgba($black-real, 1) 15%, rgba($black-real, 1) 90%, transparent 95%), linear-gradient(to right, transparent 90%, rgba($black-real, 1) 100%);
 				mask-size: 100% 100%, 100% 100%;
@@ -132,7 +149,8 @@ body.demo {
 		}
 
 		.wrapper {
-			padding: 2rem !important;
+			padding: 0 !important;
+			padding-top: 2rem !important;
 			position: relative;
 
 			&::after {
@@ -147,6 +165,10 @@ body.demo {
 				background-size: contain;
 			}
 
+			@media (min-width: $breakpoint-tablet-landscape) {
+				padding: 2rem !important;
+			}
+
 			&--inn {
 
 				> .elementor-container {
@@ -159,8 +181,8 @@ body.demo {
 			}
 		}
 
-		@media (max-width: $breakpoint-tablet) {
-			padding-top: 0 !important;
+		@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+			padding-top: 3em !important;
 			padding-bottom: 0 !important;
 
 			.wrapper {
@@ -192,5 +214,7 @@ body.demo {
 			}
 		}
 	}
+
+
 }
 
