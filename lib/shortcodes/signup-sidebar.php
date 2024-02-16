@@ -3,23 +3,23 @@
 function ms_signup_sidebar( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'title'    => __( 'Try it for free', 'ms' ),
-			'subtitle' => __( 'No strings attached', 'ms' ),
-			'name'     => __( 'Full name', 'ms' ),
-			'email'    => __( 'E-mail', 'ms' ),
-			'company'  => __( 'Company name', 'ms' ),
-			'button'   => __( 'Start your free account', 'ms' ),
-			'trusted'  => __( 'Trusted by the best', 'ms' ),
+			'title'     => __( 'Try it for free', 'ms' ),
+			'subtitle'  => __( 'No strings attached', 'ms' ),
+			'name'      => __( 'Full name', 'ms' ),
+			'email'     => __( 'E-mail', 'ms' ),
+			'company'   => __( 'Company name', 'ms' ),
+			'button'    => __( 'Start your free account', 'ms' ),
+			'trusted'   => __( 'Trusted by the best', 'ms' ),
 			'js-sticky' => false,
 		),
 		$atts,
 		'signup-sidebar'
 	);
-	$signup_switcher  = get_post_meta( get_the_ID(), 'signup_switch', true );
+	$signup_switcher = get_post_meta( get_the_ID(), 'signup_switch', true );
 
-	$title  = get_post_meta( get_the_ID(), 'signup_title', true );
+	$title    = get_post_meta( get_the_ID(), 'signup_title', true );
 	$subtitle = get_post_meta( get_the_ID(), 'signup_subtitle', true );
-	$button  = get_post_meta( get_the_ID(), 'signup_button', true );
+	$button   = get_post_meta( get_the_ID(), 'signup_button', true );
 
 	if ( isset( $title ) && strlen( $title ) > 0 ) {
 		$atts['title'] = $title;
@@ -30,6 +30,13 @@ function ms_signup_sidebar( $atts ) {
 	if ( isset( $button ) && strlen( $button ) > 0 ) {
 		$atts['button'] = $button;
 	}
+
+	$regions = array(
+		'NA' => __( 'Americas (US)', 'ms' ),
+		'EU' => __( 'European Union', 'ms' ),
+		'AS' => __( 'Asia', 'ms' ),
+	);
+
 	ob_start();
 	?>
 	<?php if ( 'no' !== $signup_switcher ) { ?>
@@ -38,25 +45,25 @@ function ms_signup_sidebar( $atts ) {
 		js-sidebar-sticky
 	<?php } ?>
 	">
-		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] ); ?></div>
-		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
+		<div class="Signup__sidebar__title"><?php echo esc_html( $atts['title'] ); ?></div>
+		<div class="Signup__sidebar__subtitle"><?php echo esc_html( $atts['subtitle'] ); ?></div>
 
 		<div data-id="signup" data-type='free'>
 			<input data-id="plan" type="hidden" value="FreeTrial" autocomplete="off">
 			<input data-id="variation" type="hidden" value="freedesk" autocomplete="off">
 
 			<div data-id="nameFieldmain" class="Signup__sidebar__item">
-				<input type="text" name="Full name" placeholder="<?= esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off" maxlength="100">
+				<input type="text" name="Full name" placeholder="<?php echo esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off" maxlength="100">
 				<div class="ErrorMessage"></div>
 			</div>
 
 			<div data-id="mailFieldmain" class="Signup__sidebar__item">
-				<input type="email" name="Email" placeholder="<?= esc_attr( $atts['email'] ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+				<input type="email" name="Email" placeholder="<?php echo esc_attr( $atts['email'] ); ?>" value="" required="required" autocomplete="off" maxlength="255">
 				<div class="ErrorMessage"></div>
 			</div>
 
 			<div data-id="domainFieldmain" class="Signup__sidebar__item Signup__sidebar__item domain">
-				<input type="url" name="Domain" placeholder="<?= esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
+				<input type="url" name="Domain" placeholder="<?php echo esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
 				<div class="Signup__sidebar__item__domain"><?php _e( '.ladesk.com', 'ms' ); ?>
 				<div class="Signup__sidebar__item__info Tooltip">
 					<div class="Signup__sidebar__item__info__icon ComparePlans__info-icon fontello-info"></div>
@@ -66,21 +73,42 @@ function ms_signup_sidebar( $atts ) {
 				<div class="ErrorMessage"></div>
 			</div>
 
+			<div data-id="regionFieldmain" class="Signup__sidebar__item">
+				<div class="FilterMenu isSingleSelect">
+					<div class="FilterMenu__title flex flex-align-center">
+						<?php _e( 'Choose your region', 'ms' ); ?>
+					</div>
+					<div class="FilterMenu__items">
+						<div class="FilterMenu__items--inn">
+							<?php foreach ( $regions as $region_code => $region_name ) { ?>
+								<div class="checkbox FilterMenu__item">
+									<input class="filter-item" type="radio" name="signup_region" id="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" value="<?php echo esc_attr( $region_code ); ?>" data-title="<?php echo esc_attr( $region_name ); ?>"  />
+									<label for="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" >
+										<span><?php echo esc_html( $region_name ); ?></span>
+									</label>
+								</div>
+							<?php } ?>
+						</div>
+					</div>
+				</div>
+				<div class="ErrorMessage"></div>
+			</div>
+
 			<div data-id="signUpError" class="signUpError"></div>
 
 
 			<div class="Signup__sidebar__submit urlslab-skip-keywords">
 				<div data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="dataLayer.push({'Click data-id': 'startYourfreeAccountBtn'});">
 					<div class="WorkingPanel" style="display: none;">
-						<img class="gear-wheels" src="<?= esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ) ?>" alt="gear wheels">
+						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
 					</div>
-					<span><?= esc_html( $atts['button'] ); ?></span>
+					<span><?php echo esc_html( $atts['button'] ); ?></span>
 				</div>
 
 				<div class="Signup__sidebar__terms">
 					<p><?php _e( 'By signing up, I accept', 'ms' ); ?> <a title="<?php _e( 'T&amp;C', 'ms' ); ?>" href="<?php _e( '/terms-and-conditions/', 'ms' ); ?>"><?php _e( 'T&amp;C', 'ms' ); ?></a> <?php _e( 'and', 'ms' ); ?> <a title="<?php _e( 'Privacy Policy', 'ms' ); ?>" href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'Privacy Policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 				</div>
-				<div class="Signup__sidebar__reviews__title"><?= esc_html( $atts['trusted'] ); ?></div>
+				<div class="Signup__sidebar__reviews__title"><?php echo esc_html( $atts['trusted'] ); ?></div>
 				<div class="Signup__sidebar__reviews">
 					<div class="Signup__sidebar__reviews--item">
 						<a href="<?php _e( '/awards/', 'ms' ); ?>" title="<?php _e( 'G2 Crowd', 'ms' ); ?>">
@@ -190,7 +218,7 @@ function ms_signup_sidebar( $atts ) {
 	<?php
 	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js', array( 'jquery' ), THEME_VERSION, true );
 	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
-
+	set_custom_source( 'filterMenu', 'js' );
 	return ob_get_clean();
 }
 add_shortcode( 'signup-sidebar', 'ms_signup_sidebar' );
