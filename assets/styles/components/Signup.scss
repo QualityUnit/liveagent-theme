@@ -240,6 +240,12 @@
 						@include color(border-color, font-color-dark);
 						@include color(color, font-color-dark);
 					}
+
+					span {
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
 				}
 
 				// styles from FilterMenu which we need to keep available also in responsive design

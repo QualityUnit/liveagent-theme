@@ -76,7 +76,7 @@ function ms_signup_sidebar( $atts ) {
 			<div data-id="regionFieldmain" class="Signup__sidebar__item">
 				<div class="FilterMenu isSingleSelect">
 					<div class="FilterMenu__title flex flex-align-center">
-						<?php _e( 'Choose your region (datacenter location)', 'ms' ); ?>
+						<span><?php _e( 'Choose your region (datacenter location)', 'ms' ); ?></span>
 					</div>
 					<div class="FilterMenu__items">
 						<div class="FilterMenu__items--inn">
