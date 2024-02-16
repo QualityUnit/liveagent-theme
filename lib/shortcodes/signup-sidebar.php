@@ -33,8 +33,8 @@ function ms_signup_sidebar( $atts ) {
 
 	$regions = array(
 		'NA' => __( 'Americas (US)', 'ms' ),
-		'EU' => __( 'European Union', 'ms' ),
-		'AS' => __( 'Asia', 'ms' ),
+		'EU' => __( 'Europe & Africa (EU)', 'ms' ),
+		'AS' => __( 'Asia & Pacific (SG)', 'ms' ),
 	);
 
 	ob_start();
@@ -76,7 +76,7 @@ function ms_signup_sidebar( $atts ) {
 			<div data-id="regionFieldmain" class="Signup__sidebar__item">
 				<div class="FilterMenu isSingleSelect">
 					<div class="FilterMenu__title flex flex-align-center">
-						<?php _e( 'Choose your region', 'ms' ); ?>
+						<?php _e( 'Choose your region (datacenter location)', 'ms' ); ?>
 					</div>
 					<div class="FilterMenu__items">
 						<div class="FilterMenu__items--inn">
