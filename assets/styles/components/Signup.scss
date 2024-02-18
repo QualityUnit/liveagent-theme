@@ -217,6 +217,7 @@
 			}
 
 			.FilterMenu {
+				z-index: initial;
 
 				&__title {
 
@@ -295,6 +296,7 @@
 
 					&.active {
 						display: block;
+						z-index: 3;
 					}
 
 					&.visible {
