@@ -18,14 +18,15 @@ const addTrialBanner = () => {
 
 	if ( boxesStars.length > 0 ) {
 		const getLang = () => {
-			const { lang } = document
-				.querySelector( '.Header__flags--item-link.active' )
-				.closest( '.Header__flags--item' );
-			return lang.toLowerCase();
+			const elm = document.querySelector( '.Header__flags--item-link.active' );
+			if ( elm ) {
+				const { lang } = elm.closest( '.Header__flags--item' );
+				return lang.toLowerCase();
+			}
+			return 'en';
 		};
 
-		const enLangUrl =
-			'/app/themes/liveagent/assets/i18n/trial_banner/en.json';
+		const enLangUrl = '/app/themes/liveagent/assets/i18n/trial_banner/en.json';
 		const langUrl = `/app/themes/liveagent/assets/i18n/trial_banner/${ getLang() }.json`;
 
 		const adConstructor = ( strings ) => {
