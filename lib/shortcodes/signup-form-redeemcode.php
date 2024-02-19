@@ -29,14 +29,14 @@ function ms_signup_form_redeem_code( $atts ) {
 			<div data-id="codeFieldmain" class="Signup__form__item has-svg">
 				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24" fill="none"><path d="M12.7833 11.8083C10.3242 11.1692 9.53335 10.5083 9.53335 9.47917C9.53335 8.29833 10.6275 7.475 12.4583 7.475C14.3867 7.475 15.1017 8.39583 15.1667 9.75H17.5608C17.485 7.88667 16.3475 6.175 14.0833 5.6225V3.25H10.8333V5.59C8.73168 6.045 7.04168 7.41 7.04168 9.50083C7.04168 12.0033 9.11085 13.2492 12.1333 13.975C14.8417 14.625 15.3833 15.5783 15.3833 16.5858C15.3833 17.3333 14.8525 18.525 12.4583 18.525C10.2267 18.525 9.34918 17.5283 9.23001 16.25H6.84668C6.97668 18.6225 8.75335 19.955 10.8333 20.3992V22.75H14.0833V20.4208C16.1958 20.02 17.875 18.7958 17.875 16.575C17.875 13.4983 15.2425 12.4475 12.7833 11.8083Z"></path></svg>
 
-				<input type="text" name="Redeem code" placeholder="<?php _e( 'Redeem code', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="100">
+				<input type="text" data-type="text" name="Redeem code" placeholder="<?php _e( 'Redeem code', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="100">
 				<div class="ErrorMessage"></div>
 			</div>
 
 			<div data-id="nameFieldmain" class="Signup__form__item has-svg">
 				<svg width="18" height="20" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M18 19v-2c0-2.743-2.257-5-5-5H5c-2.743 0-5 2.257-5 5v2a1 1 0 0 0 2 0v-2c0-1.646 1.354-3 3-3h8c1.646 0 3 1.354 3 3v2a1 1 0 0 0 2 0Zm-9-9c2.743 0 5-2.257 5-5s-2.257-5-5-5-5 2.257-5 5 2.257 5 5 5Zm0-2C7.354 8 6 6.646 6 5s1.354-3 3-3 3 1.354 3 3-1.354 3-3 3Z"/></svg>
 
-				<input type="text" name="Full name" placeholder="<?php _e( 'Full name', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="100">
+				<input type="text" data-type="text" name="Full name" placeholder="<?php _e( 'Full name', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="100">
 				<div class="ErrorMessage"></div>
 			</div>
 

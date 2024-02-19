@@ -510,6 +510,7 @@
 
 				input[type="url"],
 				input[type="text"],
+				input[data-type="text"], // fix for removed default "type" attr by urlslab html optimisation
 				input[type="email"] {
 
 					@include color(border-color, successful-color);
@@ -562,7 +563,9 @@
 
 				input[type="url"],
 				input[type="text"],
-				input[type="email"] {
+				input[data-type="text"], // fix for removed default "type" attr by urlslab html optimisation
+				input[type="email"],
+				input.textfield {
 
 					@include color(border-color, error-color);
 					@include color(color, error-color);
