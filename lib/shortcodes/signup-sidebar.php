@@ -53,7 +53,7 @@ function ms_signup_sidebar( $atts ) {
 			<input data-id="variation" type="hidden" value="freedesk" autocomplete="off">
 
 			<div data-id="nameFieldmain" class="Signup__sidebar__item">
-				<input type="text" name="Full name" placeholder="<?php echo esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off" maxlength="100">
+				<input type="text" data-type="text" name="Full name" placeholder="<?php echo esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off" maxlength="100">
 				<div class="ErrorMessage"></div>
 			</div>
 
