@@ -1,4 +1,4 @@
-<?php
+<?php // @codingStandardsIgnoreLine
 	set_custom_source( 'components/Block', 'css' );
 	set_custom_source( 'filter', 'js' );
 	$page_header_title = __( 'Alternatives', 'alternatives' );

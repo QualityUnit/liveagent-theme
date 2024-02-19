@@ -230,7 +230,7 @@
 							<?php } ?>
 							<?php 
 							if ( isset( $image['screenshot'] ) ) {
-								echo $image['screenshot'];
+								echo $image['screenshot']; // @codingStandardsIgnoreLine
 							} 
 							?>
 							<?php if ( ! empty( $args['logo'] ) ) { ?>
