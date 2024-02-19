@@ -6,6 +6,19 @@
 body.login {
 	max-height: 100vh;
 	overflow: hidden;
+
+
+	.Newsletter,
+	.Footer {
+		display: none !important;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+
+		#app {
+			height: 100vh;
+		}
+	}
 }
 
 .LoginBlock {
@@ -251,21 +264,6 @@ body.login {
 
 		.tooltip {
 			display: none !important;
-		}
-	}
-}
-
-body.login {
-
-	.Newsletter,
-	.Footer {
-		display: none !important;
-	}
-
-	@media (min-width: $breakpoint-desktop) {
-
-		#app {
-			height: 100vh;
 		}
 	}
 }
