@@ -26,12 +26,6 @@ if ( FilterMenus.length > 0 ) {
 			return element.scrollHeight > element.clientHeight;
 		};
 
-		const updateTitle = ( title ) => {
-			if ( title ) {
-				menuTitle.textContent = title;
-			}
-		};
-
 		menuTitle.addEventListener( 'click', () => {
 			if ( ! menuItems.classList.contains( 'active' ) ) {
 				filtermenu.classList.add( 'active' );
@@ -56,6 +50,18 @@ if ( FilterMenus.length > 0 ) {
 		} );
 
 		if ( isSingleSelect ) {
+			const updateTitle = ( title ) => {
+				if ( title ) {
+					// inner span with ellipsis
+					const innerSpan = menuTitle.querySelector( 'span' );
+					if ( innerSpan ) {
+						innerSpan.textContent = title;
+						return;
+					}
+					menuTitle.textContent = title;
+				}
+			};
+
 			const items = menuItems.querySelectorAll( 'input.filter-item' );
 			items.forEach( ( item ) => {
 				item.addEventListener( 'change', ( event ) => {

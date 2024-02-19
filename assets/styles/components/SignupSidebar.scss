@@ -96,6 +96,12 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 					@include color(border-color, font-color-dark);
 					@include color(color, font-color-dark);
 				}
+
+				span {
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
 			}
 
 			&__item {
@@ -129,7 +135,6 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 	&__item {
 		position: relative;
 		margin-bottom: 0.75em;
-		z-index: 5;
 
 		&.Error {
 
