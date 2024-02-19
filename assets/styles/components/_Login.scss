@@ -3,10 +3,28 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+body.login {
+	max-height: 100vh;
+	overflow: hidden;
+
+
+	.Newsletter,
+	.Footer {
+		display: none !important;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+
+		#app {
+			height: 100vh;
+		}
+	}
+}
+
 .LoginBlock {
 
 	.wrapper {
-		max-width: 57em !important;
+		max-width: 60em !important;
 
 		> .elementor-widget-wrap {
 			position: relative;
@@ -20,6 +38,7 @@
 			border-radius: 1em;
 		}
 	}
+
 
 	@media (min-width: $breakpoint-tablet) {
 		display: flex;
@@ -53,10 +72,14 @@
 			}
 
 			.elementor-widget-text-editor {
-				width: 60%;
 				margin: 0 auto;
 			}
 		}
+	}
+
+	@media (max-device-height: 1080px) {
+		align-items: flex-start !important;
+		padding-top: 8em !important;
 	}
 
 	.elementor-col-50 {
@@ -241,21 +264,6 @@
 
 		.tooltip {
 			display: none !important;
-		}
-	}
-}
-
-body.login {
-
-	.Newsletter,
-	.Footer {
-		display: none !important;
-	}
-
-	@media (min-width: $breakpoint-desktop) {
-
-		#app {
-			height: 100vh;
 		}
 	}
 }
