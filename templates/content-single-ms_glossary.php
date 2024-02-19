@@ -47,11 +47,11 @@ $page_header_args = array(
 
 				<?php
 				$shortcode_text = do_shortcode( '[urlslab-generator id="1"]' );
-
+				$background_url = get_template_directory_uri() . '/assets/images/cta_new_bg.svg';
 				if ( ! empty( $shortcode_text ) ) {
 					?>
 
-					<div class="BlockDiscover BlockDiscover--expert">
+					<div class="BlockDiscover BlockDiscover--expert" style="background-image: url(<?= esc_attr( $background_url )?>)">
 						<p class="BlockDiscover__title"><?php _e( 'Expert note', 'ms' ); ?></p>
 						<p class="BlockDiscover__text"><?php echo $shortcode_text; //@codingStandardsIgnoreLine ?></p>
 

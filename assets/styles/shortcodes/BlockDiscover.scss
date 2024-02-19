@@ -9,8 +9,9 @@ scss/at-extend-no-missing-placeholder */
 	margin: 2.5em auto;
 	padding: 40px !important;
 	border-radius: $border-radius-16;
-	background: url(../../images/cta_new_bg.svg) left top no-repeat;
 	background-size: cover;
+	background-position: left top;
+	background-repeat: no-repeat;
 
 	&::before {
 

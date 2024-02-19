@@ -4,8 +4,10 @@ wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts
 if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-proposal' ) ) ) {
 	echo do_shortcode( '[good-hands-redesign]' );
 	?>
+$footer_bg = get_template_directory_uri() . '/assets/images/footer-bg.svg';
+?>
 
-<footer class="Footer urlslab-skip-keywords urlslab-skip-fragment" data-scrollsidebars="true">
+<footer class="Footer urlslab-skip-keywords urlslab-skip-fragment" data-scrollsidebars="true" style="background-image: url(<?= esc_url( $footer_bg ) ?>)">
 	<div class="Footer__top">
 		<div class="wrapper">
 			<div class="Footer__top__row">

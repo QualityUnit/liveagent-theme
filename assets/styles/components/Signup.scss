@@ -4,6 +4,7 @@
 @use "../common/mixins" as *;
 @use "../common/variables" as *;
 @forward "./SignupFormSimple";
+@forward "../elements/FilterMenu";
 
 .Signup {
 
@@ -73,6 +74,7 @@
 			}
 		}
 
+		input,
 		input[type="text"],
 		input[type="url"],
 		input[type="email"] {
@@ -180,7 +182,165 @@
 			}
 
 			input {
+
+				@include color(border-color, border-color-inputs);
+				@include color(color, font-color-level3);
+				@include color(background-color, main-background);
+				width: 100%;
+				height: $input-height-normal;
+				border-width: $input-border-width-normal;
+				border-style: solid;
+				border-radius: ($border-radius - 2);
+				font-size: $input-font-size-normal;
+				font-family: $font-primary;
+				font-weight: $font-weight-normal;
 				padding-left: 60px;
+
+				&:-ms-input-placeholder,
+				&::-ms-input-placeholder {
+
+					color: currentcolor;
+					opacity: 1;
+				}
+
+				&::placeholder {
+
+					color: currentcolor;
+					opacity: 1;
+				}
+
+				&:focus {
+
+					@include color(border-color, font-color-dark);
+					@include color(color, font-color-dark);
+				}
+			}
+
+			.FilterMenu {
+				z-index: initial;
+
+				&__title {
+
+					@include color(border-color, border-color-inputs);
+					@include color(color, font-color-level3);
+					@include color(background-color, main-background);
+					height: $input-height-normal;
+					border-width: $input-border-width-normal;
+					border-style: solid;
+					border-radius: ($border-radius - 2);
+					font-size: $input-font-size-normal;
+					font-family: $font-primary;
+					font-weight: $font-weight-normal;
+					padding-left: 60px;
+
+					// override display none in responsive styles of FilterMenu default styles
+					display: flex !important;
+
+					&.active {
+
+						@include color(border-color, font-color-dark);
+						@include color(color, font-color-dark);
+					}
+
+					span {
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+
+				// styles from FilterMenu we need to keep also in responsive design
+				&__items {
+
+					@include color(background-color, main-background);
+					position: absolute;
+					top: 100%;
+					left: 0;
+					display: none;
+					opacity: 0;
+					overflow: hidden;
+					border-radius: 0.625em;
+					width: 100%;
+					padding: 1em 1.45em;
+					transition: opacity 0.1s;
+					box-shadow: 0 0.063em 0.375em rgba($black, 0.16);
+
+					&--inn {
+						max-height: 19em;
+						position: relative;
+						margin-left: -1.45em;
+						margin-right: -1.85em;
+					}
+
+					&.scrollbar-visible {
+
+						&::before {
+
+							@include color(background-color, secondary-background);
+							display: block;
+							content: "";
+							position: absolute;
+							top: 0;
+							right: 0;
+							bottom: 0;
+							width: 0.7em;
+						}
+
+						.FilterMenu__items--inn {
+
+							@include scrollbar(0.5em);
+							overflow-y: scroll;
+							margin-right: -1.35em;
+						}
+					}
+
+					&.active {
+						display: block;
+						z-index: 3;
+					}
+
+					&.visible {
+						opacity: 1;
+					}
+				}
+
+				&__item {
+					overflow: visible;
+					position: relative;
+					display: flex;
+					align-content: center;
+					margin-bottom: 0.25em;
+					text-decoration: none !important;
+
+					&:last-of-type {
+						margin-bottom: 0;
+					}
+
+					@media (hover: hover) {
+
+						&:hover {
+							background-color: $pricing-gray;
+						}
+					}
+				}
+
+				&__item [type="checkbox"] + label,
+				&__item [type="radio"] + label,
+				a[href] &__item-title {
+					line-height: 1.4;
+					padding: 0.5em 1em;
+					border-radius: 0;
+					box-shadow: none;
+				}
+
+				&.active {
+
+					svg {
+
+						@include color(fill, font-color-dark);
+					}
+				}
+
 			}
 
 			.Button {
@@ -219,6 +379,7 @@
 					top: 50%;
 					left: 20px;
 					transform: translateY(-50%);
+					z-index: 4; // FilterMenu with icon
 				}
 			}
 
@@ -349,6 +510,7 @@
 
 				input[type="url"],
 				input[type="text"],
+				input[data-type="text"], // fix for removed default "type" attr by urlslab html optimisation
 				input[type="email"] {
 
 					@include color(border-color, successful-color);
@@ -359,6 +521,22 @@
 						@include color(color, successful-color);
 						opacity: 1;
 					}
+				}
+
+				.FilterMenu {
+
+					&__title {
+
+						@include color(border-color, successful-color);
+						@include color(color, successful-color);
+
+					}
+
+					svg {
+
+						@include color(fill, successful-color);
+					}
+
 				}
 
 				&::before {
@@ -385,7 +563,9 @@
 
 				input[type="url"],
 				input[type="text"],
-				input[type="email"] {
+				input[data-type="text"], // fix for removed default "type" attr by urlslab html optimisation
+				input[type="email"],
+				input.textfield {
 
 					@include color(border-color, error-color);
 					@include color(color, error-color);
@@ -395,6 +575,22 @@
 						@include color(color, error-color);
 						opacity: 1;
 					}
+				}
+
+				.FilterMenu {
+
+					&__title {
+
+						@include color(border-color, error-color);
+						@include color(color, error-color);
+
+					}
+
+					svg {
+
+						@include color(fill, error-color);
+					}
+
 				}
 
 				&::before {

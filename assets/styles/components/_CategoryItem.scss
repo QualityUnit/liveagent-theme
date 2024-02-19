@@ -98,7 +98,6 @@
 .Category__item.pillar {
 
 	align-items: center;
-	background: url(../../images/bg_dots-full.png)  0 10% no-repeat;
 	background-size: 100% auto;
 	width: 100%;
 
@@ -404,19 +403,9 @@
 			align-items: flex-end;
 			position: relative;
 			height: 5em;
-
-			&::before {
-				content: "";
-				z-index: -1;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				left: 0;
-				bottom: 0;
-				background-position: bottom;
-				background-repeat: no-repeat;
-				background-size: cover;
-			}
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: bottom left;
 
 			&__image {
 				display: flex;
@@ -531,15 +520,13 @@
 		margin-top: 1.25em;
 
 		&.Category__item--features {
-			background: url(../../images/bg_circles_category_item.jpg)  center/cover no-repeat;
 			padding: 0;
 			z-index: 1;
 		}
 
 		&:hover {
-			border: 1px solid;
+			border: 1px solid $light-gray;
 			box-shadow: none;
-			border-color: $light-gray;
 		}
 
 		.Category__item {
