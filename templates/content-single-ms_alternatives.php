@@ -1,5 +1,4 @@
 <?php // @codingStandardsIgnoreLine
-set_custom_source( 'alternativesTable', 'js' );
 
 $post_meta       = get_post_meta( get_the_ID() );
 $current_lang    = apply_filters( 'wpml_current_language', null );
@@ -34,9 +33,9 @@ $page_header_args = array(
 	'toc'   => true,
 );
 
-$current_id       = apply_filters( 'wpml_object_id', $post->ID, 'ms_alternatives' );
-$categories       = get_the_terms( $current_id, 'ms_alternatives_categories' );
-$categories_url   = get_post_type_archive_link( 'ms_alternatives' );
+$current_id     = apply_filters( 'wpml_object_id', $post->ID, 'ms_alternatives' );
+$categories     = get_the_terms( $current_id, 'ms_alternatives_categories' );
+$categories_url = get_post_type_archive_link( 'ms_alternatives' );
 
 ?>
 

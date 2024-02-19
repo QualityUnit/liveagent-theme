@@ -231,9 +231,16 @@ body {
 	}
 }
 
+.tablet--only {
+
+	@media (min-width: $breakpoint-tablet-landscape ) {
+		display: none;
+	}
+}
+
 .desktop--only {
 
-	@media (max-width: ($breakpoint-tablet - 1px)) {
+	@media (max-width: ($breakpoint-desktop-box - 1px)) {
 		display: none;
 	}
 }

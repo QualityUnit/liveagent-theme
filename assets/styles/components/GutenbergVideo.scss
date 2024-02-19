@@ -10,15 +10,34 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 	overflow: hidden;
 	cursor: pointer;
 
-	*,
-	*::before,
-	*::after {
-		all: unset;
+	// Removing styles only when on page frontend, not in admin
+	// (if not set for .Content, cursor disappears in Admin)
+	.Content & {
+
+		*,
+		*::before,
+		*::after {
+			all: unset;
+		}
 	}
 
-	*:not([data-ytid]) {
-		pointer-events: none;
+	//======== FIXES FOR GUTENBERG EDITOR =========
+	.block-editor-block-list__block.wp-block-embed {
+		position: static;
 	}
+
+	.components-placeholder.wp-block-embed {
+		position: absolute;
+		background-color: rgba($white, 0.7);
+		backdrop-filter: blur(5px);
+		bottom: 0;
+
+		.components-placeholder__error {
+			display: none;
+		}
+	}
+
+	//======== END OF FIXES FOR GUTENBERG EDITOR =========
 
 	.youtube_urlslab_loader {
 		display: none;
@@ -91,10 +110,10 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 
 			&:first-child strong {
 
-				@include color(background, background);
 				font-size: 0.875rem;
 				font-weight: 700;
 				letter-spacing: 0.15em;
+				background: $primary-gradient;
 				background-clip: text;
 				color: transparent !important;
 				box-decoration-break: clone;

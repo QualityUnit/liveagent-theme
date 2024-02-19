@@ -21,6 +21,7 @@ add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 function components_imports( $content ) {
 	$blocks = array(
 		'AlternativeTable'              => 'components/AlternativeTable',
+		'table'                         => 'components/Table',
 		'SoftphoneTable'                => 'components/SoftphoneTable',
 		'BlockPoints'                   => 'components/BlockPoints',
 		'FeaturesTableNew'              => 'components/FeaturesTable-New',

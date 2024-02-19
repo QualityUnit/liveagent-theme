@@ -1,12 +1,17 @@
-const tables = document.querySelectorAll( 'body.alternatives.single table' );
+const tables = document.querySelectorAll( 'figure.wp-block-table table' );
 
 if ( tables.length ) {
 	const hasTooltip = new RegExp( /(.+?)<i>(.+?)<\/i>/gi );
 
 	tables.forEach( ( table ) => {
 		const tr = table.querySelectorAll( 'tr' );
+		const colspanRows = table.querySelectorAll( 'tbody tr td[colspan]:first-child' );
 
-		//sets class and rating CSS variable
+		if ( colspanRows?.length ) {
+			table.classList.add( 'hasColspanGroups' );
+		}
+
+		//sets class and rating CSS variable for Alternative table
 		const ratings = tr[ 1 ].querySelectorAll( 'td:not(:empty):not(:first-of-type)' );
 		tr[ 1 ].classList.add( 'stars' );
 
@@ -18,8 +23,8 @@ if ( tables.length ) {
 
 		//Sets check or crossover for Y or N vals
 		for ( let i = 0; i <= tr.length; i++ ) {
-			const headers = tr[ 0 ].querySelectorAll( 'th:not(:first-of-type)' );
-			const vals = tr[ i + 1 ] && tr[ i + 1 ].querySelectorAll( 'td:not(:first-of-type)' );
+			const headers = tr[ 0 ].querySelectorAll( 'th' );
+			const vals = tr[ i + 1 ] && tr[ i + 1 ].querySelectorAll( 'td' );
 			const allCells = tr[ i ] && tr[ i ].querySelectorAll( 'td, th' );
 
 			if ( allCells?.length ) {
@@ -38,7 +43,7 @@ if ( tables.length ) {
 
 			if ( vals?.length ) {
 				vals.forEach( ( val, index ) => {
-					if ( val.textContent === 'y' ) {
+					if ( val.textContent === 'y' || val.textContent === 'Yes' ) {
 						val.textContent = null;
 						val.classList.add( 'icn-after-check' );
 						val.insertAdjacentHTML( 'afterbegin', `
@@ -47,7 +52,7 @@ if ( tables.length ) {
 							</svg>`
 						);
 					}
-					if ( val.textContent === 'n' ) {
+					if ( val.textContent === 'n' || val.textContent === 'No' ) {
 						val.textContent = null;
 						val.classList.add( 'icn-after-close' );
 						val.insertAdjacentHTML( 'afterbegin', `
@@ -57,8 +62,23 @@ if ( tables.length ) {
 						);
 					}
 
-					val.insertAdjacentHTML( 'afterbegin', `<div class="mobile--only AlternativeName">${ headers[ index ].innerHTML }</div>` );
+					if ( headers[ index ].innerHTML ) {
+						val.insertAdjacentHTML( 'afterbegin', `<div class="tablet--only MobileHeader">${ headers[ index ].innerHTML }</div>` );
+					}
+
+					if ( ! headers[ index ].innerHTML ) {
+						val.classList.add( 'MobileHeader__top' );
+					}
 				} );
+			}
+		}
+
+		// Adds Class to odd tr with td[colspan] + tr for background
+		for ( let i = 0; i <= colspanRows.length; i++ ) {
+			if ( i % 2 === 1 ) {
+				const isOddGroup = colspanRows[ i ]?.closest( 'tr' );
+				isOddGroup.classList.add( 'oddGroup' );
+				isOddGroup.nextElementSibling.classList.add( 'oddGroup' );
 			}
 		}
 	} );

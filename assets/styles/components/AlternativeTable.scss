@@ -6,67 +6,8 @@
 body.alternatives.single {
 
 	figure.wp-block-table {
-		width: 100%;
-		max-width: none;
-
-		table,
-		tbody {
-
-			@media (max-width: ($breakpoint-tablet - 1px)) {
-				display: block;
-				width: 100%;
-				border-radius: 1rem;
-				overflow: hidden;
-			}
-		}
-
-		tr,
-		td {
-			padding: 0;
-			border: none;
-		}
-
-		thead {
-			border-bottom: none;
-
-			tr {
-				font-weight: 700;
-
-				th {
-					border-right: 1px solid $light-gray;
-					border-bottom: 1px solid $light-gray;
-
-					&:first-of-type {
-						border-left: none;
-						border-top: none;
-
-						* {
-							display: none;
-						}
-					}
-
-					svg {
-						fill: $black !important;
-					}
-
-				}
-
-				@media (max-width: ($breakpoint-tablet - 1px)) {
-					display: none;
-				}
-			}
-		}
 
 		tbody tr {
-			border-right: 1px solid $light-gray;
-
-			&:last-of-type {
-				border-bottom: 1px solid $light-gray;
-			}
-
-			@media (max-width: ($breakpoint-tablet - 1px)) {
-				display: block;
-			}
 
 			&.stars td:not(:first-of-type):not(:empty) {
 
@@ -83,105 +24,20 @@ body.alternatives.single {
 					-webkit-text-fill-color: transparent;
 				}
 			}
-
-			@media (min-width: $breakpoint-tablet) {
-
-				&:nth-of-type(odd) {
-					background-color: $lightest-gray;
-				}
-
-				&:last-of-type {
-
-					td:first-of-type {
-						border-bottom-left-radius: 16px;
-					}
-				}
-			}
-
 		}
 
 
 		td,
 		th {
-			padding: 0.75em;
-			vertical-align: middle;
-			border-left: 1px solid $light-gray;
-			border-top: 1px solid $light-gray;
-
-			&.hasTooltip,
-			.AlternativeName {
-
-				svg {
-					margin-left: 0.25em;
-					fill: $light-gray-icon;
-				}
-			}
-
-			.AlternativeName {
-				position: relative;
-				width: 8em;
-				margin-right: 1em;
-
-				&::after {
-					content: "";
-					display: block;
-					position: absolute;
-					top: -0.75em;
-					right: 0;
-					bottom: -0.75em;
-					border-right: 1px solid $light-gray;
-				}
-			}
 
 			&:nth-of-type(2) {
 				background-color: $medium-orange;
-			}
-
-			@media (max-width: ($breakpoint-tablet - 1px)) {
-				display: flex;
-				align-items: center;
-
-				&:first-of-type {
-					background-color: $medium-gray-inputs;
-					font-weight: 600;
-				}
-
-				&:nth-of-type(even) {
-					background-color: $lightest-gray;
-				}
-
-				&.hasTooltip {
-
-					svg {
-						fill: $black;
-					}
-				}
 			}
 
 			@media (min-width: $breakpoint-tablet) {
 
 				&:not(:first-of-type) {
 					text-align: center;
-				}
-			}
-		}
-
-		svg {
-
-			@include square(1em);
-
-			&.icon {
-
-				&-check {
-
-					@include square(1em);
-					fill: $saturated-green;
-				}
-
-				&-close {
-
-					@include square(0.875em);
-					fill: $saturated-red;
 				}
 			}
 		}
