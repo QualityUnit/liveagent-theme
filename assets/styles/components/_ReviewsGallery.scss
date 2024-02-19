@@ -9,7 +9,6 @@
 	.splide__arrow {
 
 		@include square(2.125rem, !important);
-		top: calc(50% - 2rem);
 		border-radius: 50%;
 		background-color: rgba($dark-gray, 0.7) !important;
 
@@ -50,6 +49,10 @@
 	}
 
 	&--main {
+
+		.splide__arrow {
+			top: calc(50% - 2rem);
+		}
 
 		.splide__slide {
 			width: 100%;

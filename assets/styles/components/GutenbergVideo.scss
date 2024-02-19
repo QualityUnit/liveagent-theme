@@ -1,0 +1,142 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, scss/at-extend-no-missing-placeholder */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.GutenbergVideo {
+	position: relative;
+	border-radius: 1rem;
+	overflow: hidden;
+	cursor: pointer;
+
+	// Removing styles only when on page frontend, not in admin
+	// (if not set for .Content, cursor disappears in Admin)
+	.Content & {
+
+		*,
+		*::before,
+		*::after {
+			all: unset;
+		}
+	}
+
+	//======== FIXES FOR GUTENBERG EDITOR =========
+	.block-editor-block-list__block.wp-block-embed {
+		position: static;
+	}
+
+	.components-placeholder.wp-block-embed {
+		position: absolute;
+		background-color: rgba($white, 0.7);
+		backdrop-filter: blur(5px);
+		bottom: 0;
+
+		.components-placeholder__error {
+			display: none;
+		}
+	}
+
+	//======== END OF FIXES FOR GUTENBERG EDITOR =========
+
+	.youtube_urlslab_loader {
+		display: none;
+	}
+
+	.wp-block-media-text {
+		display: block;
+		text-align: center;
+		height: 0;
+		padding-bottom: 66.66%;
+
+		[class*="wp-block-media"] {
+
+			@include posZero;
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		&__media {
+			filter: blur(0.1em);
+
+			&::before {
+
+				@include posZero;
+				position: absolute;
+				content: "";
+				background: linear-gradient(35deg, $black-real, rgba($black-real, 0.5));
+				opacity: 0.7;
+			}
+		}
+
+		.wp-block-heading {
+			font-size: 2rem;
+			line-height: 1.25;
+			font-weight: 700;
+			width: 75%;
+			margin: 0.5em auto;
+
+			.highlight {
+				display: inline-block;
+				color: $dark-orange !important;
+				clear: left;
+			}
+		}
+
+		> *:last-child {
+			display: flex;
+			flex-direction: column;
+
+			&::after {
+				display: block;
+				content: url(../../images/press_to_play_horizontal.svg?ver=#{$version});
+				width: 65%;
+				margin-top: 2em;
+				margin-left: auto;
+			}
+		}
+
+		.wp-block-heading,
+		p {
+			display: block;
+			color: $white;
+
+			a {
+				color: currentcolor;
+				text-decoration: none;
+			}
+
+			&:first-child strong {
+
+				font-size: 0.875rem;
+				font-weight: 700;
+				letter-spacing: 0.15em;
+				background: $primary-gradient;
+				background-clip: text;
+				color: transparent !important;
+				box-decoration-break: clone;
+			}
+		}
+
+	}
+
+	[data-ytid] {
+
+		@include posZero;
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+
+		&::after {
+			content: "";
+			display: block;
+			margin: auto auto 1em;
+			background: url(../../images/play_bar.svg?ver#{$version}) center center no-repeat;
+			background-size: contain;
+			width: calc(100% - 2em);
+			height: 2em;
+		}
+	}
+}

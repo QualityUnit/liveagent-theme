@@ -69,7 +69,7 @@ body.compact-header--active {
 			padding-bottom: 52%;
 			border-radius: $border-radius-16;
 			border: 1px solid $light-gray;
-			.#{$class-name}__img {
+			.#{$class-name}__img, .urlslab-screenshot-container img {
 
 				@include square(100%);
 				position: absolute;
@@ -673,7 +673,8 @@ body.compact-header--active {
 			}
 		}
 
-		&__image {
+		&__image,
+		.urlslab-screenshot-container {
 			margin: 0.5em 0 1.125em 0;
 		}
 

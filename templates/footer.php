@@ -1,7 +1,10 @@
 <?php
 wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-$footer_bg = get_template_directory_uri() . '/assets/images/footer-bg.svg';
-?>
+
+if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-proposal' ) ) ) {
+	echo do_shortcode( '[good-hands-redesign]' );
+	$footer_bg = get_template_directory_uri() . '/assets/images/footer-bg.svg';
+	?>
 
 <footer class="Footer urlslab-skip-keywords urlslab-skip-fragment" data-scrollsidebars="true" style="background-image: url(<?= esc_url( $footer_bg ) ?>)">
 	<div class="Footer__top">
@@ -155,6 +158,8 @@ $footer_bg = get_template_directory_uri() . '/assets/images/footer-bg.svg';
 		</div>
 	</div>
 </footer>
+
+<?php } ?>
 
 <div id="loader" class="invisible urlslab-skip-all">
 	<div class="loaderIn">

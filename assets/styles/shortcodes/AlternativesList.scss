@@ -1,0 +1,102 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Alternatives__list {
+	max-width: $breakpoint-desktop;
+	margin: 1.5em auto;
+	padding: 0 1.5em;
+	columns: 2;
+	column-gap: 1.5em;
+
+	.Alternative {
+		break-inside: avoid-column;
+
+		+ li {
+			margin-top: 0.75em;
+		}
+
+		&__inn {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+
+			padding: 0.875em 1em;
+			text-decoration: none;
+			background: $lightest-gray;
+			border-radius: 10px;
+			height: 5em;
+
+			@media (hover: hover) {
+
+				&:hover {
+
+					@include color(background, background);
+					color: $white;
+					text-decoration: none;
+
+					.Alternative__icon path {
+						fill: currentcolor;
+					}
+				}
+			}
+		}
+
+		&__title {
+			font-size: 0.875rem;
+			font-weight: 600;
+			margin: 0;
+			color: currentcolor;
+		}
+
+		&__excerpt {
+			font-size: 0.75rem;
+			line-height: 1.5;
+			color: currentcolor;
+			margin: 0;
+		}
+
+		&__arrow {
+
+			@include square(0.875em);
+			margin-left: auto;
+			fill: currentcolor;
+		}
+	}
+
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+
+		.Alternative {
+
+			&__icon,
+			&__excerpt {
+				display: none;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		columns: 3;
+		column-gap: 1.5em;
+		padding: 0;
+
+		.Alternative {
+
+			&__icon {
+
+				@include square(1.25em);
+				flex-shrink: 0;
+				margin-right: 1em;
+
+				&.hasExcerpt {
+					margin-bottom: auto;
+				}
+			}
+
+			&__content {
+				padding-right: 2em;
+			}
+		}
+	}
+}
