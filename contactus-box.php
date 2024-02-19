@@ -90,16 +90,13 @@
 				</span>
 			</li>
 			<li class="ContactUs__menu--item">
-				<a href="https://m.me/LiveAgent/" class="ContactUs__menu--link violet" data-close-target="contactUsMenu" rel="nofollow noopener external">
-					Messenger
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" />
-				</a>
+			 <button class="ContactUs__menu--link violet" onclick="contactUsMessenger();" data-close-target="contactUsMenu" rel="nofollow noopener external">Messenger<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" /></button>
 			</li>
 			<li class="ContactUs__menu--item whatsapp">
-				<a href="#"  class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener external">
+				<button class="ContactUs__menu--link green" data-message="<?= esc_attr( __( 'Hi! I am contacting you from ', 'ms' ) . get_permalink() . __( ' and I am contacting you about...', 'ms' ) ); ?>" onclick="contactUsWhatsApp(this);" data-close-target="contactUsMenu"  rel="nofollow noopener external">
 					Whatsapp
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" />
-				</a>
+				</button>
 			</li>
 			<li class="ContactUs__menu--item">
 				<div class="ContactUs__menu--link fakeChatButton hidden">
@@ -116,15 +113,15 @@
 </div>
 
 <script>
-	document.addEventListener("DOMContentLoaded", function() {
-		var button = document.querySelector(".ContactUs .ContactUs__button");
-		var link = document.querySelector(".ContactUs__menu--item.whatsapp .ContactUs__menu--link");
-		var text = "Hi! I am contacting you from " + window.location.href + ", and I am contacting you about...";
-		var number = "17862041375";
+	function contactUsWhatsApp( element ) {
+		const message = element.getAttribute( 'data-message' );
+		const number = '17862041375';
+		const whatsappLink = 'https://wa.me/' + number + '?text=' + encodeURIComponent( message );
 
-		button.addEventListener("click", function() {
-			var whatsappLink = "https://wa.me/" + number + "?text=" + encodeURIComponent(text);
-			link.href = whatsappLink;
-		});
-	});
+		window.open( whatsappLink, '_blank' );
+	}
+	function contactUsMessenger() {
+		const facebookLink = 'https://m.me/LiveAgent/';
+		window.open( facebookLink, '_blank' );
+	}
 </script>

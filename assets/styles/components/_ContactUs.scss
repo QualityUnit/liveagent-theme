@@ -280,8 +280,11 @@ $colors: (
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
+			width: 100%;
+			height: auto;
 			padding: 0.25em 1em 0.25em 0.25em;
 			border-radius: $border-radius-16;
+			font-size: 1rem;
 			font-weight: $font-weight-semi;
 			font-family: $font-secondary;
 			color: $black-real;
@@ -291,6 +294,7 @@ $colors: (
 			transition: all 0.25s 0.15s;
 			z-index: 1;
 			cursor: pointer;
+
 
 			&::after {
 				content: "";

@@ -1,4 +1,5 @@
 <?php
+set_custom_source( 'socialShareFunctions', 'js' );
 global $post;
 $page_header_args = array(
 	'image' => array(
@@ -49,22 +50,22 @@ if ( isset( $categories ) ) {
 
 					<div class="BlogPost__share__items">
 						<div class="BlogPost__share__items__item">
-							<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs"
+							<button data-permalink="<?= esc_attr( get_permalink() ) ?>" onclick="shareOnFacebook(this);" itemprop="sameAs"
 								title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Facebook', 'ms' ); ?>">
 								<i class="fontello-facebook-f-brands"></i>
-							</a>
+							</button>
 						</div>
 						<div class="BlogPost__share__items__item">
-							<a href="https://twitter.com/share?url=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs"
+							<button data-permalink="<?= esc_attr( get_permalink() ) ?>" onclick="shareOnTwitter(this);" itemprop="sameAs"
 								title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Twitter', 'ms' ); ?>">
 								<i class="fontello-twitter-brands"></i>
-							</a>
+							</button>
 						</div>
 						<div class="BlogPost__share__items__item">
-							<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs"
+							<button data-permalink="<?= esc_attr( get_permalink() ) ?>" onclick="shareOnLinkedin(this);" itemprop="sameAs"
 								title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'LinkedIn', 'ms' ); ?>">
 								<i class="fontello-linkedin-in-brands"></i>
-							</a>
+							</button>
 						</div>
 					</div>
 				</div>
