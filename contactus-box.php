@@ -1,7 +1,7 @@
 <?php
-	set_custom_source( 'contactUsFunctions', 'js' );
 	$icons     = get_template_directory_uri() . '/assets/images/contact/';
 	require_once get_template_directory() . '/chat-button.php';
+//  set_custom_source( 'contactUsFunctions', 'js' );
 ?>
 
 <div class="ContactUs__form hidden" data-targetId="contactUsForm">
@@ -91,13 +91,10 @@
 				</span>
 			</li>
 			<li class="ContactUs__menu--item">
-				<button class="ContactUs__menu--link violet" onclick="contactUsMessenger();" data-close-target="contactUsMenu" rel="nofollow noopener external">
-					Messenger
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" />
-				</button>
+			 <button class="ContactUs__menu--link violet" onclick="contactUsMessenger();" data-close-target="contactUsMenu" rel="nofollow noopener external">Messenger<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" /></button>
 			</li>
 			<li class="ContactUs__menu--item whatsapp">
-				<button class="ContactUs__menu--link green" onclick="contactUsWhatsApp();" data-close-target="contactUsMenu"  rel="nofollow noopener external">
+				<button class="ContactUs__menu--link green" data-message="<?= esc_attr( __( 'Hi! I am contacting you from ', 'ms' ) . get_permalink() . __( ' and I am contacting you about...', 'ms' ) ); ?>" onclick="contactUsWhatsApp(this);" data-close-target="contactUsMenu"  rel="nofollow noopener external">
 					Whatsapp
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" />
 				</button>
@@ -116,3 +113,16 @@
 	</nav>
 </div>
 
+<script>
+	function contactUsWhatsApp( element ) {
+		const message = element.getAttribute( 'data-message' );
+		const number = '17862041375';
+		const whatsappLink = 'https://wa.me/' + number + '?text=' + encodeURIComponent( message );
+
+		window.open( whatsappLink, '_blank' );
+	}
+	function contactUsMessenger() {
+		const facebookLink = 'https://m.me/LiveAgent/';
+		window.open( facebookLink, '_blank' );
+	}
+</script>
