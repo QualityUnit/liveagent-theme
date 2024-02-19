@@ -1,7 +1,6 @@
 <?php
 	$icons     = get_template_directory_uri() . '/assets/images/contact/';
 	require_once get_template_directory() . '/chat-button.php';
-//  set_custom_source( 'contactUsFunctions', 'js' );
 ?>
 
 <div class="ContactUs__form hidden" data-targetId="contactUsForm">
