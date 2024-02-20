@@ -153,17 +153,11 @@ add_filter( 'the_content', 'add_lightbox_rel' );
 
 
 /**
-	* Add X-DEFAULT Header
-	*/
+ * Remove rel next and prev
+ */
 
-function wps_head_hreflang_xdefault( $url, $lang_code ) {
-	if ( apply_filters( 'wpml_default_language', null ) === $lang_code ) {
-		echo '<link rel="alternate" href="' . esc_url( $url ) . '" hreflang="x-default" />';
-	}
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 
-	return $url;
-}
-add_filter( 'wpml_alternate_hreflang', 'wps_head_hreflang_xdefault', 10, 2 );
 
 
 /**
