@@ -22,8 +22,8 @@ function ms_expert_note( $atts ) {
 		<div class="ExpertNote__agent" itemprop="author" itemscope itemtype="https://schema.org/Person">
 			<div class="ExpertNote__agent--inn">
 				<div class="ExpertNote__agent--info">
-					<span class="ExpertNote__agent--name" itemprop="name"><?= esc_html( __( $atts['name'], 'ms' ) ); ?></span>
-					<strong class="ExpertNote__agent--position" itemprop="jobTitle"><?= esc_html( __( $atts['position'], 'ms' ) ); ?></strong>
+					<span class="ExpertNote__agent--name" itemprop="name"><?= esc_html( $atts['name'] ); ?></span>
+					<strong class="ExpertNote__agent--position" itemprop="jobTitle"><?= esc_html( $atts['position'] ); ?></strong>
 				</div>
 				<img class="ExpertNote__agent--image" itemprop="image" src="<?= esc_url( $atts['photo'] ); ?>" alt="<?php _e( 'Andrej Saxon', 'ms' ); ?>" >
 			</div>
