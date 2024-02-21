@@ -25,7 +25,7 @@ function ms_expert_note( $atts ) {
 					<span class="ExpertNote__agent--name" itemprop="name"><?= esc_html( $atts['name'] ); ?></span>
 					<strong class="ExpertNote__agent--position" itemprop="jobTitle"><?= esc_html( $atts['position'] ); ?></strong>
 				</div>
-				<img class="ExpertNote__agent--image" itemprop="image" src="<?= esc_url( $atts['photo'] ); ?>" alt="<?php _e( 'Andrej Saxon', 'ms' ); ?>" >
+				<img class="ExpertNote__agent--image" itemprop="image" src="<?= esc_url( $atts['photo'] ); ?>" alt="<?= esc_attr( $atts['name'] ); ?>" >
 			</div>
 		</div>
 	</div>
