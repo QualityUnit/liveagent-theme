@@ -32,7 +32,7 @@ function ms_expert_note( $atts ) {
 
 		<?php
 	}
+	set_custom_source( 'shortcodes/ExpertNote', 'css' );
 	return ob_get_clean();
 }
-set_custom_source( 'shortcodes/ExpertNote', 'css' );
 add_shortcode( 'expert-note', 'ms_expert_note' );
