@@ -12,7 +12,7 @@ function ms_expert_note( $atts ) {
 			'expert-note'
 		);
 		ob_start();
-	if ( empty( $shortcode_text ) ) {
+	if ( ! empty( $shortcode_text ) ) {
 		?>
 
 	<div class="ExpertNote" itemprop="comment" itemscope itemtype="https://schema.org/Comment">
