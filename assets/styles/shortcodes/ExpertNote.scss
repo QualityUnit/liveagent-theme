@@ -1,0 +1,61 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.ExpertNote {
+	background-color: $lightest-gray;
+	border-radius: 1rem;
+	padding: 2em;
+	margin: 3em auto;
+
+	&__title {
+		display: flex;
+		align-items: center;
+		font-size: 1rem;
+		font-weight: 500;
+		color: $primary;
+		text-transform: uppercase;
+		letter-spacing: 0.125em;
+
+		&[class] {
+			margin: 0;
+			margin-bottom: 2em;
+		}
+
+		&--badge[class] {
+
+			@include square(2em);
+			margin-right: 0.75em;
+		}
+	}
+
+	&__agent {
+		border-top: 3px solid $light-gray;
+		display: flex;
+		padding-top: 1.5em;
+
+		&--inn {
+			display: flex;
+			align-items: center;
+			margin-left: auto;
+		}
+
+		&--info {
+			font-size: 0.875rem;
+			text-align: right;
+			margin-right: 1.25em;
+
+			> * {
+				display: block;
+			}
+		}
+
+		&--image {
+
+			@include square(3.75em);
+			border-radius: 50%;
+			border: 0.25em solid $primary;
+		}
+	}
+}
