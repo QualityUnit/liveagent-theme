@@ -11,18 +11,30 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 	const { origin, pathname } = window.location;
 	const locationServer = origin;
 
-	// Finding if we are in blog subcategory, ie. /blog/support
-	const pathFragments = pathname.split( '/' ).filter( ( fragment ) => {
-		return fragment !== '';
-	} );
+	const pathFragments = pathname.split( '/' ).filter( ( fragment ) => fragment !== '' );
 
-	// URLs we would fetch
-	const postsUrl = `${ locationServer }/wp-json/wp/v2/blog/cat_id=1`;
+	let postsUrl;
+
 	const categoriesUrl = `${ locationServer }/wp-json/wp/v2/blog/cat_slug=`;
+
+	if ( pathFragments[ 0 ] === 'author' && pathFragments.length === 2 ) {
+		const bodyClasses = document.body.className;
+		const authorIdMatch = bodyClasses.match( /author-(\d+)/ );
+		if ( authorIdMatch ) {
+			const authorId = authorIdMatch[ 1 ];
+			postsUrl = `${ locationServer }/wp-json/wp/v2/blog/cat_id=1&author_id=${ authorId }`;
+		}
+	} else {
+		postsUrl = `${ locationServer }/wp-json/wp/v2/blog/cat_id=1`;
+		if ( pathFragments[ 0 ] === 'blog' && pathFragments.length === 2 ) {
+			const categorySlug = pathFragments[ 1 ];
+			postsUrl = categoriesUrl + categorySlug;
+		}
+	}
 
 	const loader = document.querySelector( '.Blog__items__loading' );
 
-	let page = 1; // We start at 1st page and then add +1 in Observer as we have first 9 posts loaded statically in PHP
+	let page = 1; // Start on the first page, increment in the observer
 
 	// Main fetch function to get posts
 	const getPosts = async ( url ) => {
@@ -74,7 +86,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 		.join( '' ) }
 										</span>
 									</div>
-	
+
 									<div class="Blog__item__meta__date">
 										<svg viewBox="0 0 11 12" xmlns="http://www.w3.org/2000/svg">
 											<path d="M8.556 5.4H2.444v1.2h6.112V5.4Zm1.222-4.2h-.611V0H7.944v1.2H3.056V0H1.833v1.2h-.61c-.68 0-1.217.54-1.217 1.2L0 10.8c0 .66.544 1.2 1.222 1.2h8.556C10.45 12 11 11.46 11 10.8V2.4c0-.66-.55-1.2-1.222-1.2Zm0 9.6H1.222V4.2h8.556v6.6Zm-3.056-3H2.444V9h4.278V7.8Z"></path>
@@ -84,7 +96,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 											</span>
 									</div>
 								</div>
-	
+
 								<h3 class="Blog__item__title" itemprop="name">${ title }</h3>
 								<p itemprop="abstract">
 									${ excerpt }
@@ -116,14 +128,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 				loader.classList.remove( 'invisible' );
 
 				// Fetching the blog posts from custom REST API endpoint
-				getPosts(
-					// If in subcategory of blog, ie. /blog/support, fetch categoriesUrl instead
-					`${
-						pathFragments.length === 2
-							? categoriesUrl + pathFragments[ 1 ]
-							: postsUrl
-					}&page=${ page }`
-				).then( ( data ) => {
+				getPosts( `${ postsUrl }&page=${ page }` ).then( ( data ) => {
 					if ( data ) {
 						loader.classList.add( 'invisible' );
 
