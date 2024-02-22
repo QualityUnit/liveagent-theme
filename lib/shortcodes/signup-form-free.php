@@ -76,7 +76,7 @@ function ms_signup_form_free() {
 					<div class="WorkingPanel" style="display: none;">
 						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
 					</div>
-					<sapn><?php _e( 'Create FREE account', 'ms' ); ?></sapn>
+					<span><?php _e( 'Create FREE account', 'ms' ); ?></span>
 				</div>
 
 				<div class="Signup__form__terms">
