@@ -190,8 +190,14 @@ body.demo {
 			}
 		}
 
-		iframe {
+		iframe,
+		.ScheduleForm .elementor-widget-html {
 			width: 100% !important;
+			height: 760px;
+
+			@media (min-width: $breakpoint-tablet) {
+				height: 592px;
+			}
 		}
 
 		.elementor-section .elementor-container {
