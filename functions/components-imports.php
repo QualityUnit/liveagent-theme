@@ -23,6 +23,7 @@ function components_imports( $content ) {
 		'table'                         => 'components/Table',
 		'SoftphoneTable'                => 'components/SoftphoneTable',
 		'BlockPoints'                   => 'components/BlockPoints',
+		'BlogCTA'                       => 'components/BlogCTA',
 		'FeaturesTableNew'              => 'components/FeaturesTable-New',
 		'HeroBanner'                    => 'components/HeroBanner',
 		'Block--video'                  => 'components/BlockVideo',

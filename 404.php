@@ -1,3 +1,6 @@
+<?php // @codingStandardsIgnoreLine
+set_custom_source( 'layouts/ErrorPage', 'css', false, false );
+?>
 <div class="ErrorPage">
 	<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/background-404.svg" alt="<?php _e( 'Error 404', 'ms' ); ?>">
 

@@ -1,6 +1,13 @@
 <?php
 
 /**
+ * Remove Yoast Next/Prev rel
+ */
+
+add_filter( 'wpseo_next_rel_link', '__return_false' );
+add_filter( 'wpseo_prev_rel_link', '__return_false' );
+
+/**
   * Remove jQuery Migrate
   */
 
