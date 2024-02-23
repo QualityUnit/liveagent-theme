@@ -9,7 +9,6 @@ function icontabs_sources( $content ) {
 
 	if ( $icontabs_block || is_user_logged_in() ) {
 		wp_enqueue_style( 'icontabs', get_template_directory_uri() . '/assets/dist/components/IconTabs' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-		wp_enqueue_script( 'icontabs', get_template_directory_uri() . '/assets/dist/IconTabs' . wpenv() . '.js', false, THEME_VERSION, true );
 	}
 		return $content;
 }
@@ -36,6 +35,18 @@ function components_imports( $content ) {
 		'urlslab-block-tableofcontents' => 'components/UrlslabTOC',
 	);
 
+	// Array value in form of array, first is script name, second is dependency id
+	$scripts = array(
+		'/\<section.+class=".+IconTabs.+/' => array( 'IconTabs' ),
+		'[data-lightbox="gallery"]'        => array( 'splide' ),
+		'[data-lightbox="youtube"]'        => array( 'splide' ),
+		'/data-lightbox="gallery/'         => array( 'custom_lightbox', 'splide' ),
+		'/data-lightbox="youtube/'         => array( 'custom_lightbox_youtube', 'splide' ),
+		'/class=.+Block--video/'           => array( 'custom_lightbox_youtube', 'splide' ),
+		'/class=.+GutenbergVideo/'         => array( 'custom_lightbox_youtube', 'splide' ),
+		'/\<table.+/'                      => array( 'responsiveTable' ),
+	);
+
 	if ( ! $content ) {
 		return $content;
 	}
@@ -52,6 +63,13 @@ function components_imports( $content ) {
 	
 		if ( isset( $found_blocks[0] ) || is_user_logged_in() ) {
 			wp_enqueue_style( $id, get_template_directory_uri() . '/assets/dist/' . $csspath . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
+	}
+
+	foreach ( $scripts as $selector => $runscript ) {
+		$found_blocks = preg_match( $selector, $content );
+		if ( $found_blocks || is_user_logged_in() ) {
+			set_custom_source( $runscript[0], 'js', isset( $runscript[1] ) );
 		}
 	}
 

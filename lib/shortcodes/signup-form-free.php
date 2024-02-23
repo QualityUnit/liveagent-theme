@@ -159,8 +159,9 @@ function ms_signup_form_free() {
 	<?php // @codingStandardsIgnoreEnd ?>
 
 	<?php
-	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js', array( 'jquery' ), THEME_VERSION, true );
-	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
+	wp_enqueue_script( 'jquery', includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION, array(), THEME_VERSION, true );
+	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie' . wpenv() . '.js', array( 'jquery' ), THEME_VERSION, true );
+	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum' . wpenv() . '.js', array( 'jquery' ), THEME_VERSION, true );
 	set_custom_source( 'components/Signup' );
 	set_custom_source( 'filterMenu', 'js' );
 	return ob_get_clean();

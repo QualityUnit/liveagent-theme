@@ -1,6 +1,7 @@
-/* global Splide, body */
+/* global Splide */
 
 const gallery = document.querySelectorAll( '[data-lightbox="gallery"]' );
+const body = document.querySelector( 'body' );
 
 function removeLightboxModal( event, target ) {
 	const lightboxTarget = target;

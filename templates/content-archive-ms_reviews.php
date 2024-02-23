@@ -168,10 +168,8 @@ if ( isset( $subpage->slug ) ) {
 
 			set_custom_source( 'pages/post', 'css' );
 			set_custom_source( 'components/SidebarTOC', 'css' );
-			set_custom_source( 'components/SignupSidebar', 'css' );
 			set_custom_source( 'common/splide', 'css' );
 			set_custom_source( 'splide', 'js' );
-			set_custom_source( 'custom_lightbox', 'js' );
 			?>
 
 		<div class="Post Post--sidebar-right">

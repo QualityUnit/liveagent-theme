@@ -4,12 +4,12 @@ function ms_signup_form_simple( $atts ) {
 
 	$atts = shortcode_atts(
 		array(
-			'title' => wp_kses(
+			'title'   => wp_kses(
 				__( '<strong>Try LiveAgent,</strong> best rated cloud-based Help Desk Software for free', 'ms' ),
 				array( 'strong' => array() )
 			),
-			'button'   => __( 'Create account for FREE', 'ms' ),
-			'trusted'  => __( 'Trusted by the best', 'ms' ),
+			'button'  => __( 'Create account for FREE', 'ms' ),
+			'trusted' => __( 'Trusted by the best', 'ms' ),
 		),
 		$atts,
 		'signupform-simple'
@@ -195,8 +195,9 @@ function ms_signup_form_simple( $atts ) {
 
 	<?php // @codingStandardsIgnoreEnd ?>
 	<?php
-	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js', array( 'jquery' ), THEME_VERSION, true );
-	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
+	wp_enqueue_script( 'jquery', includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION, array(), THEME_VERSION, true );
+	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie' . wpenv() . '.js', array( 'jquery' ), THEME_VERSION, true );
+	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum' . wpenv() . '.js', array( 'jquery' ), THEME_VERSION, true );
 	set_custom_source( 'components/Signup' );
 	set_custom_source( 'filterMenu', 'js' );
 	return ob_get_clean();

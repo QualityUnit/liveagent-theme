@@ -5,8 +5,20 @@
 //todo: content-archive-ms_reviews.php ... zobrazovat $whatis_post?
 
 // Note: CSS was moved to assets.php because of CLS Web Vital
+function inline_compact_header() {
+		ob_start();
+		include get_template_directory() . '/assets/dist/components/compactHeader' . isrtl() . '.min.css';
+		include get_template_directory() . '/assets/dist/components/Filter' . isrtl() . '.min.css';
+		$css = ob_get_clean();
 
+		// return the stored style
+	if ( $css != '' ) {
+		echo '<style id="compactheader-css" type="text/css">' . $css . '</style>';
+	}
+};
+inline_compact_header();
 ?>
+<?php set_custom_source( 'filterMenu', 'js' ); ?>
 <?php set_custom_source( 'filterMenu', 'js' ); ?>
 <?php set_custom_source( 'sortingMenu', 'js' ); ?>
 <?php set_custom_source( 'compactHeader', 'js' ); ?>
@@ -216,7 +228,7 @@
 					<?php
 					$image = $args['image'];
 					?>
-					<?php if ( isset( $image['src'] ) || isset( $image['screenshot'] ) ) { ?>
+					<?php if ( ! is_mobile() && ( isset( $image['src'] ) || isset( $image['screenshot'] ) ) ) { ?>
 						<div class="compact-header__image">
 							<?php 
 							if ( isset( $image['src'] ) ) {

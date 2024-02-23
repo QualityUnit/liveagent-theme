@@ -109,6 +109,7 @@ function callback( $buffer ) {
 
 	// WP Scripts
 	$buffer = preg_replace( '/<script[^\≤]+dist\/vendor\/wp-polyfill[^\≤]+>/', '', $buffer );
+	$buffer = preg_replace( '/<link[^\≤]+dist\/block-library\/style[^\≤]+>/', '', $buffer );
 
 	// JS for Babel async transpiling for old browsers like IE
 	$buffer = preg_replace( '/<script[^\≤]+dist\/vendor\/regenerator-runtime[^\≤]+>/', '', $buffer );
@@ -127,9 +128,24 @@ function buffer_end() {
 	ob_get_clean();
 }
 
+function remove_default_jquery() {
+		wp_dequeue_script( 'jquery' );
+		wp_deregister_script( 'jquery' );   
+		wp_dequeue_script( 'jquery-ui-core' );
+		wp_deregister_script( 'jquery-ui-core' );
+}
+
+function remove_wpml_styles() {
+	wp_dequeue_style( 'wpml-blocks' );
+	wp_deregister_style( 'wpml-blocks' );
+}
+
 if ( ! is_user_logged_in() ) {
 	add_action( 'after_setup_theme', 'buffer_start' );
 	add_action( 'shutdown', 'buffer_end' );
+
+	add_filter( 'wp_enqueue_scripts', 'remove_default_jquery', PHP_INT_MAX );
+	add_filter( 'wp_enqueue_scripts', 'remove_wpml_styles', PHP_INT_MAX );
 }
 /**
 	* Defer all JS

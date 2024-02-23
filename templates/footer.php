@@ -1,4 +1,5 @@
 <?php
+// set_custom_source( 'Footer', 'css', false, true );
 wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 
 if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-proposal' ) ) ) {

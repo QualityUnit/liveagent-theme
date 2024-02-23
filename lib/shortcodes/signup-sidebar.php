@@ -1,7 +1,7 @@
 <?php
 
 function ms_signup_sidebar( $atts ) {
-	$atts = shortcode_atts(
+	$atts            = shortcode_atts(
 		array(
 			'title'     => __( 'Try it for free', 'ms' ),
 			'subtitle'  => __( 'No strings attached', 'ms' ),
@@ -37,6 +37,7 @@ function ms_signup_sidebar( $atts ) {
 		'AS' => __( 'Asia & Pacific (SG)', 'ms' ),
 	);
 
+
 	ob_start();
 	?>
 	<?php if ( 'no' !== $signup_switcher ) { ?>
@@ -44,7 +45,7 @@ function ms_signup_sidebar( $atts ) {
 		<?php if ( $atts['js-sticky'] ) { ?>
 		js-sidebar-sticky
 	<?php } ?>
-	">
+	" >
 		<div class="Signup__sidebar__title"><?php echo esc_html( $atts['title'] ); ?></div>
 		<div class="Signup__sidebar__subtitle"><?php echo esc_html( $atts['subtitle'] ); ?></div>
 
@@ -216,9 +217,13 @@ function ms_signup_sidebar( $atts ) {
 	<?php // @codingStandardsIgnoreEnd ?>
 
 	<?php
-	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js', array( 'jquery' ), THEME_VERSION, true );
-	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
-	set_custom_source( 'filterMenu', 'js' );
+	if ( ! is_mobile() ) {
+		wp_enqueue_script( 'jquery', includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION, array(), THEME_VERSION, true );
+		wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie' . wpenv() . '.js', array( 'jquery' ), THEME_VERSION, true );
+		wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum' . wpenv() . '.js', array( 'jquery' ), THEME_VERSION, true );
+		set_custom_source( 'filterMenu', 'js' );
+		set_custom_source( 'components/SignupSidebar', 'css', false, false );
+	}
 	return ob_get_clean();
 }
 add_shortcode( 'signup-sidebar', 'ms_signup_sidebar' );

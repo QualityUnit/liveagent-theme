@@ -61,7 +61,7 @@ header_banners(
 //          'image'    => 'announcementBar-ai-assistant.png',
 //          'bg'       => 'announcementBar-ai-assistant-bg.jpg',
 //          'url'      => __( '/ai-assist/', 'ms' ),
-//          'icon-class'       => 'pencil-with-stars', // Here insert icon class from our wordpress icons - icon after title
+//          'icon-class'       => 'pencil-with-stars', // Here insert icon class from our WordPress icons - icon after title
 //      ),
 //  )
 //)

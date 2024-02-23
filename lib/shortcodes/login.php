@@ -106,7 +106,8 @@ function ms_login() {
 	<?php // @codingStandardsIgnoreEnd ?>
 
 	<?php
-	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
+	wp_enqueue_script( 'jquery', includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION, array(), THEME_VERSION, true );
+	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum' . wpenv() . '.js', array( 'jquery' ), THEME_VERSION, true );
 	set_custom_source( 'components/Signup' );
 	return ob_get_clean();
 }
