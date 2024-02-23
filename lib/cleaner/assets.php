@@ -86,8 +86,20 @@ add_action(
 			wp_deregister_style( 'elementor-pro' );
 			wp_deregister_style( 'elementor-pro-frontend' );
 
-			wp_register_style( 'elementor-frontend', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-			wp_enqueue_style( 'elementor-frontend' );
+			function elementor_custom_to_source() {
+				ob_start();
+				include get_template_directory() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css';
+				$css = ob_get_clean();
+
+				// return the stored style
+				if ( $css != '' ) {
+					echo '<style id="elementor-custom-css" type="text/css">' . $css . '</style>';
+				}
+			};
+
+			elementor_custom_to_source();
+			// wp_register_style( 'elementor-frontend', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+			// wp_enqueue_style( 'elementor-frontend' );
 
 			wp_deregister_script( 'wp-embed' );
 		}
