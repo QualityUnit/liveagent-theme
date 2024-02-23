@@ -2,6 +2,7 @@
 
 function ms_gutenberg_reference() {
 	ob_start();
+	set_custom_source( 'components/Reference' );
 	?>
 
 	<div class="Gutenberg">

@@ -1,4 +1,5 @@
 <?php // @codingStandardsIgnoreLine
+	set_custom_source( 'components/FullHeadline', 'css', false, false );
 	set_source( 'success-stories', 'components/Filter', 'css' );
 	set_source( 'success-stories', 'pages/blog', 'css' );
 	set_source( 'success-stories', 'pages/Category', 'css' );

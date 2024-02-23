@@ -16,6 +16,7 @@ function ms_blockquote( $atts ) {
 	);
 
 	ob_start();
+	set_custom_source( 'components/BlockQuote' );
 	?>
 
 	<div class="<?= esc_attr( 'discover' === $atts['type'] ? 'BlogCTA__wrapper Post__m__negative' : 'BlockQuote BlockQuote--' . $atts['type'] ); ?>">
