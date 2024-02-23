@@ -17,7 +17,7 @@
 	<?php 
 	function add_inline_styles() {
 		ob_start();
-		include get_template_directory() . '/assets/dist/layouts/Header' . isrtl() . '.min.css';
+		include get_template_directory() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css';
 		$css = ob_get_clean();
 
 		// return the stored style

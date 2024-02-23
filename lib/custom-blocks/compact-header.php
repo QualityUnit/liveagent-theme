@@ -7,8 +7,8 @@
 // Note: CSS was moved to assets.php because of CLS Web Vital
 function inline_compact_header() {
 		ob_start();
-		include get_template_directory() . '/assets/dist/components/compactHeader' . isrtl() . '.min.css';
-		include get_template_directory() . '/assets/dist/components/Filter' . isrtl() . '.min.css';
+		include get_template_directory() . '/assets/dist/components/compactHeader' . isrtl() . wpenv() . '.css';
+		include get_template_directory() . '/assets/dist/components/Filter' . isrtl() . wpenv() . '.css';
 		$css = ob_get_clean();
 
 		// return the stored style
@@ -18,7 +18,6 @@ function inline_compact_header() {
 };
 inline_compact_header();
 ?>
-<?php set_custom_source( 'filterMenu', 'js' ); ?>
 <?php set_custom_source( 'filterMenu', 'js' ); ?>
 <?php set_custom_source( 'sortingMenu', 'js' ); ?>
 <?php set_custom_source( 'compactHeader', 'js' ); ?>
