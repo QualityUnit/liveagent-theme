@@ -1,4 +1,6 @@
 <?php // @codingStandardsIgnoreLine
+set_custom_source( 'pages/Archive', 'css', false, false );
+
 $page_header_title = __( 'Customer Service Directory', 'ms' );
 $page_header_text  = __( 'Here at LiveAgent, we often get requests for help from customers of other companies. Although we at LiveAgent do not provide support for their services you can find a list of customer support contacts here. ', 'ms' );
 if ( is_tax( 'ms_directory_categories' ) ) :
@@ -15,7 +17,7 @@ $page_header_args = array(
 	'text'  => $page_header_text,
 );
 ?>
-<div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
+<div id="archive" class="Archive Archive--glossary" itemscope itemtype="https://schema.org/DefinedTermSet">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<div class="Archive__filter">
 		<div class="wrapper">

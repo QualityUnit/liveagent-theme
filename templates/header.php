@@ -5,6 +5,7 @@ if ( is_front_page() ) {
 
 	if ( ! $is_announcement_hidden ) {
 		set_custom_source( 'components/AnnouncementBar', 'css' );
+		set_custom_source( 'components/AiWhisperAssistent', 'css' );
 		?>
 			<div class="Announcement__bars__slider">
 				<div class="negative <?= esc_attr( $announcement_bar_classes ); ?>">
@@ -61,7 +62,7 @@ header_banners(
 //          'image'    => 'announcementBar-ai-assistant.png',
 //          'bg'       => 'announcementBar-ai-assistant-bg.jpg',
 //          'url'      => __( '/ai-assist/', 'ms' ),
-//          'icon-class'       => 'pencil-with-stars', // Here insert icon class from our wordpress icons - icon after title
+//          'icon-class'       => 'pencil-with-stars', // Here insert icon class from our WordPress icons - icon after title
 //      ),
 //  )
 //)

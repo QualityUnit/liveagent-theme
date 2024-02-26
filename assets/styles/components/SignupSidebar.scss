@@ -6,8 +6,6 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 @forward "../elements/FilterMenu";
 
 .Signup__sidebar {
-	position: sticky;
-	top: 15px + $header-height;
 	padding: 1.5em;
 	background: url(../../images/signup_sidebar_bg.svg) center top no-repeat;
 	background-size: cover;

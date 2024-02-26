@@ -73,7 +73,7 @@ function progressbar( $text, $rating, $color ) {
 					</div>
 					<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
 						<meta itemprop="priceCurrency" content="USD" />
-						<meta itemprop="price" content="<?= esc_attr( meta( 'price' ) !== 'N/A' ? meta( 'price' ) : '0' ); ?>" />
+						<meta itemprop="price" content="<?= esc_attr( is_numeric( meta( 'price' ) ) ? meta( 'price' ) : '0' ); ?>" />
 					</div>
 				</div>
 				<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
@@ -121,7 +121,7 @@ function progressbar( $text, $rating, $color ) {
 				<div>
 					<div class="Reviews__info--pricing">
 						<strong class="currency" itemprop="priceCurrency" content="USD"><?= esc_html( meta( 'currency' ) ); ?></strong>
-						<strong class="price" itemprop="price"><?= esc_html( meta( 'price' ) !== 'N/A' ? meta( 'price' ) : '0' ); ?></strong>
+						<strong class="price" itemprop="price"><?= esc_html( is_numeric( meta( 'price' ) ) ? meta( 'price' ) : '0' ); ?></strong>
 						<span class="text-light">
 							&nbsp;
 							<?= esc_html( meta( 'period' ) ); ?>
@@ -234,7 +234,7 @@ function progressbar( $text, $rating, $color ) {
 			</div>
 			<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
 				<meta itemprop="priceCurrency" content="USD" />
-				<meta itemprop="price" content="<?= esc_attr( meta( 'price' ) !== 'N/A' ? meta( 'price' ) : '0' ); ?>" />
+				<meta itemprop="price" content="<?= esc_attr( is_numeric( meta( 'price' ) ) ? meta( 'price' ) : '0' ); ?>" />
 			</div>
 		</div>
 		<div class="wrapper Post__container">

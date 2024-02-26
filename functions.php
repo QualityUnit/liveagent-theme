@@ -10,6 +10,7 @@ define( 'THEME_VERSION', '1.23.5' );
  */
 
 $theme_includes = array(
+	'functions/detectmobilebrowser.php',             // Detects mobile
 	'lib/assets.php',             // Scripts and stylesheets
 	'lib/extras.php',             // Custom functions
 	'lib/setup.php',              // Theme setup

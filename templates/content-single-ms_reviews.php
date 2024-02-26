@@ -179,7 +179,7 @@ function meta( $metabox_id ) {
 										?>
 									<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
 										<meta itemprop="priceCurrency" content="USD" />
-										<meta itemprop="price" content="<?= esc_attr( get_post_meta( get_the_ID(), 'price', true ) !== 'N/A' ? get_post_meta( get_the_ID(), 'price', true ) : '0' ); ?>" />
+										<meta itemprop="price" content="<?= esc_attr( is_numeric( get_post_meta( get_the_ID(), 'price', true ) ) ? get_post_meta( get_the_ID(), 'price', true ) : '0' ); ?>" />
 									</div>
 								<?php } ?>
 								</span>
@@ -195,7 +195,7 @@ function meta( $metabox_id ) {
 									<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
 										<link itemprop="url" href="<?php the_permalink(); ?>" />
 										<meta itemprop="priceCurrency" content="USD" />
-										<meta itemprop="price" content="<?= esc_attr( get_post_meta( get_the_ID(), 'price', true ) !== 'N/A' ? get_post_meta( get_the_ID(), 'price', true ) : '0' ); ?>" />
+										<meta itemprop="price" content="<?= esc_attr( is_numeric( get_post_meta( get_the_ID(), 'price', true ) ) ? get_post_meta( get_the_ID(), 'price', true ) : '0' ); ?>" />
 									</div>
 									<div class="ml-s-tablet mr-ultra-tablet flex flex-align-center" itemscope itemtype="https://schema.org/Rating">
 										<span class="mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>

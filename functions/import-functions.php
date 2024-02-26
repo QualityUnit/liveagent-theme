@@ -37,11 +37,21 @@ function wp_head_content( $pages ) {
 }
 
 // Calling specific JS/CSS for page or subpage, ie. features/pageXXX will be $page = features
-function set_source( $page, $source_file, $filetype = 'css' ) {
+function set_source( $page, $source_file, $filetype = 'css', $defer = false ) {
 	if ( wp_head_content( $page ) ) {
-		if ( 'css' === $filetype ) {
+		if ( 'css' === $filetype && false === $defer ) {
 			?>
-			<link rel="stylesheet" type="text/css" media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) . '" />' ); ?>
+			<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css"  media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
+			
+			<?php
+			// @codingStandardsIgnoreEnd
+		}
+		if ( 'css' === $filetype && true === $defer ) {
+			?>
+			<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css" as="style" onload='this.rel=\"stylesheet\"' media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
+			<noscript>
+				<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" type="text/css" media="all">
+			</noscript>
 			<?php
 			// @codingStandardsIgnoreEnd
 		}
@@ -51,9 +61,20 @@ function set_source( $page, $source_file, $filetype = 'css' ) {
 	}
 }
 
-function set_custom_source( $source_file, $filetype = 'css', $depends = false ) {
+
+function preload_custom_styles( $html, $handle, $href, $media ) {
+	if ( 'all' === $media ) {
+		$fallback = '<noscript>' . $html . '</noscript>';
+		$preload  = str_replace( "rel='stylesheet'", "rel='preload' as='style' onload='this.rel=\"stylesheet\"'", $html );
+		$html     = $preload . $fallback;
+	}
+		return $html;
+}
+
+function set_custom_source( $source_file, $filetype = 'css', $depends = false, $defer = true ) {
 	if ( 'css' === $filetype ) {
-		wp_enqueue_style( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		wp_enqueue_style( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . isrtl() . wpenv() . '.css', false, THEME_VERSION, $defer ? 'all' : 'screen' );
+		add_filter( 'style_loader_tag', 'preload_custom_styles', 10, 4 );
 	}
 	if ( 'js' === $filetype ) {
 		wp_enqueue_script( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . wpenv() . '.js', $depends, THEME_VERSION, true );
@@ -61,7 +82,7 @@ function set_custom_source( $source_file, $filetype = 'css', $depends = false ) 
 }
 
 function is_subcategory() {
-	$cat = get_query_var( 'cat' );
+	$cat      = get_query_var( 'cat' );
 	$category = get_category( $cat );
 	return ! ( ( '0' == $category->parent ) );
 }
@@ -82,7 +103,7 @@ function site_breadcrumb( $breadcrumb = array() ) {
 					}
 				} else {
 					$post_type_url = get_post_type_archive_link( $post_type->name );
-					$breadcrumb[] = array( $post_type_name, $post_type_url );
+					$breadcrumb[]  = array( $post_type_name, $post_type_url );
 				}
 			}
 			$breadcrumb[] = array( get_the_title() );
@@ -98,7 +119,7 @@ function site_breadcrumb( $breadcrumb = array() ) {
 			$breadcrumb[] = array( single_cat_title( '', false ) );
 		} elseif ( is_archive() && ! is_category() ) {
 			$breadcrumb[] = $home;
-			$post_type = get_queried_object();
+			$post_type    = get_queried_object();
 			if ( $post_type ) {
 				if ( ! empty( $post_type->labels->name ) ) {
 					$post_type_title = $post_type->labels->name;
@@ -121,44 +142,44 @@ function site_breadcrumb( $breadcrumb = array() ) {
 	}
 
 	$allowed_html = array(
-		'div' => array(
+		'div'  => array(
 			'class' => array(),
 		),
-		'ol' => array(
+		'ol'   => array(
 			'itemscope' => array(),
-			'itemtype' => array(),
+			'itemtype'  => array(),
 		),
-		'li' => array(
-			'itemprop' => array(),
+		'li'   => array(
+			'itemprop'  => array(),
 			'itemscope' => array(),
-			'itemtype' => array(),
+			'itemtype'  => array(),
 		),
-		'a' => array(
+		'a'    => array(
 			'itemscope' => array(),
-			'itemtype' => array(),
-			'itemprop' => array(),
-			'itemid' => array(),
-			'href' => array(),
+			'itemtype'  => array(),
+			'itemprop'  => array(),
+			'itemid'    => array(),
+			'href'      => array(),
 		),
 		'span' => array(
 			'itemprop' => array(),
 		),
 		'meta' => array(
 			'itemprop' => array(),
-			'content' => array(),
+			'content'  => array(),
 		),
 	);
-	$i = 1;
-	$output = '';
-	$output .= '<div class="breadcrumbs">';
-	$output .= '<div class="breadcrumbs-inner">';
-	$output .= '<ol itemscope itemtype="https://schema.org/BreadcrumbList">';
+	$i            = 1;
+	$output       = '';
+	$output      .= '<div class="breadcrumbs">';
+	$output      .= '<div class="breadcrumbs-inner">';
+	$output      .= '<ol itemscope itemtype="https://schema.org/BreadcrumbList">';
 	foreach ( $breadcrumb as $item ) {
 		$item_name = str_replace( '^', '', $item[0] );
-		$output .= '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+		$output   .= '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
 		if ( count( $item ) == 2 ) {
 			$item_url = $item[1];
-			$output .= '<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="' . $item_url . '" href="' . $item_url . '">';
+			$output  .= '<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="' . $item_url . '" href="' . $item_url . '">';
 		}
 		$output .= '<span itemprop="name">' . $item_name . '</span>';
 		if ( count( $item ) == 2 ) {

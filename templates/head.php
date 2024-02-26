@@ -14,8 +14,22 @@
 	<meta name="theme-color" content="#ffffff">
 
 	<!-- URLSLAB-SKIP-REPLACE-START -->
-	<?php wp_head(); ?>
+	<?php 
+	function add_inline_styles() {
+		ob_start();
+		$css = file_get_contents( get_template_directory() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css' );
+		ob_get_clean();
+
+		// return the stored style
+		if ( '' != $css ) {
+			echo '<style id="inline-css" type="text/css">' . $css . '</style>'; // @codingStandardsIgnoreLine
+		}
+	};
+
+	add_inline_styles();
+	wp_head(); 
+	?>
+	<?php get_template_part( 'lib/pagesources' ); ?>
 	<!-- URLSLAB-SKIP-REPLACE-END -->
 
-	<?php get_template_part( 'lib/pagesources' ); ?>
 </head>

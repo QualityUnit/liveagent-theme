@@ -1,6 +1,13 @@
 <?php
 
 /**
+ * Remove Yoast Next/Prev rel
+ */
+
+add_filter( 'wpseo_next_rel_link', '__return_false' );
+add_filter( 'wpseo_prev_rel_link', '__return_false' );
+
+/**
   * Remove jQuery Migrate
   */
 
@@ -86,8 +93,20 @@ add_action(
 			wp_deregister_style( 'elementor-pro' );
 			wp_deregister_style( 'elementor-pro-frontend' );
 
-			wp_register_style( 'elementor-frontend', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-			wp_enqueue_style( 'elementor-frontend' );
+			function elementor_custom_to_source() {
+				ob_start();
+				$css = file_get_contents( get_template_directory() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css' );
+				ob_get_clean();
+
+				// return the stored style
+				if ( '' != $css ) {
+					echo '<style id="elementor-custom-css" type="text/css">' . $css . '</style>'; // @codingStandardsIgnoreLine
+				}
+			};
+
+			elementor_custom_to_source();
+			// wp_register_style( 'elementor-frontend', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+			// wp_enqueue_style( 'elementor-frontend' );
 
 			wp_deregister_script( 'wp-embed' );
 		}
@@ -109,6 +128,7 @@ function callback( $buffer ) {
 
 	// WP Scripts
 	$buffer = preg_replace( '/<script[^\≤]+dist\/vendor\/wp-polyfill[^\≤]+>/', '', $buffer );
+	$buffer = preg_replace( '/<link[^\≤]+dist\/block-library\/style[^\≤]+>/', '', $buffer );
 
 	// JS for Babel async transpiling for old browsers like IE
 	$buffer = preg_replace( '/<script[^\≤]+dist\/vendor\/regenerator-runtime[^\≤]+>/', '', $buffer );
@@ -127,9 +147,24 @@ function buffer_end() {
 	ob_get_clean();
 }
 
+function remove_default_jquery( $html ) {  // @codingStandardsIgnoreLine
+		wp_dequeue_script( 'jquery' );
+		wp_deregister_script( 'jquery' );   
+		wp_dequeue_script( 'jquery-ui-core' );
+		wp_deregister_script( 'jquery-ui-core' );
+}
+
+function remove_wpml_styles( $html ) {  // @codingStandardsIgnoreLine
+	wp_dequeue_style( 'wpml-blocks' );
+	wp_deregister_style( 'wpml-blocks' );
+}
+
 if ( ! is_user_logged_in() ) {
 	add_action( 'after_setup_theme', 'buffer_start' );
 	add_action( 'shutdown', 'buffer_end' );
+
+	add_filter( 'wp_enqueue_scripts', 'remove_default_jquery', PHP_INT_MAX );
+	add_filter( 'wp_enqueue_scripts', 'remove_wpml_styles', PHP_INT_MAX );
 }
 /**
 	* Defer all JS

@@ -13,7 +13,7 @@
 		'search' => array( 'type' => 'alternative' ),
 	);
 	?>
-<div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
+<div id="archive" itemscope itemtype="https://schema.org/DefinedTermSet">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<?php echo do_shortcode( '[alternatives]' ); ?>
 

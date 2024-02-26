@@ -66,7 +66,7 @@ while ( $query_reviews_posts->have_posts() ) :
 							</div>
 							<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
 								<meta itemprop="priceCurrency" content="USD" />
-								<meta itemprop="price" content="<?= esc_attr( meta( 'price' ) !== 'N/A' ? meta( 'price' ) : '0' ); ?>" />
+								<meta itemprop="price" content="<?= esc_attr( is_numeric( meta( 'price' ) ) ? meta( 'price' ) : '0' ); ?>" />
 							</div>
 						<span class="Reviews__rating--rating mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>
 						<meta itemprop="reviewCount" content="<?= esc_attr( meta( 'reviews_count' ) ); ?>" />

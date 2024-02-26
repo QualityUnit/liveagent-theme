@@ -1,4 +1,5 @@
 const signuplogin = () => {
+	const jquerySrc = document.querySelectorAll( 'script[data-src*="jquery.min.js"], script[data-src*="jquery.js"]' );
 	const scriptList = [ ...document.querySelectorAll( 'script[data-src]' ) ];
 	const regex = /.+crm\.js.+|.+login\.js.+/gi;
 
@@ -19,7 +20,7 @@ const signuplogin = () => {
 				async function isLoaded() {
 					const response = await waitForLoad( script );
 
-					if ( response.ok ) {
+					if ( response.ok && window.jQuery ) {
 						setTimeout( () => {
 							scriptList.filter( ( executor ) => {
 								const dataSrc = executor.getAttribute( 'data-src' );
@@ -49,8 +50,17 @@ const signuplogin = () => {
 		);
 
 		scriptParent.forEach( ( input ) => {
-			input.addEventListener( 'focus', ( event ) => {
-				runLoadScript( event.target );
+			input.addEventListener( 'focus', async ( event ) => {
+				if ( ! window.jQuery ) {
+					jquerySrc[ 0 ].src = jquerySrc[ 0 ].dataset.src;
+				}
+				const response = await waitForLoad( jquerySrc[ 0 ] );
+
+				if ( response.ok ) {
+					setTimeout( () => {
+						runLoadScript( event.target );
+					}, 50 );
+				}
 			} );
 		} );
 
