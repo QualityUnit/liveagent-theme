@@ -3,238 +3,90 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-input[type="submit"],
-input[type="button"],
-button,
-.button,
-.Button {
-	position: relative;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: auto;
-	height: $button-height-normal;
-	padding: 0 $button-padding-normal;
-	border: 0;
-	border-radius: $border-radius - 2;
-	font-size: $button-font-size-normal;
-	font-family: $font-secondary;
-	font-weight: $font-weight-semi;
-	background-color: transparent;
-	cursor: pointer;
+#app {
 
-	&:disabled {
-		pointer-events: none;
-		opacity: 0.5;
-	}
-
-	&:lang(ru) {
-		padding: 0 1em;
-	}
-
-	[class*="elementor"] {
-		all: unset;
-		display: block;
-
-		&.elementor-widget-container {
-			z-index: 3;
-		}
-
-		a {
-			text-decoration: none !important;
-
-			&::before {
-				content: "";
-
-				@include posZero;
-				position: absolute;
-				cursor: pointer;
-			}
-
-			&:active,
-			&:focus,
-			&:hover {
-				text-decoration: none !important;
-			}
-		}
-	}
-
-	&[class*="icn-"] {
-
-		svg {
-
-			@include square(1.25em);
-
-			&:first-child {
-				margin-right: 0.625em;
-			}
-
-			&:last-child {
-				margin-left: 0.625em;
-			}
-		}
-	}
-}
-
-.Button + .Button {
-	margin-left: 15px;
-
-	&--outline {
-		top: 1px;
-	}
-}
-
-%Button--full--hover {
-
-	&::before {
-		opacity: 0;
-	}
-
-	&::after {
-		opacity: 1;
-	}
-}
-
-.Button--full,
-%Button--full {
-
-	@include color(background, background);
-	@include color(color, button-full-font-color);
-	overflow: hidden;
-
-	span,
-	strong {
+	input[type="submit"],
+	input[type="button"],
+	button,
+	.button,
+	.Button {
 		position: relative;
-		z-index: 2;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: auto;
+		height: $button-height-normal;
+		padding: 0 $button-padding-normal;
+		border: 0;
+		border-radius: $border-radius - 2;
+		font-size: $button-font-size-normal;
+		font-family: $font-secondary;
 		font-weight: $font-weight-semi;
-		line-height: 1.33;
-	}
+		background-color: transparent;
+		cursor: pointer;
 
-	&::before {
+		&:disabled {
+			pointer-events: none;
+			opacity: 0.5;
+		}
 
-		@include color(background, background);
-		@include fullSize;
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		border-radius: ($border-radius - 2);
-		opacity: 1;
-		transition: opacity 0.75s;
-		z-index: 1;
-	}
+		&:lang(ru) {
+			padding: 0 1em;
+		}
 
-	&::after {
+		[class*="elementor"] {
+			all: unset;
+			display: block;
 
-		@include color(background, background-invert);
-		@include fullSize;
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		border-radius: ($border-radius - 2);
-		opacity: 0;
-		transition: opacity 0.75s;
-		z-index: 1;
-	}
+			&.elementor-widget-container {
+				z-index: 3;
+			}
 
-	&:active,
-	&:focus,
-	&:hover {
+			a {
+				text-decoration: none !important;
 
-		@extend %Button--full--hover;
-	}
+				&::before {
+					content: "";
 
-	&.elementor-widget-button {
+					@include posZero;
+					position: absolute;
+					cursor: pointer;
+				}
 
-		span {
+				&:active,
+				&:focus,
+				&:hover {
+					text-decoration: none !important;
+				}
+			}
+		}
 
-			@include color(color, button-full-font-color, !important);
+		&[class*="icn-"] {
+
+			svg {
+
+				@include square(1.25em);
+
+				&:first-child {
+					margin-right: 0.625em;
+				}
+
+				&:last-child {
+					margin-left: 0.625em;
+				}
+			}
 		}
 	}
-}
 
-.Button--login {
-	display: block;
-}
+	.Button + .Button {
+		margin-left: 15px;
 
-.Button--normal {
-	color: #fff;
-	background-color: #fa9531;
-	transition: all 0.3s;
-	overflow: hidden;
-
-	span {
-		position: relative;
-		z-index: 2;
-		line-height: 1.33;
+		&--outline {
+			top: 1px;
+		}
 	}
 
-	&:active,
-	&:focus,
-	&:hover {
-		background-color: #f98006;
-	}
-}
-
-.Button--dark {
-	background: $black;
-	color: $white;
-
-	&:active,
-	&:focus,
-	&:hover {
-		background-color: #f98006;
-	}
-}
-
-.Button--white {
-
-	background: $white;
-	color: $black;
-	overflow: hidden;
-
-	span {
-		position: relative;
-		z-index: 2;
-		line-height: 1.33;
-	}
-
-	&::before {
-
-		content: "";
-		position: absolute;
-		background: $white;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border-radius: ($border-radius - 2);
-		opacity: 1;
-		transition: opacity 0.75s;
-		z-index: 1;
-	}
-
-	&::after {
-
-		content: "";
-		position: absolute;
-		background: $black;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border-radius: ($border-radius - 2);
-		opacity: 0;
-		transition: opacity 0.75s;
-		z-index: 1;
-	}
-
-	&:active,
-	&:focus,
-	&:hover {
-
-		color: $white;
+	%Button--full--hover {
 
 		&::before {
 			opacity: 0;
@@ -244,228 +96,380 @@ button,
 			opacity: 1;
 		}
 	}
-}
 
-.Button--knockout {
+	.Button--full,
+	%Button--full {
 
-	@include color(background-color, main-background);
-	mix-blend-mode: screen;
-	transition: all 0.2s;
+		@include color(background, background);
+		@include color(color, button-full-font-color);
+		overflow: hidden;
 
-	span {
-		color: $black-real;
-		white-space: nowrap;
-	}
-
-	&:active,
-	&:focus,
-	&:hover {
-
-		@include color(background-color, content-color-dark);
-		mix-blend-mode: normal;
-
-		span {
-
-			@include color(color, font-color-light);
+		span,
+		strong {
+			position: relative;
+			z-index: 2;
+			font-weight: $font-weight-semi;
+			line-height: 1.33;
 		}
-	}
-}
 
-.Button--outline {
+		&::before {
 
-	@include color(color, font-color-dark);
-	border: 1px solid currentColor;
-	overflow: hidden;
-	transition: all 0.3s;
+			@include color(background, background);
+			@include fullSize;
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-radius: ($border-radius - 2);
+			opacity: 1;
+			transition: opacity 0.75s;
+			z-index: 1;
+		}
 
-	span {
-		position: relative;
-		z-index: 2;
-		line-height: 1.33;
-	}
+		&::after {
 
-	&:active,
-	&:focus,
-	&:hover {
-
-		@include color(color, primary-color);
-		@include color(border-color, primary-color);
-	}
-
-	&-gray {
-
-		@include color(background-color, button-outline-color);
-	}
-
-	&-white {
-
-		@include color(background-color, main-background);
-	}
-
-	&__white {
-
-		color: $white;
-		padding: 0.5em 1.5em;
+			@include color(background, background-invert);
+			@include fullSize;
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-radius: ($border-radius - 2);
+			opacity: 0;
+			transition: opacity 0.75s;
+			z-index: 1;
+		}
 
 		&:active,
 		&:focus,
 		&:hover {
 
-			background-color: $white;
-			border-color: $white;
-			color: $black-real;
+			@extend %Button--full--hover;
+		}
 
-			a {
-				color: inherit;
+		&.elementor-widget-button {
+
+			span {
+
+				@include color(color, button-full-font-color, !important);
 			}
 		}
 	}
-}
 
-.Button--copy {
-	margin-bottom: 50px;
-	margin-left: 30px;
-	margin-top: 10px;
-	padding: 0 20px;
-	background-color: transparent;
-
-	span {
-		display: flex;
-		flex-flow: wrap row;
-		justify-content: flex-start;
-		align-items: center;
-
-		&::before {
-			content: "";
-			display: block;
-			width: 20px;
-			height: 20px;
-			margin-right: 10px;
-			background-image: url(../../images/icon-copy.svg);
-			transition: opacity 0.3s;
-		}
+	.Button--login {
+		display: block;
 	}
 
-	&:active,
-	&:focus,
-	&:hover {
+	.Button--normal {
+		color: #fff;
+		background-color: #fa9531;
+		transition: all 0.3s;
+		overflow: hidden;
 
 		span {
+			position: relative;
+			z-index: 2;
+			line-height: 1.33;
+		}
+
+		&:active,
+		&:focus,
+		&:hover {
+			background-color: #f98006;
+		}
+	}
+
+	.Button--dark {
+		background: $black;
+		color: $white;
+
+		&:active,
+		&:focus,
+		&:hover {
+			background-color: #f98006;
+		}
+	}
+
+	.Button--white {
+
+		background: $white;
+		color: $black;
+		overflow: hidden;
+
+		span {
+			position: relative;
+			z-index: 2;
+			line-height: 1.33;
+		}
+
+		&::before {
+
+			content: "";
+			position: absolute;
+			background: $white;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: ($border-radius - 2);
+			opacity: 1;
+			transition: opacity 0.75s;
+			z-index: 1;
+		}
+
+		&::after {
+
+			content: "";
+			position: absolute;
+			background: $black;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: ($border-radius - 2);
+			opacity: 0;
+			transition: opacity 0.75s;
+			z-index: 1;
+		}
+
+		&:active,
+		&:focus,
+		&:hover {
+
+			color: $white;
 
 			&::before {
-				background-image: url(../../images/icon-copy-hover.svg);
+				opacity: 0;
+			}
+
+			&::after {
+				opacity: 1;
 			}
 		}
 	}
-}
 
-.Button--back {
-	margin-top: 20px;
-}
+	.Button--knockout {
 
-.Button--small {
-	height: 2.25rem;
-	padding: 0.25em 1em;
-	font-size: 0.8125rem;
-}
+		@include color(background-color, main-background);
+		mix-blend-mode: screen;
+		transition: all 0.2s;
 
-.Button--medium {
-	height: 60px;
-	padding: 0 40px;
-	font-size: 18px;
+		span {
+			color: $black-real;
+			white-space: nowrap;
+		}
 
-	span {
-		line-height: 1.33;
-	}
-}
+		&:active,
+		&:focus,
+		&:hover {
 
-.Button--big {
-	height: 72px;
-	padding: 0 30px;
-	font-size: 18px;
+			@include color(background-color, content-color-dark);
+			mix-blend-mode: normal;
 
-	span {
-		line-height: 1.33;
+			span {
+
+				@include color(color, font-color-light);
+			}
+		}
 	}
 
-	@media (max-width: $breakpoint-mobile) {
+	.Button--outline {
+
+		@include color(color, font-color-dark);
+		border: 1px solid currentColor;
+		overflow: hidden;
+		transition: all 0.3s;
+
+		span {
+			position: relative;
+			z-index: 2;
+			line-height: 1.33;
+		}
+
+		&:active,
+		&:focus,
+		&:hover {
+
+			@include color(color, primary-color);
+			@include color(border-color, primary-color);
+		}
+
+		&-gray {
+
+			@include color(background-color, button-outline-color);
+		}
+
+		&-white {
+
+			@include color(background-color, main-background);
+		}
+
+		&__white {
+
+			color: $white;
+			padding: 0.5em 1.5em;
+
+			&:active,
+			&:focus,
+			&:hover {
+
+				background-color: $white;
+				border-color: $white;
+				color: $black-real;
+
+				a {
+					color: inherit;
+				}
+			}
+		}
+	}
+
+	.Button--copy {
+		margin-bottom: 50px;
+		margin-left: 30px;
+		margin-top: 10px;
+		padding: 0 20px;
+		background-color: transparent;
+
+		span {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: flex-start;
+			align-items: center;
+
+			&::before {
+				content: "";
+				display: block;
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+				background-image: url(../../images/icon-copy.svg);
+				transition: opacity 0.3s;
+			}
+		}
+
+		&:active,
+		&:focus,
+		&:hover {
+
+			span {
+
+				&::before {
+					background-image: url(../../images/icon-copy-hover.svg);
+				}
+			}
+		}
+	}
+
+	.Button--back {
+		margin-top: 20px;
+	}
+
+	.Button--small {
+		height: 2.25rem;
+		padding: 0.25em 1em;
+		font-size: 0.8125rem;
+	}
+
+	.Button--medium {
 		height: 60px;
-		padding: 0 25px;
-		font-size: 16px;
+		padding: 0 40px;
+		font-size: 18px;
 
 		span {
 			line-height: 1.33;
 		}
 	}
-}
 
-.Button--wide[class] {
-	padding-left: 4em;
-	padding-right: 4em;
-}
+	.Button--big {
+		height: 72px;
+		padding: 0 30px;
+		font-size: 18px;
 
-.Button--inaction {
+		span {
+			line-height: 1.33;
+		}
 
-	@include color(color, font-color-dark);
-	display: inline-flex;
-	align-items: center;
-	font-family: $font-secondary;
-	font-weight: $font-weight-semi;
-	font-size: 0.875rem;
+		@media (max-width: $breakpoint-mobile) {
+			height: 60px;
+			padding: 0 25px;
+			font-size: 16px;
 
-	strong {
+			span {
+				line-height: 1.33;
+			}
+		}
+	}
+
+	.Button--wide[class] {
+		padding-left: 4em;
+		padding-right: 4em;
+	}
+
+	.Button--inaction {
+
+		@include color(color, font-color-dark);
+		display: inline-flex;
+		align-items: center;
+		font-family: $font-secondary;
 		font-weight: $font-weight-semi;
-	}
+		font-size: 0.875rem;
 
-	&::before {
-		content: url(/app/themes/liveagent/assets/images/play_seeinaction.svg);
-		margin-right: 0.75em;
-		line-height: 0;
-	}
+		strong {
+			font-weight: $font-weight-semi;
+		}
 
-	&:hover {
+		&::before {
+			content: url(/app/themes/liveagent/assets/images/play_seeinaction.svg);
+			margin-right: 0.75em;
+			line-height: 0;
+		}
 
-		@include color(color, primary-color);
-	}
-}
+		&:hover {
 
-.Button--learn-more {
-
-	@include color(color, dark-orange);
-	padding: 0.5rem 0 0 !important;
-	margin: 0 !important;
-
-	span {
-
-		img {
-			width: 24px;
-			padding: 0 0 0 0.2rem;
+			@include color(color, primary-color);
 		}
 	}
 
-	.highlight-gradient {
+	.Button--learn-more {
 
-		img {
-			transform: translate(0, 0);
-			transition: transform 530ms ease-in-out !important;
+		@include color(color, dark-orange);
+		padding: 0.5rem 0 0 !important;
+		margin: 0 !important;
+
+		span {
+
+			img {
+				width: 24px;
+				padding: 0 0 0 0.2rem;
+			}
 		}
-	}
-
-	&:hover,
-	&:active,
-	&:focus {
 
 		.highlight-gradient {
 
-			@include color(background, background-invert);
-			background-clip: text;
-			color: transparent;
-			box-decoration-break: clone;
-
 			img {
-				transform: translate(10px, 0);
+				transform: translate(0, 0);
 				transition: transform 530ms ease-in-out !important;
 			}
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
+
+			.highlight-gradient {
+
+				@include color(background, background-invert);
+				background-clip: text;
+				color: transparent;
+				box-decoration-break: clone;
+
+				img {
+					transform: translate(10px, 0);
+					transition: transform 530ms ease-in-out !important;
+				}
+			}
+
 		}
 
 	}

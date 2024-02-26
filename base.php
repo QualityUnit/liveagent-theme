@@ -7,7 +7,7 @@
 	<body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 
-	<div id="app">
+	<div id="app" class="liveagentWeb">
 		<?php
 			do_action( 'get_header' );
 			get_template_part( 'templates/header' );
