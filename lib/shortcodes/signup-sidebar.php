@@ -1,7 +1,7 @@
 <?php
 
 function ms_signup_sidebar( $atts ) {
-	$atts = shortcode_atts(
+	$atts            = shortcode_atts(
 		array(
 			'title'     => __( 'Try it for free', 'ms' ),
 			'subtitle'  => __( 'No strings attached', 'ms' ),
@@ -37,6 +37,7 @@ function ms_signup_sidebar( $atts ) {
 		'AS' => __( 'Asia & Pacific (SG)', 'ms' ),
 	);
 
+
 	ob_start();
 	?>
 	<?php if ( 'no' !== $signup_switcher ) { ?>
@@ -44,7 +45,7 @@ function ms_signup_sidebar( $atts ) {
 		<?php if ( $atts['js-sticky'] ) { ?>
 		js-sidebar-sticky
 	<?php } ?>
-	">
+	" >
 		<div class="Signup__sidebar__title"><?php echo esc_html( $atts['title'] ); ?></div>
 		<div class="Signup__sidebar__subtitle"><?php echo esc_html( $atts['subtitle'] ); ?></div>
 
@@ -210,15 +211,23 @@ function ms_signup_sidebar( $atts ) {
 	<?php } else { ?>
 		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_en.js' ?>"></script>
 	<?php } ?>
-	<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) ); ?>
+	<?php
+	global $crm_ver_app;
+	if ( ! isset( $crm_ver_app ) ) {
+		$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) );
+	?>
+	<script id="jquery-js" data-src="<?= esc_url( includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
+	<script id="jquery-cookie-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.cookie' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
+	<script id="jquery-alphanum-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
-	<?php }, 999 ); ?>
+	<?php } }, 999 ); ?>
 	<?php // @codingStandardsIgnoreEnd ?>
 
 	<?php
-	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js', array( 'jquery' ), THEME_VERSION, true );
-	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
-	set_custom_source( 'filterMenu', 'js' );
+	if ( ! is_mobile() ) {
+		set_custom_source( 'filterMenu', 'js' );
+		set_custom_source( 'components/SignupSidebar', 'css', false, false );
+	}
 	return ob_get_clean();
 }
 add_shortcode( 'signup-sidebar', 'ms_signup_sidebar' );

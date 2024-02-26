@@ -56,7 +56,7 @@ function progressbar( $text, $rating, $color ) {
 			<small class="text-light"><?= esc_html( str_replace( '${product}', $titleplain, $how ) ); ?></small>
 
 			<div itemprop="review" itemscope itemtype="https://schema.org/Review">
-				<div class="hidden" itemprop="itemReviewed" itemscope itemtype="http://schema.org/SoftwareApplication">
+				<div itemprop="itemReviewed" itemscope itemtype="http://schema.org/SoftwareApplication">
 					<meta itemprop="name" content="<?= $posttitle; // @codingStandardsIgnoreLine ?>">
 					<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 					<meta itemprop="operatingSystem" content="Any" />
@@ -67,6 +67,14 @@ function progressbar( $text, $rating, $color ) {
 							<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
 						</span>
 					</span>
+					<div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+						<meta itemprop="ratingValue" content="<?= esc_attr( $average ); ?>" />
+						<meta itemprop="ratingCount" content="<?= esc_attr( meta( 'reviews_count' ) ); ?>" />
+					</div>
+					<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
+						<meta itemprop="priceCurrency" content="USD" />
+						<meta itemprop="price" content="<?= esc_attr( is_numeric( meta( 'price' ) ) ? meta( 'price' ) : '0' ); ?>" />
+					</div>
 				</div>
 				<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
 					<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
@@ -113,7 +121,7 @@ function progressbar( $text, $rating, $color ) {
 				<div>
 					<div class="Reviews__info--pricing">
 						<strong class="currency" itemprop="priceCurrency" content="USD"><?= esc_html( meta( 'currency' ) ); ?></strong>
-						<strong class="price" itemprop="price"><?= esc_html( meta( 'price' ) ); ?></strong>
+						<strong class="price" itemprop="price"><?= esc_html( is_numeric( meta( 'price' ) ) ? meta( 'price' ) : '0' ); ?></strong>
 						<span class="text-light">
 							&nbsp;
 							<?= esc_html( meta( 'period' ) ); ?>
@@ -209,10 +217,27 @@ function progressbar( $text, $rating, $color ) {
 	</div>
 
 	<div class="Reviews__editor mb-extreme" itemprop="review" itemscope itemtype="https://schema.org/Review">
-		<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
-			<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
-		</span>
-		<div class="wrapper Post__container" itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
+		<div itemprop="itemReviewed" itemscope itemtype="http://schema.org/SoftwareApplication">
+			<meta itemprop="name" content="<?= $posttitle; // @codingStandardsIgnoreLine ?>">
+			<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
+			<meta itemprop="operatingSystem" content="Any" />
+			<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+			<span itemprop="applicationCategory" content="BusinessApplication">
+				<meta itemprop="name" content="<?= $posttitle; // @codingStandardsIgnoreLine ?>">
+				<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
+					<span itemprop="name"><?= esc_html( get_the_author() ); ?></span>
+				</span>
+			</span>
+			<div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+				<meta itemprop="ratingValue" content="<?= esc_attr( $average ); ?>" />
+				<meta itemprop="ratingCount" content="<?= esc_attr( meta( 'reviews_count' ) ); ?>" />
+			</div>
+			<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
+				<meta itemprop="priceCurrency" content="USD" />
+				<meta itemprop="price" content="<?= esc_attr( is_numeric( meta( 'price' ) ) ? meta( 'price' ) : '0' ); ?>" />
+			</div>
+		</div>
+		<div class="wrapper Post__container">
 			<div class="Post__sidebar">
 				<div class="Reviews__rating Reviews__rating--editor">
 					<div class="Reviews__rating--avatar">

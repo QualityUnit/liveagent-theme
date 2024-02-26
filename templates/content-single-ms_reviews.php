@@ -158,6 +158,30 @@ function meta( $metabox_id ) {
 									<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
 									<meta itemprop="operatingSystem" content="Any" />
 									<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>"></span>
+									<?php 
+									$first  = get_post_meta( get_the_ID(), 'first_rating_value', true );
+									$second = get_post_meta( get_the_ID(), 'second_rating_value', true );
+									$third  = get_post_meta( get_the_ID(), 'third_rating_value', true );
+
+									$average = 1;
+
+									if ( ! empty( $first ) && ! empty( $second ) && ! empty( $third ) ) {
+										$average = round( ( $first + $second + $third ) / 3, 1 );
+									}
+									?>
+									<div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+										<meta itemprop="ratingValue" content="<?= esc_attr( $average ); ?>" />
+										<meta itemprop="ratingCount" content="<?= esc_attr( get_post_meta( get_the_ID(), 'reviews_count', true ) ); ?>" />
+									</div>
+									<?php
+									$rating_post = get_post_meta( get_the_ID(), 'rating', true );
+									if ( $rating_post ) {
+										?>
+									<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
+										<meta itemprop="priceCurrency" content="USD" />
+										<meta itemprop="price" content="<?= esc_attr( is_numeric( get_post_meta( get_the_ID(), 'price', true ) ) ? get_post_meta( get_the_ID(), 'price', true ) : '0' ); ?>" />
+									</div>
+								<?php } ?>
 								</span>
 								<span class="hidden" itemprop="author" itemscope itemtype="https://schema.org/Person">
 									<span itemprop="name">LiveAgent</span>
@@ -171,7 +195,7 @@ function meta( $metabox_id ) {
 									<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
 										<link itemprop="url" href="<?php the_permalink(); ?>" />
 										<meta itemprop="priceCurrency" content="USD" />
-										<meta itemprop="price" content="<?= esc_attr( get_post_meta( get_the_ID(), 'price', true ) ); ?>" />
+										<meta itemprop="price" content="<?= esc_attr( is_numeric( get_post_meta( get_the_ID(), 'price', true ) ) ? get_post_meta( get_the_ID(), 'price', true ) : '0' ); ?>" />
 									</div>
 									<div class="ml-s-tablet mr-ultra-tablet flex flex-align-center" itemscope itemtype="https://schema.org/Rating">
 										<span class="mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>

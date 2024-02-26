@@ -233,7 +233,7 @@
 		let topMargin = 36;
 		if ( elSidebarSticky && fnHeaderHeight() && isSticky === true ) {
 			topMargin = ( topMargin + fnHeaderHeight() ) + 'px';
-			elSidebarSticky.style.top = topMargin;
+			elSidebarSticky.closest( '.Post__sidebar' ).style.top = topMargin;
 		}
 	}
 

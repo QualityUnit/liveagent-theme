@@ -4,12 +4,12 @@ function ms_signup_form_simple( $atts ) {
 
 	$atts = shortcode_atts(
 		array(
-			'title' => wp_kses(
+			'title'   => wp_kses(
 				__( '<strong>Try LiveAgent,</strong> best rated cloud-based Help Desk Software for free', 'ms' ),
 				array( 'strong' => array() )
 			),
-			'button'   => __( 'Create account for FREE', 'ms' ),
-			'trusted'  => __( 'Trusted by the best', 'ms' ),
+			'button'  => __( 'Create account for FREE', 'ms' ),
+			'trusted' => __( 'Trusted by the best', 'ms' ),
 		),
 		$atts,
 		'signupform-simple'
@@ -189,14 +189,19 @@ function ms_signup_form_simple( $atts ) {
 	<?php } else { ?>
 		<script src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
 	<?php } ?>
-	<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) ); ?>
+	<?php
+	global $crm_ver_app;
+	if ( ! isset( $crm_ver_app ) ) {
+		$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) );
+	?>
+	<script id="jquery-js" data-src="<?= esc_url( includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
+	<script id="jquery-cookie-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.cookie' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
+	<script id="jquery-alphanum-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
-	<?php }, 999 ); ?>
+	<?php } }, 999 ); ?>
 
 	<?php // @codingStandardsIgnoreEnd ?>
 	<?php
-	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js', array( 'jquery' ), THEME_VERSION, true );
-	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
 	set_custom_source( 'components/Signup' );
 	set_custom_source( 'filterMenu', 'js' );
 	return ob_get_clean();

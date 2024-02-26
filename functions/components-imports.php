@@ -9,7 +9,6 @@ function icontabs_sources( $content ) {
 
 	if ( $icontabs_block || is_user_logged_in() ) {
 		wp_enqueue_style( 'icontabs', get_template_directory_uri() . '/assets/dist/components/IconTabs' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-		wp_enqueue_script( 'icontabs', get_template_directory_uri() . '/assets/dist/IconTabs' . wpenv() . '.js', false, THEME_VERSION, true );
 	}
 		return $content;
 }
@@ -24,16 +23,48 @@ function components_imports( $content ) {
 		'table'                         => 'components/Table',
 		'SoftphoneTable'                => 'components/SoftphoneTable',
 		'BlockPoints'                   => 'components/BlockPoints',
+		'BlogCTA'                       => 'components/BlogCTA',
 		'FeaturesTableNew'              => 'components/FeaturesTable-New',
 		'HeroBanner'                    => 'components/HeroBanner',
 		'Block--video'                  => 'components/BlockVideo',
 		'GutenbergVideo'                => 'components/GutenbergVideo',
 		'BlockSuccess'                  => 'components/BlockSuccess',
+		'Boxes'                         => 'components/Boxes',
 		'Boxes--image'                  => 'components/BoxesImage',
+		'Boxes--dotted'                 => 'components/BoxesDotted',
+		'Boxes--stars'                  => 'components/BoxesStars',
 		'RequestDemo'                   => 'layouts/tests/RequestDemo',
 		'ScheduleDemo'                  => 'layouts/tests/ScheduleDemo',
 		'BlockCoupon'                   => 'components/BlockCoupon',
+		'IconList'                      => 'components/IconList',
 		'urlslab-block-tableofcontents' => 'components/UrlslabTOC',
+		'pricing-ai-assistant-banner'   => 'components/AiAssistantPricing',
+		'TourPageNumbers'               => 'components/TourPageNumbers',
+		'TourPageCTA'                   => 'components/TourPageCTA',
+		'HelpDesk'                      => 'layouts/HelpDesk',
+		'trialAd'                       => 'components/TrialBanner',
+		'Block--research'               => 'components/BlockResearch',
+		'Numbers'                       => 'components/Numbers',
+		'BlockChannels'                 => 'components/BlockChannels',
+		'FullHeadline'                  => 'components/FullHeadline',
+		'BlockResources'                => 'components/BlockResources',
+		'BannerTypingTest'              => 'components/BannerTypingTest',
+		'Block--switcher'               => 'components/BlockSwitcher',
+		'Reference'                     => 'components/Reference',
+		'BlockSolution'                 => 'components/BlockSolution',
+		'BlockSolutions'                => 'components/BlockSolutions',
+	);
+
+	// Array value in form of array, first is script name, second is dependency id
+	$scripts = array(
+		'/\<section.+class=".+IconTabs.+/' => array( 'IconTabs' ),
+		'[data-lightbox="gallery"]'        => array( 'splide' ),
+		'[data-lightbox="youtube"]'        => array( 'splide' ),
+		'/data-lightbox="gallery/'         => array( 'custom_lightbox', 'splide' ),
+		'/data-lightbox="youtube/'         => array( 'custom_lightbox_youtube', 'splide' ),
+		'/class=.+Block--video/'           => array( 'custom_lightbox_youtube', 'splide' ),
+		'/class=.+GutenbergVideo/'         => array( 'custom_lightbox_youtube', 'splide' ),
+		'/\<table.+/'                      => array( 'responsiveTable' ),
 	);
 
 	if ( ! $content ) {
@@ -52,6 +83,13 @@ function components_imports( $content ) {
 	
 		if ( isset( $found_blocks[0] ) || is_user_logged_in() ) {
 			wp_enqueue_style( $id, get_template_directory_uri() . '/assets/dist/' . $csspath . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
+	}
+
+	foreach ( $scripts as $selector => $runscript ) {
+		$found_blocks = preg_match( $selector, $content );
+		if ( $found_blocks || is_user_logged_in() ) {
+			set_custom_source( $runscript[0], 'js', isset( $runscript[1] ) );
 		}
 	}
 

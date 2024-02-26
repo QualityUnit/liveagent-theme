@@ -22,7 +22,7 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 
 	if ( in_array( 'icn-menu-tour', $item->classes ) ) {
 		$tour_video_url = get_template_directory_uri() . '/assets/images/tour_video.png';
-		$item_output .= '
+		$item_output   .= '
         <div data-ytid="3zYfDwqNj0U" data-lightbox="youtube" class="Header__navigation__promo" style="background-image: url(' . $tour_video_url . ');">
         </div>
         <script>
@@ -153,17 +153,11 @@ add_filter( 'the_content', 'add_lightbox_rel' );
 
 
 /**
-	* Add X-DEFAULT Header
-	*/
+ * Remove rel next and prev
+ */
 
-function wps_head_hreflang_xdefault( $url, $lang_code ) {
-	if ( apply_filters( 'wpml_default_language', null ) === $lang_code ) {
-		echo '<link rel="alternate" href="' . esc_url( $url ) . '" hreflang="x-default" />';
-	}
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 
-	return $url;
-}
-add_filter( 'wpml_alternate_hreflang', 'wps_head_hreflang_xdefault', 10, 2 );
 
 
 /**
@@ -285,7 +279,7 @@ function url_space_replace( $content ) {
 }
 add_filter( 'the_content', 'url_space_replace', 9999 );
 
-// Fixes spaces in href attribute of URLs in content
+// Highlights text wrapped in carrets ie: This is ^highlighted^ text
 function highlight_text( $content ) {
 	if ( ! $content ) {
 		return $content;

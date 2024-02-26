@@ -90,8 +90,11 @@ $signupSidebarWidth: 16.875em;
 		}
 
 		@media (min-width: $breakpoint-desktop-box) {
+			position: sticky;
+			top: 15px + $header-height;
 			display: block;
 			width: $sidebarWidth;
+			margin-bottom: auto !important;
 			padding-left: 2em;
 		}
 	}

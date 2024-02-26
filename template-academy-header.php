@@ -3,13 +3,10 @@
 	 * Template Name: Page Like Academy Post – Helpdesk Header
 	 */
 	set_custom_source( 'components/SidebarTOC', 'css' );
-	set_custom_source( 'components/SignupSidebar', 'css' );
 	set_custom_source( 'pages/post', 'css' );
-	set_custom_source( 'custom_lightbox', 'js' );
 	set_custom_source( 'common/splide', 'css' );
 	set_custom_source( 'splide', 'js' );
 	set_custom_source( 'sidebar_toc', 'js' );
-	set_custom_source( 'si', 'js' );
 ?>
 
 <style type="text/css" rel="stylesheet">

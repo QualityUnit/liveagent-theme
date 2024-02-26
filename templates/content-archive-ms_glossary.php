@@ -1,4 +1,6 @@
 <?php // @codingStandardsIgnoreLine
+set_custom_source( 'pages/Archive', 'css', false, false );
+
 $page_header_title = __( 'Help Desk Software Glossary', 'ms' );
 $page_header_text  = __( 'If you are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'ms' );
 if ( is_tax( 'ms_glossary_categories' ) ) :
@@ -15,7 +17,7 @@ $page_header_args = array(
 	'text'  => $page_header_text,
 );
 ?>
-<div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
+<div id="archive" class="Archive Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<div class="Archive__filter">
 		<div class="wrapper">
