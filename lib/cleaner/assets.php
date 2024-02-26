@@ -12,6 +12,7 @@ add_filter( 'wpseo_prev_rel_link', '__return_false' );
   */
 
 function remove_jquery_migrate( $scripts ) {
+
 	if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
 		$script = $scripts->registered['jquery'];
 
@@ -93,20 +94,8 @@ add_action(
 			wp_deregister_style( 'elementor-pro' );
 			wp_deregister_style( 'elementor-pro-frontend' );
 
-			function elementor_custom_to_source() {
-				ob_start();
-				$css = file_get_contents( get_template_directory() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css' );
-				ob_get_clean();
-
-				// return the stored style
-				if ( '' != $css ) {
-					echo '<style id="elementor-custom-css" type="text/css">' . $css . '</style>'; // @codingStandardsIgnoreLine
-				}
-			};
-
-			elementor_custom_to_source();
-			// wp_register_style( 'elementor-frontend', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-			// wp_enqueue_style( 'elementor-frontend' );
+			wp_register_style( 'elementor-frontend', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+			wp_enqueue_style( 'elementor-frontend' );
 
 			wp_deregister_script( 'wp-embed' );
 		}
