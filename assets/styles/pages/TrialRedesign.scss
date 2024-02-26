@@ -36,6 +36,7 @@
 	$bg-radius: 1.25em;
 	display: block;
 
+
 	@media (min-width: $breakpoint-tablet-landscape) {
 		display: flex;
 	}
@@ -61,15 +62,14 @@
 		}
 	}
 
-	&__awards {
+	.heroBanner__awards {
 		position: absolute;
 		z-index: 10;
 		top: 0;
 		right: 1em;
-		display: none;
 
-		@media (min-width: $breakpoint-desktop-big) {
-			display: block;
+		&__wrapper {
+			all: unset;
 		}
 	}
 

@@ -92,10 +92,6 @@
 		display: none;
 		position: relative;
 		z-index: 1;
-
-		.heroBanner__awards {
-			display: none;
-		}
 	}
 
 	@media (min-width: $breakpoint-tablet) {
@@ -152,37 +148,6 @@
 
 				width: 35.625em;
 				height: auto;
-			}
-
-			.heroBanner__awards {
-				display: block;
-
-				&__wrapper {
-
-					position: absolute;
-					bottom: 0;
-					right: 0;
-					width: 5em;
-				}
-
-				&__bg {
-
-					@include posCustom(-1em);
-					position: absolute;
-				}
-
-				&__title {
-					width: 60%;
-					display: block;
-					margin: 0 auto;
-				}
-
-				.heroBanner__awards__img {
-					width: 80%;
-					margin: 0 auto;
-					padding-bottom: 80%;
-					background-size: cover !important;
-				}
 			}
 
 			.heroBanner__image__cta__img {
