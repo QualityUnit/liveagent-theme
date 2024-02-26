@@ -1,9 +1,9 @@
 /* global Splide */
 
 const gallery = document.querySelectorAll( '[data-lightbox="gallery"]' );
-const body = document.querySelector( 'body' );
 
 function removeLightboxModal( event, target ) {
+	const body = document.querySelector( 'body' );
 	const lightboxTarget = target;
 	event.stopPropagation();
 	lightboxTarget.classList.remove( 'active' );
@@ -15,6 +15,8 @@ function removeLightboxModal( event, target ) {
 }
 
 if ( gallery.length > 0 ) {
+	const body = document.querySelector( 'body' );
+
 	const galleryConst = document.createElement( 'div' );
 	let lightbox = null;
 	galleryConst.classList.add( 'lightbox', 'splide' );
