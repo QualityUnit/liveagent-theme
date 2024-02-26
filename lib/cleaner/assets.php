@@ -147,14 +147,14 @@ function buffer_end() {
 	ob_get_clean();
 }
 
-function remove_default_jquery() {
+function remove_default_jquery( $html ) {  // @codingStandardsIgnoreLine
 		wp_dequeue_script( 'jquery' );
 		wp_deregister_script( 'jquery' );   
 		wp_dequeue_script( 'jquery-ui-core' );
 		wp_deregister_script( 'jquery-ui-core' );
 }
 
-function remove_wpml_styles() {
+function remove_wpml_styles( $html ) {  // @codingStandardsIgnoreLine
 	wp_dequeue_style( 'wpml-blocks' );
 	wp_deregister_style( 'wpml-blocks' );
 }
