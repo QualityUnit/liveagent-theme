@@ -126,7 +126,7 @@
 									<?php if ( isset( $social_link ) && isset( $social_name ) ) { ?>
 										<a href="<?= esc_url( $social_link ); ?>"
 											 title="<?= esc_attr( $author_infos['name'] ); ?> <?= esc_attr( $social_name ); ?>"
-											 target="_blank" rel="noopener noreferrer nofollow"
+											 target="_blank" itemprop="sameAs" rel="noopener noreferrer nofollow"
 										>
 											<svg>
 												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-' . $social_name ) ?>"></use>

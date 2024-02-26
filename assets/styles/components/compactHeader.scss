@@ -503,10 +503,10 @@ body.compact-header--active {
 		gap: 1em;
 		margin: 1.6em 0;
 
-		> a[target="_blank"]:not(.Button) {
+		> a {
 
 			&::after {
-				content: unset !important;
+				display: none !important;
 			}
 
 			svg {

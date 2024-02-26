@@ -7,7 +7,8 @@ add_action(
 		register_rest_route(
 			'wp/v2',
 			// Endpoint URL with attributes cat_id, cat_slug etc.
-			'/blog/(cat_id=(?P<id>\d+)|cat_slug=(?P<cat_slug>[^&]+))?(&?author_id=(?P<author_id>\d+))?(\&?page=(?P<page>\d+))?',			array(
+			'/blog/(cat_id=(?P<id>\d+)|cat_slug=(?P<cat_slug>[^&]+))?(&?author_id=(?P<author_id>\d+))?(\&?page=(?P<page>\d+))?',
+			array(
 				'methods'             => 'GET',
 				'callback'            => 'get_posts_from_category',
 				'permission_callback' => '__return_true',

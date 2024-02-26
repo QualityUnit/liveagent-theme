@@ -72,36 +72,41 @@ if ( isset( $categories ) ) {
 
 				<div class="BlogPost__author-box" itemprop="author" itemscope itemtype="http://schema.org/Person">
 					<div class="BlogPost__author-box__avatar">
-						<meta itemprop="image" content="<?= esc_url( get_avatar_url( get_the_author_meta( 'ID' ), 220, 'gravatar_default', get_the_author() ) ); ?>"></meta>
-						<?= get_avatar( get_the_author_meta( 'ID' ), 220, 'gravatar_default', get_the_author() ); ?>
+						<meta itemprop="image" content="<?= esc_url( get_avatar_url( get_the_author_meta( 'ID' ), 250, 'gravatar_default', get_the_author() ) ); ?>">
+						<?= get_avatar( get_the_author_meta( 'ID' ), 250, 'gravatar_default', get_the_author() ); ?>
 					</div>
 
 					<div class="BlogPost__author-box__content">
 						<p class="BlogPost__author-box__content__name" itemprop="name"><?php the_author(); ?></p>
-						<p class="BlogPost__author-box__content__position"><?php the_author_meta( 'position' ); ?></p>
+							<?php if ( ! empty( get_the_author_meta( 'position' ) ) ) { ?>
+							<p class="BlogPost__author-box__content__position">
+									<?php the_author_meta( 'position' ); ?>
+							</p>
+						<?php } ?>
 						<p class="BlogPost__author-box__content__description" itemprop="description"><?php the_author_meta( 'description' ); ?></p>
 						<div class="BlogPost__author-box__content__social">
-							<?php if ( (bool) get_the_author_meta( 'instagram' ) ) { ?>
+							<?php if ( get_the_author_meta( 'instagram' ) ) { ?>
 							<a href="<?php the_author_meta( 'instagram' ); ?>" target="_blank" itemprop="sameAs">
 								<i class="fontello-instagram-brands"></i>
 							</a>
 							<?php } ?>
-							<?php if ( (bool) get_the_author_meta( 'facebook' ) ) { ?>
+							<?php if ( get_the_author_meta( 'facebook' ) ) { ?>
 							<a href="<?php the_author_meta( 'facebook' ); ?>" target="_blank" itemprop="sameAs">
 								<i class="fontello-facebook-f-brands"></i>
 							</a>
 							<?php } ?>
-							<?php if ( (bool) get_the_author_meta( 'linkedin' ) ) { ?>
+							<?php if ( get_the_author_meta( 'linkedin' ) ) { ?>
 							<a href="<?php the_author_meta( 'linkedin' ); ?>" target="_blank" itemprop="sameAs">
 								<i class="fontello-linkedin-in-brands"></i>
 							</a>
 							<?php } ?>
-							<?php if ( (bool) get_the_author_meta( 'twitter' ) ) { ?>
+							<?php if ( get_the_author_meta( 'twitter' ) ) { ?>
 							<a href="https://twitter.com/<?php the_author_meta( 'twitter' ); ?>" target="_blank" itemprop="sameAs">
 								<i class="fontello-twitter-brands"></i>
 							</a>
 							<?php } ?>
 						</div>
+						<a href="<?= esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) ?>" class="BlogPost__author-box__archive--button"><?php _e( 'All articles by ', 'ms' ); ?> <?php the_author(); ?></a>
 					</div>
 				</div>
 
