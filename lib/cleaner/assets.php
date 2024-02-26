@@ -95,12 +95,12 @@ add_action(
 
 			function elementor_custom_to_source() {
 				ob_start();
-				include get_template_directory() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css';
-				$css = ob_get_clean();
+				$css = file_get_contents( get_template_directory() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css' );
+				ob_get_clean();
 
 				// return the stored style
-				if ( $css != '' ) {
-					echo '<style id="elementor-custom-css" type="text/css">' . $css . '</style>';
+				if ( '' != $css ) {
+					echo '<style id="elementor-custom-css" type="text/css">' . $css . '</style>'; // @codingStandardsIgnoreLine
 				}
 			};
 

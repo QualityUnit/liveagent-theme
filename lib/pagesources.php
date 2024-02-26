@@ -4,13 +4,6 @@
 // Blog page
 set_source( 'single-post', 'pages/blog', 'css' );
 
-// Archive type pages
-$archive_type = array( 'archive', 'about', 'awards', 'testimonials', 'customers' );
-
-// foreach ( $archive_type as $specific_page ) {
-// 	set_source( $specific_page, 'pages/Archive', 'css' );
-// }
-
 // Post type page
 set_source( 'post', 'pages/post', 'css' );
 

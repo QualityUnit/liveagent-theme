@@ -17,12 +17,12 @@
 	<?php 
 	function add_inline_styles() {
 		ob_start();
-		include get_template_directory() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css';
-		$css = ob_get_clean();
+		$css = file_get_contents( get_template_directory() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css' );
+		ob_get_clean();
 
 		// return the stored style
-		if ( $css != '' ) {
-			echo '<style id="inline-css" type="text/css">' . $css . '</style>';
+		if ( '' != $css ) {
+			echo '<style id="inline-css" type="text/css">' . $css . '</style>'; // @codingStandardsIgnoreLine
 		}
 	};
 

@@ -7,13 +7,13 @@
 // Note: CSS was moved to assets.php because of CLS Web Vital
 function inline_compact_header() {
 		ob_start();
-		include get_template_directory() . '/assets/dist/components/compactHeader' . isrtl() . wpenv() . '.css';
-		include get_template_directory() . '/assets/dist/components/Filter' . isrtl() . wpenv() . '.css';
-		$css = ob_get_clean();
+		$css .= file_get_contents( get_template_directory() . '/assets/dist/components/compactHeader' . isrtl() . wpenv() . '.css' );
+		$css .= file_get_contents( get_template_directory() . '/assets/dist/components/Filter' . isrtl() . wpenv() . '.css' );
+		ob_get_clean();
 
 		// return the stored style
-	if ( $css != '' ) {
-		echo '<style id="compactheader-css" type="text/css">' . $css . '</style>';
+	if ( '' != $css ) {
+		echo '<style id="compactheader-css" type="text/css">' . $css . '</style>'; // @codingStandardsIgnoreLine
 	}
 };
 inline_compact_header();
