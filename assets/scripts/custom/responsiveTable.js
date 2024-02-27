@@ -23,7 +23,10 @@ if ( tables.length ) {
 
 		//Sets check or crossover for Y or N vals
 		for ( let i = 0; i <= tr.length; i++ ) {
-			const headers = tr[ 0 ].querySelectorAll( 'th' );
+			let headers = tr[ 0 ].querySelectorAll( 'th' );
+			if ( ! headers?.length ) {
+				headers = tr[ 0 ].querySelectorAll( 'td' );
+			}
 			const vals = tr[ i + 1 ] && tr[ i + 1 ].querySelectorAll( 'td' );
 			const allCells = tr[ i ] && tr[ i ].querySelectorAll( 'td, th' );
 
@@ -43,7 +46,7 @@ if ( tables.length ) {
 
 			if ( vals?.length ) {
 				vals.forEach( ( val, index ) => {
-					if ( val.textContent === 'y' || val.textContent === 'Yes' ) {
+					if ( val.textContent === 'y' || val.textContent.toLowerCase() === 'yes' ) {
 						val.textContent = null;
 						val.classList.add( 'icn-after-check' );
 						val.insertAdjacentHTML( 'afterbegin', `
@@ -52,7 +55,7 @@ if ( tables.length ) {
 							</svg>`
 						);
 					}
-					if ( val.textContent === 'n' || val.textContent === 'No' ) {
+					if ( val.textContent === 'n' || val.textContent.toLowerCase() === 'no' ) {
 						val.textContent = null;
 						val.classList.add( 'icn-after-close' );
 						val.insertAdjacentHTML( 'afterbegin', `

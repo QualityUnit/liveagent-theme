@@ -20,7 +20,7 @@ const signuplogin = () => {
 				async function isLoaded() {
 					const response = await waitForLoad( script );
 
-					if ( response.ok && window.jQuery ) {
+					if ( response.ok ) {
 						setTimeout( () => {
 							scriptList.filter( ( executor ) => {
 								const dataSrc = executor.getAttribute( 'data-src' );
