@@ -3,7 +3,9 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-figure.wp-block-table {
+figure.wp-block-table,
+.AlternativeTable,
+.Content {
 
 	table {
 		width: 100%;
