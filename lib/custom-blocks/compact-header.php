@@ -59,7 +59,12 @@ inline_compact_header();
 	?>
 	<div class="compact-header__placeholder">
 	<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?> urlslab-skip-lazy">
-		<div class="compact-header__wrapper wrapper">
+		<div class="compact-header__wrapper wrapper"
+		<?php
+		if ( is_author() ) {
+			?>
+			 itemscope itemtype="http://schema.org/Person"
+		<?php } ?> >
 			<div class="compact-header__left">
 				<!--Breadcrumb section-->
 				<?php
@@ -105,7 +110,7 @@ inline_compact_header();
 					if ( ! empty( $author_infos['text'] ) ) {
 						?>
 						<!-- Author description section -->
-						<div class="compact-header__text"><?= wp_kses_post( $author_infos['text'] ); ?></div>
+						<div class="compact-header__text" itemprop="description"><?= wp_kses_post( $author_infos['text'] ); ?></div>
 					<?php } ?>
 					<!-- Author description section end -->
 					<?php
@@ -313,6 +318,7 @@ inline_compact_header();
 									<?php
 									if ( isset( $img ) ) {
 										?>
+										<meta itemprop="image" content="<?= esc_url( $img ); ?>">
 										<img
 											fetchpriority="high"
 											src="<?= esc_url( $img ); ?>"
