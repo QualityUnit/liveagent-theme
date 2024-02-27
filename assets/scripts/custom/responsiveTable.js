@@ -13,8 +13,8 @@ if ( tables.length ) {
 
 		//sets class and rating CSS variable for Alternative table
 		if ( tr[ 1 ] ) {
-			const ratings = tr[ 1 ]?.querySelectorAll( 'td:not(:empty):not(:first-of-type)' );
-			tr[ 1 ]?.classList.add( 'stars' );
+			const ratings = tr[ 1 ].querySelectorAll( 'td:not(:empty):not(:first-of-type)' );
+			tr[ 1 ].classList.add( 'stars' );
 			ratings.forEach( ( rating ) => {
 				if ( ! isNaN( Number( rating.textContent ) ) ) {
 					rating.style.setProperty( '--rating', rating.textContent );
