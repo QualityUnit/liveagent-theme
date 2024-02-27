@@ -21,53 +21,61 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                loader: 'babel-loader',
+                use: [
+                    { loader: 'babel-loader' }
+                ],
                 exclude: /node_modules/
             },
             {
                 test: /\.ts$/,
-                loader: 'ts-loader',
+                use: [
+                    {
+                        loader: 'ts-loader',
+                    }
+                ],
                 exclude: /node_modules/
             },
             {
                 test: /\.jsx$/,
-                loader: 'babel-loader',
+                use: [
+                    {
+                        loader: 'babel-loader',
+                    }
+                ],
                 exclude: /node_modules/
             },
             {
                 test: /\.tsx$/,
-                loader: 'ts-loader',
+               use: [
+                   {
+                       loader: 'ts-loader',
+                   }
+               ],
                 exclude: /node_modules/
             },
             {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                ]
             },
-            // {
-            //     test: /\.css$/,
-            //     exclude: /node_modules/,
-            //     use: [
-            //         { loader: 'style-loader' },
-            //         { 
-            //             loader: 'css-loader',
-            //             options: {
-            //                 modules: {
-            //                     localIdentName: "[name]__[local]___[hash:base64:5]",
-            //                 },														
-            //                 sourceMap: true
-            //             }
-            //          },
-            //          { 
-            //              loader: 'postcss-loader',
-            //              options: {
-            //              }
-            //           }
-            //     ]
-            // },
             {
                 test: /\.(png|jpe?g|gif|ico|svg|webp)$/,
-                loader: 'url-loader?limit=10000&name=img/[name].[ext]'
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                            name: 'img/[name].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },

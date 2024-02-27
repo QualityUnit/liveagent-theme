@@ -23,14 +23,14 @@
 		"build:all": "yarn && yarn build && yarn build:qu-commonproblems && yarn build:qu-reviews && yarn build:qu-checklists && yarn build:qu-howtos && yarn build:qu-expertnote && yarn build:qu-usecase && yarn build:statistics && yarn build:web-calc && yarn build:web-calc-featured && yarn build:typing-test"
 	},
 	"engines": {
-		"node": ">= 14"
+		"node": ">= 20"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.23",
 		"@babel/eslint-parser": "^7.23",
 		"@commitlint/cli": "^17.7.2",
 		"@commitlint/config-conventional": "^17.7.0",
-		"@wordpress/eslint-plugin": "^14",
+		"@wordpress/eslint-plugin": "^17",
 		"@wordpress/stylelint-config": "^21",
 		"browser-sync": "^3.0",
 		"concurrently": "^8.2",
@@ -56,7 +56,7 @@
 		"husky": "^8.0.3",
 		"minimist": "^1.2",
 		"prettier": "^3.2",
-		"stylelint": "^15.11"
+		"stylelint": "^15"
 	},
 	"dependencies": {
 		"browserlist": "^1.0.1",
