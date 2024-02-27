@@ -202,7 +202,7 @@ body {
 		}
 	}
 
-	.announcement--active {
+	#app.announcement--active {
 
 		.Header {
 			animation: top 0.3s ease;
@@ -221,7 +221,7 @@ body {
 		}
 	}
 
-	.announcement--hidden {
+	#app.announcement--hidden {
 
 		.Announcement__bars__slider {
 			transform: translateY(-100%);
