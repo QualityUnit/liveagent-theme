@@ -1,4 +1,4 @@
-const tables = document.querySelectorAll( 'figure.wp-block-table table' );
+const tables = document.querySelectorAll( 'body:not(.pricing) figure.wp-block-table table' );
 
 if ( tables.length ) {
 	const hasTooltip = new RegExp( /(.+?)<i>(.+?)<\/i>/gi );
@@ -12,14 +12,15 @@ if ( tables.length ) {
 		}
 
 		//sets class and rating CSS variable for Alternative table
-		const ratings = tr[ 1 ].querySelectorAll( 'td:not(:empty):not(:first-of-type)' );
-		tr[ 1 ].classList.add( 'stars' );
-
-		ratings.forEach( ( rating ) => {
-			if ( ! isNaN( Number( rating.textContent ) ) ) {
-				rating.style.setProperty( '--rating', rating.textContent );
-			}
-		} );
+		if ( tr[ 1 ] ) {
+			const ratings = tr[ 1 ]?.querySelectorAll( 'td:not(:empty):not(:first-of-type)' );
+			tr[ 1 ]?.classList.add( 'stars' );
+			ratings.forEach( ( rating ) => {
+				if ( ! isNaN( Number( rating.textContent ) ) ) {
+					rating.style.setProperty( '--rating', rating.textContent );
+				}
+			} );
+		}
 
 		//Sets check or crossover for Y or N vals
 		for ( let i = 0; i <= tr.length; i++ ) {
