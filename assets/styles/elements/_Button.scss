@@ -3,477 +3,471 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-#app {
+input[type="submit"],
+input[type="button"],
+button,
+.button,
+.Button {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	height: $button-height-normal;
+	padding: 0 $button-padding-normal;
+	border: 0;
+	border-radius: $border-radius - 2;
+	font-size: $button-font-size-normal;
+	font-family: $font-secondary;
+	font-weight: $font-weight-semi;
+	background-color: transparent;
+	cursor: pointer;
 
-	input[type="submit"],
-	input[type="button"],
-	button,
-	.button,
-	.Button {
-		position: relative;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: auto;
-		height: $button-height-normal;
-		padding: 0 $button-padding-normal;
-		border: 0;
-		border-radius: $border-radius - 2;
-		font-size: $button-font-size-normal;
-		font-family: $font-secondary;
-		font-weight: $font-weight-semi;
-		background-color: transparent;
-		cursor: pointer;
-
-		&:disabled {
-			pointer-events: none;
-			opacity: 0.5;
-		}
-
-		&:lang(ru) {
-			padding: 0 1em;
-		}
-
-		[class*="elementor"] {
-			all: unset;
-			display: block;
-
-			&.elementor-widget-container {
-				z-index: 3;
-			}
-
-			a {
-				text-decoration: none !important;
-
-				&::before {
-					content: "";
-
-					@include posZero;
-					position: absolute;
-					cursor: pointer;
-				}
-
-				&:active,
-				&:focus,
-				&:hover {
-					text-decoration: none !important;
-				}
-			}
-		}
-
-		&[class*="icn-"] {
-
-			svg {
-
-				@include square(1.25em);
-
-				&:first-child {
-					margin-right: 0.625em;
-				}
-
-				&:last-child {
-					margin-left: 0.625em;
-				}
-			}
-		}
+	&:disabled {
+		pointer-events: none;
+		opacity: 0.5;
 	}
 
-	.Button + .Button {
-		margin-left: 15px;
-
-		&--outline {
-			top: 1px;
-		}
+	&:lang(ru) {
+		padding: 0 1em;
 	}
 
-	%Button--full--hover {
-
-		&::before {
-			opacity: 0;
-		}
-
-		&::after {
-			opacity: 1;
-		}
-	}
-
-	.Button--full,
-	%Button--full {
-
-		@include color(background, background);
-		@include color(color, button-full-font-color);
-		overflow: hidden;
-
-		span,
-		strong {
-			position: relative;
-			z-index: 2;
-			font-weight: $font-weight-semi;
-			line-height: 1.33;
-		}
-
-		&::before {
-
-			@include color(background, background);
-			@include fullSize;
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			border-radius: ($border-radius - 2);
-			opacity: 1;
-			transition: opacity 0.75s;
-			z-index: 1;
-		}
-
-		&::after {
-
-			@include color(background, background-invert);
-			@include fullSize;
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			border-radius: ($border-radius - 2);
-			opacity: 0;
-			transition: opacity 0.75s;
-			z-index: 1;
-		}
-
-		&:active,
-		&:focus,
-		&:hover {
-
-			@extend %Button--full--hover;
-		}
-
-		&.elementor-widget-button {
-
-			span {
-
-				@include color(color, button-full-font-color, !important);
-			}
-		}
-	}
-
-	.Button--login {
+	[class*="elementor"] {
+		all: unset;
 		display: block;
-	}
 
-	.Button--normal {
-		color: #fff;
-		background-color: #fa9531;
-		transition: all 0.3s;
-		overflow: hidden;
-
-		span {
-			position: relative;
-			z-index: 2;
-			line-height: 1.33;
+		&.elementor-widget-container {
+			z-index: 3;
 		}
 
-		&:active,
-		&:focus,
-		&:hover {
-			background-color: #f98006;
-		}
-	}
-
-	.Button--dark {
-		background: $black;
-		color: $white;
-
-		&:active,
-		&:focus,
-		&:hover {
-			background-color: #f98006;
-		}
-	}
-
-	.Button--white {
-
-		background: $white;
-		color: $black;
-		overflow: hidden;
-
-		span {
-			position: relative;
-			z-index: 2;
-			line-height: 1.33;
-		}
-
-		&::before {
-
-			content: "";
-			position: absolute;
-			background: $white;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			border-radius: ($border-radius - 2);
-			opacity: 1;
-			transition: opacity 0.75s;
-			z-index: 1;
-		}
-
-		&::after {
-
-			content: "";
-			position: absolute;
-			background: $black;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			border-radius: ($border-radius - 2);
-			opacity: 0;
-			transition: opacity 0.75s;
-			z-index: 1;
-		}
-
-		&:active,
-		&:focus,
-		&:hover {
-
-			color: $white;
+		a {
+			text-decoration: none !important;
 
 			&::before {
-				opacity: 0;
+				content: "";
+
+				@include posZero;
+				position: absolute;
+				cursor: pointer;
 			}
-
-			&::after {
-				opacity: 1;
-			}
-		}
-	}
-
-	.Button--knockout {
-
-		@include color(background-color, main-background);
-		mix-blend-mode: screen;
-		transition: all 0.2s;
-
-		span {
-			color: $black-real;
-			white-space: nowrap;
-		}
-
-		&:active,
-		&:focus,
-		&:hover {
-
-			@include color(background-color, content-color-dark);
-			mix-blend-mode: normal;
-
-			span {
-
-				@include color(color, font-color-light);
-			}
-		}
-	}
-
-	.Button--outline {
-
-		@include color(color, font-color-dark);
-		border: 1px solid currentColor;
-		overflow: hidden;
-		transition: all 0.3s;
-
-		span {
-			position: relative;
-			z-index: 2;
-			line-height: 1.33;
-		}
-
-		&:active,
-		&:focus,
-		&:hover {
-
-			@include color(color, primary-color);
-			@include color(border-color, primary-color);
-		}
-
-		&-gray {
-
-			@include color(background-color, button-outline-color);
-		}
-
-		&-white {
-
-			@include color(background-color, main-background);
-		}
-
-		&__white {
-
-			color: $white;
-			padding: 0.5em 1.5em;
 
 			&:active,
 			&:focus,
 			&:hover {
-
-				background-color: $white;
-				border-color: $white;
-				color: $black-real;
-
-				a {
-					color: inherit;
-				}
+				text-decoration: none !important;
 			}
 		}
 	}
 
-	.Button--copy {
-		margin-bottom: 50px;
-		margin-left: 30px;
-		margin-top: 10px;
-		padding: 0 20px;
-		background-color: transparent;
+	&[class*="icn-"] {
 
-		span {
-			display: flex;
-			flex-flow: wrap row;
-			justify-content: flex-start;
-			align-items: center;
+		svg {
 
-			&::before {
-				content: "";
-				display: block;
-				width: 20px;
-				height: 20px;
-				margin-right: 10px;
-				background-image: url(../../images/icon-copy.svg);
-				transition: opacity 0.3s;
+			@include square(1.25em);
+
+			&:first-child {
+				margin-right: 0.625em;
+			}
+
+			&:last-child {
+				margin-left: 0.625em;
 			}
 		}
+	}
+}
+
+.Button + .Button {
+	margin-left: 15px;
+
+	&--outline {
+		top: 1px;
+	}
+}
+
+%Button--full--hover {
+
+	&::before {
+		opacity: 0;
+	}
+
+	&::after {
+		opacity: 1;
+	}
+}
+
+.Button--full,
+%Button--full {
+
+	@include color(background, background);
+	@include color(color, button-full-font-color);
+	overflow: hidden;
+
+	span,
+	strong {
+		position: relative;
+		z-index: 2;
+		font-weight: $font-weight-semi;
+		line-height: 1.33;
+	}
+
+	&::before {
+
+		@include color(background, background);
+		@include fullSize;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: ($border-radius - 2);
+		opacity: 1;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&::after {
+
+		@include color(background, background-invert);
+		@include fullSize;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: ($border-radius - 2);
+		opacity: 0;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		@extend %Button--full--hover;
+	}
+
+	&.elementor-widget-button {
+
+		span {
+
+			@include color(color, button-full-font-color, !important);
+		}
+	}
+}
+
+.Button--login {
+	display: block;
+}
+
+.Button--normal {
+	color: #fff;
+	background-color: #fa9531;
+	transition: all 0.3s;
+	overflow: hidden;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: 1.33;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: #f98006;
+	}
+}
+
+.Button--dark {
+	background: $black;
+	color: $white;
+
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: #f98006;
+	}
+}
+
+.Button--white {
+
+	background: $white;
+	color: $black;
+	overflow: hidden;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: 1.33;
+	}
+
+	&::before {
+
+		content: "";
+		position: absolute;
+		background: $white;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: ($border-radius - 2);
+		opacity: 1;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&::after {
+
+		content: "";
+		position: absolute;
+		background: $black;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: ($border-radius - 2);
+		opacity: 0;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		color: $white;
+
+		&::before {
+			opacity: 0;
+		}
+
+		&::after {
+			opacity: 1;
+		}
+	}
+}
+
+.Button--knockout {
+
+	@include color(background-color, main-background);
+	mix-blend-mode: screen;
+	transition: all 0.2s;
+
+	span {
+		color: $black-real;
+		white-space: nowrap;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		@include color(background-color, content-color-dark);
+		mix-blend-mode: normal;
+
+		span {
+
+			@include color(color, font-color-light);
+		}
+	}
+}
+
+.Button--outline {
+
+	@include color(color, font-color-dark);
+	border: 1px solid currentColor;
+	overflow: hidden;
+	transition: all 0.3s;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: 1.33;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		@include color(color, primary-color);
+		@include color(border-color, primary-color);
+	}
+
+	&-gray {
+
+		@include color(background-color, button-outline-color);
+	}
+
+	&-white {
+
+		@include color(background-color, main-background);
+	}
+
+	&__white {
+
+		color: $white;
+		padding: 0.5em 1.5em;
 
 		&:active,
 		&:focus,
 		&:hover {
 
-			span {
+			background-color: $white;
+			border-color: $white;
+			color: $black-real;
 
-				&::before {
-					background-image: url(../../images/icon-copy-hover.svg);
-				}
+			a {
+				color: inherit;
 			}
 		}
 	}
+}
 
-	.Button--back {
-		margin-top: 20px;
-	}
+.Button--copy {
+	margin-bottom: 50px;
+	margin-left: 30px;
+	margin-top: 10px;
+	padding: 0 20px;
+	background-color: transparent;
 
-	.Button--small {
-		height: 2.25rem;
-		padding: 0.25em 1em;
-		font-size: 0.8125rem;
-	}
-
-	.Button--medium {
-		height: 60px;
-		padding: 0 40px;
-		font-size: 18px;
-
-		span {
-			line-height: 1.33;
-		}
-	}
-
-	.Button--big {
-		height: 72px;
-		padding: 0 30px;
-		font-size: 18px;
-
-		span {
-			line-height: 1.33;
-		}
-
-		@media (max-width: $breakpoint-mobile) {
-			height: 60px;
-			padding: 0 25px;
-			font-size: 16px;
-
-			span {
-				line-height: 1.33;
-			}
-		}
-	}
-
-	.Button--wide[class] {
-		padding-left: 4em;
-		padding-right: 4em;
-	}
-
-	.Button--inaction {
-
-		@include color(color, font-color-dark);
-		display: inline-flex;
+	span {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-start;
 		align-items: center;
-		font-family: $font-secondary;
-		font-weight: $font-weight-semi;
-		font-size: 0.875rem;
-
-		strong {
-			font-weight: $font-weight-semi;
-		}
 
 		&::before {
-			content: url(/app/themes/liveagent/assets/images/play_seeinaction.svg);
-			margin-right: 0.75em;
-			line-height: 0;
-		}
-
-		&:hover {
-
-			@include color(color, primary-color);
+			content: "";
+			display: block;
+			width: 20px;
+			height: 20px;
+			margin-right: 10px;
+			background-image: url(../../images/icon-copy.svg);
+			transition: opacity 0.3s;
 		}
 	}
 
-	.Button--learn-more {
-
-		@include color(color, dark-orange);
-		padding: 0.5rem 0 0 !important;
-		margin: 0 !important;
+	&:active,
+	&:focus,
+	&:hover {
 
 		span {
 
-			img {
-				width: 24px;
-				padding: 0 0 0 0.2rem;
+			&::before {
+				background-image: url(../../images/icon-copy-hover.svg);
 			}
 		}
+	}
+}
+
+.Button--back {
+	margin-top: 20px;
+}
+
+.Button--small {
+	height: 2.25rem;
+	padding: 0.25em 1em;
+	font-size: 0.8125rem;
+}
+
+.Button--medium {
+	height: 60px;
+	padding: 0 40px;
+	font-size: 18px;
+
+	span {
+		line-height: 1.33;
+	}
+}
+
+.Button--big {
+	height: 72px;
+	padding: 0 30px;
+	font-size: 18px;
+
+	span {
+		line-height: 1.33;
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		height: 60px;
+		padding: 0 25px;
+		font-size: 16px;
+
+		span {
+			line-height: 1.33;
+		}
+	}
+}
+
+.Button--wide[class] {
+	padding-left: 4em;
+	padding-right: 4em;
+}
+
+.Button--inaction {
+
+	@include color(color, font-color-dark);
+	display: inline-flex;
+	align-items: center;
+	font-family: $font-secondary;
+	font-weight: $font-weight-semi;
+	font-size: 0.875rem;
+
+	strong {
+		font-weight: $font-weight-semi;
+	}
+
+	&::before {
+		content: url(/app/themes/liveagent/assets/images/play_seeinaction.svg);
+		margin-right: 0.75em;
+		line-height: 0;
+	}
+
+	&:hover {
+
+		@include color(color, primary-color);
+	}
+}
+
+.Button--learn-more {
+
+	@include color(color, dark-orange);
+	padding: 0.5rem 0 0 !important;
+	margin: 0 !important;
+
+	span {
+
+		img {
+			width: 24px;
+			padding: 0 0 0 0.2rem;
+		}
+	}
+
+	.highlight-gradient {
+
+		img {
+			transform: translate(0, 0);
+			transition: transform 530ms ease-in-out !important;
+		}
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
 
 		.highlight-gradient {
 
+			@include color(background, background-invert);
+			background-clip: text;
+			color: transparent;
+			box-decoration-break: clone;
+
 			img {
-				transform: translate(0, 0);
+				transform: translate(10px, 0);
 				transition: transform 530ms ease-in-out !important;
 			}
 		}
-
-		&:hover,
-		&:active,
-		&:focus {
-
-			.highlight-gradient {
-
-				@include color(background, background-invert);
-				background-clip: text;
-				color: transparent;
-				box-decoration-break: clone;
-
-				img {
-					transform: translate(10px, 0);
-					transition: transform 530ms ease-in-out !important;
-				}
-			}
-
-		}
-
 	}
-
 }
 
 html[lang="es-ES"] .Button--demo {
