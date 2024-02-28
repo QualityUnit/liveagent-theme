@@ -73,8 +73,17 @@ const signuplogin = () => {
 		);
 
 		scriptParentSelections.forEach( ( input ) => {
-			input.addEventListener( 'openedFilterMenu', ( event ) => {
-				runLoadScript( event.target );
+			input.addEventListener( 'openedFilterMenu', async ( event ) => {
+				if ( ! window.jQuery ) {
+					jquerySrc[ 0 ].src = jquerySrc[ 0 ].dataset.src;
+				}
+				const response = await waitForLoad( jquerySrc[ 0 ] );
+
+				if ( response.ok ) {
+					setTimeout( () => {
+						runLoadScript( event.target );
+					}, 50 );
+				}
 			} );
 		} );
 
