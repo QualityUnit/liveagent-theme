@@ -7,7 +7,7 @@
 // Note: CSS was moved to assets.php because of CLS Web Vital
 function inline_compact_header() {
 		ob_start();
-		$css .= file_get_contents( get_template_directory() . '/assets/dist/components/compactHeader' . isrtl() . wpenv() . '.css' );
+		$css  = file_get_contents( get_template_directory() . '/assets/dist/components/compactHeader' . isrtl() . wpenv() . '.css' );
 		$css .= file_get_contents( get_template_directory() . '/assets/dist/components/Filter' . isrtl() . wpenv() . '.css' );
 		ob_get_clean();
 
@@ -90,8 +90,11 @@ inline_compact_header();
 					?>
 					<div class="compact-header__date">
 						<?php if ( isset( $date_machine ) && isset( $date_human ) ) { ?>
-							<span itemprop="datePublished" content="<?= esc_attr( $date_machine ); ?>"><?=
-								esc_html( $date_human ); ?></span>
+							<span itemprop="datePublished" content="<?= esc_attr( $date_machine ); ?>">
+																		<?=
+																		esc_html( $date_human );
+																		?>
+																		</span>
 						<?php } ?>
 						<?php if ( isset( $date_modified ) && isset( $time_modified ) ) { ?>
 							<?= esc_html( __( 'Last modified on', 'ms' ) ); ?>
@@ -144,8 +147,8 @@ inline_compact_header();
 									?>
 
 									<div class="compact-header__buttons-item">
-										<a class="Button Button--full Button--without-icon" href="<?= esc_url( $cta_button['url'] ) ?>">
-											<span><?= esc_html( $cta_button['text'] ) ?></span>
+										<a class="Button Button--full Button--without-icon" href="<?= esc_url( $cta_button['url'] ); ?>">
+											<span><?= esc_html( $cta_button['text'] ); ?></span>
 										</a>
 									</div>
 								<?php } ?>
@@ -155,14 +158,14 @@ inline_compact_header();
 							foreach ( $render_buttons as $button ) :
 								?>
 								<div class="compact-header__buttons-item">
-									<a href="<?= esc_url( $button['href'] ) ?>"
-										 class=" <?= esc_html( $button['classes'] ) ?>"
-										 title="<?= esc_attr( $button['title'] ) ?>"
-										 target="<?= esc_attr( $button['target'] ) ?>"
-										 rel="<?= esc_attr( $button['rel'] ) ?>"
-										 onclick="<?= esc_attr( $button['onclick'] ) ?>"
+									<a href="<?= esc_url( $button['href'] ); ?>"
+										 class=" <?= esc_html( $button['classes'] ); ?>"
+										 title="<?= esc_attr( $button['title'] ); ?>"
+										 target="<?= esc_attr( $button['target'] ); ?>"
+										 rel="<?= esc_attr( $button['rel'] ); ?>"
+										 onclick="<?= esc_attr( $button['onclick'] ); ?>"
 									>
-										<span><?= esc_html( $button['title'] ) ?></span>
+										<span><?= esc_html( $button['title'] ); ?></span>
 									</a>
 								</div>
 							<?php endforeach; ?>
@@ -201,7 +204,7 @@ inline_compact_header();
 													<?php } ?>
 												>
 													<svg class="icon-tag-solid">
-														<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#tag-solid' ) ?>"></use>
+														<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#tag-solid' ); ?>"></use>
 													</svg>
 													<?= esc_html( $tag_item['title'] ); ?>
 												</a>
@@ -270,14 +273,14 @@ inline_compact_header();
 							<a class="Button Button--outline js-compact-header__toggle">
 								<?= esc_html( __( 'Filters', 'ms' ) ); ?>
 								<svg class="searchField__reset-icon icon-gear">
-									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#gear' ) ?>"></use>
+									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#gear' ); ?>"></use>
 								</svg>
 							</a>
 						</div>
 						<div class="compact-header__filters js-compact-header__close urlslab-skip-keywords">
 							<a class="compact-header__filters-close js-compact-header__close">
 								<svg class="icon-close">
-									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
+									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use>
 								</svg>
 							</a>
 							<?php
@@ -304,12 +307,12 @@ inline_compact_header();
 										<div class="compact-header__search">
 											<div class="searchField">
 												<svg class="searchField__icon icon-search">
-													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ) ?>"></use>
+													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ); ?>"></use>
 												</svg>
 												<input type="search" class="search<?= esc_attr( $search_class ); ?>" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
 												<span class="search-reset">
 										<svg class="search-reset__icon icon-close">
-											<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
+											<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use>
 										</svg>
 									</span>
 											</div>

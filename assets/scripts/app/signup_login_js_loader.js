@@ -1,6 +1,6 @@
 const signuplogin = () => {
 	const jquerySrc = document.querySelectorAll( 'script[data-src*="jquery.min.js"], script[data-src*="jquery.js"]' );
-	const scriptList = [ ...document.querySelectorAll( 'script[data-src]' ) ];
+	const scriptList = [ ...document.querySelectorAll( 'script[data-src]:not(#jquery-js)' ) ];
 	const regex = /.+crm\.js.+|.+login\.js.+/gi;
 
 	function waitForLoad( element ) {
@@ -9,10 +9,7 @@ const signuplogin = () => {
 		} );
 	}
 
-	function loadScripts( input ) {
-		// if ( typeof input?.alphanum() !== 'undefined' ) {
-		// 	console.log( input );
-		// }
+	function loadScripts( ) {
 		scriptList.map( ( element ) => {
 			const script = element;
 
@@ -24,17 +21,14 @@ const signuplogin = () => {
 					const response = await waitForLoad( script );
 					const { ok, name } = response;
 
-					// if ( ok && name?.toLowerCase().includes( 'alphanum' ) ) {
-					if ( ok ) {
+					if ( ok && name?.toLowerCase().includes( 'alphanum' ) ) {
 						setTimeout( () => {
 							scriptList.filter( ( executor ) => {
 								const dataSrc = executor.getAttribute( 'data-src' );
-								if ( dataSrc.match( regex ) ) {
-									executor.src = dataSrc;
-								}
+								executor.src = dataSrc;
 								return true;
 							} );
-						}, 5000 );
+						}, 50 );
 					}
 				}
 
