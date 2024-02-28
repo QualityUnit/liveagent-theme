@@ -99,7 +99,7 @@ function la_introduction_videos() {
 			echo '</div>';
 		?>
 
-			<div class="Introduction__videos__contents">
+			<div class="Introduction__videos__contents urlslab-skip-all">
 				<?php
 				foreach ( $atts as $att ) {
 					$video_url  = $att['url'];
