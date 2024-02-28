@@ -5,11 +5,14 @@ const signuplogin = () => {
 
 	function waitForLoad( element ) {
 		return new Promise( ( resolve ) => {
-			element.onload = resolve( { ok: true } );
+			element.onload = resolve( { ok: true, name: element.id } );
 		} );
 	}
 
-	function loadScripts( ) {
+	function loadScripts( input ) {
+		// if ( typeof input?.alphanum() !== 'undefined' ) {
+		// 	console.log( input );
+		// }
 		scriptList.map( ( element ) => {
 			const script = element;
 
@@ -19,8 +22,10 @@ const signuplogin = () => {
 
 				async function isLoaded() {
 					const response = await waitForLoad( script );
+					const { ok, name } = response;
 
-					if ( response.ok ) {
+					// if ( ok && name?.toLowerCase().includes( 'alphanum' ) ) {
+					if ( ok ) {
 						setTimeout( () => {
 							scriptList.filter( ( executor ) => {
 								const dataSrc = executor.getAttribute( 'data-src' );
@@ -29,7 +34,7 @@ const signuplogin = () => {
 								}
 								return true;
 							} );
-						}, 50 );
+						}, 5000 );
 					}
 				}
 
@@ -42,7 +47,7 @@ const signuplogin = () => {
 	function runLoadScript( element ) {
 		const type = element.closest( '[data-id="signup"]' ).dataset.type;
 		sessionStorage.setItem( 'crmType', type );
-		loadScripts( );
+		loadScripts( element );
 	}
 	if ( document.querySelectorAll( 'script[data-src]' ).length ) {
 		const scriptParent = document.querySelectorAll(

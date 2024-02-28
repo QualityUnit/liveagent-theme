@@ -102,7 +102,7 @@ function ms_login() {
 	<?php } ?>
 	<?php $login_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/login.js' ) ); ?>
 	<script id="jquery-js" data-src="<?= esc_url( includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
-	<script id="jquery-alphanum-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
+	<script id="jquery-alphanum-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js?ver=' . THEME_VERSION); ?>"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/login.js?ver=' . $login_ver_app ?>"></script>
 	<?php }, 999 ); ?>
 	<?php // @codingStandardsIgnoreEnd ?>

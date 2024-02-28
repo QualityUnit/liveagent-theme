@@ -719,7 +719,7 @@
 		nameField.registerValidator( FieldValidator.textLength() );
 		setEvents( nameField );
 
-		nameField.input().alphanum( {
+		nameField.input()?.alphanum( {
 			disallow: '.', // Disallow extra characters
 			allowSpace: true, // Allow the space character
 			allowNumeric: true, // Allow digits 0-9
@@ -775,7 +775,7 @@
 		domainField.registerValidator( crmDomainValidator );
 		setEvents( domainField );
 
-		domainField.input().alphanum( {
+		domainField.input()?.alphanum( {
 			allow: '-0123456789', // Allow extra characters
 			disallow: '', // Disallow extra characters
 			allowSpace: false, // Allow the space character
