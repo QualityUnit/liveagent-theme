@@ -2,8 +2,8 @@
 	set_custom_source( 'pages/Directory', 'css' );
 	set_custom_source( 'common/splide', 'css' );
 	set_custom_source( 'components/SidebarTOC', 'css' );
-	set_custom_source( 'reviewsGallery', 'js' );
 	set_custom_source( 'splide', 'js' );
+	set_custom_source( 'reviewsGallery', 'js' );
 	set_custom_source( 'sidebar_toc', 'js' );
 	$current_lang       = apply_filters( 'wpml_current_language', null );
 	$header_en_category = get_en_category( 'ms_reviews', $post->ID );
@@ -103,7 +103,7 @@ function meta( $metabox_id ) {
 				<?php the_content(); ?>
 
 				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
-				
+
 				<?php
 				if ( ! empty( meta( 'details_contacts' ) ) ) {
 					require_once get_template_directory() . '/templates/content-single-ms_reviews-contacts.php';
@@ -158,7 +158,7 @@ function meta( $metabox_id ) {
 									<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
 									<meta itemprop="operatingSystem" content="Any" />
 									<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>"></span>
-									<?php 
+									<?php
 									$first  = get_post_meta( get_the_ID(), 'first_rating_value', true );
 									$second = get_post_meta( get_the_ID(), 'second_rating_value', true );
 									$third  = get_post_meta( get_the_ID(), 'third_rating_value', true );
