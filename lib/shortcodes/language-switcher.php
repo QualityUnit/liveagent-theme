@@ -48,7 +48,7 @@ function ms_languages( $atts ) {
 				foreach ( $languages as $lang ) {
 					if ( $lang['active'] ) {
 						$lang_flag = strtolower( preg_replace( '/.+?_/', '', $lang['default_locale'] ) );
-						echo '<li class="Header__flags--item Header__flags--item-active Header__flags--item-' . esc_html( $lang['language_code'] ) . '" lang="' . esc_attr( $lang['language_code'] ) . '"><span id="languageSwitcher-toggle" class="Header__flags--item-toggle"><img class="Header__flags--item-flag" aria-label="' . esc_attr( $lang['language_code'] ) . '" src="' . esc_url( $flags ) . esc_html( $lang_flag ) . '.svg?ver=' . THEME_VERSION . '" /></span>'; // @codingStandardsIgnoreLine
+						echo '<li class="Header__flags--item Header__flags--item-active Header__flags--item-' . esc_html( $lang['language_code'] ) . '" lang="' . esc_attr( $lang['language_code'] ) . '"><span id="languageSwitcher-toggle" class="Header__flags--item-toggle"><img class="Header__flags--item-flag" aria-label="' . esc_attr( $lang['language_code'] ) . '" alt="' . esc_attr( $lang_flag ) . '" src="' . esc_url( $flags ) . esc_html( $lang_flag ) . '.svg?ver=' . THEME_VERSION . '" /></span>'; // @codingStandardsIgnoreLine
 					}
 				}
 				?>
@@ -58,8 +58,8 @@ function ms_languages( $atts ) {
 					foreach ( $regions as $region => $name ) {
 						if ( ! empty( $atts[ $region . '_from' ] ) || ! empty( $atts[ $region . '_to' ] ) ) {
 							?>
-							<input class="input--region hidden" name="regions" type="radio" id="<?= esc_attr( $region ) ?>" />
-							<label class="Header__flags--region-switcher" for="<?= esc_attr( $region ) ?>"><?= esc_html( $name ) ?></label>
+							<input class="input--region hidden" name="regions" type="radio" id="<?= esc_attr( $region ); ?>" />
+							<label class="Header__flags--region-switcher" for="<?= esc_attr( $region ); ?>"><?= esc_html( $name ); ?></label>
 							<?php
 						}
 					}
@@ -69,8 +69,8 @@ function ms_languages( $atts ) {
 						foreach ( $regions as $region => $name ) {
 							if ( ! empty( $atts[ $region . '_from' ] ) || ! empty( $atts[ $region . '_to' ] ) ) {
 								?>
-								<div class="Header__flags--region Header__flags--region-<?= esc_html( $region ) ?>">
-									<div class="Header__flags--region-title h4"><?= esc_html( $name ) ?></div>
+								<div class="Header__flags--region Header__flags--region-<?= esc_html( $region ); ?>">
+									<div class="Header__flags--region-title h4"><?= esc_html( $name ); ?></div>
 									<?php
 									create_language_menu( $region, $atts, $lang_urls, $lang_flags, $lang_codes, $lang_names, $lang_active );
 									?>

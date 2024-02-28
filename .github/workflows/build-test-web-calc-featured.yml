@@ -16,7 +16,7 @@ jobs:
         working-directory: ./apps/web-calc-featured/
     strategy:
       matrix:
-        node_version: [ '16' ]
+        node_version: [ '20' ]
 
     steps:
       - uses: actions/checkout@v4
