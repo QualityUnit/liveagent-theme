@@ -162,7 +162,7 @@ if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-pr
 
 <?php } ?>
 
-<div id="loader" class="invisible urlslab-skip-all">
+<div id="loader" class="invisible">
 	<div class="loaderIn">
 
 		<div class="BuildingApp">
