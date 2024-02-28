@@ -13,7 +13,7 @@ scss/at-extend-no-missing-placeholder */
 	background-position: left top;
 	background-repeat: no-repeat;
 
-	&::before {
+	&__right__img {
 
 		@media (min-width: $breakpoint-tablet) {
 
@@ -21,7 +21,8 @@ scss/at-extend-no-missing-placeholder */
 			position: absolute;
 			content: "";
 			pointer-events: none;
-			background: url(../../images/cta_new_chat.png) 100% bottom no-repeat;
+			background-repeat: no-repeat;
+			background-position: 100% bottom;
 			background-size: contain;
 		}
 	}
