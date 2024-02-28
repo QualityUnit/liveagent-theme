@@ -78,24 +78,21 @@
 
 	<div class="blog__top__post">
 			<?php
-			$show_top_args = array(
-				'posts_per_page'      => 1,
-				'ignore_sticky_posts' => 1,
-				'post__in'            => get_option( 'sticky_posts' ),
-				'orderby'             => 'date',
-				'no_found_rows'       => true,
-			);
-			if ( is_author() ) {
-				$user_id = get_the_author_meta( 'ID' );
-				$show_top_args['author'] = $user_id;
-			}
+			if ( ! is_author() ) {
+				$show_top_args = array(
+					'posts_per_page'      => 1,
+					'ignore_sticky_posts' => 1,
+					'post__in'            => get_option( 'sticky_posts' ),
+					'orderby'             => 'date',
+					'no_found_rows'       => true,
+				);
 
-			$show_top_posts = new WP_Query( $show_top_args );
+				$show_top_posts = new WP_Query( $show_top_args );
 
-			while ( $show_top_posts->have_posts() ) :
-				$show_top_posts->the_post();
-				?>
-			<div class="blog__top__post__item" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+				while ( $show_top_posts->have_posts() ) :
+					$show_top_posts->the_post();
+					?>
+				<div class="blog__top__post__item" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="blog__top__post__inn slide__inn" itemprop="url">
 					<div class="blog__top__post__inn--main">
 						<div class="blog__top__post__image">
@@ -130,7 +127,7 @@
 								</div>
 							</div>
 							<h3 class="blog__top__post__title Blog__slider__title" itemprop="name">
-								<?php the_title(); ?>
+									<?php the_title(); ?>
 							</h3>
 							<p itemprop="abstract"><?= esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?>
 								<span class="learn-more">
@@ -149,8 +146,9 @@
 							style="fill:#fff" transform="translate(-64 -60.998)" /></svg>
 				</a>
 			</div>
-						<?php endwhile; ?>
-					<?php wp_reset_postdata(); ?>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+		<?php } ?>
 	</div>
 	<div class="Blog__container wrapper">
 			<ul class="Blog__items">
@@ -169,7 +167,6 @@
 					$newest_sticky_post = $sticky_posts ? max( $sticky_posts ) : null;
 
 					$query_args = array(
-						'ignore_sticky_posts' => true,
 						'posts_per_page'      => 9,
 						'post_status'         => 'publish',
 						'orderby'             => 'date',
@@ -179,10 +176,13 @@
 					if ( is_author() ) {
 						$user_id = get_the_author_meta( 'ID' );
 						$query_args['author'] = $user_id;
-					}
 
-					if ( $newest_sticky_post ) {
-						$query_args['post__not_in'] = array( $newest_sticky_post );
+					} else {
+
+						$query_args['ignore_sticky_posts'] = true;
+						if ( $newest_sticky_post ) {
+							$query_args['post__not_in'] = array( $newest_sticky_post );
+						}
 					}
 
 					if ( ( $this_category && isset( $this_category->parent ) ) && 0 != $this_category->parent ) {

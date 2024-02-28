@@ -50,19 +50,19 @@ if ( isset( $categories ) ) {
 
 					<div class="BlogPost__share__items">
 						<div class="BlogPost__share__items__item">
-							<button data-permalink="<?= esc_attr( get_permalink() ) ?>" onclick="shareOnFacebook(this);" itemprop="sameAs"
+							<button data-permalink="<?= esc_attr( get_permalink() ); ?>" onclick="shareOnFacebook(this);" itemprop="sameAs"
 								title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Facebook', 'ms' ); ?>">
 								<i class="fontello-facebook-f-brands"></i>
 							</button>
 						</div>
 						<div class="BlogPost__share__items__item">
-							<button data-permalink="<?= esc_attr( get_permalink() ) ?>" onclick="shareOnTwitter(this);" itemprop="sameAs"
+							<button data-permalink="<?= esc_attr( get_permalink() ); ?>" onclick="shareOnTwitter(this);" itemprop="sameAs"
 								title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Twitter', 'ms' ); ?>">
 								<i class="fontello-twitter-brands"></i>
 							</button>
 						</div>
 						<div class="BlogPost__share__items__item">
-							<button data-permalink="<?= esc_attr( get_permalink() ) ?>" onclick="shareOnLinkedin(this);" itemprop="sameAs"
+							<button data-permalink="<?= esc_attr( get_permalink() ); ?>" onclick="shareOnLinkedin(this);" itemprop="sameAs"
 								title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'LinkedIn', 'ms' ); ?>">
 								<i class="fontello-linkedin-in-brands"></i>
 							</button>
@@ -78,35 +78,25 @@ if ( isset( $categories ) ) {
 
 					<div class="BlogPost__author-box__content">
 						<p class="BlogPost__author-box__content__name" itemprop="name"><?php the_author(); ?></p>
-							<?php if ( ! empty( get_the_author_meta( 'position' ) ) ) { ?>
-							<p class="BlogPost__author-box__content__position">
-									<?php the_author_meta( 'position' ); ?>
-							</p>
-						<?php } ?>
 						<p class="BlogPost__author-box__content__description" itemprop="description"><?php the_author_meta( 'description' ); ?></p>
 						<div class="BlogPost__author-box__content__social">
-							<?php if ( get_the_author_meta( 'instagram' ) ) { ?>
-							<a href="<?php the_author_meta( 'instagram' ); ?>" target="_blank" itemprop="sameAs">
-								<i class="fontello-instagram-brands"></i>
-							</a>
-							<?php } ?>
-							<?php if ( get_the_author_meta( 'facebook' ) ) { ?>
-							<a href="<?php the_author_meta( 'facebook' ); ?>" target="_blank" itemprop="sameAs">
-								<i class="fontello-facebook-f-brands"></i>
-							</a>
+							<?php if ( get_the_author_meta( 'user_url' ) ) { ?>
+								<a href="<?php the_author_meta( 'user_url' ); ?>" target="_blank" itemprop="sameAs" title=" <?php printf( '%s&#39;s %s', esc_html( get_the_author() ), esc_html( __( 'Website', 'ms' ) ) ); ?>">
+									<i class="fontello-menu-take-a-tour"></i>
+								</a>
 							<?php } ?>
 							<?php if ( get_the_author_meta( 'linkedin' ) ) { ?>
-							<a href="<?php the_author_meta( 'linkedin' ); ?>" target="_blank" itemprop="sameAs">
+							<a href="<?php the_author_meta( 'linkedin' ); ?>" target="_blank" itemprop="sameAs" title=" <?php printf( '%s&#39;s %s', esc_html( get_the_author() ), esc_html( __( 'Linkedin', 'ms' ) ) ); ?>">
 								<i class="fontello-linkedin-in-brands"></i>
 							</a>
 							<?php } ?>
 							<?php if ( get_the_author_meta( 'twitter' ) ) { ?>
-							<a href="https://twitter.com/<?php the_author_meta( 'twitter' ); ?>" target="_blank" itemprop="sameAs">
+							<a href="https://twitter.com/<?php the_author_meta( 'twitter' ); ?>" target="_blank" itemprop="sameAs" title=" <?php printf( '%s&#39;s %s', esc_html( get_the_author() ), esc_html( __( 'Twitter', 'ms' ) ) ); ?>">
 								<i class="fontello-twitter-brands"></i>
 							</a>
 							<?php } ?>
 						</div>
-						<a href="<?= esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) ?>" class="BlogPost__author-box__archive--button"><?php _e( 'All articles by ', 'ms' ); ?> <?php the_author(); ?></a>
+						<a href="<?= esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" class="BlogPost__author-box__archive--button"><?php _e( 'More articles by ', 'ms' ); ?> <?php the_author(); ?></a>
 					</div>
 				</div>
 

@@ -15,7 +15,7 @@ function inline_compact_header() {
 	if ( '' != $css ) {
 		echo '<style id="compactheader-css" type="text/css">' . $css . '</style>'; // @codingStandardsIgnoreLine
 	}
-};
+}
 inline_compact_header();
 ?>
 <?php set_custom_source( 'filterMenu', 'js' ); ?>
@@ -128,7 +128,7 @@ inline_compact_header();
 						$website_link = $author_infos['website'];
 						?>
 						<div class="compact-header__author__social">
-							<a href="<?= esc_url( $website_link ) ?>">
+							<a href="<?= esc_url( $website_link ); ?>"  title="<?php printf( '%s&#39;s %s', esc_html( get_the_author() ), esc_html( __( 'Website', 'ms' ) ) ); ?>">
 								<svg>
 									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#globe' ); ?>"></use>
 								</svg>
@@ -141,11 +141,17 @@ inline_compact_header();
 								?>
 									<?php if ( isset( $social_link ) && isset( $social_name ) ) { ?>
 										<a href="<?= esc_url( $social_link ); ?>"
-											 title="<?= esc_attr( $author_infos['name'] ); ?> <?= esc_attr( $social_name ); ?>"
+											<?php
+											printf(
+												'title="%s&#39;s %s"',
+												esc_attr( $author_infos['name'] ),
+												esc_attr( ucfirst( $social_name ) )
+											);
+											?>
 											 target="_blank" itemprop="sameAs" rel="noopener noreferrer nofollow"
 										>
 											<svg>
-												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-' . $social_name ) ?>"></use>
+												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-' . $social_name ); ?>"></use>
 											</svg>
 										</a>
 									<?php } ?>
@@ -160,20 +166,21 @@ inline_compact_header();
 						$date_human    = get_the_time( 'F j, Y' );
 						$date_modified = get_the_modified_time( 'F j, Y' );
 						$time_modified = get_the_modified_time( 'g:i a' );
+						$author_name = get_the_author_meta( 'display_name' );
 					?>
 					<div class="compact-header__date">
 						<?php if ( isset( $date_machine ) && isset( $date_human ) ) { ?>
 							<span itemprop="datePublished" content="<?= esc_attr( $date_machine ); ?>">
-																		<?=
-																		esc_html( $date_human );
-																		?>
-																		</span>
+							<?= esc_html( __( 'Published on', 'ms' ) ); ?>
+							<?= esc_html( $date_human ); ?>
+							</span>
 						<?php } ?>
+						<?= esc_html( __( 'by', 'ms' ) ) . ' ' . esc_html( $author_name ) . '.'; ?>
 						<?php if ( isset( $date_modified ) && isset( $time_modified ) ) { ?>
 							<?= esc_html( __( 'Last modified on', 'ms' ) ); ?>
 							<?= esc_html( $date_modified ); ?>
 							<?= esc_html( __( 'at', 'ms' ) ); ?>
-							<?= esc_html( $time_modified ); ?>
+							<?= esc_html( $time_modified ) . '.'; ?>
 						<?php } ?>
 					</div>
 					<!-- Date section end -->
