@@ -1,4 +1,4 @@
-const tables = document.querySelectorAll( 'figure.wp-block-table table' );
+const tables = document.querySelectorAll( 'body:not(.pricing) figure.wp-block-table table' );
 
 if ( tables.length ) {
 	const hasTooltip = new RegExp( /(.+?)<i>(.+?)<\/i>/gi );
@@ -12,18 +12,22 @@ if ( tables.length ) {
 		}
 
 		//sets class and rating CSS variable for Alternative table
-		const ratings = tr[ 1 ].querySelectorAll( 'td:not(:empty):not(:first-of-type)' );
-		tr[ 1 ].classList.add( 'stars' );
-
-		ratings.forEach( ( rating ) => {
-			if ( ! isNaN( Number( rating.textContent ) ) ) {
-				rating.style.setProperty( '--rating', rating.textContent );
-			}
-		} );
+		if ( tr[ 1 ] ) {
+			const ratings = tr[ 1 ].querySelectorAll( 'td:not(:empty):not(:first-of-type)' );
+			tr[ 1 ].classList.add( 'stars' );
+			ratings.forEach( ( rating ) => {
+				if ( ! isNaN( Number( rating.textContent ) ) ) {
+					rating.style.setProperty( '--rating', rating.textContent );
+				}
+			} );
+		}
 
 		//Sets check or crossover for Y or N vals
 		for ( let i = 0; i <= tr.length; i++ ) {
-			const headers = tr[ 0 ].querySelectorAll( 'th' );
+			let headers = tr[ 0 ].querySelectorAll( 'th' );
+			if ( ! headers?.length ) {
+				headers = tr[ 0 ].querySelectorAll( 'td' );
+			}
 			const vals = tr[ i + 1 ] && tr[ i + 1 ].querySelectorAll( 'td' );
 			const allCells = tr[ i ] && tr[ i ].querySelectorAll( 'td, th' );
 
@@ -43,7 +47,7 @@ if ( tables.length ) {
 
 			if ( vals?.length ) {
 				vals.forEach( ( val, index ) => {
-					if ( val.textContent === 'y' || val.textContent === 'Yes' ) {
+					if ( val.textContent === 'y' || val.textContent.toLowerCase() === 'yes' ) {
 						val.textContent = null;
 						val.classList.add( 'icn-after-check' );
 						val.insertAdjacentHTML( 'afterbegin', `
@@ -52,7 +56,7 @@ if ( tables.length ) {
 							</svg>`
 						);
 					}
-					if ( val.textContent === 'n' || val.textContent === 'No' ) {
+					if ( val.textContent === 'n' || val.textContent.toLowerCase() === 'no' ) {
 						val.textContent = null;
 						val.classList.add( 'icn-after-close' );
 						val.insertAdjacentHTML( 'afterbegin', `

@@ -7,7 +7,7 @@
 // Note: CSS was moved to assets.php because of CLS Web Vital
 function inline_compact_header() {
 		ob_start();
-		$css .= file_get_contents( get_template_directory() . '/assets/dist/components/compactHeader' . isrtl() . wpenv() . '.css' );
+		$css  = file_get_contents( get_template_directory() . '/assets/dist/components/compactHeader' . isrtl() . wpenv() . '.css' );
 		$css .= file_get_contents( get_template_directory() . '/assets/dist/components/Filter' . isrtl() . wpenv() . '.css' );
 		ob_get_clean();
 

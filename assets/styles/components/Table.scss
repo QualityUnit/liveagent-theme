@@ -3,193 +3,198 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-figure.wp-block-table {
+body:not(.pricing) {
 
-	table {
-		width: 100%;
-		max-width: none;
-		border-collapse: separate;
-		border-spacing: 0;
-	}
+	figure.wp-block-table,
+	.AlternativeTable,
+	.Content {
 
-	table,
-	tbody {
-
-		@media (max-width: ($breakpoint-tablet - 1px)) {
-			display: block;
+		table {
 			width: 100%;
-			border-radius: 1rem;
-			overflow: hidden;
-		}
-	}
-
-
-	tr,
-	td {
-		padding: 0;
-		border: none;
-	}
-
-
-	td,
-	th {
-		padding: 0.75em;
-		vertical-align: middle;
-		border-top: 1px solid $light-gray;
-		border-left: 1px solid $light-gray;
-		border-right: none;
-		border-bottom: none;
-
-		&:last-of-type {
-			border-right: 1px solid $light-gray;
+			max-width: none;
+			border-collapse: separate;
+			border-spacing: 0;
 		}
 
-		&.hasTooltip,
-		.MobileHeader {
+		table,
+		tbody {
 
-			svg {
-				margin-left: 0.25em;
-				fill: $light-gray-icon;
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+				display: block;
+				width: 100%;
+				border-radius: 1rem;
+				overflow: hidden;
 			}
 		}
 
-		.MobileHeader {
-			position: relative;
-			width: 8em;
-			margin-right: 1em;
 
-			&::after {
-				content: "";
-				display: block;
-				position: absolute;
-				top: -0.75em;
-				right: 0;
-				bottom: -0.75em;
+		tr,
+		td {
+			padding: 0;
+			border: none;
+		}
+
+
+		td,
+		th {
+			padding: 0.75em;
+			vertical-align: middle;
+			border-top: 1px solid $light-gray;
+			border-left: 1px solid $light-gray;
+			border-right: none;
+			border-bottom: none;
+
+			&:last-of-type {
 				border-right: 1px solid $light-gray;
 			}
-		}
 
-		@media (max-width: ($breakpoint-tablet - 1px)) {
-			display: flex;
-			align-items: center;
-			border-right: 1px solid $light-gray;
-
-			&:first-of-type {
-				background-color: $medium-gray-inputs;
-				font-weight: 600;
-			}
-
-			&:nth-of-type(even) {
-				background-color: $lightest-gray;
-			}
-
-			&.hasTooltip {
+			&.hasTooltip,
+			.MobileHeader {
 
 				svg {
-					fill: $black;
+					margin-left: 0.25em;
+					fill: $light-gray-icon;
 				}
 			}
-		}
 
-		svg {
+			.MobileHeader {
+				position: relative;
+				width: 8em;
+				margin-right: 1em;
 
-			@include square(1em);
-
-			&.icon {
-
-				&-check {
-
-					@include square(1em);
-					fill: $saturated-green;
-				}
-
-				&-close {
-
-					@include square(0.875em);
-					fill: $saturated-red;
-				}
-			}
-		}
-	}
-
-
-	thead {
-		border-bottom: none;
-
-		tr {
-			font-weight: 700;
-
-			th {
-
-				&:first-of-type:empty {
-					border-left: none;
-					border-top: none;
-
-					* {
-						display: none;
-					}
-				}
-
-				svg {
-					fill: $black !important;
+				&::after {
+					content: "";
+					display: block;
+					position: absolute;
+					top: -0.75em;
+					right: 0;
+					bottom: -0.75em;
+					border-right: 1px solid $light-gray;
 				}
 			}
 
 			@media (max-width: ($breakpoint-tablet - 1px)) {
-				display: none;
-			}
+				display: flex;
+				align-items: center;
+				border-right: 1px solid $light-gray;
 
-			@media (min-width: $breakpoint-tablet) {
-
-				th:first-of-type {
-					border-top-left-radius: 1rem;
-
-					&:empty + th {
-						border-top-left-radius: 1rem;
-					}
+				&:first-of-type {
+					background-color: $medium-gray-inputs;
+					font-weight: 600;
 				}
 
-				th:last-of-type {
-					border-top-right-radius: 1rem;
-				}
-			}
-		}
-	}
-
-	tbody {
-
-		tr {
-
-			+tr {
-
-				td {
-					border-top: 1px solid $light-gray;
-				}
-			}
-
-
-			&:last-of-type td {
-				border-bottom: 1px solid $light-gray;
-			}
-
-			@media (max-width: ($breakpoint-tablet - 1px)) {
-				display: block;
-			}
-
-			@media (min-width: $breakpoint-tablet) {
-
-				&:nth-of-type(odd) {
+				&:nth-of-type(even) {
 					background-color: $lightest-gray;
 				}
 
-				&:last-of-type {
+				&.hasTooltip {
 
-					td:first-of-type {
-						border-bottom-left-radius: 1rem;
+					svg {
+						fill: $black;
+					}
+				}
+			}
+
+			svg {
+
+				@include square(1em);
+
+				&.icon {
+
+					&-check {
+
+						@include square(1em);
+						fill: $saturated-green;
 					}
 
-					td:last-of-type {
-						border-bottom-right-radius: 1rem;
+					&-close {
+
+						@include square(0.875em);
+						fill: $saturated-red;
+					}
+				}
+			}
+		}
+
+
+		thead {
+			border-bottom: none;
+
+			tr {
+				font-weight: 700;
+
+				th {
+
+					&:first-of-type:empty {
+						border-left: none;
+						border-top: none;
+
+						* {
+							display: none;
+						}
+					}
+
+					svg {
+						fill: $black !important;
+					}
+				}
+
+				@media (max-width: ($breakpoint-tablet - 1px)) {
+					display: none;
+				}
+
+				@media (min-width: $breakpoint-tablet) {
+
+					th:first-of-type {
+						border-top-left-radius: 1rem;
+
+						&:empty + th {
+							border-top-left-radius: 1rem;
+						}
+					}
+
+					th:last-of-type {
+						border-top-right-radius: 1rem;
+					}
+				}
+			}
+		}
+
+		tbody {
+
+			tr {
+
+				+tr {
+
+					td {
+						border-top: 1px solid $light-gray;
+					}
+				}
+
+
+				&:last-of-type td {
+					border-bottom: 1px solid $light-gray;
+				}
+
+				@media (max-width: ($breakpoint-tablet - 1px)) {
+					display: block;
+				}
+
+				@media (min-width: $breakpoint-tablet) {
+
+					&:nth-of-type(odd) {
+						background-color: $lightest-gray;
+					}
+
+					&:last-of-type {
+
+						td:first-of-type {
+							border-bottom-left-radius: 1rem;
+						}
+
+						td:last-of-type {
+							border-bottom-right-radius: 1rem;
+						}
 					}
 				}
 			}

@@ -2,7 +2,7 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-.trial__sticky__button {
+.trial__sticky__button[class] {
 	position: fixed;
 	bottom: -100%;
 	left: 57%;

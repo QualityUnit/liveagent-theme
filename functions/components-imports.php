@@ -19,7 +19,6 @@ add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
 function components_imports( $content ) {
 	$blocks = array(
-		'AlternativeTable'              => 'components/AlternativeTable',
 		'table'                         => 'components/Table',
 		'SoftphoneTable'                => 'components/SoftphoneTable',
 		'BlockPoints'                   => 'components/BlockPoints',
@@ -81,14 +80,14 @@ function components_imports( $content ) {
 		$id           = strtolower( $class );
 		$found_blocks = $xpath->query( './/*[contains(@class, "' . $class . '")]' );
 	
-		if ( isset( $found_blocks[0] ) || is_user_logged_in() ) {
+		if ( isset( $found_blocks[0] ) || ( isset( $_GET['action'] ) && ( 'edit' === $_GET['action'] || 'elementor' === $_GET['action'] ) ) ) {
 			wp_enqueue_style( $id, get_template_directory_uri() . '/assets/dist/' . $csspath . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
 	}
 
 	foreach ( $scripts as $selector => $runscript ) {
 		$found_blocks = preg_match( $selector, $content );
-		if ( $found_blocks || is_user_logged_in() ) {
+		if ( $found_blocks || ( isset( $_GET['action'] ) && ( 'edit' === $_GET['action'] || 'elementor' === $_GET['action'] ) ) ) {
 			set_custom_source( $runscript[0], 'js', isset( $runscript[1] ) );
 		}
 	}
