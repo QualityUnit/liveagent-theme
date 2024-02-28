@@ -12,7 +12,8 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
         chunkFilename: '[id].js',
-        publicPath: ''
+        publicPath: '',
+        clean: true,
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.css']
@@ -67,15 +68,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|ico|svg|webp)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 10000,
-                            name: 'img/[name].[ext]'
-                        }
-                    }
-                ]
+                type: "asset",
             }
         ]
     },
