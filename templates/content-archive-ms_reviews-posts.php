@@ -22,7 +22,7 @@ function meta( $metabox_id ) {
 		)
 	);
 	?>
-<ul class="wrapper flex-direction-column Reviews__relatedReviews urlslab-skip-all" data-sortingList="relatedReviews" data-sortedBy="">
+<ul class="wrapper flex-direction-column Reviews__relatedReviews" data-sortingList="relatedReviews" data-sortedBy="">
 <?php
 while ( $query_reviews_posts->have_posts() ) :
 	$query_reviews_posts->the_post();
@@ -55,11 +55,13 @@ while ( $query_reviews_posts->have_posts() ) :
 				$rating_post = meta( 'rating' );
 			if ( $rating_post || $average ) {
 				?>
-					<div class="Reviews__rating" itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
+					<?php	$background_url = get_template_directory_uri() . '/assets/images/reviews/reviews_rating_bg.jpg'; ?>
+
+					<div class="Reviews__rating" style="background-image: url(<?= esc_attr( $background_url )?>)" itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
 							<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
 							<meta itemprop="operatingSystem" content="Any" />
 							<span  class="hidden" itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>"></span>
-						
+
 							<div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
 								<meta itemprop="ratingValue" content="<?= esc_attr( $average ); ?>" />
 								<meta itemprop="ratingCount" content="<?= esc_attr( meta( 'reviews_count' ) ); ?>" />
