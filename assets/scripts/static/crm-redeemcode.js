@@ -647,7 +647,7 @@
 		codeField.registerValidator( FieldValidator.textLength() );
 		setEvents( codeField );
 
-		codeField.input()?.alphanum( {
+		codeField.input().alphanum( {
 			allow: '-', // Allow extra characters
 			disallow: '', // Disallow extra characters
 			allowSpace: false, // Allow the space character
@@ -665,7 +665,7 @@
 		nameField.registerValidator( FieldValidator.textLength() );
 		setEvents( nameField );
 
-		nameField.input()?.alphanum( {
+		nameField.input().alphanum( {
 			disallow: '.', // Disallow extra characters
 			allowSpace: true, // Allow the space character
 			allowNumeric: true, // Allow digits 0-9

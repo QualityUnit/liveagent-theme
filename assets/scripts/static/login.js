@@ -460,7 +460,7 @@
 		domainField.registerValidator( crmDomainValidator );
 		setEvents( domainField );
 
-		domainField.input()?.alphanum( {
+		domainField.input().alphanum( {
 			allow: '-0123456789', // Allow extra characters
 			disallow: '', // Disallow extra characters
 			allowSpace: false, // Allow the space character
