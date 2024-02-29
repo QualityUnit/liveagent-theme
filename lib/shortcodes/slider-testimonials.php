@@ -6,7 +6,6 @@ function ms_slidertestimonials() {
 
 
 	<?php
-//
 
 	return ob_get_clean();
 }
