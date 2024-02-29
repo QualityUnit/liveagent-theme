@@ -42,25 +42,57 @@
 		$page_header_args['filter'] = $filter_items;
 	endif;
 	?>
-<div id="blog" class="Blog" itemscope itemtype="http://schema.org/Blog">
+
+	<?php
+
+	if ( is_author() ) {
+
+		$author_info = array(
+			'name' => get_the_author_meta( 'display_name' ),
+			'img' => get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 360 ) ),
+			'text' => get_the_author_meta( 'description' ),
+			'link' => get_author_posts_url( get_the_author_meta( 'ID' ) ),
+			'website'   => get_the_author_meta( 'user_url' ),
+			'socials' => array(),
+		);
+
+		$social_network_keys = array( 'twitter', 'linkedin' );
+		$user_id = get_the_author_meta( 'ID' );
+
+		foreach ( $social_network_keys as $key ) {
+			$value = get_user_meta( $user_id, $key, true );
+			if ( ! empty( $value ) ) {
+
+				$author_info['socials'][] = array(
+					'social_name' => $key,
+					'social_link' => $value,
+				);
+			}
+		}
+
+		$page_header_args['author'] = $author_info;
+	}
+	?>
+ <div id="blog" class="Blog" itemscope itemtype="http://schema.org/Blog">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
+
 	<div class="blog__top__post">
 			<?php
-			/* Query Sticky Posts */
-			$show_top_posts = new WP_Query(
-				array(
+			if ( ! is_author() ) {
+				$show_top_args = array(
 					'posts_per_page'      => 1,
 					'ignore_sticky_posts' => 1,
 					'post__in'            => get_option( 'sticky_posts' ),
 					'orderby'             => 'date',
 					'no_found_rows'       => true,
-				)
-			);
+				);
 
-			while ( $show_top_posts->have_posts() ) :
-				$show_top_posts->the_post();
-				?>
-			<div class="blog__top__post__item" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+				$show_top_posts = new WP_Query( $show_top_args );
+
+				while ( $show_top_posts->have_posts() ) :
+					$show_top_posts->the_post();
+					?>
+				<div class="blog__top__post__item" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="blog__top__post__inn slide__inn" itemprop="url">
 					<div class="blog__top__post__inn--main">
 						<div class="blog__top__post__image">
@@ -95,7 +127,7 @@
 								</div>
 							</div>
 							<h3 class="blog__top__post__title Blog__slider__title" itemprop="name">
-								<?php the_title(); ?>
+									<?php the_title(); ?>
 							</h3>
 							<p itemprop="abstract"><?= esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?>
 								<span class="learn-more">
@@ -114,9 +146,10 @@
 							style="fill:#fff" transform="translate(-64 -60.998)" /></svg>
 				</a>
 			</div>
-						<?php endwhile; ?>
-					<?php wp_reset_postdata(); ?>
-		</div>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+		<?php } ?>
+	</div>
 	<div class="Blog__container wrapper">
 			<ul class="Blog__items">
 				<?php
@@ -134,15 +167,22 @@
 					$newest_sticky_post = $sticky_posts ? max( $sticky_posts ) : null;
 
 					$query_args = array(
-						'ignore_sticky_posts' => true,
 						'posts_per_page'      => 9,
 						'post_status'         => 'publish',
 						'orderby'             => 'date',
 						'no_found_rows'       => true,
 					);
 
-					if ( $newest_sticky_post ) {
-						$query_args['post__not_in'] = array( $newest_sticky_post );
+					if ( is_author() ) {
+						$user_id = get_the_author_meta( 'ID' );
+						$query_args['author'] = $user_id;
+
+					} else {
+
+						$query_args['ignore_sticky_posts'] = true;
+						if ( $newest_sticky_post ) {
+							$query_args['post__not_in'] = array( $newest_sticky_post );
+						}
 					}
 
 					if ( ( $this_category && isset( $this_category->parent ) ) && 0 != $this_category->parent ) {
@@ -152,12 +192,12 @@
 					/* Query Other Posts */
 					$show_other_posts = new WP_Query( $query_args );
 					$original_query   = $wp_query;
-				$wp_query       = $show_other_posts; // @codingStandardsIgnoreLine
+					$wp_query       = $show_other_posts; // @codingStandardsIgnoreLine
 
 					while ( $show_other_posts->have_posts() ) :
 						$show_other_posts->the_post();
 						?>
-				<li itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" <?php post_class( 'Blog__item' ); ?>>
+						<li itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" <?php post_class( 'Blog__item' ); ?>>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
 						<div class="Blog__item__thumbnail">
 							<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
@@ -166,14 +206,14 @@
 						<div class="Blog__item__content">
 							<div class="Blog__item__meta">
 								<div class="Blog__item__meta__categories">
-									<?php
-									/* translators: %s: don't modify */
-										$cats = get_the_taxonomies( 0, array( 'template' => __( '<span class="hidden">%s:</span><span>%l</span>' ) ) )['category'];
-										$cats = str_replace( ',', '', $cats );
-										$cats = str_replace( 'and', '', $cats );
-										$cats = preg_replace( '/\<a(.+?)\<\/a>/', '<span$1</span>', $cats );
-										echo wp_kses_post( $cats );
-									?>
+								<?php
+								/* translators: %s: don't modify */
+									$cats = get_the_taxonomies( 0, array( 'template' => __( '<span class="hidden">%s:</span><span>%l</span>' ) ) )['category'];
+									$cats = str_replace( ',', '', $cats );
+									$cats = str_replace( 'and', '', $cats );
+									$cats = preg_replace( '/\<a(.+?)\<\/a>/', '<span$1</span>', $cats );
+									echo wp_kses_post( $cats );
+								?>
 								</div>
 
 								<div class="Blog__item__meta__date">
@@ -183,7 +223,7 @@
 										</svg>
 										<span itemprop="datePublished" content="<?= esc_attr( get_the_time( 'Y-m-d' ) ); ?>">
 									<?php
-										the_time( 'F j, Y' );
+									the_time( 'F j, Y' );
 									?>
 									</span>
 								</div>
@@ -203,9 +243,9 @@
 								</span>
 							</p>
 						</div>
-				</a>
+					</a>
 				</li>
-					<?php endwhile; ?>
+						<?php endwhile; ?>
 				<?php
 				$wp_query = $original_query; // @codingStandardsIgnoreLine
 				wp_reset_postdata();
