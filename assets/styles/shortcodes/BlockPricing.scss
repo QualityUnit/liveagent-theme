@@ -386,7 +386,7 @@
 
 			&__item:nth-child(4),
 			&__item--last {
-				margin-left: auto;
+				margin-left: 0;
 
 				&::before {
 					background-color: $white;
