@@ -1,11 +1,11 @@
 const signuplogin = () => {
 	const jquerySrc = document.querySelectorAll( 'script[data-src*="jquery.min.js"], script[data-src*="jquery.js"]' );
-	const scriptList = [ ...document.querySelectorAll( 'script[data-src]' ) ];
+	const scriptList = [ ...document.querySelectorAll( 'script[data-src]:not(#jquery-js)' ) ];
 	const regex = /.+crm\.js.+|.+login\.js.+/gi;
 
 	function waitForLoad( element ) {
 		return new Promise( ( resolve ) => {
-			element.onload = resolve( { ok: true } );
+			element.onload = resolve( { ok: true, name: element.id } );
 		} );
 	}
 
@@ -19,14 +19,13 @@ const signuplogin = () => {
 
 				async function isLoaded() {
 					const response = await waitForLoad( script );
+					const { ok, name } = response;
 
-					if ( response.ok ) {
+					if ( ok && name?.toLowerCase().includes( 'alphanum' ) ) {
 						setTimeout( () => {
 							scriptList.filter( ( executor ) => {
 								const dataSrc = executor.getAttribute( 'data-src' );
-								if ( dataSrc.match( regex ) ) {
-									executor.src = dataSrc;
-								}
+								executor.src = dataSrc;
 								return true;
 							} );
 						}, 50 );
@@ -42,7 +41,7 @@ const signuplogin = () => {
 	function runLoadScript( element ) {
 		const type = element.closest( '[data-id="signup"]' ).dataset.type;
 		sessionStorage.setItem( 'crmType', type );
-		loadScripts( );
+		loadScripts( element );
 	}
 	if ( document.querySelectorAll( 'script[data-src]' ).length ) {
 		const scriptParent = document.querySelectorAll(
@@ -74,8 +73,17 @@ const signuplogin = () => {
 		);
 
 		scriptParentSelections.forEach( ( input ) => {
-			input.addEventListener( 'openedFilterMenu', ( event ) => {
-				runLoadScript( event.target );
+			input.addEventListener( 'openedFilterMenu', async ( event ) => {
+				if ( ! window.jQuery ) {
+					jquerySrc[ 0 ].src = jquerySrc[ 0 ].dataset.src;
+				}
+				const response = await waitForLoad( jquerySrc[ 0 ] );
+
+				if ( response.ok ) {
+					setTimeout( () => {
+						runLoadScript( event.target );
+					}, 50 );
+				}
 			} );
 		} );
 

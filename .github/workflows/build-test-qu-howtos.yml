@@ -16,7 +16,7 @@ jobs:
         working-directory: ./lib/widgets/qu-howtos/
     strategy:
       matrix:
-        node_version: [ '16' ]
+        node_version: [ '20' ]
 
     steps:
       - uses: actions/checkout@v4

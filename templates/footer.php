@@ -1,13 +1,12 @@
 <?php
-// set_custom_source( 'Footer', 'css', false, true );
 wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 
-if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-proposal' ) ) ) {
+if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/', get_body_class() ) ) ) {
 	echo do_shortcode( '[good-hands-redesign]' );
 	$footer_bg = get_template_directory_uri() . '/assets/images/footer-bg.svg';
 	?>
 
-<footer class="Footer urlslab-skip-keywords urlslab-skip-fragment" data-scrollsidebars="true" style="background-image: url(<?= esc_url( $footer_bg ) ?>)">
+<footer class="Footer urlslab-skip-keywords urlslab-skip-fragment" data-scrollsidebars="true" style="background-image: url(<?= esc_url( $footer_bg ); ?>)">
 	<div class="Footer__top">
 		<div class="wrapper">
 			<div class="Footer__top__row">
@@ -72,54 +71,57 @@ if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-pr
 					<ul>
 						<?php if ( get_option( 'ms_theme_ms_footer_instagram_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Instagram', 'ms' ); ?>">
+								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s Instagram', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-instagram' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-instagram' ); ?>"></use>
 									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_facebook_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Facebook', 'ms' ); ?>">
+								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s Facebook', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-facebook' )
-										?>"></use>
+										<use xlink:href="
+										<?=
+										esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-facebook' )
+										?>
+										"></use>
 									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_twitter_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Twitter', 'ms' ); ?>">
+								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s Twitter', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-twitter' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-twitter' ); ?>"></use>
 									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_linkedin_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>">
+								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-linkedin' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-linkedin' ); ?>"></use>
 									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_youtube_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>">
+								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>">
 									<svg>
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-youtube' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-youtube' ); ?>"></use>
 									</svg>
 								</a>
 							</li>
 						<?php } ?>
 						<li>
-							<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
+							<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
 								<svg>
-									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ) ?>"></use>
+									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use>
 								</svg>
 							</a>
 						</li>
@@ -141,7 +143,7 @@ if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-pr
 		<div class="wrapper">
 			<div class="Footer__bottom__row">
 				<div class="Footer__bottom__copyright">
-					<p><?php _e( '© 2004-', 'ms' ); ?><?= esc_html( gmdate( 'Y' ) ) ?> <?php _e( 'Quality Unit, LLC. All rights reserved.', 'ms' ); ?></p>
+					<p><?php _e( '© 2004-', 'ms' ); ?><?= esc_html( gmdate( 'Y' ) ); ?> <?php _e( 'Quality Unit, LLC. All rights reserved.', 'ms' ); ?></p>
 				</div>
 				<div class="Footer__bottom__navigation">
 					<?php
@@ -421,6 +423,6 @@ if ( show_demo_bar() !== false ) {
 ?>
 
 <div class="trial__sticky__button">
-	<a href="<?= esc_url( '/trial/' ) ?>"><?= esc_html( 'Start Free Trial', 'ms' )?></a>
+	<a href="<?= esc_url( '/trial/' ); ?>"><?= esc_html( 'Start Free Trial', 'ms' ); ?></a>
 	<span class="trial__sticky__button--close">x</span>
 </div>

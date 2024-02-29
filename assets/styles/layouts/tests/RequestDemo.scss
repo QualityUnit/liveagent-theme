@@ -122,15 +122,21 @@ body.demo {
 
 			@media (max-width: ($breakpoint-desktop-hd + 20px)) {
 
+				.e-hosted-video {
+					height: 60rem;
+				}
+
 				video {
-					position: absolute;
-					transform: translateY(-50%);
 					height: 60rem;
 				}
 			}
 
 			@media (min-width: ($breakpoint-desktop-hd + 20px)) {
 				min-height: 60rem;
+
+				.e-hosted-video {
+					height: 60rem;
+				}
 
 				video {
 					max-height: 60rem;
