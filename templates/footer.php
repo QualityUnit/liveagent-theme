@@ -72,7 +72,7 @@ if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-pr
 					<ul>
 						<?php if ( get_option( 'ms_theme_ms_footer_instagram_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Instagram', 'ms' ); ?>">
+								<a href="<?php _e( 'https://www.instagram.com/liveagent/', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s Instagram', 'ms' ); ?>">
 									<svg>
 										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-instagram' ) ?>"></use>
 									</svg>
@@ -81,7 +81,7 @@ if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-pr
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_facebook_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Facebook', 'ms' ); ?>">
+								<a href="<?php _e( 'https://www.facebook.com/LiveAgent/', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s Facebook', 'ms' ); ?>">
 									<svg>
 										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-facebook' )
 										?>"></use>
@@ -91,7 +91,7 @@ if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-pr
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_twitter_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s Twitter', 'ms' ); ?>">
+								<a href="<?php _e( 'https://twitter.com/LiveAgent', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s Twitter', 'ms' ); ?>">
 									<svg>
 										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-twitter' ) ?>"></use>
 									</svg>
@@ -100,7 +100,7 @@ if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-pr
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_linkedin_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>">
+								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>">
 									<svg>
 										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-linkedin' ) ?>"></use>
 									</svg>
@@ -109,7 +109,7 @@ if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-pr
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_youtube_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>">
+								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>">
 									<svg>
 										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-youtube' ) ?>"></use>
 									</svg>
@@ -117,7 +117,7 @@ if ( ! is_page( array( 'login', 'trial', 'free-account', 'demo', 'request-for-pr
 							</li>
 						<?php } ?>
 						<li>
-							<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
+							<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
 								<svg>
 									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ) ?>"></use>
 								</svg>

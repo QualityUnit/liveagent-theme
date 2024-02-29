@@ -128,7 +128,7 @@ inline_compact_header();
 						$website_link = $author_infos['website'];
 						?>
 						<div class="compact-header__author__social">
-							<a href="<?= esc_url( $website_link ); ?>"  title="<?php printf( '%s&#39;s %s', esc_html( get_the_author() ), esc_html( __( 'Website', 'ms' ) ) ); ?>" rel="noopener noreferrer nofollow">
+							<a href="<?= esc_url( $website_link ); ?>"  title="<?php printf( '%s&#39;s %s', esc_html( get_the_author() ), esc_html( __( 'Website', 'ms' ) ) ); ?>" rel="noopener nofollow">
 								<svg>
 									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#globe' ); ?>"></use>
 								</svg>
@@ -148,7 +148,7 @@ inline_compact_header();
 												esc_attr( ucfirst( $social_name ) )
 											);
 											?>
-											 target="_blank" itemprop="sameAs" rel="noopener noreferrer nofollow"
+											 target="_blank" itemprop="sameAs" rel="noopener nofollow"
 										>
 											<svg>
 												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-' . $social_name ); ?>"></use>
