@@ -167,6 +167,7 @@ inline_compact_header();
 						$date_modified = get_the_modified_time( 'F j, Y' );
 						$time_modified = get_the_modified_time( 'g:i a' );
 						$author_name = get_the_author_meta( 'display_name' );
+						$author_link = get_author_posts_url( get_the_author_meta( 'ID' ) );
 					?>
 					<div class="compact-header__date">
 						<?php if ( isset( $date_machine ) && isset( $date_human ) ) { ?>
@@ -175,7 +176,7 @@ inline_compact_header();
 							<?= esc_html( $date_human ); ?>
 							</span>
 						<?php } ?>
-						<?= esc_html( __( 'by', 'ms' ) ) . ' ' . esc_html( $author_name ) . '.'; ?>
+						<?= esc_html( __( 'by', 'ms' ) ) . ' ' ?><a href="<?= esc_url( $author_link ) ?>"><?= esc_html( $author_name ); ?></a><?= '.' ?>
 						<?php if ( isset( $date_modified ) && isset( $time_modified ) ) { ?>
 							<?= esc_html( __( 'Last modified on', 'ms' ) ); ?>
 							<?= esc_html( $date_modified ); ?>
