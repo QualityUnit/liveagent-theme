@@ -57,10 +57,10 @@ while ( $query_reviews_posts->have_posts() ) :
 				?>
 					<?php	$background_url = get_template_directory_uri() . '/assets/images/reviews/reviews_rating_bg.jpg'; ?>
 
-					<div class="Reviews__rating" style="background-image: url(<?= esc_attr( $background_url )?>)" itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
-							<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
+					<div class="Reviews__rating" style="background-image: url(<?= esc_attr( $background_url ); ?>)" itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
+							<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></span>
 							<meta itemprop="operatingSystem" content="Any" />
-							<span  class="hidden" itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>"></span>
+							<span  class="hidden" itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ); ?>"></span>
 
 							<div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
 								<meta itemprop="ratingValue" content="<?= esc_attr( $average ); ?>" />
