@@ -39,16 +39,16 @@ function ms_realtestimonials( $atts ) {
 			<li class="RealTestimonials__main__slide splide__slide">
 						<div class="RealTestimonials__main__inn slide__inn">
 							<div class="RealTestimonials__main__photo">
-								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), '' ) ) ?>" alt="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?>" />
+								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), '' ) ); ?>" alt="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ); ?>" />
 							</div>
 							<div class="RealTestimonials__main__content">
 								<div class="RealTestimonials__main__content--inn">
 									<?= get_the_content(); // @codingStandardsIgnoreLine ?>
 									<div class="RealTestimonials__main__content--bottom">
-										<strong class="RealTestimonials__name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?></strong>
-										<span><span class="comma">,&nbsp;</span><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ) ?></span>
+										<strong class="RealTestimonials__name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ); ?></strong>
+										<span><span class="comma">,&nbsp;</span><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ); ?></span>
 										<div class="RealTestimonials__main__logo logo">
-											<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_logo', true ), 'logo_thumbnail' ) ) ?>" alt="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ) ?>"/>
+											<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_logo', true ), 'logo_thumbnail' ) ); ?>" alt="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ); ?>"/>
 										</div>
 									</div>
 								</div>
@@ -74,7 +74,7 @@ function ms_realtestimonials( $atts ) {
 				?>
 
 			<li <?php post_class( 'RealTestimonials__thumbnails__slide splide__slide' ); ?>>
-					<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_logo', true ), 'testimonials_box_logo' ) ?>
+					<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_logo', true ), 'testimonials_box_logo' ); ?>
 			</li>
 
 				<?php

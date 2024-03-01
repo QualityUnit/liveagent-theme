@@ -219,11 +219,11 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-ticket.svg" alt="<?php echo esc_attr( $csc_email_support ); ?>">
 							<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ); ?> <?php _e( 'Email Support', 'ms' ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_email_support ); ?>" target="_blank" rel="nofollow"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_email_support ); ?>" target="_blank" rel="nofollow"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } else { ?>
-								<p><a itemprop="email" href="mailto:<?= esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) ?>" title="<?php echo esc_attr( $csc_email_support ); ?>"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ) ?></a></p>
+								<p><a itemprop="email" href="mailto:<?= esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ); ?>" title="<?php echo esc_attr( $csc_email_support ); ?>"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_email-support', true ) ); ?></a></p>
 							<?php } ?>
 						</div>
 
@@ -231,7 +231,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-live-chat.svg" alt="<?php echo esc_attr( $csc_chat_support ); ?>">
 							<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ); ?> <?php _e( 'Live Chat Support', 'ms' ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_livechat-support', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_livechat-support', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_chat_support ); ?>" target="_blank" rel="nofollow"><?php _e( 'Live Chat Button on Website', 'ms' ); ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_livechat-support', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_chat_support ); ?>" target="_blank" rel="nofollow"><?php _e( 'Live Chat Button on Website', 'ms' ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_livechat-support', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -241,11 +241,11 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-call-center.svg" alt="<?php echo esc_attr( $csc_call_support ); ?>">
 							<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ); ?> <?php _e( 'Call Center Support', 'ms' ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_call_support ); ?>" target="_blank" rel="nofollow"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ) ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_call_support ); ?>" target="_blank" rel="nofollow"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } else { ?>
-								<p><a itemprop="telephone" href="tel:<?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ) ?>" title="<?php echo esc_attr( $csc_call_support ); ?>"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ) ?></a></p>
+								<p><a itemprop="telephone" href="tel:<?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ); ?>" title="<?php echo esc_attr( $csc_call_support ); ?>"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_call-center-support', true ) ); ?></a></p>
 							<?php } ?>
 						</div>
 
@@ -253,7 +253,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-knowledge-base.svg" alt="<?php echo esc_attr( $csc_knowledge_base_support ); ?>">
 							<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ); ?> <?php _e( 'Knowledge Base', 'ms' ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_knowledge-base', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_knowledge-base', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_knowledge_base_support ); ?>" target="_blank" rel="nofollow"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_knowledge-base', true ) ) ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_knowledge-base', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_knowledge_base_support ); ?>" target="_blank" rel="nofollow"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_knowledge-base', true ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_knowledge-base', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -263,7 +263,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-forum.svg" alt="<?php echo esc_attr( $csc_forum_support ); ?>">
 							<h3><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ); ?> <?php _e( 'Forum', 'ms' ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_forum', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_forum', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_forum_support ); ?>" target="_blank" rel="nofollow"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_forum', true ) ) ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_forum', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_forum_support ); ?>" target="_blank" rel="nofollow"><?= esc_html( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_forum', true ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_forum', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -288,7 +288,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-instagram.svg" alt="<?php echo esc_attr( $csc_instagram ); ?>">
 							<h3><?php echo esc_html( $csc_instagram ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_instagram', true ), 'http' ) !== false ) { ?>
-								<p><a itemprop="sameAs" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_instagram', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_instagram ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_instagram', true ) ) ); ?></a></p>
+								<p><a itemprop="sameAs" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_instagram', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_instagram ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_instagram', true ) ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_instagram', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -298,7 +298,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-facebook.svg" alt="<?php echo esc_attr( $csc_facebook ); ?>">
 							<h3><?php echo esc_html( $csc_facebook ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_facebook', true ), 'http' ) !== false ) { ?>
-								<p><a itemprop="sameAs" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_facebook', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_facebook ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_facebook', true ) ) ); ?></a></p>
+								<p><a itemprop="sameAs" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_facebook', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_facebook ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_facebook', true ) ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_facebook', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -308,7 +308,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-twitter.svg" alt="<?php echo esc_attr( $csc_twitter ); ?>">
 							<h3><?php echo esc_html( $csc_twitter ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_twitter', true ), 'http' ) !== false ) { ?>
-								<p><a itemprop="sameAs" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_twitter', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_twitter ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_twitter', true ) ) ); ?></a></p>
+								<p><a itemprop="sameAs" href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_twitter', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?php echo esc_attr( $csc_twitter ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_twitter', true ) ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_twitter', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -506,7 +506,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-terms-conditions.svg" alt="<?= esc_attr( $legal_terms ); ?>">
 							<h3><?= esc_html( $legal_terms ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_terms-conditions', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_terms-conditions', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $legal_terms ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_terms-conditions', true ) ) ); ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_terms-conditions', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $legal_terms ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_terms-conditions', true ) ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_terms-conditions', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -516,7 +516,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-privacy-policy.svg" alt="<?= esc_attr( $legal_privacy ); ?>">
 							<h3><?= esc_html( $legal_privacy ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_privacy-policy', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_privacy-policy', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $legal_privacy ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_privacy-policy', true ) ) ); ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_privacy-policy', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $legal_privacy ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_privacy-policy', true ) ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_privacy-policy', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -526,7 +526,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-security-policy.svg" alt="<?= esc_attr( $legal_security ); ?>">
 							<h3><?= esc_html( $legal_security ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_security-policy', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_security-policy', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $legal_security ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_security-policy', true ) ) ); ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_security-policy', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $legal_security ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_security-policy', true ) ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_security-policy', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -536,7 +536,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-gdpr.svg" alt="<?= esc_attr( $legal_gdpr ); ?>">
 							<h3><?= esc_html( $legal_gdpr ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_gdpr', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_gdpr', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $legal_gdpr ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_gdpr', true ) ) ); ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_gdpr', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $legal_gdpr ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_gdpr', true ) ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_gdpr', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -558,7 +558,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-knowledge-base.svg" alt="<?= esc_attr( $others_wikipedia ); ?>">
 							<h3><?= esc_html( $others_wikipedia ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_wikipedia', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_wikipedia', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $others_wikipedia ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_wikipedia', true ) ) ); ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_wikipedia', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $others_wikipedia ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_wikipedia', true ) ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_wikipedia', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -568,7 +568,7 @@ $page_header_args = array(
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-affiliate-program.svg" alt="<?= esc_attr( $others_affiliate ); ?>">
 							<h3><?= esc_html( $others_affiliate ); ?></h3>
 							<?php if ( strpos( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_affiliate-program', true ), 'http' ) !== false ) { ?>
-								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_affiliate-program', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $others_affiliate ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_affiliate-program', true ) ) ); ?></a></p>
+								<p><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_affiliate-program', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=directory" title="<?= esc_attr( $others_affiliate ); ?>" target="_blank" rel="nofollow"><?= esc_html( str_replace( 'https://www.', '', get_post_meta( get_the_ID(), 'mb_directory_mb_directory_affiliate-program', true ) ) ); ?></a></p>
 							<?php } elseif ( empty( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_affiliate-program', true ) ) ) { ?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 							<?php } ?>
@@ -580,7 +580,8 @@ $page_header_args = array(
 						<h2 id="location" class="Post__sectiontitle"><span><?php _e( 'Location', 'ms' ); ?></span></h2>
 
 						<div class="Directory__blocks__items">
-							<?= wp_kses(
+							<?=
+							wp_kses(
 								get_post_meta( get_the_ID(), 'mb_directory_mb_directory_location', true ),
 								array(
 									'iframe' => array(
@@ -594,7 +595,8 @@ $page_header_args = array(
 										'tabindex'        => array(),
 									),
 								)
-							) ?>
+							)
+							?>
 						</div>
 					</div>
 					<?php

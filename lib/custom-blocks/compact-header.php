@@ -176,7 +176,7 @@ inline_compact_header();
 							<?= esc_html( $date_human ); ?>
 							</span>
 						<?php } ?>
-						<?= esc_html( __( 'by', 'ms' ) ) . ' ' ?><a href="<?= esc_url( $author_link ) ?>"><?= esc_html( $author_name ); ?></a><?= '.' ?>
+						<?= esc_html( __( 'by', 'ms' ) ) . ' '; ?><a href="<?= esc_url( $author_link ); ?>"><?= esc_html( $author_name ); ?></a><?= '.'; ?>
 						<?php if ( isset( $date_modified ) && isset( $time_modified ) ) { ?>
 							<?= esc_html( __( 'Last modified on', 'ms' ) ); ?>
 							<?= esc_html( $date_modified ); ?>

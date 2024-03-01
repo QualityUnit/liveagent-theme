@@ -151,13 +151,13 @@ function meta( $metabox_id ) {
 				while ( $query_glossary_posts->have_posts() ) :
 					$query_glossary_posts->the_post();
 					?>
-						<li class="Reviews__relatedReviews--post <?= ( get_the_ID() === $current_id ) ? 'active' : '' ?>" >
-							<a class="flex Reviews__relatedReviews--post__inn" href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" itemprop="review" itemscope itemtype="https://schema.org/Review">
+						<li class="Reviews__relatedReviews--post <?= ( get_the_ID() === $current_id ) ? 'active' : ''; ?>" >
+							<a class="flex Reviews__relatedReviews--post__inn" href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ); ?>" itemprop="review" itemscope itemtype="https://schema.org/Review">
 
 								<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
-									<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ) ?></span>
+									<span class="hidden" itemprop="name"><?= esc_html( str_replace( '^', '', get_the_title() ) ); ?></span>
 									<meta itemprop="operatingSystem" content="Any" />
-									<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>"></span>
+									<span itemprop="applicationCategory" content="BusinessApplication"><meta itemprop="name" content="<?= esc_attr( str_replace( '^', '', get_the_title() ) ); ?>"></span>
 									<?php
 									$first  = get_post_meta( get_the_ID(), 'first_rating_value', true );
 									$second = get_post_meta( get_the_ID(), 'second_rating_value', true );
@@ -200,7 +200,7 @@ function meta( $metabox_id ) {
 									<div class="ml-s-tablet mr-ultra-tablet flex flex-align-center" itemscope itemtype="https://schema.org/Rating">
 										<span class="mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>
 										<meta itemprop="reviewCount" content="<?= esc_attr( get_post_meta( get_the_ID(), 'reviews_count', true ) ); ?>" />
-										<div class="Reviews__rating--stars mr-m <?= ( get_the_ID() === $current_id ) ? '' : 'grey' ?>">
+										<div class="Reviews__rating--stars mr-m <?= ( get_the_ID() === $current_id ) ? '' : 'grey'; ?>">
 											<div class="Reviews__rating--stars__fill"
 											style="width:<?= esc_attr( ( $rating_post / 5 * 100 ) . '%' ); ?>"></div>
 										</div>
@@ -247,7 +247,7 @@ function meta( $metabox_id ) {
 						<?php
 				}
 				?>
-					<img class="AuthorCard__image" src="<?=  esc_url( empty( $avatar ) ? get_template_directory_uri() . '/assets/images/author_avatar.svg' : esc_url( $avatar ) ); ?>" alt="<?php the_author(); ?>" />
+					<img class="AuthorCard__image" src="<?= esc_url( empty( $avatar ) ? get_template_directory_uri() . '/assets/images/author_avatar.svg' : esc_url( $avatar ) ); ?>" alt="<?php the_author(); ?>" />
 				</div>
 				<div class="AuthorCard__content">
 					<h3 class="AuthorCard__name" itemprop="name"><?php the_author(); ?></h3>

@@ -174,9 +174,9 @@ function progressbar( $text, $rating, $color ) {
 						foreach ( $gallery as $index => $main_img ) {
 							?>
 						<li class="splide__slide">
-							<a class="splide__inn" href="<?= esc_url( wp_get_attachment_image_url( $main_img, 'full' ) ) ?>" data-lightbox="gallery">
+							<a class="splide__inn" href="<?= esc_url( wp_get_attachment_image_url( $main_img, 'full' ) ); ?>" data-lightbox="gallery">
 							<div class="Reviews__Gallery--main__image">
-								<img name="screenshot" data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $main_img, 'blog_archive_thumbnail' ) ) ?>" alt=""/>
+								<img name="screenshot" data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $main_img, 'blog_archive_thumbnail' ) ); ?>" alt=""/>
 							</div>
 							<div class="Reviews__Gallery--main__desc">
 									<p class="h5">
@@ -204,7 +204,7 @@ function progressbar( $text, $rating, $color ) {
 							foreach ( $gallery as $thumbnail ) {
 								?>
 						<li class="splide__slide Reviews__Gallery--thumbnail">
-							<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $thumbnail, 'blog_thumbnail' ) ) ?>" alt=""/>
+							<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( $thumbnail, 'blog_thumbnail' ) ); ?>" alt=""/>
 						</li>
 								<?php
 							}
