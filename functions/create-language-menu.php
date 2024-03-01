@@ -11,14 +11,14 @@ function create_language_menu( $region, $atts, $lang_urls, $lang_flags, $lang_co
 				<?php
 				if ( ! $lang_active[ $i ] ) {
 					?>
-					<a class="Header__flags--item-link urlslab-skip-lazy" href="<?= esc_url( $lang_urls[ $i ] ); ?>">
+					<a class="Header__flags--item-link" href="<?= esc_url( $lang_urls[ $i ] ); ?>">
 						<img class="Header__flags--item-flag" aria-label="<?= esc_attr( $lang_codes[ $i ] ); ?>" alt="<?= esc_attr( $lang_codes[ $i ] ); ?>" src="<?= esc_url( $flags ) . esc_html( $lang_flags[ $i ] . '.svg?ver=' . THEME_VERSION ); ?>" />
 						<?= esc_html( $lang_names[ $i ] ); ?>
 					</a>
 					<?php
 				} else {
 					?>
-					<span class="Header__flags--item-link active urlslab-skip-lazy">
+					<span class="Header__flags--item-link active">
 						<img class="Header__flags--item-flag" aria-label="<?= esc_attr( $lang_codes[ $i ] ); ?>" alt="<?= esc_attr( $lang_codes[ $i ] ); ?>" src="<?= esc_url( $flags ) . esc_html( $lang_flags[ $i ] . '.svg?ver=' . THEME_VERSION ); ?>" />
 						<?= esc_html( $lang_names[ $i ] ); ?>
 					</span>

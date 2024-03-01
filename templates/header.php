@@ -69,7 +69,7 @@ header_banners(
 ?>
 
 
-<header class="Header urlslab-skip-keywords urlslab-skip-fragment urlslab-skip-all">
+<header class="Header urlslab-skip-keywords urlslab-skip-fragment">
 	<div class="wrapper">
 		<div class="Header__logo">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
@@ -137,7 +137,7 @@ header_banners(
 			</div>
 
 			<!-- URLSLAB-SKIP-REPLACE-START -->
-			<div class="Header__flags urlslab-skip-all">
+			<div class="Header__flags">
 				<?php
 				if ( is_active_sidebar( 'header_flags' ) ) :
 					dynamic_sidebar( 'header_flags' );
