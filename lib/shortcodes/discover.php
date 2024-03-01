@@ -21,7 +21,7 @@ function ms_discover( $atts ) {
 	?>
 
 
-	<div class="BlockDiscover BlockDiscover--<?= esc_attr( $atts['type'] ); ?>" style="background-image: url(<?= esc_attr( $background_url )?>)">
+	<div class="BlockDiscover BlockDiscover--<?= esc_attr( $atts['type'] ); ?>" style="background-image: url(<?= esc_attr( $background_url ); ?>)">
 		<p class="BlockDiscover__title"><?= esc_html( $atts['title'] ); ?></p>
 		<p class="BlockDiscover__text"><?= esc_html( $atts['text'] ); ?></p>
 

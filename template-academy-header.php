@@ -44,9 +44,9 @@
 											$pagetitle = explode( '^', get_the_title() );
 										if ( isset( $pagetitle[1] ) ) {
 											?>
-											<?= esc_html( $pagetitle[0] ) . ' ' ?>
+											<?= esc_html( $pagetitle[0] ) . ' '; ?>
 											<span class="highlight-gradient"><?= esc_html( $pagetitle[1] ); ?></span>
-											<?= esc_html( ' ' . $pagetitle[2] ) ?>
+											<?= esc_html( ' ' . $pagetitle[2] ); ?>
 											<?php
 										} else {
 											the_title();

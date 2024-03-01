@@ -91,11 +91,11 @@ $page_header_args = array(
 							<h3 class="Category__item__title item-title" data-title><a href="<?php the_permalink(); ?>"><?= esc_html( wp_trim_words( get_the_title(), 7 ) ); ?></a></h3>
 							<div class="Category__item__excerpt item-excerpt">
 								<a href="<?php the_permalink(); ?>" data-excerpt>
-									<?= esc_html( wp_trim_words( do_shortcode( '[urlslab-video attribute="description" id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ), 20 ) );  ?>
+									<?= esc_html( wp_trim_words( do_shortcode( '[urlslab-video attribute="description" id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ), 20 ) ); ?>
 								</a>
 							</div>
 
-							<div class="Category__item__duration"><?=  esc_html( duration_to_time( do_shortcode( '[urlslab-video attribute="duration" id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ) ) ); ?> </div>
+							<div class="Category__item__duration"><?= esc_html( duration_to_time( do_shortcode( '[urlslab-video attribute="duration" id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ) ) ); ?> </div>
 					</li>
 
 					<?php

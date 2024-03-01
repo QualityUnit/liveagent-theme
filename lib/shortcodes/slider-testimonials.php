@@ -26,13 +26,13 @@ function ms_slidertestimonials() {
 						<div class="slide__inn">
 							<div class="SliderTestimonials__slider__header">
 								<div class="SliderTestimonials__slider__header__photo">
-									<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), 'logo_small_thumbnail' ) ) ?>" alt="<?php the_title(); ?>" />
+									<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), 'logo_small_thumbnail' ) ); ?>" alt="<?php the_title(); ?>" />
 								</div>
 								<div class="SliderTestimonials__slider__header__text">
-									<p class="SliderTestimonials__slider__header__text__name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?></p>
-									<p class="SliderTestimonials__slider__header__text__position"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ) ?></p>
+									<p class="SliderTestimonials__slider__header__text__name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ); ?></p>
+									<p class="SliderTestimonials__slider__header__text__position"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ); ?></p>
 									<div class="SliderTestimonials__slider__header__text__logo">
-										<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_logo', true ), 'logo_thumbnail' ) ) ?>" alt="<?php the_title(); ?>" />
+										<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_logo', true ), 'logo_thumbnail' ) ); ?>" alt="<?php the_title(); ?>" />
 									</div>
 								</div>
 							</div>

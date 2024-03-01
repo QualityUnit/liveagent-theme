@@ -130,7 +130,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-ticket.svg" alt="">
 							<h3>Partner website</h3>
 							<p>
-								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_learn_more', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" target="_blank" rel="nofollow">
+								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_learn_more', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" target="_blank" rel="nofollow">
 									<?php _e( 'Learn More', 'ms' ); ?>
 								</a>
 							</p>
@@ -141,7 +141,7 @@ if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true )
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-directory-live-chat.svg" alt="">
 							<h3><?php _e( 'Partner Privacy Policy', 'ms' ); ?></h3>
 							<p>
-								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_privacy_policy', true ) ) ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" target="_blank" rel="nofollow">
+								<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_partner_privacy_policy', true ) ); ?>?utm_medium=referral&utm_source=liveagent&utm_campaign=integration" target="_blank" rel="nofollow">
 									<?php the_title(); ?> <?php _e( 'Privacy Policy', 'ms' ); ?>
 								</a>
 							</p>

@@ -75,9 +75,9 @@ $page_header_args         = array(
 										?>
 										<li class="Post__sidebar__link SidebarItemsSlider__item">
 											<span class="Post__sidebar__link-icon">
-													<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-checklist.svg" alt="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>" />
+													<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-checklist.svg" alt="<?= esc_attr( str_replace( '^', '', get_the_title() ) ); ?>" />
 											</span>
-											<a href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ) ?>">
+											<a href="<?php the_permalink(); ?>" title="<?= esc_attr( str_replace( '^', '', get_the_title() ) ); ?>">
 												<?php
 												if ( get_post_meta( get_the_ID(), 'mb_checklists_mb_checklists_sidebar_title', true ) ) {
 													echo esc_html( get_post_meta( get_the_ID(), 'mb_checklists_mb_checklists_sidebar_title', true ) );

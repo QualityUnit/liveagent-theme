@@ -29,7 +29,7 @@ function header_banners( $page, $banners_array ) {
 			<?php
 		}
 		?>
-			<button class="Announcement__bar__close"><img src="<?= esc_url( get_template_directory_uri() . '/assets/images/icon-close.svg?ver=?' . THEME_VERSION ) ?>"</button>
+			<button class="Announcement__bar__close"><img src="<?= esc_url( get_template_directory_uri() . '/assets/images/icon-close.svg?ver=?' . THEME_VERSION ); ?>"</button>
 		</div>
 		<?php
 		set_custom_source( 'AnnouncementBar', 'js' );

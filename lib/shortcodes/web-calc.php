@@ -16,7 +16,7 @@ function ms_web_calc( $atts ) {
 		$sources_ver = gmdate( 'ymdGis', filemtime( get_template_directory() . '/apps/web-calc/build/static/css/main.css' ) );
 	?>
 	<div data-widget>
-		<link <?= ! is_user_logged_in() ? 'data-' : '' ?>href="<?= esc_url( get_template_directory_uri() ); ?>/apps/web-calc/build/static/css/main.css?<?= esc_html( $sources_ver ) ?>" rel="stylesheet">
+		<link <?= ! is_user_logged_in() ? 'data-' : ''; ?>href="<?= esc_url( get_template_directory_uri() ); ?>/apps/web-calc/build/static/css/main.css?<?= esc_html( $sources_ver ); ?>" rel="stylesheet">
 		<?php if ( is_user_logged_in() ) { ?>
 			<script>
 				window.location.href='#showWebCalcGenerator';
