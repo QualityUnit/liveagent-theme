@@ -192,7 +192,7 @@
 							<?php
 						}
 						?>
-						<img class="AuthorCard__image" src="<?=  esc_url( empty( $author->image ) ? get_template_directory_uri() . '/assets/images/author_avatar.svg' : wp_get_attachment_image_url( $author->image, 'person_thumbnail' ) ) ?>" alt="<?= esc_attr( $author_name ); ?>" />
+						<img class="AuthorCard__image" src="<?= esc_url( empty( $author->image ) ? get_template_directory_uri() . '/assets/images/author_avatar.svg' : wp_get_attachment_image_url( $author->image, 'person_thumbnail' ) ); ?>" alt="<?= esc_attr( $author_name ); ?>" />
 					</div>
 					<div class="AuthorCard__content">
 						<h3 class="AuthorCard__name" itemprop="name"><?= esc_html( $author_name ); ?></h3>

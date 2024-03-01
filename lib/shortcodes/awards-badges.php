@@ -7,7 +7,7 @@ function ms_awards_badges() {
 	?>
 
 	<section class="block-badges">
-		<div class="block-badges__bg" style="background-image: url(<?= esc_url( $img_bg ) ?>)">
+		<div class="block-badges__bg" style="background-image: url(<?= esc_url( $img_bg ); ?>)">
 			<div class="block-badges__wrap">
 				<div class="block-badges__content">
 					<h5 class="block-badges__subtitle">

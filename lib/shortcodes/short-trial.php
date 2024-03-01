@@ -18,11 +18,11 @@ function ms_short_trial() {
 
 		<div class="Portals__text__details">
 			<div class="Portals__text__details__stars">
-				<span class="Portals__text__details__stars__item" style="background-image: url(<?= esc_url( $stars_item_icon ) ?>)"></span>
-				<span class="Portals__text__details__stars__item" style="background-image: url(<?= esc_url( $stars_item_icon ) ?>)"></span>
-				<span class="Portals__text__details__stars__item" style="background-image: url(<?= esc_url( $stars_item_icon ) ?>)"></span>
-				<span class="Portals__text__details__stars__item" style="background-image: url(<?= esc_url( $stars_item_icon ) ?>)"></span>
-				<span class="Portals__text__details__stars__item" style="background-image: url(<?= esc_url( $stars_item_icon ) ?>)"></span>
+				<span class="Portals__text__details__stars__item" style="background-image: url(<?= esc_url( $stars_item_icon ); ?>)"></span>
+				<span class="Portals__text__details__stars__item" style="background-image: url(<?= esc_url( $stars_item_icon ); ?>)"></span>
+				<span class="Portals__text__details__stars__item" style="background-image: url(<?= esc_url( $stars_item_icon ); ?>)"></span>
+				<span class="Portals__text__details__stars__item" style="background-image: url(<?= esc_url( $stars_item_icon ); ?>)"></span>
+				<span class="Portals__text__details__stars__item" style="background-image: url(<?= esc_url( $stars_item_icon ); ?>)"></span>
 			</div>
 
 			<p><?php _e( '3,000+ reviews', 'ms' ); ?> <a href="<?php _e( '/awards/', 'ms' ); ?>"><img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_trustpilot_black.svg" alt="<?php _e( 'Trustpilot', 'ms' ); ?>"></a>

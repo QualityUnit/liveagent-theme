@@ -11,7 +11,7 @@ function ms_slidertestimonials_home( $atts ) {
 	ob_start();
 	?>
 
-	<div class="<?= ( $atts['horizontal'] ) ? 'SliderTestimonials__slider--horizontal' : 'SliderTestimonials__slider--home' ?>">
+	<div class="<?= ( $atts['horizontal'] ) ? 'SliderTestimonials__slider--horizontal' : 'SliderTestimonials__slider--home'; ?>">
 		<section class="slider splide">
 			<div class="splide__track">
 				<ul class="splide__list">
@@ -32,15 +32,15 @@ function ms_slidertestimonials_home( $atts ) {
 					<li class="splide__slide">
 						<div class="slide__inn">
 							<div class="SliderTestimonials__slider__header__photo">
-								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), 'logo_small_thumbnail' ) ) ?>" alt="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?>" />
+								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), 'logo_small_thumbnail' ) ); ?>" alt="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ); ?>" />
 							</div>
 							<div class="SliderTestimonials__slider__content">
 								<?= esc_html( wp_trim_words( get_the_content(), 20, '...' ) ); ?>
 								<div class="SliderTestimonials__slider__content__bottom">
-									<strong class="SliderTestimonials__slider__name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?></strong>
-									<span class="SliderTestimonials__slider__position"><span class="comma">,&nbsp;</span><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ) ?></span>
+									<strong class="SliderTestimonials__slider__name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ); ?></strong>
+									<span class="SliderTestimonials__slider__position"><span class="comma">,&nbsp;</span><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ); ?></span>
 									<div class="SliderTestimonials__slider__logo">
-										<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_logo', true ), 'logo_thumbnail' ) ) ?>" alt="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ) ?>"/>
+										<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_logo', true ), 'logo_thumbnail' ) ); ?>" alt="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ); ?>"/>
 									</div>
 								</div>
 							</div>

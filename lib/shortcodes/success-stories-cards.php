@@ -64,7 +64,7 @@ function ms_success_stories_cards( $atts ) {
 					?>
 
 					<li class="success__stories__item">
-						<article data-category="<?= esc_attr( $category ) ?>" data-region="<?= esc_attr( $region ) ?>" <?php post_class( 'success__stories__item__article' ); ?>>
+						<article data-category="<?= esc_attr( $category ); ?>" data-region="<?= esc_attr( $region ); ?>" <?php post_class( 'success__stories__item__article' ); ?>>
 								<a href="<?php the_permalink(); ?>" class="success__stories__item__link" title="<?= esc_attr( str_replace( '${company}', $company, __( 'Read ${company}\'s story', 'use-case' ) ) ); ?>"></a>
 								<div class="success__stories__item__thumbnail">
 									<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
@@ -117,7 +117,7 @@ function ms_success_stories_cards( $atts ) {
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); ?>
 				</ul>
-				<a href="<?= esc_url( $archive_url );  ?>" class="Button Button--full"><span><?= esc_html_e( 'View all', 'ms' ) ?></span></a>
+				<a href="<?= esc_url( $archive_url ); ?>" class="Button Button--full"><span><?= esc_html_e( 'View all', 'ms' ); ?></span></a>
 		</section>
 
 	<?php

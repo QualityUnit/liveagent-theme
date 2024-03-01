@@ -32,11 +32,11 @@ function ms_awards() {
 			<li <?php post_class( 'Awards__item Archive__container__content__item' ); ?>>
 				<article>
 					<div class="Awards__item--thumbnail">
-						<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_awards_mb_awards_url', true ) ) ?>" target="_blank"><?php the_post_thumbnail( 'box_archive_thumbnail' ); ?></a>
+						<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_awards_mb_awards_url', true ) ); ?>" target="_blank"><?php the_post_thumbnail( 'box_archive_thumbnail' ); ?></a>
 					</div>
 
 					<div class="Awards__item--text">
-						<h3><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_awards_mb_awards_url', true ) ) ?>" target="_blank"><?php the_title(); ?></a></h3>
+						<h3><a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_awards_mb_awards_url', true ) ); ?>" target="_blank"><?php the_title(); ?></a></h3>
 				<?= esc_html( preg_replace( '/(20\d{2})/', '$1, ', get_the_excerpt() ) ); ?>
 					</div>
 				</article>

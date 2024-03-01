@@ -218,17 +218,17 @@ $page_header_args = array(
 										}
 										?>
 							>
-							<a href="<?= esc_url( $item_url ) ?>" class="Category__item__thumbnail">
-								<span class="Category__item__thumbnail__image" style="background-image: url(<?= esc_url( $backgrounds_urls['pillar'] ) ?>);"></span>
+							<a href="<?= esc_url( $item_url ); ?>" class="Category__item__thumbnail">
+								<span class="Category__item__thumbnail__image" style="background-image: url(<?= esc_url( $backgrounds_urls['pillar'] ); ?>);"></span>
 							</a>
 							<div class="Category__item__wrap">
-								<h2 class="Category__item__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h2>
+								<h2 class="Category__item__title item-title"><a href="<?= esc_url( $item_url ); ?>"><?php the_title(); ?></a></h2>
 								<div class="Category__item__excerpt item-excerpt">
-									<a href="<?= esc_url( $item_url ) ?>">
+									<a href="<?= esc_url( $item_url ); ?>">
 						<?= esc_html( wp_trim_words( get_the_excerpt(), 14 ) ); ?>
 									</a>
 								</div>
-								<a class="Category__item__cta" href="<?= esc_url( $item_url ) ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
+								<a class="Category__item__cta" href="<?= esc_url( $item_url ); ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
 							</div>
 							</li>
 							<?php
@@ -272,7 +272,7 @@ $page_header_args = array(
 							?>
 					<?php else : ?>
 							<li class="<?= esc_attr( $category_item_classes ); ?>"
-									style="background-image: url(<?= esc_url( $backgrounds_urls['pillar'] ) ?>); order: <?= esc_attr( $item_order ); ?>"
+									style="background-image: url(<?= esc_url( $backgrounds_urls['pillar'] ); ?>); order: <?= esc_attr( $item_order ); ?>"
 											<?php
 											foreach ( $category_item_attributes as $name => $value ) {
 												echo esc_html( $name ) . '="' . esc_attr( $value ) . '" ';
@@ -280,7 +280,7 @@ $page_header_args = array(
 											?>
 								>
 								<div class="Category__item__wrap">
-									<div class="Category__item__header" style="background-image: url(<?= esc_url( $backgrounds_urls['background'] ) ?>);">
+									<div class="Category__item__header" style="background-image: url(<?= esc_url( $backgrounds_urls['background'] ); ?>);">
 										<div class="Category__item__header__image">
 						<?php
 						if ( has_post_thumbnail() ) {
@@ -296,9 +296,9 @@ $page_header_args = array(
 										</div>
 									</div>
 									<div class="Category__item__content">
-										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?php the_title(); ?></a></h3>
+										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ); ?>"><?php the_title(); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
-											<a href="<?= esc_url( $item_url ) ?>">
+											<a href="<?= esc_url( $item_url ); ?>">
 												<?= esc_html( wp_trim_words( get_the_excerpt(), 11 ) ); ?>
 											</a>
 										</div>

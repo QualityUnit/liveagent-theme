@@ -141,17 +141,17 @@ $page_header_args = array(
 								}
 								?>
 									style="order: <?= esc_attr( $item_order ); ?>">
-								<a href="<?= esc_url( $item_url ) ?>" class="Category__item__thumbnail">
-									<span class="Category__item__thumbnail__image" style="background-image: url(<?= esc_url( $backgrounds_urls['pillar'] ) ?>);"></span>
+								<a href="<?= esc_url( $item_url ); ?>" class="Category__item__thumbnail">
+									<span class="Category__item__thumbnail__image" style="background-image: url(<?= esc_url( $backgrounds_urls['pillar'] ); ?>);"></span>
 								</a>
 								<div class="Category__item__wrap">
-									<h2 class="Category__item__title item-title"><a href="<?= esc_url( $item_url ) ?>"><?= esc_html( $item_title ) ?></a></h2>
+									<h2 class="Category__item__title item-title"><a href="<?= esc_url( $item_url ); ?>"><?= esc_html( $item_title ); ?></a></h2>
 									<div class="Category__item__excerpt item-excerpt">
-										<a href="<?= esc_url( $item_url ) ?>">
+										<a href="<?= esc_url( $item_url ); ?>">
 											<?= esc_html( $item_excerpt ); ?>
 										</a>
 									</div>
-									<a class="Category__item__cta" href="<?= esc_url( $item_url ) ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
+									<a class="Category__item__cta" href="<?= esc_url( $item_url ); ?>"><?php esc_html_e( 'Learn more', 'ms' ); ?></a>
 								</div>
 							</li>
 
@@ -165,7 +165,7 @@ $page_header_args = array(
 								?>
 									style="order: <?= esc_attr( $item_order + 1 ); ?>">
 								<div class="Category__item__wrap">
-									<div class="Category__item__header" style="background-image: url(<?= esc_url( $backgrounds_urls['background'] )?>);">
+									<div class="Category__item__header" style="background-image: url(<?= esc_url( $backgrounds_urls['background'] ); ?>);">
 										<div class="Category__item__header__image">
 											<?php
 											if ( $item_icons_url ) {
@@ -179,13 +179,13 @@ $page_header_args = array(
 											<?php	} ?>
 										</div>
 										<div class="Category__item__header__label">
-											<span class="Category__item__header__label__text"><?=  esc_html( $category_name ); ?></span>
+											<span class="Category__item__header__label__text"><?= esc_html( $category_name ); ?></span>
 										</div>
 									</div>
 									<div class="Category__item__content">
-										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ) ?>" title="<?= esc_attr( $item_title ); ?>"><?= esc_html( wp_trim_words( $item_title, 10 ) ); ?></a></h3>
+										<h3 class="Category__item__content__title item-title"><a href="<?= esc_url( $item_url ); ?>" title="<?= esc_attr( $item_title ); ?>"><?= esc_html( wp_trim_words( $item_title, 10 ) ); ?></a></h3>
 										<div class="Category__item__content__excerpt item-excerpt">
-											<a href="<?= esc_url( $item_url ) ?>">
+											<a href="<?= esc_url( $item_url ); ?>">
 												<?= esc_html( $item_excerpt ); ?>
 											</a>
 										</div>

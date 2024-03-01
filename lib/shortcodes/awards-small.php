@@ -34,7 +34,7 @@ function ms_awards_small( $atts ) {
 					++$counter;
 					?>
 				<li <?php post_class( 'AwardsSmall__item' ); ?>>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_awards_mb_awards_url', true ) ) ?>" target="_blank"><?php the_post_thumbnail( 'blog_thumbnail', array( 'class' => 'urlslab-skip-lazy' ) ); ?></a>
+					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_awards_mb_awards_url', true ) ); ?>" target="_blank"><?php the_post_thumbnail( 'blog_thumbnail', array( 'class' => 'urlslab-skip-lazy' ) ); ?></a>
 				</li>
 					<?php 
 				}

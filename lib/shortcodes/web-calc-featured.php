@@ -16,7 +16,7 @@ function ms_web_calc_featured( $atts ) {
 		$sources_ver = gmdate( 'ymdGis', filemtime( get_template_directory() . '/apps/web-calc-featured/build/static/js/main.js' ) );
 	?>
 	<div data-widget>
-		<link <?= ! is_user_logged_in() ? 'data-' : '' ?>href="<?= esc_url( get_template_directory_uri() ); ?>/apps/web-calc-featured/build/static/css/main.css?<?= esc_html( $sources_ver ) ?>" rel="stylesheet">
+		<link <?= ! is_user_logged_in() ? 'data-' : ''; ?>href="<?= esc_url( get_template_directory_uri() ); ?>/apps/web-calc-featured/build/static/css/main.css?<?= esc_html( $sources_ver ); ?>" rel="stylesheet">
 		<div id="calcfeaturedWrapper">
 			<div id="calcfeatured" dir="ltr" class="calcfeatured--main"></div>
 		</div>
