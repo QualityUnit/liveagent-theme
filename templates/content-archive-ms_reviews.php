@@ -134,7 +134,7 @@ if ( isset( $subpage->slug ) ) {
 		<?php	$background_url = get_template_directory_uri() . '/assets/images/bg_glassy_second.jpg'; ?>
 
 		<div class="wrapper__wide">
-			<div class="Reviews__categoryAbout" style="background-image: url(<?= esc_attr( $background_url )?>)">
+			<div class="Reviews__categoryAbout" style="background-image: url(<?= esc_attr( $background_url ); ?>)">
 				<div class="Reviews__categoryAbout--image__wrapper">
 					<img
 						class="Reviews__categoryAbout--image"
