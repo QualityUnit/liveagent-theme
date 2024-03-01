@@ -22,7 +22,7 @@ function ms_discover( $atts ) {
 	?>
 
 
-	<div class="BlockDiscover BlockDiscover--<?= esc_attr( $atts['type'] ); ?>" style="background-image: url(<?= esc_attr( $block_discover_background_url )?>)">
+	<div class="BlockDiscover BlockDiscover--<?= esc_attr( $atts['type'] ); ?>" style="background-image: url(<?= esc_attr( $block_discover_background_url ); ?>)">
 		<p class="BlockDiscover__title"><?= esc_html( $atts['title'] ); ?></p>
 		<p class="BlockDiscover__text"><?= esc_html( $atts['text'] ); ?></p>
 
@@ -34,7 +34,7 @@ function ms_discover( $atts ) {
 				<span><?= esc_html( strlen( $atts['buttonDemo'] ) > 0 ? $atts['buttonDemo'] : __( 'Schedule a Demo', 'ms' ) ); ?></span>
 			</a>
 		</div>
-		<div class="BlockDiscover__right__img" style="background-image: url(<?= esc_attr( $block_discover_img )?>)"></div>
+		<div class="BlockDiscover__right__img" style="background-image: url(<?= esc_attr( $block_discover_img ); ?>)"></div>
 
 	</div>
 
