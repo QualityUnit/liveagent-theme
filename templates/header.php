@@ -71,7 +71,7 @@ header_banners(
 
 <header class="Header urlslab-skip-keywords urlslab-skip-fragment">
 	<div class="wrapper">
-		<div class="Header__logo">
+		<div class="Header__logo urlslab-skip-lazy">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
 				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo_liveagent.svg" width="121" height="30" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
 			</a>
