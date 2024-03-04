@@ -6,13 +6,14 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 @forward "../elements/FakeChatButton";
 
 $links: 4;
-$minWidth: 15.125em;
+$minWidth: 16.125em;
 
 $colors: (
 	"green": $desaturated-green,
 	"red": $desaturated-red,
 	"violet": #efe6f8,
 	"orange": $medium-orange,
+	"blue": $desaturated-blue,
 );
 
 .ContactUs {
