@@ -110,7 +110,7 @@
 			</li>
 			<li class="ContactUs__menu--item whatsapp">
 				<button class="ContactUs__menu--link blue" id="chatBot" data-close-target="contactUsMenu"  rel="nofollow noopener external">
-					<?php _e('Chat with a bot', 'ms'); ?>
+					<?php _e( 'Chat with a bot', 'ms' ); ?>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>chatbot.svg" />
 				</button>
 			</li>
@@ -123,14 +123,14 @@
 'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
 function(e){
   const chatbotManager = UrlslabChatbot.initChatbot({
-    showChatButton: false, // important to not show chat button on page load
-    chatbotId: '569a3c87-4c38-414c-8d1b-66d83c60b5f2',
-    chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA1NjlhM2M4Ny00YzM4LTQxNGMtOGQxYi02NmQ4M2M2MGI1ZjI=',
-    welcomeMessage: 'Hi, I\'m LiveAgent support Bot. How can I help you?',
-    inputPlaceholder: 'Ask me any question...',
-    suggestedUserMessages: [],
-    urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
-    maxWindowWidth: '700px',
+		showChatButton: false, // important to not show chat button on page load
+		chatbotId: '569a3c87-4c38-414c-8d1b-66d83c60b5f2',
+		chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA1NjlhM2M4Ny00YzM4LTQxNGMtOGQxYi02NmQ4M2M2MGI1ZjI=',
+		welcomeMessage: 'Hi, I\'m LiveAgent support Bot. How can I help you?',
+		inputPlaceholder: 'Ask me any question...',
+		suggestedUserMessages: [],
+		urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
+		maxWindowWidth: '700px',
   });
 	document.querySelector('#chatBot').addEventListener('click', () => {
 		chatbotManager.openChat();
