@@ -11,6 +11,7 @@ define( 'THEME_VERSION', '1.23.17' );
 
 $theme_includes = array(
 	'functions/detectmobilebrowser.php',             // Detects mobile
+	'functions/import-functions.php', // Partials JS and SCSS import functions
 	'lib/assets.php',             // Scripts and stylesheets
 	'lib/extras.php',             // Custom functions
 	'lib/setup.php',              // Theme setup
@@ -31,7 +32,6 @@ $theme_includes = array(
 	'functions/content-filters-learn-more.php', // Content filters for Block--learnMore
 	'functions/components-imports.php', // Import CSS and JS for blocks or components on page
 	'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
-	'functions/import-functions.php', // Partials JS and SCSS import functions
 	'functions/get-posts.php', // Function to get posts by ID (ie to be used in metaboxes functions)
 	'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
 	'functions/compact-header.php', // compact header TOC
