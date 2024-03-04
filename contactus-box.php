@@ -105,12 +105,12 @@
 					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before we start a chat.', 'ms' ); ?></span>
 				</div>
 				<span class="ContactUs__menu--link chat orange" id="chatBtn" data-close-target="contactUsMenu">
-					<?php _e( 'Chat', 'ms' ); ?>
+					<?php _e( 'Chat with an agent', 'ms' ); ?>
 				</span>
 			</li>
 			<li class="ContactUs__menu--item whatsapp">
 				<button class="ContactUs__menu--link blue" id="chatBot" data-close-target="contactUsMenu"  rel="nofollow noopener external">
-					ChatBot
+					<?php _e('Chat with a bot', 'ms'); ?>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>chatbot.svg" />
 				</button>
 			</li>
