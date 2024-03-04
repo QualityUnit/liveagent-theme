@@ -119,7 +119,7 @@ function site_breadcrumb( $breadcrumb = array() ) {
 			$breadcrumb[] = array( single_cat_title( '', false ) );
 		} elseif ( is_author() ) {
 			$breadcrumb[] = array( __( 'Author' ), home_url( '/', 'relative' ) );
-			$author_name = get_the_author_meta( 'display_name' );
+			$author_name  = get_the_author_meta( 'display_name' );
 			$breadcrumb[] = array( $author_name );
 		} elseif ( is_archive() && ! is_category() ) {
 			$breadcrumb[] = $home;
