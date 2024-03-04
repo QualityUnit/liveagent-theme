@@ -1,6 +1,6 @@
 <?php
-	set_custom_source( 'pages/blog', 'css' );
-	set_custom_source( 'components/BlogTopPost', 'css' );
+	set_source( 'category-blog', 'pages/blog' );
+	set_source( 'category-blog', 'components/BlogTopPost' );
 	set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
 
 	$page_header_title = single_term_title( '', false );
@@ -48,16 +48,16 @@
 	if ( is_author() ) {
 
 		$author_info = array(
-			'name' => get_the_author_meta( 'display_name' ),
-			'img' => get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 360 ) ),
-			'text' => get_the_author_meta( 'description' ),
-			'link' => get_author_posts_url( get_the_author_meta( 'ID' ) ),
-			'website'   => get_the_author_meta( 'user_url' ),
+			'name'    => get_the_author_meta( 'display_name' ),
+			'img'     => get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 360 ) ),
+			'text'    => get_the_author_meta( 'description' ),
+			'link'    => get_author_posts_url( get_the_author_meta( 'ID' ) ),
+			'website' => get_the_author_meta( 'user_url' ),
 			'socials' => array(),
 		);
 
 		$social_network_keys = array( 'twitter', 'linkedin' );
-		$user_id = get_the_author_meta( 'ID' );
+		$user_id             = get_the_author_meta( 'ID' );
 
 		foreach ( $social_network_keys as $key ) {
 			$value = get_user_meta( $user_id, $key, true );
@@ -162,19 +162,19 @@
 					$category_id = $categories[1]->cat_ID;
 				}
 
-					$this_category = get_queried_object();
-					$sticky_posts = get_option( 'sticky_posts' );
+					$this_category      = get_queried_object();
+					$sticky_posts       = get_option( 'sticky_posts' );
 					$newest_sticky_post = $sticky_posts ? max( $sticky_posts ) : null;
 
 					$query_args = array(
-						'posts_per_page'      => 9,
-						'post_status'         => 'publish',
-						'orderby'             => 'date',
-						'no_found_rows'       => true,
+						'posts_per_page' => 9,
+						'post_status'    => 'publish',
+						'orderby'        => 'date',
+						'no_found_rows'  => true,
 					);
 
 					if ( is_author() ) {
-						$user_id = get_the_author_meta( 'ID' );
+						$user_id              = get_the_author_meta( 'ID' );
 						$query_args['author'] = $user_id;
 
 					} else {
