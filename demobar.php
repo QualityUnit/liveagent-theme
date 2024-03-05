@@ -3,7 +3,7 @@
 	set_custom_source( 'demobar', 'js', array( 'app_js' ) );
 ?>
 
-<div id="demobar" class="DemoBar">
+<div id="demobar" class="DemoBar hidden">
 	<div class="DemoBar__wrapper wrapper">
 		<span class="DemoBar__close" id="demobar-close">
 			<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/icon-close-circular.svg' ); ?>" alt="Close" />

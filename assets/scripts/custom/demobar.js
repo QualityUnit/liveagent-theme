@@ -29,6 +29,7 @@ if ( demobar ) {
 		window.addEventListener( 'load', () => {
 			setTimeout( () => {
 				demobar.classList.add( 'visible' );
+				demobar.classList.remove( 'hidden' );
 			}, 500 );
 		} );
 

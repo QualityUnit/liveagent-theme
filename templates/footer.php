@@ -164,7 +164,7 @@ if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/
 
 <?php } ?>
 
-<div id="loader" class="invisible urlslab-skip-all">
+<div id="loader" class="invisible urlslab-skip-keywords urlslab-skip-fragment">
 	<div class="loaderIn">
 
 		<div class="BuildingApp">
