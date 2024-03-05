@@ -10,6 +10,8 @@ function ms_alternatives() {
 			'suppress_filters' => false,
 		)
 	);
+	set_source( false, 'shortcodes/AlternativesList' );
+
 	ob_start();
 	?>
 
@@ -39,7 +41,6 @@ function ms_alternatives() {
 	</ul>
 
 	<?php
-	set_custom_source( 'shortcodes/AlternativesList' );
 	return ob_get_clean();
 }
 add_shortcode( 'alternatives', 'ms_alternatives' );

@@ -34,7 +34,6 @@ add_action(
 		wp_dequeue_style( 'wp-block-library' );
 		wp_dequeue_style( 'elementor-custom' );
 
-
 		if ( is_singular( 'ms_research' ) ) {
 			wp_enqueue_style( 'research-single', get_template_directory_uri() . '/assets/dist/pages/Research' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
@@ -58,6 +57,9 @@ add_action(
 		if ( ! is_page_template( 'elementor.php' ) ) {
 			wp_enqueue_style( 'app', get_template_directory_uri() . '/assets/dist/app' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
+
+		require_once get_template_directory() . '/functions/components-imports.php';
+		components_imports();
 	},
 	100
 );

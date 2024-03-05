@@ -63,7 +63,7 @@ function statistics_block_init() {
 	function statistics_assets() {
 		$path_uri = get_template_directory_uri() . '/lib/widgets/statistics/';
 		$version  = THEME_VERSION;
-		set_custom_source( 'research_post', 'js' );
+		wp_enqueue_script( 'research_post', get_template_directory_uri() . '/assets/dist/research_post' . wpenv() . '.js', false, THEME_VERSION, true );
 
 		if ( is_singular() ) {
 			$id = get_the_ID();
