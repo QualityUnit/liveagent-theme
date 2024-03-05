@@ -29,7 +29,7 @@ $theme_includes = array(
 	'functions/main.php', // Other includes
 	'functions/rest-api.php', // Rest API mods
 	'functions/post-query-mods.php', // Post Query mods
-	'functions/redirects.php', // Taxonomies Redirects	
+	'functions/redirects.php', // Taxonomies Redirect
 	'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
 	'functions/get-posts.php', // Function to get posts by ID (ie to be used in metaboxes functions)
 	'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
