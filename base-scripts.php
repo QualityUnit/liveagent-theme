@@ -241,11 +241,14 @@ if (
 		! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) )
 	) {
 	?>
-	<button class="ContactUs__chatBotOnly" id="chatBotOnly" rel="nofollow noopener external">
+	<button class="ContactUs__chatBotOnly hidden" id="chatBotOnly" rel="nofollow noopener external">
 		<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
 	</button>
 	<script type="text/javascript" id="urlslab-chatbot-script">
 		if ( getCookieFrontend( "cookieLaw" ) ) {
+			const chatBotButton = document.querySelector('#chatBotOnly');
+			chatBotButton.classList.remove('hidden');
+			
 			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
 			'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
 			function(e){
@@ -259,7 +262,7 @@ if (
 					urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
 					maxWindowWidth: '700px',
 				});
-				document.querySelector('#chatBotOnly').addEventListener('click', () => {
+				chatBotButton.addEventListener('click', () => {
 					chatbotManager.openChat();
 				});
 			});
