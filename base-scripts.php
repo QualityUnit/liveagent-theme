@@ -1,4 +1,31 @@
+<button class="ContactUs__chatBotOnly hidden" id="chatBotOnly" rel="nofollow noopener external">
+	<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
+</button>
+
 <script>
+	function loadChatBot() {
+		const chatBotButton = document.querySelector('#chatBotOnly');
+		chatBotButton.classList.remove('hidden');
+			
+		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
+		'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
+		function(e){
+			const chatbotManager = UrlslabChatbot.initChatbot({
+				showChatButton: false, // important to not show chat button on page load
+				chatbotId: '569a3c87-4c38-414c-8d1b-66d83c60b5f2',
+				chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA1NjlhM2M4Ny00YzM4LTQxNGMtOGQxYi02NmQ4M2M2MGI1ZjI=',
+				welcomeMessage: 'Hi, I\'m LiveAgent support Bot. How can I help you?',
+				inputPlaceholder: 'Ask me any question...',
+				suggestedUserMessages: [],
+				urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
+				maxWindowWidth: '700px',
+			});
+			chatBotButton.addEventListener('click', () => {
+				chatbotManager.openChat();
+			});
+		});
+	}
+
 	const getCookieFrontend = ( name ) => {
 		const nameEq = `${name}=`
 		const ca = document.cookie.split( ";" )
@@ -20,6 +47,8 @@
 	const trialButton = document.querySelector( ".createTrialButton" );
 
 	acceptButton.addEventListener( "click", () => {
+		loadChatBot();
+
 		const demobarNow = document.querySelector('#demobar');
 
 		if( demobar ) {
@@ -226,7 +255,7 @@
 	}
 </script>
 
-<!-- LiveAgent - Chat Button -->
+<!-- PAP - Chat Button -->
 <?php
 if (
 		! is_page( array( 'request-demo', 'demo', 'trial', 'free-account', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
@@ -241,31 +270,10 @@ if (
 		! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) )
 	) {
 	?>
-	<button class="ContactUs__chatBotOnly hidden" id="chatBotOnly" rel="nofollow noopener external">
-		<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
-	</button>
+	
 	<script type="text/javascript" id="urlslab-chatbot-script">
 		if ( getCookieFrontend( "cookieLaw" ) ) {
-			const chatBotButton = document.querySelector('#chatBotOnly');
-			chatBotButton.classList.remove('hidden');
-			
-			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
-			'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
-			function(e){
-				const chatbotManager = UrlslabChatbot.initChatbot({
-					showChatButton: false, // important to not show chat button on page load
-					chatbotId: '569a3c87-4c38-414c-8d1b-66d83c60b5f2',
-					chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA1NjlhM2M4Ny00YzM4LTQxNGMtOGQxYi02NmQ4M2M2MGI1ZjI=',
-					welcomeMessage: 'Hi, I\'m LiveAgent support Bot. How can I help you?',
-					inputPlaceholder: 'Ask me any question...',
-					suggestedUserMessages: [],
-					urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
-					maxWindowWidth: '700px',
-				});
-				chatBotButton.addEventListener('click', () => {
-					chatbotManager.openChat();
-				});
-			});
+			loadChatBot();
 		}
 	</script>
 	<?php
