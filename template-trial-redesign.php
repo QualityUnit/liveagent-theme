@@ -26,7 +26,7 @@
 		</div>
 		<div class="Trial__main">
 			<div class="heroBanner__awards">
-				<?php echo do_shortcode( '[hero-banner-awards]' ); ?>
+				<?php echo do_shortcode( '[hero-banner-awards title="false" bg="hero-banner-awards_small.jpg"]' ); ?>
 			</div>
 			
 			<div class="Trial__main__inner">
