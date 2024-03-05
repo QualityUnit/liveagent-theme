@@ -11,6 +11,9 @@ define( 'THEME_VERSION', '1.23.18' );
 
 $theme_includes = array(
 	'functions/detectmobilebrowser.php',             // Detects mobile
+	'functions/content-filters-functions.php', // Content filters functions
+	'functions/content-filters.php', // Content filters
+	'functions/content-filters-learn-more.php', // Content filters for Block--learnMore
 	'functions/import-functions.php', // Partials JS and SCSS import functions
 	'lib/assets.php',             // Scripts and stylesheets
 	'lib/extras.php',             // Custom functions
@@ -26,11 +29,7 @@ $theme_includes = array(
 	'functions/main.php', // Other includes
 	'functions/rest-api.php', // Rest API mods
 	'functions/post-query-mods.php', // Post Query mods
-	'functions/redirects.php', // Taxonomies Redirects
-	'functions/content-filters-functions.php', // Content filters functions
-	'functions/content-filters.php', // Content filters
-	'functions/content-filters-learn-more.php', // Content filters for Block--learnMore
-	'functions/components-imports.php', // Import CSS and JS for blocks or components on page
+	'functions/redirects.php', // Taxonomies Redirects	
 	'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
 	'functions/get-posts.php', // Function to get posts by ID (ie to be used in metaboxes functions)
 	'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.

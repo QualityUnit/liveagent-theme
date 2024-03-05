@@ -65,18 +65,18 @@ while ( $query_reviews_posts->have_posts() ) :
 							<div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
 								<meta itemprop="ratingValue" content="<?= esc_attr( $average ); ?>" />
 								<meta itemprop="ratingCount" content="<?= esc_attr( meta( 'reviews_count' ) ); ?>" />
+								<meta itemprop="reviewCount" content="<?= esc_attr( meta( 'reviews_count' ) ); ?>" />
 							</div>
 							<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
 								<meta itemprop="priceCurrency" content="USD" />
 								<meta itemprop="price" content="<?= esc_attr( is_numeric( meta( 'price' ) ) ? meta( 'price' ) : '0' ); ?>" />
 							</div>
-						<span class="Reviews__rating--rating mr-s-tablet-landscape" itemprop="ratingValue"><?= esc_html( $rating_post ); ?></span>
-						<meta itemprop="reviewCount" content="<?= esc_attr( meta( 'reviews_count' ) ); ?>" />
+						<span class="Reviews__rating--rating mr-s-tablet-landscape" ><?= esc_html( $rating_post ); ?></span>
 						<div class="Reviews__rating--stars">
 							<div class="Reviews__rating--stars__fill"
 							style="width:<?= esc_attr( ( $rating_post / 5 * 103.3 ) . '%' ); ?>"></div>
 						</div>
-						<div class="Reviews__rating--count"><span itemprop="reviewCount"><?= esc_html( meta( 'reviews_count' ) ); ?></span><?= esc_html( ' ' . __( 'reviews', 'reviews' ) ); ?></div>
+						<div class="Reviews__rating--count"><span><?= esc_html( meta( 'reviews_count' ) ); ?></span><?= esc_html( ' ' . __( 'reviews', 'reviews' ) ); ?></div>
 					</div>
 					<div class="Reviews__rating editor" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
 						<div class="Reviews__rating--avatar">
