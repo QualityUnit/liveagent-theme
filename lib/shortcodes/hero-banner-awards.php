@@ -16,7 +16,7 @@ function ms_hero_banner_awards( $atts ) {
 		<div class="heroBanner__awards__bg" style="background: url(<?= esc_url( get_template_directory_uri() . '/assets/images/' . ( ! empty( $atts['bg'] ) ? $atts['bg'] : 'hero-banner-awards.png' ) . '?ver=' . THEME_VERSION ); ?>) center top no-repeat; background-size: contain"></div>
 	
 		<?php
-		if ( $atts['title'] !== 'false' ) {
+		if ( 'false' !== $atts['title'] ) {
 			?>
 		<img class="heroBanner__awards__title" src="<?= esc_url( get_template_directory_uri() . '/assets/images/hero-banner-awards__title.png?ver=' . THEME_VERSION ); ?>" alt="Awards" />
 			<?php
