@@ -255,7 +255,7 @@
 	}
 </script>
 
-<!-- PAP - Chat Button -->
+<!-- LiveAgent - Chat Button -->
 <?php
 if (
 		! is_page( array( 'request-demo', 'demo', 'trial', 'free-account', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
