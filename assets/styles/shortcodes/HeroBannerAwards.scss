@@ -31,10 +31,12 @@
 		}
 
 		.heroBanner__awards__img {
+			position: relative;
 			width: 80%;
 			margin: 0 auto;
 			padding-bottom: 80%;
 			background-size: cover !important;
+			z-index: 1;
 		}
 	}
 }

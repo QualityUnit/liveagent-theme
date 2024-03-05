@@ -69,7 +69,14 @@
 		right: 1em;
 
 		&__wrapper {
-			all: unset;
+			position: static;
+			width: 8em;
+			height: 24em;
+			padding-top: 1.5em;
+
+			.heroBanner__awards__img {
+				width: 67%;
+			}
 		}
 	}
 
