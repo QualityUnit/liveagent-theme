@@ -18,6 +18,9 @@
 	function add_inline_styles() {
 		ob_start();
 		$css = file_get_contents( get_template_directory() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css' );
+		if ( is_page_template( 'elementor.php' ) || is_page_template( 'front-page.php' ) || is_page_template( 'page.php' ) || is_page_template( 'template-academy-header.php' ) || is_page_template( 'template-blog-header.php' ) ) {
+			$css .= file_get_contents( get_template_directory() . '/assets/dist/components/HeroHeadlineHome' . isrtl() . wpenv() . '.css' );
+		}
 		ob_get_clean();
 
 		// return the stored style
