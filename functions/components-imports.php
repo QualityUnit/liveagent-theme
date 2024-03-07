@@ -21,6 +21,7 @@ function components_imports() {
 	$content = apply_filters( 'the_content', get_the_content() );
 
 	$blocks = array(
+		'AffiliateSignup'               => 'components/AffiliateSignup',
 		'table'                         => 'components/Table',
 		'SoftphoneTable'                => 'components/SoftphoneTable',
 		'BlockPoints'                   => 'components/BlockPoints',
@@ -54,6 +55,7 @@ function components_imports() {
 		'Reference'                     => 'components/Reference',
 		'BlockSolution'                 => 'components/BlockSolution',
 		'BlockSolutions'                => 'components/BlockSolutions',
+		'BlocksWrap'               => 'components/BlocksWrap',
 	);
 
 	// Array value in form of array, first is script name, second is dependency id

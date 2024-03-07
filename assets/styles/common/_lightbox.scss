@@ -8,12 +8,12 @@ body.lb-disable-scrolling {
 
 .lightboxOverlay {
 
-	@include color(background-color, invert-main-background);
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 999999;
 	opacity: 0.8;
+	background-color: $black-real;
 	display: none;
 }
 

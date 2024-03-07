@@ -27,6 +27,7 @@
 
 	&__image {
 		margin-top: auto;
+		display: none;
 
 		img {
 			width: 100%;
@@ -91,6 +92,7 @@
 		}
 
 		&__image {
+			display: block;
 			margin-top: 0.25em;
 			width: 52%;
 		}

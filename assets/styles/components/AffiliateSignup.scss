@@ -1,0 +1,21 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.AffiliateSignup {
+
+	background-color: $white;
+
+	&:not(.hidden) {
+		position: fixed;
+		top: 0;
+		z-index: 999999;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.elementor-editor-active &.hidden {
+		display: block !important;
+	}
+}
