@@ -5,7 +5,11 @@
 
 .AffiliateSignup {
 
-	background-color: $white;
+	width: 100%;
+	max-width: 46em;
+	padding: 1.5em;
+	background-color: $lightest-gray;
+	border-radius: 1rem;
 
 	&:not(.hidden) {
 		position: fixed;
@@ -13,6 +17,85 @@
 		z-index: 999999;
 		left: 50%;
 		transform: translateX(-50%);
+	}
+
+	.elementor-heading-title {
+		font-size: 2.5rem;
+		margin: 0;
+		color: $primary;
+	}
+
+	.CustomHtmlSignupForm {
+
+		label {
+			position: relative;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			font-size: 0.875rem;
+			margin-bottom: 1em;
+			padding: calc(1em - 2px) 1em;
+
+			svg {
+
+				@include square(1.25em);
+				position: relative;
+				margin-right: 0.5em;
+				z-index: 1;
+				fill: currentcolor;
+			}
+
+			span {
+				position: relative;
+				z-index: 1;
+				pointer-events: none;
+			}
+
+			input:not([type="checkbox"]),
+			textarea {
+				width: 100%;
+				font-size: inherit;
+				height: auto;
+				padding: 1em;
+			}
+
+			input:not([type="checkbox"]) {
+				padding-left: 3em;
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				&:focus + span {
+					opacity: 0;
+				}
+
+				&[required] + span {
+
+					&::after {
+						content: "*";
+						color: red;
+						margin-left: 0.15em;
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+
+		.flex {
+			justify-content: space-between;
+
+			label {
+				width: calc(50% - 0.5em);
+			}
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		padding: 2em 6.25em;
 	}
 
 	.elementor-editor-active &.hidden {

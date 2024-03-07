@@ -84,14 +84,14 @@ function components_imports() {
 		$id           = strtolower( $class );
 		$found_blocks = $xpath->query( './/*[contains(@class, "' . $class . '")]' );
 	
-		if ( isset( $found_blocks[0] ) || ( isset( $_GET['action'] ) && ( 'edit' === $_GET['action'] || 'elementor' === $_GET['action'] ) ) ) {
+		if ( isset( $found_blocks[0] ) || ( isset( $_GET['action'] ) && ( 'edit' === $_GET['action'] ) ) || isset( $_GET['elementor-preview'] ) ) {
 			wp_enqueue_style( $id, get_template_directory_uri() . '/assets/dist/' . $csspath . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
 	}
 
 	foreach ( $scripts as $selector => $runscript ) {
 		$found_blocks = preg_match( $selector, $content );
-		if ( $found_blocks || ( isset( $_GET['action'] ) && ( 'edit' === $_GET['action'] || 'elementor' === $_GET['action'] ) ) ) {
+		if ( $found_blocks || ( isset( $_GET['action'] ) && ( 'edit' === $_GET['action'] ) ) || isset( $_GET['elementor-preview'] ) ) {
 			set_custom_source( $runscript[0], 'js', isset( $runscript[1] ) );
 		}
 	}
