@@ -3,7 +3,7 @@
 function ms_awards() {
 	ob_start();
 	?>
-	<?php 
+	<?php
 		$years   = array_unique( get_categories( array( 'taxonomy' => 'ms_awards_years' ) ), SORT_REGULAR );
 		$counter = 0;
 	foreach ( $years as $year ) {
