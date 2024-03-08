@@ -75,6 +75,15 @@ $sidebarWidth: 13.5em;
 		}
 	}
 
+	.Archive__container__content {
+		display: flex;
+		flex-wrap: wrap;
+
+		&__item {
+			margin-bottom: 2em;
+		}
+	}
+
 	.Directory__blocks__title {
 
 		&.has-text-align-center {

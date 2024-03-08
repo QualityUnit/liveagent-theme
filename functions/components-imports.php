@@ -17,9 +17,9 @@ add_filter( 'the_content', 'icontabs_sources' );
 add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
 
-function components_imports() {
-	$content = apply_filters( 'the_content', get_the_content() );
-
+function components_imports( $content ) {
+	// $content = apply_filters( 'the_content', get_the_content() );
+	
 	$blocks = array(
 		'table'                         => 'components/Table',
 		'SoftphoneTable'                => 'components/SoftphoneTable',
@@ -101,5 +101,5 @@ function components_imports() {
 	return $content;
 }
 
-// add_action( 'the_content', 'components_imports' );
+add_action( 'the_content', 'components_imports' );
 add_action( 'admin_enqueue_scripts', 'components_imports' );
