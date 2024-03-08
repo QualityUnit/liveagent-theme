@@ -18,7 +18,7 @@ add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
 
 function components_imports() {
-	$content = apply_filters( 'the_content', get_the_content() );
+	$content = apply_filters( 'the_content', the_content() );
 
 	$blocks = array(
 		'table'                         => 'components/Table',
