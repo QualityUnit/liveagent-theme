@@ -61,6 +61,7 @@ function components_imports() {
 	// Array value in form of array, first is script name, second is dependency id
 	$scripts = array(
 		'/\<section.+class=".+IconTabs.+/' => array( 'IconTabs' ),
+		'/\<div.+class="FilterMenu.+/'     => array( 'filterMenu' ),
 		'[data-lightbox="gallery"]'        => array( 'splide' ),
 		'[data-lightbox="youtube"]'        => array( 'splide' ),
 		'/data-lightbox="gallery/'         => array( 'custom_lightbox', 'splide' ),

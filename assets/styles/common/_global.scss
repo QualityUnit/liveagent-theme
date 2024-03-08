@@ -161,6 +161,24 @@ body {
 	}
 }
 
+.display-block {
+	display: block !important;
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&-tablet {
+			display: block !important;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&-tablet-landscape {
+			display: block !important;
+		}
+	}
+}
+
 .flex {
 	display: flex !important;
 
