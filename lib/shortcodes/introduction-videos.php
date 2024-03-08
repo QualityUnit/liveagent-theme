@@ -92,7 +92,7 @@ function la_introduction_videos() {
 
 			echo '<div class="Introduction__videos__tab RadioInputContainer" data-tab="' . esc_attr( $class_name ) . '"  onclick="selectRadioTab(\'' . esc_attr( $class_name ) . '\')">
 			<input type="radio" id="' . esc_attr( $class_name ) . '" name="radio" checked/>
-			<label for="' . esc_attr( $class_name ) . '"><img src="" data-src-trial="' . esc_url( get_template_directory_uri() ) . esc_html( $icon_url ) . '" alt=" icon-' . esc_attr( $class_name ) . '" class="tab-icon" loading="lazy">' . esc_html( $display_name ) . '</label>
+			<label for="' . esc_attr( $class_name ) . '"><img src="' . esc_url( get_template_directory_uri() ) . esc_html( $icon_url ) . '" alt=" icon-' . esc_attr( $class_name ) . '" class="tab-icon" loading="lazy">' . esc_html( $display_name ) . '</label>
 			</div>';
 
 		}
@@ -107,8 +107,8 @@ function la_introduction_videos() {
 					?>
 
 			<div class="tab-content" data-tab="<?php echo esc_attr( $class_name ); ?>">
-				<video src="" data-src-trial="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" autoplay muted loop playsinline>
-					<source data-src-trial="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" type="video/mp4?ver=' . THEME_VERSION" />
+				<video src="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" autoplay muted loop playsinline>
+					<source src="<?= esc_url( get_template_directory_uri() ) . esc_html( $video_url ); ?>" type="video/mp4?ver=' . THEME_VERSION" />
 				</video>
 			</div>
 					<?php
@@ -117,7 +117,7 @@ function la_introduction_videos() {
 			</div>
 			<div class="progress__done__overlay invisible">
 				<div data-id="redirectButtonPanel" class="redirectButtonPanel" style="display:none"></div>
-				<p>or</p>
+				<p><?php _e( 'or', 'ms' ); ?></p>
 				<a href="#" class="continue__watching"><?php _e( 'Continue watching', 'ms' ); ?></a>
 			</div>
 	</div>
