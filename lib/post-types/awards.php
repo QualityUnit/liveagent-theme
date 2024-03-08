@@ -9,8 +9,14 @@ add_action(
 			'menu_name'      => __( 'Awards', 'ms' ),
 			'name_admin_bar' => __( 'Award', 'ms' ),
 		);
+		$rewrite = array(
+			'slug'       => 'awards',
+			'with_front' => true,
+			'pages'      => true,
+			'feeds'      => false,
+		);
 		$args   = array(
-			'label'               => __( 'Award', 'ms' ),
+			'label'               => __( 'Awards', 'ms' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'excerpt', 'thumbnail', 'revisions' ),
 			'hierarchical'        => true,
@@ -22,12 +28,13 @@ add_action(
 			'show_in_admin_bar'   => true,
 			'show_in_nav_menus'   => true,
 			'can_export'          => true,
-			'has_archive'         => false,
+			'has_archive'         => true,
 			'exclude_from_search' => true,
-			'publicly_queryable'  => false,
-			'rewrite'             => false,
+			'publicly_queryable'  => true,
+			'rewrite'             => $rewrite,
 			'capability_type'     => 'post',
 			'show_in_rest'        => true,
+
 		);
 		register_post_type( 'ms_awards', $args );
 	},
