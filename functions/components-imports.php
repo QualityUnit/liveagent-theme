@@ -17,9 +17,9 @@ add_filter( 'the_content', 'icontabs_sources' );
 add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
 
-function components_imports($content) {
+function components_imports( $content ) {
 	// $content = apply_filters( 'the_content', get_the_content() );
-
+	
 	$blocks = array(
 		'AffiliateSignup'               => 'components/AffiliateSignup',
 		'table'                         => 'components/Table',

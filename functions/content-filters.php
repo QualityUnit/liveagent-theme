@@ -267,6 +267,7 @@ function url_space_replace( $content ) {
 		$src  = $element->getAttribute( 'src' ); //@codingStandardsIgnoreLine
 		$srcset  = $element->getAttribute( 'srcset' ); //@codingStandardsIgnoreLine
 		if ( WP_ENV === 'local' ) {
+
 			$src = preg_replace( '/https:\/\/(www\.)?live.+?\/(.+)/', 'http://liveagent.local/$2', $src );
 			$srcset = preg_replace( '/https:\/\/(www\.)?live.+?\//', 'http://liveagent.local/', $srcset );
 		}
