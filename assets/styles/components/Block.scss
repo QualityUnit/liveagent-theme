@@ -608,6 +608,17 @@ scss/at-extend-no-missing-placeholder */
 		padding-bottom: 100px !important;
 	}
 
+	&.space-between {
+
+		.elementor-container {
+			justify-content: space-between;
+
+			.elementor-col-50 {
+				width: 46.5%;
+			}
+		}
+	}
+
 	@media (max-width: $breakpoint-desktop-box) {
 		padding-top: 100px !important;
 		padding-bottom: 100px !important;
@@ -631,6 +642,17 @@ scss/at-extend-no-missing-placeholder */
 		margin-bottom: $block-space-sm !important;
 		padding-top: $block-space-sm !important;
 		padding-bottom: $block-space-sm !important;
+
+		&.space-between {
+
+			.elementor-container {
+				justify-content: space-between;
+
+				.elementor-col-50 {
+					width: 100%;
+				}
+			}
+		}
 	}
 }
 

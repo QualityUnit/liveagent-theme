@@ -1,0 +1,197 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "../elements/FilterMenu";
+
+.AffiliateSignup {
+	position: fixed;
+	width: 100%;
+	max-width: 46em;
+	padding: 1.5em;
+	padding-right: 1.15em;
+	background-color: $lightest-gray;
+	border-radius: 1rem;
+	max-height: 100vh;
+	overflow-y: hidden;
+	top: 0;
+	left: 0;
+	z-index: 999999;
+
+	div {
+		position: static !important;
+	}
+
+	.closeForm {
+
+		@include square(2em);
+		border-radius: 50%;
+		background-color: $light-gray;
+		position: absolute;
+		top: 2em;
+		right: 2em;
+		padding: 0;
+		z-index: 1;
+		text-indent: -99999px;
+	}
+
+	> div {
+
+		@include scrollbar(0.35em);
+		max-height: 100vh;
+		overflow-y: scroll;
+	}
+
+	.elementor-heading-title {
+		font-size: 2.5rem;
+		margin: 0;
+		color: $primary;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.CustomHtmlSignupForm {
+
+		%svg {
+
+			@include square(1.25em);
+			position: relative;
+			margin-right: 0.5em;
+			z-index: 1;
+			fill: currentcolor;
+		}
+
+		> label,
+		> .Input,
+		> .flex > label {
+			position: relative;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			height: auto;
+			font-size: 0.875rem;
+			margin-bottom: 1em;
+			padding: calc(1em - 2px) 1em;
+			color: $light-gray-icon;
+
+			svg {
+
+				@extend %svg;
+			}
+
+			span {
+				display: block;
+				position: relative;
+				z-index: 1;
+				pointer-events: none;
+			}
+
+			select {
+				height: 100%;
+			}
+
+			input:not([type="checkbox"]) {
+				position: absolute;
+				width: 100%;
+				font-size: inherit;
+				height: auto;
+				padding: 1em;
+				padding-left: 3em;
+				top: 0;
+				left: 0;
+
+				&:placeholder-shown {
+
+					+ span {
+						opacity: 1;
+					}
+				}
+
+				&:focus,
+				&:not(:placeholder-shown) {
+
+					+span {
+						opacity: 0;
+					}
+				}
+
+				&[required] + span {
+
+					&::after {
+						content: "*";
+						color: $saturated-red;
+						margin-left: 0.25em;
+						position: relative;
+						top: -2px;
+					}
+				}
+			}
+		}
+
+		.FilterMenu {
+			color: $light-gray-icon;
+			font-size: 0.875rem;
+			margin-bottom: 1em;
+
+			&__title {
+				border-radius: 6px;
+			}
+
+			svg {
+
+				@extend %svg;
+			}
+		}
+
+		> .checkbox label {
+			margin-top: 1em;
+			padding-left: 0;
+			color: $black;
+		}
+
+		textarea {
+			width: 100%;
+			font-size: 0.75rem;
+			height: auto;
+			padding: 1em;
+		}
+
+		> .flex {
+			justify-content: space-between;
+
+			label {
+				width: calc(50% - 0.5em);
+			}
+		}
+
+		button {
+			width: 100%;
+			margin-bottom: 6em;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		max-height: 80vh;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		>div {
+
+			@include scrollbar(0.35em);
+			max-height: 80vh;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		padding: 2em 6.25em;
+		padding-right: 5.85em;
+	}
+
+	.elementor-editor-active &.hidden {
+		display: block !important;
+	}
+}

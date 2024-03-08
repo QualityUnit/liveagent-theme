@@ -60,7 +60,6 @@ add_action(
 		}
 
 		require_once get_template_directory() . '/functions/components-imports.php';
-		// components_imports();
 	},
 	100
 );

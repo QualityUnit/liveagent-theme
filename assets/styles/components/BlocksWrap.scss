@@ -1,0 +1,61 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.BlocksWrap {
+	text-align: center;
+	margin-bottom: 3em;
+
+	&.text-align-left {
+		text-align: left;
+	}
+
+	.elementor-column[class] {
+		width: 100%;
+	}
+
+	&__title {
+		font-size: 2.5rem;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		section[class*="BlocksWrap"] > .elementor-container {
+			display: grid;
+
+			.elementor-column {
+
+				> div > div:not(.elementor-widget-image) {
+					padding: 0 2em;
+				}
+
+				.elementor-widget-heading {
+					margin-bottom: 0;
+				}
+
+				.elementor-heading-title {
+					font-size: 1.85rem;
+					margin-top: 0.5em;
+					margin-bottom: 0.5em;
+				}
+			}
+		}
+
+		&__35 {
+
+			>.elementor-container {
+				grid-template-columns: repeat(2, 35%);
+				gap: 5em 15%;
+			}
+		}
+
+		&__45 {
+
+			>.elementor-container {
+				grid-template-columns: repeat(2, 45%);
+				gap: 5em 10%;
+			}
+		}
+	}
+}
