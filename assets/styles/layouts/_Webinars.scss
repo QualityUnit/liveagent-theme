@@ -47,6 +47,7 @@
 		&--thumbnail {
 			display: block;
 			height: 10em;
+			cursor: pointer;
 
 			img {
 				width: 100%;
@@ -84,11 +85,12 @@
 		}
 
 		&--footer {
-			display: flex;
+			display: grid;
+			grid-template-columns: 1fr auto;
 			justify-content: space-between;
 			align-items: center;
 			margin-top: 1em;
-
+			cursor: pointer;
 		}
 
 		&--duration {
@@ -96,6 +98,7 @@
 			line-height: 1.714;
 			font-weight: $font-weight-bold;
 			color: $dark-gray;
+			text-align: right;
 		}
 
 		&--link {
@@ -107,6 +110,8 @@
 			text-decoration: none !important;
 
 			img {
+
+				@include square(2.5em);
 				margin-right: 0.5em;
 				margin-left: -5px;
 			}

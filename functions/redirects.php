@@ -174,3 +174,26 @@ function alternatives_category_redirect() {
 	}
 }
 add_action( 'template_redirect', 'alternatives_category_redirect' );
+
+
+/**
+ * Awards Single redirect
+**/
+function awards_single_redirect() {
+	if ( is_singular( 'ms_awards' ) ) {
+		wp_safe_redirect( '/awards/', 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'awards_single_redirect' );
+
+/**
+ * Webinars Single redirect
+ **/
+function webinars_single_redirect() {
+	if ( is_singular( 'ms_webinars' ) ) {
+		wp_safe_redirect( '/webinars/', 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'webinars_single_redirect' );
