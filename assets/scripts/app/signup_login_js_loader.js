@@ -39,10 +39,9 @@ const signuplogin = () => {
 	}
 
 	function runLoadScript( element ) {
-		const type = element.closest( '[data-id="signup"]' ).dataset.type;
-		sessionStorage.setItem( 'crmType', type );
 		loadScripts( element );
 	}
+
 	if ( document.querySelectorAll( 'script[data-src]' ).length ) {
 		const scriptParent = document.querySelectorAll(
 			'[data-id="signup"] input:not([type="hidden"])'
