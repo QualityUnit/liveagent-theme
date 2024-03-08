@@ -266,7 +266,7 @@ function url_space_replace( $content ) {
 		$element = $images_videos->item( $i );
 		$src  = $element->getAttribute( 'src' ); //@codingStandardsIgnoreLine
 		if ( WP_ENV === 'local' ) {
-			$src = preg_replace( '/https:\/\/(www\.)?live.+?\/(.+)/', 'http://liveagent.local/$2', $src );
+			// $src = preg_replace( '/https:\/\/(www\.)?live.+?\/(.+)/', 'http://liveagent.local/$2', $src );
 		}
 		$element->setAttribute( 'src', $src );
 	}
