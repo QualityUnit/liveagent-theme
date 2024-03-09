@@ -2,18 +2,18 @@
 namespace QualityUnit;
 
 class Trial_Signup {
-	private static $crm_api_base        = 'https://crm.qualityunit.com/api/v3/';
-	private static $grecaptcha_key      = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
-	private static $form_identifier     = 'signup-trial-form';
-	private static $current_lang        = 'en-US';
-	private static $lazy_loaded_scripts = array( 'qu-crm-script-lazy' );
-	private static $localized_text      = array();
-	public static $form_data            = array();
-	public static $error_state          = array();
-	public static $trial_signup_reponse = array();
-	private static $crm_script_loaded   = false;
-	private static $form_type_free      = false;
-	private static $is_thank_you_page   = false;
+	private static $crm_api_base         = 'https://crm.qualityunit.com/api/v3/';
+	private static $grecaptcha_key       = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
+	private static $form_identifier      = 'signup-trial-form';
+	private static $current_lang         = 'en-US';
+	private static $lazy_loaded_scripts  = array( 'qu-crm-script-lazy' );
+	private static $localized_text       = array();
+	private static $form_data            = array();
+	private static $error_state          = array();
+	private static $trial_signup_reponse = array();
+	private static $crm_script_loaded    = false;
+	private static $form_type_free       = false;
+	private static $is_thank_you_page    = false;
 
 	public static $regions = array();
 	public static $slugs   = array();
@@ -60,8 +60,17 @@ class Trial_Signup {
 						'subdomain' => $form_data['subdomain'],
 						'language'  => $form_data['language'],
 					);
+					
+					if ( isset( $form_data['redeem_code'] ) ) {
+						$submit_response['form_data']['is_redeem'] = true;
+					}
+
+					if ( isset( $form_data['plan_type'] ) ) {
+						$submit_response['form_data']['plan_type'] = $form_data['plan_type'];
+					}
+
 					self::set_session_data( 'trial_signup_reponse', $submit_response );
-					self::clean_signup_session( 'form_data' );
+					self::clean_session( 'trial_signup_form_data' );
 					
 					self::redirect( self::$slugs['thank-you'] );
 				}
@@ -112,6 +121,10 @@ class Trial_Signup {
 				$form_data['redeem_code'] = sanitize_text_field( $_POST['redeem_code'] );
 			}
 
+			if ( isset( $_POST['plan_type'] ) ) {
+				$form_data['plan_type'] = sanitize_text_field( $_POST['plan_type'] );
+			}
+
 			// tracking data from js
 			if ( isset( $_POST['pap_visitor_id'] ) ) {
 				$form_data['pap_visitor_id'] = sanitize_text_field( $_POST['pap_visitor_id'] );
@@ -125,7 +138,7 @@ class Trial_Signup {
 				$form_data['ga_client_id'] = sanitize_text_field( $_POST['ga_client_id'] );
 			}
 
-			self::set_session_data( 'form_data', $form_data );
+			self::set_session_data( 'trial_signup_form_data', $form_data );
 			self::$form_data = $form_data;
 		}
 	}
@@ -481,7 +494,10 @@ class Trial_Signup {
 							const gaClientInput = form.querySelector( 'input[data-id="ga_client_id"]' );
 							const emailInput = form.querySelector( '[data-id=mailFieldmain] input[name=email]' );
 							const submitButton = form.querySelector( '[data-id=submitFieldmain] button[type=submit]' );
+							const isRedeemForm = form.querySelector( '[data-id=codeFieldmain] input[name=redeem_code]' ) ? true : false;
+
 							const gaUserId = getCookie( '_ga' ) || '';
+							
 							submitButton.setAttribute('disabled', '');
 
 							try {
@@ -496,8 +512,10 @@ class Trial_Signup {
 										if( grecaptchaInput ) { grecaptchaInput.value = token };
 										if( gaClientInput ) { gaClientInput.value = gaUserId };
 
-										gtag( 'set', 'user_data', { email: emailInput ? emailInput.value : '' } );
-										gtag( 'event', 'Trial sign_up', { send_to: 'GTM-MR5X6FD' } );
+										if( ! isRedeemForm ){
+											gtag( 'set', 'user_data', { email: emailInput ? emailInput.value : '' } );
+											gtag( 'event', 'Trial sign_up', { send_to: 'GTM-MR5X6FD' } );
+										}
 										
 										form.submit();
 									} );
@@ -514,9 +532,12 @@ class Trial_Signup {
 	}
 
 
-	// init translatable default values
 	private static function init_defaults() {
-
+		// try to get and clean data from session (possibly to prefill submitted incorrect form without js)
+		self::$form_data            = self::get_session_data( 'trial_signup_form_data', true, array() );
+		self::$error_state          = self::get_session_data( 'trial_signup_error', true, array() );
+		self::$trial_signup_reponse = self::get_session_data( 'trial_signup_reponse', true, array() );
+		
 		self::$regions = array(
 			'NA' => __( 'Americas (US)', 'ms' ),
 			'EU' => __( 'Europe & Africa (EU)', 'ms' ),
@@ -530,36 +551,29 @@ class Trial_Signup {
 		);
 
 		self::$localized_text = array(
-			'invalid'            => array(
+			'invalid'                 => array(
 				'name'   => __( 'Field invalid', 'ms' ),
 				'email'  => __( 'Email invalid', 'ms' ),
 				'domain' => __( 'Domain can not contain http, www or capital letters (A-Z)', 'ms' ),
 				'code'   => __( 'Invalid code.', 'ms' ),
 				'region' => __( 'Select datacenter region.', 'ms' ),
 			),
-			'textEmpty'          => __( "Field can't be empty", 'ms' ),
-			'textFailedDomain'   => __( 'Failed to validate domain', 'ms' ),
-			'textValidating'     => __( 'Validating...', 'ms' ),
-			'textFailedRetrieve' => __( 'Failed to retrieve valid progress info.', 'ms' ),
-			'textGoApp'          => __( 'Go to your App', 'ms' ),
-			'textGoToLiveAgent'  => __( 'Go to LiveAgent', 'ms' ),
-			'textInstalling'     => __( 'Building Your LiveAgent', 'ms' ),
-			'textLaunching'      => __( 'Halfway there', 'ms' ),
-			'textRedirecting'    => __( 'Almost done, just a moment', 'ms' ),
-			'textFinalizing'     => __( 'Your LiveAgent is ready to use', 'ms' ),
-			'textError'          => __( 'Something went wrong.', 'ms' ),
+			'textEmpty'               => __( "Field can't be empty", 'ms' ),
+			'textFailedDomain'        => __( 'Failed to validate domain', 'ms' ),
+			'textValidating'          => __( 'Validating...', 'ms' ),
+			'textFailedRetrieve'      => __( 'Failed to retrieve valid progress info.', 'ms' ),
+			'textGoToApp'             => __( 'Go to your App', 'ms' ),
+			'textGoToLiveAgent'       => __( 'Go to LiveAgent', 'ms' ),
+			'textProgressInstalling'  => __( 'Building Your LiveAgent', 'ms' ),
+			'textProgressLaunching'   => __( 'Halfway there', 'ms' ),
+			'textProgressRedirecting' => __( 'Almost done, just a moment', 'ms' ),
+			'textProgressFinalizing'  => __( 'Your LiveAgent is ready to use', 'ms' ),
+			'textError'               => __( 'Something went wrong.', 'ms' ),
 		);
 
 		if ( has_filter( 'wpml_current_language' ) ) {
-			$lang               = apply_filters( 'wpml_current_language', null );
-			self::$current_lang = $lang;
+			self::$current_lang = apply_filters( 'wpml_current_language', null );
 		}
-		
-		// try to get and clean data from session
-		// if available (possibly to prefill submitted incorrect form without js)
-		self::$form_data            = self::get_session_data( 'form_data', true, array() );
-		self::$error_state          = self::get_session_data( 'trial_signup_error', true, array() );
-		self::$trial_signup_reponse = self::get_session_data( 'trial_signup_reponse', true, array() );
 	}
 
 	public static function get_signup_error_message() {
@@ -578,19 +592,7 @@ class Trial_Signup {
 		return '';
 	}
 
-	public static function thank_you_template_actions() {
-		return;
-		self::$is_thank_you_page = self::is_thank_you_template();
-		if ( self::$is_thank_you_page && is_array( self::$trial_signup_reponse ) && empty( self::$trial_signup_reponse ) ) {
-			wp_safe_redirect( get_home_url() );
-			exit;
-		}
-	}
-
-	private static function is_thank_you_template() {
-		$template = get_page_template_slug();
-		return 'string' === gettype( $template ) && 'template-thank-you' === str_replace( '.php', '', $template );
-	}
+	
 
 	private static function is_error_state() {
 		return is_array( self::$error_state ) && ! empty( self::$error_state );
@@ -605,9 +607,32 @@ class Trial_Signup {
 		global $wp;
 		return home_url( $wp->request );
 	}
+
+	public static function lazy_load_script( $tag, $handle, $src ) {
+		if ( in_array( $handle, self::$lazy_loaded_scripts ) ) {
+			$tag = '<script data-src="' . esc_url( $src ) . '"></script>';
+		}
+		return $tag;
+	}
+
+	public static function thank_you_template_actions() {
+		self::$is_thank_you_page = self::is_thank_you_template();
+		if ( self::$is_thank_you_page && is_array( self::$trial_signup_reponse ) && empty( self::$trial_signup_reponse ) ) {
+			self::redirect( get_home_url() );
+			exit;
+		}
+	}
+
+	private static function is_thank_you_template() {
+		$template = get_page_template_slug();
+		return 'string' === gettype( $template ) && 'template-thank-you' === str_replace( '.php', '', $template );
+	}
 	
 	// @codingStandardsIgnoreStart
-
+	
+	// move crm api response using session between submit form page and target /trial or /thank-you page
+	// data are used to prefill trial form in case of error response, or are used by crm javascript during installation
+	
 	private static function set_session_data( $key, $value ) {
 		$_SESSION[ $key ] = $value;
 	}
@@ -622,14 +647,14 @@ class Trial_Signup {
 		return $value;
 	}
 	
-	private static function clean_signup_session( $key = '' ) {	
+	private static function clean_session( $key = '' ) {	
 		
 		if( $key && isset( $_SESSION[ $key ] ) ){
 			unset( $_SESSION[ $key ] );
 			return;
 		}
 
-		foreach ( array( 'form_data', 'trial_signup_error' ) as $session_key ) {
+		foreach ( array( 'trial_signup_form_data', 'trial_signup_error' ) as $session_key ) {
 			if ( isset( $_SESSION[ $session_key ] ) ) {
 				unset( $_SESSION[ $session_key ] );
 			}
@@ -642,23 +667,6 @@ class Trial_Signup {
 		}
 	}
 	// @codingStandardsIgnoreEnd
-
-	public static function lazy_load_script( $tag, $handle, $src ) {
-		if ( in_array( $handle, self::$lazy_loaded_scripts ) ) {
-			$tag = '<script data-src="' . esc_url( $src ) . '"></script>';
-		}
-		return $tag;
-	}
-
-	// dev debugging
-	public static function log( $what, $text = '' ) {
-		echo '<pre style="background: #e5e5e5;position: relative;">';
-		if ( '' !== $text ) {
-			echo wp_kses_post( $text . ':<br/>' );
-		}
-		var_dump( $what );
-		echo '</pre>';
-	}
 }
 
 Trial_Signup::run();
