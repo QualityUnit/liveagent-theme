@@ -40,10 +40,10 @@ function ms_signup_form( $atts ) {
 
 		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup">
 			<?php wp_nonce_field( 'trial_signup_nonce' ); ?>
+			<?php Trial_Signup::grecaptcha_parts(); ?>
 			<input data-id="plan" name="plan_type" type="hidden" value="Trial" autocomplete="off">
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
-			
 			<div data-id="nameFieldmain" class="Signup__form__item has-svg <?php echo esc_attr( $inputs_states['fullname']['class'] ); ?>">
 				<svg width="18" height="20" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M18 19v-2c0-2.743-2.257-5-5-5H5c-2.743 0-5 2.257-5 5v2a1 1 0 0 0 2 0v-2c0-1.646 1.354-3 3-3h8c1.646 0 3 1.354 3 3v2a1 1 0 0 0 2 0Zm-9-9c2.743 0 5-2.257 5-5s-2.257-5-5-5-5 2.257-5 5 2.257 5 5 5Zm0-2C7.354 8 6 6.646 6 5s1.354-3 3-3 3 1.354 3 3-1.354 3-3 3Z"/></svg>
 
