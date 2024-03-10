@@ -3,7 +3,6 @@ namespace QualityUnit;
 
 class Trial_Signup {
 	private static $crm_api_base         = 'https://crm.qualityunit.com/api/v3/';
-	private static $grecaptcha_key       = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
 	private static $form_identifier      = 'signup-trial-form';
 	private static $current_lang         = 'en-US';
 	private static $lazy_loaded_scripts  = array( 'qu-crm-script-lazy' );
@@ -14,6 +13,10 @@ class Trial_Signup {
 	private static $crm_script_loaded    = false;
 	private static $form_type_free       = false;
 	private static $is_thank_you_page    = false;
+	private static $grecaptcha           = array(
+		'site_key' => '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ',
+		'version'  => 'v3',
+	);
 
 	public static $regions = array();
 	public static $slugs   = array();
@@ -44,7 +47,7 @@ class Trial_Signup {
 			$target = ! isset( $form_data['redeem_code'] ) ? self::$slugs['trial'] : self::$slugs['redeem-code'];
 
 			$validation_error = self::validate_form_data();
-
+			
 			if ( ! empty( $validation_error ) ) {
 				self::set_session_data( 'trial_signup_error', $validation_error );
 				self::redirect( $target );
@@ -147,8 +150,15 @@ class Trial_Signup {
 	private static function process_crm_api_request() {
 		$request_data = self::get_request_data();
 		$endpoint     = ! isset( $request_data['code'] ) ? 'subscriptions/' : 'redeem_code/signup/';
-		
+
 		$handle = curl_init( self::$crm_api_base . $endpoint );
+		
+		if ( ! $handle ) {
+			return array(
+				'message' => self::$localized_text['textError'],
+			);
+		}
+
 		curl_setopt_array(
 			$handle,
 			array(
@@ -162,14 +172,15 @@ class Trial_Signup {
 		$response = curl_exec( $handle );
 
 		if ( curl_errno( $handle ) ) {
-			return array(
+			$result = array(
 				'message' => self::$localized_text['textError'],
 			);
 		} else {
-			return json_decode( $response, true );
+			$result = json_decode( $response, true );
 		}
 
 		curl_close( $handle );
+		return $result;
 	}
 
 	private static function get_request_data() {
@@ -231,6 +242,13 @@ class Trial_Signup {
 		);
 
 		$handle = curl_init( self::$crm_api_base . 'subscriptions/_check_domain' );
+		
+		if ( ! $handle ) {
+			return array(
+				'message' => self::$localized_text['textFailedDomain'],
+			);
+		}
+
 		curl_setopt_array(
 			$handle,
 			array(
@@ -243,14 +261,15 @@ class Trial_Signup {
 		$response = curl_exec( $handle );
 
 		if ( curl_errno( $handle ) ) {
-			return array(
+			$result = array(
 				'message' => curl_error( $handle ),
 			);
 		} else {
-			return json_decode( $response, true );
+			$result = json_decode( $response, true );
 		}
 
 		curl_close( $handle );
+		return $result;
 	}
 
 	private static function get_variation_id() {
@@ -470,67 +489,129 @@ class Trial_Signup {
 	}
 
 	public static function use_grecaptcha_api() {
+		self::$grecaptcha = self::get_grecaptcha_info();
 
 		add_action(
 			'wp_print_footer_scripts',
 			function () {
 				?>
-				<script data-src="https://www.google.com/recaptcha/api.js?render=<?php echo esc_attr( self::$grecaptcha_key ); ?>"></script>
-				<?php
-			}
-		);
-
-		add_action(
-			'wp_print_footer_scripts',
-			function () {
-				?>
+				
+				<?php if ( 'v2' === self::$grecaptcha['version'] ) : ?>
+					<script data-src="https://www.google.com/recaptcha/api.js?onload=handleCaptchaLoad"></script>
+				<?php endif; ?>
+				
+				<?php if ( 'v3' === self::$grecaptcha['version'] ) : ?>
+					<script data-src="https://www.google.com/recaptcha/api.js?onload=handleCaptchaLoad&render=<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>"></script>
+				<?php endif; ?>
+				
 				<script>
-					document.querySelectorAll("form[data-form-type=<?php echo esc_attr( self::$form_identifier ); ?>")
-					.forEach( (form) => {
-						form.addEventListener( 'submit', ( e ) => {
-							e.preventDefault();
+					function handleCaptchaLoad(){
+						document.querySelectorAll("form[data-form-type=<?php echo esc_attr( self::$form_identifier ); ?>")
+						.forEach( (form) => {
+							form.addEventListener( 'submit', ( e ) => {
+								e.preventDefault();
+								try {
+									const grecaptchaInput = form.querySelector( 'input[data-id="grecaptcha"]' );
+									const gaClientInput = form.querySelector( 'input[data-id="ga_client_id"]' );
+									const emailInput = form.querySelector( '[data-id=mailFieldmain] input[name=email]' );
+									const submitButton = form.querySelector( '[data-id=submitFieldmain] button[type=submit]' );
+									const isRedeemForm = form.querySelector( '[data-id=codeFieldmain] input[name=redeem_code]' ) ? true : false;
 
-							const grecaptchaInput = form.querySelector( 'input[data-id="grecaptcha"]' );
-							const gaClientInput = form.querySelector( 'input[data-id="ga_client_id"]' );
-							const emailInput = form.querySelector( '[data-id=mailFieldmain] input[name=email]' );
-							const submitButton = form.querySelector( '[data-id=submitFieldmain] button[type=submit]' );
-							const isRedeemForm = form.querySelector( '[data-id=codeFieldmain] input[name=redeem_code]' ) ? true : false;
+									const gaUserId = getCookie( '_ga' ) || '';
+									
+									submitButton.setAttribute('disabled', '');
+									
+									grecaptcha.ready( () => {
+										<?php if ( 'v2' === self::$grecaptcha['version'] ) : ?>
+											grecaptcha.execute().then( handleCaptchaToken )
+										<?php endif; ?>
+										
+										<?php if ( 'v3' === self::$grecaptcha['version'] ) : ?>
+											grecaptcha.execute( 
+												"<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>", 
+												{ action: 'login' } 
+											).then( handleCaptchaToken )
+										<?php endif; ?>
+									} );
 
-							const gaUserId = getCookie( '_ga' ) || '';
-							
-							submitButton.setAttribute('disabled', '');
-
-							try {
-								grecaptcha.ready( () => {
-									grecaptcha
-									.execute( 
-										"<?php echo esc_attr( self::$grecaptcha_key ); ?>", 
-										{ action: 'login' } 
-									)
-									.then( ( token ) => {
-
+									function handleCaptchaToken( token ){
+										console.log(token)
 										if( grecaptchaInput ) { grecaptchaInput.value = token };
 										if( gaClientInput ) { gaClientInput.value = gaUserId };
 
-										if( ! isRedeemForm ){
+										if( ! isRedeemForm && typeof gtag !== 'undefined' ){
 											gtag( 'set', 'user_data', { email: emailInput ? emailInput.value : '' } );
 											gtag( 'event', 'Trial sign_up', { send_to: 'GTM-MR5X6FD' } );
 										}
-										
+
 										form.submit();
-									} );
-								} );
-							} catch (e) {
-								submitButton.removeAttribute('disabled');
-							}
+									}
+								
+									
+								} catch (e) {
+									submitButton.removeAttribute('disabled');
+								}
+
+							});
 						});
-					});
+					}
 				</script>
 				<?php
 			}
 		);
 	}
 
+	public static function grecaptcha_parts() {
+		if ( 'v2' === self::$grecaptcha['version'] ) {
+			ob_start();
+			?>
+				<div class="g-recaptcha"
+					data-sitekey="<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>"
+					data-size="invisible">
+				</div>
+			<?php
+			echo wp_kses( 
+				ob_get_clean(), 
+				array(
+					'div' => array( 
+						'class'        => array(), 
+						'data-sitekey' => array(),
+						'data-size'    => array(),
+					),
+				)
+			);
+		}
+	}
+
+	private static function get_grecaptcha_info() {     
+		$endpoint = 'recaptcha';
+		
+		$handle = curl_init( self::$crm_api_base . $endpoint );
+		
+		if ( ! $handle ) {
+			// fallback to default v3
+			return self::$grecaptcha;
+		}
+
+		curl_setopt_array(
+			$handle,
+			array(
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_POST           => false,
+			)
+		);
+
+		$response = curl_exec( $handle );
+
+		if ( curl_errno( $handle ) ) {
+			$result = self::$grecaptcha;
+		} else {
+			$result = json_decode( $response, true );
+		}
+
+		curl_close( $handle );
+		return $result;
+	}
 
 	private static function init_defaults() {
 		// try to get and clean data from session (possibly to prefill submitted incorrect form without js)
