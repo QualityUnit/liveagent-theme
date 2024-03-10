@@ -3,6 +3,9 @@ use QualityUnit\Trial_Signup;
 
 function ms_signup_form_free() {
 
+	// include resources
+	set_custom_source( 'components/Signup' );
+	set_custom_source( 'filterMenu', 'js' );
 	Trial_Signup::include_crm();
 	
 	$regions     = Trial_Signup::$regions;
@@ -99,20 +102,6 @@ function ms_signup_form_free() {
 	</div>
 	
 	<?php
-	add_action(
-		'wp_footer',
-		function () { 
-			?>
-				<script id="jquery-js" data-src="<?= esc_url( includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION ); ?>"></script>
-				<script id="jquery-cookie-js" data-src="<?= esc_url( get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js?ver=' . THEME_VERSION ); ?>"></script>
-				<script id="jquery-alphanum-js" data-src="<?= esc_url( get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js?ver=' . THEME_VERSION ); ?>"></script>
-			<?php 
-		},
-		999 
-	); 
-
-	set_custom_source( 'components/Signup' );
-	set_custom_source( 'filterMenu', 'js' );
 	return ob_get_clean();
 }
 add_shortcode( 'signupform-free', 'ms_signup_form_free' );

@@ -2,7 +2,15 @@
 use QualityUnit\Trial_Signup;
 
 function ms_signup_sidebar( $atts ) {
-	$atts            = shortcode_atts(
+
+	// include resources
+	if ( ! is_mobile() ) {
+		set_custom_source( 'filterMenu', 'js' );
+		set_custom_source( 'components/SignupSidebar', 'css', false, false );
+	}
+	Trial_Signup::include_crm();
+
+	$atts = shortcode_atts(
 		array(
 			'title'     => __( 'Try it for free', 'ms' ),
 			'subtitle'  => __( 'No strings attached', 'ms' ),
@@ -16,6 +24,7 @@ function ms_signup_sidebar( $atts ) {
 		$atts,
 		'signup-sidebar'
 	);
+	
 	$signup_switcher = get_post_meta( get_the_ID(), 'signup_switch', true );
 
 	$title    = get_post_meta( get_the_ID(), 'signup_title', true );
@@ -33,8 +42,6 @@ function ms_signup_sidebar( $atts ) {
 	}
 
 	$sticky_class = $atts['js-sticky'] ? 'js-sidebar-sticky' : ''; 
-
-	Trial_Signup::include_crm();
 
 	$regions     = Trial_Signup::$regions;
 	$submit_slug = Trial_Signup::get_submit_slug();
@@ -154,22 +161,6 @@ function ms_signup_sidebar( $atts ) {
 	<?php } ?>
 
 	<?php 
-	add_action(
-		'wp_footer',
-		function () { 
-			?>
-				<script id="jquery-js" data-src="<?= esc_url( includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION ); ?>"></script>
-				<script id="jquery-cookie-js" data-src="<?= esc_url( get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js?ver=' . THEME_VERSION ); ?>"></script>
-				<script id="jquery-alphanum-js" data-src="<?= esc_url( get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js?ver=' . THEME_VERSION ); ?>"></script>
-			<?php 
-		},
-		999 
-	); 
-
-	if ( ! is_mobile() ) {
-		set_custom_source( 'filterMenu', 'js' );
-		set_custom_source( 'components/SignupSidebar', 'css', false, false );
-	}
 	return ob_get_clean();
 }
 add_shortcode( 'signup-sidebar', 'ms_signup_sidebar' );
