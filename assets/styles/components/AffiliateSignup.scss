@@ -18,7 +18,7 @@
 	left: 0;
 	z-index: 999999;
 
-	div {
+	div[class*="elementor"] {
 		position: static !important;
 	}
 
@@ -33,6 +33,11 @@
 		padding: 0;
 		z-index: 1;
 		text-indent: -99999px;
+
+		svg {
+
+			@include square(1em);
+		}
 	}
 
 	> div {
