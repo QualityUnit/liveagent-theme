@@ -283,7 +283,7 @@ $version: "3.0";
 	}
 
 	&__editor {
-		background: url(../../images/reviews_editor_bg.jpg) center center no-repeat;
+		background: url(../../images/reviews_editor_bg.jpg);
 		background-size: cover;
 		padding: 1.5em;
 
@@ -320,6 +320,10 @@ $version: "3.0";
 				max-width: 18.375em;
 				margin-left: auto;
 			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			min-height: 21.75em;
 		}
 	}
 

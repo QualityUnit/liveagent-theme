@@ -7,7 +7,7 @@
 	<button class="ContactUs__menu--close" data-close-target="contactUsForm" type="button">
 		<svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use></svg>
 	</button>
-	<script type="text/javascript">
+	<script>
 		<?php
 		$form_id = '99c3idgr';
 		if ( ICL_LANGUAGE_CODE === 'de' ) {

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap);
 
 * {
 	padding: 0;
@@ -222,7 +222,6 @@ textarea:focus,
 	margin: 2rem 0 1rem;
 }
 
-
 .TypingTest__icon[class] {
 	display: block;
 	-moz-box-sizing: border-box;
@@ -239,51 +238,51 @@ textarea:focus,
 } */
 
 .TypingTest__icon__test-difficulty__easy {
-	background: url("../public/assets/difficulty_easy.svg") no-repeat;
+	background: url(../public/assets/difficulty_easy.svg) no-repeat;
 }
 
 .TypingTest__statistic__item-active .TypingTest__icon__test-difficulty__easy {
-	background-image: url("../public/assets/difficulty_easy-active.svg");
+	background-image: url(../public/assets/difficulty_easy-active.svg);
 }
 
 .TypingTest__icon__test-difficulty__normal {
-	background: url("../public/assets/difficulty_normal.svg") no-repeat;
+	background: url(../public/assets/difficulty_normal.svg) no-repeat;
 }
 
 .TypingTest__statistic__item-active .TypingTest__icon__test-difficulty__normal {
-	background-image: url("../public/assets/difficulty_normal-active.svg");
+	background-image: url(../public/assets/difficulty_normal-active.svg);
 }
 
 .TypingTest__icon__test-difficulty__hard {
-	background: url("../public/assets/difficulty_hard.svg") no-repeat;
+	background: url(../public/assets/difficulty_hard.svg) no-repeat;
 }
 
 .TypingTest__statistic__item-active .TypingTest__icon__test-difficulty__hard {
-	background-image: url("../public/assets/difficulty_hard-active.svg");
+	background-image: url(../public/assets/difficulty_hard-active.svg);
 }
 
 .TypingTest__icon__test-duration__1min {
-	background: url("../public/assets/1min.svg") no-repeat;
+	background: url(../public/assets/1min.svg) no-repeat;
 }
 
 .TypingTest__statistic__item-active .TypingTest__icon__test-duration__1min {
-	background-image: url("../public/assets/1min-active.svg");
+	background-image: url(../public/assets/1min-active.svg);
 }
 
 .TypingTest__icon__test-duration__3min {
-	background: url("../public/assets/3min.svg") no-repeat;
+	background: url(../public/assets/3min.svg) no-repeat;
 }
 
 .TypingTest__statistic__item-active .TypingTest__icon__test-duration__3min {
-	background-image: url("../public/assets/3min-active.svg");
+	background-image: url(../public/assets/3min-active.svg);
 }
 
 .TypingTest__icon__test-duration__5min {
-	background: url("../public/assets/5min.svg") no-repeat;
+	background: url(../public/assets/5min.svg) no-repeat;
 }
 
 .TypingTest__statistic__item-active .TypingTest__icon__test-duration__5min {
-	background-image: url("../public/assets/5min-active.svg");
+	background-image: url(../public/assets/5min-active.svg);
 }
 
 .TypingTest__statistic__graph {
@@ -349,7 +348,7 @@ textarea:focus,
 }
 
 .TypingTest__statistic__item__image--word {
-	background: url("../public/assets/word.png") no-repeat;
+	background: url(../public/assets/word.png) no-repeat;
 	display: block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -360,7 +359,7 @@ textarea:focus,
 
 .TypingTest__statistic__item__image--character {
 	width: 60px;
-	background: url("../public/assets/character.png") no-repeat;
+	background: url(../public/assets/character.png) no-repeat;
 	display: block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -370,7 +369,7 @@ textarea:focus,
 
 .TypingTest__statistic__item__image--mistake {
 	width: 40px;
-	background: url("../public/assets/mistake.png") no-repeat;
+	background: url(../public/assets/mistake.png) no-repeat;
 	display: block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;

@@ -4,8 +4,8 @@ if ( is_front_page() ) {
 	$announcement_bar_classes = 'Announcement__bar Ai__whisper__assistent';
 
 	if ( ! $is_announcement_hidden ) {
-		set_custom_source( 'components/AnnouncementBar', 'css' );
-		set_custom_source( 'components/AiWhisperAssistent', 'css' );
+		set_source( false, 'components/AnnouncementBar', 'css' );
+		set_source( false, 'components/AiWhisperAssistent', 'css' );
 		?>
 			<div class="Announcement__bars__slider">
 				<div class="negative <?= esc_attr( $announcement_bar_classes ); ?>">

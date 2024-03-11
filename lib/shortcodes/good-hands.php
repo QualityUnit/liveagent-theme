@@ -17,7 +17,7 @@ function ms_good_hands_redesign( $atts ) {
 	ob_start();
 	?>
 
-	<section class="GoodHands">
+	<section class="GoodHands hidden">
 		<div class="wrapper">
 			<div class="GoodHands__text">
 				<h3><?php _e( 'You will be<br/>in Good Hands!', 'ms' ); ?></h3>
@@ -89,6 +89,19 @@ function ms_good_hands_redesign( $atts ) {
 			</div>
 		</div>
 	</section>
+
+	<script>
+		
+		function showGoodHands() {
+			const goodhands = document.querySelector('.GoodHands');
+			goodhands.classList.remove('hidden');
+		}
+
+		window.addEventListener('load', () => {
+			showGoodHands();
+			window.removeEventListener('load', showGoodHands);
+		});
+	</script>
 
 	<?php
 	return ob_get_clean();

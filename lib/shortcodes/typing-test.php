@@ -3,6 +3,18 @@
 function ms_typing_test() {
 	ob_start();
 	?>
+	<style type="text/css">
+		#root {
+			min-height: 80.375em;
+		}
+		
+		@media (min-width: 768px) {
+
+			#root {
+				min-height: 29.75em;
+			}
+		}
+	</style>
 
 <div data-widget>
 	<div id="root" dir="ltr"></div>
