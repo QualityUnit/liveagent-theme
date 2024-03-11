@@ -267,6 +267,21 @@ video {
 
 		li {
 			margin-bottom: 3px;
+
+			.simple-numbers & {
+				margin-bottom: 0.5em;
+
+				&::before {
+
+					@include color(color, primary-color);
+					position: absolute;
+					left: -0.5em;
+					margin: 0;
+					content: counter(counter) ".";
+					font-size: 1.25em;
+					top: -0.15em;
+				}
+			}
 		}
 	}
 
