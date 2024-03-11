@@ -2,22 +2,23 @@
 namespace QualityUnit;
 
 class Trial_Signup {
-	private static $crm_api_base         = 'https://crm.qualityunit.com/api/v3/';
-	private static $form_identifier      = 'signup-trial-form';
-	private static $current_lang         = 'en-US';
-	private static $lazy_loaded_scripts  = array( 'qu-crm-script-lazy' );
-	private static $localized_text       = array();
-	private static $form_data            = array();
-	private static $error_state          = array();
-	private static $trial_signup_reponse = array();
-	private static $crm_script_loaded    = false;
-	private static $form_type_free       = false;
-	private static $is_thank_you_page    = false;
-	private static $grecaptcha           = array(
+	private static $crm_api_base            = 'https://crm.qualityunit.com/api/v3/';
+	private static $form_identifier         = 'signup-trial-form';
+	private static $current_lang            = 'en-US';
+	private static $lazy_loaded_scripts     = array( 'qu-crm-script-lazy' );
+	private static $localized_text          = array();
+	private static $form_data               = array();
+	private static $error_state             = array();
+	private static $trial_signup_reponse    = array();
+	private static $crm_script_loaded       = false;
+	private static $form_type_free          = false;
+	private static $is_thank_you_page       = false;
+	private static $thank_you_template_name = 'template-thank-you';
+	private static $grecaptcha              = array(
 		'site_key' => '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ',
 		'version'  => 'v3',
 	);
-
+	
 	public static $regions = array();
 	public static $slugs   = array();
 
@@ -31,11 +32,15 @@ class Trial_Signup {
 	public static function init() {
 		self::open_session();
 		self::init_defaults();
-
+		
 		if ( ! self::is_error_state() ) {
 			// if error state, do not handle signup, prefilled form with error is displayed
 			self::handle_form_submission();
 			self::handle_signup();
+		}
+		
+		if ( is_user_logged_in() ) {
+			self::create_thank_you_page();
 		}
 	}
 
@@ -605,6 +610,35 @@ class Trial_Signup {
 		return self::$current_lang;
 	}
 
+	private static function create_thank_you_page() {
+		$query = new \WP_Query(
+			array(
+				'post_type'   => 'page',
+				'post_status' => 'publish',
+				'post_name'   => 'thank-you',
+				'meta_query'  => array(
+					array(
+						'key'     => '_wp_page_template',
+						'value'   => self::$thank_you_template_name . '.php',
+						'compare' => '=',
+					),
+				),
+			) 
+		);
+
+		if ( $query && ! $query->found_posts ) {
+			wp_insert_post(
+				array(
+					'post_title'    => 'Thank you',
+					'post_name'     => 'thank-you',
+					'post_status'   => 'publish',
+					'post_type'     => 'page',
+					'page_template' => self::$thank_you_template_name . '.php',
+				) 
+			);
+		}
+	}
+
 	private static function init_defaults() {
 		// try to get and clean data from session (possibly to prefill submitted incorrect form without js)
 		self::$form_data            = self::get_session_data( 'trial_signup_form_data', true, array() );
@@ -696,7 +730,7 @@ class Trial_Signup {
 
 	private static function is_thank_you_template() {
 		$template = get_page_template_slug();
-		return 'string' === gettype( $template ) && 'template-thank-you' === str_replace( '.php', '', $template );
+		return 'string' === gettype( $template ) && str_replace( '.php', '', $template ) === self::$thank_you_template_name;
 	}
 	
 	// @codingStandardsIgnoreStart
