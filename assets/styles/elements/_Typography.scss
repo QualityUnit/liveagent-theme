@@ -64,8 +64,7 @@ h2,
 
 h3,
 .h3 {
-	font-size: math.div($font-size-h3, $mobile-divider);
-	line-height: math.div($line-height-h3, $mobile-divider);
+	font-size: $font-size-h3 - 4px;
 
 	@media (min-width: $breakpoint-tablet) {
 
@@ -76,14 +75,8 @@ h3,
 
 h4,
 .h4 {
-	font-size: math.div($font-size-h4, $mobile-divider);
-	line-height: math.div($line-height-h4, $mobile-divider);
-
-	@media (min-width: $breakpoint-tablet) {
-
-		font-size: $font-size-h4;
-		line-height: $line-height-h4;
-	}
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
 }
 
 h5,
