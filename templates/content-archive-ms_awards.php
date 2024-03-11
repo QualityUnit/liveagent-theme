@@ -1,6 +1,6 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'awards', 'pages/Category' );
-set_source( 'awards', 'pages/awards' );
+set_source( 'awards', 'pages/Awards' );
 set_custom_source( 'awardsInfiniteScroll', 'js', array( 'app_js' ) );
 
 $categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_awards_years' ) ), SORT_REGULAR );
