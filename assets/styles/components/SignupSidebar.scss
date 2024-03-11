@@ -288,10 +288,26 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 		}
 	}
 
-	[data-id="createButtonmain"][disabled] + .WorkingPanel {
 
-		@include posZero;
-		position: fixed;
+	[data-id="createButtonmain"][disabled] {
+
+		.WorkingPanel {
+
+			display: flex !important;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			z-index: 5;
+			margin-right: 0.75em;
+
+			.gear-wheels {
+				position: relative;
+				z-index: 9;
+
+				@include square(2.3125em);
+			}
+
+		}
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
