@@ -225,7 +225,7 @@ class CrmFormHandler {
 		const localized = this.localized;
 		const fields = this.fields;
 		const regex = this.regexPatterns[ key ];
-		const value = element.value;
+		const value = element.value.trim();
 
 		if ( value === '' ) {
 			fields[ key ].main.classList.add( 'Error' );
