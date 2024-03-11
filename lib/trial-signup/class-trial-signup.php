@@ -33,7 +33,7 @@ class Trial_Signup {
 		self::init_defaults();
 
 		if ( ! self::is_error_state() ) {
-			// if error state, do not handle signup, form with error is displayed
+			// if error state, do not handle signup, prefilled form with error is displayed
 			self::handle_form_submission();
 			self::handle_signup();
 		}
@@ -94,7 +94,6 @@ class Trial_Signup {
 		return;
 	}
 
-	
 	private static function handle_form_submission() {
 
 		$request_method = isset( $_SERVER['REQUEST_METHOD'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ) ) : null;
@@ -128,7 +127,7 @@ class Trial_Signup {
 				$form_data['plan_type'] = sanitize_text_field( $_POST['plan_type'] );
 			}
 
-			// tracking data from js
+			// tracking data filled before submit from js
 			if ( isset( $_POST['pap_visitor_id'] ) ) {
 				$form_data['pap_visitor_id'] = sanitize_text_field( $_POST['pap_visitor_id'] );
 			}
@@ -144,43 +143,6 @@ class Trial_Signup {
 			self::set_session_data( 'trial_signup_form_data', $form_data );
 			self::$form_data = $form_data;
 		}
-	}
-
-
-	private static function process_crm_api_request() {
-		$request_data = self::get_request_data();
-		$endpoint     = ! isset( $request_data['code'] ) ? 'subscriptions/' : 'redeem_code/signup/';
-
-		$handle = curl_init( self::$crm_api_base . $endpoint );
-		
-		if ( ! $handle ) {
-			return array(
-				'message' => self::$localized_text['textError'],
-			);
-		}
-
-		curl_setopt_array(
-			$handle,
-			array(
-				CURLOPT_RETURNTRANSFER => true,
-				CURLOPT_POST           => true,
-				CURLOPT_HTTPHEADER     => array( 'Content-Type: application/json' ),
-				CURLOPT_POSTFIELDS     => json_encode( $request_data ),
-			)
-		);
-
-		$response = curl_exec( $handle );
-
-		if ( curl_errno( $handle ) ) {
-			$result = array(
-				'message' => self::$localized_text['textError'],
-			);
-		} else {
-			$result = json_decode( $response, true );
-		}
-
-		curl_close( $handle );
-		return $result;
 	}
 
 	private static function get_request_data() {
@@ -233,98 +195,6 @@ class Trial_Signup {
 		}
 
 		return $request_data;
-	}
-
-	private static function domain_check( $domain ) {
-		$request_data = array(
-			'productId' => self::get_product_id(),
-			'subdomain' => $domain,
-		);
-
-		$handle = curl_init( self::$crm_api_base . 'subscriptions/_check_domain' );
-		
-		if ( ! $handle ) {
-			return array(
-				'message' => self::$localized_text['textFailedDomain'],
-			);
-		}
-
-		curl_setopt_array(
-			$handle,
-			array(
-				CURLOPT_RETURNTRANSFER => true,
-				CURLOPT_POST           => true,
-				CURLOPT_POSTFIELDS     => $request_data,
-			)
-		);
-
-		$response = curl_exec( $handle );
-
-		if ( curl_errno( $handle ) ) {
-			$result = array(
-				'message' => curl_error( $handle ),
-			);
-		} else {
-			$result = json_decode( $response, true );
-		}
-
-		curl_close( $handle );
-		return $result;
-	}
-
-	private static function get_variation_id() {
-		// variation_ids divided on the base of old crm js
-		if ( self::$form_type_free ) {
-			return 'freedesk';
-		}
-
-		if ( in_array( self::$current_lang, array( 'fi', 'no', 'sv' ) ) ) {
-			return 'seLaTria';
-		}
-
-		if ( 'ja' === self::$current_lang ) {
-			return 'iwkTrial';
-		}
-
-		return '3513230f';
-	}
-
-	private static function get_product_id() {
-		// product_ids divided on the base of old crm js
-		if ( self::$form_type_free ) {
-			return 'b229622b';
-		}
-
-		if ( in_array( self::$current_lang, array( 'fi', 'no', 'sv' ) ) ) {
-			return 'spinla01';
-		}
-
-		if ( 'ja' === self::$current_lang ) {
-			return 'intwkla1';
-		}
-
-		return 'b229622b';
-	}
-	
-	private static function get_language_code() {
-		// codes with region from crm.qualityunit.com, other languages are two-letter codes
-		// ar-SA, en-US, he-IL, jp-JP, nl-BE, pt-BR, zh-CN, zh-TW
-		// codes taken from crm js files, wpmlCode => crmCode
-
-		$custom_codes = array(
-			'ar'      => 'ar-SA',
-			'pt-br'   => 'pt-BR', // crm _br
-			'zh-hans' => 'zh-CN', // crm _cn
-			'en'      => 'en-US',
-			'ja'      => 'jp-JP', // crm _jp
-			'he'      => 'he-IL',
-			'nl'      => 'nl-BE',
-		);
-
-		if ( isset( $custom_codes[ self::$current_lang ] ) ) {
-			return $custom_codes[ self::$current_lang ];
-		}
-		return self::$current_lang;
 	}
 
 	private static function get_signup_response_data( $keys = array() ) {
@@ -393,8 +263,6 @@ class Trial_Signup {
 		);
 	}
 
-
-
 	private static function validate_form_data() {
 		self::clear_errors();
 		$form_data = self::$form_data;
@@ -455,18 +323,16 @@ class Trial_Signup {
 		return array();
 	}
 
-
-
 	public static function include_crm() {
 		if ( ! self::$crm_script_loaded ) {
 			
 			if ( ! self::$is_thank_you_page ) {
-				self::use_grecaptcha_api();
+				self::use_grecaptcha();
 			}
 
 			$handle = self::$is_thank_you_page ? 'qu-crm-script' : 'qu-crm-script-lazy';
 
-			// crm script dependency is app_js to allow usage of set/getCookies
+			// crm script dependency app_js to allow usage of set/getCookies from custom scritps
 			$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) );
 			wp_enqueue_script( $handle, esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js', array( 'app_js' ), esc_attr( $crm_ver_app ), array( 'in_footer' => true ) );
 
@@ -488,7 +354,7 @@ class Trial_Signup {
 		}
 	}
 
-	public static function use_grecaptcha_api() {
+	public static function use_grecaptcha() {
 		self::$grecaptcha = self::get_grecaptcha_info();
 
 		add_action(
@@ -535,7 +401,6 @@ class Trial_Signup {
 									} );
 
 									function handleCaptchaToken( token ){
-										console.log(token)
 										if( grecaptchaInput ) { grecaptchaInput.value = token };
 										if( gaClientInput ) { gaClientInput.value = gaUserId };
 
@@ -546,8 +411,7 @@ class Trial_Signup {
 
 										form.submit();
 									}
-								
-									
+
 								} catch (e) {
 									submitButton.removeAttribute('disabled');
 								}
@@ -583,7 +447,80 @@ class Trial_Signup {
 		}
 	}
 
-	private static function get_grecaptcha_info() {     
+	private static function process_crm_api_request() {
+		$request_data = self::get_request_data();
+		$endpoint     = ! isset( $request_data['code'] ) ? 'subscriptions/' : 'redeem_code/signup/';
+
+		$handle = curl_init( self::$crm_api_base . $endpoint );
+		
+		if ( ! $handle ) {
+			return array(
+				'message' => self::$localized_text['textError'],
+			);
+		}
+
+		curl_setopt_array(
+			$handle,
+			array(
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_POST           => true,
+				CURLOPT_HTTPHEADER     => array( 'Content-Type: application/json' ),
+				CURLOPT_POSTFIELDS     => json_encode( $request_data ),
+			)
+		);
+
+		$response = curl_exec( $handle );
+
+		if ( curl_errno( $handle ) ) {
+			$result = array(
+				'message' => self::$localized_text['textError'],
+			);
+		} else {
+			$result = json_decode( $response, true );
+		}
+
+		curl_close( $handle );
+		return $result;
+	}
+
+	private static function domain_check( $domain ) {
+		$request_data = array(
+			'productId' => self::get_product_id(),
+			'subdomain' => $domain,
+		);
+
+		$handle = curl_init( self::$crm_api_base . 'subscriptions/_check_domain' );
+		
+		if ( ! $handle ) {
+			return array(
+				'message' => self::$localized_text['textFailedDomain'],
+			);
+		}
+
+		curl_setopt_array(
+			$handle,
+			array(
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_POST           => true,
+				CURLOPT_POSTFIELDS     => $request_data,
+			)
+		);
+
+		$response = curl_exec( $handle );
+
+		if ( curl_errno( $handle ) ) {
+			$result = array(
+				'message' => curl_error( $handle ),
+			);
+		} else {
+			$result = json_decode( $response, true );
+		}
+
+		curl_close( $handle );
+		return $result;
+	}
+
+	private static function get_grecaptcha_info() {
 		$endpoint = 'recaptcha';
 		
 		$handle = curl_init( self::$crm_api_base . $endpoint );
@@ -611,6 +548,61 @@ class Trial_Signup {
 
 		curl_close( $handle );
 		return $result;
+	}
+
+	private static function get_variation_id() {
+		// variation_ids divided on the base of old crm js
+		if ( self::$form_type_free ) {
+			return 'freedesk';
+		}
+
+		if ( in_array( self::$current_lang, array( 'fi', 'no', 'sv' ) ) ) {
+			return 'seLaTria';
+		}
+
+		if ( 'ja' === self::$current_lang ) {
+			return 'iwkTrial';
+		}
+
+		return '3513230f';
+	}
+
+	private static function get_product_id() {
+		// product_ids divided on the base of old crm js
+		if ( self::$form_type_free ) {
+			return 'b229622b';
+		}
+
+		if ( in_array( self::$current_lang, array( 'fi', 'no', 'sv' ) ) ) {
+			return 'spinla01';
+		}
+
+		if ( 'ja' === self::$current_lang ) {
+			return 'intwkla1';
+		}
+
+		return 'b229622b';
+	}
+	
+	private static function get_language_code() {
+		// codes with region from crm.qualityunit.com, other languages are two-letter codes
+		// ar-SA, en-US, he-IL, jp-JP, nl-BE, pt-BR, zh-CN, zh-TW
+		// codes taken from crm js files, wpmlCode => crmCode
+
+		$custom_codes = array(
+			'ar'      => 'ar-SA',
+			'pt-br'   => 'pt-BR', // crm _br
+			'zh-hans' => 'zh-CN', // crm _cn
+			'en'      => 'en-US',
+			'ja'      => 'jp-JP', // crm _jp
+			'he'      => 'he-IL',
+			'nl'      => 'nl-BE',
+		);
+
+		if ( isset( $custom_codes[ self::$current_lang ] ) ) {
+			return $custom_codes[ self::$current_lang ];
+		}
+		return self::$current_lang;
 	}
 
 	private static function init_defaults() {
@@ -673,8 +665,6 @@ class Trial_Signup {
 		return '';
 	}
 
-	
-
 	private static function is_error_state() {
 		return is_array( self::$error_state ) && ! empty( self::$error_state );
 	}
@@ -711,7 +701,7 @@ class Trial_Signup {
 	
 	// @codingStandardsIgnoreStart
 	
-	// move crm api response using session between submit form page and target /trial or /thank-you page
+	// move crm api response using session between submit form page and target like /trial or /thank-you page
 	// data are used to prefill trial form in case of error response, or are used by crm javascript during installation
 	
 	private static function set_session_data( $key, $value ) {
