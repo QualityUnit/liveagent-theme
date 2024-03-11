@@ -45,29 +45,31 @@ document.addEventListener( 'DOMContentLoaded', ( ) => {
 	}
 
 	// Function to construct HTML for a single awards post.
+
 	function awardsPostConstructor( data ) {
+		// Zabezpečenie predvolených hodnôt pre chýbajúce dáta
 		const {
 			title: { rendered: title },
-			excerpt: { rendered: excerpt },
-			metaboxes: { mb_awards_mb_awards_url: url },
-			_embedded: { 'wp:featuredmedia': [ { source_url: imageUrl } ] },
+			excerpt: { rendered: excerpt } = { rendered: '' },
+			featured_media_url: imageUrl = '',
+			metaboxes: { mb_awards_mb_awards_url: url } = { mb_awards_mb_awards_url: '0#' },
 		} = data;
 
-		const imageHtml = createImageHtml( imageUrl, title );
+		const imageHtml = imageUrl ? createImageHtml( imageUrl, title ) : '';
 
 		return `
-            <li class="Awards__item Archive__container__content__item inactive">
-                <article>
-                    <div class="Awards__item--thumbnail">
-                        <a href="${ url }" target="_blank" rel="nofollow noopener">${ imageHtml }</a>
-                    </div>
-                    <div class="Awards__item--text">
-                        <h3><a href="${ url }" target="_blank" rel="nofollow noopener">${ title }</a></h3>
-                        ${ excerpt }
-                    </div>
-                </article>
-            </li>
-        `;
+        <li class="Awards__item Archive__container__content__item inactive">
+            <article>
+                <div class="Awards__item--thumbnail">
+                    <a href="${ url }" target="_blank" rel="nofollow noopener">${ imageHtml }</a>
+                </div>
+                <div class="Awards__item--text">
+                    <h3><a href="${ url }" target="_blank" rel="nofollow noopener">${ title }</a></h3>
+                    ${ excerpt }
+                </div>
+            </article>
+        </li>
+    `;
 	}
 
 	// Function to find or create a container for awards posts of a specific year.
@@ -111,7 +113,7 @@ document.addEventListener( 'DOMContentLoaded', ( ) => {
 					if ( response && page < response.totalPages ) {
 						loader.classList.add( 'invisible' );
 						response.data.forEach( ( item ) => {
-							const yearName = item._embedded[ 'wp:term' ][ 0 ][ 0 ].name;
+							const yearName = item.ms_awards_years.name;
 							const list = findOrCreateYearContainer( yearName );
 							list.insertAdjacentHTML( 'beforeend', awardsPostConstructor( item ) );
 						} );
