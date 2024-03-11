@@ -30,7 +30,6 @@ function ms_signup_form_redeem_code( $atts ) {
 
 		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup">
 			<?php wp_nonce_field( 'trial_signup_nonce' ); ?>
-			<?php Trial_Signup::grecaptcha_parts(); ?>
 			<input data-id="plan" name="plan_type" type="hidden" value="Trial" autocomplete="off">
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
@@ -110,6 +109,8 @@ function ms_signup_form_redeem_code( $atts ) {
 				<input type="checkbox" name="promo" id="sendOffersSignup" data-id="sendOffers" <?php echo $inputs_states['promo']['value'] ? 'checked="checked"' : ''; ?>>
 				<label for="sendOffersSignup"><p><?php _e( 'Send me product updates and other promotional offers.', 'ms' ); ?></p></label>
 			</div>
+
+			<?php Trial_Signup::grecaptcha_parts(); ?>
 
 			<div data-id="signUpError"><?php echo esc_html( $signup_error ); ?></div>
 

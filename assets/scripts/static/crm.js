@@ -8,18 +8,20 @@ class CrmFormHandler {
 		this.localized = quCrmData.localization;
 		this.apiBase = quCrmData.apiBase;
 		this.nonce = quCrmData.nonce;
+		this.captchaVersion = quCrmData.captchaVersion;
 		this.productId = quCrmData.productId;
 		this.liveValidationTimeout = undefined;
 		this.shouldCheckDomain = true;
 		this.lastValidatedDomain = undefined;
 
 		this.fields = {
-			name: { fieldType: 'text', valid: false },
-			email: { fieldType: 'text', valid: false },
-			domain: { fieldType: 'text', valid: false },
-			region: { fieldType: 'selection', valid: false },
-			code: { fieldType: 'text', valid: false },
-			promo: { fieldType: 'text' },
+			name: { valid: false },
+			email: { valid: false },
+			domain: { valid: false },
+			region: { valid: false },
+			code: { valid: false },
+			captcha: { valid: false },
+			promo: {},
 			submit: {},
 		};
 
@@ -88,6 +90,8 @@ class CrmFormHandler {
 
 		this.fields.promo.main = this.form.querySelector( '[data-id=promoFieldmain]' );
 		this.fields.promo.input = this.fields.promo.main?.querySelector( 'input[name=promo]' );
+
+		this.fields.captcha.main = this.form.querySelector( '[data-id=captchaFieldmain]' );
 
 		this.fields.submit.main = this.form.querySelector( '[data-id=submitFieldmain]' );
 		this.fields.submit.button = this.fields.submit.main?.querySelector( 'button[type=submit]' );
@@ -198,7 +202,19 @@ class CrmFormHandler {
 			}
 		} );
 
+		if ( this.captchaVersion === 'v2' ) {
+			validity.push( this.validateCaptchaV2() );
+		}
+
 		return validity.some( ( v ) => v === false ) ? false : true;
+	};
+
+	validateCaptchaV2 = () => {
+		if ( this.form.querySelector( '[data-id=grecaptcha]' )?.value === '' ) {
+			this.setError( 'captcha', this.localized.invalid.captcha );
+			return false;
+		}
+		return true;
 	};
 
 	validateSelection = ( element, key ) => {

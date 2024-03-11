@@ -185,6 +185,21 @@
 			}
 		}
 
+		[data-id="captchaFieldmain"] {
+
+			.grecaptcha-wrapper {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.ErrorMessage {
+				width: 100%;
+				text-align: center;
+				left: 0;
+			}
+		}
+
 		&__item {
 			position: relative;
 			margin-bottom: 1.125em;

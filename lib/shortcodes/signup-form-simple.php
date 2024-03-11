@@ -35,7 +35,6 @@ function ms_signup_form_simple( $atts ) {
 				<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup">
 					<div class="Signup__form__simple__fields">
 						<?php wp_nonce_field( 'trial_signup_nonce' ); ?>
-						<?php Trial_Signup::grecaptcha_parts(); ?>
 						<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 						<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 
@@ -92,6 +91,8 @@ function ms_signup_form_simple( $atts ) {
 							<div class="DescriptionText"><?php echo esc_html( __( 'Data centre changes are not possible after account creation.', 'ms' ) ); ?></div>
 							<div class="ErrorMessage"></div>
 						</div>
+						
+						<?php Trial_Signup::grecaptcha_parts(); ?>
 						
 						<div data-id="signUpError"></div>
 

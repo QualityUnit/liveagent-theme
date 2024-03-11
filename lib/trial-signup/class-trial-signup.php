@@ -18,6 +18,7 @@ class Trial_Signup {
 		'site_key' => '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ',
 		'version'  => 'v3',
 	);
+	//v2 public: 6LdGaIEpAAAAAEAWYSh83TuTzlttqSVgdEZPNfrV
 	
 	public static $regions = array();
 	public static $slugs   = array();
@@ -49,8 +50,7 @@ class Trial_Signup {
 		$form_data = self::$form_data;
 		
 		if ( is_array( $form_data ) && ! empty( $form_data ) ) {
-			$target = ! isset( $form_data['redeem_code'] ) ? self::$slugs['trial'] : self::$slugs['redeem-code'];
-
+			$target           = ! isset( $form_data['redeem_code'] ) ? self::$slugs['trial'] : self::$slugs['redeem-code'];
 			$validation_error = self::validate_form_data();
 			
 			if ( ! empty( $validation_error ) ) {
@@ -60,7 +60,7 @@ class Trial_Signup {
 
 			$submit_response = self::process_crm_api_request();
 			if ( is_array( $submit_response ) ) {
-				
+
 				// account installation starts
 				if ( isset( $submit_response['account_id'] ) ) {
 					// push form data we need on thank-you page 
@@ -345,11 +345,12 @@ class Trial_Signup {
 				$handle,
 				'quCrmData',
 				array(
-					'localization' => self::$localized_text,
-					'apiBase'      => self::$crm_api_base,
-					'nonce'        => wp_create_nonce( 'qu-crm-nonce' ),
-					'productId'    => self::get_product_id(),
-					'signupData'   => self::get_signup_response_data( 
+					'localization'   => self::$localized_text,
+					'apiBase'        => self::$crm_api_base,
+					'nonce'          => wp_create_nonce( 'qu-crm-nonce' ),
+					'captchaVersion' => self::$grecaptcha['version'],
+					'productId'      => self::get_product_id(),
+					'signupData'     => self::get_signup_response_data( 
 						array( 'id', 'customer_email', 'form_data' ) 
 					),
 				)
@@ -361,14 +362,14 @@ class Trial_Signup {
 
 	public static function use_grecaptcha() {
 		self::$grecaptcha = self::get_grecaptcha_info();
-
+		
 		add_action(
 			'wp_print_footer_scripts',
 			function () {
 				?>
 				
 				<?php if ( 'v2' === self::$grecaptcha['version'] ) : ?>
-					<script data-src="https://www.google.com/recaptcha/api.js?onload=handleCaptchaLoad"></script>
+					<script data-src="https://www.google.com/recaptcha/api.js?onload=handleCaptchaLoad&render=explicit" async defer></script>
 				<?php endif; ?>
 				
 				<?php if ( 'v3' === self::$grecaptcha['version'] ) : ?>
@@ -379,49 +380,81 @@ class Trial_Signup {
 					function handleCaptchaLoad(){
 						document.querySelectorAll("form[data-form-type=<?php echo esc_attr( self::$form_identifier ); ?>")
 						.forEach( (form) => {
-							form.addEventListener( 'submit', ( e ) => {
-								e.preventDefault();
-								try {
-									const grecaptchaInput = form.querySelector( 'input[data-id="grecaptcha"]' );
-									const gaClientInput = form.querySelector( 'input[data-id="ga_client_id"]' );
-									const emailInput = form.querySelector( '[data-id=mailFieldmain] input[name=email]' );
-									const submitButton = form.querySelector( '[data-id=submitFieldmain] button[type=submit]' );
-									const isRedeemForm = form.querySelector( '[data-id=codeFieldmain] input[name=redeem_code]' ) ? true : false;
+							const grecaptchaInput = form.querySelector( 'input[data-id="grecaptcha"]' );
+							const gaClientInput = form.querySelector( 'input[data-id="ga_client_id"]' );
+							const emailInput = form.querySelector( '[data-id=mailFieldmain] input[name=email]' );
+							const submitButton = form.querySelector( '[data-id=submitFieldmain] button[type=submit]' );
+							const isRedeemForm = form.querySelector( '[data-id=codeFieldmain] input[name=redeem_code]' ) ? true : false;
 
-									const gaUserId = getCookie( '_ga' ) || '';
-									
-									submitButton.setAttribute('disabled', '');
-									
-									grecaptcha.ready( () => {
-										<?php if ( 'v2' === self::$grecaptcha['version'] ) : ?>
-											grecaptcha.execute().then( handleCaptchaToken )
-										<?php endif; ?>
-										
-										<?php if ( 'v3' === self::$grecaptcha['version'] ) : ?>
-											grecaptcha.execute( 
-												"<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>", 
-												{ action: 'login' } 
-											).then( handleCaptchaToken )
-										<?php endif; ?>
-									} );
+							const gaUserId = getCookie( '_ga' ) || '';
+							
+							function handleFinalActions() {
+								if( gaClientInput ) { gaClientInput.value = gaUserId };
+								if( ! isRedeemForm && typeof gtag !== 'undefined' ){
+									gtag( 'set', 'user_data', { email: emailInput ? emailInput.value : '' } );
+									gtag( 'event', 'Trial sign_up', { send_to: 'GTM-MR5X6FD' } );
+								}
+							}
+							
+							<?php if ( 'v2' === self::$grecaptcha['version'] ) : ?>
+								const captchaWrapper = form.querySelector('[data-id=captchaFieldmain]');
+								captchaWrapper.classList.remove( 'hidden' );
 
-									function handleCaptchaToken( token ){
+								grecaptcha.render( captchaWrapper.querySelector('.grecaptcha-wrapper'), {
+									'sitekey' : "<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>",
+									'size': form.closest('.Signup__sidebar') ? 'compact': 'normal',
+									'callback' : ( token ) => {
+										captchaWrapper.classList.remove( 'Error' );
+										captchaWrapper.querySelector('.ErrorMessage').textContent = '';
 										if( grecaptchaInput ) { grecaptchaInput.value = token };
-										if( gaClientInput ) { gaClientInput.value = gaUserId };
+									},
+									'expired-callback': () => {
+										if( grecaptchaInput ) { grecaptchaInput.value = '' };
+									},
+									'error-callback': () => {
+										if( grecaptchaInput ) { grecaptchaInput.value = '' };
+									},
+								});
 
-										if( ! isRedeemForm && typeof gtag !== 'undefined' ){
-											gtag( 'set', 'user_data', { email: emailInput ? emailInput.value : '' } );
-											gtag( 'event', 'Trial sign_up', { send_to: 'GTM-MR5X6FD' } );
+								form.addEventListener( 'submit', ( e ) => {
+									e.preventDefault();
+									try {
+										<?php // handle simple check if token is present in case the crm script is not available ?>
+										if( grecaptchaInput.value === '' ){
+											captchaWrapper.classList.add('Error');
+											captchaWrapper.querySelector('.ErrorMessage').textContent = "<?php echo esc_html( self::$localized_text['invalid']['captcha'] ); ?>";
+											return;
 										}
-
+										submitButton.setAttribute('disabled', '');
+										handleFinalActions();
 										form.submit();
+									} catch (e) {
+										submitButton.removeAttribute('disabled');
+									}
+								});
+							<?php endif; ?>
+							
+							<?php if ( 'v3' === self::$grecaptcha['version'] ) : ?>
+								form.addEventListener( 'submit', ( e ) => {
+									e.preventDefault();
+									try {
+										submitButton.setAttribute('disabled', '');
+											grecaptcha.ready( () => {
+												grecaptcha.execute( 
+													"<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>", 
+													{ action: 'login' } 
+												).then( ( token ) => {
+													if( grecaptchaInput ) { grecaptchaInput.value = token };
+													handleFinalActions();
+													form.submit();
+												} )
+											} );
+									} catch (e) {
+										submitButton.removeAttribute('disabled');
 									}
 
-								} catch (e) {
-									submitButton.removeAttribute('disabled');
-								}
-
-							});
+								});
+							<?php endif; ?>
 						});
 					}
 				</script>
@@ -434,21 +467,12 @@ class Trial_Signup {
 		if ( 'v2' === self::$grecaptcha['version'] ) {
 			ob_start();
 			?>
-				<div class="g-recaptcha"
-					data-sitekey="<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>"
-					data-size="invisible">
+				<div data-id="captchaFieldmain" class="Signup__form__item hidden">
+					<div class="grecaptcha-wrapper"></div>
+					<div class="ErrorMessage"></div>
 				</div>
 			<?php
-			echo wp_kses( 
-				ob_get_clean(), 
-				array(
-					'div' => array( 
-						'class'        => array(), 
-						'data-sitekey' => array(),
-						'data-size'    => array(),
-					),
-				)
-			);
+			echo wp_kses_post( ob_get_clean() );
 		}
 	}
 
@@ -659,11 +683,12 @@ class Trial_Signup {
 
 		self::$localized_text = array(
 			'invalid'                 => array(
-				'name'   => __( 'Field invalid', 'ms' ),
-				'email'  => __( 'Email invalid', 'ms' ),
-				'domain' => __( 'Domain can not contain http, www or capital letters (A-Z)', 'ms' ),
-				'code'   => __( 'Invalid code.', 'ms' ),
-				'region' => __( 'Select datacenter region.', 'ms' ),
+				'name'    => __( 'Field invalid', 'ms' ),
+				'email'   => __( 'Email invalid', 'ms' ),
+				'domain'  => __( 'Domain can not contain http, www or capital letters (A-Z)', 'ms' ),
+				'code'    => __( 'Invalid code.', 'ms' ),
+				'region'  => __( 'Select datacenter region.', 'ms' ),
+				'captcha' => __( 'Verify captcha.', 'ms' ),
 			),
 			'textEmpty'               => __( "Field can't be empty", 'ms' ),
 			'textFailedDomain'        => __( 'Failed to validate domain', 'ms' ),

@@ -24,7 +24,7 @@ function ms_signup_form( $atts ) {
 	$submit_slug   = Trial_Signup::get_submit_slug();
 	$inputs_states = Trial_Signup::get_form_defaults();
 	$signup_error  = Trial_Signup::get_signup_error_message();
-	
+
 	ob_start();
 	?>
 
@@ -44,7 +44,6 @@ function ms_signup_form( $atts ) {
 
 		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup">
 			<?php wp_nonce_field( 'trial_signup_nonce' ); ?>
-			<?php Trial_Signup::grecaptcha_parts(); ?>
 			<input data-id="plan" name="plan_type" type="hidden" value="Trial" autocomplete="off">
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
@@ -124,6 +123,8 @@ function ms_signup_form( $atts ) {
 				<label for="sendOffersSignup"><p><?php _e( 'Send me product updates and other promotional offers.', 'ms' ); ?></p></label>
 			</div>
 			
+			<?php Trial_Signup::grecaptcha_parts(); ?>
+
 			<div data-id="signUpError"><?php echo esc_html( $signup_error ); ?></div>
 
 			<div data-id="submitFieldmain" class="Signup__form__submit">
