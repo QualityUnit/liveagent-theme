@@ -67,15 +67,15 @@ const signuplogin = () => {
 	if ( document.querySelectorAll( 'script[data-src]' ).length ) {
 		// standard inputs
 		document.querySelectorAll( '[data-id="signup"] input:not([type="hidden"])' )
-			.forEach( ( input ) => {
-				input.addEventListener( 'focus', runLoadScript );
-			} );
+			.forEach( ( input ) => input.addEventListener( 'focus', runLoadScript ) );
 
 		// custom select
 		document.querySelectorAll( '[data-id="signup"] .FilterMenu.isSingleSelect' )
-			.forEach( ( input ) => {
-				input.addEventListener( 'openedFilterMenu', runLoadScript );
-			} );
+			.forEach( ( input ) => input.addEventListener( 'openedFilterMenu', runLoadScript ) );
+
+		// submit button
+		document.querySelectorAll( '[data-id="signup"] button[data-id=createButtonmain]' )
+			.forEach( ( input ) => input.addEventListener( 'click', runLoadScript ) );
 	}
 
 	// Adds class to parent grey section to change background
@@ -92,6 +92,9 @@ const signuplogin = () => {
 			.forEach( ( input ) => input.removeEventListener( 'focus', runLoadScript ) );
 
 		document.querySelectorAll( '[data-id="signup"] .FilterMenu.isSingleSelect' )
+			.forEach( ( input ) => input.removeEventListener( 'openedFilterMenu', runLoadScript ) );
+
+		document.querySelectorAll( '[data-id="signup"] button[data-id=createButtonmain]' )
 			.forEach( ( input ) => input.removeEventListener( 'openedFilterMenu', runLoadScript ) );
 	}
 };
