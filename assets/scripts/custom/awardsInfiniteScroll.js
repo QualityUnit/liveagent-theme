@@ -14,11 +14,13 @@ document.addEventListener( 'DOMContentLoaded', ( ) => {
 
 	// Constructing the URL for the REST API call to fetch awards items.
 	const locationServer = window.location.origin;
-	const postsUrl = `${ locationServer }/wp-json/wp/v2/ms_awards/?per_page=9&_embed`;
+
+	let page = 1;
+
+	const postsUrl = `${ locationServer }/wp-json/wp/v2/ms_awards/`;
 
 	// Selecting the loader element that indicates more items are being loaded.
 	const loader = document.querySelector( '.Awards__items__loading' );
-	let page = 1;
 
 	// Asynchronous function to fetch posts from the REST API.
 	const getPosts = async ( url ) => {
@@ -30,6 +32,7 @@ document.addEventListener( 'DOMContentLoaded', ( ) => {
 			const totalPages = fetchResult.headers.get( 'X-WP-TotalPages' );
 
 			const data = await fetchResult.json();
+
 			return { data, totalPages };
 		} catch ( error ) {
 			return null;
@@ -47,29 +50,28 @@ document.addEventListener( 'DOMContentLoaded', ( ) => {
 	// Function to construct HTML for a single awards post.
 
 	function awardsPostConstructor( data ) {
-		// Zabezpečenie predvolených hodnôt pre chýbajúce dáta
 		const {
-			title: { rendered: title },
-			excerpt: { rendered: excerpt } = { rendered: '' },
-			featured_media_url: imageUrl = '',
-			metaboxes: { mb_awards_mb_awards_url: url } = { mb_awards_mb_awards_url: '0#' },
+			title,
+			excerpt,
+			url,
+			image,
 		} = data;
 
-		const imageHtml = imageUrl ? createImageHtml( imageUrl, title ) : '';
+		const imageHtml = image ? createImageHtml( image, title ) : '';
 
 		return `
-        <li class="Awards__item Archive__container__content__item inactive">
-            <article>
-                <div class="Awards__item--thumbnail">
-                    <a href="${ url }" target="_blank" rel="nofollow noopener">${ imageHtml }</a>
-                </div>
-                <div class="Awards__item--text">
-                    <h3><a href="${ url }" target="_blank" rel="nofollow noopener">${ title }</a></h3>
-                    ${ excerpt }
-                </div>
-            </article>
-        </li>
-    `;
+	      <li class="Awards__item Archive__container__content__item inactive">
+	          <article>
+	              <div class="Awards__item--thumbnail">
+	                  <a href="${ url }" target="_blank" rel="nofollow noopener">${ imageHtml }</a>
+	              </div>
+	              <div class="Awards__item--text">
+	                  <h3><a href="${ url }" target="_blank" rel="nofollow noopener">${ title }</a></h3>
+	                  ${ excerpt }
+	              </div>
+	          </article>
+	      </li>
+	  `;
 	}
 
 	// Function to find or create a container for awards posts of a specific year.
@@ -109,15 +111,15 @@ document.addEventListener( 'DOMContentLoaded', ( ) => {
 				loader.classList.remove( 'invisible' );
 
 				// Fetching the next set of posts.
-				getPosts( `${ postsUrl }&page=${ page }` ).then( ( response ) => {
+				getPosts( `${ postsUrl }?page=${ page }` ).then( ( response ) => {
 					if ( response && page < response.totalPages ) {
 						loader.classList.add( 'invisible' );
 						response.data.forEach( ( item ) => {
-							const yearName = item.ms_awards_years.name;
+							const yearName = item.ms_awards_years[ 0 ].name;
 							const list = findOrCreateYearContainer( yearName );
 							list.insertAdjacentHTML( 'beforeend', awardsPostConstructor( item ) );
 						} );
-						// We show up only first 3 blog items we had scrolled to, but preloaded all 9
+						// We show up only first 3 awards items we had scrolled to, but preloaded all 9
 						const hiddenBlogItems = new IntersectionObserver(
 							// eslint-disable-next-line no-shadow
 							( entries ) => {
@@ -133,6 +135,8 @@ document.addEventListener( 'DOMContentLoaded', ( ) => {
 							.forEach( ( item ) => {
 								hiddenBlogItems.observe( item );
 							} );
+					} else {
+						loader.remove();
 					}
 				} );
 			}
