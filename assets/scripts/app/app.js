@@ -1,3 +1,4 @@
+
 ( () => {
 	const mobileTablet = window.matchMedia( '(max-width: 1023px)' );
 	const query = document.querySelector.bind( document );

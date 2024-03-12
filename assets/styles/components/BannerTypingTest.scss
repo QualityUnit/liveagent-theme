@@ -31,40 +31,26 @@
 		}
 	}
 
-	@media (min-width: $breakpoint-tablet) {
-
-		.wrapper__wide[class] {
-
-			&::before {
-				content: "";
-				display: block;
-				background: url(../images/banner_typingtest.png?ver=#{$version}) center center no-repeat;
-				background-size: contain;
-				width: 100%;
-				height: 0;
-				padding-bottom: 55%;
-			}
-		}
-	}
-
 	@media (min-width: $breakpoint-tablet-landscape) {
 
 		.wrapper__wide[class] {
 			display: flex;
-
-			&::before {
-
-				@include posZero();
-				position: absolute;
-				background-position: calc(100% + 4em) bottom;
-				background-size: 65%;
-				height: auto;
-				padding-bottom: 0;
-			}
+			background: url(../images/banner_typingtest.jpg?ver=#{$version}) center center no-repeat;
+			background-size: contain;
 		}
 
 		&__text[class] {
 			width: 55%;
+
+			.elementor-heading-title {
+				font-size: 1.875rem;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+
+		&__text[class] {
 
 			.elementor-heading-title {
 				font-size: 2.5rem;
@@ -73,14 +59,6 @@
 	}
 
 	@media (min-width: $breakpoint-desktop-box) {
-
-		.wrapper__wide[class] {
-
-			&::before {
-				background-position: right bottom;
-				background-size: contain;
-			}
-		}
 
 		&__text[class] {
 			width: 45%;

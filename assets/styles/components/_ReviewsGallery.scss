@@ -86,13 +86,13 @@
 	}
 
 	&--thumbs {
-
 		visibility: visible !important;
 		margin-top: 1.5em;
 
 		.splide__slide {
 			width: 5.3125rem;
 			height: 5rem;
+			flex: 0 0 auto;
 			border-radius: $border-radius;
 			border: 1px solid $medium-gray-inputs;
 
@@ -114,6 +114,25 @@
 
 		img {
 			cursor: pointer;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		width: 35.625em;
+		min-height: 34em;
+
+		&--main {
+			height: 27.25em;
+			overflow: hidden;
+		}
+
+		&--thumbs {
+
+			ul {
+				display: flex;
+				height: 5em;
+				overflow: hidden;
+			}
 		}
 	}
 }

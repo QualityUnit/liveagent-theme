@@ -19,6 +19,9 @@
 		}
 	}
 
+	@media (min-width: $breakpoint-desktop) {
+		height: 28.5em;
+	}
 
 	h3 {
 		font-size: 2.5rem;
@@ -35,6 +38,11 @@
 			height: 100%;
 			object-fit: contain;
 			object-position: center bottom;
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			width: 36.75em;
+			height: 26.75em;
 		}
 	}
 
