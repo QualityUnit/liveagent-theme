@@ -9,7 +9,7 @@ function ms_signup_form_free() {
 	Trial_Signup::include_crm();
 	
 	$regions     = Trial_Signup::$regions;
-	$submit_slug = Trial_Signup::get_submit_slug();
+	$submit_slug = Trial_Signup::$slugs['trial'];
 
 	ob_start();
 	?>

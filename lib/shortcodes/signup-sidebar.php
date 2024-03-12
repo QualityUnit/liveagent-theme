@@ -44,7 +44,7 @@ function ms_signup_sidebar( $atts ) {
 	$sticky_class = $atts['js-sticky'] ? 'js-sidebar-sticky' : ''; 
 
 	$regions     = Trial_Signup::$regions;
-	$submit_slug = Trial_Signup::get_submit_slug();
+	$submit_slug = Trial_Signup::$slugs['trial'];
 
 	ob_start();
 	?>
@@ -111,7 +111,7 @@ function ms_signup_sidebar( $atts ) {
 					<div class="ErrorMessage"></div>
 				</div>
 				
-				<?php Trial_Signup::grecaptcha_parts(); ?>
+				<?php Trial_Signup::grecaptcha_parts( 'sidebar' ); ?>
 
 				<div data-id="signUpError" class="signUpError"></div>
 

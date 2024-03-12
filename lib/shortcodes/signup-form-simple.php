@@ -22,7 +22,7 @@ function ms_signup_form_simple( $atts ) {
 	);
 
 	$regions     = Trial_Signup::$regions;
-	$submit_slug = Trial_Signup::get_submit_slug();
+	$submit_slug = Trial_Signup::$slugs['trial'];
 
 	ob_start();
 	?>

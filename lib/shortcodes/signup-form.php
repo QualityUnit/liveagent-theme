@@ -21,7 +21,7 @@ function ms_signup_form( $atts ) {
 	);
 		
 	$regions       = Trial_Signup::$regions;
-	$submit_slug   = Trial_Signup::get_submit_slug();
+	$submit_slug   = Trial_Signup::$slugs['trial'];
 	$inputs_states = Trial_Signup::get_form_defaults();
 	$signup_error  = Trial_Signup::get_signup_error_message();
 
