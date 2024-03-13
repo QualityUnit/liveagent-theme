@@ -72,7 +72,7 @@ function ms_signup_sidebar( $atts ) {
 				</div>
 
 				<div data-id="domainFieldmain" class="Signup__sidebar__item Signup__sidebar__item domain">
-					<input type="text" name="subdomain" placeholder="<?php echo esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
+					<input type="text" data-type="text" name="subdomain" placeholder="<?php echo esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
 					<div class="Signup__sidebar__item__domain"><?php _e( '.ladesk.com', 'ms' ); ?>
 					<div class="Signup__sidebar__item__info Tooltip">
 						<div class="Signup__sidebar__item__info__icon ComparePlans__info-icon fontello-info"></div>
