@@ -179,6 +179,38 @@ body {
 									>li {
 										padding: 0;
 
+										&.show-only-mobile {
+											display: flex;
+											position: relative;
+											background-color: $bg-color;
+
+											&.current-menu-item {
+												background-color: $label-use-for-bg;
+											}
+
+											.icon {
+												@include square(1.25rem);
+												display: block;
+												position: absolute;
+												top: 0.25em;
+												left: 1em;
+												margin-top: 0.9em;
+												color: $saturated-blue !important;
+												z-index: 1;
+												pointer-events: none;
+											}
+
+											a	{
+												display: flex;
+												width: 100%;
+												flex-direction: column;
+												padding: 14px 3.125em;
+												&::after {
+													content: unset;
+												}
+											}
+										}
+
 										&.label-product {
 
 											li.current-menu-item {
@@ -808,6 +840,10 @@ body {
 					display: none;
 				}
 			}
+		}
+
+		.show-only-mobile {
+			display: none;
 		}
 
 
