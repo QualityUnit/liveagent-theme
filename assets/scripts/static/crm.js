@@ -46,6 +46,8 @@ class CrmFormHandler {
 		this.initSubmission();
 		// add form fields with tracking data which are not accessible on server side submission
 		this.initTrackingFields();
+
+		this.handleOnloadValidation();
 	}
 
 	initFields = () => {
@@ -70,7 +72,7 @@ class CrmFormHandler {
 		this.fields.domain.main = this.form.querySelector( '[data-id=domainFieldmain]' );
 		this.fields.domain.input = this.fields.domain.main?.querySelector( 'input[name=subdomain]' );
 		this.fields.domain.validator = {
-			callback: ( skipApiCheck = false ) => this.validateDomainField( this.fields.domain.input, 'domain', skipApiCheck ),
+			callback: () => this.validateDomainField( this.fields.domain.input, 'domain' ),
 			events: [ 'blur', 'input' ],
 		};
 
@@ -154,8 +156,7 @@ class CrmFormHandler {
 		const button = this.fields.submit.button;
 		if ( button ) {
 			button.addEventListener( 'click', ( e ) => {
-				const valid = this.validateForm();
-				if ( ! valid ) {
+				if ( ! this.isFormValid() ) {
 					e.preventDefault();
 				}
 			} );
@@ -191,7 +192,18 @@ class CrmFormHandler {
 		return '';
 	};
 
-	validateForm = () => {
+	handleOnloadValidation = () => {
+		const fields = this.fields;
+		Object.keys( fields ).forEach( ( key ) => {
+			const input = fields[ key ].input;
+			const validator = fields[ key ].validator?.callback;
+			if ( input && input.tagName.toLowerCase() === 'input' && input.value.length && validator ) {
+				validator();
+			}
+		} );
+	};
+
+	isFormValid = () => {
 		const fields = this.fields;
 		const validity = [];
 		Object.keys( fields ).forEach( ( key ) => {
@@ -253,6 +265,7 @@ class CrmFormHandler {
 			this.setError( key, localized.invalid[ key ] );
 			return false;
 		}
+
 		if ( ! waitForValidity ) {
 			this.setValid( key );
 		}
@@ -261,7 +274,7 @@ class CrmFormHandler {
 
 	validateDomainField = async ( element, key ) => {
 		const textValid = this.validateTextField( element, key, true );
-		if ( textValid && this.shouldCheckApi( element.value ) ) {
+		if ( textValid && this.lastValidatedDomain !== element.value ) {
 			const result = await this.apiFetch(
 				'subscriptions/_check_domain',
 				{
@@ -286,13 +299,6 @@ class CrmFormHandler {
 				elm.classList.add( 'hidden' );
 			}
 		}
-	};
-
-	shouldCheckApi = ( value ) => {
-		if ( this.lastValidatedDomain !== value ) {
-			return true;
-		}
-		return false;
 	};
 
 	apiFetch = async ( endpoint, options = {}, key = '' ) => {

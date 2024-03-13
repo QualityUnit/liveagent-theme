@@ -99,8 +99,7 @@ const signuplogin = () => {
 	}
 };
 
-window.addEventListener( 'load', () => {
+// load script early to allow crm scripts load even the user focus input before the whole page is fully loaded on 'load' event
+window.addEventListener( 'DOMContentLoaded', () => {
 	signuplogin();
 } );
-
-window.removeEventListener( 'load', signuplogin );
