@@ -450,7 +450,7 @@ class CrmInstaller {
 
 				setTimeout( () => {
 					this.handleInstallation();
-				}, 500 );
+				}, 1500 );
 
 				return;
 			}
@@ -460,7 +460,7 @@ class CrmInstaller {
 
 				setTimeout( () => {
 					this.handleInstallation();
-				}, 500 );
+				}, 1500 );
 
 				return;
 			}
