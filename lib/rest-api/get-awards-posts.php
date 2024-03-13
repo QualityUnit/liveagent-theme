@@ -6,7 +6,7 @@ add_action( 'rest_api_init', 'override_custom_ms_awards_endpoint' );
 function override_custom_ms_awards_endpoint() {
 	register_rest_route(
 		'wp/v2',
-		'/ms_awards/',
+		'/awards/page=(?P<page>\d+)',
 		array(
 			'methods' => 'GET',
 			'callback' => 'get_custom_data_from_ms_awards',

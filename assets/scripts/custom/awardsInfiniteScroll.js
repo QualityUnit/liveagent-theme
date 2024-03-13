@@ -17,7 +17,7 @@ document.addEventListener( 'DOMContentLoaded', ( ) => {
 
 	let page = 1;
 
-	const postsUrl = `${ locationServer }/wp-json/wp/v2/ms_awards/`;
+	const postsUrl = `${ locationServer }/wp-json/wp/v2/awards/`;
 
 	// Selecting the loader element that indicates more items are being loaded.
 	const loader = document.querySelector( '.Awards__items__loading' );
@@ -111,7 +111,7 @@ document.addEventListener( 'DOMContentLoaded', ( ) => {
 				loader.classList.remove( 'invisible' );
 
 				// Fetching the next set of posts.
-				getPosts( `${ postsUrl }?page=${ page }` ).then( ( response ) => {
+				getPosts( `${ postsUrl }page=${ page }` ).then( ( response ) => {
 					if ( response && page < response.totalPages ) {
 						loader.classList.add( 'invisible' );
 						response.data.forEach( ( item ) => {
