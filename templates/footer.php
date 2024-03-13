@@ -184,6 +184,7 @@ function show_demo_bar() {
 	$disabled_urls = array(
 		/* EN */'/demo',
 		'/trial',
+		'/thank-you',
 		'/login',
 		'/pricing',
 		'/about',
