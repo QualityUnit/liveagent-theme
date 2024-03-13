@@ -11,7 +11,7 @@ const signuplogin = () => {
 
 	function checkForJqueryLib() {
 		return scriptList.filter( ( script ) => {
-			return ! script.dataset.src.match( regex ) && ! script.getAttribute( 'src' ) && script?.id.toLowerCase().includes( 'alphanum' );
+			return ! script.dataset.src?.match( regex ) && ! script.getAttribute( 'src' ) && script.id.toLowerCase().includes( 'alphanum' );
 		} );
 	}
 
