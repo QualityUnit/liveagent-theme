@@ -189,6 +189,7 @@ body {
 											}
 
 											.icon {
+
 												@include square(1.25rem);
 												display: block;
 												position: absolute;
@@ -200,11 +201,12 @@ body {
 												pointer-events: none;
 											}
 
-											a	{
+											a {
 												display: flex;
 												width: 100%;
 												flex-direction: column;
 												padding: 14px 3.125em;
+
 												&::after {
 													content: unset;
 												}
