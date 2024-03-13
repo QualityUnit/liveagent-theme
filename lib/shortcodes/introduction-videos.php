@@ -5,7 +5,7 @@ function la_introduction_videos() {
 			'class'    => 'chat',
 			'name'     => __( 'Chat', 'ms' ),
 			'icon-url' => '/assets/images/tab-icon-chat.svg',
-			'url'      => '/assets/videos/contact-form.mp4?ver=' . THEME_VERSION,
+			'url'      => '/assets/videos/web-widget.mp4?ver=' . THEME_VERSION,
 		),
 		array(
 			'class'    => 'calls',
