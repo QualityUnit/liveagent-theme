@@ -351,7 +351,7 @@ class Trial_Signup {
 					'captchaVersion' => self::$grecaptcha['version'],
 					'productId'      => self::get_product_id(),
 					'signupData'     => self::get_signup_response_data( 
-						array( 'id', 'customer_email', 'form_data' ) 
+						array( 'id', 'customer_email', 'account_id', 'form_data' ) 
 					),
 				)
 			);
@@ -362,7 +362,7 @@ class Trial_Signup {
 
 	public static function use_grecaptcha() {
 		self::$grecaptcha = self::get_grecaptcha_info();
-		
+
 		add_action(
 			'wp_print_footer_scripts',
 			function () {
@@ -395,7 +395,7 @@ class Trial_Signup {
 								const grecaptchaInput = form.querySelector( 'input[data-id="grecaptcha"]' );
 								const gaClientInput = form.querySelector( 'input[data-id="ga_client_id"]' );
 								const emailInput = form.querySelector( '[data-id=mailFieldmain] input[name=email]' );
-								const submitButton = form.querySelector( '[data-id=submitFieldmain] button[type=submit]' );
+								const submitButton = form.querySelector( '[data-id=submitFieldmain] button[data-id=createButtonmain]' );
 								const isRedeemForm = form.querySelector( '[data-id=codeFieldmain] input[name=redeem_code]' ) ? true : false;
 
 								const gaUserId = getCookie( '_ga' ) || '';
@@ -451,16 +451,16 @@ class Trial_Signup {
 										e.preventDefault();
 										try {
 											submitButton.setAttribute( 'disabled', '' );
-												grecaptcha.ready( () => {
-													grecaptcha.execute( 
-														"<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>", 
-														{ action: 'login' } 
-													).then( ( token ) => {
-														if( grecaptchaInput ) { grecaptchaInput.value = token };
-														handleFinalActions();
-														form.submit();
-													} )
-												} );
+											grecaptcha.ready( () => {
+												grecaptcha.execute( 
+													"<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>", 
+													{ action: 'login' } 
+												).then( ( token ) => {
+													if( grecaptchaInput ) { grecaptchaInput.value = token };
+													handleFinalActions();
+													form.submit();
+												} )
+											} );
 										} catch (e) {
 											submitButton.removeAttribute( 'disabled' );
 										}

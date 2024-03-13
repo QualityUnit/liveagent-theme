@@ -170,25 +170,16 @@ class CrmFormHandler {
 		};
 
 		const papVisitorId = getCookie( 'PAPVisitorId' );
-		const crmsor = this.getSourceId();
 		createTrackingField( 'pap_visitor_id', papVisitorId ? papVisitorId : '' );
-		createTrackingField( 'source_id', crmsor ? crmsor : '' );
+		createTrackingField( 'source_id', this.getSourceId() );
 	};
 
 	getSourceId = () => {
 		const crmsor = getCookie( 'crmsor' );
-
 		if ( typeof crmsor !== 'undefined' && crmsor.length > 0 ) {
-			const source = window.escape(
-				window.atob( window.unescape( crmsor ) )
-			);
-			const source2 = source.replace( new RegExp( '%2C', 'g' ), ',' );
-			const source3 = source2.replace( new RegExp( '%3A', 'g' ), ':' );
-			const source4 = source3.replace( new RegExp( '%26', 'g' ), '&' );
-			const source5 = source4.replace( new RegExp( '%3D', 'g' ), '=' );
-			return source5;
+			const source = encodeURIComponent( window.atob( crmsor ) );
+			return decodeURIComponent( source );
 		}
-
 		return '';
 	};
 
@@ -654,41 +645,72 @@ class CrmInstaller {
 		this.handlePaqAction();
 
 		if ( this.userFormData.is_redeem && this.userFormData.plan_type && typeof gtag !== 'undefined' ) {
-			gtag( 'event', this.userFormData.plan_type, {
-				event_category: 'SignUp',
-			} );
+			try {
+				gtag( 'event', this.userFormData.plan_type, {
+					event_category: 'SignUp',
+				} );
+			} catch ( e ) {
+				// eslint-disable-next-line no-console
+				console.warn( 'Tracking script failed:', 'gtag' );
+			}
 		}
 
-		window.uetq = window.uetq || [];
-		window.uetq.push( 'event', 'SignUp', {
-			event_category: 'Click',
-			event_label: 'SignUp',
-			event_value: '1',
-		} );
+		try {
+			window.uetq = window.uetq || [];
+			window.uetq.push( 'event', 'SignUp', {
+				event_category: 'Click',
+				event_label: 'SignUp',
+				event_value: '1',
+			} );
+		} catch ( e ) {
+			// eslint-disable-next-line no-console
+			console.warn( 'Tracking script failed:', 'uetq' );
+		}
 	};
 
 	handleFinishActions = () => {
 		if ( typeof _paq !== 'undefined' ) {
-			_paq.push( [
-				'trackEvent',
-				'Trial',
-				'created',
-				`${ this.userFormData.subdomain }.${ this.productDomain }`,
-			] );
+			try {
+				_paq.push( [
+					'trackEvent',
+					'Trial',
+					'created',
+					`${ this.userFormData.subdomain }.${ this.productDomain }`,
+				] );
+			} catch ( e ) {
+				// eslint-disable-next-line no-console
+				console.warn( 'Tracking script failed:', '_paq', 'trackEvent' );
+			}
+
 			if ( typeof Piwik === 'undefined' ) {
 				this.pkvid = '';
 			} else {
-				this.pkvid = `?pk_vid=${ Piwik.getTracker().getVisitorId() }`;
+				try {
+					this.pkvid = `?pk_vid=${ Piwik.getTracker().getVisitorId() }`;
+				} catch ( e ) {
+					// eslint-disable-next-line no-console
+					console.warn( 'Tracking script failed:', 'Piwik' );
+				}
 			}
 		}
 
 		if ( typeof analytics !== 'undefined' ) {
-			analytics.identify( null, { email: this.signupData.customer_email } );
-			analytics.track( 'formSubmitted' );
+			try {
+				analytics.identify( null, { email: this.signupData.customer_email } );
+				analytics.track( 'formSubmitted' );
+			} catch ( e ) {
+			// eslint-disable-next-line no-console
+				console.warn( 'Tracking script failed:', 'analytics' );
+			}
 		}
 
 		if ( typeof twq !== 'undefined' ) {
-			twq( 'event', 'tw-ocrty-odnh2', {} );
+			try {
+				twq( 'event', 'tw-ocrty-odnh2', {} );
+			} catch ( e ) {
+				// eslint-disable-next-line no-console
+				console.warn( 'Tracking script failed:', 'twq' );
+			}
 		}
 	};
 
@@ -702,44 +724,57 @@ class CrmInstaller {
 			this.fields.main.insertAdjacentHTML( 'beforeend', tracker );
 		} );
 		if ( typeof fbq !== 'undefined' ) {
-			this.fields.main.insertAdjacentHTML( 'beforeend', "<script>fbq('track', 'StartTrial')</script>" );
+			this.fields.main.insertAdjacentHTML(
+				'beforeend',
+				`<script>try{ fbq('track', 'StartTrial' ); } catch ( e ) { console.warn( 'Tracking script failed:', 'fbq' ); }</script>`
+			);
 		}
 	};
 
 	handlePapAction = () => {
 		if ( typeof PostAffTracker !== 'undefined' ) {
-			PostAffTracker.setAccountId( this.pap.account );
-			const sale = PostAffTracker.createAction( this.pap.action );
-			sale.setTotalCost( '1' );
-			sale.setOrderID( this.signupData.id );
-			sale.setProductID( '' );
-			sale.setData1( this.signupData.customer_email );
-			sale.setData3( 'api_qu_signup' );
-			sale.setData4( this.userFormData.subdomain );
-			sale.setCampaignID( this.pap.campaign );
-			PostAffTracker.register();
+			try {
+				PostAffTracker.setAccountId( this.pap.account );
+				const sale = PostAffTracker.createAction( this.pap.action );
+				sale.setTotalCost( '1' );
+				sale.setOrderID( this.signupData.id );
+				sale.setProductID( '' );
+				sale.setData1( this.signupData.customer_email );
+				sale.setData3( 'api_qu_signup' );
+				sale.setData4( this.userFormData.subdomain );
+				sale.setCampaignID( this.pap.campaign );
+				PostAffTracker.register();
+			} catch ( e ) {
+				// eslint-disable-next-line no-console
+				console.warn( 'Tracking script failed:', 'PostAffTracker' );
+			}
 		}
 	};
 
 	handlePaqAction = () => {
 		if ( typeof _paq !== 'undefined' ) {
-			_paq.push( [ 'setObjectId', this.signupData.account_id ] );
-			_paq.push( [
-				'setCustomData',
-				'cd1',
-				btoa( encodeURIComponent( this.signupData.customer_name ) ),
-			] );
-			_paq.push( [
-				'setCustomData',
-				'cd2',
-				btoa( encodeURIComponent( this.signupData.customer_email ) ),
-			] );
-			_paq.push( [
-				'trackEvent',
-				'Trial',
-				'install',
-				`${ this.userFormData.subdomain }.${ this.productDomain }`,
-			] );
+			try {
+				_paq.push( [ 'setObjectId', this.signupData.account_id ] );
+				_paq.push( [
+					'setCustomData',
+					'cd1',
+					btoa( encodeURIComponent( this.signupData.customer_name ) ),
+				] );
+				_paq.push( [
+					'setCustomData',
+					'cd2',
+					btoa( encodeURIComponent( this.signupData.customer_email ) ),
+				] );
+				_paq.push( [
+					'trackEvent',
+					'Trial',
+					'install',
+					`${ this.userFormData.subdomain }.${ this.productDomain }`,
+				] );
+			} catch ( e ) {
+				// eslint-disable-next-line no-console
+				console.warn( 'Tracking script failed:', '_paq' );
+			}
 		}
 	};
 }
