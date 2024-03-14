@@ -96,23 +96,29 @@
 	}
 
 	.Clients {
+		display: flex;
 		justify-content: flex-start;
 		margin-top: 0;
 		margin-bottom: 2em;
+		column-gap: 1em;
+		row-gap: 1em;
+		height: auto;
 
 		&__item {
-			margin: 0;
 
 			img {
 				height: 1.25em;
 				width: auto;
 				max-width: none;
-			}
-
-			+ .Clients__item {
-				margin-left: 3em;
+				margin: 1.25em 0 !important;
 			}
 		}
+
+		@media (min-width: $breakpoint-tablet) {
+			column-gap: 2em;
+			min-height: 4.0625em;
+		}
+
 	}
 
 	.AwardsSmall {
@@ -120,6 +126,11 @@
 		&__list {
 			justify-content: flex-start;
 			margin-bottom: 0;
+			column-gap: 2em;
+		}
+
+		&__item {
+			margin-left: 0;
 		}
 
 		@media (min-width: $breakpoint-tablet) {
@@ -127,10 +138,6 @@
 			&__item {
 				width: calc(20% - 2em);
 				padding-bottom: calc(20% - 2em);
-
-				+ li {
-					margin-left: 2em;
-				}
 			}
 		}
 	}
