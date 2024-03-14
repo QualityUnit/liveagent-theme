@@ -756,7 +756,7 @@ class Trial_Signup {
 	public static function thank_you_template_actions() {
 		self::$is_thank_you_page = self::is_thank_you_template();
 		if ( self::$is_thank_you_page && is_array( self::$trial_signup_reponse ) && empty( self::$trial_signup_reponse ) ) {
-			self::redirect( get_home_url() );
+			self::redirect( self::$slugs['trial'] );
 			exit;
 		}
 	}
