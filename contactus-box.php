@@ -1,5 +1,5 @@
 <?php
-	$icons     = get_template_directory_uri() . '/assets/images/contact/';
+	$icons = get_template_directory_uri() . '/assets/images/contact/';
 	require_once get_template_directory() . '/chat-button.php';
 ?>
 
@@ -50,11 +50,23 @@
 			<svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use></svg>
 		</button>
 
+		<div class="ContactUs__status">
+			<p><?php _e( 'We are available for you 24/7.', 'ms' ); ?><br />
+			<?php _e( 'Feel free to contact us.', 'ms' ); ?>
+			</p>
+			<ul class="ContactUs__status--info" id="contactUsStatus">
+				<li class="ContactUs__status ok" data-status="ok"><?php _e( 'Servers online', 'ms' ); ?></li>
+				<li class="ContactUs__status outage" data-status="outage"><?php _e( 'Servers offline', 'ms' ); ?></li>
+				<li class="ContactUs__status degradation" data-status="degradation"><?php _e( 'Servers busy', 'ms' ); ?></li>
+				<li class="ContactUs__status unavailable" data-status="unavailable"><?php _e( 'Status unavailable', 'ms' ); ?></li>
+			</ul>
+		</div>
+
 		<ul class="ContactUs__menu">
 			<?php
 			if ( is_page() ) {
 				global $post;
-				$phone = '+421 2 33 456 826';
+				$phone      = '+421 2 33 456 826';
 				$current_id = apply_filters( 'wpml_object_id', $post->ID, 'page', false, 'en' );
 
 				if ( $current_id ) {
@@ -123,7 +135,7 @@
 	</nav>
 </div>
 
-<script type="text/javascript" id="urlslab-chatbot-script">
+<script id="urlslab-chatbot-script">
 	const options= {btnTarget: '#chatBot', chatbotId: '569a3c87-4c38-414c-8d1b-66d83c60b5f2', chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA1NjlhM2M4Ny00YzM4LTQxNGMtOGQxYi02NmQ4M2M2MGI1ZjI='};
 	acceptButton.addEventListener( "click", () => {
 		loadChatBot(options);
@@ -135,6 +147,51 @@
 </script>
 
 <script>
+	const contactUsBtn = document.querySelector('.ContactUs__button');
+
+	contactUsBtn.addEventListener('click', async () => {
+			const menu = document.querySelector('.ContactUs__menu--wrap');
+			const statusInfo = document.querySelector('#contactUsStatus');
+
+			if ( menu?.classList.contains('hidden') ) {
+				const serviceStatus = await quStatusWidget.getStatus().then( ( result ) => {
+					return displayStatusIndicator( result );
+				});
+				statusInfo.querySelector(`[data-status^=${serviceStatus}]`).style.display = 'flex';
+			}
+	})
+
+	const quStatusWidget = {
+		statusJsonUrl: "https://status.liveagent.com/status.json",
+		async fetchJson() {
+			try {
+				const data = await fetch(this.statusJsonUrl);
+				return await data.json();
+			} catch (error) {
+				console.log(error);
+			}
+		},
+		async getStatus() {
+			const status = await this.fetchJson();
+			return status;
+		}
+	};
+
+
+	function displayStatusIndicator(serviceStatus) {
+		let statusClass = 'ok';
+		if ( !serviceStatus ) {
+			return 'unvailable';
+		}
+		if (serviceStatus?.outages?.length > 0) {
+			statusClass = 'outage';
+		} 
+		if (serviceStatus?.degradations?.length > 0) {
+			statusClass = 'degradation';
+		}
+		return statusClass;
+	}
+
 	function contactUsWhatsApp( element ) {
 		const message = element.getAttribute( 'data-message' );
 		const number = '17862041375';
@@ -146,4 +203,5 @@
 		const facebookLink = 'https://m.me/LiveAgent/';
 		window.open( facebookLink, '_blank' );
 	}
+
 </script>

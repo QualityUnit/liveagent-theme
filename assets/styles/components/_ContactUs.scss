@@ -426,4 +426,50 @@ $colors: (
 			transition-delay: 0s;
 		}
 	}
+
+	&__status {
+		text-align: right;
+
+		p {
+			margin-bottom: 0;
+		}
+
+		&--info {
+			margin-top: 0;
+
+			$infoColor: (
+				"ok": #187e36,
+				"outage":#ce212d,
+				"degradation": $primary,
+				"unavailable": $medium-gray
+			);
+
+			li {
+				display: none;
+				align-items: center;
+				justify-content: flex-end;
+				text-align: inherit;
+				text-decoration: underline;
+				font-size: 0.75rem;
+
+				&::before {
+
+					@include circle(1em);
+					display: inline-block;
+					margin-right: 0.5em;
+					text-decoration: none;
+					content: "";
+				}
+
+				@each $status, $color in $infoColor {
+					&.#{$status} {
+
+						&::before {
+							background-color: $color;
+						}
+					}
+				}
+			}
+		}
+	}
 }
