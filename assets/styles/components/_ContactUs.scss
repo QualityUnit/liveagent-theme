@@ -465,13 +465,13 @@ $colors: (
 				@media (hover: hover) {
 
 					&[class]:hover {
-						text-decoration: underline;
+						background-color: rgba($outage-color, 0.25);
 					}
 				}
 
 				&.outage {
 					border: 1px solid $outage-color;
-					background-color: $desaturated-red;
+					background-color: rgba($outage-color, 0.125);
 					color: $outage-color;
 					padding: 0.75em;
 					border-radius: 6px;
