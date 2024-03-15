@@ -696,9 +696,9 @@ class Trial_Signup {
 		self::$trial_signup_reponse = self::get_session_data( 'trial_signup_reponse', true, array() );
 		
 		self::$regions = array(
-			'NA' => __( 'Americas (US)', 'ms' ),
-			'EU' => __( 'Europe & Africa (EU)', 'ms' ),
-			'AS' => __( 'Asia & Pacific (SG)', 'ms' ),
+			'NA' => __( 'Americas (US)', 'qu_signup' ),
+			'EU' => __( 'Europe & Africa (EU)', 'qu_signup' ),
+			'AS' => __( 'Asia & Pacific (SG)', 'qu_signup' ),
 		);
 
 		self::$slugs = array(
@@ -709,24 +709,24 @@ class Trial_Signup {
 
 		self::$localized_text = array(
 			'invalid'                 => array(
-				'name'    => __( 'Field invalid', 'ms' ),
-				'email'   => __( 'Email invalid', 'ms' ),
-				'domain'  => __( 'Domain can not contain http, www or capital letters (A-Z)', 'ms' ),
-				'code'    => __( 'Invalid code.', 'ms' ),
-				'region'  => __( 'Select datacenter region.', 'ms' ),
-				'captcha' => __( 'Verify captcha.', 'ms' ),
+				'name'    => __( 'Field invalid', 'qu_signup' ),
+				'email'   => __( 'Email invalid', 'qu_signup' ),
+				'domain'  => __( 'Domain can not contain http, www or capital letters (A-Z)', 'qu_signup' ),
+				'code'    => __( 'Invalid code.', 'qu_signup' ),
+				'region'  => __( 'Select datacenter region.', 'qu_signup' ),
+				'captcha' => __( 'Verify captcha.', 'qu_signup' ),
 			),
-			'textEmpty'               => __( "Field can't be empty", 'ms' ),
-			'textFailedDomain'        => __( 'Failed to validate domain', 'ms' ),
-			'textValidating'          => __( 'Validating...', 'ms' ),
-			'textFailedRetrieve'      => __( 'Failed to retrieve valid progress info.', 'ms' ),
-			'textGoToApp'             => __( 'Go to your App', 'ms' ),
-			'textGoToLiveAgent'       => __( 'Go to LiveAgent', 'ms' ),
-			'textProgressInstalling'  => __( 'Building Your LiveAgent', 'ms' ),
-			'textProgressLaunching'   => __( 'Halfway there', 'ms' ),
-			'textProgressRedirecting' => __( 'Almost done, just a moment', 'ms' ),
-			'textProgressFinalizing'  => __( 'Your LiveAgent is ready to use', 'ms' ),
-			'textError'               => __( 'Something went wrong.', 'ms' ),
+			'textEmpty'               => __( "Field can't be empty", 'qu_signup' ),
+			'textFailedDomain'        => __( 'Failed to validate domain', 'qu_signup' ),
+			'textValidating'          => __( 'Validating...', 'qu_signup' ),
+			'textFailedRetrieve'      => __( 'Failed to retrieve valid progress info.', 'qu_signup' ),
+			'textGoToApp'             => __( 'Go to your App', 'qu_signup' ),
+			'textGoToLiveAgent'       => __( 'Go to LiveAgent', 'qu_signup' ),
+			'textProgressInstalling'  => __( 'Building Your LiveAgent', 'qu_signup' ),
+			'textProgressLaunching'   => __( 'Halfway there', 'qu_signup' ),
+			'textProgressRedirecting' => __( 'Almost done, just a moment', 'qu_signup' ),
+			'textProgressFinalizing'  => __( 'Your LiveAgent is ready to use', 'qu_signup' ),
+			'textError'               => __( 'Something went wrong.', 'qu_signup' ),
 		);
 
 		if ( has_filter( 'wpml_current_language' ) ) {
