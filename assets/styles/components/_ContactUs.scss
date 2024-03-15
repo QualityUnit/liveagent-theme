@@ -430,16 +430,14 @@ $colors: (
 	&__status {
 		text-align: right;
 
-		p {
-			margin-bottom: 0;
-		}
-
 		&--info {
+			$outage-color: #ce212d;
 			margin-top: 0;
+
 
 			$infoColor: (
 				"ok": #187e36,
-				"outage":#ce212d,
+				"outage":$outage-color,
 				"degradation": $primary,
 				"unavailable": $medium-gray
 			);
@@ -447,35 +445,36 @@ $colors: (
 			li {
 				display: none;
 				align-items: center;
-				justify-content: flex-end;
-				text-align: inherit;
-				text-decoration: underline;
+				text-align: left;
 				font-size: 0.75rem;
+				line-height: 1.15;
 				cursor: pointer;
+
+				strong {
+					font-weight: 600;
+					text-decoration: underline;
+				}
+
+				svg {
+
+					@include square(2em);
+					fill: currentcolor;
+					margin-right: 1em;
+				}
 
 				@media (hover: hover) {
 
-					&:hover {
-						color: $saturated-blue;
+					&[class]:hover {
+						text-decoration: underline;
 					}
 				}
 
-				&::before {
-
-					@include circle(1em);
-					display: inline-block;
-					margin-right: 0.5em;
-					text-decoration: none;
-					content: "";
-				}
-
-				@each $status, $color in $infoColor {
-					&.#{$status} {
-
-						&::before {
-							background-color: $color;
-						}
-					}
+				&.outage {
+					border: 1px solid $outage-color;
+					background-color: $desaturated-red;
+					color: $outage-color;
+					padding: 0.75em;
+					border-radius: 6px;
 				}
 			}
 		}

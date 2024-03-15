@@ -56,7 +56,15 @@
 			</p>
 			<ul class="ContactUs__status--info" id="contactUsStatus">
 				<li class="ContactUs__status ok" data-status="ok"><?php _e( 'Servers online', 'contactus' ); ?></li>
-				<li class="ContactUs__status outage" data-status="outage"><?php _e( 'Servers offline', 'contactus' ); ?></li>
+				<li class="ContactUs__status outage" data-status="outage">
+					<svg class="icon icon-danger">
+						<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#danger' ); ?>"></use>
+					</svg>
+					<div class="message">
+						<?php _e( 'We are currently experiencing problems.', 'contactus' ); ?>
+						<strong><?php _e( 'More details', 'contactus' ); ?></strong>
+					</div>
+				</li>
 				<li class="ContactUs__status degradation" data-status="degradation"><?php _e( 'Servers busy', 'contactus' ); ?></li>
 				<li class="ContactUs__status unavailable" data-status="unavailable"><?php _e( 'Status unavailable', 'contactus' ); ?></li>
 			</ul>
@@ -158,9 +166,12 @@
 				const serviceStatus = await quStatusWidget.getStatus().then( ( result ) => {
 					return displayStatusIndicator( result );
 				});
-				const statusInfoLink = statusInfo.querySelector(`[data-status^=${serviceStatus}]`);
-				statusInfoLink.style.display = 'flex';
-				statusInfoLink.addEventListener( 'click', () => window.open( statusUrl, '_blank' ) );
+
+				if ( serviceStatus === 'outage' ) {
+					const statusInfoLink = statusInfo.querySelector(`[data-status^=${serviceStatus}]`);
+					statusInfoLink.style.display = 'flex';
+					statusInfoLink.addEventListener( 'click', () => window.open( statusUrl, '_blank' ) );
+				}
 			}
 	})
 
