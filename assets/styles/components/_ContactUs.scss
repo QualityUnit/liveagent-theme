@@ -451,6 +451,14 @@ $colors: (
 				text-align: inherit;
 				text-decoration: underline;
 				font-size: 0.75rem;
+				cursor: pointer;
+
+				@media (hover: hover) {
+
+					&:hover {
+						color: $saturated-blue;
+					}
+				}
 
 				&::before {
 

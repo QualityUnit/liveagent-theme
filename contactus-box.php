@@ -54,12 +54,12 @@
 			<p><?php _e( 'We are available for you 24/7.', 'contactus' ); ?><br />
 			<?php _e( 'Feel free to contact us.', 'contactus' ); ?>
 			</p>
-			<div class="ContactUs__status--info" id="contactUsStatus">
-				<a href="https://status.liveagent.com/" target="_blank" class="ContactUs__status ok" data-status="ok"><?php _e( 'Servers online', 'contactus' ); ?></a>
-				<a href="https://status.liveagent.com/" target="_blank" class="ContactUs__status outage" data-status="outage"><?php _e( 'Servers offline', 'contactus' ); ?></a>
-				<a href="https://status.liveagent.com/" target="_blank" class="ContactUs__status degradation" data-status="degradation"><?php _e( 'Servers busy', 'contactus' ); ?></a>
-				<a href="https://status.liveagent.com/" target="_blank" class="ContactUs__status unavailable" data-status="unavailable"><?php _e( 'Status unavailable', 'contactus' ); ?></a>
-			</div>
+			<ul class="ContactUs__status--info" id="contactUsStatus">
+				<li class="ContactUs__status ok" data-status="ok"><?php _e( 'Servers online', 'contactus' ); ?></li>
+				<li class="ContactUs__status outage" data-status="outage"><?php _e( 'Servers offline', 'contactus' ); ?></li>
+				<li class="ContactUs__status degradation" data-status="degradation"><?php _e( 'Servers busy', 'contactus' ); ?></li>
+				<li class="ContactUs__status unavailable" data-status="unavailable"><?php _e( 'Status unavailable', 'contactus' ); ?></li>
+			</ul>
 		</div>
 
 		<ul class="ContactUs__menu">
@@ -148,6 +148,7 @@
 
 <script>
 	const contactUsBtn = document.querySelector('.ContactUs__button');
+	const statusUrl = 'https://status.liveagent.com/';
 
 	contactUsBtn.addEventListener('click', async () => {
 			const menu = document.querySelector('.ContactUs__menu--wrap');
@@ -157,12 +158,14 @@
 				const serviceStatus = await quStatusWidget.getStatus().then( ( result ) => {
 					return displayStatusIndicator( result );
 				});
-				statusInfo.querySelector(`[data-status^=${serviceStatus}]`).style.display = 'flex';
+				const statusInfoLink = statusInfo.querySelector(`[data-status^=${serviceStatus}]`);
+				statusInfoLink.style.display = 'flex';
+				statusInfoLink.addEventListener( 'click', () => window.open( statusUrl, '_blank' ) );
 			}
 	})
 
 	const quStatusWidget = {
-		statusJsonUrl: "https://status.liveagent.com/status.json",
+		statusJsonUrl: `${statusUrl}/status.json`,
 		async fetchJson() {
 			try {
 				const data = await fetch(this.statusJsonUrl);
