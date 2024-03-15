@@ -5,91 +5,77 @@ const signuplogin = () => {
 
 	function waitForLoad( element ) {
 		return new Promise( ( resolve ) => {
-			element.onload = resolve( { ok: true, name: element.id } );
+			element.onload = resolve( { ok: true } );
 		} );
 	}
 
-	function loadScripts( ) {
-		scriptList.map( ( element ) => {
-			const script = element;
+	function checkForJqueryLib() {
+		return scriptList.filter( ( script ) => {
+			return ! script.dataset.src?.match( regex ) && ! script.getAttribute( 'src' ) && script.id.toLowerCase().includes( 'alphanum' );
+		} );
+	}
 
-			const datasrc = script.getAttribute( 'data-src' );
-			if ( ! datasrc.match( regex ) ) {
-				script.src = datasrc;
+	async function loadScripts() {
+		const jqueryLib = checkForJqueryLib();
 
-				async function isLoaded() {
-					const response = await waitForLoad( script );
-					const { ok, name } = response;
+		// if jquery lib available, load it first and after load run scripts loading again
+		if ( jqueryLib.length ) {
+			const script = jqueryLib[ 0 ];
+			script.src = script.dataset.src;
+			const response = await waitForLoad( script );
+			const { ok } = response;
 
-					if ( ok && name?.toLowerCase().includes( 'alphanum' ) ) {
-						setTimeout( () => {
-							scriptList.filter( ( executor ) => {
-								const dataSrc = executor.getAttribute( 'data-src' );
-								executor.src = dataSrc;
-								return true;
-							} );
-						}, 50 );
-					}
-				}
-
-				isLoaded();
+			if ( ok ) {
+				setTimeout( () => {
+					loadScripts();
+				}, 50 );
 			}
-			return true;
+
+			return;
+		}
+
+		// load scripts with not defined src attribute, will skip jquery lib loaded before
+		scriptList.forEach( ( script ) => {
+			if ( ! script.src ) {
+				script.src = script.dataset.src;
+			}
 		} );
 	}
 
-	function runLoadScript( element ) {
-		const type = element.closest( '[data-id="signup"]' ).dataset.type;
-		sessionStorage.setItem( 'crmType', type );
-		loadScripts( element );
+	async function runLoadScript() {
+		// wait for jQuery, when not loaded before
+		if ( ! window.jQuery && jquerySrc.length ) {
+			const script = jquerySrc[ 0 ];
+			script.src = script.dataset.src;
+			const response = await waitForLoad( script );
+			const { ok } = response;
+
+			if ( ok ) {
+				setTimeout( () => {
+					loadScripts();
+					removeLoadListeners();
+				}, 50 );
+			}
+			return;
+		}
+
+		// jquery loaded, continue to load other scripts
+		loadScripts();
+		removeLoadListeners();
 	}
+
 	if ( document.querySelectorAll( 'script[data-src]' ).length ) {
-		const scriptParent = document.querySelectorAll(
-			'[data-id="signup"] input:not([type="hidden"])'
-		);
+		// standard inputs
+		document.querySelectorAll( '[data-id="signup"] input:not([type="hidden"])' )
+			.forEach( ( input ) => input.addEventListener( 'focus', runLoadScript ) );
 
-		scriptParent.forEach( ( input ) => {
-			input.addEventListener( 'focus', async ( event ) => {
-				if ( ! window.jQuery ) {
-					jquerySrc[ 0 ].src = jquerySrc[ 0 ].dataset.src;
-				}
-				const response = await waitForLoad( jquerySrc[ 0 ] );
+		// custom select
+		document.querySelectorAll( '[data-id="signup"] .FilterMenu.isSingleSelect' )
+			.forEach( ( input ) => input.addEventListener( 'openedFilterMenu', runLoadScript ) );
 
-				if ( response.ok ) {
-					setTimeout( () => {
-						runLoadScript( event.target );
-					}, 50 );
-				}
-			} );
-		} );
-
-		scriptParent.forEach( ( input ) => {
-			input.removeEventListener( 'focus', loadScripts );
-		} );
-
-		// load scripts also on selections event, not only inputs
-		const scriptParentSelections = document.querySelectorAll(
-			'[data-id="signup"] .FilterMenu.isSingleSelect'
-		);
-
-		scriptParentSelections.forEach( ( input ) => {
-			input.addEventListener( 'openedFilterMenu', async ( event ) => {
-				if ( ! window.jQuery ) {
-					jquerySrc[ 0 ].src = jquerySrc[ 0 ].dataset.src;
-				}
-				const response = await waitForLoad( jquerySrc[ 0 ] );
-
-				if ( response.ok ) {
-					setTimeout( () => {
-						runLoadScript( event.target );
-					}, 50 );
-				}
-			} );
-		} );
-
-		scriptParentSelections.forEach( ( input ) => {
-			input.removeEventListener( 'openedFilterMenu', loadScripts );
-		} );
+		// submit button
+		document.querySelectorAll( '[data-id="signup"] button[data-id=createButtonmain]' )
+			.forEach( ( input ) => input.addEventListener( 'click', runLoadScript ) );
 	}
 
 	// Adds class to parent grey section to change background
@@ -100,10 +86,20 @@ const signuplogin = () => {
 			signUpSection.classList.add( 'Block--elements' );
 		}
 	}
+
+	function removeLoadListeners() {
+		document.querySelectorAll( '[data-id="signup"] input:not([type="hidden"])' )
+			.forEach( ( input ) => input.removeEventListener( 'focus', runLoadScript ) );
+
+		document.querySelectorAll( '[data-id="signup"] .FilterMenu.isSingleSelect' )
+			.forEach( ( input ) => input.removeEventListener( 'openedFilterMenu', runLoadScript ) );
+
+		document.querySelectorAll( '[data-id="signup"] button[data-id=createButtonmain]' )
+			.forEach( ( input ) => input.removeEventListener( 'openedFilterMenu', runLoadScript ) );
+	}
 };
 
-window.addEventListener( 'load', () => {
+// load script early to allow crm scripts load even the user focus input before the whole page is fully loaded on 'load' event
+window.addEventListener( 'DOMContentLoaded', () => {
 	signuplogin();
 } );
-
-window.removeEventListener( 'load', signuplogin );

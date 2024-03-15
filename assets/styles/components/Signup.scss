@@ -3,7 +3,6 @@
 
 @use "../common/mixins" as *;
 @use "../common/variables" as *;
-@forward "./SignupFormSimple";
 @forward "../elements/FilterMenu";
 
 .Signup {
@@ -89,20 +88,42 @@
 			height: 3.5em;
 			font-size: 1rem;
 			text-align: center;
+
+			&[data-id="createButtonmain"][disabled] {
+
+				.WorkingPanel {
+
+					display: flex !important;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					z-index: 5;
+					margin-right: 0.75em;
+
+					.gear-wheels {
+						position: relative;
+						z-index: 9;
+
+						@include square(2.3125em);
+					}
+
+				}
+			}
 		}
 
 		[data-id="signUpError"] {
 			position: relative;
 			font-size: 14px;
+			line-height: 1.3;
 			text-align: center;
-			color: $red;
-
-			div {
-				position: absolute;
-				bottom: 8px;
-				width: 100%;
-				background-color: #fff;
-			}
+			color: $saturated-red;
+			background: $desaturated-red;
+			border-color: $saturated-red;
+			border-width: $input-border-width-normal;
+			border-style: solid;
+			border-radius: ($border-radius - 2);
+			padding: 1em 0.5em;
+			margin-bottom: 1em;
 		}
 
 		[data-id="domainFieldmain"] {
@@ -120,7 +141,10 @@
 			font-size: 14px;
 			padding: 0 2em;
 			margin: 1.5em 0;
-			cursor: pointer;
+
+			label {
+				cursor: pointer;
+			}
 
 			[type="checkbox"] {
 				display: none;
@@ -164,21 +188,43 @@
 			}
 		}
 
+		[data-id="captchaFieldmain"] {
+
+			.grecaptcha-wrapper {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.ErrorMessage {
+				width: 100%;
+				text-align: center;
+				left: 0;
+			}
+		}
+
 		&__item {
 			position: relative;
 			margin-bottom: 1.125em;
 
-			&::before {
 
-				@include color(color, border-color-gray-icon);
-				position: absolute;
-				top: 50%;
-				transform: translateY(-50%);
-				left: 20px;
-				font-size: 18px;
-				line-height: 48px;
-				text-align: center;
-				width: 22px;
+			.InputWrapper {
+				position: relative;
+
+				&::before {
+
+					@include color(color, font-color-level3);
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					left: 20px;
+					font-size: 18px;
+					line-height: 1;
+					text-align: center;
+					width: 22px;
+					z-index: 1;
+
+				}
 			}
 
 			input {
@@ -243,6 +289,7 @@
 					}
 
 					span {
+						line-height: 1.2;
 						white-space: nowrap;
 						overflow: hidden;
 						text-overflow: ellipsis;
@@ -374,7 +421,7 @@
 
 				svg {
 
-					@include color(fill, border-color-gray-icon);
+					@include color(fill, font-color-level3);
 					position: absolute;
 					top: 50%;
 					left: 20px;
@@ -385,7 +432,7 @@
 
 			&:focus-within {
 
-				&::before {
+				.InputWrapper::before {
 
 					@include color(color, font-color-dark);
 				}
@@ -468,13 +515,20 @@
 				}
 			}
 
+			.DescriptionText {
+
+				color: $dark-gray;
+				font-size: 12px;
+				line-height: 1.3;
+				margin-top: 0.4em;
+			}
+
 			.ErrorMessage {
 
 				@include color(color, error-color);
-				position: absolute;
-				left: 20px;
 				font-size: 12px;
 				line-height: 1.3;
+				margin-top: 0.4em;
 			}
 
 			.InfoMessage {
@@ -541,7 +595,7 @@
 
 				}
 
-				&::before {
+				.InputWrapper::before {
 
 					@include color(color, successful-color);
 				}
@@ -595,7 +649,7 @@
 
 				}
 
-				&::before {
+				.InputWrapper::before {
 
 					@include color(color, error-color);
 				}

@@ -26,6 +26,7 @@ $theme_includes = array(
 	'lib/cleaner/wordpress.php',  // Clean WordPress things
 	'lib/cleaner/wpml.php',       // Clean WPML things
 	'lib/cleaner/yoast.php',      // Clean Yoast things
+	'lib/trial-signup/class-trial-signup.php', // Trial signup php submission
 	'functions/main.php', // Other includes
 	'functions/rest-api.php', // Rest API mods
 	'functions/post-query-mods.php', // Post Query mods
