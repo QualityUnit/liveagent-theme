@@ -51,14 +51,14 @@
 		</button>
 
 		<div class="ContactUs__status">
-			<p><?php _e( 'We are available for you 24/7.', 'ms' ); ?><br />
-			<?php _e( 'Feel free to contact us.', 'ms' ); ?>
+			<p><?php _e( 'We are available for you 24/7.', 'contactus' ); ?><br />
+			<?php _e( 'Feel free to contact us.', 'contactus' ); ?>
 			</p>
 			<ul class="ContactUs__status--info" id="contactUsStatus">
-				<li class="ContactUs__status ok" data-status="ok"><?php _e( 'Servers online', 'ms' ); ?></li>
-				<li class="ContactUs__status outage" data-status="outage"><?php _e( 'Servers offline', 'ms' ); ?></li>
-				<li class="ContactUs__status degradation" data-status="degradation"><?php _e( 'Servers busy', 'ms' ); ?></li>
-				<li class="ContactUs__status unavailable" data-status="unavailable"><?php _e( 'Status unavailable', 'ms' ); ?></li>
+				<li class="ContactUs__status ok" data-status="ok"><?php _e( 'Servers online', 'contactus' ); ?></li>
+				<li class="ContactUs__status outage" data-status="outage"><?php _e( 'Servers offline', 'contactus' ); ?></li>
+				<li class="ContactUs__status degradation" data-status="degradation"><?php _e( 'Servers busy', 'contactus' ); ?></li>
+				<li class="ContactUs__status unavailable" data-status="unavailable"><?php _e( 'Status unavailable', 'contactus' ); ?></li>
 			</ul>
 		</div>
 
