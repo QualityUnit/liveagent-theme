@@ -331,33 +331,46 @@ class Trial_Signup {
 	public static function include_crm() {
 		if ( ! self::$crm_script_loaded ) {
 			
-			if ( ! self::$is_thank_you_page ) {
-				self::use_grecaptcha();
-			}
+			self::use_grecaptcha();
 
-			$handle = self::$is_thank_you_page ? 'qu-crm-script' : 'qu-crm-script-lazy';
+			$handle = 'qu-crm-script-lazy';
 
 			// crm script dependency app_js to allow usage of set/getCookies from custom scritps
-			$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) );
-			wp_enqueue_script( $handle, esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js', array( 'app_js' ), esc_attr( $crm_ver_app ), array( 'in_footer' => true ) );
+			$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crmForms.js' ) );
+			wp_enqueue_script( $handle, esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crmForms.js', array( 'app_js' ), esc_attr( $crm_ver_app ), array( 'in_footer' => true ) );
 
-			wp_localize_script(
-				$handle,
-				'quCrmData',
-				array(
-					'localization'   => self::$localized_text,
-					'apiBase'        => self::$crm_api_base,
-					'nonce'          => wp_create_nonce( 'qu-crm-nonce' ),
-					'captchaVersion' => self::$grecaptcha['version'],
-					'productId'      => self::get_product_id(),
-					'signupData'     => self::get_signup_response_data( 
-						array( 'id', 'customer_email', 'account_id', 'form_data' ) 
-					),
-				)
-			);
+			self::localize_script( $handle );
 
 			self::$crm_script_loaded = true;
 		}
+	}
+
+	public static function include_crm_installer() {
+			
+			$handle = 'qu-crm-installer-script';
+
+			// crm script dependency app_js to allow usage of set/getCookies from custom scritps
+			$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crmInstaller.js' ) );
+			wp_enqueue_script( $handle, esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crmInstaller.js', array( 'app_js' ), esc_attr( $crm_ver_app ), array( 'in_footer' => true ) );
+
+			self::localize_script( $handle );
+	}
+
+	private static function localize_script( $handle ) {
+		wp_localize_script(
+			$handle,
+			'quCrmData',
+			array(
+				'localization'   => self::$localized_text,
+				'apiBase'        => self::$crm_api_base,
+				'nonce'          => wp_create_nonce( 'qu-crm-nonce' ),
+				'captchaVersion' => self::$grecaptcha['version'],
+				'productId'      => self::get_product_id(),
+				'signupData'     => self::get_signup_response_data( 
+					array( 'id', 'customer_email', 'account_id', 'form_data' ) 
+				),
+			)
+		);
 	}
 
 	public static function use_grecaptcha() {

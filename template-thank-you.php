@@ -5,7 +5,7 @@
 
 use QualityUnit\Trial_Signup;
 set_source( 'thank-you', 'pages/ThankYou', 'css' );
-Trial_Signup::include_crm();
+Trial_Signup::include_crm_installer();
 ?>
 
 <div data-id="signup-trial-installation" id="loader" class="urlslab-skip-all">
