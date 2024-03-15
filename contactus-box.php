@@ -54,12 +54,12 @@
 			<p><?php _e( 'We are available for you 24/7.', 'contactus' ); ?><br />
 			<?php _e( 'Feel free to contact us.', 'contactus' ); ?>
 			</p>
-			<ul class="ContactUs__status--info" id="contactUsStatus">
-				<li class="ContactUs__status ok" data-status="ok"><?php _e( 'Servers online', 'contactus' ); ?></li>
-				<li class="ContactUs__status outage" data-status="outage"><?php _e( 'Servers offline', 'contactus' ); ?></li>
-				<li class="ContactUs__status degradation" data-status="degradation"><?php _e( 'Servers busy', 'contactus' ); ?></li>
-				<li class="ContactUs__status unavailable" data-status="unavailable"><?php _e( 'Status unavailable', 'contactus' ); ?></li>
-			</ul>
+			<div class="ContactUs__status--info" id="contactUsStatus">
+				<a href="https://status.liveagent.com/" target="_blank" class="ContactUs__status ok" data-status="ok"><?php _e( 'Servers online', 'contactus' ); ?></a>
+				<a href="https://status.liveagent.com/" target="_blank" class="ContactUs__status outage" data-status="outage"><?php _e( 'Servers offline', 'contactus' ); ?></a>
+				<a href="https://status.liveagent.com/" target="_blank" class="ContactUs__status degradation" data-status="degradation"><?php _e( 'Servers busy', 'contactus' ); ?></a>
+				<a href="https://status.liveagent.com/" target="_blank" class="ContactUs__status unavailable" data-status="unavailable"><?php _e( 'Status unavailable', 'contactus' ); ?></a>
+			</div>
 		</div>
 
 		<ul class="ContactUs__menu">
