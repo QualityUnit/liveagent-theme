@@ -665,8 +665,9 @@ class Trial_Signup {
 	}
 
 	private static function init_defaults() {
-		self::$trial_signup_response = self::get_cookie_data( 'trial_signup_response', array(), true );
-
+		$data                        = self::get_cookie_data( 'trial_signup_response', array(), true );
+		self::$trial_signup_response = self::sanitize_cookie_data( $data );
+		
 		self::$regions = array(
 			'NA' => __( 'Americas (US)', 'qu_signup' ),
 			'EU' => __( 'Europe & Africa (EU)', 'qu_signup' ),
@@ -721,7 +722,15 @@ class Trial_Signup {
 		}
 		return '';
 	}
-
+	
+	private static function sanitize_cookie_data( $data ) {
+		$sanitized = array();
+		foreach ( $data as $key => $value ) {
+			$sanitized[ $key ] = sanitize_text_field( $value );
+		}
+		return $sanitized;
+	}
+	
 	private static function is_error_state() {
 		return is_array( self::$error_state ) && ! empty( self::$error_state );
 	}
