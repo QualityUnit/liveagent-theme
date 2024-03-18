@@ -10,7 +10,6 @@ class CrmInstaller {
 
 		this.productDomain = 'ladesk.com';
 		this.authTokenName = 'AuthToken';
-		this.userFormData = this.signupData.form_data;
 
 		this.progress = 0;
 		this.progressDots = '';
@@ -203,12 +202,12 @@ class CrmInstaller {
 	};
 
 	createGoToAppForm = ( data ) => {
-		const goToText = this.userFormData.is_redeem ? this.localized.textGoToApp : this.localized.textGoToLiveAgent;
+		const goToText = this.signupData.is_redeem ? this.localized.textGoToApp : this.localized.textGoToLiveAgent;
 		const redirectFormString =
 		`<form method='POST' action='${ data.login_url }' data-id="trialform">
 			<input type='hidden' name='action' value='login'>
 			<input type='hidden' name='${ this.authTokenName }' value='${ data.login_token }'>
-			<input type='hidden' name='l' value='${ this.userFormData.language }'>
+			<input type='hidden' name='l' value='${ this.signupData.language }'>
 			<input type='submit' name='goto' value='${ goToText }' class='FinalButton' style='display: none;'>
 			<a href='${ data.login_url }' data-id='gotoapp' class='FinalButton'>${ goToText }</a>
 		</form>`;
@@ -275,9 +274,9 @@ class CrmInstaller {
 		this.handleTrackersAction();
 		this.handlePaqAction();
 
-		if ( this.userFormData.is_redeem && this.userFormData.plan_type && typeof gtag !== 'undefined' ) {
+		if ( this.signupData.is_redeem && this.signupData.plan_type && typeof gtag !== 'undefined' ) {
 			try {
-				gtag( 'event', this.userFormData.plan_type, {
+				gtag( 'event', this.signupData.plan_type, {
 					event_category: 'SignUp',
 				} );
 			} catch ( e ) {
@@ -306,7 +305,7 @@ class CrmInstaller {
 					'trackEvent',
 					'Trial',
 					'created',
-					`${ this.userFormData.subdomain }.${ this.productDomain }`,
+					`${ this.signupData.subdomain }.${ this.productDomain }`,
 				] );
 			} catch ( e ) {
 				// eslint-disable-next-line no-console
@@ -372,7 +371,7 @@ class CrmInstaller {
 				sale.setProductID( '' );
 				sale.setData1( this.signupData.customer_email );
 				sale.setData3( 'api_qu_signup' );
-				sale.setData4( this.userFormData.subdomain );
+				sale.setData4( this.signupData.subdomain );
 				sale.setCampaignID( this.pap.campaign );
 				PostAffTracker.register();
 			} catch ( e ) {
@@ -400,7 +399,7 @@ class CrmInstaller {
 					'trackEvent',
 					'Trial',
 					'install',
-					`${ this.userFormData.subdomain }.${ this.productDomain }`,
+					`${ this.signupData.subdomain }.${ this.productDomain }`,
 				] );
 			} catch ( e ) {
 				// eslint-disable-next-line no-console

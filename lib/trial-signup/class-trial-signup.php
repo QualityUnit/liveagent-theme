@@ -9,10 +9,9 @@ class Trial_Signup {
 	private static $localized_text          = array();
 	private static $form_data               = array();
 	private static $error_state             = array();
-	private static $trial_signup_reponse    = array();
+	private static $trial_signup_response   = array();
 	private static $crm_script_loaded       = false;
 	private static $form_type_free          = false;
-	private static $is_thank_you_page       = false;
 	private static $thank_you_template_name = 'template-thank-you';
 	private static $grecaptcha              = array(
 		'site_key' => '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ',
@@ -31,7 +30,6 @@ class Trial_Signup {
 	}
 
 	public static function init() {
-		self::open_session();
 		self::init_defaults();
 		
 		if ( ! self::is_error_state() ) {
@@ -50,12 +48,12 @@ class Trial_Signup {
 		$form_data = self::$form_data;
 
 		if ( is_array( $form_data ) && ! empty( $form_data ) ) {
-			$target           = ! isset( $form_data['redeem_code'] ) ? self::$slugs['trial'] : self::$slugs['redeem-code'];
-			$validation_error = self::validate_form_data();
+			$target = ! isset( $form_data['redeem_code'] ) ? self::$slugs['trial'] : self::$slugs['redeem-code'];
 			
-			if ( ! empty( $validation_error ) ) {
-				self::set_session_data( 'trial_signup_error', $validation_error );
-				self::redirect( $target );
+			self::$error_state = self::validate_form_data();
+
+			if ( ! empty( self::$error_state ) ) {
+				return;
 			}
 
 			$submit_response = self::process_crm_api_request();
@@ -63,34 +61,35 @@ class Trial_Signup {
 
 				// account installation starts
 				if ( isset( $submit_response['account_id'] ) ) {
-					// push form data we need on thank-you page 
-					$submit_response['form_data'] = array(
-						'subdomain' => $form_data['subdomain'],
-						'language'  => $form_data['language'],
-					);
 					
+					$cookie_data = array(
+						'id'             => $submit_response['id'],
+						'domain'         => $submit_response['domain'],
+						'customer_email' => $submit_response['customer_email'],
+						'customer_name'  => $submit_response['customer_name'],
+						'account_id'     => $submit_response['account_id'],
+						'subdomain'      => $form_data['subdomain'],
+						'language'       => $form_data['language'],
+					);
+
 					if ( isset( $form_data['redeem_code'] ) ) {
-						$submit_response['form_data']['is_redeem'] = true;
+						$cookie_data['is_redeem'] = true;
 					}
 
 					if ( isset( $form_data['plan_type'] ) ) {
-						$submit_response['form_data']['plan_type'] = $form_data['plan_type'];
+						$cookie_data['plan_type'] = $form_data['plan_type'];
 					}
-
-					self::set_session_data( 'trial_signup_reponse', $submit_response );
-					self::clean_session( 'trial_signup_form_data' );
 					
+					self::set_cookie_data( 'trial_signup_response', $cookie_data );
 					self::redirect( self::$slugs['thank-you'] );
 				}
 
 				// account installation failed
 				if ( isset( $submit_response['message'] ) ) {
-					$error_state = array(
+					self::$error_state = array(
 						'failure' => 'signup',
 						'message' => $submit_response['message'],
 					);
-					self::set_session_data( 'trial_signup_error', $error_state );
-					self::redirect( $target );
 				}
 			}
 		}
@@ -145,7 +144,6 @@ class Trial_Signup {
 				$form_data['ga_client_id'] = sanitize_text_field( $_POST['ga_client_id'] );
 			}
 
-			self::set_session_data( 'trial_signup_form_data', $form_data );
 			self::$form_data = $form_data;
 		}
 	}
@@ -200,27 +198,6 @@ class Trial_Signup {
 		}
 
 		return $request_data;
-	}
-
-	private static function get_signup_response_data( $keys = array() ) {
-		$trial_signup_reponse = self::$trial_signup_reponse;
-
-		if ( is_array( $trial_signup_reponse ) ) {
-
-			if ( ! empty( $keys ) ) {
-				$return_data = array();
-				foreach ( $keys as $key ) {
-					if ( isset( $trial_signup_reponse[ $key ] ) ) {
-						$return_data[ $key ] = $trial_signup_reponse[ $key ];
-					}
-				}
-				return $return_data;
-			}
-
-			return $trial_signup_reponse;
-		}
-		
-		return array();
 	}
 
 	public static function get_form_defaults() {
@@ -366,9 +343,7 @@ class Trial_Signup {
 				'nonce'          => wp_create_nonce( 'qu-crm-nonce' ),
 				'captchaVersion' => self::$grecaptcha['version'],
 				'productId'      => self::get_product_id(),
-				'signupData'     => self::get_signup_response_data( 
-					array( 'id', 'customer_email', 'account_id', 'form_data' ) 
-				),
+				'signupData'     => self::$trial_signup_response,
 			)
 		);
 	}
@@ -690,10 +665,8 @@ class Trial_Signup {
 	}
 
 	private static function init_defaults() {
-		// try to get and clean data from session (possibly to prefill submitted incorrect form without js)
-		self::$form_data            = self::get_session_data( 'trial_signup_form_data', true, array() );
-		self::$error_state          = self::get_session_data( 'trial_signup_error', true, array() );
-		self::$trial_signup_reponse = self::get_session_data( 'trial_signup_reponse', true, array() );
+		$data                        = self::get_cookie_data( 'trial_signup_response', array(), true );
+		self::$trial_signup_response = self::sanitize_cookie_data( $data );
 		
 		self::$regions = array(
 			'NA' => __( 'Americas (US)', 'qu_signup' ),
@@ -749,7 +722,15 @@ class Trial_Signup {
 		}
 		return '';
 	}
-
+	
+	private static function sanitize_cookie_data( $data ) {
+		$sanitized = array();
+		foreach ( $data as $key => $value ) {
+			$sanitized[ $key ] = sanitize_text_field( $value );
+		}
+		return $sanitized;
+	}
+	
 	private static function is_error_state() {
 		return is_array( self::$error_state ) && ! empty( self::$error_state );
 	}
@@ -767,8 +748,8 @@ class Trial_Signup {
 	}
 
 	public static function thank_you_template_actions() {
-		self::$is_thank_you_page = self::is_thank_you_template();
-		if ( self::$is_thank_you_page && is_array( self::$trial_signup_reponse ) && empty( self::$trial_signup_reponse ) ) {
+		$is_thank_you_page = self::is_thank_you_template();
+		if ( $is_thank_you_page && is_array( self::$trial_signup_response ) && empty( self::$trial_signup_response ) ) {
 			self::redirect( self::$slugs['trial'] );
 			exit;
 		}
@@ -780,43 +761,41 @@ class Trial_Signup {
 	}
 	
 	// @codingStandardsIgnoreStart
-	
-	// move crm api response using session between submit form page and target like /trial or /thank-you page
-	// data are used to prefill trial form in case of error response, or are used by crm javascript during installation
-	
-	private static function set_session_data( $key, $value ) {
-		$_SESSION[ $key ] = $value;
-	}
 
-	private static function get_session_data( $key, $unset = false, $fallback = null ) {
-		$value = isset( $_SESSION[ $key ] ) ? $_SESSION[ $key ] : $fallback;
-
-		if ( $unset && isset( $_SESSION[ $key ] ) ) {
-			unset( $_SESSION[ $key ] );
-		}
-
-		return $value;
-	}
-	
-	private static function clean_session( $key = '' ) {	
-		
-		if( $key && isset( $_SESSION[ $key ] ) ){
-			unset( $_SESSION[ $key ] );
+	private static function set_cookie_data( $key, $value, $expiry = 0, $path = '/' ) {
+		if ( is_array( $value ) ) {
+			foreach ( $value as $k => $v ) {
+				setcookie( "{$key}[$k]", $v, $expiry, $path );
+			}
 			return;
 		}
+		setcookie( $key, $value, $expiry, $path );
+	}
 
-		foreach ( array( 'trial_signup_form_data', 'trial_signup_error' ) as $session_key ) {
-			if ( isset( $_SESSION[ $session_key ] ) ) {
-				unset( $_SESSION[ $session_key ] );
+	private static function get_cookie_data( $key, $fallback = null, $unset = false ) {
+		$value = isset( $_COOKIE[ $key ] ) ? $_COOKIE[ $key ] : $fallback;
+
+		// if necessary, remove cookie after read
+		if ( $unset && isset( $_COOKIE[ $key ] ) ) {
+			self::clean_cookie( $key );
+		}
+		
+		return $value;
+	}
+
+	private static function clean_cookie( $key = '' ) {
+		if ( $key && isset( $_COOKIE[ $key ] ) ) {
+			if ( is_array( $_COOKIE[ $key ] ) ) {
+				foreach ( $_COOKIE[ $key ] as $k => $v ) {
+					setcookie( "{$key}[$k]", '', time() - 3600, '/' ); // expire cookie immediately
+				}
+				return;
 			}
+			unset( $_COOKIE[ $key ] );
+			setcookie( $key, '', time() - 3600, '/' ); // expire cookie immediately
 		}
 	}
 
-	private static function open_session() {
-		if ( ! session_id() ) {
-			session_start();
-		}
-	}
 	// @codingStandardsIgnoreEnd
 }
 
