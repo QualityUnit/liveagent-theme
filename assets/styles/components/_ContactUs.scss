@@ -426,4 +426,57 @@ $colors: (
 			transition-delay: 0s;
 		}
 	}
+
+	&__status {
+		text-align: right;
+
+		&--info {
+			$outage-color: #ce212d;
+			margin-top: 0;
+
+
+			$infoColor: (
+				"ok": #187e36,
+				"outage":$outage-color,
+				"degradation": $primary,
+				"unavailable": $medium-gray
+			);
+
+			li {
+				display: none;
+				align-items: center;
+				text-align: left;
+				font-size: 0.75rem;
+				line-height: 1.15;
+				cursor: pointer;
+
+				strong {
+					font-weight: 600;
+					text-decoration: underline;
+				}
+
+				svg {
+
+					@include square(2em);
+					fill: currentcolor;
+					margin-right: 1em;
+				}
+
+				@media (hover: hover) {
+
+					&[class]:hover {
+						background-color: rgba($outage-color, 0.25);
+					}
+				}
+
+				&.outage {
+					border: 1px solid $outage-color;
+					background-color: rgba($outage-color, 0.125);
+					color: $outage-color;
+					padding: 0.75em;
+					border-radius: 6px;
+				}
+			}
+		}
+	}
 }
