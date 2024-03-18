@@ -102,7 +102,7 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_linkedin_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>">
+								<a href="<?php _e( 'https://www.linkedin.com/company/liveagent/', 'ms' ); ?>" rel="nofollow noopener" target="_blank" title="<?php _e( 'LiveAgent\'s LinkedIn', 'ms' ); ?>">
 									<svg>
 										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-linkedin' ); ?>"></use>
 									</svg>
@@ -111,7 +111,7 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 						<?php } ?>
 						<?php if ( get_option( 'ms_theme_ms_footer_youtube_link' ) ) { ?>
 							<li>
-								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>">
+								<a href="<?php _e( 'https://www.youtube.com/channel/UCSG5TrYcDozs6jkLf66taBg', 'ms' ); ?>" rel="nofollow noopener" target="_blank" title="<?php _e( 'LiveAgent\'s YouTube', 'ms' ); ?>">
 									<svg>
 										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-youtube' ); ?>"></use>
 									</svg>
@@ -119,7 +119,7 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 							</li>
 						<?php } ?>
 						<li>
-							<a href="https://wa.me/17862041375?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." rel="noopener" target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
+							<a href="https://wa.me/17862041375" rel="nofollow noopener" target="_blank" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
 								<svg>
 									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use>
 								</svg>
