@@ -81,7 +81,7 @@ class Trial_Signup {
 					}
 					
 					self::set_cookie_data( 'trial_signup_response', $cookie_data );
-					self::redirect( add_query_arg( 'building', '', self::$slugs['thank-you'] ) );
+					self::redirect( add_query_arg( 'ver', 'installation', self::$slugs['thank-you'] ) );
 				}
 
 				// account installation failed
@@ -746,7 +746,7 @@ class Trial_Signup {
 
 	public static function thank_you_template_actions() {
 		$is_thank_you_page = self::is_thank_you_template();
-		if ( $is_thank_you_page && ! isset( $_GET['building'] ) ) {
+		if ( $is_thank_you_page && ( ! isset( $_GET['ver'] ) || 'installation' !== $_GET['ver'] ) ) {
 			self::redirect( self::$slugs['trial'] );
 			exit;
 		}
