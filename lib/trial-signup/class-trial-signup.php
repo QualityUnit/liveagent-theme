@@ -49,7 +49,7 @@ class Trial_Signup {
 
 		if ( is_array( $form_data ) && ! empty( $form_data ) ) {
 			$target = ! isset( $form_data['redeem_code'] ) ? self::$slugs['trial'] : self::$slugs['redeem-code'];
-			
+
 			self::$error_state = self::validate_form_data();
 
 			if ( ! empty( self::$error_state ) ) {
@@ -81,7 +81,7 @@ class Trial_Signup {
 					}
 					
 					self::set_cookie_data( 'trial_signup_response', $cookie_data );
-					self::redirect( self::$slugs['thank-you'] );
+					self::redirect( add_query_arg( 'building', '', self::$slugs['thank-you'] ) );
 				}
 
 				// account installation failed
@@ -342,8 +342,8 @@ class Trial_Signup {
 				'apiBase'        => self::$crm_api_base,
 				'nonce'          => wp_create_nonce( 'qu-crm-nonce' ),
 				'captchaVersion' => self::$grecaptcha['version'],
+				'trialUrl'       => home_url( self::$slugs['trial'] ),
 				'productId'      => self::get_product_id(),
-				'signupData'     => self::$trial_signup_response,
 			)
 		);
 	}
@@ -665,9 +665,6 @@ class Trial_Signup {
 	}
 
 	private static function init_defaults() {
-		$data                        = self::get_cookie_data( 'trial_signup_response', array(), true );
-		self::$trial_signup_response = self::sanitize_cookie_data( $data );
-		
 		self::$regions = array(
 			'NA' => __( 'Americas (US)', 'qu_signup' ),
 			'EU' => __( 'Europe & Africa (EU)', 'qu_signup' ),
@@ -749,7 +746,7 @@ class Trial_Signup {
 
 	public static function thank_you_template_actions() {
 		$is_thank_you_page = self::is_thank_you_template();
-		if ( $is_thank_you_page && is_array( self::$trial_signup_response ) && empty( self::$trial_signup_response ) ) {
+		if ( $is_thank_you_page && ! isset( $_GET['building'] ) ) {
 			self::redirect( self::$slugs['trial'] );
 			exit;
 		}
@@ -764,36 +761,10 @@ class Trial_Signup {
 
 	private static function set_cookie_data( $key, $value, $expiry = 0, $path = '/' ) {
 		if ( is_array( $value ) ) {
-			foreach ( $value as $k => $v ) {
-				setcookie( "{$key}[$k]", $v, $expiry, $path );
-			}
+			setcookie( $key, json_encode( $value ), $expiry, $path );
 			return;
 		}
 		setcookie( $key, $value, $expiry, $path );
-	}
-
-	private static function get_cookie_data( $key, $fallback = null, $unset = false ) {
-		$value = isset( $_COOKIE[ $key ] ) ? $_COOKIE[ $key ] : $fallback;
-
-		// if necessary, remove cookie after read
-		if ( $unset && isset( $_COOKIE[ $key ] ) ) {
-			self::clean_cookie( $key );
-		}
-		
-		return $value;
-	}
-
-	private static function clean_cookie( $key = '' ) {
-		if ( $key && isset( $_COOKIE[ $key ] ) ) {
-			if ( is_array( $_COOKIE[ $key ] ) ) {
-				foreach ( $_COOKIE[ $key ] as $k => $v ) {
-					setcookie( "{$key}[$k]", '', time() - 3600, '/' ); // expire cookie immediately
-				}
-				return;
-			}
-			unset( $_COOKIE[ $key ] );
-			setcookie( $key, '', time() - 3600, '/' ); // expire cookie immediately
-		}
 	}
 
 	// @codingStandardsIgnoreEnd
