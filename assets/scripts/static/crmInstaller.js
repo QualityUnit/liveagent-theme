@@ -3,6 +3,7 @@
 
 class CrmInstaller {
 	constructor( installationElement ) {
+		this.installationStarted = false;
 		this.signupData = null;
 		this.localized = quCrmData.localization;
 		this.apiBase = quCrmData.apiBase;
@@ -58,7 +59,7 @@ class CrmInstaller {
 		this.fields.progressDoneOverlay = this.fields.main.querySelector( '.progress__done__overlay' );
 		this.fields.redirectButtonPanel = this.fields.main.querySelector( '[data-id="redirectButtonPanel"]' );
 
-		this.handleStartupActions();
+		this.showHiddenParts();
 		this.handleInstallation();
 	};
 
@@ -80,6 +81,11 @@ class CrmInstaller {
 				}, 1500 );
 
 				return;
+			}
+
+			if ( ! this.installationStarted ) {
+				this.handleStartupActions();
+				this.installationStarted = true;
 			}
 
 			if ( data.account_status === 'I' ) {
@@ -273,7 +279,6 @@ class CrmInstaller {
 	};
 
 	handleStartupActions = () => {
-		this.showHiddenParts();
 		this.handlePapAction();
 		this.handleTrackersAction();
 		this.handlePaqAction();
