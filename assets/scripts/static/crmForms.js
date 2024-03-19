@@ -428,10 +428,6 @@ const handleSourceScripts = () => {
 		return sources.join();
 	};
 
-	if ( getCookie( 'crmsor' ) !== null ) {
-		return;
-	}
-
 	const urlString = window.location.href;
 	const url = new URL( urlString );
 	let source = '';
