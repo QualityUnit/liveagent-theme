@@ -1,9 +1,9 @@
 /* global _paq, Piwik, gtag, PostAffTracker, analytics, twq */
-/* global quCrmData */
+/* global quCrmData, getCookie, setCookie */
 
 class CrmInstaller {
 	constructor( installationElement ) {
-		this.signupData = quCrmData.signupData;
+		this.signupData = null;
 		this.localized = quCrmData.localization;
 		this.apiBase = quCrmData.apiBase;
 		this.nonce = quCrmData.nonce;
@@ -35,7 +35,16 @@ class CrmInstaller {
 	}
 
 	init = () => {
-		if ( ! this.signupData.id ) {
+		try {
+			const signupResponse = getCookie( 'trial_signup_response' );
+			this.signupData = JSON.parse( decodeURIComponent( signupResponse ) );
+		} catch ( error ) {
+			// eslint-disable-next-line no-console
+			console.error( error );
+		}
+
+		if ( ! this.signupData ) {
+			window.location.href = quCrmData.trialUrl;
 			return;
 		}
 
@@ -48,9 +57,6 @@ class CrmInstaller {
 		this.fields.introductionVideos = this.fields.main.querySelector( '.Introduction__videos' );
 		this.fields.progressDoneOverlay = this.fields.main.querySelector( '.progress__done__overlay' );
 		this.fields.redirectButtonPanel = this.fields.main.querySelector( '[data-id="redirectButtonPanel"]' );
-
-		// do not lazy load videos and images, installation on thank-you page starts immediately on load
-		//this.initLazyLoadedContent();
 
 		this.handleStartupActions();
 		this.handleInstallation();
@@ -90,6 +96,9 @@ class CrmInstaller {
 				this.setProgress( 100 );
 				this.handleFinishActions();
 				this.handleFinishOverlay();
+
+				// remove cookie after installation, installation process is available even the user refresh page or come back
+				setCookie( 'trial_signup_response', '', -1 );
 
 				if ( data.login_token ) {
 					this.createGoToAppForm( data );
@@ -138,11 +147,6 @@ class CrmInstaller {
 				message: error.message,
 			};
 		}
-	};
-
-	initLazyLoadedContent = () => {
-		const elements = this.fields.main.querySelectorAll( 'video[data-src-trial], img[data-src-trial]' );
-		elements.forEach( ( elm ) => elm.setAttribute( 'src', elm.dataset.srcTrial ) );
 	};
 
 	setProgress = ( progress ) => {
