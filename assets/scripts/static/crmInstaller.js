@@ -283,6 +283,16 @@ class CrmInstaller {
 		this.handleTrackersAction();
 		this.handlePaqAction();
 
+		if ( ! this.signupData.is_redeem && typeof gtag !== 'undefined' ) {
+			try {
+				gtag( 'set', 'user_data', { email: this.signupData.customer_email } );
+				gtag( 'event', 'Trial sign_up', { send_to: 'GTM-MR5X6FD' } );
+			} catch ( e ) {
+				// eslint-disable-next-line no-console
+				console.warn( 'Tracking script failed:', 'gtag' );
+			}
+		}
+
 		if ( this.signupData.is_redeem && this.signupData.plan_type && typeof gtag !== 'undefined' ) {
 			try {
 				gtag( 'event', this.signupData.plan_type, {

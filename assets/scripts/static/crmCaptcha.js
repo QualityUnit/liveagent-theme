@@ -1,4 +1,4 @@
-/* global grecaptcha, gtag, getCookie */
+/* global grecaptcha, getCookie */
 /* global quCrmData */
 
 ( () => {
@@ -65,19 +65,13 @@ function quCaptchaOnloadCallback() {
 
 		const grecaptchaInput = form.querySelector( 'input[data-id="grecaptcha"]' );
 		const gaClientInput = form.querySelector( 'input[data-id="ga_client_id"]' );
-		const emailInput = form.querySelector( '[data-id=mailFieldmain] input[name=email]' );
 		const submitButton = form.querySelector( '[data-id=submitFieldmain] button[data-id=createButtonmain]' );
-		const isRedeemForm = form.querySelector( '[data-id=codeFieldmain] input[name=redeem_code]' ) ? true : false;
 
 		const gaUserId = getCookie( '_ga' ) || '';
 
-		const handleFinalActions = () => {
+		const handleBeforeSubmiActions = () => {
 			if ( gaClientInput ) {
 				gaClientInput.value = gaUserId;
-			}
-			if ( ! isRedeemForm && typeof gtag !== 'undefined' ) {
-				gtag( 'set', 'user_data', { email: emailInput ? emailInput.value : '' } );
-				gtag( 'event', 'Trial sign_up', { send_to: 'GTM-MR5X6FD' } );
 			}
 		};
 
@@ -94,7 +88,7 @@ function quCaptchaOnloadCallback() {
 							if ( grecaptchaInput ) {
 								grecaptchaInput.value = token;
 							}
-							handleFinalActions();
+							handleBeforeSubmiActions();
 							form.submit();
 						} );
 					} );
@@ -139,7 +133,7 @@ function quCaptchaOnloadCallback() {
 						return;
 					}
 					submitButton.setAttribute( 'disabled', '' );
-					handleFinalActions();
+					handleBeforeSubmiActions();
 					form.submit();
 				} catch ( error ) {
 					submitButton.removeAttribute( 'disabled' );
