@@ -6,6 +6,10 @@ function create_language_menu( $region, $atts, $lang_urls, $lang_flags, $lang_co
 	<ul>
 		<?php
 		for ( $i = $atts[ $region . '_from' ]; $i < $atts[ $region . '_to' ]; $i++ ) {
+
+			if ( ! isset( $lang_codes[ $i ], $lang_flags[ $i ], $lang_urls[ $i ], $lang_names[ $i ], $lang_active[ $i ] ) ) {
+				continue;
+			}
 			?>
 			<li class="Header__flags--item Header__flags--item-<?= esc_html( $lang_codes[ $i ] ); ?>" data-region="<?= esc_attr( $region ); ?>" lang="<?= esc_attr( $lang_codes[ $i ] ); ?>">
 				<?php
