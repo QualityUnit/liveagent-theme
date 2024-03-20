@@ -140,32 +140,29 @@
 	}
 
 	if ( query( '.Header__flags #languageSwitcher-toggle' ) !== null ) {
-		const langSwitcherToggle = query(
-			'.Header__flags #languageSwitcher-toggle'
-		);
-
-		/* Toggles language switcher */
+		const langSwitcherToggle = query( '.Header__flags #languageSwitcher-toggle' );
 		const langSwitcherMenu = query( '.Header__flags .Header__flags--mainmenu' );
-		langSwitcherToggle.addEventListener( 'click', ( event ) => {
-			event.stopPropagation();
-			if ( ! langSwitcherMenu.classList.contains( 'visible' ) ) {
-				langSwitcherMenu.dataset.active = 'active';
-				langSwitcherMenu.classList.add( 'active' );
-				setTimeout( () => {
-					langSwitcherMenu.classList.add( 'visible' );
-				}, 200 );
-			}
-			hideLanguageSwitcher( langSwitcherMenu );
-		} );
 
-		document.addEventListener( 'click', ( event ) => {
-			if (
-				! event.target.classList.contains( 'Header__flags--mainmenu' )
-			) {
+		if ( langSwitcherToggle && langSwitcherMenu ) {
+			langSwitcherToggle.addEventListener( 'click', ( event ) => {
 				event.stopPropagation();
+				if ( ! langSwitcherMenu.classList.contains( 'visible' ) ) {
+					langSwitcherMenu.dataset.active = 'active';
+					langSwitcherMenu.classList.add( 'active' );
+					setTimeout( () => {
+						langSwitcherMenu.classList.add( 'visible' );
+					}, 200 );
+				}
 				hideLanguageSwitcher( langSwitcherMenu );
-			}
-		} );
+			} );
+
+			document.addEventListener( 'click', ( event ) => {
+				if ( ! event.target.classList.contains( 'Header__flags--mainmenu' ) ) {
+					event.stopPropagation();
+					hideLanguageSwitcher( langSwitcherMenu );
+				}
+			} );
+		}
 	}
 
 	/* Data Href */
