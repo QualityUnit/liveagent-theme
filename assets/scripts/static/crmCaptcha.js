@@ -5,6 +5,19 @@
 	initCaptchaApi();
 
 	async function initCaptchaApi() {
+		const handleError = () => {
+			//crm respond with error or failed, show error message on submit attempt
+			document.querySelectorAll( 'form[data-form-type=signup-trial-form' ).forEach( ( form ) => {
+				form.addEventListener( 'submit', () => {
+					const errorWrapper = form.querySelector( '[data-id=signUpError]' );
+					if ( errorWrapper ) {
+						errorWrapper.textContent = quCrmData.localization.textErrorCaptcha;
+						errorWrapper.classList.remove( 'hidden' );
+					}
+				} );
+			} );
+		};
+
 		try {
 			const response = await fetch( quCrmData.apiBase + 'recaptcha', {
 				method: 'GET',
@@ -47,10 +60,13 @@
 						form.insertAdjacentHTML( 'afterbegin', `<input class="hidden" name="fcaptcha" value="" autocomplete="off">` );
 					}
 				} );
+				return;
 			}
+			handleError();
 		} catch ( error ) {
 			// eslint-disable-next-line no-console
 			console.error( error );
+			handleError();
 		}
 	}
 } )();

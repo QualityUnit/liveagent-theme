@@ -587,6 +587,7 @@ class Trial_Signup {
 			'textProgressRedirecting' => __( 'Almost done, just a moment', 'qu_signup' ),
 			'textProgressFinalizing'  => __( 'Your LiveAgent is ready to use', 'qu_signup' ),
 			'textError'               => __( 'Something went wrong.', 'qu_signup' ),
+			'textErrorCaptcha'               => __( 'Cannot load captcha', 'qu_signup' ),
 		);
 
 		if ( has_filter( 'wpml_current_language' ) ) {

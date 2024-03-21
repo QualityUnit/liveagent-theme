@@ -120,6 +120,8 @@ function ms_signup_sidebar( $atts ) {
 				
 				<?php Trial_Signup::grecaptcha_parts( 'sidebar' ); ?>
 
+				<div data-id="signUpError" class="hidden"></div>
+
 				<div data-id="submitFieldmain" class="Signup__sidebar__submit urlslab-skip-keywords">
 					<button type="submit" data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="dataLayer.push({'Click data-id': 'startYourfreeAccountBtn'});">
 						<div class="WorkingPanel" style="display: none;">
