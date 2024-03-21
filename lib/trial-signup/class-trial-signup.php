@@ -510,7 +510,7 @@ class Trial_Signup {
 		// codes taken from crm js files, wpmlCode => crmCode
 
 		$custom_codes = array(
-			'ar'      => 'ar-SA',
+			'ar'      => 'ar-sa',
 			'pt-br'   => 'pt-BR', // crm _br
 			'zh-hans' => 'zh-CN', // crm _cn
 			'en'      => 'en-US',
