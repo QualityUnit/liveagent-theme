@@ -7,11 +7,10 @@ class CrmFormHandler {
 		this.localized = quCrmData.localization;
 		this.apiBase = quCrmData.apiBase;
 		this.nonce = quCrmData.nonce;
-		this.captchaVersion = quCrmData.captchaVersion;
 		this.productId = quCrmData.productId;
 		this.liveValidationTimeout = undefined;
-		this.shouldCheckDomain = true;
 		this.lastValidatedDomain = undefined;
+		this.shouldCheckDomain = true;
 
 		this.fields = {
 			name: { valid: false },
@@ -195,6 +194,8 @@ class CrmFormHandler {
 
 	isFormValid = () => {
 		const fields = this.fields;
+		const captcha = this.form.dataset.captcha;
+
 		const validity = [];
 		Object.keys( fields ).forEach( ( key ) => {
 			const input = fields[ key ].input;
@@ -204,7 +205,7 @@ class CrmFormHandler {
 			}
 		} );
 
-		if ( this.captchaVersion === 'v2' ) {
+		if ( captcha && captcha.version === 'v2' ) {
 			validity.push( this.validateCaptchaV2() );
 		}
 
@@ -427,10 +428,6 @@ const handleSourceScripts = () => {
 
 		return sources.join();
 	};
-
-	if ( getCookie( 'crmsor' ) !== null ) {
-		return;
-	}
 
 	const urlString = window.location.href;
 	const url = new URL( urlString );

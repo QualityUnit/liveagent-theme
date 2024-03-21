@@ -92,7 +92,9 @@ function ms_signup_form_free() {
 			</div>
 
 			<?php Trial_Signup::grecaptcha_parts(); ?>
-			
+
+			<div data-id="signUpError" class="hidden"></div>
+
 			<div data-id="submitFieldmain" class="Signup__form__submit">
 				<button type="submit" data-id="createButtonmain" class="Button Button--outline createTrialButton">
 					<div class="WorkingPanel" style="display: none;">

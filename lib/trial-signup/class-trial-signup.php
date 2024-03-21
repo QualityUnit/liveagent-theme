@@ -5,7 +5,7 @@ class Trial_Signup {
 	private static $crm_api_base            = 'https://crm.qualityunit.com/api/v3/';
 	private static $form_identifier         = 'signup-trial-form';
 	private static $current_lang            = 'en-US';
-	private static $lazy_loaded_scripts     = array( 'qu-crm-script-lazy' );
+	private static $lazy_loaded_scripts     = array( 'qu-crm-script', 'qu-crm-captcha' );
 	private static $localized_text          = array();
 	private static $form_data               = array();
 	private static $error_state             = array();
@@ -13,11 +13,6 @@ class Trial_Signup {
 	private static $crm_script_loaded       = false;
 	private static $form_type_free          = false;
 	private static $thank_you_template_name = 'template-thank-you';
-	private static $grecaptcha              = array(
-		'site_key' => '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ',
-		'version'  => 'v3',
-	);
-	//v2 public: 6LdGaIEpAAAAAEAWYSh83TuTzlttqSVgdEZPNfrV
 	
 	public static $regions = array();
 	public static $slugs   = array();
@@ -99,14 +94,23 @@ class Trial_Signup {
 	}
 
 	private static function handle_form_submission() {
-
 		$request_method = isset( $_SERVER['REQUEST_METHOD'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ) ) : null;
 
 		if ( 'POST' === $request_method && isset( $_POST['fullname'], $_POST['email'], $_POST['subdomain'], $_POST['grecaptcha'] ) ) {
 
 			$nonce = isset( $_POST['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ) : '';
 
+			// do not submit when nonce check failed
 			if ( ! wp_verify_nonce( $nonce, 'trial_signup_nonce' ) ) {
+				return;
+			}
+
+			// if grecaptcha field submitted empty, check if it's really submission with 'no recaptcha' response from crm api
+			// fake input may be probably filled by robot
+			if (
+				'' === $_POST['grecaptcha'] && 
+				( ! isset( $_POST['fcaptcha'] ) || ( isset( $_POST['fcaptcha'] ) && '' !== $_POST['fcaptcha'] ) ) 
+			) {
 				return;
 			}
 
@@ -117,11 +121,15 @@ class Trial_Signup {
 				'email'        => sanitize_email( trim( $_POST['email'] ) ),
 				'subdomain'    => sanitize_text_field( trim( $_POST['subdomain'] ) ),
 				'region'       => isset( $_POST['region'] ) ? self::sanitize_region( $_POST['region'] ) : '',
-				'grtoken'      => sanitize_text_field( $_POST['grecaptcha'] ),
 				'variation_id' => self::get_variation_id(),
 				'language'     => self::get_language_code(),
 				'promo'        => isset( $_POST['promo'] ) && 'on' === $_POST['promo'],
 			);
+			
+			// do not pass empty captcha, probably submission with 'no recaptcha' response from crm api
+			if ( '' !== $_POST['grecaptcha'] ) {
+				$form_data['grtoken'] = sanitize_text_field( $_POST['grecaptcha'] );
+			}
 
 			if ( isset( $_POST['redeem_code'] ) ) {
 				$form_data['redeem_code'] = sanitize_text_field( $_POST['redeem_code'] );
@@ -160,7 +168,6 @@ class Trial_Signup {
 				'email'     => $form_data['email'],
 				'subdomain' => $form_data['subdomain'],
 				'region'    => $form_data['region'],
-				'grtoken'   => $form_data['grtoken'],
 				'language'  => $form_data['language'],
 				'promo'     => $form_data['promo'],
 			);
@@ -174,7 +181,6 @@ class Trial_Signup {
 					'email' => $form_data['email'],
 				),
 				'subdomain'    => $form_data['subdomain'],
-				'grtoken'      => $form_data['grtoken'],
 				'region'       => $form_data['region'],
 				'language'     => $form_data['language'],
 				'promo'        => $form_data['promo'],
@@ -183,17 +189,21 @@ class Trial_Signup {
 
 		if ( ! empty( $request_data ) ) {
 
+			if ( isset( $form_data['grtoken'] ) ) {
+				$request_data['grtoken'] = $form_data['grtoken'];
+			}
+
 			// tracking data from js
 			if ( isset( $form_data['pap_visitor_id'] ) ) {
-				$request_data['pap_visitor_id'] = sanitize_text_field( $form_data['pap_visitor_id'] );
+				$request_data['pap_visitor_id'] = $form_data['pap_visitor_id'];
 			}
 
 			if ( isset( $form_data['source_id'] ) ) {
-				$request_data['source_id'] = sanitize_text_field( $form_data['source_id'] );
+				$request_data['source_id'] = $form_data['source_id'];
 			}
 		
 			if ( isset( $form_data['ga_client_id'] ) ) {
-				$request_data['ga_client_id'] = sanitize_text_field( $form_data['ga_client_id'] );
+				$request_data['ga_client_id'] = $form_data['ga_client_id'];
 			}
 		}
 
@@ -308,15 +318,19 @@ class Trial_Signup {
 	public static function include_crm() {
 		if ( ! self::$crm_script_loaded ) {
 			
-			self::use_grecaptcha();
+			self::print_footer_scripts();
 
-			$handle = 'qu-crm-script-lazy';
-
-			// crm script dependency app_js to allow usage of set/getCookies from custom scritps
-			$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crmForms.js' ) );
-			wp_enqueue_script( $handle, esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crmForms.js', array( 'app_js' ), esc_attr( $crm_ver_app ), array( 'in_footer' => true ) );
-
+			$handle = 'qu-crm-captcha';
+			// dependency app_js to allow usage of set/getCookies from custom scritps
+			$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crmCaptcha.js' ) );
+			wp_enqueue_script( $handle, esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crmCaptcha.js', array( 'app_js' ), esc_attr( $crm_ver_app ), array( 'in_footer' => true ) );
+			
 			self::localize_script( $handle );
+
+			$handle = 'qu-crm-script';
+			// dependency app_js to allow usage of set/getCookies from custom scritps
+			$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crmForms.js' ) );
+			wp_enqueue_script( $handle, esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crmForms.js', array( 'app_js', 'qu-crm-captcha' ), esc_attr( $crm_ver_app ), array( 'in_footer' => true ) );
 
 			self::$crm_script_loaded = true;
 		}
@@ -338,32 +352,20 @@ class Trial_Signup {
 			$handle,
 			'quCrmData',
 			array(
-				'localization'   => self::$localized_text,
-				'apiBase'        => self::$crm_api_base,
-				'nonce'          => wp_create_nonce( 'qu-crm-nonce' ),
-				'captchaVersion' => self::$grecaptcha['version'],
-				'trialUrl'       => home_url( self::$slugs['trial'] ),
-				'productId'      => self::get_product_id(),
+				'localization' => self::$localized_text,
+				'apiBase'      => self::$crm_api_base,
+				'nonce'        => wp_create_nonce( 'qu-crm-nonce' ),
+				'trialUrl'     => home_url( self::$slugs['trial'] ),
+				'productId'    => self::get_product_id(),
 			)
 		);
 	}
 
-	public static function use_grecaptcha() {
-		self::$grecaptcha = self::get_grecaptcha_info();
-
+	private static function print_footer_scripts() {
 		add_action(
 			'wp_print_footer_scripts',
 			function () {
 				?>
-				
-				<?php if ( 'v2' === self::$grecaptcha['version'] ) : ?>
-					<script data-src="https://www.google.com/recaptcha/api.js?onload=handleCaptchaLoad&render=explicit" async defer></script>
-				<?php endif; ?>
-				
-				<?php if ( 'v3' === self::$grecaptcha['version'] ) : ?>
-					<script data-src="https://www.google.com/recaptcha/api.js?onload=handleCaptchaLoad&render=<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>"></script>
-				<?php endif; ?>
-				
 				<script>
 					<?php // prevent form submission (without crm script) before captcha is lazy loaded ?>
 					window.addEventListener( 'load', () => {
@@ -376,87 +378,6 @@ class Trial_Signup {
 								} );
 							} );
 					} );
-
-					function handleCaptchaLoad(){
-						document.querySelectorAll( "form[data-form-type=<?php echo esc_attr( self::$form_identifier ); ?>" )
-							.forEach( ( form ) => {
-								const grecaptchaInput = form.querySelector( 'input[data-id="grecaptcha"]' );
-								const gaClientInput = form.querySelector( 'input[data-id="ga_client_id"]' );
-								const emailInput = form.querySelector( '[data-id=mailFieldmain] input[name=email]' );
-								const submitButton = form.querySelector( '[data-id=submitFieldmain] button[data-id=createButtonmain]' );
-								const isRedeemForm = form.querySelector( '[data-id=codeFieldmain] input[name=redeem_code]' ) ? true : false;
-
-								const gaUserId = getCookie( '_ga' ) || '';
-								
-								function handleFinalActions() {
-									if( gaClientInput ) { gaClientInput.value = gaUserId };
-									if( ! isRedeemForm && typeof gtag !== 'undefined' ){
-										gtag( 'set', 'user_data', { email: emailInput ? emailInput.value : '' } );
-										gtag( 'event', 'Trial sign_up', { send_to: 'GTM-MR5X6FD' } );
-									}
-								}
-								
-								<?php if ( 'v2' === self::$grecaptcha['version'] ) : ?>
-									const captchaWrapper = form.querySelector( '[data-id=captchaFieldmain]' );
-									captchaWrapper.classList.remove( 'hidden' );
-
-									grecaptcha.render( captchaWrapper.querySelector( '.grecaptcha-wrapper' ), {
-										'sitekey' : "<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>",
-										'size': form.closest( '.Signup__sidebar' ) ? 'compact': 'normal',
-										'callback' : ( token ) => {
-											captchaWrapper.classList.remove( 'Error' );
-											captchaWrapper.querySelector( '.ErrorMessage' ).textContent = '';
-											if( grecaptchaInput ) { grecaptchaInput.value = token };
-										},
-										'expired-callback': () => {
-											if( grecaptchaInput ) { grecaptchaInput.value = '' };
-										},
-										'error-callback': () => {
-											if( grecaptchaInput ) { grecaptchaInput.value = '' };
-										},
-									});
-
-									form.addEventListener( 'submit', ( e ) => {
-										e.preventDefault();
-										try {
-											<?php // handle simple check if token is present in case the crm script is not available ?>
-											if( grecaptchaInput.value === '' ){
-												captchaWrapper.classList.add( 'Error' );
-												captchaWrapper.querySelector( '.ErrorMessage' ).textContent = "<?php echo esc_html( self::$localized_text['invalid']['captcha'] ); ?>";
-												return;
-											}
-											submitButton.setAttribute( 'disabled', '' );
-											handleFinalActions();
-											form.submit();
-										} catch ( e ) {
-											submitButton.removeAttribute( 'disabled' );
-										}
-									});
-								<?php endif; ?>
-								
-								<?php if ( 'v3' === self::$grecaptcha['version'] ) : ?>
-									form.addEventListener( 'submit', ( e ) => {
-										e.preventDefault();
-										try {
-											submitButton.setAttribute( 'disabled', '' );
-											grecaptcha.ready( () => {
-												grecaptcha.execute( 
-													"<?php echo esc_attr( self::$grecaptcha['site_key'] ); ?>", 
-													{ action: 'login' } 
-												).then( ( token ) => {
-													if( grecaptchaInput ) { grecaptchaInput.value = token };
-													handleFinalActions();
-													form.submit();
-												} )
-											} );
-										} catch (e) {
-											submitButton.removeAttribute( 'disabled' );
-										}
-
-									});
-								<?php endif; ?>
-							});
-					}
 				</script>
 				<?php
 			}
@@ -464,17 +385,16 @@ class Trial_Signup {
 	}
 
 	public static function grecaptcha_parts( $form_type = null ) {
-		if ( 'v2' === self::$grecaptcha['version'] ) {
-			$class_name = 'sidebar' === $form_type ? 'Signup__sidebar__item' : 'Signup__form__item';
-			ob_start();
-			?>
-				<div data-id="captchaFieldmain" class="<?php echo esc_attr( $class_name ); ?> hidden">
-					<div class="grecaptcha-wrapper"></div>
-					<div class="ErrorMessage"></div>
-				</div>
-			<?php
-			echo wp_kses_post( ob_get_clean() );
-		}
+		// render parts used by v2 captcha, with v3 version will stay hidden
+		$class_name = 'sidebar' === $form_type ? 'Signup__sidebar__item' : 'Signup__form__item';
+		ob_start();
+		?>
+			<div data-id="captchaFieldmain" class="<?php echo esc_attr( $class_name ); ?> hidden">
+				<div class="grecaptcha-wrapper"></div>
+				<div class="ErrorMessage"></div>
+			</div>
+		<?php
+		echo wp_kses_post( ob_get_clean() );
 	}
 
 	private static function process_crm_api_request() {
@@ -542,36 +462,6 @@ class Trial_Signup {
 			$result = array(
 				'message' => curl_error( $handle ),
 			);
-		} else {
-			$result = json_decode( $response, true );
-		}
-
-		curl_close( $handle );
-		return $result;
-	}
-
-	private static function get_grecaptcha_info() {
-		$endpoint = 'recaptcha';
-		
-		$handle = curl_init( self::$crm_api_base . $endpoint );
-		
-		if ( ! $handle ) {
-			// fallback to default v3
-			return self::$grecaptcha;
-		}
-
-		curl_setopt_array(
-			$handle,
-			array(
-				CURLOPT_RETURNTRANSFER => true,
-				CURLOPT_POST           => false,
-			)
-		);
-
-		$response = curl_exec( $handle );
-
-		if ( curl_errno( $handle ) ) {
-			$result = self::$grecaptcha;
 		} else {
 			$result = json_decode( $response, true );
 		}
@@ -697,10 +587,14 @@ class Trial_Signup {
 			'textProgressRedirecting' => __( 'Almost done, just a moment', 'qu_signup' ),
 			'textProgressFinalizing'  => __( 'Your LiveAgent is ready to use', 'qu_signup' ),
 			'textError'               => __( 'Something went wrong.', 'qu_signup' ),
+			'textErrorCaptcha'               => __( 'Cannot load captcha', 'qu_signup' ),
 		);
 
 		if ( has_filter( 'wpml_current_language' ) ) {
-			self::$current_lang = apply_filters( 'wpml_current_language', null );
+			$current_lang = apply_filters( 'wpml_current_language', null );
+			if ( $current_lang ) {
+				self::$current_lang = $current_lang;
+			}
 		}
 	}
 
