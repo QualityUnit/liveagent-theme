@@ -8,8 +8,6 @@
 	position: fixed;
 	width: 100%;
 	max-width: 46em;
-	padding: 1.5em;
-	padding-right: 1.15em;
 	background-color: $lightest-gray;
 	border-radius: 1rem;
 	max-height: 100vh;
@@ -42,7 +40,9 @@
 
 	> div {
 
-		@include scrollbar(0.35em);
+		@include scrollbar(0.35em, $medium-gray);
+		padding: 1.5em;
+		padding-right: 1.15em;
 		max-height: 100vh;
 		overflow-y: scroll;
 	}
@@ -188,19 +188,21 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 
-		>div {
-
-			@include scrollbar(0.35em);
+		> div {
 			max-height: 80vh;
 		}
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
-		padding: 2em 6.25em;
-		padding-right: 5.85em;
+
+		> div {
+			padding: 2em 6.25em;
+			padding-right: 5.85em;
+		}
 	}
 
 	.elementor-editor-active &.hidden {
+		position: relative !important;
 		display: block !important;
 	}
 }
