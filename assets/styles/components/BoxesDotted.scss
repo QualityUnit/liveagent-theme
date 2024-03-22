@@ -6,6 +6,8 @@
 
 .Boxes--dotted {
 
+	overflow: hidden;
+
 	> .elementor-container {
 		max-width: $breakpoint-desktop !important;
 	}

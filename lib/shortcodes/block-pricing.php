@@ -45,7 +45,7 @@ function ms_block_pricing( $atts ) {
 			?>
 		<div class="BlockPricing__container__item
 			<?= esc_attr( 4 == $i ? 'BlockPricing__container__item--last' : '' ); ?>
-			<?= esc_attr( ( 3 == $i && false !== $atts['startups'] ) ? 'BlockPricing__container__item--startups' : '' ); ?>
+			<?= esc_attr( ( 3 == $i && false !== $atts['startups'] ) ? 'BlockPricing__container__item--startup-label' : '' ); ?>
 		">
 			<div class="PricingTable__header <?= esc_attr( 3 == $i ? 'popular' : '' ); ?>">
 				<div class="PricingTable__header__price">
@@ -61,6 +61,18 @@ function ms_block_pricing( $atts ) {
 					<?php
 				}
 				?>
+				<?php if ( $atts['startups'] && 3 == $i ) { ?>
+					<div class="PricingTable__header__startup__label">
+						<p class="PricingTable__header__startup__label__title">
+							<?php _e( 'Special offer&nbsp;for Startups', 'ms' ); ?>
+						</p>
+						<div class="PricingTable__header__startup__label__price">
+							<h3><?php _e( '$0', 'ms' ); ?> </h3>
+							<p><?php _e( 'for 6 months', 'ms' ); ?></p>
+						</div>
+						<p class="PricingTable__header__startup__label__name"><strong><?php _e( 'Large plan', 'ms' ); ?></strong></p>
+					</div>
+				<?php } ?>
 				<div class="PricingTable__header__title">
 					<h3><?= esc_html( $atts[ 'title' . $i ] ); ?>
 					<?php if ( 4 != $i ) { ?>
@@ -103,38 +115,7 @@ function ms_block_pricing( $atts ) {
 				</div>
 			</div>
 		</div>
-			<?php if ( $atts['startups'] && 3 == $i ) { ?>
-		<div class="Block--startups__graphics--last">
-			<div class="elementor-column-wrap elementor-element-populated">
-				<div class="elementor-widget-wrap">
-					<div class="elementor-element elementor-element-ae87b0c elementor-widget elementor-widget-text-editor"
-						data-id="ae87b0c" data-element_type="widget" data-widget_type="text-editor.default">
-						<div class="elementor-widget-container">
-							<div class="elementor-text-editor elementor-clearfix">
-								<p><b><?php _e( 'Special offer&nbsp;for Startups', 'ms' ); ?></b></p>
-							</div>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-2f86633 price elementor-widget elementor-widget-heading"
-						data-id="2f86633" data-element_type="widget" data-widget_type="heading.default">
-						<div class="elementor-widget-container">
-							<h3 class="elementor-heading-title elementor-size-default"><?php _e( '$0', 'ms' ); ?> </h3>
-						</div>
-					</div>
-					<div class="elementor-element elementor-element-3f1dffa elementor-widget elementor-widget-text-editor"
-						data-id="3f1dffa" data-element_type="widget" data-widget_type="text-editor.default">
-						<div class="elementor-widget-container">
-							<div class="elementor-text-editor elementor-clearfix">
-								<p><?php _e( 'for 6 months', 'ms' ); ?>
-									<br><br><strong><?php _e( 'Large plan', 'ms' ); ?></strong></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-				<?php
-			}
+			<?php
 		}
 		?>
 </div>

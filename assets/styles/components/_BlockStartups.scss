@@ -4,13 +4,14 @@
 @use "../common/mixins" as *;
 
 
-.Block--startups {
+.Block--startup {
 
 	&.wrapper__wide {
 		background-position: left center;
 
 		> .elementor-container {
-			padding: 7em 0 7em 5em;
+			padding: 8em 7em 8em 7em !important;
+			align-items: center;
 		}
 	}
 
@@ -19,7 +20,7 @@
 		@media (min-width: $breakpoint-tablet-landscape) {
 
 			&:first-of-type {
-				width: 45% !important;
+				width: 50% !important;
 
 				> * {
 					margin-left: 0 !important;
@@ -28,16 +29,6 @@
 		}
 	}
 
-	&.Block--switcher .elementor-inner-section .elementor-column {
-
-		&:not(:last-of-type),
-		&:last-of-type {
-
-			> * {
-				all: unset;
-			}
-		}
-	}
 
 	.elementor-widget-text-editor {
 		width: 100%;
@@ -50,166 +41,278 @@
 		}
 	}
 
-	&__graphics {
-		all: unset;
-		align-self: center;
+	.elementor-container {
 
-		&[class].elementor-column[class] {
-			position: relative;
-			padding-left: 0 !important;
-			padding-right: 0 !important;
-			margin-right: -3em;
-		}
+		.elementor-column {
 
-		& &--first.elementor-column[class] {
-			position: absolute;
-			width: 70% !important;
-			max-width: 536px;
-			top: 15%;
-			left: 0;
-			padding: 0 !important;
-			margin-left: -3em;
-
-			@media (max-width: ($breakpoint-tablet - 1px)) {
-				display: none;
+			@media (min-width: $breakpoint-tablet) {
+				width: 50% !important;
 			}
-		}
-
-		& &--mid.elementor-column[class] {
-
-			@include color(box-shadow, box-shadow);
-			@include color(background-color, main-background);
-			font-size: 1.2rem;
-
-			border-radius: $border-radius-16;
-			padding: 1.5em !important;
-			z-index: 1;
 
 			* {
-				font-size: inherit !important;
+				text-align: left;
+			}
+		}
+
+		.Block--startup__graphics {
+			all: unset;
+			align-self: center;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			width: 100% !important;
+			margin-top: 6em !important;
+
+			@media (min-width: $breakpoint-tablet) {
+				width: 50% !important;
 			}
 
-			.most-popular {
-				min-height: 5em;
+			&.elementor-top-column.elementor-column.elementor-col-50 {
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+			}
 
-				p {
 
-					@include color(background, background);
-					background-clip: text;
-					color: transparent;
-					box-decoration-break: clone;
-					font-size: 1rem !important;
-					font-family: $font-secondary;
-					font-weight: $font-weight-semi;
+			> .elementor-widget-wrap {
+
+				> .elementor-section {
+
+					> .elementor-container {
+						display: grid;
+						grid-template-columns: 0 1fr;
+						grid-template-rows: auto;
+					}
 				}
 			}
 
-			.price {
+			@media (min-width: $breakpoint-desktop) {
+				//width: 100% !important;
+
+				> .elementor-widget-wrap {
+
+					> .elementor-section {
+
+						> .elementor-container {
+							display: grid;
+							grid-template-columns: 0.4fr 1fr 135px;
+						}
+					}
+				}
+			}
+
+			&[class].elementor-column[class] {
+				position: relative;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+			}
+
+			&--first.elementor-column[class] {
 				position: absolute;
-				top: 0;
-				right: -3em;
-				transform: translate(-2em, calc(-50% + 1.25em));
-				width: auto;
+				max-width: 536px;
+				top: 15%;
+				left: 0;
+				padding: 0 !important;
+				margin-left: -3em;
+				width: 100% !important;
 
-				&::before {
+				.elementor-widget-wrap {
+					margin-left: 0 !important;
+				}
 
-					@include square(100%);
+				@media (max-width: ($breakpoint-desktop - 1px)) {
+					display: none;
+				}
+			}
+
+			&--mid.elementor-column[class] {
+
+				@include color(box-shadow, box-shadow);
+				@include color(background-color, main-background);
+				font-size: 1.2rem;
+				border-radius: $border-radius-16;
+				padding: 1.5em !important;
+				z-index: 1;
+				margin-left: auto;
+				grid-column-start: 2;
+				width: 100% !important;
+				min-width: 316px;
+
+				.elementor-widget-wrap {
+					margin-left: 0 !important;
+				}
+
+				* {
+					font-size: inherit !important;
+					text-align: left;
+				}
+
+				.most-popular {
+					min-height: 5em;
+
+					p {
+
+						@include color(background, background);
+						background-clip: text;
+						color: transparent;
+						box-decoration-break: clone;
+						font-size: 1rem !important;
+						font-family: $font-secondary;
+						font-weight: $font-weight-semi;
+					}
+				}
+
+				.price {
 					position: absolute;
-					background: url(../../images/pricing_crossover.svg) center center no-repeat;
-					background-size: 40%;
-					margin-top: 0.5em;
-					right: 0.75em;
-					z-index: 2;
-					content: "";
+					top: 0;
+					right: -5em;
+					transform: translate(-2em, calc(-50% + -0.15em));
+					width: auto;
+
+					&::before {
+
+						@include square(100%);
+						position: absolute;
+						background: url(../../images/pricing_crossover.svg) center center no-repeat;
+						background-size: 40%;
+						margin-top: 0.5em;
+						right: 0.75em;
+						z-index: 2;
+						content: "";
+					}
+
+					&::after {
+						content: url(../../images/startups_price_crown.svg);
+					}
+
+					.elementor-widget-container {
+						position: absolute;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+						height: 100%;
+						margin-top: 1.5em;
+						left: calc(50% - 0.75em);
+						transform: translateX(-50%);
+						color: $white;
+						z-index: 1;
+
+						h3 {
+							font-size: 2.125rem !important;
+							margin-bottom: 0;
+						}
+
+						* {
+							color: currentcolor;
+						}
+					}
+				}
+
+				@media (min-width: $breakpoint-tablet) {
+					width: 100% !important;
+				}
+			}
+
+			&--last.elementor-column[class],
+			&--last[class] {
+				margin-bottom: auto;
+				background-color: $saturated-green;
+				border-radius: $border-radius-16;
+				color: $white;
+				overflow: hidden;
+				font-family: $font-secondary;
+				z-index: 1;
+				width: unset !important;
+				padding: 1em !important;
+
+				.elementor-widget-wrap {
+
+					> .elementor-element:last-child {
+						margin-top: 1em;
+
+						strong {
+							margin-left: 0.5em;
+						}
+
+					}
 				}
 
 				&::after {
-					content: url(../../images/startups_price_crown.svg);
+					content: "";
+
+					position: absolute;
+					top: 0;
+					width: 200%;
+					height: 100%;
+					background: linear-gradient(to bottom, rgba($white, 0.12), rgba($white, 0));
+					transform: skewX(-35deg);
+					z-index: 1;
 				}
 
-				.elementor-widget-container {
-					position: absolute;
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					align-items: center;
-					height: 100%;
+				* {
+					position: relative;
+					text-align: center;
+					font-family: inherit;
+					color: inherit;
+					z-index: 2;
+					margin-bottom: 0;
+				}
+
+				.elementor-widget-text-editor {
+					width: 100% !important;
+				}
+
+				.price {
 					margin-top: 1.5em;
-					left: calc(50% - 0.75em);
-					transform: translateX(-50%);
-					color: $white;
-					z-index: 1;
 
-					h3 {
-						font-size: 2.125rem !important;
-						margin-bottom: 0;
+					.elementor-heading-title {
+						font-size: 2.375rem;
 					}
+				}
 
-					* {
-						color: currentcolor;
+				@media (min-width: $breakpoint-mobile) {
+
+					.elementor-widget-wrap {
+						flex-direction: row;
+						flex-wrap: nowrap;
+						align-items: center !important;
+
+						.elementor-element {
+							margin-top: 0;
+						}
+					}
+				}
+
+				@media (max-width: $breakpoint-desktop) {
+					grid-column-start: 1;
+					grid-column-end: span col4-start;
+					grid-row-start: 2;
+					grid-row-end: span 2;
+					max-width: 100%;
+
+				}
+
+				@media (min-width: $breakpoint-desktop) {
+
+					.elementor-widget-wrap {
+						flex-direction: column;
+						flex-wrap: wrap;
 					}
 				}
 			}
 
 			@media (min-width: $breakpoint-tablet) {
-				width: 48% !important;
-				margin-left: auto;
-			}
-		}
 
-		& &--last.elementor-column[class],
-		&--last[class] {
-			position: relative;
-			margin-bottom: auto;
-			padding: 1em 0.25em !important;
-			background-color: $saturated-green;
-			border-radius: $border-radius-16;
-			color: $white;
-			overflow: hidden;
-			font-family: $font-secondary;
-
-			&::after {
-				content: "";
-
-				position: absolute;
-				top: 0;
-				width: 200%;
-				height: 100%;
-				background: linear-gradient(to bottom, rgba($white, 0.12), rgba($white, 0));
-				transform: skewX(-35deg);
-				z-index: 1;
-			}
-
-			* {
-				position: relative;
-				text-align: center;
-				font-family: inherit;
-				color: inherit;
-				z-index: 2;
-			}
-
-			.elementor-widget-text-editor {
-				width: 100% !important;
-			}
-
-			.price {
-				margin-top: 1.5em;
-
-				.elementor-heading-title {
-					font-size: 2.375rem;
+				.elementor-widget-wrap {
+					width: 100% !important;
+					margin-right: 0 !important;
 				}
-			}
 
-		}
-
-
-		@media (min-width: $breakpoint-tablet) {
-			width: 55% !important;
-
-			& &--last.elementor-column[class] {
-				width: 20% !important;
-				border-radius: 0 $border-radius-16 $border-radius-16 0;
+				& &--last.elementor-column[class] {
+					border-radius: 0 $border-radius-16 $border-radius-16 0;
+				}
 			}
 		}
 	}
+
 }

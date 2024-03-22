@@ -13,8 +13,17 @@
 			font-size: 1.125rem;
 		}
 
+		.elementor-icon-list-icon {
+			min-width: 3em;
+			i {
+				font-size: 1rem !important;
+			}
+		}
+
+
 		.SideRibbon__wrapper {
 			top: -2em;
+			overflow: hidden;
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {

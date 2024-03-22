@@ -9,6 +9,7 @@
 	max-width: $breakpoint-desktop-box;
 	margin: 0 auto;
 	position: relative;
+	background-color: $lightest-gray;
 
 	&::before {
 		position: absolute;
@@ -31,11 +32,6 @@
 		background: none !important;
 		max-width: $breakpoint-desktop-box;
 
-		@media (min-width: 1300px) {
-			padding-left: 10em !important;
-			padding-right: 0 !important;
-		}
-
 		.elementor-container {
 			align-items: center;
 			display: block !important;
@@ -44,6 +40,7 @@
 
 		.elementor-element {
 			width: 100%;
+			padding-left: 0;
 
 			.tag {
 
@@ -59,6 +56,7 @@
 				display: none;
 			}
 		}
+
 	}
 
 	.elementor-widget-heading {
@@ -117,71 +115,29 @@
 	}
 
 	&__container {
-		display: flex;
-		flex-flow: wrap column;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: auto;
 		justify-content: center;
 		align-items: flex-start;
 		margin-bottom: 1em;
-
-		@media (min-width: $breakpoint-tablet) {
-			flex-flow: wrap row;
-			justify-content: flex-start;
-			max-width: 100%;
-		}
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-
-			&.startups {
-				max-width: calc(100% + 3.5em);
-				width: calc(100% + 3.5em);
-			}
-		}
-
-		@media (min-width: 1300px) {
-			justify-content: flex-start;
-		}
 
 		&__item {
 			position: relative;
 			width: 100%;
 			margin-top: 5em;
+			background-color: $white;
+			border-radius: $border-radius-16;
 
-			@media (min-width: $breakpoint-tablet) {
-				max-width: 285px;
-				margin-left: 0;
+			&--startup-label {
 
-				&:nth-of-type(2n + 1):not([class*="startups"]) {
-					margin-right: auto;
+				&::before {
+					border-radius: $border-radius-16 $border-radius-16 0 0 !important;
 				}
 			}
 
-			@media (min-width: $breakpoint-tablet-landscape) {
-				margin: 5em;
-
-				&:nth-of-type(2n + 1):not([class*="startups"]) {
-					margin-right: 0;
-				}
-			}
-
-			@media (min-width: 1300px) {
-				margin: 0;
-				margin-top: 3.125em;
-			}
-
-			&::before {
-
-				@include posZero();
-				display: inline-block;
-				position: absolute;
-				background-color: $white;
-				box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
-				border-radius: $border-radius-16;
-				content: "";
-				z-index: 2;
-
-				@media (min-width: 1300px) {
-					content: none;
-				}
+			&--last {
+				margin-top: 17em;
 			}
 
 			.popular {
@@ -286,6 +242,49 @@
 					margin-bottom: 1em;
 				}
 
+				&__startup__label {
+					position: absolute;
+					bottom: -2em;
+					left: 0;
+					transform: translateY(100%);
+					background-color: $saturated-green;
+					border-radius: $border-radius-16;
+					font-family: $font-secondary;
+					z-index: 1;
+					padding: 9px;
+					display: flex;
+					flex-direction: column;
+					gap: 1em;
+					width: 100%;
+
+					h3,
+					p {
+						color: $white;
+						margin-bottom: 0;
+						text-align: center;
+						font-weight: $font-weight-bold;
+					}
+
+					&__title {
+						color: $white;
+					}
+
+					&__price {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						gap: 0.5em;
+
+						h3 {
+							font-size: 2.375rem;
+						}
+
+						p {
+							font-weight: $font-weight-normal;
+						}
+					}
+				}
+
 				&__description {
 					font-family: $font-primary;
 					white-space: nowrap;
@@ -297,11 +296,10 @@
 					}
 
 					&::before {
+
+						@include square(100%);
 						background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 1) 100%);
 						position: absolute;
-						width: 110%;
-						height: 100%;
-						left: -10%;
 						content: "";
 						z-index: 5;
 					}
@@ -356,51 +354,6 @@
 			.elementor-widget-text-editor {
 				width: 100%;
 			}
-
-			@media (min-width: $breakpoint-tablet) {
-				width: 10em;
-			}
-		}
-
-		@media (min-width: 1300px) {
-
-			&__item:nth-child(1) {
-
-				&::before {
-					background-color: $white;
-					box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
-					border-radius: $border-radius-16;
-					content: "";
-					width: 300%;
-					height: 100%;
-					position: absolute;
-				}
-			}
-
-			&__item:nth-child(2),
-			&__item:nth-child(3) {
-				border-left: 1px solid $light-gray;
-				z-index: 5;
-			}
-
-			&__item:nth-child(4),
-			&__item--last {
-				margin-left: 0;
-
-				&::before {
-					background-color: $white;
-					box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
-					border-radius: $border-radius-16;
-					content: "";
-					display: inline-block;
-					width: 100%;
-					height: 100%;
-					position: absolute;
-					top: 0;
-					left: 0;
-					z-index: 2;
-				}
-			}
 		}
 	}
 
@@ -421,6 +374,151 @@
 			transform: scale(1.5);
 		}
 	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__container {
+			grid-template-columns: repeat(2, 275px);
+			flex-flow: wrap row;
+			justify-content: flex-start;
+			max-width: 100%;
+
+			&__item {
+
+				margin-top: 3.125em;
+
+				&--last {
+					margin-top: 3.125em;
+					margin-left: 115px;
+				}
+			}
+
+			.PricingTable__header {
+
+				&__startup__label {
+					position: absolute;
+					right: 0;
+					top: 0;
+					left: unset;
+					bottom: unset;
+					transform: translateX(100%);
+					background-color: $saturated-green;
+					border-radius: $border-radius-16;
+					font-family: $font-secondary;
+					z-index: 1;
+					padding: 9px;
+					max-width: 100px;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					gap: 1em;
+
+					h3,
+					p {
+						color: $white;
+						margin-bottom: 0;
+						text-align: center;
+						font-weight: $font-weight-bold;
+					}
+
+					p {
+						font-size: 0.8125em;
+						line-height: 20px;
+					}
+
+					&__title {
+						color: $white;
+					}
+
+					&__price {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+
+						h3 {
+							font-size: 30px;
+						}
+
+						p {
+							font-weight: $font-weight-normal;
+						}
+					}
+				}
+			}
+
+			.Block--startups__graphics--last[class] {
+				width: 10em;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper {
+			padding-left: 2.5em !important;
+			padding-right: 0 !important;
+		}
+
+		&__container {
+			grid-template-columns: repeat(3, 275px);
+
+			&__item--last {
+				margin-left: 0;
+			}
+
+			&__item:nth-child(2),
+			&__item:nth-child(3) {
+				border-left: 1px solid $light-gray;
+				z-index: 5;
+			}
+		}
+	}
+
+	@media (min-width: 1300px) {
+		background-color: unset;
+
+		.wrapper {
+			padding-left: 7.5em !important;
+		}
+
+		&__container {
+			justify-content: flex-start;
+			grid-template-columns: repeat(4, 260px);
+
+			&__item {
+
+				margin-top: 3.125em;
+
+				&--last {
+					margin-top: 3.125em;
+					margin-left: 115px;
+				}
+
+				.PricingTable__header {
+
+					&__description {
+
+						&::before {
+							width: 110%;
+						}
+					}
+				}
+			}
+
+			&__item:nth-child(2),
+			&__item:nth-child(3) {
+				border-left: 1px solid $light-gray;
+				z-index: 5;
+			}
+
+			&__item--last {
+				margin-left: 115px;
+			}
+		}
+
+
+	}
+
 }
 
 .BlockPricing.Block--background {
