@@ -477,8 +477,12 @@ scss/at-extend-no-missing-placeholder */
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		margin-top: 0 !important;
-		margin-bottom: $block-space-sm !important;
+
+		&[class] {
+
+			margin-top: 0 !important;
+			margin-bottom: 2em !important;
+		}
 
 		&.image-left,
 		&.image-right {

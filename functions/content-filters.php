@@ -268,7 +268,7 @@ function url_space_replace( $content ) {
 		$srcset  = $element->getAttribute( 'srcset' ); //@codingStandardsIgnoreLine
 		if ( WP_ENV === 'local' ) {
 
-			$src = preg_replace( '/https:\/\/(www\.)?live.+?\/(.+)/', 'http://liveagent.local/$2', $src );
+			$src    = preg_replace( '/https:\/\/(www\.)?live.+?\/(.+)/', 'http://liveagent.local/$2', $src );
 			$srcset = preg_replace( '/https:\/\/(www\.)?live.+?\//', 'http://liveagent.local/', $srcset );
 		}
 		$element->setAttribute( 'src', $src );
@@ -281,7 +281,7 @@ function url_space_replace( $content ) {
 	$content = str_replace( '</body></html>', '', $content );
 	return $content;
 }
-add_filter( 'the_content', 'url_space_replace', 9999 );
+// add_filter( 'the_content', 'url_space_replace', 9999 );
 
 // Highlights text wrapped in carrets ie: This is ^highlighted^ text
 function highlight_text( $content ) {
