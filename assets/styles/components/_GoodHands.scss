@@ -48,7 +48,12 @@
 
 	&__logos {
 		margin-top: 1.5em;
+		margin-bottom: 0;
 		flex-direction: column;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			margin-bottom: 1.5em;
+		}
 	}
 
 	&__logo {

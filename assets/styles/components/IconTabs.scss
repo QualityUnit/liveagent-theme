@@ -23,7 +23,7 @@
 
 		.elementor-icon-list-icon {
 
-			@include square(2.875em);
+			@include square(1.5em);
 			position: relative;
 			display: flex;
 			align-items: center;
@@ -39,6 +39,11 @@
 				--e-icon-list-icon-size: 1.5em;
 				margin: 0 !important;
 				fill: currentcolor;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				@include square(2.875em);
 			}
 		}
 
@@ -77,6 +82,7 @@
 					border-radius: 0.5rem 0.5rem 0 0;
 					background: $lightest-gray;
 					box-shadow: 5px 0 5px 0 rgba($black-real, 0.05);
+					padding: 0.65em 0.5em;
 
 					&::after {
 

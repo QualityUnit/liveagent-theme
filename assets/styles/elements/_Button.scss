@@ -76,11 +76,23 @@ button,
 	}
 }
 
+.Buttons {
+
+	@media (max-width: ($breakpoint-tablet - 1px)) {
+		text-align: center;
+	}
+}
+
 .Button + .Button {
-	margin-left: 15px;
+	margin-top: 1em;
 
 	&--outline {
 		top: 1px;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		margin-top: 0;
+		margin-left: 15px;
 	}
 }
 

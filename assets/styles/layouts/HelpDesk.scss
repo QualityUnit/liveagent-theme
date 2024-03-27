@@ -41,11 +41,12 @@
 
 				@media (min-width: $breakpoint-tablet) {
 					width: 45% !important;
+
+					h2 {
+						font-size: 2.5rem;
+					}
 				}
 
-				h2 {
-					font-size: 40px;
-				}
 
 				.bigger {
 
@@ -105,6 +106,7 @@
 
 				.elementor-icon-box-title {
 					margin-bottom: 0 !important;
+					text-align: left;
 				}
 			}
 		}

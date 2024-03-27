@@ -41,6 +41,10 @@
 
 .elementor-element-populated {
 	padding: 0 !important;
+
+	@media (max-width: ($breakpoint-tablet - 1px)) {
+		margin: 0 !important;
+	}
 }
 
 .elementor-section.elementor-section-boxed {

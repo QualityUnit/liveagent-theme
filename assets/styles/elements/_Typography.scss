@@ -649,10 +649,7 @@ video {
 	}
 
 	.wp-block-columns {
-		display: flex;
-		flex-flow: wrap row;
-		justify-content: space-between;
-		align-content: flex-start;
+
 
 		&.column-3 {
 
@@ -662,6 +659,10 @@ video {
 		}
 
 		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: space-between;
+			align-content: flex-start;
 
 			&:not(.is-not-stacked-on-mobile) > .wp-block-column {
 				flex-basis: 0;

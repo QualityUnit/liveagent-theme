@@ -1,4 +1,10 @@
 <?php // @codingStandardsIgnoreLine
+	set_source( false, 'common/splide', 'css' );
+	set_source( false, 'components/SidebarTOC' );
+	set_custom_source( 'splide', 'js' );
+	set_custom_source( 'slider', 'js' );
+	set_custom_source( 'sidebar_toc', 'js' );
+	
 	$current_lang    = apply_filters( 'wpml_current_language', null );
 	$header_category = get_en_category( 'ms_success-stories', $post->ID );
 	$company         = get_the_title();
@@ -162,10 +168,7 @@
 				</div>
 			<?php } ?>
 		</div>
-
-		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
-		</div>
+		
 
 		<div class="Post__content">
 			<div class="Post__content__breadcrumbs">
@@ -238,6 +241,10 @@
 				?>
 			</div>
 		</div>
+
+		<div class="Signup__sidebar-wrapper">
+				<?= do_shortcode( '[signup-sidebar js-sticky="true"]' ); ?>
+			</div>
 	</div>
 	<?php
 	if ( isset( $categories[0]->count ) && $categories[0]->count >= 3 ) {
