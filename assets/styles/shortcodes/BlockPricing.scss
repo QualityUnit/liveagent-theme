@@ -25,8 +25,8 @@
 	}
 
 	.wrapper {
-		padding-top: 50px !important;
-		padding-bottom: 50px !important;
+		padding-top: 3.125em !important;
+		padding-bottom: 3.125em !important;
 		display: flex;
 		flex-direction: column;
 		background: none !important;
@@ -62,7 +62,7 @@
 	.elementor-widget-heading {
 
 		h2 {
-			font-size: 40px;
+			font-size: 2.5rem;
 			font-weight: $font-weight-bold;
 			padding-top: 1.5em;
 		}
@@ -185,7 +185,7 @@
 						-webkit-text-fill-color: transparent;
 						background-clip: text;
 						font-family: $font-secondary;
-						font-size: 13px;
+						font-size: 0.8125rem;
 						font-weight: $font-weight-semi;
 					}
 				}
@@ -204,8 +204,8 @@
 					font-family: $font-secondary;
 					position: relative;
 					font-weight: $font-weight-bold;
-					font-size: 30px;
-					margin-top: -7px;
+					font-size: 1.875rem;
+					margin-top: -0.4375em;
 					margin-right: -0.5em;
 					height: calc(100% - 1em);
 
@@ -237,7 +237,7 @@
 				}
 
 				&__title h3 {
-					font-size: 24px;
+					font-size: 1.5rem;
 					margin-top: -0.5em;
 					margin-bottom: 1em;
 				}
@@ -251,7 +251,7 @@
 					border-radius: $border-radius-16;
 					font-family: $font-secondary;
 					z-index: 1;
-					padding: 9px;
+					padding: 0.5625em;
 					display: flex;
 					flex-direction: column;
 					gap: 1em;
@@ -310,7 +310,7 @@
 
 						&::before {
 							position: absolute;
-							top: 2px;
+							top: 0.125em;
 							left: -1.75em;
 							z-index: 4;
 							content: url(../../images/icon_checkmark_circle.svg);
@@ -378,7 +378,7 @@
 	@media (min-width: $breakpoint-tablet) {
 
 		&__container {
-			grid-template-columns: repeat(2, 275px);
+			grid-template-columns: repeat(2, 17.1875em);
 			flex-flow: wrap row;
 			justify-content: flex-start;
 			max-width: 100%;
@@ -389,7 +389,7 @@
 
 				&--last {
 					margin-top: 3.125em;
-					margin-left: 115px;
+					margin-left: 7.1875em;
 				}
 			}
 
@@ -406,8 +406,8 @@
 					border-radius: $border-radius-16;
 					font-family: $font-secondary;
 					z-index: 1;
-					padding: 9px;
-					max-width: 100px;
+					padding: 0.5625em;
+					max-width: 6.25em;
 					display: flex;
 					flex-direction: column;
 					align-items: center;
@@ -423,7 +423,7 @@
 
 					p {
 						font-size: 0.8125em;
-						line-height: 20px;
+						line-height: 1.5;
 					}
 
 					&__title {
@@ -436,7 +436,7 @@
 						align-items: center;
 
 						h3 {
-							font-size: 30px;
+							font-size: 1.875em;
 						}
 
 						p {
@@ -460,7 +460,7 @@
 		}
 
 		&__container {
-			grid-template-columns: repeat(3, 275px);
+			grid-template-columns: repeat(3, 17.1875em);
 
 			&__item--last {
 				margin-left: 0;
@@ -483,7 +483,7 @@
 
 		&__container {
 			justify-content: flex-start;
-			grid-template-columns: repeat(4, 260px);
+			grid-template-columns: repeat(4, 16.25em);
 
 			&__item {
 
@@ -491,7 +491,7 @@
 
 				&--last {
 					margin-top: 3.125em;
-					margin-left: 115px;
+					margin-left: 7.1875em;
 				}
 
 				.PricingTable__header {
@@ -512,7 +512,7 @@
 			}
 
 			&__item--last {
-				margin-left: 115px;
+				margin-left: 7.1875em;
 			}
 		}
 

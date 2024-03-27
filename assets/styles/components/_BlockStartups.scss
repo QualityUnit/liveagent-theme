@@ -94,7 +94,7 @@
 
 						> .elementor-container {
 							display: grid;
-							grid-template-columns: 0.4fr 1fr 135px;
+							grid-template-columns: 0.4fr 1fr 8.4375em;
 						}
 					}
 				}
@@ -108,7 +108,7 @@
 
 			&--first.elementor-column[class] {
 				position: absolute;
-				max-width: 536px;
+				max-width: 33.5em;
 				top: 15%;
 				left: 0;
 				padding: 0 !important;
@@ -135,7 +135,7 @@
 				margin-left: auto;
 				grid-column-start: 2;
 				width: 100% !important;
-				min-width: 316px;
+				min-width: 19.75em;
 
 				.elementor-widget-wrap {
 					margin-left: 0 !important;

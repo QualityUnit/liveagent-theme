@@ -83,9 +83,9 @@
 
 				&::after {
 					position: absolute;
-					height: 1px;
+					height: 0.0625em;
 					width: calc(100% + 12em);
-					top: calc(0.4375em - 1px);
+					top: calc(0.4375em - 0.0625em);
 					left: 50%;
 					transform: translateX(-50%);
 					background: $light-gray;
