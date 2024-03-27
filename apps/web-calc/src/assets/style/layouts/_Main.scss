@@ -24,12 +24,20 @@
 
 		&::after {
 
-			@include posCustom(-1.5em, -2.375em, -1.5em, -2.375em);
+			@include posCustom(0);
 			content: "";
 			position: absolute;
 			background: url(../../images/background_elements.svg) center center no-repeat;
 			background-size: contain;
 			z-index: -1;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&::after {
+
+			@include posCustom(-1.5em, -2.375em, -1.5em, -2.375em);
 		}
 	}
 }

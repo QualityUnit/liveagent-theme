@@ -652,6 +652,14 @@ $columns: (
 			&.elementor-col-#{$size},
 			&[data-col="#{$size}"] {
 				width: $value;
+
+				&:has(> .elementor-widget-wrap:empty) {
+					display: none;
+
+					+ .elementor-column:has(.elementor-element-populated) {
+						width: 100%;
+					}
+				}
 			}
 		}
 	}

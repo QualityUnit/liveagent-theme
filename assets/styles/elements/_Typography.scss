@@ -177,6 +177,10 @@ a {
 	max-width: 40ch;
 	text-align: left;
 
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		max-width: none;
+	}
+
 	li {
 
 		@include color(color, font-color-dark, !important);

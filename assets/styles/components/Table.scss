@@ -14,6 +14,10 @@ body:not(.pricing) {
 			max-width: none;
 			border-collapse: separate;
 			border-spacing: 0;
+
+			@media (max-width: ( $breakpoint-tablet-landscape - 1px)) {
+				table-layout: fixed;
+			}
 		}
 
 		table,

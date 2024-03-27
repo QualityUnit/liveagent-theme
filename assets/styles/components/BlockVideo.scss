@@ -572,16 +572,12 @@ $positions: ("left", "right");
 		padding: 2em;
 		top: 4em;
 
-		@media (min-width: ($breakpoint-tablet + 1px)) {
-			top: 14em;
+		@media (min-width: $breakpoint-tablet) {
+			top: 0;
 		}
 
-		@media (min-width: ($breakpoint-tablet-landscape + 1px)) {
+		@media (min-width: $breakpoint-tablet-landscape) {
 			top: 6em;
-		}
-
-		@media (min-width: ($breakpoint-desktop + 1px)) {
-			top: 9em;
 		}
 
 		&.elementor-widget-text-editor .elementor-widget-container {
