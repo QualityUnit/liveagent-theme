@@ -45,3 +45,62 @@ body.alternatives.single {
 		}
 	}
 }
+
+body.page-template {
+
+	.AlternativeTable {
+
+		&__cell__text {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+		}
+
+		.ComparePlans__tooltip {
+			display: flex;
+
+			.AlternativeTable__cell__icon--done {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				position: relative;
+
+				&::before {
+
+					@include square(1.25em);
+					content: url(../../images/done.svg);
+					display: block;
+				}
+
+				p {
+					position: absolute;
+					top: 0;
+					left: 0;
+					margin: 0;
+				}
+			}
+
+			.AlternativeTable__cell__icon--cancel {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				position: relative;
+
+				&::before {
+
+					@include square(1.25em);
+					content: url(../../images/cancel.svg);
+					display: block;
+				}
+
+				p {
+					position: absolute;
+					top: 0;
+					left: 0;
+					margin: 0;
+				}
+			}
+		}
+	}
+}
