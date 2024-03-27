@@ -59,6 +59,7 @@ if ( 'agency' === $business ) {
 } elseif ( 'solo' === $business ) {
 	$page_header_tags[0]['list'][1]['title'] = __( 'Solopreneur', 'ms' );
 } elseif ( 'startups' === $business ) {
+	$page_header_tags[0]['list'][1]['href'] = '/' . $business . '/';
 	$page_header_tags[0]['list'][1]['title'] = __( 'Startups and SMBs', 'ms' );
 }
 $page_header_tags[1]['title'] = __( 'Technologies', 'ms' );
