@@ -18,7 +18,7 @@
 		border-radius: $border-radius-16;
 
 		@media (min-width: 1300px) {
-			content: url(../../images/bg_pricing.svg);
+			content: url(../../images/block-pricing-bg.png);
 			background-size: contain;
 			background-color: transparent;
 		}
@@ -492,6 +492,7 @@
 				&--last {
 					margin-top: 3.125em;
 					margin-left: 7.1875em;
+					box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 				}
 
 				.PricingTable__header {
