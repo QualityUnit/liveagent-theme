@@ -26,6 +26,10 @@ scss/at-extend-no-missing-placeholder */
 html {
 	scroll-behavior: smooth;
 
+	@media (max-width: ($breakpoint-tablet - 1px)) {
+		overflow-x: hidden;
+	}
+
 	:where(img[class*="wp-image-"]) {
 		height: auto;
 		max-width: 100%;

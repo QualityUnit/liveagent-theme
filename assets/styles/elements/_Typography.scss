@@ -177,6 +177,10 @@ a {
 	max-width: 40ch;
 	text-align: left;
 
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		max-width: none;
+	}
+
 	li {
 
 		@include color(color, font-color-dark, !important);
@@ -649,10 +653,7 @@ video {
 	}
 
 	.wp-block-columns {
-		display: flex;
-		flex-flow: wrap row;
-		justify-content: space-between;
-		align-content: flex-start;
+
 
 		&.column-3 {
 
@@ -662,6 +663,10 @@ video {
 		}
 
 		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: space-between;
+			align-content: flex-start;
 
 			&:not(.is-not-stacked-on-mobile) > .wp-block-column {
 				flex-basis: 0;

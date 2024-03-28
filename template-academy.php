@@ -32,11 +32,11 @@
 					</div>
 				</div>
 			<?php } ?>
+			<div class="Signup__sidebar-wrapper">
+				<?= do_shortcode( '[signup-sidebar]' ); ?>
+			</div>
 		</div>
 
-		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
-		</div>
 
 		<div class="Post__content">
 			<div class="Post__logo">

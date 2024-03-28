@@ -17,6 +17,11 @@
 		background-color: $lightest-gray;
 		border-radius: $border-radius-16;
 
+		@media (max-width: ( 1300 - 1px)) {
+
+			@include square(100%);
+		}
+
 		@media (min-width: 1300px) {
 			content: url(../../images/bg_pricing.svg);
 			background-size: contain;
@@ -25,12 +30,20 @@
 	}
 
 	.wrapper {
-		padding-top: 3.125em !important;
-		padding-bottom: 3.125em !important;
 		display: flex;
 		flex-direction: column;
 		background: none !important;
 		max-width: $breakpoint-desktop-box;
+
+		@media (min-width: $breakpoint-tablet) {
+			padding-top: 3em !important;
+			padding-bottom: 3em !important;
+		}
+
+		@media (min-width: 1300px) {
+			padding-left: 10em !important;
+			padding-right: 0 !important;
+		}
 
 		.elementor-container {
 			align-items: center;
@@ -129,15 +142,44 @@
 			background-color: $white;
 			border-radius: $border-radius-16;
 
-			&--startup-label {
 
-				&::before {
-					border-radius: $border-radius-16 $border-radius-16 0 0 !important;
+			@media (min-width: $breakpoint-tablet) {
+				max-width: 48%;
+				margin-left: 0;
+
+				&:nth-of-type(2n + 1):not([class*="startups"]) {
+					margin-right: auto;
 				}
 			}
 
-			&--last {
-				margin-top: 17em;
+			@media (min-width: $breakpoint-tablet-landscape) {
+				max-width: 25%;
+
+				&:nth-of-type(2n + 1):not([class*="startups"]) {
+					margin-right: 0;
+				}
+			}
+
+			@media (min-width: 1300px) {
+				max-width: 285px;
+				margin: 0;
+				margin-top: 3.125em;
+			}
+
+			&::before {
+
+				@include posZero();
+				display: inline-block;
+				position: absolute;
+				background-color: $white;
+				box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
+				border-radius: $border-radius-16;
+				content: "";
+				z-index: 2;
+
+				@media (min-width: 1300px) {
+					content: none;
+				}
 			}
 
 			.popular {
@@ -297,11 +339,17 @@
 
 					&::before {
 
-						@include square(100%);
 						background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 1) 100%);
 						position: absolute;
+						left: 0;
+						height: 100%;
 						content: "";
 						z-index: 5;
+
+						@media (min-width: $breakpoint-tablet-landscape) {
+							width: 110%;
+							left: -10%;
+						}
 					}
 
 					.checkmark {

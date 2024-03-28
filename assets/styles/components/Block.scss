@@ -10,14 +10,21 @@ scss/at-extend-no-missing-placeholder */
 	margin-bottom: $block-space;
 
 	&.sm-margin-top {
-		margin-top: $block-space-sm !important;
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-top: $block-space-sm !important;
+		}
 	}
 
 	&.sm-margin-bottom {
-		margin-bottom: $block-space-sm !important;
 
-		+ .Block {
-			margin-top: $block-space-sm !important;
+		@media (min-width: $breakpoint-tablet) {
+
+			margin-bottom: $block-space-sm !important;
+
+			+ .Block {
+				margin-top: $block-space-sm !important;
+			}
 		}
 	}
 
@@ -477,8 +484,12 @@ scss/at-extend-no-missing-placeholder */
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		margin-top: 0 !important;
-		margin-bottom: $block-space-sm !important;
+
+		&[class] {
+
+			margin-top: 0 !important;
+			margin-bottom: 2em !important;
+		}
 
 		&.image-left,
 		&.image-right {
@@ -512,8 +523,13 @@ scss/at-extend-no-missing-placeholder */
 
 			.elementor-column {
 
-				&:last-of-type {
-					margin-top: 50px;
+				&:last-of-type:not(:first-of-type) {
+					margin-top: 1.5em;
+				}
+
+				&.videoBlock[class] {
+					margin-top: -1.5em;
+					margin-bottom: 1.5em;
 				}
 			}
 		}
@@ -632,16 +648,14 @@ scss/at-extend-no-missing-placeholder */
 	@media (max-width: $breakpoint-desktop) {
 
 		.wrapper {
-			padding-left: 40px;
-			padding-right: 40px;
+			padding-left: 2.5rem;
+			padding-right: 2.5rem;
 		}
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		margin-top: $block-space-sm !important;
-		margin-bottom: $block-space-sm !important;
-		padding-top: $block-space-sm !important;
-		padding-bottom: $block-space-sm !important;
+		padding-top: 2em !important;
+		padding-bottom: 2em !important;
 
 		&.space-between {
 
