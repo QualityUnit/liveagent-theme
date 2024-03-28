@@ -6,6 +6,19 @@
 
 .Block--startup {
 
+	&::before {
+		position: absolute;
+		content: "";
+		background-color: $lightest-gray;
+		border-radius: $border-radius-16;
+
+		@media (min-width: 1300px) {
+			content: url(../../images/block-startup-bg.png);
+			background-size: contain;
+			background-color: transparent;
+		}
+	}
+
 	&.wrapper__wide {
 		background-position: left center;
 
@@ -17,7 +30,7 @@
 
 	.elementor-top-column {
 
-		@media (min-width: $breakpoint-tablet-landscape) {
+		@media (min-width: $breakpoint-desktop) {
 
 			&:first-of-type {
 				width: 50% !important;
@@ -49,6 +62,10 @@
 				width: 50% !important;
 			}
 
+			@media (min-width: $breakpoint-desktop) {
+				width: 40% !important;
+			}
+
 			* {
 				text-align: left;
 			}
@@ -65,6 +82,10 @@
 
 			@media (min-width: $breakpoint-tablet) {
 				width: 50% !important;
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				width: 60% !important;
 			}
 
 			&.elementor-top-column.elementor-column.elementor-col-50 {
@@ -95,6 +116,7 @@
 						> .elementor-container {
 							display: grid;
 							grid-template-columns: 0.4fr 1fr 8.4375em;
+							justify-content: end;
 						}
 					}
 				}
@@ -126,8 +148,8 @@
 
 			&--mid.elementor-column[class] {
 
-				@include color(box-shadow, box-shadow);
 				@include color(background-color, main-background);
+				box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 				font-size: 1.2rem;
 				border-radius: $border-radius-16;
 				padding: 1.5em !important;
