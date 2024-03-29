@@ -10,6 +10,12 @@
 
 	> .elementor-container {
 		max-width: $breakpoint-desktop !important;
+
+		> .elementor-column {
+			width: 100% !important;
+		}
+
+
 	}
 
 	.elementor-column:not(.pillar) {
@@ -17,6 +23,7 @@
 		box-shadow: none;
 		overflow: visible;
 		padding: 1.5em;
+		flex-wrap: wrap;
 
 		&:hover {
 			background-color: $white !important;
@@ -97,11 +104,14 @@
 			font-size: 0.875rem;
 		}
 
-		@media (min-width: $breakpoint-tablet) {
-			padding: 2.5em;
+		@media (min-width: $breakpoint-mobile) {
+			width: 50% !important;
+			border-radius: $border-radius-16;
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 2.5em;
+			width: 25% !important;
 
 			&:first-of-type .elementor-widget-heading {
 
