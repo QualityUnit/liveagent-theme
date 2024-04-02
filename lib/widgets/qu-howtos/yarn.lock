@@ -2971,7 +2971,7 @@
   resolved "https://registry.yarnpkg.com/@wordpress/base-styles/-/base-styles-4.45.0.tgz#6144f4abf3db464b33f92571def182935b7c50cc"
   integrity sha512-BKWLT/gvLLeQoD7A4tONSjYeqeFraPVb/HLbRQIs55SXNbXF6N2H0guHS5jjzEAJgSBInXJ/pe5vG/1H6daTIg==
 
-"@wordpress/blob@^3.52.0", "@wordpress/blob@^3.54.0":
+"@wordpress/blob@^3.54.0":
   version "3.54.0"
   resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-3.54.0.tgz#be5af3020ad3da0dacd142c0505275c7ea528cec"
   integrity sha512-w0w7K7i+urajy7egEkP4qZWy4gmbLLUvxp5BgjCELi9SlRts3kBvaEuijcuiitu5g0dRXXqV2WHTPYGZIxP0UA==
@@ -3319,7 +3319,7 @@
     mime "^3.0.0"
     web-vitals "^3.5.0"
 
-"@wordpress/element@^5.29.0", "@wordpress/element@^5.31.0":
+"@wordpress/element@^5.31.0":
   version "5.31.0"
   resolved "https://registry.yarnpkg.com/@wordpress/element/-/element-5.31.0.tgz#587b22652bafc098a18973e9f4868dcc74c9928d"
   integrity sha512-TVk7Ivc85AlC96cSruwTjbm2qsq2uXUd5GSPHWUNF7xZHeeJ7XxJpXe75UyJ2vLndtOn3XjT1R64T5Gpu9ipuA==
@@ -3396,7 +3396,7 @@
   dependencies:
     "@babel/runtime" "^7.16.0"
 
-"@wordpress/i18n@^4.52.0", "@wordpress/i18n@^4.54.0":
+"@wordpress/i18n@^4.54.0":
   version "4.54.0"
   resolved "https://registry.yarnpkg.com/@wordpress/i18n/-/i18n-4.54.0.tgz#e4af6dbf0690762b42010a5a66428bf9444626ea"
   integrity sha512-gSKBopBN9rY9GhNy3CXLK3n4D5viuBTObvcu3blu4SFqkHl+Ws1Gx0tHbpypfV80ESrOyMXHJIAqWgBD8d4Hew==
@@ -3476,15 +3476,15 @@
     "@wordpress/i18n" "^4.54.0"
 
 "@wordpress/media-utils@^4":
-  version "4.43.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-4.43.0.tgz#95be77943c2d943651a814fcda160e9403535ebe"
-  integrity sha512-CDcJkOd3Jnj4OXE55CJkNVyIBIjzAkZR6wQKZ33cG2x4m3Fg5kMbO6XNS1/xRRSb3ox3bm5gjQ/E38kB0yymDA==
+  version "4.45.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-4.45.0.tgz#208638e3f835b3a71479148b3fab990d1946e23b"
+  integrity sha512-kXuN0p+stgNgYIedK7n00+ih4ZHSLiT6RUbVsTZBvl+8nfse4DBQQVDn6XwwZU8zAZzwnKpr81R696fMiysH+g==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@wordpress/api-fetch" "^6.49.0"
-    "@wordpress/blob" "^3.52.0"
-    "@wordpress/element" "^5.29.0"
-    "@wordpress/i18n" "^4.52.0"
+    "@wordpress/api-fetch" "^6.51.0"
+    "@wordpress/blob" "^3.54.0"
+    "@wordpress/element" "^5.31.0"
+    "@wordpress/i18n" "^4.54.0"
 
 "@wordpress/notices@^4.22.0":
   version "4.22.0"
