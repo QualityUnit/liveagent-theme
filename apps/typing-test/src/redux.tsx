@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import produce from "immer";
+import {produce} from "immer";
 
 import AppState from './app-state';
 import Action, { Type as ActionType } from './action';
