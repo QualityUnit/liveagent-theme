@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { NumericFormat } from 'react-number-format';
+import NumberFormat from 'react-number-format';
 import { i18n } from '../common/constants';
 
 function ChartBar(props) {
@@ -45,7 +45,7 @@ function ChartBar(props) {
       </div>
       <div className="chart--bar" style={{width: defaultwidth + "%"}}>
         <span className="price">
-          <NumericFormat value={price} displayType={'text'} thousandSeparator={' '} prefix={'$'} />
+          <NumberFormat value={price} displayType={'text'} thousandSeparator={' '} prefix={'$'} />
         </span>
       </div>
     </div>
