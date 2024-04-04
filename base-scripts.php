@@ -86,12 +86,12 @@
 	gtag('js', new Date())
 
 	gtag('consent', 'default', {
-		'ad_storage': 'granted',
+		'ad_user_data': 'granted',
 		'analytics_storage': 'granted'
 	})
 
 	gtag('consent', 'default', {
-		'ad_storage': 'denied',
+		'ad_user_data': 'denied',
 		'analytics_storage': 'denied',
 		'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO']
 	})
@@ -139,7 +139,7 @@
 
 	function consentGranted() {
 		gtag('consent', 'update', {
-			'ad_storage': 'granted',
+			'ad_user_data': 'granted',
 			'analytics_storage': 'granted'
 		})
 	}
@@ -233,7 +233,7 @@
 	function loadChatBot( { chatbotId, chatbotUserId, btnTarget } ) {
 		const chatBotButton = document.querySelector( btnTarget );
 		chatBotButton.classList.remove('hidden');
-			
+
 		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
 		'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
 		function(e){
@@ -272,7 +272,7 @@ if (
 	<button class="ContactUs__chatBotOnly hidden" id="chatBotOnly" rel="nofollow noopener external">
 		<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
 	</button>
-	
+
 	<script type="text/javascript" id="urlslab-chatbot-script">
 		const chatBtnOptions = {btnTarget: '#chatBotOnly', chatbotId: '6dab7363-ca57-4c61-8219-26d4f776e577', chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA2ZGFiNzM2My1jYTU3LTRjNjEtODIxOS0yNmQ0Zjc3NmU1Nzc='};
 		acceptButton.addEventListener( "click", () => {
@@ -282,7 +282,7 @@ if (
 		if ( getCookieFrontend( "cookieLaw" ) ) {
 			loadChatBot(chatBtnOptions);
 		}
-		
+
 	</script>
 	<?php
 }
