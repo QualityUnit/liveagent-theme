@@ -99,10 +99,6 @@
 				.innerText.replace( ' ', '' );
 			const filteredItemColor = filteredItem[ 0 ].dataset.color;
 
-			researchTitle.insertAdjacentHTML(
-				'afterbegin',
-				`${ filteredItemNumber } `
-			);
 			researchSelected.insertAdjacentHTML(
 				'afterbegin',
 				`<span class="Research--post__counter">${ filteredItemNumber }</span>`
