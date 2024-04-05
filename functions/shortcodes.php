@@ -60,3 +60,4 @@ require_once get_template_directory() . '/lib/shortcodes/small-photo-slider.php'
 	require_once get_template_directory() . '/lib/shortcodes/hero-banner-awards.php';
 	require_once get_template_directory() . '/lib/shortcodes/split-title.php';
 	require_once get_template_directory() . '/lib/shortcodes/expert-note.php';
+	require_once get_template_directory() . '/lib/shortcodes/request-for-proposal-form.php';
