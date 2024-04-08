@@ -3,6 +3,14 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+
+body.request-for-proposal {
+
+	.SimilarSources {
+		display: none;
+	}
+}
+
 .request__for__proposal {
 	background-color: $lightest-gray;
 	padding-top: 4em;
@@ -45,7 +53,7 @@
 				.ComparePlans__tooltip {
 					vertical-align: top;
 					position: absolute;
-					right: -1.25em;
+					right: -20px;
 					top: 0;
 
 					.fontello-info::before {
@@ -131,12 +139,8 @@
 				z-index: 1;
 				padding-right: 0 !important;
 
-				.elementor-widget-wrap {
+				img {
 					border-radius: $border-radius-16 0 0 $border-radius-16;
-					background-repeat: no-repeat;
-					background-position: center	center;
-					background-size: cover;
-
 				}
 			}
 
@@ -308,6 +312,7 @@
 
 			.Signup__form {
 				max-width: 35.625em;
+				min-height: 730px;
 
 				&__title {
 					font-size: 2.125em;
