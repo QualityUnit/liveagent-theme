@@ -3,7 +3,7 @@
 function ms_slidertestimonials_home( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'horizontal' => '',
+			'horizontal' => 'true',
 		),
 		$atts,
 		'slidertestimonials_home'
