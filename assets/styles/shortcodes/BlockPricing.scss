@@ -184,7 +184,6 @@
 						-webkit-background-clip: text;
 						-webkit-text-fill-color: transparent;
 						background-clip: text;
-						font-family: $font-secondary;
 						font-size: 0.8125rem;
 						font-weight: $font-weight-semi;
 					}
@@ -201,7 +200,6 @@
 				&__price {
 					display: flex;
 					align-content: center;
-					font-family: $font-secondary;
 					position: relative;
 					font-weight: $font-weight-bold;
 					font-size: 1.875rem;
@@ -249,7 +247,6 @@
 					transform: translateY(100%);
 					background-color: $saturated-green;
 					border-radius: $border-radius-16;
-					font-family: $font-secondary;
 					z-index: 1;
 					padding: 0.5625em;
 					display: flex;
@@ -286,7 +283,6 @@
 				}
 
 				&__description {
-					font-family: $font-primary;
 					white-space: nowrap;
 					position: relative;
 					margin-bottom: 2em;
@@ -404,7 +400,6 @@
 					transform: translateX(100%);
 					background-color: $saturated-green;
 					border-radius: $border-radius-16;
-					font-family: $font-secondary;
 					z-index: 1;
 					padding: 0.5625em;
 					max-width: 6.25em;

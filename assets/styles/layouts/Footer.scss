@@ -175,7 +175,6 @@
 
 		@include color(color, font-color-light);
 		margin-bottom: 0;
-		font-family: $font-primary;
 		font-size: $font-size-smaller;
 		line-height: $line-height-smaller;
 	}
@@ -206,7 +205,6 @@
 			li {
 
 				@include color(color, font-color-light);
-				font-family: $font-primary;
 				font-size: $font-size-smaller;
 				line-height: $line-height-smaller;
 				font-weight: $font-weight-semi;

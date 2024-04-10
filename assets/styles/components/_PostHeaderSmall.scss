@@ -17,7 +17,6 @@
 	&-counter {
 
 		@include color(color, font-color-dark);
-		font-family: $font-secondary;
 		font-size: 0.8125rem;
 		font-weight: 500;
 
@@ -34,7 +33,6 @@
 
 		@include color(color, font-color-dark);
 		@include color(background-color, button-outline-color);
-		font-family: $font-secondary;
 		font-weight: $font-weight-semi;
 		border-radius: 6px;
 		transition: all 0.2s;
@@ -133,7 +131,6 @@
 		&__counter {
 
 			@include color(color, font-color-dark);
-			font-family: $font-secondary;
 			font-size: 0.8125rem;
 			font-weight: 500;
 			margin-left: 0.75em;
@@ -147,7 +144,6 @@
 
 			@include color(color, font-color-dark);
 			@include color(background-color, button-outline-color);
-			font-family: $font-secondary;
 			font-size: 0.8125rem;
 			font-weight: $font-weight-semi;
 			border-radius: 6px;

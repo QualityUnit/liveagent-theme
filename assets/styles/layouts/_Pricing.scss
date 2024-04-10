@@ -36,7 +36,6 @@ html {
 		&__title {
 
 			@include color(color, font-color-dark);
-			font-family: $font-secondary;
 			font-size: 48px;
 			line-height: 64px;
 			font-weight: $font-weight-bold;
@@ -76,7 +75,6 @@ html {
 				padding: 2px 14px;
 				border-radius: 100px;
 				background-color: #d0bafa;
-				font-family: $font-secondary;
 				font-size: $font-size-smaller;
 				font-weight: $font-weight-semi;
 				display: flex !important;
@@ -161,7 +159,6 @@ html {
 
 		&__currency-switcher-title-usd,
 		&__currency-switcher-title-eur {
-			font-family: $font-primary;
 			font-size: $font-size-default;
 		}
 	}
@@ -430,7 +427,6 @@ html {
 		th {
 
 			span {
-				font-family: $font-secondary;
 				font-size: $font-size-h2;
 				line-height: $line-height-h2;
 			}
@@ -514,7 +510,6 @@ html {
 
 			&__amount {
 				display: inline-block !important;
-				font-family: $font-secondary;
 				font-size: 20px;
 				font-weight: $font-weight-bold;
 				line-height: $line-height-h1;
@@ -524,7 +519,6 @@ html {
 
 				@include color(color, font-color-normal);
 				display: inline-block !important;
-				font-family: $font-secondary;
 				line-height: $line-height-bigger;
 				font-size: 20px;
 			}
@@ -661,7 +655,6 @@ html {
 
 					&__amount {
 						font-size: 20px;
-						font-family: $font-secondary;
 					}
 
 					&__label {

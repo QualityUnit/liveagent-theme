@@ -37,7 +37,6 @@
 			justify-content: flex-end !important;
 
 			&__title {
-				font-family: $font-primary;
 				font-size: $font-size-default;
 			}
 		}
@@ -143,7 +142,6 @@
 				display: inline-block !important;
 				line-height: 40px;
 				font-size: $font-size-h6;
-				font-family: $font-secondary;
 				margin: 0 0 15px;
 				font-weight: $font-weight-normal;
 				word-break: normal;
@@ -216,7 +214,6 @@
 	&__button {
 
 		&--show-all {
-			font-family: $font-primary;
 			font-weight: $font-weight-normal;
 			background: none;
 			padding: 0;
@@ -246,7 +243,6 @@
 
 		@include color(color, font-color-dark);
 		margin: 2rem 3rem;
-		font-family: $font-primary;
 		font-size: $font-size-smaller;
 	}
 
@@ -295,7 +291,6 @@
 		padding: 8px 15px;
 		background-color: $light-gray;
 		font-size: $font-size-smaller;
-		font-family: $font-secondary;
 		font-weight: $font-weight-bold;
 	}
 
@@ -439,7 +434,6 @@
 	}
 
 	&__table-text {
-		font-family: $font-secondary;
 		font-weight: $font-weight-bold;
 		margin: 0;
 	}
@@ -495,7 +489,6 @@
 		margin: 20px 0;
 
 		&__header {
-			font-family: $font-secondary;
 			font-size: 36px;
 			line-height: 48px;
 			margin: 0 0 10px;

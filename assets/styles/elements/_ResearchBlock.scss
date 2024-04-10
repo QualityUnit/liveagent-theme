@@ -13,11 +13,9 @@
 	border-radius: $border-radius-16;
 	padding: 2.625em;
 	margin-bottom: 2.5em;
-	font-family: $font-secondary;
 	font-weight: $font-weight-normal;
 
 	p {
-		font-family: $font-secondary;
 		font-weight: $font-weight-normal;
 		margin-bottom: 0;
 	}
@@ -31,7 +29,6 @@
 
 			@include color(color, font-color-light);
 			box-shadow: 0 0 0.5em rgba($black-real, 0.4);
-			font-family: $font-primary;
 			font-weight: $font-weight-normal;
 			font-size: 0.875rem;
 			line-height: 1.5 !important;
@@ -274,7 +271,6 @@
 	}
 
 	.elementor-icon-list-items {
-		font-family: $font-secondary;
 
 		.elementor-icon-list-item {
 			margin-top: 0.75em;

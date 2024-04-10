@@ -100,7 +100,6 @@
 					font-size: 1.875rem;
 					line-height: 1.4;
 					font-weight: $font-weight-bold;
-					font-family: $font-secondary;
 					margin-bottom: 0;
 
 					@media (min-width: $breakpoint-tablet-small) {
@@ -133,7 +132,6 @@
 
 		&--text {
 			z-index: 2;
-			font-family: $font-primary;
 			font-weight: $font-weight-normal;
 			line-height: 1.7;
 			padding-left: 2.5em;
@@ -152,7 +150,6 @@
 			z-index: 2;
 
 			a {
-				font-family: $font-secondary;
 				font-weight: $font-weight-normal;
 			}
 		}

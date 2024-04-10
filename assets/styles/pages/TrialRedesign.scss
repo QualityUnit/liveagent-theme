@@ -84,7 +84,6 @@
 		border-radius: $border-radius-16;
 
 		* {
-			font-family: $font-secondary;
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
@@ -192,7 +191,6 @@
 		&__text {
 			margin-bottom: 0;
 			font-size: 0.875rem;
-			font-family: $font-primary;
 			text-align: center;
 		}
 
@@ -244,7 +242,6 @@
 					align-items: center;
 					line-height: 1;
 					height: calc(100% - 2px);
-					font-family: $font-primary;
 					font-weight: $font-weight-semi;
 				}
 
@@ -308,7 +305,6 @@
 
 				p {
 					font-size: 0.75rem;
-					font-family: $font-primary;
 					text-align: center;
 				}
 			}
