@@ -6,8 +6,7 @@
 .blog__top__post {
 	max-width: 73.75em;
 	margin: 0 auto 3em;
-	padding-left: 40px;
-	padding-right: 40px;
+
 	position: relative;
 
 
@@ -19,23 +18,27 @@
 			display: none;
 		}
 
+		&--main {
+
+			@include color(background-color, main-background);
+			@include color(box-shadow, box-shadow-big);
+			@include square(100%);
+			border-radius: $border-radius-16;
+			overflow: hidden;
+			z-index: 1;
+		}
+
 		@media (min-width: $breakpoint-tablet) {
 			min-height: 26em;
+			padding-left: 2.5em;
+			padding-right: 2.5em;
 
-			.blog__top__post__inn {
-
-				&--main {
-
-					@include color(background-color, main-background);
-					@include color(box-shadow, box-shadow-big);
-					@include square(100%);
-					position: absolute;
-					display: flex;
-					align-items: center;
-					border-radius: $border-radius-16;
-					overflow: hidden;
-					z-index: 1;
-				}
+			&--main {
+				position: absolute;
+				left: 0;
+				display: flex;
+				align-items: center;
+				border-radius: $border-radius-16;
 			}
 		}
 

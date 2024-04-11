@@ -25,8 +25,7 @@
 	}
 
 	.wrapper {
-		padding-top: 3.125em !important;
-		padding-bottom: 3.125em !important;
+
 		display: flex;
 		flex-direction: column;
 		background: none !important;
@@ -55,6 +54,11 @@
 			.Button {
 				display: none;
 			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding-top: 3.125em !important;
+			padding-bottom: 3.125em !important;
 		}
 
 	}
@@ -134,10 +138,6 @@
 				&::before {
 					border-radius: $border-radius-16 $border-radius-16 0 0 !important;
 				}
-			}
-
-			&--last {
-				margin-top: 17em;
 			}
 
 			.popular {

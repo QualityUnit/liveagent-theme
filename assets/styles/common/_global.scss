@@ -61,8 +61,16 @@ body {
 	}
 }
 
-.home .AppContainer {
-	overflow: hidden;
+.AppContainer {
+
+	.home & {
+		overflow: hidden;
+	}
+
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
 }
 
 .wrapper {

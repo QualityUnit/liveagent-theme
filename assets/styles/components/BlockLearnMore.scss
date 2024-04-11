@@ -52,13 +52,6 @@
 		background: url(../../images/background__elements.jpg) center center no-repeat;
 		background-size: cover;
 
-		h2,
-		h3 {
-			font-size: 3rem;
-			line-height: 1.4;
-			margin-top: 0;
-		}
-
 		p:last-of-type {
 			margin-bottom: 0;
 		}
@@ -94,6 +87,16 @@
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&__header {
+
+			h2,
+			h3 {
+				font-size: 3rem;
+				line-height: 1.4;
+				margin-top: 0;
+			}
+		}
 
 		.wrapper__wide {
 			padding-top: 0;

@@ -487,8 +487,8 @@ scss/at-extend-no-missing-placeholder */
 
 		&[class] {
 
-			margin-top: 0 !important;
-			margin-bottom: 2em !important;
+			margin-top: 1.5em !important;
+			margin-bottom: 1.5em !important;
 		}
 
 		&.image-left,
@@ -528,7 +528,6 @@ scss/at-extend-no-missing-placeholder */
 				}
 
 				&.videoBlock[class] {
-					margin-top: -1.5em;
 					margin-bottom: 1.5em;
 				}
 			}
@@ -654,8 +653,11 @@ scss/at-extend-no-missing-placeholder */
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		padding-top: 2em !important;
-		padding-bottom: 2em !important;
+
+		.wrapper {
+			padding-top: 2em !important;
+			padding-bottom: 2em !important;
+		}
 
 		&.space-between {
 
