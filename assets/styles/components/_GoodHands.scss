@@ -31,7 +31,7 @@
 	&__image {
 		display: none;
 		margin-top: 0.25em;
-		width: 52%;
+		width: 53%;
 
 		img {
 			width: 100%;
@@ -43,6 +43,11 @@
 		@media (min-width: $breakpoint-desktop) {
 			width: 36.75em;
 			height: 26.75em;
+
+			.partnerWithUs & {
+				width: 53%;
+				height: auto;
+			}
 		}
 	}
 
@@ -114,11 +119,21 @@
 			padding: 3.125em 3.125em 3.125em 0;
 		}
 
+		&.partnerWithUs &__text {
+			width: 31.125%;
+			padding: 3.125em 0;
+			margin-right: auto;
+		}
+
 		&__logos {
 			flex-direction: row;
 			align-items: flex-start;
 			justify-content: space-between;
 			padding-right: 20%;
+		}
+
+		&.partnerWithUs &__logos {
+			padding-right: 0;
 		}
 
 		&__logo {
