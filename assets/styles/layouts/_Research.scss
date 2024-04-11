@@ -37,7 +37,7 @@ $maxWidth: 71.125em;
 			}
 		}
 
-		@media (max-width: $breakpoint-tablet-landscape - 1px) {
+		@media (max-width: ( $breakpoint-tablet-landscape - 1px)) {
 
 			.Research__thumbnail {
 				display: none;
@@ -90,7 +90,6 @@ $maxWidth: 71.125em;
 	&--content.Content {
 
 		@include color(color, font-color-dark);
-		padding: 0 1.25em;
 
 		.checklist ul:not([class]) {
 
@@ -133,6 +132,10 @@ $maxWidth: 71.125em;
 			}
 		}
 
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 0 1.25em;
+		}
+
 		@media (min-width: $maxWidth) {
 			padding: 0;
 		}
@@ -140,22 +143,21 @@ $maxWidth: 71.125em;
 
 	&--category {
 
-		@media (min-width: $breakpoint-tablet-landscape) {
 
-			&__title {
-				display: flex;
-				align-items: center;
-				font-size: 1.75rem;
-				line-height: 1.42;
-			}
+		&__title {
+			display: flex;
+			align-items: center;
+			font-size: 1.75rem;
+			line-height: 1.42;
+		}
 
-			&__image {
-				margin-right: 0.785em;
+		&__image {
+			margin-right: 0.785em;
+			flex: 0 0 2em;
 
-				img {
+			img {
 
-					@include square(2em);
-				}
+				@include square(2em);
 			}
 		}
 	}
@@ -171,14 +173,6 @@ $maxWidth: 71.125em;
 		&__block {
 			width: 100%;
 
-			@media (min-width: $breakpoint-tablet) {
-				width: 50%;
-			}
-
-			@media (min-width: $breakpoint-tablet-landscape) {
-				width: 33%;
-			}
-
 			&__inn {
 
 				@include color(box-shadow, box-shadow);
@@ -188,7 +182,7 @@ $maxWidth: 71.125em;
 				border-radius: 1rem;
 				padding: 0.5rem 1rem;
 				min-height: 5.25em;
-				margin: 1rem 1.3rem 1rem 0;
+				margin: 1rem 0;
 				font-weight: $font-weight-semi;
 				text-decoration: none !important;
 
@@ -223,6 +217,18 @@ $maxWidth: 71.125em;
 				line-height: normal;
 				margin: 0.5rem 0 0.5rem 0 !important;
 				color: $black;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				width: 50%;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				width: 33%;
+
+				&__inn {
+					margin: 1rem 1.3rem 1rem 0;
+				}
 			}
 		}
 
