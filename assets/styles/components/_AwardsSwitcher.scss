@@ -23,7 +23,6 @@
 
 			.elementor-widget-text-editor p {
 				line-height: 1.8;
-				font-family: $font-secondary;
 				margin: 1em auto 4em;
 
 				@media (max-width: $breakpoint-tablet - 1px) {
@@ -72,7 +71,6 @@
 		&--inn {
 			position: relative;
 			width: 100%;
-			font-family: $font-secondary;
 			border-bottom: 3px solid $light-gray;
 		}
 

@@ -302,7 +302,6 @@
 
 @mixin learn-more (){
 	display: inline-block !important;
-	font-family: $font-secondary;
 	font-size: em($target: $font-size-smaller, $unit: "rem");
 	font-weight: $font-weight-semi;
 	text-decoration: none;

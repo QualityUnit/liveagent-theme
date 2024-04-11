@@ -266,7 +266,6 @@ value-keyword-case */
 		.h3 {
 			font-size: 1.25rem;
 			line-height: 1.5;
-			font-family: $font-secondary;
 			font-weight: $font-weight-normal;
 			margin-bottom: 0;
 
@@ -440,7 +439,6 @@ value-keyword-case */
 			margin-bottom: 0.75em;
 
 			&:not(.chat--bubble__dots) p {
-				font-family: $font-secondary;
 				font-size: em($font-size-smaller);
 				line-height: 1.35;
 				margin: 0;
@@ -646,7 +644,6 @@ value-keyword-case */
 					align-items: center;
 					justify-content: center;
 					font-size: 3em;
-					font-family: $font-primary;
 					box-shadow: inset 0 -0.52em 0.52em -0.395em rgba(157, 157, 157, 0.19), 0.25em 0.25em 0.33em -0.208em rgba(144, 144, 144, 0.19);
 					width: 37%;
 					height: auto;

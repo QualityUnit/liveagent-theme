@@ -47,7 +47,6 @@
 
 	&__header {
 
-		font-family: $font-secondary;
 		border-radius: $border-radius-16;
 		padding: 1.5em;
 		background: url(../../images/background__elements.jpg) center center no-repeat;
@@ -83,14 +82,12 @@
 			margin: 0 0 1.5em;
 			padding: 2em;
 			box-shadow: 0 20px 90px 10px rgba(55, 55, 55, 0.08);
-			font-family: $font-primary;
 
 			.flex {
 				margin-bottom: 1.5em;
 
 				strong {
 					margin-right: auto;
-					font-family: $font-secondary;
 				}
 			}
 		}

@@ -20,7 +20,6 @@ h6,
 
 	@include color(color, font-color-dark);
 	margin-bottom: $default-element-margin;
-	font-family: $font-secondary;
 	font-weight: $font-weight-bold;
 
 	strong {
@@ -104,7 +103,6 @@ p {
 
 	@include color(color, font-color-dark);
 	margin-bottom: $default-element-margin;
-	font-family: $font-primary;
 	font-size: $font-size-default;
 	font-weight: $font-weight-normal;
 	line-height: $line-height-default;
@@ -121,12 +119,7 @@ p {
 		line-height: $line-height-smaller;
 	}
 
-	.poppins & {
-		font-family: $font-secondary;
-	}
-
 	.subtitle & {
-		font-family: $font-secondary;
 		font-size: 1.5rem;
 	}
 }
@@ -136,7 +129,6 @@ ol {
 
 	@include color(color, font-color-dark);
 	margin-bottom: $default-element-margin;
-	font-family: $font-primary;
 	font-size: $font-size-default;
 	font-weight: $font-weight-normal;
 	line-height: $line-height-default;
@@ -285,7 +277,6 @@ video {
 	table {
 
 		@include color(color, font-color-normal);
-		font-family: $font-primary;
 		font-size: $font-size-default;
 		font-weight: $font-weight-normal;
 		line-height: $line-height-default;
@@ -514,7 +505,6 @@ video {
 		}
 
 		p {
-			font-family: $font-primary;
 			font-weight: $font-weight-semi;
 			font-style: italic;
 			font-size: 1rem;

@@ -258,23 +258,6 @@ function url_space_replace( $content ) {
 		$link->setAttribute( 'href', $fixed );
 	}
 
-	// Fixes liveagent.local from CDN url on localhost
-	$images_videos = $xpath->query( '//img | //video' );
-	$imageslength  = $images_videos->length;
-
-	for ( $i = 0; $i < $imageslength; $i++ ) {
-		$element = $images_videos->item( $i );
-		$src  = $element->getAttribute( 'src' ); //@codingStandardsIgnoreLine
-		$srcset  = $element->getAttribute( 'srcset' ); //@codingStandardsIgnoreLine
-		if ( WP_ENV === 'local' ) {
-
-			$src    = preg_replace( '/https:\/\/(www\.)?live.+?\/(.+)/', 'http://liveagent.local/$2', $src );
-			$srcset = preg_replace( '/https:\/\/(www\.)?live.+?\//', 'http://liveagent.local/', $srcset );
-		}
-		$element->setAttribute( 'src', $src );
-		$element->setAttribute( 'srcset', $srcset );
-	}
-
 	$dom->removeChild( $dom->doctype );
 	$content = $dom->saveHtml();
 	$content = str_replace( '<html><body>', '', $content );

@@ -82,7 +82,6 @@ scss/at-extend-no-missing-placeholder */
 
 				&,
 				* {
-					font-family: $font-secondary;
 					color: $white;
 				}
 
@@ -117,7 +116,6 @@ scss/at-extend-no-missing-placeholder */
 					}
 
 					p {
-						font-family: $font-secondary;
 						font-weight: $font-weight-semi;
 						color: $white;
 					}
@@ -181,7 +179,6 @@ scss/at-extend-no-missing-placeholder */
 			justify-content: center;
 			padding: 0 $button-padding-normal;
 			font-size: $button-font-size-normal;
-			font-family: $font-secondary;
 			font-weight: $font-weight-semi;
 			background-color: rgba($white, 0.2);
 			color: $white;

@@ -457,7 +457,6 @@ body {
 					justify-content: space-between;
 					font-size: $main-nav-font-size;
 					line-height: $main-nav-line-height;
-					font-family: $font-secondary;
 					font-weight: $font-weight-semi;
 					text-decoration: none;
 
@@ -550,7 +549,6 @@ body {
 					@include color(color, main-nav-submenu-font-color, !important);
 					font-size: $main-nav-submenu-font-size;
 					line-height: $main-nav-submenu-line-height;
-					font-family: $font-secondary;
 					font-weight: $font-weight-semi;
 					white-space: nowrap;
 					text-align: left;
@@ -599,7 +597,6 @@ body {
 									top: 0.5em;
 									right: 0;
 									display: inline-block !important;
-									font-family: $font-primary !important;
 									padding: 0.125em 0.25em;
 									border-radius: 0.125em;
 									font-size: 0.625em;
@@ -669,7 +666,6 @@ body {
 						}
 
 						a {
-							font-family: $font-secondary;
 							padding-left: 2.0625em;
 							z-index: 1;
 						}

@@ -112,7 +112,6 @@ scss/at-extend-no-missing-placeholder */
 			&__name {
 
 				@include color(color, font-color-light, !important);
-				font-family: $font-secondary;
 				font-size: 1.5rem;
 				line-height: 1.285;
 				font-weight: $font-weight-semi;
@@ -121,7 +120,6 @@ scss/at-extend-no-missing-placeholder */
 			&__position {
 
 				@include color(color, font-color-light, !important);
-				font-family: $font-secondary;
 				font-size: 1rem;
 				line-height: 1.285;
 				font-weight: $font-weight-normal;

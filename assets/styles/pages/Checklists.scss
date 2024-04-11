@@ -99,7 +99,6 @@
 
 				@include color(color, font-color-medium);
 				font-size: 0.75rem;
-				font-family: $font-primary;
 				margin-bottom: 1.5em;
 			}
 
@@ -121,7 +120,6 @@
 
 					@include color(color, font-color-dark);
 					font-size: 0.875rem;
-					font-family: $font-secondary;
 					font-weight: $font-weight-bold;
 					text-decoration: none !important;
 
