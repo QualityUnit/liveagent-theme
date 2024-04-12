@@ -6,7 +6,6 @@ function ms_signup_sidebar( $atts ) {
 	// include resources
 	if ( ! is_mobile() ) {
 		set_custom_source( 'filterMenu', 'js' );
-		set_source( false, 'components/SignupSidebar', 'css', false, false );
 	}
 	Trial_Signup::include_crm();
 

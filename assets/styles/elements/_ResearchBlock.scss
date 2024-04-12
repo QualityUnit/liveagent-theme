@@ -6,6 +6,14 @@
 	position: relative;
 }
 
+.elementor-container:has(.Research--block, .Statistics--block) {
+
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+}
+
 .Research--block,
 .Statistics--block {
 
@@ -70,14 +78,21 @@
 		width: 100%;
 	}
 
+	@media (min-width: $breakpoint-tablet) {
+
+		&.elementor-col-33 {
+			width: calc(50% - 1em);
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet-landscape) {
 
 		&.elementor-col-33 {
 			width: calc(33.333% - 1.25em);
 			min-height: 39.125em;
+			margin-right: 0;
 
-			+ .elementor-col-33 {
-
+			+.elementor-col-33 {
 				margin-left: auto;
 			}
 		}
@@ -95,15 +110,6 @@
 		.elementor-widget-text-editor.source,
 		.elementor-inner-section {
 			width: 60% !important;
-		}
-
-		.elementor-widget-image {
-			margin: 0 !important;
-			margin-top: -20% !important;
-			margin-left: 2% !important;
-			height: 100%;
-			width: 38% !important;
-			align-self: flex-start;
 		}
 	}
 
@@ -383,6 +389,10 @@
 
 	&__wide {
 
+		&[class] {
+			padding: 1.5em !important;
+		}
+
 		svg {
 			width: 100%;
 		}
@@ -391,6 +401,7 @@
 			width: 100%;
 
 			@media (min-width: $breakpoint-tablet) {
+
 
 				&:first-of-type {
 					width: 31%;

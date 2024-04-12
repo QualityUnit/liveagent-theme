@@ -165,6 +165,12 @@
 		}
 	}
 
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+
+		> .elementor-container {
+			display: block;
+		}
+	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 		padding: 0 0 2em 0;

@@ -52,13 +52,6 @@
 		background: url(../../images/background__elements.jpg) center center no-repeat;
 		background-size: cover;
 
-		h2,
-		h3 {
-			font-size: 3rem;
-			line-height: 1.4;
-			margin-top: 0;
-		}
-
 		p:last-of-type {
 			margin-bottom: 0;
 		}
@@ -95,6 +88,23 @@
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 
+		&__header {
+			margin: 0;
+			padding: 3em 0;
+
+			h2,
+			h3 {
+				font-size: 3rem;
+				line-height: 1.4;
+				margin-top: 0;
+			}
+
+			.elementor-widget-container {
+				max-width: $wrapper-aside;
+				margin: 0 auto;
+			}
+		}
+
 		.wrapper__wide {
 			padding-top: 0;
 			padding-bottom: 0;
@@ -104,16 +114,6 @@
 			display: block !important;
 
 			.elementor-element:not(.Block--learnMore__header) {
-				max-width: $wrapper-aside;
-				margin: 0 auto;
-			}
-		}
-
-		&__header {
-			margin: 0;
-			padding: 3em 0;
-
-			.elementor-widget-container {
 				max-width: $wrapper-aside;
 				margin: 0 auto;
 			}

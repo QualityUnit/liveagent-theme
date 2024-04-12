@@ -4,7 +4,8 @@
 @use "../common/mixins" as *;
 @use "../elements/Checklist" as *;
 @use "../elements/PostTypography" as *;
-@use "../components/AuthorCard" as *;
+@forward "../components/AuthorCard";
+@forward "../components/SignupSidebar";
 
 $sidebarWidth: 13.5em;
 $signupSidebarWidth: 16.875em;
@@ -291,6 +292,13 @@ $signupSidebarWidth: 16.875em;
 						}
 					}
 				}
+			}
+		}
+
+		@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+
+			.Post__container.wrapper {
+				padding: 0 !important;
 			}
 		}
 
