@@ -89,12 +89,19 @@
 	@media (min-width: $breakpoint-tablet-landscape) {
 
 		&__header {
+			margin: 0;
+			padding: 3em 0;
 
 			h2,
 			h3 {
 				font-size: 3rem;
 				line-height: 1.4;
 				margin-top: 0;
+			}
+
+			.elementor-widget-container {
+				max-width: $wrapper-aside;
+				margin: 0 auto;
 			}
 		}
 
@@ -107,16 +114,6 @@
 			display: block !important;
 
 			.elementor-element:not(.Block--learnMore__header) {
-				max-width: $wrapper-aside;
-				margin: 0 auto;
-			}
-		}
-
-		&__header {
-			margin: 0;
-			padding: 3em 0;
-
-			.elementor-widget-container {
 				max-width: $wrapper-aside;
 				margin: 0 auto;
 			}

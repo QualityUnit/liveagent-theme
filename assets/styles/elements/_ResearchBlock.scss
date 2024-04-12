@@ -8,7 +8,7 @@
 
 .elementor-container:has(.Research--block, .Statistics--block) {
 
-	@media (max-width: $breakpoint-tablet-landscape - 1px) {
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 		flex-wrap: wrap;
 		justify-content: space-between;
 	}
