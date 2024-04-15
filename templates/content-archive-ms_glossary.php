@@ -1,5 +1,5 @@
 <?php // @codingStandardsIgnoreLine
-set_custom_source( 'pages/Archive', 'css', false, false );
+set_source( false, 'pages/Archive', 'css', false, false );
 
 $page_header_title = __( 'Help Desk Software Glossary', 'ms' );
 $page_header_text  = __( 'If you are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'ms' );
@@ -22,7 +22,7 @@ $page_header_args = array(
 	<div class="Archive__filter">
 		<div class="wrapper">
 			<div class="Archive__filter__item">
-				<ul>
+				<ul class="flex">
 					<?php $categories = get_categories( array( 'taxonomy' => 'ms_glossary_categories' ) ); ?>
 					<?php foreach ( $categories as $category ) { ?>
 						<li><a href="#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a></li>
@@ -36,7 +36,7 @@ $page_header_args = array(
 		<div class="Archive__container__content list">
 			<?php $categories = get_categories( array( 'taxonomy' => 'ms_glossary_categories' ) ); ?>
 			<?php foreach ( $categories as $category ) { ?>
-				<div id="<?= esc_attr( $category->slug ); ?>" class="Archive__container__content__item">
+				<div id="<?= esc_attr( $category->slug ); ?>" class="Archive__container__content__item flex">
 					<h2 class="Archive__container__content__item__title"><?= esc_html( $category->name ); ?></h2>
 					<div class="Archive__container__content__item__content">
 						<ul>
@@ -53,7 +53,7 @@ $page_header_args = array(
 							while ( $query_glossary_posts->have_posts() ) :
 								$query_glossary_posts->the_post();
 								?>
-								<li itemscope itemtype="https://schema.org/DefinedTerm"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url"><span itemprop="name"><?php the_title(); ?></span></a></li>
+								<li style="display: inline-block" itemscope itemtype="https://schema.org/DefinedTerm"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url"><span itemprop="name"><?php the_title(); ?></span></a></li>
 							<?php endwhile; ?>
 							<?php wp_reset_postdata(); ?>
 						</ul>

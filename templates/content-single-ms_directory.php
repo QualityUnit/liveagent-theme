@@ -1,9 +1,5 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'directory', 'pages/Directory', 'css' );
-set_custom_source( 'common/splide', 'css' );
-set_custom_source( 'components/SidebarTOC' );
-set_custom_source( 'splide', 'js' );
-set_custom_source( 'sidebar_toc', 'js' );
 global $post;
 $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ) . "' ]" );
 
@@ -59,7 +55,7 @@ if ( 'agency' === $business ) {
 } elseif ( 'solo' === $business ) {
 	$page_header_tags[0]['list'][1]['title'] = __( 'Solopreneur', 'ms' );
 } elseif ( 'startups' === $business ) {
-	$page_header_tags[0]['list'][1]['href'] = '/' . $business . '/';
+	$page_header_tags[0]['list'][1]['href']  = '/' . $business . '/';
 	$page_header_tags[0]['list'][1]['title'] = __( 'Startups and SMBs', 'ms' );
 }
 $page_header_tags[1]['title'] = __( 'Technologies', 'ms' );

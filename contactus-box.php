@@ -143,26 +143,27 @@
 	</nav>
 </div>
 
-<script id="urlslab-chatbot-script">
-	const options= {btnTarget: '#chatBot', chatbotId: '569a3c87-4c38-414c-8d1b-66d83c60b5f2', chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA1NjlhM2M4Ny00YzM4LTQxNGMtOGQxYi02NmQ4M2M2MGI1ZjI='};
-	acceptButton.addEventListener( "click", () => {
-		loadChatBot(options);
-	});
-
-	if ( getCookieFrontend( "cookieLaw" ) ) {
-		loadChatBot(options);
-	}
-</script>
 
 <script>
 	const contactUsBtn = document.querySelector('.ContactUs__button');
 	const statusUrl = 'https://status.liveagent.com/';
 
 	contactUsBtn.addEventListener('click', async () => {
+			const chatbotScriptSet = document.getElementById('urlslab-chatbot-script');
+
 			const menu = document.querySelector('.ContactUs__menu--wrap');
 			const statusInfo = document.querySelector('#contactUsStatus');
-
 			if ( menu?.classList.contains('hidden') ) {
+
+				if( !chatbotScriptSet ) {
+					const chatbotScript = document.createElement('script');
+					chatbotScript.setAttribute('id', 'urlslab-chatbot-script');
+					chatbotScript.innerHTML = `
+						const options= {btnTarget: '#chatBot', chatbotId: '569a3c87-4c38-414c-8d1b-66d83c60b5f2', chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA1NjlhM2M4Ny00YzM4LTQxNGMtOGQxYi02NmQ4M2M2MGI1ZjI='};
+						loadChatBot(options);
+					`;
+					document.querySelector('body').appendChild(chatbotScript);
+				}
 				const serviceStatus = await quStatusWidget.getStatus().then( ( result ) => {
 					return displayStatusIndicator( result );
 				});

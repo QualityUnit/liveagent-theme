@@ -29,6 +29,10 @@
 			}
 		}
 
+		@media (min-width: $breakpoint-desktop) {
+			min-height: 23.275em;
+		}
+
 		&--url {
 			position: absolute;
 			display: flex;

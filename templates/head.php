@@ -17,7 +17,8 @@
 	<?php 
 	function add_inline_styles() {
 		ob_start();
-		$css = file_get_contents( get_template_directory() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css' );
+		$css  = file_get_contents( get_template_directory() . '/assets/dist/common/common' . isrtl() . wpenv() . '.css' );
+		$css .= file_get_contents( get_template_directory() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css' );
 		// $css .= '@media(min-width: 1024px){.Post__container{display:flex}}@media(min-width:1380px){.Post__content{    width: calc(100% - 13.5em - 16.875em);padding: 0 7.5em;}}';
 		if ( is_page_template( 'elementor.php' ) || is_page_template( 'front-page.php' ) || is_page_template( 'page.php' ) || is_page_template( 'template-academy-header.php' ) || is_page_template( 'template-blog-header.php' ) ) {
 			$css .= file_get_contents( get_template_directory() . '/assets/dist/components/HeroHeadlineHome' . isrtl() . wpenv() . '.css' );
