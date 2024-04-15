@@ -4,17 +4,15 @@
 @use "../common/mixins" as *;
 @use "../common/variables" as *;
 
-.Reviews {
 
-	.Reviews__items {
-		display: flex;
-		align-items: center;
-		gap: 2em;
+.Reviews__items {
+	display: flex;
+	align-items: center;
+	gap: 2em;
 
-		.Reviews__items__item {
+	.Reviews__items__item {
 
-			@include square(100%);
-			max-width: 200px;
-		}
+		@include square(100%);
+		max-width: 200px;
 	}
 }
