@@ -13,10 +13,14 @@
 	}
 
 	.Reviews__items {
+		display: flex;
+		align-items: center;
+		gap: 2em;
 
 		&__item {
 			margin: 0 40px;
 			align-items: center;
+			max-width: 33%;
 
 			&:first-of-type {
 				margin-left: 0;
