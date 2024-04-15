@@ -19,18 +19,6 @@ function ms_gutenberg_reviews() {
 							</div>
 					</div>
 					<div class="Reviews__items__item">
-							<a href="<?php _e( '/awards/', 'ms' ); ?>" title="<?php _e( 'Trustpilot', 'ms' ); ?>">
-									<img src="https://www.liveagent.com/app/uploads/2019/11/logo_trustpilot.svg" alt="<?php _e( 'Trustpilot', 'ms' ); ?>">
-							</a>
-							<div class="Reviews__items__item__stars">
-									<span class="Reviews__items__item__stars__item"></span>
-									<span class="Reviews__items__item__stars__item"></span>
-									<span class="Reviews__items__item__stars__item"></span>
-									<span class="Reviews__items__item__stars__item"></span>
-									<span class="Reviews__items__item__stars__item"></span>
-							</div>
-					</div>
-					<div class="Reviews__items__item">
 							<a href="<?php _e( '/awards/', 'ms' ); ?>" title="<?php _e( 'GetApp', 'ms' ); ?>">
 									<img src="https://www.liveagent.com/app/uploads/2019/11/logo_getapp.svg" alt="<?php _e( 'GetApp', 'ms' ); ?>">
 							</a>
