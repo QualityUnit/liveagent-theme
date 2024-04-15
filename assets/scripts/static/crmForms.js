@@ -136,6 +136,10 @@ class CrmFormHandler {
 							// disallow typing unwanted characters
 							e.target.value = currentValue.replace( regex, '' );
 
+							// additionally disallow defined characters
+							if ( key === 'email' ) {
+								e.target.value = currentValue.replace( /%/g, '' );
+							}
 							// debounced check of user input
 							clearTimeout( this.liveValidationTimeout );
 							this.liveValidationTimeout = setTimeout( () => {
