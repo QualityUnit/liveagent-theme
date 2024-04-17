@@ -27,7 +27,7 @@ function ms_awards_badges() {
 					<?php
 					foreach ( get_awards( 6 ) as $award_id ) {
 						?>
-						<div style="background-image: url(<?= esc_attr( get_the_post_thumbnail_url( $award_id, 'box_archive_thumbnail' ) ); ?>)" alt="<?php _e( 'Badges', 'ms' ); ?>"></div>
+						<div data-test="<?= esc_attr( $award_id ); ?>" style="background-image: url(<?= esc_attr( get_the_post_thumbnail_url( $award_id, 'box_archive_thumbnail' ) ); ?>)" alt="<?php _e( 'Badges', 'ms' ); ?>"></div>
 						<?php
 					}
 					?>
