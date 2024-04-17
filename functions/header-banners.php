@@ -4,6 +4,21 @@ function header_banners( $page, $banners_array ) {
 	if ( wp_head_content( $page ) ) {
 		set_source( false, 'components/AnnouncementBar', 'css' );
 		?>
+		<style type="text/css">
+				@media (min-width: 768px) {
+					body .announcement--active {
+					padding-top: 10.625em !important;
+					}
+					body .announcement--active .Header {
+					top: 7.5em;
+					-webkit-animation: top 0.3s ease;
+							animation: top 0.3s ease;
+					}
+					body .announcement--active .Header .sub-menu {
+					top: 12em;
+					}
+				}
+		</style>
 		<div class="Announcement__bars__slider">
 		<?php
 		foreach ( $banners_array as $index => $banner ) {

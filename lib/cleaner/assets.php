@@ -78,8 +78,9 @@ add_action(
 				// Scripts
 				wp_dequeue_script( 'font-awesome-4-shim' );
 				wp_deregister_script( 'elementor-sticky' );
-				wp_deregister_script( 'wpml-xdomain-data' );
-				wp_deregister_script( 'wpml-xdomain-data-js-extra' );
+				wp_deregister_script( 'elementor-sticky' );
+				wp_dequeue_script( 'wpml-xdomain-data' );
+				wp_dequeue_script( 'wpml-xdomain-data-js-extra' );
 		}
 	},
 	999
@@ -93,6 +94,7 @@ add_action(
 			wp_deregister_style( 'elementor-frontend' );
 			wp_deregister_style( 'elementor-pro' );
 			wp_deregister_style( 'elementor-pro-frontend' );
+			wp_deregister_style( 'swiper' );
 
 			wp_register_style( 'elementor-frontend', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION, 'screen' );
 			wp_enqueue_style( 'elementor-frontend' );
