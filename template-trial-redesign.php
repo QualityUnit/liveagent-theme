@@ -28,7 +28,7 @@
 			<div class="heroBanner__awards">
 				<?php echo do_shortcode( '[hero-banner-awards title="false" bg="hero-banner-awards_small.jpg"]' ); ?>
 			</div>
-			
+
 			<div class="Trial__main__inner">
 				<h1 class="Trial__main__title"><?php _e( 'Start your <span class="highlight-gradient">free trial</span> today', 'ms' ); ?></h1>
 				<p class="Trial__main__text"><?php _e( 'Experience working with LiveAgent for free with our 14 or 30 days free trial. You can enjoy every feature available in the Large plan for free without any strings attached, and select your new LiveAgent plan at the end of your trial.', 'ms' ); ?></p>
@@ -48,12 +48,6 @@
 				<div class="Trial__main__logos">
 					<div class="Trial__main__logo">
 						<a href="<?php _e( '/awards/', 'ms' ); ?>">
-							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_trustpilot.svg" alt="<?php _e( 'Trustpilot', 'ms' ); ?>" class="urlslab-skip-lazy">
-						</a>
-					</div>
-
-					<div class="Trial__main__logo">
-						<a href="<?php _e( '/awards/', 'ms' ); ?>">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_capterra.svg" alt="<?php _e( 'Capterra', 'ms' ); ?>" class="urlslab-skip-lazy">
 						</a>
 					</div>
@@ -61,6 +55,12 @@
 					<div class="Trial__main__logo">
 						<a href="<?php _e( '/awards/', 'ms' ); ?>">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_g2.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
+						</a>
+					</div>
+
+					<div class="Trial__main__logo">
+						<a href="<?php _e( '/awards/', 'ms' ); ?>">
+							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo-getapp-gray.svg" alt="<?php _e( 'Getapp', 'ms' ); ?>" class="urlslab-skip-lazy">
 						</a>
 					</div>
 				</div>

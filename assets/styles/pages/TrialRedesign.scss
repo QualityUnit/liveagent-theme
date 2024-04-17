@@ -8,6 +8,7 @@
 .page-template-template-trial-redesign,
 .page-template-template-redeem-code {
 
+
 	@include color(background-color, main-background);
 
 	@media (min-width: $breakpoint-tablet-landscape) {
@@ -324,7 +325,7 @@
 
 			&__logos {
 				flex-direction: initial;
-				justify-content: space-between;
+				justify-content: space-evenly;
 			}
 		}
 
