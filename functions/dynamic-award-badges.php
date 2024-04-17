@@ -1,6 +1,8 @@
 <?php
 
 function get_awards( $number ) {
+	$current_language = ICL_LANGUAGE_CODE;
+
 	$awards_posts = get_posts(
 		array(
 			'post_type'      => 'ms_awards',
@@ -8,18 +10,12 @@ function get_awards( $number ) {
 			'fields'         => 'ids',
 			'orderby'        => 'date',
 			'order'          => 'DESC',
+			'suppress_filters' => false,
+			'lang' => $current_language,
 		)
 	);
 
-	$translated_awards_posts = array();
-
-	foreach ( $awards_posts as $post_id ) {
-
-		$translated_post_id = apply_filters( 'wpml_object_id', $post_id, 'ms_awards', true );
-		$translated_awards_posts[] = $translated_post_id;
-	}
-
-	return $translated_awards_posts;
+	return $awards_posts;
 }
 
 function badges_elementor_block( $content ) {
