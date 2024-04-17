@@ -26,12 +26,12 @@ function ms_request_for_proposal_form( $atts ) {
 	?>
 
 	<div class="Signup__form">
-		<div class="Signup__form__title h2"><?= esc_html( $atts['title'] ); ?>
+		<h1 class="Signup__form__title h1"><?= esc_html( $atts['title'] ); ?>
 			<span class="ComparePlans__tooltip">
 					<span class="fontello-info"></span>
 					<span class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?= esc_html( $atts['title_tooltip'] ); ?></span>
 		</span>
-		</div>
+		</h1>
 
 		<p class="Signup__form__description"><?= esc_html( $atts['description'] ); ?><?= esc_html( $atts['email_in_description'] ); ?></p>
 

@@ -7,7 +7,7 @@ function ms_reviews() {
 
 	<div class="Company__review">
 		<div class="Company__review__logo__and__rating">
-				<a href="<?= esc_url( __( '/awards/', 'ms' ) ); ?>" title="<?= esc_attr( 'G2 Crowd' ); ?>">
+			<a href="<?= esc_url( __( '/awards/', 'ms' ) ); ?>" title="<?= esc_attr( 'G2 Crowd' ); ?>">
 				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/logo_g2.svg?ver=' . THEME_VERSION ); ?>" alt="<?= esc_attr( 'G2 Crowd' ); ?>">
 			</a>
 			<div class="Company__review__star__rating">
@@ -19,7 +19,7 @@ function ms_reviews() {
 			</div>
 		</div>
 		<div class="Company__review__logo__and__rating">
-				<a href="<?= esc_url( __( '/awards/', 'ms' ) ); ?>" title="<?= esc_attr( 'GetApp' ); ?>">
+			<a href="<?= esc_url( __( '/awards/', 'ms' ) ); ?>" title="<?= esc_attr( 'GetApp' ); ?>">
 				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/logo_getapp.svg?ver=' . THEME_VERSION ); ?>" alt="<?= esc_attr( 'GetApp' ); ?>">
 			</a>
 			<div class="Company__review__star__rating">

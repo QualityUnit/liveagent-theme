@@ -265,7 +265,7 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 	&__reviews {
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 
 		&__title {
 			text-align: center;
@@ -288,11 +288,6 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 					text-decoration: underline;
 				}
 
-				.logo-trustpilot {
-					position: relative;
-					top: -0.025em;
-				}
-
 				span {
 
 					@include color(color, font-color-dark);
@@ -303,14 +298,19 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 			}
 		}
 
-		.stars {
+		&--rating {
 
-			&__item {
+			.stars {
 
-				@include square(1em);
-				margin: 0;
+				&__item {
+
+					@include square(0.8125em);
+					display: inline-block;
+					background-image: url(../images/icon_star.svg);
+				}
 			}
 		}
+
 	}
 
 
