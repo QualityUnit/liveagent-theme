@@ -11,7 +11,15 @@ function get_awards( $number ) {
 		)
 	);
 
-	return $awards_posts;
+	$translated_awards_posts = array();
+
+	foreach ( $awards_posts as $post_id ) {
+
+		$translated_post_id = apply_filters( 'wpml_object_id', $post_id, 'ms_awards', true );
+		$translated_awards_posts[] = $translated_post_id;
+	}
+
+	return $translated_awards_posts;
 }
 
 function badges_elementor_block( $content ) {
@@ -32,7 +40,7 @@ function badges_elementor_block( $content ) {
 	}
 
 	foreach ( $elements as $element ) {
-	
+
 		$new_dom = new DomDocument();
 		libxml_use_internal_errors( true );
 		$new_dom->appendChild( $new_dom->importNode( $element, true ) );
