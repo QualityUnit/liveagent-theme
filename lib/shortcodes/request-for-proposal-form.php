@@ -62,11 +62,6 @@ function ms_request_for_proposal_form( $atts ) {
 					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_g2.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
 				</a>
 			</div>
-			<div class="Signup__form__logo">
-				<a href="<?php _e( '/awards/', 'ms' ); ?>">
-					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo-getapp-gray.svg" alt="<?php _e( 'Getapp', 'ms' ); ?>" class="urlslab-skip-lazy">
-				</a>
-			</div>
 
 		</div>
 	</div>
