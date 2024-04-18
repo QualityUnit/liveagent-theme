@@ -50,11 +50,6 @@ set_source( 'redeem-code', 'pages/TrialRedesign', 'css' );
 						</a>
 					</div>
 
-					<div class="Trial__main__logo">
-						<a href="<?php _e( '/awards/', 'ms' ); ?>">
-							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo-getapp-gray.svg" alt="<?php _e( 'Getapp', 'ms' ); ?>" class="urlslab-skip-lazy">
-						</a>
-					</div>
 				</div>
 			</div>
 		</div>
