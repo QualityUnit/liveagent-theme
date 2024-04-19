@@ -79,6 +79,7 @@
 	<div class="blog__top__post">
 			<?php
 			if ( ! is_author() ) {
+				$current_category = get_queried_object();
 				$show_top_args = array(
 					'posts_per_page'      => 1,
 					'ignore_sticky_posts' => 1,
@@ -86,6 +87,10 @@
 					'orderby'             => 'date',
 					'no_found_rows'       => true,
 				);
+
+				if ( $current_category instanceof WP_Term ) {
+					$show_top_args['cat'] = $current_category->term_id;
+				}
 
 				$show_top_posts = new WP_Query( $show_top_args );
 
@@ -158,14 +163,32 @@
 					/* Gets currenty category ID */
 					$categories = get_the_category();
 
+					// Get category ID
 				if ( isset( $categories[1] ) ) {
 					$category_id = $categories[1]->cat_ID;
 				}
 
 					$this_category      = get_queried_object();
 					$sticky_posts       = get_option( 'sticky_posts' );
-					$newest_sticky_post = $sticky_posts ? max( $sticky_posts ) : null;
 
+					// Get posts in current category
+					$category_posts = get_posts(
+						array(
+							'category' => $this_category->term_id,
+							'fields' => 'ids',
+						)
+					);
+
+					// Get sticky posts in current category
+					$category_sticky_posts = array_intersect( $sticky_posts, $category_posts );
+
+					// Sort sticky posts by date
+					rsort( $category_sticky_posts );
+
+					// Get newest sticky post
+					$newest_sticky_post = array_shift( $category_sticky_posts );
+
+					// Query args
 					$query_args = array(
 						'posts_per_page' => 9,
 						'post_status'    => 'publish',
@@ -173,18 +196,20 @@
 						'no_found_rows'  => true,
 					);
 
+					// If author page, query posts by author
 					if ( is_author() ) {
 						$user_id              = get_the_author_meta( 'ID' );
 						$query_args['author'] = $user_id;
 
 					} else {
 
+						// If category page, query posts by category
 						$query_args['ignore_sticky_posts'] = true;
 						if ( $newest_sticky_post ) {
 							$query_args['post__not_in'] = array( $newest_sticky_post );
 						}
 					}
-
+					// If category has parent, query posts by parent category
 					if ( ( $this_category && isset( $this_category->parent ) ) && 0 != $this_category->parent ) {
 						$query_args['cat'] = $this_category->term_id;
 					}
@@ -194,8 +219,14 @@
 					$original_query   = $wp_query;
 					$wp_query       = $show_other_posts; // @codingStandardsIgnoreLine
 
+					// Loop through posts
 					while ( $show_other_posts->have_posts() ) :
 						$show_other_posts->the_post();
+
+						// if post is sticky in current category, skip it
+						if ( in_array( get_the_ID(), $category_sticky_posts ) ) {
+							continue;
+						}
 						?>
 						<li itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" <?php post_class( 'Blog__item' ); ?>>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
