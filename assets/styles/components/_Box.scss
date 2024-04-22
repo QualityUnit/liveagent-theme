@@ -348,3 +348,25 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 		}
 	}
 }
+
+
+.col-4 {
+
+	.elementor-container {
+
+		@media (min-width: $breakpoint-tablet) {
+			display: grid;
+			grid-template-columns: repeat(2, calc(50% - 0.75em));
+			grid-gap: 3em 1.5em;
+
+			.elementor-column.elementor-column {
+				width: 100%;
+				margin: 0 !important;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			grid-template-columns: repeat(4, calc(25% - 1.125em));
+		}
+	}
+}
