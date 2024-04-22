@@ -1,4 +1,7 @@
 <?php // @codingStandardsIgnoreLine
+
+set_custom_source( 'common/splide', 'css' );
+
 $current_lang    = apply_filters( 'wpml_current_language', null );
 $header_category = get_en_category( 'ms_features', $post->ID );
 do_action( 'wpml_switch_language', $current_lang );
@@ -77,9 +80,9 @@ if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
-	
+
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	
+
 	<div class="wrapper Post__container">
 		<div class="Post__sidebar">
 			<div class="Signup__sidebar-wrapper">

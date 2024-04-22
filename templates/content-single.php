@@ -1,5 +1,6 @@
 <?php
 set_custom_source( 'socialShareFunctions', 'js' );
+set_custom_source( 'common/splide', 'css' );
 global $post;
 $page_header_args = array(
 	'image' => array(
