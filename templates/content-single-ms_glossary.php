@@ -1,4 +1,7 @@
 <?php // @codingStandardsIgnoreLine
+
+set_custom_source( 'common/splide', 'css' );
+
 $page_header_logo = array(
 	'src' => get_template_directory_uri() . '/assets/images/icon-book.svg?ver=' . THEME_VERSION,
 	'alt' => __( 'Glossary', 'ms' ),
