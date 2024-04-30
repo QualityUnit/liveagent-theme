@@ -489,7 +489,7 @@ class Trial_Signup {
 			return 'b229622b';
 		}
 
-		if ( in_array( self::$current_lang, array( 'fi', 'no', 'sv' ) ) ) {
+		if ( in_array( self::$current_lang, array( 'fi', 'sv' ) ) ) {
 			return 'spinla01';
 		}
 
