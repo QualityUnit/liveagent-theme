@@ -13,26 +13,26 @@ class Trial_Signup {
 	private static $crm_script_loaded       = false;
 	private static $form_type_free          = false;
 	private static $thank_you_template_name = 'template-thank-you';
-	
+
 	public static $regions = array();
 	public static $slugs   = array();
 
 	public static function run() {
 		add_action( 'init', array( __CLASS__, 'init' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'thank_you_template_actions' ) );
-	
+
 		add_filter( 'script_loader_tag', array( __CLASS__, 'lazy_load_script' ), 10, 3 );
 	}
 
 	public static function init() {
 		self::init_defaults();
-		
+
 		if ( ! self::is_error_state() ) {
 			// if error state, do not handle signup, prefilled form with errors displayed
 			self::handle_form_submission();
 			self::handle_signup();
 		}
-		
+
 		if ( is_user_logged_in() ) {
 			self::create_thank_you_page();
 		}
@@ -56,7 +56,7 @@ class Trial_Signup {
 
 				// account installation starts
 				if ( isset( $submit_response['account_id'] ) ) {
-					
+
 					$cookie_data = array(
 						'id'             => $submit_response['id'],
 						'domain'         => $submit_response['domain'],
@@ -74,7 +74,7 @@ class Trial_Signup {
 					if ( isset( $form_data['plan_type'] ) ) {
 						$cookie_data['plan_type'] = $form_data['plan_type'];
 					}
-					
+
 					self::set_cookie_data( 'trial_signup_response', $cookie_data );
 					self::redirect( add_query_arg( 'ver', 'installation', self::$slugs['thank-you'] ) );
 				}
@@ -103,8 +103,8 @@ class Trial_Signup {
 			// if grecaptcha field submitted empty, check if it's really submission with 'no recaptcha' response from crm api
 			// fake input may be probably filled by robot
 			if (
-				'' === $_POST['grecaptcha'] && 
-				( ! isset( $_POST['fcaptcha'] ) || ( isset( $_POST['fcaptcha'] ) && '' !== $_POST['fcaptcha'] ) ) 
+				'' === $_POST['grecaptcha'] &&
+				( ! isset( $_POST['fcaptcha'] ) || ( isset( $_POST['fcaptcha'] ) && '' !== $_POST['fcaptcha'] ) )
 			) {
 				return;
 			}
@@ -120,7 +120,7 @@ class Trial_Signup {
 				'language'     => self::get_language_code(),
 				'promo'        => isset( $_POST['promo'] ) && 'on' === $_POST['promo'],
 			);
-			
+
 			// do not pass empty captcha, probably submission with 'no recaptcha' response from crm api
 			if ( '' !== $_POST['grecaptcha'] ) {
 				$form_data['grtoken'] = sanitize_text_field( $_POST['grecaptcha'] );
@@ -167,7 +167,7 @@ class Trial_Signup {
 				'language'  => $form_data['language'],
 				'promo'     => $form_data['promo'],
 			);
-			
+
 		} else {
 			// shape of standard trial form payload
 			$request_data = array(
@@ -197,7 +197,7 @@ class Trial_Signup {
 			if ( isset( $form_data['source_id'] ) ) {
 				$request_data['source_id'] = $form_data['source_id'];
 			}
-		
+
 			if ( isset( $form_data['ga_client_id'] ) ) {
 				$request_data['ga_client_id'] = $form_data['ga_client_id'];
 			}
@@ -313,14 +313,14 @@ class Trial_Signup {
 
 	public static function include_crm() {
 		if ( ! self::$crm_script_loaded ) {
-			
+
 			self::print_footer_scripts();
 
 			$handle = 'qu-crm-captcha';
 			// dependency app_js to allow usage of set/getCookies from custom scritps
 			$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crmCaptcha.js' ) );
 			wp_enqueue_script( $handle, esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crmCaptcha.js', array( 'app_js' ), esc_attr( $crm_ver_app ), array( 'in_footer' => true ) );
-			
+
 			self::localize_script( $handle );
 
 			$handle = 'qu-crm-script';
@@ -333,7 +333,7 @@ class Trial_Signup {
 	}
 
 	public static function include_crm_installer() {
-			
+
 			$handle = 'qu-crm-installer-script';
 
 			// crm script dependency app_js to allow usage of set/getCookies from custom scritps
@@ -398,7 +398,7 @@ class Trial_Signup {
 		$endpoint     = ! isset( $request_data['code'] ) ? 'subscriptions/' : 'redeem_code/signup/';
 
 		$handle = curl_init( self::$crm_api_base . $endpoint );
-		
+
 		if ( ! $handle ) {
 			return array(
 				'message' => self::$localized_text['textError'],
@@ -436,7 +436,7 @@ class Trial_Signup {
 		);
 
 		$handle = curl_init( self::$crm_api_base . 'subscriptions/_check_domain' );
-		
+
 		if ( ! $handle ) {
 			return array(
 				'message' => self::$localized_text['textFailedDomain'],
@@ -472,7 +472,7 @@ class Trial_Signup {
 			return 'freedesk';
 		}
 
-		if ( in_array( self::$current_lang, array( 'fi', 'no', 'sv' ) ) ) {
+		if ( in_array( self::$current_lang, array( 'fi', 'sv' ) ) ) {
 			return 'seLaTria';
 		}
 
@@ -489,7 +489,7 @@ class Trial_Signup {
 			return 'b229622b';
 		}
 
-		if ( in_array( self::$current_lang, array( 'fi', 'no', 'sv' ) ) ) {
+		if ( in_array( self::$current_lang, array( 'fi', 'sv' ) ) ) {
 			return 'spinla01';
 		}
 
@@ -499,7 +499,7 @@ class Trial_Signup {
 
 		return 'b229622b';
 	}
-	
+
 	private static function get_language_code() {
 		// codes with region from crm.qualityunit.com, other languages are two-letter codes
 		// ar-SA, en-US, he-IL, jp-JP, nl-BE, pt-BR, zh-CN, zh-TW
@@ -534,7 +534,7 @@ class Trial_Signup {
 						'compare' => '=',
 					),
 				),
-			) 
+			)
 		);
 
 		if ( $query && ! $query->found_posts ) {
@@ -545,7 +545,7 @@ class Trial_Signup {
 					'post_status'   => 'publish',
 					'post_type'     => 'page',
 					'page_template' => self::$thank_you_template_name . '.php',
-				) 
+				)
 			);
 		}
 	}
@@ -609,7 +609,7 @@ class Trial_Signup {
 		}
 		return '';
 	}
-	
+
 	private static function sanitize_cookie_data( $data ) {
 		$sanitized = array();
 		foreach ( $data as $key => $value ) {
@@ -617,7 +617,7 @@ class Trial_Signup {
 		}
 		return $sanitized;
 	}
-	
+
 	private static function is_error_state() {
 		return is_array( self::$error_state ) && ! empty( self::$error_state );
 	}
@@ -646,7 +646,7 @@ class Trial_Signup {
 		$template = get_page_template_slug();
 		return 'string' === gettype( $template ) && str_replace( '.php', '', $template ) === self::$thank_you_template_name;
 	}
-	
+
 	// @codingStandardsIgnoreStart
 
 	private static function set_cookie_data( $key, $value, $expiry = 0, $path = '/' ) {
