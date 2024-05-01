@@ -14,7 +14,7 @@ You can install it and run it locally.
 ### Minimum requirements
 
 - PHP 8.0 _(PHP 8.1 isn't supported)_
-- Node 14.x or newer
+- Node 20.x or newer
 
 ## Contributing
 
