@@ -172,12 +172,15 @@
 					$sticky_posts       = get_option( 'sticky_posts' );
 
 					// Get posts in current category
+				$category_posts = array();
+				if ( $this_category instanceof WP_Term ) {
 					$category_posts = get_posts(
 						array(
 							'category' => $this_category->term_id,
 							'fields' => 'ids',
 						)
 					);
+				}
 
 					// Get sticky posts in current category
 					$category_sticky_posts = array_intersect( $sticky_posts, $category_posts );
