@@ -104,14 +104,16 @@
 		padding-top: 0;
 		padding-bottom: 0;
 		background-image:
-			url(../images/bg_reference_points.svg),
+			url(../images/bg_reference_points.png),
 			linear-gradient(90deg, rgba(189, 249, 251, 1) 0%, rgba(91, 241, 246, 1) 100%);
 		background-size: auto 100%;
 		background-position: center right;
 		background-repeat: no-repeat;
+		border-radius: $border-radius;
 
 		.wrapper {
 			background-image: none;
+			background-color: transparent !important;
 		}
 	}
 
