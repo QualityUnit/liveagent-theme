@@ -375,11 +375,11 @@ add_filter( 'wpseo_exclude_from_sitemap_by_post_ids', 'exclude_posts_from_xml_si
 	* Flush permalinks after post update
 	*/
 
-function flush_rules_on_save_posts() {
-	flush_rewrite_rules(); //@codingStandardsIgnoreLine
-}
+// function flush_rules_on_save_posts() {
+// 	flush_rewrite_rules(); //@codingStandardsIgnoreLine
+// }
 
-add_action( 'save_post', 'flush_rules_on_save_posts', 20, 2 );
+// add_action( 'save_post', 'flush_rules_on_save_posts', 20, 2 );
 
 
 /*
