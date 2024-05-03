@@ -39,7 +39,7 @@
 						<?php _e( 'for 7 days', 'ms' ); ?>
 					</div>
 				</li>
-	
+
 				<li class="FreeAccount__main__included--item">
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/integrations.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Integrations', 'ms' ); ?>" />
 					<div class="FreeAccount__main__included--text">
@@ -47,7 +47,7 @@
 						<?php _e( 'over 190 available', 'ms' ); ?>
 					</div>
 				</li>
-	
+
 				<li class="FreeAccount__main__included--item">
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/more_email_accounts.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'More email accounts', 'ms' ); ?>" />
 					<div class="FreeAccount__main__included--text">
@@ -55,7 +55,7 @@
 						<?php _e( '+ departments, contact forms, and more', 'ms' ); ?>
 					</div>
 				</li>
-	
+
 				<li class="FreeAccount__main__included--item">
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/chat_transcripts.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Chat Transcripts', 'ms' ); ?>" />
 					<div class="FreeAccount__main__included--text">
@@ -63,7 +63,7 @@
 						<?php _e( 'with satisfactions surveys', 'ms' ); ?>
 					</div>
 				</li>
-	
+
 				<li class="FreeAccount__main__included--item">
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/canned_messages.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Canned messages', 'ms' ); ?>" />
 					<div class="FreeAccount__main__included--text">
@@ -90,19 +90,19 @@
 					<li>
 						<?php _e( 'Ticket history for 7 days', 'ms' ); ?>
 					</li>
-		
+
 					<li>
 						<?php _e( 'Over 190 integrations', 'ms' ); ?>
 					</li>
-		
+
 					<li>
 						<?php _e( 'More email accounts and email ticketing features', 'ms' ); ?>
 					</li>
-		
+
 					<li>
 						<?php _e( 'Chat transcripts and Chat satisfaction surveys', 'ms' ); ?>
 					</li>
-		
+
 					<li>
 						<?php _e( 'Canned messages and predefined answers (20)', 'ms' ); ?>
 					</li>
@@ -128,8 +128,16 @@
 				</div>
 			</div>
 			<ul class="FreeAccount__main__try--logos flex">
-				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/capterra.svg?ver=' . THEME_VERSION ); ?>" alt="Capterra logo" /></li>
-				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/g2.svg?ver=' . THEME_VERSION ); ?>" alt="G2 logo" /></li>
+				<li>
+					<a href="<?php _e( '/awards/', 'ms' ); ?>">
+						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_capterra.svg" alt="<?php _e( 'Capterra', 'ms' ); ?>" class="urlslab-skip-lazy">
+					</a>
+				</li>
+				<li>
+					<a href="<?php _e( '/awards/', 'ms' ); ?>">
+						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_g2.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>
