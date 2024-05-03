@@ -88,14 +88,14 @@ inline_compact_header();
 					if ( ! empty( $args['title'] ) ) {
 						?>
 						<!-- Title section -->
-						<h1 itemprop="name" class="compact-header__title"><?= esc_html( $args['title'] ); ?></h1>
+						<h1 itemprop="headline" class="compact-header__title"><?= esc_html( $args['title'] ); ?></h1>
 					<?php } ?>
 					<!-- Title section end -->
 				<?php } ?>
 				<?php if ( ! empty( $args['update'] ) ) { ?>
 					<!-- Reviews update section -->
 					<div class="compact-header__update">
-						<time class="Reviews__update" itemprop="dateModified" content="<?= esc_attr( get_the_modified_time( 'F j, Y' ) ); ?>">
+						<time class="Reviews__update" itemprop="dateModified" content="<?= esc_attr( get_the_modified_time( 'F j, Y g:i a' ) ); ?>">
 							<?php if ( ! empty( $args['update']['label'] ) ) { ?>
 								<?= esc_html( $args['update']['label'] . ' ' ); ?>
 							<?php } ?>
@@ -168,20 +168,24 @@ inline_compact_header();
 						$time_modified = get_the_modified_time( 'g:i a' );
 						$author_name = get_the_author_meta( 'display_name' );
 						$author_link = get_author_posts_url( get_the_author_meta( 'ID' ) );
+						$time_zone = wp_timezone_string();
 					?>
 					<div class="compact-header__date">
 						<?php if ( isset( $date_machine ) && isset( $date_human ) ) { ?>
-							<span itemprop="datePublished" content="<?= esc_attr( $date_machine ); ?>">
+							<span itemprop="datePublished" content="<?= esc_attr( $date_machine . ' ' . $time_modified . ' ' . $time_zone ); ?>">
 							<?= esc_html( __( 'Published on', 'ms' ) ); ?>
 							<?= esc_html( $date_human ); ?>
 							</span>
 						<?php } ?>
 						<?= esc_html( __( 'by', 'ms' ) ) . ' '; ?><a href="<?= esc_url( $author_link ); ?>"><?= esc_html( $author_name ); ?></a><?= '.'; ?>
 						<?php if ( isset( $date_modified ) && isset( $time_modified ) ) { ?>
+						<span itemprop="dateModified" content="<?= esc_attr( $date_modified . ' ' . $time_modified . ' ' . $time_zone ); ?>">
 							<?= esc_html( __( 'Last modified on', 'ms' ) ); ?>
 							<?= esc_html( $date_modified ); ?>
 							<?= esc_html( __( 'at', 'ms' ) ); ?>
 							<?= esc_html( $time_modified ) . '.'; ?>
+
+						</span>
 						<?php } ?>
 					</div>
 					<!-- Date section end -->
@@ -344,11 +348,12 @@ inline_compact_header();
 						<?php
 						$image = $args['image'];
 						?>
-						<?php if ( ! is_mobile() && ( isset( $image['src'] ) || isset( $image['screenshot'] ) ) ) { ?>
+						<?php if ( ! is_mobile() && ( isset( $image['src'] ) ) ) { ?>
 							<div class="compact-header__image">
 							<?php
 							if ( isset( $image['src'] ) ) {
 								?>
+							<meta itemprop="image" content="<?= esc_url( $image['src'] ); ?>">
 							<img
 								fetchpriority="high"
 								src="<?= esc_url( $image['src'] ); ?>"
@@ -365,6 +370,7 @@ inline_compact_header();
 								<?php $logo = $args['logo']; ?>
 								<?php if ( isset( $logo['src'] ) ) { ?>
 									<div class="compact-header__logo">
+										<meta itemprop="image" content="<?= esc_url( $logo['src'] ); ?>">
 										<img
 											fetchpriority="high"
 											src="<?= esc_url( $logo['src'] ); ?>"

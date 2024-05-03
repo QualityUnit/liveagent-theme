@@ -16,7 +16,7 @@ if ( has_post_thumbnail() ) {
 $page_header_image = 'features-category_' . $header_category . '.jpg';
 $page_header_args  = array(
 	'image' => array(
-		'src' => get_template_directory_uri() . '/assets/images/' . $page_header_image . '?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/' . $page_header_image,
 		'alt' => get_the_title(),
 	),
 	'logo'  => $page_header_logo,
@@ -78,8 +78,10 @@ if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
 ?>
 
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
-	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
-	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+	<span itemprop="author" itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
+		<meta itemprop="name" content="LiveAgent">
+	</span>
 
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 

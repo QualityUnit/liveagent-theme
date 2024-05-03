@@ -23,8 +23,10 @@ $page_header_args = array(
 
 ?>
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
-	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
-	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+	<span itemprop="author" itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
+		<meta itemprop="name" content="LiveAgent">
+	</span>
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Post__container">
