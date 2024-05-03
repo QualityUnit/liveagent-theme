@@ -128,8 +128,16 @@
 				</div>
 			</div>
 			<ul class="FreeAccount__main__try--logos flex">
-				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/capterra.svg?ver=' . THEME_VERSION ); ?>" alt="Capterra logo" /></li>
-				<li><img class="FreeAccount__main__try--komorik" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/g2.svg?ver=' . THEME_VERSION ); ?>" alt="G2 logo" /></li>
+				<li>
+					<a href="<?php _e( '/awards/', 'ms' ); ?>">
+						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_capterra.svg" alt="<?php _e( 'Capterra', 'ms' ); ?>" class="urlslab-skip-lazy">
+					</a>
+				</li>
+				<li>
+					<a href="<?php _e( '/awards/', 'ms' ); ?>">
+						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_g2.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>

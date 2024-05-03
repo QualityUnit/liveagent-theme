@@ -216,9 +216,11 @@
 			&--citation {
 				margin-top: 2.5em;
 				align-items: flex-start;
+				gap: 1em;
 
 				&__image {
-					width: 11.62%;
+
+					@include square(80px);
 				}
 
 				&__text {
@@ -234,12 +236,9 @@
 
 			&--logos {
 				margin-top: 3em;
-				flex-direction: column;
-				align-items: center;
+				flex-direction: row;
+				justify-content: space-evenly;
 
-				li + li {
-					margin-top: 2em;
-				}
 			}
 		}
 
@@ -250,8 +249,6 @@
 			&__try {
 
 				&--logos {
-					flex-direction: row;
-					justify-content: space-between;
 
 					li + li {
 						margin-top: 0;
@@ -314,9 +311,6 @@
 				font-size: 0.875rem;
 
 				h3 {
-					position: absolute;
-					top: 0;
-					left: calc(48% - 1.5em);
 					font-size: 1em;
 					font-weight: 400;
 					color: $medium-gray;
