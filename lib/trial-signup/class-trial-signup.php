@@ -39,7 +39,7 @@ class Trial_Signup {
 	}
 
 	private static function handle_signup() {
-
+		
 		$form_data = self::$form_data;
 
 		if ( is_array( $form_data ) && ! empty( $form_data ) ) {
@@ -110,12 +110,20 @@ class Trial_Signup {
 			}
 
 			self::$form_type_free = isset( $_POST['form_type_free'] ) ? true : false;
-
+			
+			//make sure to post only valid string data
+			$stringified = array(
+				'fullname' => 'string' === gettype($_POST['fullname']) ? $_POST['fullname'] : '',
+				'email' => 'string' === gettype($_POST['email']) ? $_POST['email'] : '',
+				'subdomain' => 'string' === gettype($_POST['subdomain']) ? $_POST['subdomain'] : '',
+				'region' => 'string' === gettype($_POST['region']) ? $_POST['region'] : '',
+			);
+			
 			$form_data = array(
-				'fullname'     => sanitize_text_field( trim( $_POST['fullname'] ) ),
-				'email'        => sanitize_email( trim( $_POST['email'] ) ),
-				'subdomain'    => sanitize_text_field( trim( $_POST['subdomain'] ) ),
-				'region'       => isset( $_POST['region'] ) ? self::sanitize_region( $_POST['region'] ) : '',
+				'fullname'     => sanitize_text_field( trim( $stringified['fullname'] ) ),
+				'email'        => sanitize_email( trim( $stringified['email'] ) ),
+				'subdomain'    => sanitize_text_field( trim(  $stringified['subdomain'] ) ),
+				'region'       => self::sanitize_region( $stringified['region'] ),
 				'variation_id' => self::get_variation_id(),
 				'language'     => self::get_language_code(),
 				'promo'        => isset( $_POST['promo'] ) && 'on' === $_POST['promo'],
