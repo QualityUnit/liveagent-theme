@@ -39,7 +39,7 @@
 						<?php _e( 'for 7 days', 'ms' ); ?>
 					</div>
 				</li>
-	
+
 				<li class="FreeAccount__main__included--item">
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/integrations.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Integrations', 'ms' ); ?>" />
 					<div class="FreeAccount__main__included--text">
@@ -47,7 +47,7 @@
 						<?php _e( 'over 190 available', 'ms' ); ?>
 					</div>
 				</li>
-	
+
 				<li class="FreeAccount__main__included--item">
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/more_email_accounts.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'More email accounts', 'ms' ); ?>" />
 					<div class="FreeAccount__main__included--text">
@@ -55,7 +55,7 @@
 						<?php _e( '+ departments, contact forms, and more', 'ms' ); ?>
 					</div>
 				</li>
-	
+
 				<li class="FreeAccount__main__included--item">
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/chat_transcripts.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Chat Transcripts', 'ms' ); ?>" />
 					<div class="FreeAccount__main__included--text">
@@ -63,7 +63,7 @@
 						<?php _e( 'with satisfactions surveys', 'ms' ); ?>
 					</div>
 				</li>
-	
+
 				<li class="FreeAccount__main__included--item">
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/canned_messages.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Canned messages', 'ms' ); ?>" />
 					<div class="FreeAccount__main__included--text">
@@ -81,8 +81,8 @@
 			</ul>
 		</div>
 		<div class="FreeAccount__main__try">
-			<h2 class="FreeAccount__main__try--title pos-relative highlight__underline"><?php _e( 'Try small business plan', 'ms' ); ?>
-			<img class="FreeAccount__main__try--title__option" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/we_have_better_option.png?ver=' . THEME_VERSION ); ?>" alt="We have better option" /></h2>
+			<h1 class="FreeAccount__main__try--title pos-relative highlight__underline"><?php _e( 'Try small business plan', 'ms' ); ?>
+			<img class="FreeAccount__main__try--title__option" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/we_have_better_option.png?ver=' . THEME_VERSION ); ?>" alt="We have better option" /></h1>
 			<p class="FreeAccount__main__try--subtitle"><?php _e( 'While the Free account is great, it doesn’t provide the best value. Our Small plan has better features for a very small price.', 'ms' ); ?></p>
 
 			<div class="FreeAccount__main__included--mobile">
@@ -90,19 +90,19 @@
 					<li>
 						<?php _e( 'Ticket history for 7 days', 'ms' ); ?>
 					</li>
-		
+
 					<li>
 						<?php _e( 'Over 190 integrations', 'ms' ); ?>
 					</li>
-		
+
 					<li>
 						<?php _e( 'More email accounts and email ticketing features', 'ms' ); ?>
 					</li>
-		
+
 					<li>
 						<?php _e( 'Chat transcripts and Chat satisfaction surveys', 'ms' ); ?>
 					</li>
-		
+
 					<li>
 						<?php _e( 'Canned messages and predefined answers (20)', 'ms' ); ?>
 					</li>
