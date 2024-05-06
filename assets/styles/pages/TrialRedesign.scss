@@ -72,6 +72,10 @@
 			height: 24em;
 			padding-top: 1.5em;
 		}
+
+		@media (max-width: 1550px) {
+			display: none;
+		}
 	}
 
 	&__container {
