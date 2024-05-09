@@ -98,7 +98,7 @@ class Trial_Signup {
 	private static function handle_form_submission() {
 		$request_method = isset( $_SERVER['REQUEST_METHOD'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ) ) : null;
 
-		if ( 'POST' === $request_method && isset( $_POST['fullname'], $_POST['email'], $_POST['subdomain'], $_POST['grecaptcha'] ) ) {
+		if ( 'POST' === $request_method && isset( $_POST['fullname'], $_POST['email'], $_POST['subdomain'], $_POST['region'], $_POST['grecaptcha'] ) ) {
 
 			// if grecaptcha field submitted empty, check if it's really submission with 'no recaptcha' response from crm api
 			// fake input may be probably filled by robot
