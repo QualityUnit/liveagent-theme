@@ -412,13 +412,21 @@ class Trial_Signup {
 				'message' => self::$localized_text['textError'],
 			);
 		}
+		
+		$header = array( 'Content-Type: application/json' );
+		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
+			$header[] = "User-Agent: {$_SERVER['HTTP_USER_AGENT']}"; 
+		}
+		if ( isset( $_SERVER['HTTP_ACCEPT_LANGUAGE'] ) ) {
+			$header[] = "Accept-Language: {$_SERVER['HTTP_ACCEPT_LANGUAGE']}"; 
+		}
 
 		curl_setopt_array(
 			$handle,
 			array(
 				CURLOPT_RETURNTRANSFER => true,
 				CURLOPT_POST           => true,
-				CURLOPT_HTTPHEADER     => array( 'Content-Type: application/json' ),
+				CURLOPT_HTTPHEADER     => $header,
 				CURLOPT_POSTFIELDS     => json_encode( $request_data ),
 			)
 		);
@@ -529,6 +537,35 @@ class Trial_Signup {
 		return self::$current_lang;
 	}
 
+	// visitor ip resolving borrowed from URLsLab plugin
+	private static function get_visitor_ip() {
+		if ( getenv( 'HTTP_CF_CONNECTING_IP' ) ) {
+			return getenv( 'HTTP_CF_CONNECTING_IP' );
+		}
+		if ( getenv( 'HTTP_CLIENT_IP' ) ) {
+			return getenv( 'HTTP_CLIENT_IP' );
+		}
+		if ( getenv( 'HTTP_X_FORWARDED_FOR' ) ) {
+			return getenv( 'HTTP_X_FORWARDED_FOR' );
+		}
+		if ( getenv( 'HTTP_X_FORWARDED' ) ) {
+			return getenv( 'HTTP_X_FORWARDED' );
+		}
+		if ( getenv( 'HTTP_FORWARDED_FOR' ) ) {
+			return getenv( 'HTTP_FORWARDED_FOR' );
+		}
+		if ( getenv( 'HTTP_FORWARDED' ) ) {
+			return getenv( 'HTTP_FORWARDED' );
+		}
+		if ( getenv( 'HTTP_X_REAL_IP' ) ) {
+			return getenv( 'HTTP_X_REAL_IP' );
+		}
+		if ( getenv( 'REMOTE_ADDR' ) ) {
+			return getenv( 'REMOTE_ADDR' );
+		}
+		return '';
+	}
+
 	private static function create_thank_you_page() {
 		$query = new \WP_Query(
 			array(
@@ -591,7 +628,7 @@ class Trial_Signup {
 			'textProgressRedirecting' => __( 'Almost done, just a moment', 'qu_signup' ),
 			'textProgressFinalizing'  => __( 'Your LiveAgent is ready to use', 'qu_signup' ),
 			'textError'               => __( 'Something went wrong.', 'qu_signup' ),
-			'textErrorCaptcha'               => __( 'Cannot load captcha', 'qu_signup' ),
+			'textErrorCaptcha'        => __( 'Cannot load captcha', 'qu_signup' ),
 		);
 
 		if ( has_filter( 'wpml_current_language' ) ) {
