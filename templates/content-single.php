@@ -13,8 +13,9 @@ $page_header_args = array(
 	'toc'   => true,
 	'cta_button' => get_cta_button_data(),
 );
+
 $categories       = get_the_terms( $post->ID, 'category' );
-if ( isset( $categories ) ) {
+if ( is_array( $categories ) ) {
 	$page_header_tags = array();
 	foreach ( $categories as $category ) {
 		$page_header_tags[0]['list'][] = array(
