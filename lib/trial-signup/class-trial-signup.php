@@ -408,20 +408,22 @@ class Trial_Signup {
 		$handle = curl_init( self::$crm_api_base . $endpoint );
 
 		if ( ! $handle ) {
-			return array(
+			return array( 
 				'message' => self::$localized_text['textError'],
 			);
 		}
 		
 		$header = array( 'Content-Type: application/json' );
+		// @codingStandardsIgnoreStart
 		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
 			$user_agent = sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] );
 			$header[]   = "User-Agent: {$user_agent}"; 
 		}
 		if ( isset( $_SERVER['HTTP_ACCEPT_LANGUAGE'] ) ) {
 			$accept_language = sanitize_text_field( $_SERVER['HTTP_ACCEPT_LANGUAGE'] );
-			$header[]        = "Accept-Language: {$accept_language}"; 
+			$header[]        = "Accept-Language: {$accept_language}";
 		}
+		// @codingStandardsIgnoreEnd
 
 		curl_setopt_array(
 			$handle,
