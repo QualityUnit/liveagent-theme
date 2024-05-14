@@ -415,10 +415,12 @@ class Trial_Signup {
 		
 		$header = array( 'Content-Type: application/json' );
 		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
-			$header[] = "User-Agent: {$_SERVER['HTTP_USER_AGENT']}"; 
+			$user_agent = sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] );
+			$header[]   = "User-Agent: {$user_agent}"; 
 		}
 		if ( isset( $_SERVER['HTTP_ACCEPT_LANGUAGE'] ) ) {
-			$header[] = "Accept-Language: {$_SERVER['HTTP_ACCEPT_LANGUAGE']}"; 
+			$accept_language = sanitize_text_field( $_SERVER['HTTP_ACCEPT_LANGUAGE'] );
+			$header[]        = "Accept-Language: {$accept_language}"; 
 		}
 
 		curl_setopt_array(
