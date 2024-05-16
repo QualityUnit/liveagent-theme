@@ -177,7 +177,9 @@ class CrmFormHandler {
 				formData[ key ] = value;
 			}
 
-			this.fields.submit.button?.setAttribute( 'disabled', '' );
+			if ( this.fields.submit.button ) {
+				this.fields.submit.button.setAttribute( 'disabled', '' );
+			}
 			this.createCrmAccount( formData );
 		} );
 	};
@@ -390,13 +392,17 @@ class CrmFormHandler {
 			// handle error
 			const result = await response.json();
 			if ( result.message ) {
-				this.fields.submit.button?.removeAttribute( 'disabled' );
+				if ( this.fields.submit.button ) {
+					this.fields.submit.button.removeAttribute( 'disabled' );
+				}
 				this.setSignupError( result.message );
 			}
 		} catch ( error ) {
 			// eslint-disable-next-line no-console
 			console.error( 'Failed to create trial account: ', error );
-			this.fields.submit.button?.removeAttribute( 'disabled' );
+			if ( this.fields.submit.button ) {
+				this.fields.submit.button.removeAttribute( 'disabled' );
+			}
 		}
 	};
 
