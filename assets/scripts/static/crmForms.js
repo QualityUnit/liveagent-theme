@@ -7,7 +7,6 @@ class CrmFormHandler {
 		this.localized = quCrmData.localization;
 		this.apiBase = quCrmData.apiBase;
 		this.nonce = quCrmData.nonce;
-		this.productId = quCrmData.productId;
 		this.currentLang = quCrmData.currentLang;
 		this.crmLangCode = quCrmData.crmLangCode;
 		this.liveValidationTimeout = undefined;
@@ -291,7 +290,7 @@ class CrmFormHandler {
 			const result = await this.checkAvailableDomain(
 				'subscriptions/_check_domain',
 				{
-					productId: this.productId,
+					productId: this.getProductId(),
 					subdomain: element.value,
 				},
 				key
@@ -427,7 +426,7 @@ class CrmFormHandler {
 		// shape of standard trial form payload
 		return {
 			...requestData,
-			//variation_id: this.getVariationId(),
+			variation_id: this.getVariationId(),
 			customer: {
 				name: data.fullname,
 				email: data.email,
@@ -450,6 +449,23 @@ class CrmFormHandler {
 		}
 
 		return '3513230f';
+	};
+
+	getProductId = () => {
+		// product_ids divided on the base of old crm js
+		if ( this.isFreeForm ) {
+			return 'b229622b';
+		}
+
+		if ( [ 'fi', 'sv' ].includes( this.currentLang ) ) {
+			return 'spinla01';
+		}
+
+		if ( 'ja' === this.currentLang ) {
+			return 'intwkla1';
+		}
+
+		return 'b229622b';
 	};
 
 	removeSignupError = () => {
