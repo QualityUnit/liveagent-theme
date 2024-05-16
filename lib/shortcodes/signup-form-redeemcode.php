@@ -28,8 +28,7 @@ function ms_signup_form_redeem_code( $atts ) {
 	<div class="Signup__form">
 		<div class="Signup__form__title h3"><?php echo esc_html( $atts['title'] ); ?></div>
 
-		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup">
-			<input data-id="plan" name="plan_type" type="hidden" value="Trial" autocomplete="off">
+		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup" data-plan-type="Trial">
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 

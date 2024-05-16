@@ -18,9 +18,7 @@ function ms_signup_form_free() {
 		<h2 class="Signup__form__title h3"><?php _e( 'Create FREE account', 'ms' ); ?></h2>
 		<p class="Signup__form__subtitle"><?php _e( 'The FREE account is free forever, but it comes with limited features.', 'ms' ); ?></p>
 
-		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup">
-			<input data-id="form_type_free" name="form_type_free" type="hidden" value="" autocomplete="off">
-			<input data-id="plan" name="plan_type" type="hidden" value="FreeTrial" autocomplete="off">
+		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 
