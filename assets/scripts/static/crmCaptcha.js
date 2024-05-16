@@ -53,7 +53,7 @@
 					// handle submission without captcha
 					if ( captcha.version === 'no recaptcha' ) {
 						// enable form submission which is disabled by default within inline js in php
-						form.addEventListener( 'submit', () => form.submit() );
+						form.addEventListener( 'submit', () => form.dispatchEvent( new CustomEvent( 'createCrmAccount' ) ) );
 
 						// add empty input hidden by class, server will check if it's set and if is empty to pass submission
 						// robot probably fill fake input, human not
@@ -85,7 +85,7 @@ function quCaptchaOnloadCallback() {
 
 		const gaUserId = getCookie( '_ga' ) || '';
 
-		const handleBeforeSubmiActions = () => {
+		const handleBeforeSubmitActions = () => {
 			if ( gaClientInput ) {
 				gaClientInput.value = gaUserId;
 			}
@@ -104,8 +104,8 @@ function quCaptchaOnloadCallback() {
 							if ( grecaptchaInput ) {
 								grecaptchaInput.value = token;
 							}
-							handleBeforeSubmiActions();
-							form.submit();
+							handleBeforeSubmitActions();
+							form.dispatchEvent( new CustomEvent( 'createCrmAccount' ) );
 						} );
 					} );
 				} catch ( error ) {
@@ -149,8 +149,8 @@ function quCaptchaOnloadCallback() {
 						return;
 					}
 					submitButton.setAttribute( 'disabled', '' );
-					handleBeforeSubmiActions();
-					form.submit();
+					handleBeforeSubmitActions();
+					form.dispatchEvent( new CustomEvent( 'createCrmAccount' ) );
 				} catch ( error ) {
 					submitButton.removeAttribute( 'disabled' );
 				}
