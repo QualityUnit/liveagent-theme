@@ -1,30 +1,5 @@
 <?php
-if ( is_front_page() ) {
-	$is_announcement_hidden   = true; // To display the announcement bar, set it to false and vice versa
-	$announcement_bar_classes = 'Announcement__bar Ai__whisper__assistent';
 
-	if ( ! $is_announcement_hidden ) {
-		set_source( false, 'components/AnnouncementBar', 'css' );
-		set_source( false, 'components/AiWhisperAssistent', 'css' );
-		?>
-			<div class="Announcement__bars__slider">
-				<div class="negative <?= esc_attr( $announcement_bar_classes ); ?>">
-					<div class="wrapper">
-						<div class="Announcement__bar__col__left urlslab-skip-all">
-							<h2><?php _e( 'AI Whisper Assistant', 'ms' ); ?><small><?php _e( '/Private beta', 'ms' ); ?></small></h2>
-							<p><?php _e( 'Suggests the responses to your agent\'s needs', 'ms' ); ?></p>
-						</div>
-						<div class="Announcement__bar__col__right">
-							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/ai-announcement-bar-img-right.png" alt="">
-						</div>
-					</div>
-					<button class="Announcement__bar__close">X</button>
-				</div>
-			</div>
-		<?php
-		set_custom_source( 'AnnouncementBar', 'js' );
-	}
-}
 
 header_banners(
 	array(
@@ -50,22 +25,32 @@ header_banners(
 	)
 );
 
-//header_banners(
-//  array(
-//      'home',
-//  ),
-//  array(
-//      array(
-//          'title'    => __( 'AI Assistant', 'ms' ),
-//          'subtitle' => __( 'Unlock the future of support with LiveAgent’s AI Assistant!', 'ms' ),
-//          'class'    => 'ai-assistant',
-//          'image'    => 'announcementBar-ai-assistant.png',
-//          'bg'       => 'announcementBar-ai-assistant-bg.jpg',
-//          'url'      => __( '/ai-assist/', 'ms' ),
-//          'icon-class'       => 'pencil-with-stars', // Here insert icon class from our WordPress icons - icon after title
-//      ),
-//  )
-//)
+header_banners(
+	array(
+		'home',
+	),
+	array(
+		array(
+			'title'    => __( 'AI Whisper Assistant', 'ms' ),
+			'subtitle' => __( 'Suggests the responses to your agents need', 'ms' ),
+			'class'    => 'Ai__whisper__assistent',
+			'image'    => 'ai-announcement-bar-img-right.png',
+			'bg'       => 'announcementBar-ai-whisper-assistant-bg.jpg',
+			'url'      => __( '/features/ai-assistant/', 'ms' ),
+			'icon-class'       => '', // Here insert icon class from our WordPress icons - icon after title
+		),
+
+	//      array(
+	//          'title'    => __( 'AI Assistant', 'ms' ),
+	//          'subtitle' => __( 'Unlock the future of support with LiveAgent’s AI Assistant!', 'ms' ),
+	//          'class'    => 'ai-assistant',
+	//          'image'    => 'announcementBar-ai-assistant.png',
+	//          'bg'       => 'announcementBar-ai-assistant-bg.jpg',
+	//          'url'      => __( '/ai-assist/', 'ms' ),
+	//          'icon-class'       => 'pencil-with-stars', // Here insert icon class from our WordPress icons - icon after title
+	//      ),
+	)
+)
 ?>
 
 
