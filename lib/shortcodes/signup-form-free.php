@@ -95,7 +95,7 @@ function ms_signup_form_free() {
 			<div data-id="submitFieldmain" class="Signup__form__submit">
 				<button type="submit" data-id="createButtonmain" class="Button Button--outline createTrialButton">
 					<div class="WorkingPanel" style="display: none;">
-						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
+						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons8-services.gif' ); ?>" alt="gear wheels">
 					</div>
 					<span><?php _e( 'Create FREE account', 'ms' ); ?></span>
 				</button>
