@@ -9,11 +9,11 @@ class CrmFormHandler {
 		this.nonce = quCrmData.nonce;
 		this.currentLang = quCrmData.currentLang;
 		this.crmLangCode = quCrmData.crmLangCode;
+		this.isFreeForm = formElement.dataset.freeForm !== undefined;
+		this.planType = formElement.dataset.planType;
 		this.liveValidationTimeout = undefined;
 		this.lastValidatedDomain = undefined;
 		this.shouldCheckDomain = true;
-		this.isFreeForm = formElement.dataset.freeForm !== undefined;
-		this.planType = formElement.dataset.planType;
 
 		this.fields = {
 			name: { valid: false },
@@ -357,8 +357,8 @@ class CrmFormHandler {
 		try {
 			const isRedeem = formData.redeem_code !== undefined;
 			const requestData = this.getRequestData( formData, isRedeem );
-
 			const endpoint = formData.redeem_code ? 'redeem_code/signup/' : 'subscriptions/';
+
 			const response = await fetch( quCrmData.apiBase + endpoint, {
 				method: 'POST',
 				headers: {
@@ -406,6 +406,7 @@ class CrmFormHandler {
 		}
 	};
 
+	// create payload for signup request
 	getRequestData = ( formData, isRedeem ) => {
 		const data = formData;
 		const requestData = {
@@ -446,6 +447,7 @@ class CrmFormHandler {
 		if ( this.isFreeForm ) {
 			return 'freedesk';
 		}
+
 		if ( [ 'fi', 'sv' ].includes( this.currentLang ) ) {
 			return 'seLaTria';
 		}
@@ -476,6 +478,7 @@ class CrmFormHandler {
 
 	removeSignupError = () => {
 		this.fields.error.main.classList.add( 'hidden' );
+		this.fields.error.main.innerText = '';
 	};
 
 	setSignupError = ( message ) => {
