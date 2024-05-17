@@ -8,8 +8,7 @@ function ms_signup_form_free() {
 	set_custom_source( 'filterMenu', 'js' );
 	Trial_Signup::include_crm();
 	
-	$regions     = Trial_Signup::$regions;
-	$submit_slug = Trial_Signup::$slugs['trial'];
+	$regions = Trial_Signup::$regions;
 
 	ob_start();
 	?>
@@ -18,9 +17,7 @@ function ms_signup_form_free() {
 		<h2 class="Signup__form__title h3"><?php _e( 'Create FREE account', 'ms' ); ?></h2>
 		<p class="Signup__form__subtitle"><?php _e( 'The FREE account is free forever, but it comes with limited features.', 'ms' ); ?></p>
 
-		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup">
-			<input data-id="form_type_free" name="form_type_free" type="hidden" value="" autocomplete="off">
-			<input data-id="plan" name="plan_type" type="hidden" value="FreeTrial" autocomplete="off">
+		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 
@@ -97,7 +94,7 @@ function ms_signup_form_free() {
 			<div data-id="submitFieldmain" class="Signup__form__submit">
 				<button type="submit" data-id="createButtonmain" class="Button Button--outline createTrialButton">
 					<div class="WorkingPanel" style="display: none;">
-						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
+						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons8-services.gif' ); ?>" alt="gear wheels">
 					</div>
 					<span><?php _e( 'Create FREE account', 'ms' ); ?></span>
 				</button>

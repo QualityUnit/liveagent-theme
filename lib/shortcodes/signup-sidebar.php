@@ -42,8 +42,7 @@ function ms_signup_sidebar( $atts ) {
 
 	$sticky_class = $atts['js-sticky'] ? 'js-sidebar-sticky' : '';
 
-	$regions     = Trial_Signup::$regions;
-	$submit_slug = Trial_Signup::$slugs['trial'];
+	$regions = Trial_Signup::$regions;
 
 	ob_start();
 	?>
@@ -53,9 +52,7 @@ function ms_signup_sidebar( $atts ) {
 			<div class="Signup__sidebar__title"><?php echo esc_html( $atts['title'] ); ?></div>
 			<div class="Signup__sidebar__subtitle"><?php echo esc_html( $atts['subtitle'] ); ?></div>
 
-			<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup">
-				<input data-id="form_type_free" name="form_type_free" type="hidden" value="" autocomplete="off">
-				<input data-id="plan" name="plan_type" type="hidden" value="FreeTrial" autocomplete="off">
+			<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
 				<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 				<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 

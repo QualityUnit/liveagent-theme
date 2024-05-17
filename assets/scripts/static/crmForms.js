@@ -7,7 +7,10 @@ class CrmFormHandler {
 		this.localized = quCrmData.localization;
 		this.apiBase = quCrmData.apiBase;
 		this.nonce = quCrmData.nonce;
-		this.productId = quCrmData.productId;
+		this.currentLang = quCrmData.currentLang;
+		this.crmLangCode = quCrmData.crmLangCode;
+		this.isFreeForm = formElement.dataset.freeForm !== undefined;
+		this.planType = formElement.dataset.planType;
 		this.liveValidationTimeout = undefined;
 		this.lastValidatedDomain = undefined;
 		this.shouldCheckDomain = true;
@@ -19,6 +22,7 @@ class CrmFormHandler {
 			region: { valid: false },
 			code: { valid: false },
 			captcha: { valid: false },
+			error: {},
 			promo: {},
 			submit: {},
 		};
@@ -87,6 +91,8 @@ class CrmFormHandler {
 			callback: () => this.validateTextField( this.fields.code.input, 'code' ),
 			events: [ 'blur', 'input' ],
 		};
+
+		this.fields.error.main = this.form.querySelector( '[data-id=signUpError]' );
 
 		this.fields.promo.main = this.form.querySelector( '[data-id=promoFieldmain]' );
 		this.fields.promo.input = this.fields.promo.main?.querySelector( 'input[name=promo]' );
@@ -163,6 +169,19 @@ class CrmFormHandler {
 				}
 			} );
 		}
+
+		this.form.addEventListener( 'createCrmAccount', ( e ) => {
+			const data = new FormData( e.target );
+			const formData = {};
+			for ( const [ key, value ] of data.entries() ) {
+				formData[ key ] = value;
+			}
+
+			if ( this.fields.submit.button ) {
+				this.fields.submit.button.setAttribute( 'disabled', '' );
+			}
+			this.createCrmAccount( formData );
+		} );
 	};
 
 	initTrackingFields = () => {
@@ -270,10 +289,10 @@ class CrmFormHandler {
 	validateDomainField = async ( element, key ) => {
 		const textValid = this.validateTextField( element, key, true );
 		if ( textValid && this.lastValidatedDomain !== element.value ) {
-			const result = await this.apiFetch(
+			const result = await this.checkAvailableDomain(
 				'subscriptions/_check_domain',
 				{
-					productId: this.productId,
+					productId: this.getProductId(),
 					subdomain: element.value,
 				},
 				key
@@ -296,7 +315,7 @@ class CrmFormHandler {
 		}
 	};
 
-	apiFetch = async ( endpoint, options = {}, key = '' ) => {
+	checkAvailableDomain = async ( endpoint, options = {}, key = '' ) => {
 		try {
 			this.setValidating( key );
 			const params = Object.keys( options )
@@ -332,6 +351,139 @@ class CrmFormHandler {
 			this.setError( key, this.localized.textFailedDomain );
 			return false;
 		}
+	};
+
+	createCrmAccount = async ( formData ) => {
+		try {
+			const isRedeem = formData.redeem_code !== undefined;
+			const requestData = this.getRequestData( formData, isRedeem );
+			const endpoint = formData.redeem_code ? 'redeem_code/signup/' : 'subscriptions/';
+
+			const response = await fetch( quCrmData.apiBase + endpoint, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					accept: 'application/json',
+					'X-WP-Nonce': quCrmData.nonce,
+				},
+				body: JSON.stringify( requestData ),
+			} );
+
+			if ( response.ok ) {
+				const result = await response.json();
+				// data used by installer, tracking scripts etc...
+				const cookieData = {
+					id: result.id,
+					domain: result.domain,
+					customer_email: result.customer_email,
+					customer_name: result.customer_name,
+					account_id: result.account_id,
+					subdomain: requestData.subdomain,
+					language: requestData.language,
+					...( this.planType !== undefined && { plan_type: this.planType } ),
+					...( isRedeem && { is_redeem: true } ),
+				};
+
+				setCookie( 'trial_signup_response', JSON.stringify( cookieData ) );
+				window.location.href = quCrmData.thankYouUrl;
+				return;
+			}
+
+			// handle error
+			const result = await response.json();
+			if ( result.message ) {
+				if ( this.fields.submit.button ) {
+					this.fields.submit.button.removeAttribute( 'disabled' );
+				}
+				this.setSignupError( result.message );
+			}
+		} catch ( error ) {
+			// eslint-disable-next-line no-console
+			console.error( 'Failed to create trial account: ', error );
+			if ( this.fields.submit.button ) {
+				this.fields.submit.button.removeAttribute( 'disabled' );
+			}
+		}
+	};
+
+	// create payload for signup request
+	getRequestData = ( formData, isRedeem ) => {
+		const data = formData;
+		const requestData = {
+			subdomain: data.subdomain,
+			region: data.region,
+			promo: data.promo === 'on',
+			language: this.crmLangCode,
+			...( data.grecaptcha !== undefined && { grtoken: data.grecaptcha } ),
+			...( data.pap_visitor_id !== undefined && { pap_visitor_id: data.pap_visitor_id } ),
+			...( data.source_id !== undefined && { source_id: data.source_id } ),
+			...( data.ga_client_id !== undefined && { ga_client_id: data.ga_client_id } ),
+		};
+
+		if ( isRedeem ) {
+			// shape of redeem code form payload
+			return {
+				...requestData,
+				code: data.redeem_code,
+				name: data.fullname,
+				email: data.email,
+			};
+		}
+
+		// shape of standard trial form payload
+		return {
+			...requestData,
+			variation_id: this.getVariationId(),
+			customer: {
+				name: data.fullname,
+				email: data.email,
+			},
+
+		};
+	};
+
+	getVariationId = () => {
+	// variation_ids divided on the base of old crm js
+		if ( this.isFreeForm ) {
+			return 'freedesk';
+		}
+
+		if ( [ 'fi', 'sv' ].includes( this.currentLang ) ) {
+			return 'seLaTria';
+		}
+
+		if ( 'ja' === this.currentLang ) {
+			return 'iwkTrial';
+		}
+
+		return '3513230f';
+	};
+
+	getProductId = () => {
+		// product_ids divided on the base of old crm js
+		if ( this.isFreeForm ) {
+			return 'b229622b';
+		}
+
+		if ( [ 'fi', 'sv' ].includes( this.currentLang ) ) {
+			return 'spinla01';
+		}
+
+		if ( 'ja' === this.currentLang ) {
+			return 'intwkla1';
+		}
+
+		return 'b229622b';
+	};
+
+	removeSignupError = () => {
+		this.fields.error.main.classList.add( 'hidden' );
+		this.fields.error.main.innerText = '';
+	};
+
+	setSignupError = ( message ) => {
+		this.fields.error.main.innerText = message;
+		this.fields.error.main.classList.remove( 'hidden' );
 	};
 
 	setError = ( key, message ) => {

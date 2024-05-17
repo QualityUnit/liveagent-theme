@@ -52,12 +52,18 @@
 
 					// handle submission without captcha
 					if ( captcha.version === 'no recaptcha' ) {
-						// enable form submission which is disabled by default within inline js in php
-						form.addEventListener( 'submit', () => form.submit() );
-
-						// add empty input hidden by class, server will check if it's set and if is empty to pass submission
+						// add empty input hidden by class, we will check if it's set and if it's empty
 						// robot probably fill fake input, human not
 						form.insertAdjacentHTML( 'afterbegin', `<input class="hidden" name="fcaptcha" value="" autocomplete="off">` );
+
+						// enable form submission which is disabled by default within inline js in php
+						form.addEventListener( 'submit', ( e ) => {
+							e.preventDefault();
+							const inputFakeCaptcha = form.querySelector( 'input[name="fcaptcha"]' );
+							if ( inputFakeCaptcha && inputFakeCaptcha.value === '' ) {
+								form.dispatchEvent( new CustomEvent( 'createCrmAccount' ) );
+							}
+						} );
 					}
 				} );
 				return;
@@ -85,7 +91,7 @@ function quCaptchaOnloadCallback() {
 
 		const gaUserId = getCookie( '_ga' ) || '';
 
-		const handleBeforeSubmiActions = () => {
+		const handleBeforeSubmitActions = () => {
 			if ( gaClientInput ) {
 				gaClientInput.value = gaUserId;
 			}
@@ -104,8 +110,8 @@ function quCaptchaOnloadCallback() {
 							if ( grecaptchaInput ) {
 								grecaptchaInput.value = token;
 							}
-							handleBeforeSubmiActions();
-							form.submit();
+							handleBeforeSubmitActions();
+							form.dispatchEvent( new CustomEvent( 'createCrmAccount' ) );
 						} );
 					} );
 				} catch ( error ) {
@@ -149,8 +155,8 @@ function quCaptchaOnloadCallback() {
 						return;
 					}
 					submitButton.setAttribute( 'disabled', '' );
-					handleBeforeSubmiActions();
-					form.submit();
+					handleBeforeSubmitActions();
+					form.dispatchEvent( new CustomEvent( 'createCrmAccount' ) );
 				} catch ( error ) {
 					submitButton.removeAttribute( 'disabled' );
 				}
