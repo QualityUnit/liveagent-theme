@@ -70,6 +70,18 @@ if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
 				'title' => __( 'Self-Hosted', 'ms' ),
 			);
 		}
+		if ( 'enterprise' === $item ) {
+			$new_tags['list'][] = array(
+				'href'  => $la_pricing_url,
+				'title' => __( 'Enterprise', 'ms' ),
+			);
+		}
+		if ( 'extensions' === $item ) {
+			$new_tags['list'][] = array(
+				'href'  => $la_pricing_url,
+				'title' => __( 'Extensions', 'ms' ),
+			);
+		}
 	}
 	if ( isset( $new_tags['list'] ) ) {
 		$page_header_args['tags'][] = $new_tags;
