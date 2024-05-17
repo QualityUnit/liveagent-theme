@@ -20,8 +20,7 @@ function ms_signup_form( $atts ) {
 		'people'
 	);
 		
-	$regions     = Trial_Signup::$regions;
-	$submit_slug = Trial_Signup::$slugs['trial'];
+	$regions = Trial_Signup::$regions;
 
 	ob_start();
 	?>
@@ -40,7 +39,7 @@ function ms_signup_form( $atts ) {
 			<span class="Signup__form__labels__label"><?php echo esc_html( $atts['label2'] ); ?></span>
 		</div>
 
-		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup" data-plan-type="Trial">
+		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="Trial">
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 			

@@ -17,8 +17,7 @@ function ms_signup_form_redeem_code( $atts ) {
 		'people'
 	);
 
-	$regions     = Trial_Signup::$regions;
-	$submit_slug = Trial_Signup::$slugs['redeem-code'];
+	$regions = Trial_Signup::$regions;
 
 	ob_start();
 	?>
@@ -26,7 +25,7 @@ function ms_signup_form_redeem_code( $atts ) {
 	<div class="Signup__form">
 		<div class="Signup__form__title h3"><?php echo esc_html( $atts['title'] ); ?></div>
 
-		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup" data-plan-type="Trial">
+		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="Trial">
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 

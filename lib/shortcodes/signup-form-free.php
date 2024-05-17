@@ -8,8 +8,7 @@ function ms_signup_form_free() {
 	set_custom_source( 'filterMenu', 'js' );
 	Trial_Signup::include_crm();
 	
-	$regions     = Trial_Signup::$regions;
-	$submit_slug = Trial_Signup::$slugs['trial'];
+	$regions = Trial_Signup::$regions;
 
 	ob_start();
 	?>
@@ -18,7 +17,7 @@ function ms_signup_form_free() {
 		<h2 class="Signup__form__title h3"><?php _e( 'Create FREE account', 'ms' ); ?></h2>
 		<p class="Signup__form__subtitle"><?php _e( 'The FREE account is free forever, but it comes with limited features.', 'ms' ); ?></p>
 
-		<form action="<?php echo esc_url( $submit_slug ); ?>" method="post" data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
+		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 
