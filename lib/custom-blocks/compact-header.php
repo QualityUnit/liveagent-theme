@@ -73,6 +73,9 @@ inline_compact_header();
 				} else {
 					site_breadcrumb();
 				}
+
+				$itemprop_title = ( is_singular( 'ms_directory' ) || is_author() ) ? 'name' : 'headline';
+
 				?>
 				<!-- Breadcrumb section end -->
 				<?php
@@ -80,15 +83,16 @@ inline_compact_header();
 					if ( ! empty( $author_infos['name'] ) ) {
 						?>
 						<!-- Author title section -->
-						<h1 itemprop="name" class="compact-header__title"><?= esc_html( $author_infos['name'] ); ?></h1>
+						<h1 itemprop="<?= esc_attr( $itemprop_title ); ?>" class="compact-header__title"><?= esc_html( $author_infos['name'] ); ?></h1>
 					<?php } ?>
 					<!-- Author title section end -->
 					<?php
 				} else {
 					if ( ! empty( $args['title'] ) ) {
+
 						?>
 						<!-- Title section -->
-						<h1 itemprop="headline" class="compact-header__title"><?= esc_html( $args['title'] ); ?></h1>
+						<h1 itemprop="<?= esc_attr( $itemprop_title ); ?>" class="compact-header__title"><?= esc_html( $args['title'] ); ?></h1>
 					<?php } ?>
 					<!-- Title section end -->
 				<?php } ?>
