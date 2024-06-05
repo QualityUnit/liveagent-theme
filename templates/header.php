@@ -31,7 +31,7 @@ header_banners(
 	),
 	array(
 		array(
-			'title'    => __( 'AI Whisper Assistant', 'ms' ),
+			'title'    => __( 'AI Answer Assistant', 'ms' ),
 			'subtitle' => __( 'Suggests the responses to your agents need', 'ms' ),
 			'class'    => 'Ai__whisper__assistent',
 			'image'    => 'ai-announcement-bar-img-right.png',
