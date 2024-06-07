@@ -179,6 +179,30 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 	</div>
 </div>
 
+<?php if ( ! ( is_mobile() ) ) { ?>
+
+<div id="exitPopup" class="Exit-popup">
+	<div class="Exit-popup__container">
+		<span id="popupClose" class="Exit-popup__close">&times;</span>
+		<div class="Exit-popup__content">
+			<h2 class="Exit-popup__title"><?php _e( 'Want improve your customer service?', 'ms' ); ?></h2>
+			<p class="Exit-popup__text"><?php _e( 'Answer more tickets with all-in-one help desk software. Try LiveAgent for 30 days with no credit card require.', 'ms' ); ?></p>
+			<div class="Exit-popup__buttons">
+				<a href="/trial/" class="Button Button--full"><span><?php _e( 'Get started for FREE', 'ms' ); ?></span></a>
+				<p class="Exit-popup__or">or</p>
+				<a href="/demo/" class="Button Button--outline"><span><?php _e( 'Request demo', 'ms' ); ?></span></a>
+			</div>
+		</div>
+		<div class="Exit-popup__image">
+			<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/exit-popup-img.png' ); ?>" alt="">
+		</div>
+	</div>
+</div>
+	<?php
+}
+set_custom_source( 'exitPopup', 'js' );
+?>
+
 <?php
 function show_demo_bar() {
 	$disabled_urls = array(
