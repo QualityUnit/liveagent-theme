@@ -179,25 +179,37 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 	</div>
 </div>
 
+
 <?php if ( ! ( is_mobile() ) ) { ?>
 
-<div id="exitPopup" class="Exit-popup">
-	<div class="Exit-popup__container">
-		<span id="popupClose" class="Exit-popup__close">&times;</span>
-		<div class="Exit-popup__content">
-			<h2 class="Exit-popup__title"><?php _e( 'Want improve your customer service?', 'ms' ); ?></h2>
-			<p class="Exit-popup__text"><?php _e( 'Answer more tickets with all-in-one help desk software. Try LiveAgent for 30 days with no credit card require.', 'ms' ); ?></p>
-			<div class="Exit-popup__buttons">
-				<a href="/trial/" class="Button Button--full"><span><?php _e( 'Get started for FREE', 'ms' ); ?></span></a>
-				<p class="Exit-popup__or">or</p>
-				<a href="/demo/" class="Button Button--outline"><span><?php _e( 'Request demo', 'ms' ); ?></span></a>
+	<div id="exitPopup" class="Exit-popup">
+		<div class="Exit-popup__container">
+			<span id="exitPopupClose" class="Exit-popup__close">&times;</span>
+			<div class="Exit-popup__content">
+				<h2 class="Exit-popup__title"><?php _e( 'Want to improve your customer service?', 'ms' ); ?></h2>
+				<p class="Exit-popup__text"><?php _e( 'Answer more tickets with our all-in-one help desk software. Try LiveAgent for 30 days with no credit card required.', 'ms' ); ?></p>
+				<div class="Exit-popup__buttons">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full"><span><?php _e( 'Get started for FREE', 'ms' ); ?></span></a>
+					<p class="Exit-popup__or">or</p>
+					<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline"><span><?php _e( 'Request demo', 'ms' ); ?></span></a>
+				</div>
+			</div>
+			<div class="Exit-popup__image">
+				<div class="Exit-popup__chat">
+					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/andrej-saxon-avatar.jpg' ); ?>" alt="Andrej Saxon" class="Exit-popup__chat__avatar">
+					<div class="Exit-popup__chat__text">
+						<p>
+							<?php _e( 'Hello, I’m Andrej. We’re thrilled to invite you to an exclusive software demo where we’ll showcase our product and how it can transform your customer care. ', 'ms' ); ?>
+							<strong><?php _e( 'Learn how to achieve your business goals with LiveAgent ', 'ms' ); ?></strong>
+							<?php _e( 'or feel free to explore the best help desk software by yourself with no fee or credit card requirement.', 'ms' ); ?>
+						</p>
+						<span class="Exit-popup__chat__author"><?php _e( 'Andrej Saxon | LiveAgent support team', 'ms' ); ?></span>
+					</div>
+				</div>
+				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/exit-popup-img.jpg' ); ?>" alt="">
 			</div>
 		</div>
-		<div class="Exit-popup__image">
-			<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/exit-popup-img.png' ); ?>" alt="">
-		</div>
 	</div>
-</div>
 	<?php
 }
 set_custom_source( 'exitPopup', 'js' );
