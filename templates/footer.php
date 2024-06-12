@@ -185,8 +185,8 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 	<div id="exitPopup" class="Exit-popup">
 		<div class="Exit-popup__container">
 			<span id="exitPopupClose" class="Exit-popup__close">&times;</span>
-			<div class="Exit-popup__content">
-				<h2 class="Exit-popup__title"><?php _e( 'Want to improve your customer service?', 'ms' ); ?></h2>
+			<div class="Exit-popup__content urlslab-skip-all">
+				<h2 class="Exit-popup__title "><?php _e( 'Want to improve your customer service?', 'ms' ); ?></h2>
 				<p class="Exit-popup__text"><?php _e( 'Answer more tickets with our all-in-one help desk software. Try LiveAgent for 30 days with no credit card required.', 'ms' ); ?></p>
 				<div class="Exit-popup__buttons">
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full"><span><?php _e( 'Get started for FREE', 'ms' ); ?></span></a>
@@ -197,7 +197,7 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 			<div class="Exit-popup__image">
 				<div class="Exit-popup__chat">
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/andrej-saxon-avatar.jpg' ); ?>" alt="Andrej Saxon" class="Exit-popup__chat__avatar">
-					<div class="Exit-popup__chat__text">
+					<div class="Exit-popup__chat__text urlslab-skip-all">
 						<p>
 							<?php _e( 'Hello, I’m Andrej. We’re thrilled to invite you to an exclusive software demo where we’ll showcase our product and how it can transform your customer care. ', 'ms' ); ?>
 							<strong><?php _e( 'Learn how to achieve your business goals with LiveAgent ', 'ms' ); ?></strong>
