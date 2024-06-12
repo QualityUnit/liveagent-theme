@@ -189,9 +189,9 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 				<h2 class="Exit-popup__title "><?php _e( 'Want to improve your customer service?', 'ms' ); ?></h2>
 				<p class="Exit-popup__text"><?php _e( 'Answer more tickets with our all-in-one help desk software. Try LiveAgent for 30 days with no credit card required.', 'ms' ); ?></p>
 				<div class="Exit-popup__buttons">
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full"><span><?php _e( 'Get started for FREE', 'ms' ); ?></span></a>
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full ExitPopupButton"><span><?php _e( 'Get started for FREE', 'ms' ); ?></span></a>
 					<p class="Exit-popup__or">or</p>
-					<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline"><span><?php _e( 'Request demo', 'ms' ); ?></span></a>
+					<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline ExitPopupButton"><span><?php _e( 'Request demo', 'ms' ); ?></span></a>
 				</div>
 			</div>
 			<div class="Exit-popup__image">
