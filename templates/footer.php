@@ -182,7 +182,7 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 
 <?php if ( ! ( is_mobile() ) ) { ?>
 
-	<div id="exitPopup" class="Exit-popup">
+	<div id="exitPopup" class="Exit-popup hidden">
 		<div class="Exit-popup__container">
 			<span id="exitPopupClose" class="Exit-popup__close">&times;</span>
 			<div class="Exit-popup__content urlslab-skip-all">
