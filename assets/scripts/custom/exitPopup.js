@@ -22,4 +22,11 @@ if ( exitPopup ) {
 		exitPopup.classList.add( 'hidden' );
 		setCookie( 'exitPopupClose', 'true', 14 ); // Set cookie for 14 days
 	} );
+
+	const popupButtons = document.querySelectorAll( '.ExitPopupButton' );
+	popupButtons.forEach( function( button ) {
+		button.addEventListener( 'click', function() {
+			setCookie( 'exitPopupClose', 'true', 14 ); // Set cookie for 14 days
+		} );
+	} );
 }
