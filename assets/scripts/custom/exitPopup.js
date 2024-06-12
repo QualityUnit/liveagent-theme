@@ -7,15 +7,19 @@ function shouldShowPopup() {
 const exitPopup = document.getElementById( 'exitPopup' );
 
 if ( exitPopup ) {
-	document.addEventListener( 'mouseleave', function( event ) {
-		if ( event.clientY < 0 && shouldShowPopup() ) {
-			exitPopup.style.display = 'block';
+	document.body.addEventListener( 'mouseout', function( event ) {
+		const from = event.relatedTarget || event.toElement;
+		if ( ! from || from.nodeName === 'HTML' ) {
+			if ( shouldShowPopup() ) {
+				exitPopup.classList.add( 'visible' );
+				exitPopup.classList.remove( 'hidden' );
+			}
 		}
 	} );
 
 	document.getElementById( 'exitPopupClose' ).addEventListener( 'click', function() {
-		document.getElementById( 'exitPopup' ).style.display = 'none';
+		exitPopup.classList.remove( 'visible' );
+		exitPopup.classList.add( 'hidden' );
 		setCookie( 'exitPopupClose', 'true', 14 ); // Set cookie for 14 days
 	} );
 }
-

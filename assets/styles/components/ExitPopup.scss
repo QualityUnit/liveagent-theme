@@ -5,7 +5,6 @@
 
 
 .Exit-popup {
-	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -14,6 +13,11 @@
 	z-index: 999998;
 	background: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(25px);
+
+	&.visible {
+		display: block !important;
+	}
+
 
 	&__container {
 
@@ -86,12 +90,14 @@
 
 	&__image {
 		position: relative;
-		height: 20.625em;
+
 
 		img:not(.Exit-popup__chat__avatar) {
 
 			@include square(100%);
 			padding-left: 30%;
+
+			height: 20.625em;
 
 			@media (min-width: $breakpoint-tablet-landscape + 1px) {
 				padding-left: 44%;
@@ -104,6 +110,7 @@
 	&__chat {
 		display: flex;
 		flex-direction: row;
+		gap: 1em;
 		position: absolute;
 		left: 0;
 		top: 50%;
@@ -121,10 +128,10 @@
 		@include square(2.625em);
 
 		border-radius: 50%;
-		margin-right: 1em;
 	}
 
 	&__chat__text {
+		max-width: 29.625em;
 
 		> * {
 			color: #646c75;
