@@ -93,6 +93,13 @@
 		z-index: 1;
 	}
 
+	&--takeATour {
+
+		.heroBanner__image__cta__img {
+			width: 50% !important;
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet) {
 
 		&__content {
