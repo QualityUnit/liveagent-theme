@@ -7,12 +7,12 @@ if ( ICL_LANGUAGE_CODE === 'en' ) {
 		),
 		array(
 			array(
-				'title' => __('Turn Clicks into Cash', 'ms'),
-				'subtitle' => __('Earn Effortlessly with Post Affiliate Pro!', 'ms'),
+				'title' => __( 'Turn Clicks into Cash', 'ms' ),
+				'subtitle' => __( 'Earn Effortlessly with Post Affiliate Pro!', 'ms' ),
 				'class' => 'PAP',
 				'image' => 'AnnouncementBar-PAP.png',
 				'bg' => 'AnnouncementBar-PAP_bg.jpg',
-				'url' => __('https://www.postaffiliatepro.com/', 'ms'),
+				'url' => __( 'https://www.postaffiliatepro.com/', 'ms' ),
 			),
 			// array(
 			//  'title'    => __( 'Unleash the Website Wizard', 'ms' ),
@@ -31,12 +31,12 @@ if ( ICL_LANGUAGE_CODE === 'en' ) {
 		),
 		array(
 			array(
-				'title' => __('AI Answer Assistant', 'ms'),
-				'subtitle' => __('Suggests the responses to your agents need', 'ms'),
+				'title' => __( 'AI Answer Assistant', 'ms' ),
+				'subtitle' => __( 'Suggests the responses to your agents need', 'ms' ),
 				'class' => 'Ai__whisper__assistent',
 				'image' => 'ai-announcement-bar-img-right.png',
 				'bg' => 'announcementBar-ai-whisper-assistant-bg.jpg',
-				'url' => __('/features/ai-assistant/', 'ms'),
+				'url' => __( '/features/ai-assistant/', 'ms' ),
 				'icon-class' => '', // Here insert icon class from our WordPress icons - icon after title
 			),
 
