@@ -16,5 +16,5 @@
 	require_once get_template_directory() . '/lib/metaboxes/custom-urls.php';
 	require_once get_template_directory() . '/lib/metaboxes/checklists.php';
 	require_once get_template_directory() . '/lib/metaboxes/reviews.php';
-	require_once get_template_directory() . '/lib/metaboxes/videos.php';
+	// require_once get_template_directory() . '/lib/metaboxes/videos.php';
 require_once get_template_directory() . '/lib/metaboxes/webinars.php';
