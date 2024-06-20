@@ -3,115 +3,105 @@ const iconTabs = document.querySelectorAll( '.IconTabs' );
 if ( iconTabs.length > 0 ) {
 	iconTabs.forEach( ( element ) => {
 		const thisSection = element;
-		const thisContent = thisSection.querySelector(
-			'.IconTabs__content > .elementor-widget-wrap'
-		);
+		const thisContent = thisSection.querySelector( '.IconTabs__content > .elementor-widget-wrap' );
 		const tabs = thisSection.querySelectorAll( '.IconTabs__tabs li' );
 		const blocks = thisSection.querySelectorAll( '.IconTabs__block' );
-		const svgAnims = thisSection.querySelectorAll( '.IconTabs__block img[data-src*=".svg"]' );
-		svgAnims.forEach( ( animation, index ) => {
-			const anim = animation;
-			anim.dataset.src = `${ anim.dataset.src }?${ index }`;
-		} );
 
-		const percentCounter = ( thisBlock ) => {
-			if ( ! thisBlock.classList.contains( 'counted' ) ) {
-				const chartPercentage = thisBlock.querySelector(
-					'.IconTabs__chartText p'
-				);
+		// Set 'active' class for the first tab and block
+		tabs[ 0 ].classList.add( 'active' );
+		blocks[ 0 ].classList.add( 'active' );
 
-				if ( chartPercentage ) {
-					const chartPercentageText = chartPercentage.innerText.split(
-						/–|-/
-					);
+		// Initialize progress bar for the first block
+		recalculateProgress( blocks[ 0 ] );
 
-					const number1 = parseInt( chartPercentageText[ 0 ], 10 );
-					let number2 = null;
-
-					if ( ! chartPercentageText[ 1 ] ) {
-						const secs = 2500 / number1;
-						let count = 0;
-						chartPercentage.classList.add( 'big' );
-						const counter = setInterval( () => {
-							count += 1;
-							chartPercentage.innerHTML = `${ count }%`;
-							if ( count === number1 ) {
-								clearInterval( counter );
-							}
-						}, secs );
-					}
-					if ( chartPercentageText[ 1 ] ) {
-						number2 = parseInt( chartPercentageText[ 1 ], 10 );
-						const secs1 = 2500 / number1;
-						const secs2 = 2500 / number2;
-						const mainCounter = [ 0, 0 ];
-						let count1 = 0;
-						let count2 = 0;
-						const counter1 = setInterval( () => {
-							count1 += 1;
-							mainCounter[ 0 ] = count1;
-							if ( count1 === number1 ) {
-								clearInterval( counter1 );
-							}
-						}, secs1 );
-						const counter2 = setInterval( () => {
-							count2 += 1;
-							mainCounter[ 1 ] = count2;
-							chartPercentage.innerHTML = `${ mainCounter[ 0 ] }–${ mainCounter[ 1 ] }%`;
-							if ( count2 === number2 ) {
-								clearInterval( counter2 );
-							}
-						}, secs2 );
-					}
-				}
-
-				thisBlock.classList.add( 'counted' );
-			}
-		};
-
-		// Sets class active for first tab and first block
-		tabs.item( 0 ).classList.add( 'active' );
-		blocks.item( 0 ).classList.add( 'active' );
-
-		percentCounter( blocks.item( 0 ) );
-
-		// Assigns data-item ID number for each item to pair it without entering ID attribute
+		// Assign data-item ID for each tab and block
 		tabs.forEach( ( tab, index ) => {
-			const tabItem = tab;
-			tabItem.dataset.item = index;
+			tab.dataset.item = index;
 		} );
 
 		blocks.forEach( ( block, index ) => {
-			const item = block;
-			item.dataset.item = index;
+			block.dataset.item = index;
 		} );
 
+		// Add click event listener to each tab
 		tabs.forEach( ( tab ) => {
 			tab.addEventListener( 'click', ( event ) => {
 				event.preventDefault();
-				event.stopPropagation();
-				const prevActiveTab = thisSection.querySelector(
-					'.IconTabs__tabs li.active'
-				);
-				const prevActiveBlock = thisSection.querySelector(
-					'.IconTabs__block.active'
-				);
+				const prevActiveTab = thisSection.querySelector( '.IconTabs__tabs li.active' );
+				const prevActiveBlock = thisSection.querySelector( '.IconTabs__block.active' );
 				const thisId = tab.dataset.item;
-				const thisBlock = thisSection.querySelector(
-					`.IconTabs__block[data-item="${ thisId }"]`
-				);
-				const thisBlockItemCount = thisBlock.dataset.item;
+				const thisBlock = thisSection.querySelector( `.IconTabs__block[data-item="${ thisId }"]` );
 
+				// Remove 'active' class from previous tab and block
 				prevActiveTab.classList.remove( 'active' );
 				prevActiveBlock.classList.remove( 'active' );
 
+				// Add 'active' class to the clicked tab and corresponding block
 				tab.classList.add( 'active' );
-				thisContent.style.transform = `translateX(-${
-					thisBlockItemCount * 100
-				}%)`;
-				percentCounter( thisBlock );
+				thisContent.style.transform = `translateX(-${ thisId * 100 }%)`;
 				thisBlock.classList.add( 'active' );
+
+				// Recalculate and animate progress bar for the new active block
+				recalculateProgress( thisBlock );
 			} );
 		} );
 	} );
 }
+
+// Function to update and animate the progress bar
+function recalculateProgress( block ) {
+	const pElement = block.querySelector( '.IconTabs__chartText p' );
+	if ( pElement ) {
+		const percentTextValue = pElement.textContent.replace( '%', '' );
+		const numberValue = parseFloat( percentTextValue );
+
+		const path = block.querySelector( '#foregroundPath' );
+		const circle = block.querySelector( '#progressCircle' );
+
+		if ( ! path || ! circle ) {
+			return;
+		}
+
+		const totalLength = path.getTotalLength();
+
+		const updateProgressBar = ( percentage ) => {
+			const progressLength = totalLength * ( percentage / 100 );
+			path.style.strokeDasharray = `${ progressLength } ${ totalLength }`;
+			const pointAtLength = path.getPointAtLength( progressLength );
+			circle.setAttribute( 'cx', pointAtLength.x );
+			circle.setAttribute( 'cy', pointAtLength.y );
+		};
+
+		const animateProgressBar = ( targetPercentage, duration ) => {
+			let start = null;
+			const startPercentage = 0;
+
+			const step = ( timestamp ) => {
+				if ( ! start ) {
+					start = timestamp;
+				}
+				const progress = timestamp - start;
+				// eslint-disable-next-line no-mixed-operators
+				const percentage = Math.min( startPercentage + ( progress / duration ) * targetPercentage, targetPercentage );
+				updateProgressBar( percentage );
+				pElement.textContent = `${ Math.round( percentage ) }%`; // Update the percentage text
+				if ( percentage < targetPercentage ) {
+					requestAnimationFrame( step );
+				}
+			};
+
+			requestAnimationFrame( step );
+		};
+
+		// Animate the progress bar to the calculated percentage
+		animateProgressBar( numberValue, 1500 );
+	}
+}
+
+// Initialize progress bar for the initially active block when DOM is fully loaded
+document.addEventListener( 'DOMContentLoaded', () => {
+	const initialBlock = document.querySelector( '.IconTabs__block.active' );
+	if ( initialBlock ) {
+		recalculateProgress( initialBlock );
+	}
+} );
