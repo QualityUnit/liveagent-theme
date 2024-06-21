@@ -184,7 +184,6 @@
 		position: relative;
 
 		&.wrapper {
-			opacity: 0.7;
 			background: radial-gradient(103.53% 342.47% at 18.26% 29.64%, $white 0%, #fff4f4 33.92%, #ffe9dc 83.38%, #ffeef3 100%);
 		}
 
@@ -216,7 +215,7 @@
 
 	&__chartText {
 		position: relative;
-		margin-top: -5em;
+		margin-top: -7em;
 
 		p {
 
@@ -226,40 +225,17 @@
 			box-decoration-break: clone;
 			text-align: center;
 
-			font-size: 3.5rem;
+			font-size: 5rem;
 			line-height: 1;
-			font-family: $font-third;
+			font-family: $font-primary;
 
-			&.big {
-				font-size: 5rem;
-			}
-		}
-
-		&.big {
-			margin-top: -7em;
-
-			p:not(.big) {
-				font-size: 5rem;
-			}
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
-			margin-top: -8em;
+			margin-top: -10em;
 
 			p {
-				font-size: 6.25rem;
-
-				&.big {
-					font-size: 9.375rem;
-				}
-			}
-
-			&.big {
-				margin-top: -13em;
-
-				p {
-					font-size: 9.375rem;
-				}
+				font-size: 8rem;
 			}
 		}
 
@@ -270,17 +246,10 @@
 		@include color(background, main-background);
 		position: relative;
 		border-radius: $border-radius-16;
-		margin: -1em auto 0;
+		margin: 0 auto;
 		padding: 2em;
 		max-width: 30.25em;
 		box-shadow: 0 15px 41px rgba(145, 145, 145, 0.28), inset 0 -15px 20px rgba(157, 157, 157, 0.1);
-
-		.big + & {
-
-			@media (min-width: $breakpoint-tablet-landscape) {
-				margin: -2em auto 0;
-			}
-		}
 
 		p:last-of-type {
 			margin-bottom: 0;
@@ -302,4 +271,39 @@
 			animation: bounceIn 0.5s 0.3s;
 		}
 	}
+
+	.progress-svg {
+		padding: 0 4em;
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 0;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 0 2em;
+		}
+
+		/* Element: background path */
+		&__background-path {
+			fill: none;
+			stroke: #e6e6e6;
+			stroke-width: 15;
+			stroke-linecap: round;
+		}
+
+		/* Element: foreground path */
+		&__foreground-path {
+			fill: none;
+			stroke: #fa9531;
+			stroke-width: 15;
+			stroke-dasharray: 0 1000;
+			stroke-linecap: round;
+		}
+
+		/* Element: progress circle */
+		&__progress__circle {
+			fill: $white;
+		}
+	}
+
 }
