@@ -18,7 +18,7 @@
 			$args    = array(
 				'label'               => __( 'Checklists', 'ms' ),
 				'labels'              => $labels,
-				'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
+				'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author' ),
 				'hierarchical'        => true,
 				'public'              => true,
 				'show_ui'             => true,

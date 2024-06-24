@@ -17,4 +17,4 @@
 	require_once get_template_directory() . '/lib/post-types/reviews.php';
 	// require_once get_template_directory() . '/lib/post-types/videos.php';
 	require_once get_template_directory() . '/lib/post-types/pricing-tables.php';
-	require_once get_template_directory() . '/lib/post-types/webinars.php';
+	// require_once get_template_directory() . '/lib/post-types/webinars.php';
