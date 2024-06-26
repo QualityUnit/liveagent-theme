@@ -1,0 +1,33 @@
+name: Build Test - QU Banners
+
+on:
+  pull_request:
+    paths:
+      - 'lib/widgets/qu-banners/**/*'
+  push:
+    paths:
+      - 'lib/widgets/qu-banners/**/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./lib/widgets/qu-banners/
+    strategy:
+      matrix:
+        node_version: [ '20' ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node_version }}
+
+      - name: Install Yarn dependencies
+        run: yarn
+
+      - name: Run tests
+        run: yarn build
