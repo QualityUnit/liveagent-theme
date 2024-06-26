@@ -17,6 +17,7 @@ cd ../qu-checklists/ && rm -rf node_modules package.json yarn.lock webpack.confi
 cd ../qu-howtos/ && rm -rf node_modules package.json yarn.lock webpack.config.js
 cd ../qu-expertnote/ && rm -rf node_modules package.json yarn.lock webpack.config.js
 cd ../qu-usecase/ && rm -rf node_modules package.json yarn.lock webpack.config.js
+cd ../qu-banners/ && rm -rf node_modules package.json yarn.lock
 cd ../statistics/ && rm -rf node_modules package.json yarn.lock
 
 cd ../../..
