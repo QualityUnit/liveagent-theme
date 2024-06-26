@@ -20,7 +20,8 @@
 		"build:qu-expertnote": "cd ./lib/widgets/qu-expertnote/ && yarn && yarn build",
 		"build:qu-usecase": "cd ./lib/widgets/qu-usecase/ && yarn && yarn build",
 		"build:statistics": "cd ./lib/widgets/statistics/ && yarn && yarn build",
-		"build:all": "yarn && yarn build && yarn build:qu-commonproblems && yarn build:qu-reviews && yarn build:qu-checklists && yarn build:qu-howtos && yarn build:qu-expertnote && yarn build:qu-usecase && yarn build:statistics && yarn build:web-calc && yarn build:web-calc-featured && yarn build:typing-test"
+		"build:banners": "cd ./lib/widgets/qu-banners/ && yarn && yarn build",
+		"build:all": "yarn && yarn build && yarn build:qu-commonproblems && yarn build:qu-reviews && yarn build:qu-checklists && yarn build:qu-howtos && yarn build:qu-expertnote && yarn build:qu-usecase && yarn build:banners && yarn build:statistics && yarn build:web-calc && yarn build:web-calc-featured && yarn build:typing-test"
 	},
 	"engines": {
 		"node": ">= 20"
