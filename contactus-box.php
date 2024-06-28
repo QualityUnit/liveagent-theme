@@ -130,12 +130,12 @@
 			</li>
 			<li class="ContactUs__menu--item chatbot">
 				<div class="ContactUs__menu--link fakeChatButton hidden">
-					<span class="fakeChatButton__text"><?php _e( 'Chatbot', 'ms' ); ?></span>
+					<span class="fakeChatButton__text"><?php _e( 'Chat with a bot', 'ms' ); ?></span>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>chatbot.svg" />
 					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before we start a chat.', 'ms' ); ?></span>
 				</div>
 				<button class="ContactUs__menu--link blue" id="chatBot" data-close-target="contactUsMenu"  rel="nofollow noopener external">
-					<?php _e( 'Chatbot', 'ms' ); ?>
+					<?php _e( 'Chat with a bot', 'ms' ); ?>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>chatbot.svg" />
 				</button>
 			</li>
