@@ -229,28 +229,31 @@
 </script>
 
 <!-- LiveAgent - Chat Button -->
-<script>
-	function loadChatBot( { chatbotId, chatbotUserId, btnTarget } ) {
+<script type="text/javascript" id="fh-chatbot-script">
+	function loadChatBot( { chatbotId, workspaceId, btnTarget } ) {
 		const chatBotButton = document.querySelector( btnTarget );
-		chatBotButton.classList.remove('hidden');
+		try {
+			chatBotButton.classList.remove('hidden');
+		} catch (error) {
+		}
 
 		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
-		'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
-		function(e){
-			const chatbotManager = UrlslabChatbot.initChatbot({
-				showChatButton: false, // important to not show chat button on page load
-				chatbotId: chatbotId,
-				chatbotUserId: chatbotUserId,
-				welcomeMessage: 'Hi, I\'m LiveAgent support Bot. How can I help you?',
-				inputPlaceholder: 'Ask me any question...',
-				suggestedUserMessages: [],
-				urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
-				maxWindowWidth: '500px',
+			'https://app.flowhunt.io/fh-chat-widget.js?v=1.0.19',
+			function(e){
+				const chatbotManager = FHChatbot.initChatbot({
+					showChatButton: false, // important to not show chat button on page load
+					chatbotId: chatbotId,
+					workspaceId: workspaceId,
+					welcomeMessage: 'Hi, I\'m LiveAgent support Bot. How can I help you?',
+					inputPlaceholder: 'Ask me any question...',
+					suggestedUserMessages: [],
+					urlSuffix: '?utm_medium=chatbot&utm_source=flowhunt',
+					maxWindowWidth: '500px',
+				});
+				chatBotButton.addEventListener('click', () => {
+					chatbotManager.openChat();
+				});
 			});
-			chatBotButton.addEventListener('click', () => {
-				chatbotManager.openChat();
-			});
-		});
 	}
 </script>
 
@@ -273,8 +276,12 @@ if (
 		<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
 	</button>
 
-	<script type="text/javascript" id="urlslab-chatbot-script">
-		const chatBtnOptions = {btnTarget: '#chatBotOnly', chatbotId: '6dab7363-ca57-4c61-8219-26d4f776e577', chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA2ZGFiNzM2My1jYTU3LTRjNjEtODIxOS0yNmQ0Zjc3NmU1Nzc='};
+	<script type="text/javascript" id="fh-chatbot-script">
+		const chatBtnOptions = {
+			chatbotId: 'ee7cb389-4f00-441f-a287-07a43f72f1e3',
+			workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
+			btnTarget: '#chatBotOnly'
+		};
 		acceptButton.addEventListener( "click", () => {
 			loadChatBot(chatBtnOptions);
 		});
