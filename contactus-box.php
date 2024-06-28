@@ -149,18 +149,20 @@
 	const statusUrl = 'https://status.liveagent.com/';
 
 	contactUsBtn.addEventListener('click', async () => {
-			const chatbotScriptSet = document.getElementById('urlslab-chatbot-script');
+			const chatbotScriptSet = document.getElementById('fh-chatbot-script');
 
 			const menu = document.querySelector('.ContactUs__menu--wrap');
 			const statusInfo = document.querySelector('#contactUsStatus');
 			if ( menu?.classList.contains('hidden') ) {
 
-				if( !chatbotScriptSet ) {
+				if( chatbotScriptSet ) {
 					const chatbotScript = document.createElement('script');
-					chatbotScript.setAttribute('id', 'urlslab-chatbot-script');
+					chatbotScript.setAttribute('id', 'fh-chatbot-script');
 					chatbotScript.innerHTML = `
-						const options= {btnTarget: '#chatBot', chatbotId: '569a3c87-4c38-414c-8d1b-66d83c60b5f2', chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA1NjlhM2M4Ny00YzM4LTQxNGMtOGQxYi02NmQ4M2M2MGI1ZjI='};
-						loadChatBot(options);
+							loadChatBot({
+							chatbotId: 'ee7cb389-4f00-441f-a287-07a43f72f1e3',
+							workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
+							btnTarget: '#chatBot'});
 					`;
 					document.querySelector('body').appendChild(chatbotScript);
 				}
@@ -200,7 +202,7 @@
 		}
 		if (serviceStatus?.outages?.length > 0) {
 			statusClass = 'outage';
-		} 
+		}
 		if (serviceStatus?.degradations?.length > 0) {
 			statusClass = 'degradation';
 		}
