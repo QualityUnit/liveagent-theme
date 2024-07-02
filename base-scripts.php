@@ -32,7 +32,6 @@
 			}, 5000 );
 		}
 
-		gtmWithCookie();
 		consentGranted();
 		grafana();
 		postAffiliate();
@@ -52,7 +51,6 @@
 				setCookie( 'cookieLaw', 'yes', 14 );
 				document.querySelector( '.Medovnicky' ).classList.add( 'hide' );
 
-				gtmWithCookie();
 				consentGranted();
 				grafana();
 				postAffiliate();
@@ -66,7 +64,7 @@
 		const body  = document.body;
 		const gtag1 = document.createElement('script');
 		gtag1.async = true;
-		gtag1.src = "https://www.googletagmanager.com/gtag/js?id=GTM-MR5X6FD";
+		gtag1.src = "https://www.googletagmanager.com/gtag/js?id=G-T9HBB9KMVK";
 
 		body.insertAdjacentElement('beforeend', gtag1);
 	}
@@ -96,7 +94,7 @@
 		'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO']
 	})
 
-	gtag('config', 'GTM-MR5X6FD', {
+	gtag('config', 'G-T9HBB9KMVK', {
 		'allow_enhanced_conversions': true,
 		'linker': {
 			'domains': [
@@ -211,20 +209,6 @@
 
 	if ( mobile.matches && getCookieFrontend( "cookieLaw" ) ) {
 		grafana()
-	}
-</script>
-
-<!-- Google Tag Manager - Accepted Cookies -->
-<script>
-	function gtmWithCookie() {
-		(function (w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-W7CTJXF');
-	}
-	if ( getCookieFrontend( "cookieLaw" ) ) {
-		gtmWithCookie()
 	}
 </script>
 

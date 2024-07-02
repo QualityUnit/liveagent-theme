@@ -12,7 +12,7 @@ import ShortCodeGenerator from '../elements/shortCodeGenerator';
 const {select1, select2, select3} = getWebCalcData;
   const alternatives = [select1, select2, select3];
 const tagManagerArguments = {
-  gtmId: 'GTM-MR5X6FD',
+  gtmId: 'G-T9HBB9KMVK',
   dataLayer: {
     WebCalcResultsFor: alternatives
   },

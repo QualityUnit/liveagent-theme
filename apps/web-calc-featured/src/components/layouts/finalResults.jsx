@@ -9,7 +9,7 @@ import { showWebCalcGenerator } from '../common/constants';
 import ShortCodeGenerator from '../elements/shortCodeGenerator';
 
 const tagManagerArguments = {
-  gtmId: 'GTM-MR5X6FD',
+  gtmId: 'G-T9HBB9KMVK',
   dataLayer: {
     WebCalcResultsFor: alternatives
   },
@@ -51,12 +51,12 @@ function FinalResults() {
   const getAlternative = (alternative) => {
     setResult(alternative);
   }
-  
+
   useEffect(() => {
     setFeature(selFeature);
     returnAgents(agents);
     getAlternative(result);
-    
+
     TagManager.dataLayer(tagManagerArguments);
      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [agents, selFeature])
@@ -77,7 +77,7 @@ function FinalResults() {
 			}
       <h2 dangerouslySetInnerHTML={setTitle()} />
       <div className={`page final`}>
-      
+
         <div className="webcalcBlock webcalcBlock--narrow webcalcBlock--rounded__right">
             <AgentsSlider returnAgents={returnAgents} />
 
