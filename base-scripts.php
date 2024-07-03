@@ -213,7 +213,7 @@
 </script>
 
 <!-- LiveAgent - Chat Button -->
-<script type="text/javascript" id="fh-chatbot-script">
+<script>
 	function loadChatBot( { chatbotId, workspaceId, btnTarget } ) {
 		const chatBotButton = document.querySelector( btnTarget );
 		try {
