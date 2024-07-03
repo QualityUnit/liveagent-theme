@@ -155,7 +155,7 @@
 			const statusInfo = document.querySelector('#contactUsStatus');
 			if ( menu?.classList.contains('hidden') ) {
 
-				if( chatbotScriptSet ) {
+				if( ! chatbotScriptSet ) {
 					const chatbotScript = document.createElement('script');
 					chatbotScript.setAttribute('id', 'fh-chatbot-script');
 					chatbotScript.innerHTML = `
