@@ -4,12 +4,7 @@
 	set_custom_source( 'research_post', 'js' );
 $page_title       = str_replace( '^', '', get_the_title() );
 $page_header_args = array(
-	'image'        => array(
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_research.png?ver=' . THEME_VERSION,
-		'alt' => $page_title,
-	),
 	'title'        => $page_title,
-	'text'         => do_shortcode( '[urlslab-generator id="6"]' ),
 	'research_nav' => true,
 	'toc'          => true,
 );

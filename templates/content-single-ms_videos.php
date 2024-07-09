@@ -4,21 +4,9 @@ set_custom_source( 'common/splide', 'css' );
 $current_lang    = apply_filters( 'wpml_current_language', null );
 $header_category = get_en_category( 'ms_videos', $post->ID );
 do_action( 'wpml_switch_language', $current_lang );
-$page_header_logo = array(
-	'src' => get_template_directory_uri() . '/assets/images/icon-book.svg?ver=' . THEME_VERSION,
-	'alt' => __( 'Videos', 'ms' ),
-);
-if ( has_post_thumbnail() ) {
-	$page_header_logo['src'] = get_the_post_thumbnail_url( 'logo_thumbnail' );
-}
+
 $page_header_args = array(
-	'image' => array(
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_webinars.png?ver=' . THEME_VERSION,
-		'alt' => get_the_title(),
-	),
-	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
-	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
 	'toc'   => true,
 );
 $current_id       = apply_filters( 'wpml_object_id', $post->ID, 'ms_videos' );
