@@ -8,10 +8,8 @@ $page_header_args = array(
 		'alt' => get_the_title(),
 	),
 	'title' => get_the_title(),
-	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
 	'date'  => true,
 	'toc'   => true,
-	'cta_button' => get_cta_button_data(),
 );
 
 $categories       = get_the_terms( $post->ID, 'category' );

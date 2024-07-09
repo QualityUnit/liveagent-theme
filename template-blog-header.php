@@ -9,17 +9,9 @@
 	$page_title       = str_replace( '^', '', get_the_title() );
 	$page_header_args = array(
 		'title'      => $page_title,
-		'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
 		'toc'        => true,
-		'cta_button' => get_cta_button_data(),
+		'date'  => true,
 	);
-	if ( has_post_thumbnail() ) {
-		$page_header_args['image'] = array(
-			'type' => 'main',
-			'src'  => get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ),
-			'alt'  => $page_title,
-		);
-	}
 	?>
 
 <div class="Post Post--sidebar-right">

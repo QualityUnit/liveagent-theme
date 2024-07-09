@@ -26,10 +26,7 @@ if ( isset( $screenshot ) ) {
 }
 
 $page_header_args = array(
-	'image' => $page_header_image,
-	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
-	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
 	'toc'   => true,
 );
 
@@ -42,9 +39,9 @@ $categories_url = get_post_type_archive_link( 'ms_alternatives' );
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
-	
+
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	
+
 	<div class="wrapper Post__container">
 		<div class="Post__sidebar">
 			<div class="Signup__sidebar-wrapper">

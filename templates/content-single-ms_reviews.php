@@ -34,12 +34,7 @@ if ( isset( $category_slug ) ) {
 $page_header_breadcrumb[] = array( $titleplain );
 $page_header_args         = array(
 	'breadcrumb' => $page_header_breadcrumb,
-	'image'      => array(
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_reviews_1.png?ver=' . THEME_VERSION,
-		'alt' => get_the_title(),
-	),
 	'title'      => get_the_title(),
-	'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
 	'update'     => array(
 		'label' => __( 'Review Last update:', 'ms' ),
 	),
