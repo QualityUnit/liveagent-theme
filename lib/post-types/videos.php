@@ -9,12 +9,6 @@ add_action(
 			'menu_name'      => __( 'Videos', 'ms' ),
 			'name_admin_bar' => __( 'Videos', 'ms' ),
 		);
-		$rewrite = array(
-			'slug'       => 'videos',
-			'with_front' => true,
-			'pages'      => true,
-			'feeds'      => false,
-		);
 		$args    = array(
 			'label'               => __( 'Videos', 'ms' ),
 			'labels'              => $labels,
@@ -31,7 +25,7 @@ add_action(
 			'has_archive'         => true,
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
-			'rewrite'             => $rewrite,
+			'rewrite'             => false,
 			'capability_type'     => 'post',
 			'show_in_rest'        => true,
 		);
