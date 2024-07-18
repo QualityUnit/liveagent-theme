@@ -9,7 +9,12 @@ $categories_url = get_post_type_archive_link( 'ms_integrations' );
 $la_pricing_url = __( '/pricing/', 'ms' );
 
 $page_header_args = array(
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_integrations.png?ver=' . THEME_VERSION,
+		'alt' => get_the_title(),
+	),
 	'title' => get_the_title(),
+	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
 	'toc'   => true,
 );
 if ( has_post_thumbnail() ) {

@@ -2,9 +2,24 @@
 
 set_custom_source( 'common/splide', 'css' );
 
+
+$page_header_logo = array(
+	'src' => get_template_directory_uri() . '/assets/images/icon-book.svg?ver=' . THEME_VERSION,
+	'alt' => __( 'Glossary', 'ms' ),
+);
+if ( has_post_thumbnail() ) {
+	$page_header_logo['src'] = get_the_post_thumbnail_url( $post, 'logo_thumbnail' );
+}
 $page_header_args = array(
+	'image'      => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact_header_glossary.png?ver=' . THEME_VERSION,
+		'alt' => get_the_title(),
+	),
+	'logo'       => $page_header_logo,
 	'title'      => get_the_title(),
+	'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
 	'toc'        => true,
+	'cta_button' => get_cta_button_data(),
 );
 
 ?>

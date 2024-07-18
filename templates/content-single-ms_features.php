@@ -6,8 +6,22 @@ $current_lang    = apply_filters( 'wpml_current_language', null );
 $header_category = get_en_category( 'ms_features', $post->ID );
 do_action( 'wpml_switch_language', $current_lang );
 $la_pricing_url   = __( '/pricing/', 'ms' );
+$page_header_logo = array(
+	'src' => get_template_directory_uri() . '/assets/images/icon-custom-post_type.svg' . THEME_VERSION,
+	'alt' => __( 'Integration', 'ms' ),
+);
+if ( has_post_thumbnail() ) {
+	$page_header_logo['src'] = get_the_post_thumbnail_url( $post, 'logo_thumbnail' );
+}
+$page_header_image = 'features-category_' . $header_category . '.jpg';
 $page_header_args  = array(
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/' . $page_header_image,
+		'alt' => get_the_title(),
+	),
+	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
+	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
 	'toc'   => true,
 );
 $current_id        = apply_filters( 'wpml_object_id', $post->ID, 'ms_features' );
