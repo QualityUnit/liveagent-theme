@@ -286,7 +286,7 @@ class CrmInstaller {
 		if ( ! this.signupData.is_redeem && typeof gtag !== 'undefined' ) {
 			try {
 				gtag( 'set', 'user_data', { email: this.signupData.customer_email } );
-				gtag( 'event', 'Trial sign_up', { send_to: 'G-T9HBB9KMVK' } );
+				gtag( 'event', 'Trial_sign_up', { send_to: 'G-T9HBB9KMVK' } );
 			} catch ( e ) {
 				// eslint-disable-next-line no-console
 				console.warn( 'Tracking script failed:', 'gtag' );
