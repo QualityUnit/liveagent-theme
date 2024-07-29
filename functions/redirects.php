@@ -138,6 +138,18 @@ add_action( 'template_redirect', 'videos_category_redirect' );
 
 
 /**
+ * Redirect Templates Categories
+ */
+function templates_category_redirect() {
+	if ( is_tax( 'ms_templates_categories' ) ) {
+		wp_safe_redirect( '/templates/', 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'templates_category_redirect' );
+
+
+/**
 	* Success Stories / Use case scenarios redirect
 	We have to use ms_success-stories everywhere to preserve old DB records
 	*/
