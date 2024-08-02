@@ -11,6 +11,7 @@
 		'title'      => $page_title,
 		'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
 		'toc'        => true,
+		'date'       => true,
 	);
 	if ( has_post_thumbnail() ) {
 		$page_header_args['image'] = array(
