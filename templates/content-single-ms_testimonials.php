@@ -1,5 +1,4 @@
 <?php // @codingStandardsIgnoreLine 
-	set_custom_source( 'common/splide', 'css' );
 ?>
 
 <div class="Article Article--blog">
