@@ -34,7 +34,7 @@ $theme_includes = array(
 	'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
 	'functions/get-posts.php', // Function to get posts by ID (ie to be used in metaboxes functions)
 	'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
-	'functions/compact-header.php', // compact header TOC
+	'functions/compact-header-toc.php', // compact header TOC
 	'functions/taxonomies.php', // Import Custom Taxonomies
 	'functions/post-types.php', // Import Custom Post Types
 	'functions/metaboxes.php', // Import Metaboxes

@@ -1,5 +1,6 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'directory', 'pages/Directory', 'css' );
+
 global $post;
 $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_company-name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'mb_directory_mb_directory_website', true ) ) . "' ]" );
 

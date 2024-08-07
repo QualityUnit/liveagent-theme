@@ -1,5 +1,4 @@
 <?php // @codingStandardsIgnoreLine
-
 $post_meta       = get_post_meta( get_the_ID() );
 $current_lang    = apply_filters( 'wpml_current_language', null );
 $header_category = get_en_category( 'ms_alternatives', $post->ID );

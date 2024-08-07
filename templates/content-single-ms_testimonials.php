@@ -1,4 +1,6 @@
-<?php // @codingStandardsIgnoreLine ?>
+<?php // @codingStandardsIgnoreLine 
+?>
+
 <div class="Article Article--blog">
 	<div class="Article__thumbnail wrapper
 	<?php

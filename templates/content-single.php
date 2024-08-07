@@ -1,6 +1,7 @@
 <?php
 set_custom_source( 'socialShareFunctions', 'js' );
 set_custom_source( 'common/splide', 'css' );
+
 global $post;
 $page_header_args = array(
 	'image' => array(
@@ -13,7 +14,7 @@ $page_header_args = array(
 	'toc'   => true,
 );
 
-$categories       = get_the_terms( $post->ID, 'category' );
+$categories = get_the_terms( $post->ID, 'category' );
 if ( is_array( $categories ) ) {
 	$page_header_tags = array();
 	foreach ( $categories as $category ) {
