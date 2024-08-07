@@ -1,5 +1,6 @@
 <?php // @codingStandardsIgnoreLine
 set_custom_source( 'pages/Directory', 'css' );
+set_custom_source( 'common/splide', 'css' );
 $current_lang    = apply_filters( 'wpml_current_language', null );
 $header_category = get_en_category( 'ms_integrations', $post->ID );
 do_action( 'wpml_switch_language', $current_lang );

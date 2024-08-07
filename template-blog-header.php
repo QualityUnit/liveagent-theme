@@ -4,14 +4,17 @@
 	 */
 
 	// set_custom_source( 'pages/blog', 'css' );
+	set_custom_source( 'pages/post', 'css' );
+	set_custom_source( 'common/splide', 'css' );
+	set_custom_source( 'splide', 'js' );
 
 	global $post;
 	$page_title       = str_replace( '^', '', get_the_title() );
 	$page_header_args = array(
-		'title'      => $page_title,
-		'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
-		'toc'        => true,
-		'date'       => true,
+		'title' => $page_title,
+		'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+		'toc'   => true,
+		'date'  => true,
 	);
 	if ( has_post_thumbnail() ) {
 		$page_header_args['image'] = array(

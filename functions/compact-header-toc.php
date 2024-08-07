@@ -2,7 +2,7 @@
 // Generates Table of content from H2 titles in compact header
 function compact_header_toc( $custom_content = null, $items = null ) {
 	$toc_before = '<div class="compact-header__toc js-toc"><div class="FilterMenu"><div class="FilterMenu__title js-toc__title"></div><div class="FilterMenu__items js-toc__items"><div class="FilterMenu__items--inn">';
-	$toc_after = '</div></div></div></div>';
+	$toc_after  = '</div></div></div></div>';
 	if ( isset( $items ) ) {
 		foreach ( $items as $item ) {
 			if ( isset( $item['id'] ) && isset( $item['title'] ) ) {
@@ -39,6 +39,7 @@ function compact_header_toc( $custom_content = null, $items = null ) {
 		$xpath = new DOMXPath( $dom );
 		$tags  = $xpath->query( '*/h2 | */h3' );
 
+		
 		if ( count( $tags ) > 2 ) {
 			foreach ( $tags as $node ) {
 				$tag   = $node->tagName; //@codingStandardsIgnoreLine

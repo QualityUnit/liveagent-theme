@@ -1,6 +1,7 @@
 <?php // @codingStandardsIgnoreLine
 	set_source( 'about', 'pages/Directory', 'css' );
 	set_source( 'about', 'pages/About', 'css' );
+	set_custom_source( 'common/splide', 'css' );
 	$header_category = get_the_terms( $post->ID, 'ms_about_categories' );
 if ( ! empty( $header_category ) ) {
 	$header_category = array_shift( $header_category );
