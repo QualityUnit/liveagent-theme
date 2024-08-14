@@ -12,6 +12,6 @@ function urlslab_display_related_resources() {
 				<?= wp_kses_post( $related_resources ); ?>
 			</div>
 		</div>
-	<?php
+		<?php
 	endif;
 }
