@@ -8,6 +8,7 @@ $page_header_args = array(
 		'src' => get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ),
 		'alt' => get_the_title(),
 	),
+	'url' => get_the_permalink(),
 	'title' => get_the_title(),
 	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
 	'date'  => true,
@@ -102,12 +103,7 @@ if ( is_array( $categories ) ) {
 					</div>
 				</div>
 
-				<div class="Post__content__resources">
-					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
-					<div class="SimilarSources">
-						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
-					</div>
-				</div>
+				<?php urlslab_display_related_resources(); ?>
 			</div>
 		</div>
 	</div>

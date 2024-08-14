@@ -15,6 +15,7 @@ $theme_includes = array(
 	'functions/content-filters.php', // Content filters
 	'functions/content-filters-learn-more.php', // Content filters for Block--learnMore
 	'functions/import-functions.php', // Partials JS and SCSS import functions
+	'functions/urlslab-related-posts.php', // Related posts
 	'lib/assets.php',             // Scripts and stylesheets
 	'lib/extras.php',             // Custom functions
 	'lib/setup.php',              // Theme setup
