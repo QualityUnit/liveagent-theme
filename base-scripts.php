@@ -222,7 +222,7 @@
 		}
 
 		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
-			'https://app.flowhunt.io/fh-chat-widget.js?v=1.0.19',
+			'https://app.flowhunt.io/fh-chat-widget.js?v=1.0.20',
 			function(e){
 				const chatbotManager = FHChatbot.initChatbot({
 					showChatButton: false, // important to not show chat button on page load
