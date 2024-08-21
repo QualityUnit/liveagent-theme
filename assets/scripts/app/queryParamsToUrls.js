@@ -5,6 +5,12 @@
 	const allUrls = document.querySelectorAll( 'a[href]' );
 
 	allUrls.forEach( ( url ) => {
+		const currentHref = url.getAttribute( 'href' );
+
+		if ( currentHref === '#' || currentHref === '#0' || currentHref === '' ) {
+			return;
+		}
+
 		const currentUrl = new URL( url.href );
 
 		queryParams.forEach( ( value, key ) => {
