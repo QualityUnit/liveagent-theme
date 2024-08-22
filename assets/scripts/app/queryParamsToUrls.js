@@ -7,7 +7,7 @@
 	}
 
 	const queryParams = new URL( window.location ).searchParams;
-	const blacklist = [ 'p', 'a' ];
+	const blacklist = [ 'p' ];
 	const allUrls = document.querySelectorAll( 'a[href]' );
 
 	allUrls.forEach( ( url ) => {
