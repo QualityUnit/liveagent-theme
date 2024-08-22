@@ -1,7 +1,9 @@
-// adds all query params from incoming URL to urls on page
 ( () => {
 	const queryParams = new URL( window.location ).searchParams;
 
+	const blacklist = [ 'p', 'a' ];
+
+	const currentHostname = window.location.hostname;
 	const allUrls = document.querySelectorAll( 'a[href]' );
 
 	allUrls.forEach( ( url ) => {
@@ -13,9 +15,14 @@
 
 		const currentUrl = new URL( url.href );
 
-		queryParams.forEach( ( value, key ) => {
-			currentUrl.searchParams.set( key, value );
-		} );
+		if ( ! currentHostname.includes( 'admin' ) ) {
+			queryParams.forEach( ( value, key ) => {
+				if ( ! blacklist.includes( key ) ) {
+					currentUrl.searchParams.set( key, value );
+				}
+			} );
+		}
+
 		if ( currentUrl.hostname.includes( 'liveagent' ) || currentUrl.hostname.includes( 'live-agent' ) ) {
 			url.href = currentUrl.toString();
 		}
