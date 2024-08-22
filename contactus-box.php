@@ -65,8 +65,12 @@
 						<strong><?php _e( 'More details', 'contactus' ); ?></strong>
 					</div>
 				</li>
-				<li class="ContactUs__status degradation" data-status="degradation"><?php _e( 'Servers busy', 'contactus' ); ?></li>
-				<li class="ContactUs__status unavailable" data-status="unavailable"><?php _e( 'Status unavailable', 'contactus' ); ?></li>
+				<li class="ContactUs__status degradation" data-status="degradation">
+					<svg class="icon icon-danger">
+						<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#danger' ); ?>"></use>
+					</svg>
+					<?php _e( 'Servers busy', 'contactus' ); ?>
+					</li>
 			</ul>
 		</div>
 
@@ -193,7 +197,6 @@
 			return status;
 		}
 	};
-
 
 	function displayStatusIndicator(serviceStatus) {
 		let statusClass = 'ok';
