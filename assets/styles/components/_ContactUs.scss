@@ -473,6 +473,18 @@ $colors: (
 					padding: 0.75em;
 					border-radius: 6px;
 				}
+
+				&.degradation {
+					border: 1px solid $primary;
+					background-color: rgba($primary, 0.125);
+					color: $primary;
+					padding: 0.75em;
+					border-radius: 6px;
+
+					&[class]:hover {
+						background-color: rgba($primary, 0.25);
+					}
+				}
 			}
 		}
 	}
