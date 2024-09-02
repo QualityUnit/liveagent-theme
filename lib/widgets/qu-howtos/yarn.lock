@@ -2907,16 +2907,7 @@
     "@wordpress/dom-ready" "^4.6.0"
     "@wordpress/i18n" "^5.6.0"
 
-"@wordpress/api-fetch@^7.4.0":
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-7.4.0.tgz#77c153dc96c1f20696ac6761105089ee363a7ad4"
-  integrity sha512-14cEYs04nxhWEL/TjDVx1rUmmkCZvAzkbWTd5Yzg0S1ETVJpTpdChnLLiQpr9jWMffjVPo711kG2sKpKqNmi6g==
-  dependencies:
-    "@babel/runtime" "^7.16.0"
-    "@wordpress/i18n" "^5.4.0"
-    "@wordpress/url" "^4.4.0"
-
-"@wordpress/api-fetch@^7.6.0":
+"@wordpress/api-fetch@^7.4.0", "@wordpress/api-fetch@^7.6.0":
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-7.6.0.tgz#4cc4b010d1c9b2b3350b2281b956ce1b1ae94eca"
   integrity sha512-/T0EORXgfZJQZomDIuZyPwQQWzYjcSxo9ggpKqzQuwq+VHMIC5aEPYh3IC5KhpQxPEquvN5xm2kbcTpBVnUwiA==
@@ -2966,14 +2957,7 @@
   resolved "https://registry.yarnpkg.com/@wordpress/base-styles/-/base-styles-5.6.0.tgz#36f32efdbdb41f264d2ccf4ecf6cdb88bfadd022"
   integrity sha512-U+4ROBYaxzyf96bvFEJTzTJTaSS1igk3UxMJZIUa2Ixs+rBirywEkMPbbwto8uRCCEy4c0Gq/f+lmzfU02Vvpg==
 
-"@wordpress/blob@^4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-4.4.0.tgz#e1b9f5ca4448b17c665d350e893652e11590e24d"
-  integrity sha512-f0NSYu6RSkJWwtLiyTn5NnQ2qFV9t9pXvjLANTRDphxnUl608dMWSGyoIC5+mCEDZPlprTSEY/VXeGOGe0FrkQ==
-  dependencies:
-    "@babel/runtime" "^7.16.0"
-
-"@wordpress/blob@^4.6.0":
+"@wordpress/blob@^4.4.0", "@wordpress/blob@^4.6.0":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-4.6.0.tgz#af5602ee5ffaf27803b46db77d1cdb56d8e81197"
   integrity sha512-dMFP7OeWJzoYjjJiU/P7kA3Tm318LBSRtHzUrIIb/iw/zh5rsbdXaqbrw/XfQDWWVmOAMqBpZ8piS8AOgj0Etg==
@@ -3643,15 +3627,15 @@
     "@wordpress/i18n" "^5.6.0"
 
 "@wordpress/media-utils@^5":
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-5.4.0.tgz#ebf9e554bec48b6c4bef0a528d18f605150fa087"
-  integrity sha512-eNQp+4fck4Z1p3Pg2ar+1VCMsJoMb5HRYC57zhAG4ojpRA5HCMLH59VxhSQDEQCKfi0X1TYodNSxwV7MzGZ3DA==
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-5.6.0.tgz#f2f79792c6d66988d986e9b36ad02c7c888cc6ac"
+  integrity sha512-E4ZEfvRlCcjDlhaVMY5xVhluQKAPJbLiChznsnja0nLhMrvWfY5v13w48kiuvTh2Ss+QPBD0Fv310sgArbKo6w==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@wordpress/api-fetch" "^7.4.0"
-    "@wordpress/blob" "^4.4.0"
-    "@wordpress/element" "^6.4.0"
-    "@wordpress/i18n" "^5.4.0"
+    "@wordpress/api-fetch" "^7.6.0"
+    "@wordpress/blob" "^4.6.0"
+    "@wordpress/element" "^6.6.0"
+    "@wordpress/i18n" "^5.6.0"
 
 "@wordpress/notices@^5.4.0":
   version "5.4.0"
