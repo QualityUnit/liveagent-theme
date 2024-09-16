@@ -34,7 +34,7 @@ add_action(
 		wp_dequeue_style( 'wp-block-library' );
 		wp_dequeue_style( 'elementor-custom' );
 
-		// Using screen for media to avoid defer loading in import-functions.php condition, function preload_custom_styles 
+		// Using screen for media to avoid defer loading in import-functions.php condition, function preload_custom_styles
 		if ( is_singular( 'ms_research' ) ) {
 			wp_enqueue_style( 'research-single', get_template_directory_uri() . '/assets/dist/pages/Research' . isrtl() . wpenv() . '.css', false, THEME_VERSION, 'screen' );
 		}
@@ -86,3 +86,16 @@ add_action(
 		wp_enqueue_script( 'app_js', get_template_directory_uri() . '/assets/dist/app' . wpenv() . '.js', array( 'wp-i18n' ), THEME_VERSION, true );
 	}
 );
+
+
+/**
+	* Deregister polyfills
+	*/
+
+function deregister_polyfill() {
+	if ( ! is_user_logged_in() ) {
+		wp_deregister_script( 'wp-polyfill' );
+		wp_deregister_script( 'regenerator-runtime' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'deregister_polyfill' );

@@ -10,12 +10,12 @@
 	z-index: 1000;
 	opacity: 0;
 	display: flex;
-	transition: all 0.5s ease;
+	transition: all 0.3s ease;
 
 	&.active {
 		bottom: 20px;
 		opacity: 1;
-		transition: all 0.5s ease;
+		transition: all 0.2s ease;
 	}
 
 	a {
@@ -56,13 +56,13 @@
 
 	&__button {
 		overflow: hidden;
-		transition: max-width 0.5s ease, padding 0.5s ease, border-radius 0.1s ease;
+		transition: max-width 0.5s ease, padding 0.2s ease, border-radius 0.1s ease;
 		display: inline-flex !important;
 		align-items: center;
 
 		> span {
-			transition: max-width 0.5s ease, opacity 0.5s ease;
-			max-width: 100px;
+			transition: max-width 0.5s ease;
+			max-width: fit-content;
 			white-space: nowrap;
 			opacity: 1;
 
@@ -74,14 +74,13 @@
 
 		.ContactUs__button {
 			padding: 0.5em;
-			transition: padding 0.5s ease, border-radius 0.5s ease;
-			transition-delay: 0.1s;
+			transition: padding 0.2s ease, border-radius 0.5s ease;
 			border-radius: 100%;
 
 			> span {
 				max-width: 0;
 				opacity: 0;
-				transition: opacity 0.5s ease, max-width 0.5s ease;
+				transition: max-width 0.5s ease;
 			}
 
 			.ContactUs__button--icon__wrap {

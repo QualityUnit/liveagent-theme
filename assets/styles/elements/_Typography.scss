@@ -744,7 +744,7 @@ video {
 	}
 }
 
-.tag {
+.tag:not(body) {
 
 	p,
 	> span {
