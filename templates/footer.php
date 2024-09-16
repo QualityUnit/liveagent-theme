@@ -129,7 +129,7 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 					</ul>
 				</div>
 
-				<div class="Footer__middle__reviews">
+				<div class="Footer__middle__reviews urlslab-skip-all">
 					<div class="Footer__middle__title h5"><?php _e( 'Reviews', 'ms' ); ?></div>
 					<a href="https://www.g2.com/products/liveagent/reviews?utm_source=review-widget" title="Read reviews of LiveAgent on G2">
 						<img class="full-width" style="max-width: 100px" alt="Read LiveAgent reviews on G2" src="https://www.g2.com/products/liveagent/widgets/stars?color=white&amp;type=read" />
