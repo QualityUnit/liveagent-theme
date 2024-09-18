@@ -83,7 +83,7 @@ function activateSidebars() {
 			const el = element;
 			el.dataset.number = index;
 
-			el.addEventListener( 'click', ( ) => {
+			el.addEventListener( 'click', () => {
 				tocRemoveActive();
 				el.classList.add( 'active' );
 

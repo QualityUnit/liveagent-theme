@@ -62,7 +62,7 @@ if ( homeHorizontal.length > 0 ) {
 				( entries ) => {
 					entries.forEach( ( entry ) => {
 						if ( entry.isIntersecting ) {
-							horizontalSlider.mount( );
+							horizontalSlider.mount();
 
 							const sliderObject = entry.target;
 							horizontalSliderObserver.unobserve( sliderObject );
@@ -116,7 +116,7 @@ if ( gutenSliders.length > 0 ) {
 				( entries ) => {
 					entries.forEach( ( entry ) => {
 						if ( entry.isIntersecting ) {
-							gutenSlider.mount( );
+							gutenSlider.mount();
 
 							const sliderObject = entry.target;
 							testimonialSliderObserver.unobserve( sliderObject );
@@ -289,7 +289,7 @@ if ( smallPhotoSlider.length > 0 ) {
 				( entries ) => {
 					entries.forEach( ( entry ) => {
 						if ( entry.isIntersecting ) {
-							smallPhotos.mount( );
+							smallPhotos.mount();
 
 							const sliderObject = entry.target;
 							smallPhotosObserver.unobserve( sliderObject );
@@ -336,7 +336,7 @@ if ( logosSlider.length > 0 ) {
 				( entries ) => {
 					entries.forEach( ( entry ) => {
 						if ( entry.isIntersecting ) {
-							logos.mount( );
+							logos.mount();
 
 							const sliderObject = entry.target;
 							logosObserver.unobserve( sliderObject );

@@ -4,7 +4,7 @@
  */
 // Listening for the DOM content to be fully loaded before running the script.
 
-document.addEventListener( 'DOMContentLoaded', ( ) => {
+document.addEventListener( 'DOMContentLoaded', () => {
 	const awardsItems = document.querySelector( '.Awards__container' );
 
 	// Exiting the function early if the awardsItems element doesn't exist or if IntersectionObserver isn't supported.
