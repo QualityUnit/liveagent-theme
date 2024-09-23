@@ -36,7 +36,7 @@
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/ticket_history.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Ticket history', 'ms' ); ?>" />
 					<div class="FreeAccount__main__included--text">
 						<h4><?php _e( 'Ticket history', 'ms' ); ?></h4>
-						<?php _e( 'for 7 days', 'ms' ); ?>
+						<?php _e( 'for unlimited days', 'ms' ); ?>
 					</div>
 				</li>
 
@@ -116,7 +116,7 @@
 				<h3><sup>$</sup><span class="big">9/</span><?php _e( 'agent', 'ms' ); ?></h3>
 				<img class="FreeAccount__main__try--pricing__beers" src="<?= esc_url( get_template_directory_uri() . '/assets/images/free_account/less_than_3_beers.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Less than 3 beers', 'ms' ); ?>" />
 			</div>
-			<p class="FreeAccount__main__try--pricing__monthly"><?php _e( 'per month billed annualy or', 'ms' ); ?> <sup>$</sup><strong>12</strong> <?php _e( 'monthly billing', 'ms' ); ?></p>
+			<p class="FreeAccount__main__try--pricing__monthly"><?php _e( 'per month billed annualy or', 'ms' ); ?> <sup>$</sup><strong>15</strong> <?php _e( 'monthly billing', 'ms' ); ?></p>
 
 			<a class="Button Button--full FreeAccount__main__try--trial" href="<?php _e( '/trial', 'ms' ); ?>"><span><?php _e( 'Try for FREE', 'ms' ); ?></span></a>
 
