@@ -255,7 +255,7 @@
 	}
 
 	&__social {
-		width: 25%;
+		width: 40%;
 
 		ul {
 			margin-left: em(-10, $font-size-default);
@@ -293,12 +293,6 @@
 		}
 	}
 
-	&__reviews {
-		width: 15%;
-
-		margin-bottom: 1em;
-	}
-
 	&__newsletter {
 		width: 40%;
 
@@ -320,7 +314,6 @@
 
 		&__contacts,
 		&__social,
-		&__reviews,
 		&__newsletter {
 			display: flex;
 			flex-flow: wrap column;
