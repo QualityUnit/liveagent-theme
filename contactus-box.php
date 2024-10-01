@@ -99,7 +99,7 @@
 							<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>phone.svg" />
 						</a>
 					</li>
-				<?php
+					<?php
 				}
 			}
 			?>
