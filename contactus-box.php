@@ -79,6 +79,7 @@
 			if ( is_page() ) {
 				global $post;
 				$phone      = '+421 2 33 456 826';
+				$en_slug    = '';
 				$current_id = apply_filters( 'wpml_object_id', $post->ID, 'page', false, 'en' );
 
 				if ( $current_id ) {
@@ -92,13 +93,13 @@
 				}
 				if ( 'pricing' === $en_slug ) {
 					?>
-			<li class="ContactUs__menu--item">
-				<a href="tel:<?= esc_attr( preg_replace( '/(\s|-)/', '', $phone ) ); ?>" class="ContactUs__menu--link green" data-close-target="contactUsMenu">
-					<?= esc_html( $phone ); ?>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>phone.svg" />
-				</a>
-			</li>
-					<?php
+					<li class="ContactUs__menu--item">
+						<a href="tel:<?= esc_attr( preg_replace( '/(\s|-)/', '', $phone ) ); ?>" class="ContactUs__menu--link green" data-close-target="contactUsMenu">
+							<?= esc_html( $phone ); ?>
+							<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>phone.svg" />
+						</a>
+					</li>
+				<?php
 				}
 			}
 			?>
