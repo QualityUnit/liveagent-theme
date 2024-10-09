@@ -1,30 +1,30 @@
 <?php
 
 if ( ICL_LANGUAGE_CODE === 'en' ) {
-	header_banners(
-		array(
-			'pricing',
-		),
-		array(
-			array(
-				'title' => __( 'Turn Clicks into Cash', 'ms' ),
-				'subtitle' => __( 'Earn Effortlessly with Post Affiliate Pro!', 'ms' ),
-				'class' => 'PAP',
-				'image' => 'AnnouncementBar-PAP.png',
-				'bg' => 'AnnouncementBar-PAP_bg.jpg',
-				'url' => __( 'https://www.postaffiliatepro.com/', 'ms' ),
-			),
-			// array(
-			//  'title'    => __( 'Unleash the Website Wizard', 'ms' ),
-			//  'subtitle' => __( 'Experience the power of the URLsLab plugin!', 'ms' ),
-			//  'class'    => 'URLslab',
-			//  'image'    => 'AnnouncementBar-Urlslab.png',
-			//  'bg'       => 'AnnouncementBar-Urlslab_bg.jpg',
-			//  'url'      => __( 'https://www.urlslab.com/', 'ms' ),
-			// ),
-		)
-	);
-
+	//  header_banners(
+	//      array(
+	//          'pricing',
+	//      ),
+	//      array(
+	//          array(
+	//              'title' => __( 'Turn Clicks into Cash', 'ms' ),
+	//              'subtitle' => __( 'Earn Effortlessly with Post Affiliate Pro!', 'ms' ),
+	//              'class' => 'PAP',
+	//              'image' => 'AnnouncementBar-PAP.png',
+	//              'bg' => 'AnnouncementBar-PAP_bg.jpg',
+	//              'url' => __( 'https://www.postaffiliatepro.com/', 'ms' ),
+	//          ),
+	//          // array(
+	//          //  'title'    => __( 'Unleash the Website Wizard', 'ms' ),
+	//          //  'subtitle' => __( 'Experience the power of the URLsLab plugin!', 'ms' ),
+	//          //  'class'    => 'URLslab',
+	//          //  'image'    => 'AnnouncementBar-Urlslab.png',
+	//          //  'bg'       => 'AnnouncementBar-Urlslab_bg.jpg',
+	//          //  'url'      => __( 'https://www.urlslab.com/', 'ms' ),
+	//          // ),
+	//      )
+	//  );
+	//
 	header_banners(
 		array(
 			'home',
@@ -40,15 +40,15 @@ if ( ICL_LANGUAGE_CODE === 'en' ) {
 				'icon-class' => '', // Here insert icon class from our WordPress icons - icon after title
 			),
 
-			//      array(
-			//          'title'    => __( 'AI Assistant', 'ms' ),
-			//          'subtitle' => __( 'Unlock the future of support with LiveAgent’s AI Assistant!', 'ms' ),
-			//          'class'    => 'ai-assistant',
-			//          'image'    => 'announcementBar-ai-assistant.png',
-			//          'bg'       => 'announcementBar-ai-assistant-bg.jpg',
-			//          'url'      => __( '/ai-assist/', 'ms' ),
-			//          'icon-class'       => 'pencil-with-stars', // Here insert icon class from our WordPress icons - icon after title
-			//      ),
+			  //      array(
+			  //          'title'    => __( 'AI Assistant', 'ms' ),
+			  //          'subtitle' => __( 'Unlock the future of support with LiveAgent’s AI Assistant!', 'ms' ),
+			  //          'class'    => 'ai-assistant',
+			  //          'image'    => 'announcementBar-ai-assistant.png',
+			  //          'bg'       => 'announcementBar-ai-assistant-bg.jpg',
+			  //          'url'      => __( '/ai-assist/', 'ms' ),
+			  //          'icon-class'       => 'pencil-with-stars', // Here insert icon class from our WordPress icons - icon after title
+			  //      ),
 		)
 	);
 }
