@@ -1,5 +1,6 @@
 <?php
 wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+set_custom_source( 'custom_lightbox_youtube', 'js' );
 
 if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|request-for-proposal)$/', get_body_class() ) ) ) {
 	echo do_shortcode( ! empty( preg_grep( '/^partner-with-us$/', get_body_class() ) ) ? '[good-hands-redesign partnerwithus="true"]' : '[good-hands-redesign]' );
