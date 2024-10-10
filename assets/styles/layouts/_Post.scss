@@ -209,20 +209,23 @@ $signupSidebarWidth: 16.875em;
 		}
 	}
 
+
 	&__buttons {
 		display: flex;
-		flex-wrap: wrap;
+		gap: 0.625em;
+		margin: 1em 0 2em 0;
+		flex-wrap: nowrap;
 
-		.Button {
-			margin: 1em 1em 0 0;
+		@media (max-width: $breakpoint-mobile) {
+			flex-wrap: wrap;
 		}
 
-		@media (max-width: ($breakpoint-mobile - 1px)) {
-
-			.Button {
-				width: 100%;
-				margin: 1em 0 0 0;
-			}
+		.Button[class] {
+			width: 100%;
+			padding: 0 1em;
+			text-align: center;
+			white-space: nowrap;
+			margin: 0;
 		}
 	}
 
