@@ -21,7 +21,7 @@
 		),
 		'logo'       => $page_header_logo,
 		'title'      => get_the_title(),
-		'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
+		'text'       => do_shortcode( '[urlslab-generator id="6" input="{{page_url}}"]' ),
 		'toc'        => true,
 		'cta_button' => get_cta_button_data(),
 	);

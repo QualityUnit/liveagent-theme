@@ -18,7 +18,7 @@ $page_header_args = array(
 	),
 	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
-	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'text'  => do_shortcode( '[urlslab-generator id="6" input="{{page_url}}"]' ),
 	'toc'   => true,
 );
 $current_id       = apply_filters( 'wpml_object_id', $post->ID, 'ms_videos' );
@@ -58,7 +58,7 @@ if ( $categories && $categories_url ) {
 					<?= do_shortcode( '[urlslab-video videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '" attribute="title"]' ); ?>
 				</h3>
 
-				<?= do_shortcode( '[urlslab-generator id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ); ?>
+				<?= do_shortcode( '[urlslab-generator id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" input="https://www.youtube.com/watch?v=' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ); ?>
 
 				<div class="urlslab-video-transcript">
 					<h3><?php _e( 'Video transcript', 'ms' ); ?></h3>

@@ -10,7 +10,7 @@ $page_header_args = array(
 	),
 	'url' => get_the_permalink(),
 	'title' => get_the_title(),
-	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'text'  => do_shortcode( '[urlslab-generator id="6" input="{{page_url}}"]' ),
 	'date'  => true,
 	'toc'   => true,
 );

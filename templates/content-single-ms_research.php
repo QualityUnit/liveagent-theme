@@ -9,7 +9,7 @@ $page_header_args = array(
 		'alt' => $page_title,
 	),
 	'title'        => $page_title,
-	'text'         => do_shortcode( '[urlslab-generator id="6"]' ),
+	'text'         => do_shortcode( '[urlslab-generator id="6" input="{{page_url}}"]' ),
 	'research_nav' => true,
 	'toc'          => true,
 );

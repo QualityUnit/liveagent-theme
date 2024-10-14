@@ -28,7 +28,7 @@ $page_header_args = array(
 	'image' => $page_header_image,
 	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
-	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'text'  => do_shortcode( '[urlslab-generator id="6" input="{{page_url}}"]' ),
 	'toc'   => true,
 );
 

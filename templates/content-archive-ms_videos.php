@@ -51,7 +51,7 @@ $page_header_args = array(
 		'alt' => $page_header_title,
 	),
 	'title'  => $page_header_title,
-	'text' => do_shortcode( '[urlslab-generator id="6"]' ),
+	'text' => do_shortcode( '[urlslab-generator id="6" input="{{page_url}}"]' ),
 	'search' => array(
 		'type' => 'academy',
 	),
@@ -94,8 +94,6 @@ $page_header_args = array(
 									<?= esc_html( wp_trim_words( do_shortcode( '[urlslab-video attribute="description" id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ), 20 ) ); ?>
 								</a>
 							</div>
-
-							<div class="Category__item__duration"><?= esc_html( duration_to_time( do_shortcode( '[urlslab-video attribute="duration" id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ) ) ); ?> </div>
 					</li>
 
 					<?php

@@ -39,7 +39,7 @@ $page_header_args         = array(
 		'alt' => get_the_title(),
 	),
 	'title'      => get_the_title(),
-	'text'       => do_shortcode( '[urlslab-generator id="6"]' ),
+	'text'       => do_shortcode( '[urlslab-generator id="6" input="{{page_url}}"]' ),
 	'update'     => array(
 		'label' => __( 'Review Last update:', 'ms' ),
 	),
