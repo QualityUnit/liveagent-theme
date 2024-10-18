@@ -52,7 +52,7 @@ $page_header_args = array(
 				</div>
 
 				<?php
-				 if ( home_url() === "https://www.liveagent.com" ) {
+				 if ( str_contains( home_url(), 'www' )) {
 				?>
 
 				<div class="Post__ug7">
