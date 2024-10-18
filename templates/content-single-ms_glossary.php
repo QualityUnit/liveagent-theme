@@ -51,9 +51,17 @@ $page_header_args = array(
 					</a>
 				</div>
 
-				<div>
+				<?php
+				 if ( home_url() === "https://www.liveagent.com" ) {
+				?>
+
+				<div class="Post__ug7">
 					<?= do_shortcode( '[urlslab-generator id="7" url_filter="{{domain}}" input="{{page_url}}"]' ); ?>
 				</div>
+
+				<?php
+					}
+				?>
 
 				<?php urlslab_display_related_resources(); ?>
 			</div>
