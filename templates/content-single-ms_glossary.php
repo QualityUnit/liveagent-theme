@@ -51,6 +51,10 @@ $page_header_args = array(
 					</a>
 				</div>
 
+				<div>
+					<?= do_shortcode( '[urlslab-generator id="7" url_filter="{{domain}}" input="{{page_url}}"]' ); ?>
+				</div>
+
 				<?php urlslab_display_related_resources(); ?>
 			</div>
 		</div>
