@@ -153,11 +153,13 @@
 
 				.elementor-heading-title {
 					font-size: 1.25rem;
+					margin-bottom: 0.625em;
 				}
 
 				.Button {
 					display: flex;
 					padding: 0 1em;
+					height: 2.85em;
 				}
 			}
 		}
@@ -245,6 +247,10 @@
 		}
 	}
 
+	.Pricing__program.popular {
+		margin-top: 0;
+	}
+
 	&.enterprise table {
 
 		td {
@@ -269,10 +275,48 @@
 
 	}
 
+	table.compare-price {
+
+		td {
+			font-weight: 600;
+
+			&:first-child {
+				font-weight: 400;
+			}
+
+			.price:has(.price--sale) {
+
+				.price--basic {
+					text-decoration: line-through;
+					font-weight: 400;
+				}
+
+			}
+
+			.price {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				column-gap: 0.425em;
+
+				.price--basic {
+					font-weight: 600;
+				}
+
+				&--sale {
+					color: $red;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+
+
 	table {
 		width: 100%;
 		table-layout: fixed;
 		border: none;
+
 
 		tr {
 			border: none;
