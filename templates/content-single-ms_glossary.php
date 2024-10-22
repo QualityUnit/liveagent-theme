@@ -51,6 +51,18 @@ $page_header_args = array(
 					</a>
 				</div>
 
+				<?php
+				if ( str_contains( home_url(), 'www' ) ) {
+					?>
+
+				<div class="Post__ug7">
+					<?= do_shortcode( '[urlslab-generator id="7" url_filter="{{domain}}" input="{{page_url}}"]' ); ?>
+				</div>
+
+					<?php
+				}
+				?>
+
 				<?php urlslab_display_related_resources(); ?>
 			</div>
 		</div>
