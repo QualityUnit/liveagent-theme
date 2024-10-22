@@ -25,18 +25,18 @@ no-descending-specificity, value-keyword-case
 
 			&--small {
 
-				@include posCustom(0.875em, 0, auto, auto);
+				@include posCustom(1.525em, auto, auto, 0);
 				position: absolute;
 				width: fit-content;
 				margin: 0 !important;
-				padding: 0.125em 0.5em;
-				font-size: 0.75rem;
-				line-height: 1.4;
+				padding: 2px 0.625em;
+				font-size: 14px;
+				line-height: 1.15;
 				font-weight: $font-weight-semi;
 
-				&.pink {
-					color: $dark-pink;
-					background: rgba(180, 75, 133, 0.2);
+				&.red {
+					color: $white;
+					background-color: $saturated-red;
 				}
 
 			}
@@ -66,7 +66,18 @@ no-descending-specificity, value-keyword-case
 	}
 
 	&.popular {
-		background-color: $medium-orange;
+		position: absolute;
+		top: -30px;
+		left: -1px;
+		width: calc(100% + 2px) !important;
+		border-radius: 1.25em 1.25em 0 0;
+		margin: 0 !important;
+		background-color: $saturated-blue;
+		padding: 0.45em 1.166em;
+
+		p {
+			font-weight: 500;
+		}
 	}
 
 	&.green {

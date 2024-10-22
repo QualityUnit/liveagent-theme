@@ -14,7 +14,7 @@
 		> .elementor-container {
 			display: grid;
 			grid-template-columns: repeat(1, 1fr);
-			gap: 0.625em;
+			gap: 1em;
 
 			> .Pricing__program {
 				width: 100%;
@@ -48,18 +48,6 @@
 
 	> .elementor-container {
 		flex-wrap: wrap;
-	}
-
-	&::after {
-
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 100vw;
-		height: 100%;
-		background-color: $lightest-gray;
 	}
 
 	&.Deal__startups {
@@ -186,13 +174,19 @@
 			background-color: unset;
 			border-radius: 0;
 			padding: 0;
-			gap: 1%;
+			gap: 16px;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+
+			@media (max-width: $breakpoint-tablet-landscape ) {
+				grid-template-columns: 1fr;
+			}
+
 
 			> .elementor-inner-column {
 				width: 100%;
 
 				@media (min-width: $breakpoint-desktop ) {
-					width: 49.5%;
 					height: 8.125em;
 				}
 			}
@@ -267,10 +261,11 @@
 
 				a {
 
-					color: $dark-orange;
+					color: $black;
+					text-decoration: underline;
 
 					&:hover {
-						color: $black;
+						color: $dark-orange;
 					}
 				}
 			}
@@ -298,7 +293,6 @@
 				&:hover {
 
 					border-color: $dark-orange;
-					background: $lightest-gray;
 
 					span {
 						color: $dark-orange;
@@ -322,6 +316,16 @@
 
 			.col__one {
 				margin-bottom: 1.5em;
+
+				a {
+
+					color: $white;
+					text-decoration: underline;
+
+					&:hover {
+						color: $black;
+					}
+				}
 			}
 
 			.col__two {
@@ -341,6 +345,45 @@
 }
 
 .Pricing__program {
+	border: 1px solid $medium-gray-inputs;
+
+	&__desc {
+
+		p {
+			font-size: 0.875rem;
+		}
+	}
+
+	&.popular {
+		border-color: $medium-gray-inputs !important;
+		border-radius: 0 0 1em 1em;
+		margin-top: 1.8em;
+
+		@media (min-width: $breakpoint-desktop) {
+			margin-top: 0;
+		}
+
+		.elementor-widget-wrap {
+			position: static;
+
+			.LabelTag {
+
+				&.popular {
+
+					p {
+						font-size: 0.9rem;
+						color: $white;
+						text-transform: uppercase;
+
+						@media (min-width: $breakpoint-tablet) {
+							font-size: 0.875rem;
+						}
+					}
+
+				}
+			}
+		}
+	}
 
 	.checklist {
 
@@ -355,7 +398,7 @@
 
 
 	&[class] {
-		padding: 2.5em 1.5em 1.5em !important;
+		padding: 1.875em 1.25em 1.875em !important;
 		width: 100%;
 	}
 
@@ -416,13 +459,13 @@
 
 		p {
 			margin-bottom: 0;
+			line-height: 1.375;
 		}
 	}
 
 	.checklist.elementor-widget-text-editor {
-		padding-top: 1.5em;
+		padding-top: 0.2em;
 		margin-bottom: 1.5em;
-		border-top: 2px solid $lightest-gray;
 
 		ul {
 			margin-bottom: 0;
@@ -438,30 +481,66 @@
 	}
 
 	.Pricing__price {
-		font-size: 2.5rem;
-		font-weight: $font-weight-semi;
-		margin: 0.8em 0 0.35em;
+		display: flex;
+		align-items: flex-end;
+		column-gap: 0.325em;
+		margin: 3.175em 0 0.3em;
+		line-height: 1;
+
+		&--basic {
+			font-size: 3rem;
+			font-weight: $font-weight-semi;
+		}
+
+		&:has(.Pricing__price--sale) {
+
+			.Pricing__price--basic {
+				position: relative;
+				font-size: 2rem;
+
+				sup {
+					font-size: 0.8125rem;
+				}
+
+				span {
+					position: relative;
+
+					&::before {
+						content: "";
+						position: absolute;
+						width: 100%;
+						height: 2px;
+						background-color: $black;
+						top: 50%;
+						left: 0;
+					}
+				}
+
+			}
+		}
 
 		sup {
 			position: relative;
-			font-size: 0.4em;
+			font-size: 0.9375rem;
 			font-weight: $font-weight-normal;
-			margin-right: -0.15em;
+			margin-right: 0.15em;
 			top: -0.25em;
 		}
 
-		small {
-			font-size: 0.6em;
+		&--sale {
+			color: $red;
+			font-size: 3rem;
+			font-weight: $font-weight-semi;
 		}
-	}
 
-	+ .Pricing__program {
-		border: 2px solid $lightest-gray;
-	}
+		&__text {
 
-	&.popular {
-		border-color: $dark-orange;
-		left: -2px;
+			p {
+				font-weight: 600;
+				font-size: 0.875rem;
+			}
+
+		}
 	}
 
 }
