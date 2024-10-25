@@ -131,6 +131,14 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 				</div>
 
 
+				<div class="Footer__middle__reviews">
+					<div class="Footer__middle__title h5"><?php _e( 'Reviews', 'ms' ); ?></div>
+					<?php get_template_part( 'lib/custom-blocks/g2-reviews' ); ?>
+
+				</div>
+
+
+
 				<div class="Footer__middle__newsletter">
 					<div class="Footer__middle__title h5"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></div>
 					<?= do_shortcode( '[newsletterform]' ); ?>
@@ -141,6 +149,7 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 			</div>
 		</div>
 	</div>
+
 
 	<div class="Footer__bottom">
 		<div class="wrapper">
