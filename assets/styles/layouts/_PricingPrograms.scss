@@ -50,103 +50,6 @@
 		flex-wrap: wrap;
 	}
 
-	&.Deal__startups {
-
-		* {
-			color: $white;
-			margin-bottom: 0;
-		}
-
-		a {
-			text-decoration: none;
-
-			&:hover {
-				color: $black;
-			}
-		}
-
-		> .elementor-container {
-			padding: 1.5em;
-			border-radius: $border-radius-16;
-			background-color: $saturated-green;
-			overflow: hidden;
-
-			&::after {
-
-				@include posCustom(-1.5em);
-				content: "";
-				position: absolute;
-				background-color: rgba($white, 0.5);
-				opacity: 0.15;
-				transform: skewX(-45deg)  translateX(50%);
-
-				@media (min-width: $breakpoint-tablet) {
-
-					@include posCustom(-1.5em, 0, -1.5em, 50%);
-				}
-			}
-		}
-
-		.elementor-widget {
-			width: auto;
-
-			&-wrap {
-				width: auto;
-				flex-wrap: nowrap;
-				align-items: center;
-			}
-
-			&-image {
-				margin-right: 0.5em;
-
-				img,
-				picture {
-					width: 3.85em;
-				}
-			}
-
-			&-heading {
-				margin-right: auto;
-			}
-		}
-
-		.Button--outline {
-			padding: 0.5em 1.4em;
-		}
-
-		@media (max-width: $breakpoint-tablet-landscape) {
-
-			.elementor-heading-title {
-
-				font-size: 1.25rem;
-			}
-		}
-
-
-		.Deal__startups--buttons {
-			justify-content: flex-end;
-
-			.Button {
-				margin-left: 1.5em;
-			}
-		}
-
-		&--note {
-			padding: 0 0 3em;
-
-			p {
-				text-align: right;
-				font-size: 0.75rem;
-				margin-bottom: 0;
-			}
-
-			&--new {
-				margin-bottom: 0;
-				padding: 0.625em 0;
-			}
-		}
-
-	}
 
 	.enterprise & .Pricing__program {
 
@@ -167,179 +70,165 @@
 		}
 	}
 
-	&.Deal__startups__Free__accounts {
-		padding: 0.625em 0 3em 0 !important;
 
-		> .elementor-container {
-			background-color: unset;
-			border-radius: 0;
-			padding: 0;
-			gap: 16px;
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-
-			@media (max-width: $breakpoint-tablet-landscape ) {
-				grid-template-columns: 1fr;
-			}
+}
 
 
-			> .elementor-inner-column {
-				width: 100%;
+.PromoBanners {
+	padding: 0.625em 0 3em 0 !important;
 
-				@media (min-width: $breakpoint-desktop ) {
-					height: 8.125em;
-				}
-			}
+	> .elementor-container {
 
+		background-color: unset;
+		border-radius: 0;
+		padding: 0;
+		gap: 16px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		@media (max-width: $breakpoint-tablet-landscape ) {
+			grid-template-columns: 1fr;
 		}
 
-		.elementor-heading-title {
-			font-size: 1.875rem;
-			line-height: 1.5;
-
-		}
-
-		.elementor-widget-wrap {
-			flex-wrap: wrap;
-			flex-direction: row;
+		> .elementor-inner-column {
 			width: 100%;
 		}
 
-		.Free__accounts,
-		.Deal__startups {
+		> .elementor-column {
 			padding: 1.125em 1.5em !important;
 			border-radius: $border-radius-16;
 
+			&:first-child {
 
-			.col__one {
-				width: 100%;
-				margin-bottom: 0;
+				background-color: transparent;
+				border: 1px solid $medium-gray-inputs;
+				margin-bottom: 0.625em;
 
-				> .elementor-widget-wrap {
-					flex-direction: column;
-					align-items: flex-start;
+				* {
+					color: $black;
+					margin-bottom: 0;
 				}
-			}
-
-			.col__two {
-				width: 100%;
-			}
-
-			.Button--outline {
-				width: 100%;
-				height: auto;
-			}
-
-			@media (min-width: $breakpoint-tablet-small ) {
-
-				.col__one {
-					width: 60%;
-				}
-
-				.col__two {
-					width: 40%;
-
-					.elementor-widget-wrap {
-						justify-content: flex-end;
-						align-content: flex-end;
-					}
-				}
-			}
-		}
-
-		.Free__accounts {
-			background-color: transparent;
-			border: 1px solid $medium-gray-inputs;
-			margin-bottom: 0.625em;
-
-			* {
-				color: $black;
-				margin-bottom: 0;
-			}
-
-			.col__one {
 
 				a {
 
-					color: $black;
-					text-decoration: underline;
-
 					&:hover {
+						text-decoration: underline;
 						color: $dark-orange;
 					}
 				}
-			}
 
-			.price__per__month {
-				font-weight: 700;
-				font-size: 1.875rem;
-				line-height: 1;
-				margin-bottom: 1rem;
+				.Button--outline {
 
-				small,
-				sup {
-					font-weight: 400;
-					font-size: 1.5rem;
-				}
+					&:hover {
 
-				sup {
-					font-size: 1rem;
-				}
+						border-color: $dark-orange;
 
-			}
+						span {
+							color: $dark-orange;
+						}
 
-			.Button--outline {
-
-				&:hover {
-
-					border-color: $dark-orange;
+					}
 
 					span {
-						color: $dark-orange;
+						transition: 0.3s all;
 					}
-
 				}
 
-				span {
-					transition: 0.3s all;
+				@media (min-width: $breakpoint-desktop ) {
+					margin-bottom: 0;
 				}
+
+
 			}
 
-			@media (min-width: $breakpoint-desktop ) {
-				margin-bottom: 0;
-			}
-		}
+			&:last-child {
+				background-color: $saturated-green;
+				overflow: hidden;
 
-		.Deal__startups {
-			background-color: $saturated-green;
-			overflow: hidden;
 
-			.col__one {
-				margin-bottom: 1.5em;
+				&::after {
+
+					@include posCustom(-1.5em);
+					content: "";
+					position: absolute;
+					background-color: rgba($white, 0.5);
+					opacity: 0.15;
+					transform: skewX(-45deg)  translateX(50%);
+
+					@media (min-width: $breakpoint-tablet) {
+
+						@include posCustom(-1.5em, 0, -1.5em, 50%);
+					}
+				}
+
+				* {
+					color: $white;
+					margin-bottom: 0;
+				}
 
 				a {
 
-					color: $white;
-					text-decoration: underline;
-
 					&:hover {
+						text-decoration: underline;
 						color: $black;
 					}
 				}
+
+
+				.Button--outline {
+
+					&:hover {
+
+						span {
+							color: $black;
+						}
+
+					}
+
+					span {
+						transition: 0.3s all;
+					}
+				}
 			}
 
-			.col__two {
-				align-self: flex-end;
-			}
+			.PromoBanners__footer {
+				margin-top: auto;
 
-			@media (min-width: $breakpoint-tablet-small ) {
+				> .elementor-container {
 
-				.col__one {
-					margin-bottom: 0;
+					> .elementor-column {
+
+						> .elementor-widget-wrap {
+							flex-direction: row;
+							justify-content: space-between;
+							align-items: flex-end;
+							align-content: center;
+
+							.elementor-widget {
+								width: 50%;
+							}
+						}
+					}
 				}
 			}
 		}
 
+	}
+
+	.elementor-heading-title {
+		font-size: 1.875rem;
+		line-height: 1.5;
+	}
+
+	.elementor-widget-wrap {
+		flex-wrap: wrap;
+		flex-direction: row;
+		width: 100%;
+
+		.Button--outline {
+			width: 100%;
+			height: auto;
+		}
 	}
 
 }
