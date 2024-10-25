@@ -7,20 +7,15 @@ const headerFaq = query( '.Content h2#faq' );
 const tocFaq = query( '.SidebarTOC__item a[href*=faq]' );
 const sidebarTOC = query( '.SidebarTOC' );
 const signupSidebar = query( '.Signup__sidebar' );
+const tocSlider = query( '.SidebarTOC__slider' );
+const tocItems = queryAll( '.SidebarTOC__item a' );
+const shareIcons = query( '.BlogPost__share-sidebar' );
+const scrollSidebarsElement = queryAll( '[data-scrollsidebars]' );
+const headerHeight = query( '.Header' ).clientHeight + 96; // include threshold
+const mql = window.matchMedia( '(min-width: 1380px)' );
+let slider = null;
 
-if (
-	headerFaq !== null &&
-	tocFaq === null &&
-	window.innerWidth > 1380 &&
-	sidebarTOC !== null
-) {
-	const faqItem =
-		'<li class="SidebarTOC__item SidebarTOC__item--h2"><a href="#faq">FAQ</a></li>';
-	document
-		.querySelector( '.SidebarTOC__content' )
-		.insertAdjacentHTML( 'beforeend', faqItem );
-}
-
+// Define headerItems based on the TOC structure
 const headerItems = ( () => {
 	if ( queryAll( '.SidebarTOC__item--h3' ).length > 0 ) {
 		return queryAll( '.Content > h2[id], .Content > h3[id]' );
@@ -28,253 +23,165 @@ const headerItems = ( () => {
 	return queryAll( '.Content > h2[id]' );
 } )();
 
-const tocItems = queryAll( '.SidebarTOC__item a' );
-const treshold = 96; // about height of regular <p> paragraph to delay the highlight of toc item
-const headerHeight = query( '.Header' ).clientHeight + treshold;
-const shareIcons = query( '.BlogPost__share-sidebar' );
-const scrollSidebarsElement = queryAll( '[data-scrollsidebars]' );
+// Function to remove 'active' class from TOC items
+const tocRemoveActive = () => {
+	tocItems.forEach( ( item ) => item.classList.remove( 'active' ) );
+};
 
-const tocSlider = query( '.SidebarTOC__slider' );
-let slider = null;
-
-const mql = window.matchMedia( '(min-width: 1380px)' );
-
-function tocRemoveActive() {
-	tocItems.forEach( ( element ) => {
-		element.classList.remove( 'active' );
-	} );
-}
-
-function loadImg( element ) {
-	if ( element.tagName === 'IMG' && element.parentElement.tagName === 'PICTURE' && ! element.hasAttribute( 'laprocessing' ) ) {
-		element.setAttribute( 'laprocessing', 'y' );
-		element.parentElement.childNodes.forEach( ( childNode ) => {
-			loadImg( childNode );
-		} );
-		element.removeAttribute( 'laprocessing' );
+// Function to add FAQ to TOC if it's not there
+const addFaqToToc = () => {
+	if ( headerFaq && ! tocFaq && window.innerWidth > 1380 && sidebarTOC ) {
+		const faqItem = '<li class="SidebarTOC__item SidebarTOC__item--h2"><a href="#faq">FAQ</a></li>';
+		query( '.SidebarTOC__content' ).insertAdjacentHTML( 'beforeend', faqItem );
 	}
+};
 
-	if ( element.hasAttribute( 'data-srcset' ) ) {
-		element.setAttribute( 'srcset', element.getAttribute( 'data-srcset' ) );
-		element.removeAttribute( 'data-srcset' );
-	}
-
-	if ( element.hasAttribute( 'data-src' ) ) {
-		element.setAttribute( 'src', element.getAttribute( 'data-src' ) );
-		element.removeAttribute( 'data-src' );
-	}
-	element.style.opacity = '1';
-}
-
-function activateSidebars() {
-	let isScrolling;
-	if ( sidebarTOC !== null ) {
+// Function to initialize the Splide slider if TOC has more than 8 items
+const initializeTocSlider = () => {
+	if ( tocItems.length > 8 && tocSlider ) {
 		window.addEventListener( 'load', () => {
-			if ( queryAll( '[data-src]:not(script)' ) !== null ) {
-				const unloaded = document.querySelectorAll( '[data-src]:not(script)' );
-				unloaded.forEach( ( elem ) => {
-					const el = elem;
-					loadImg( el );
-				} );
-			}
+			tocItems.forEach( ( item ) => item.parentElement.classList.add( 'splide__slide' ) );
+
+			const tocItemsEightHeight = Array.from( tocItems )
+				.slice( 0, 8 )
+				.reduce( ( acc, item ) => acc + item.clientHeight, 0 );
+
+			// Initialize the slider
+			slider = new Splide( tocSlider, {
+				direction: 'ttb',
+				height: tocItemsEightHeight + 16, // Výška slidera
+				autoWidth: true,
+				arrowPath: 'M40,30H0l20-20L40,30z',
+				perMove: 8,
+				speed: 400,
+				pagination: false,
+				arrows: true,
+				trimspace: false,
+			} ).mount();
+
+			// Handle slider arrows
+			slider.on( 'active', () => handleSliderArrows() );
+
+			// Set track height to match the slider height
+			const track = query( '.SidebarTOC .splide__track' );
+			setTimeout( () => {
+				track.style.height = `${ track.clientHeight + 8 }px`;
+			}, 100 );
 		} );
+	}
+};
 
+// Handle slider arrow visibility
+const handleSliderArrows = () => {
+	const arrowPrev = query( '.SidebarTOC .splide__arrow--prev' );
+	const arrowNext = query( '.SidebarTOC .splide__arrow--next' );
+	const arrowWrapper = query( '.SidebarTOC .splide__arrows' );
+
+	slider.on( 'moved', () => {
+		if ( arrowNext.disabled ) {
+			arrowWrapper.classList.add( 'is-last' );
+		} else {
+			arrowWrapper.classList.remove( 'is-last' );
+		}
+
+		if ( arrowPrev.disabled ) {
+			arrowWrapper.classList.add( 'is-first' );
+		} else {
+			arrowWrapper.classList.remove( 'is-first' );
+		}
+	} );
+};
+
+// Activate sidebars with scroll interaction and TOC
+const activateSidebars = () => {
+	if ( sidebarTOC ) {
 		tocItems.forEach( ( element, index ) => {
-			const el = element;
-			el.dataset.number = index;
+			element.dataset.number = index;
 
-			el.addEventListener( 'click', () => {
+			element.addEventListener( 'click', () => {
 				tocRemoveActive();
-				el.classList.add( 'active' );
-
+				element.classList.add( 'active' );
 				setTimeout( () => {
-					window.scrollBy( 0, -treshold );
+					window.scrollBy( 0, -96 );
 				}, 1000 );
 			} );
 		} );
 
-		// Limiting TOC size and adding dynamic scrolling if more than 8 items are in TOC
-		if ( tocItems.length > 8 ) {
-			tocItems.forEach( ( item ) => {
-				const sliderItem = item;
-				sliderItem.parentElement.classList.add( 'splide__slide' );
+		// Initialize TOC slider if needed
+		initializeTocSlider();
+	}
+};
+
+// Debounced scroll event handler for scroll sidebars and TOC
+const handleScroll = () => {
+	let isScrolling;
+	const firstTitle = query( '.Content h2:first-of-type' ); // Correctly defined here for all uses
+
+	window.addEventListener( 'scroll', () => {
+		clearTimeout( isScrolling );
+
+		// Share icons scroll management
+		if ( shareIcons ) {
+			shareIcons.classList.add( 'inactive' );
+			scrollSidebarsElement.forEach( ( el ) => {
+				if ( el.getBoundingClientRect().top - 217 < window.innerHeight ) {
+					shareIcons.classList.add( 'scrolled' );
+				}
+			} );
+		}
+
+		// TOC active item management
+		if ( sidebarTOC ) {
+			headerItems.forEach( ( element ) => {
+				if ( element.getBoundingClientRect().top <= headerHeight ) {
+					const elemHref = element.getAttribute( 'id' );
+					const activateItem = query( `.SidebarTOC a[href*=${ elemHref }]` );
+					tocRemoveActive();
+					activateItem.classList.add( 'active' );
+				}
 			} );
 
-			if ( tocSlider !== null ) {
-				let tocItemsEightHeight = 0;
-
-				for ( let tocItem = 0; tocItem <= 8; tocItem += 1 ) {
-					tocItemsEightHeight += tocItems[ tocItem ].clientHeight;
+			// Sidebar scroll behavior
+			scrollSidebarsElement.forEach( ( el ) => {
+				if ( el.getBoundingClientRect().top - 217 < window.innerHeight ) {
+					sidebarTOC.classList.add( 'scrolled' );
+					if ( signupSidebar ) {
+						signupSidebar.classList.add( 'scrolled' );
+					}
 				}
-
-				slider = new Splide( tocSlider, {
-					direction: 'ttb',
-					height: tocItemsEightHeight + 16,
-					autoWidth: true,
-					arrowPath: 'M40,30H0l20-20L40,30z',
-					// perPage: 8,
-					perMove: 8,
-					speed: 400,
-					pagination: false,
-					arrows: true,
-					trimspace: false,
-				} ).mount();
-
-				const track = query( '.SidebarTOC .splide__track' );
-				window.addEventListener( 'load', () => {
-					setTimeout( () => {
-						track.style.height = `${ track.clientHeight + 8 }px`;
-					}, 100 );
-				} );
-
-				mql.addEventListener( 'change', ( event ) => {
-					if ( event.matches ) {
-						setTimeout( () => {
-							track.style.height = `${
-								track.clientHeight + 8
-							}px`;
-						}, 100 );
-					}
-				} );
-
-				slider.on( 'active', () => {
-					const arrowPrev = query(
-						'.SidebarTOC .splide__arrow--prev'
-					);
-					const arrowNext = query(
-						'.SidebarTOC .splide__arrow--next'
-					);
-
-					if ( arrowPrev.disabled === true ) {
-						query( '.SidebarTOC .splide__arrows' ).classList.add(
-							'is-first'
-						);
-						query( '.SidebarTOC .splide__arrows' ).classList.remove(
-							'is-last'
-						);
-					}
-
-					slider.on( 'moved', () => {
-						if ( arrowNext.disabled === true ) {
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.remove( 'is-first' );
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.add( 'is-last' );
-						}
-
-						if ( arrowPrev.disabled === true ) {
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.add( 'is-first' );
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.remove( 'is-last' );
-						}
-
-						if (
-							arrowPrev.disabled === false &&
-							arrowNext.disabled === false
-						) {
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.remove( 'is-first' );
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.remove( 'is-last' );
-						}
-					} );
-				} );
-			}
+			} );
 		}
-	}
 
-	window.addEventListener(
-		'scroll',
-		() => {
-			window.clearTimeout( isScrolling );
-
-			if ( shareIcons !== null ) {
-				shareIcons.classList.add( 'inactive' );
-
-				shareIcons.classList.remove( 'scrolled' );
-				scrollSidebarsElement.forEach( ( scrollOutElem ) => {
-					if (
-						scrollOutElem.getBoundingClientRect().top - 217 <
-					window.innerHeight
-					) {
-						shareIcons.classList.add( 'scrolled' );
-					}
-				} );
+		// Timeout to manage scroll end logic
+		isScrolling = setTimeout( () => {
+			if ( shareIcons ) {
+				shareIcons.classList.remove( 'inactive' );
 			}
-
-			if ( sidebarTOC !== null ) {
-				headerItems.forEach( ( element ) => {
-					if ( element.getBoundingClientRect().top <= headerHeight ) {
-						const elemHref = element.getAttribute( 'id' );
-						const activateItem = query(
-							`.SidebarTOC a[href*=${ elemHref }`
-						);
-
-						tocRemoveActive();
-						activateItem.classList.add( 'active' );
-					}
-				} );
-
-				sidebarTOC.classList.remove( 'scrolled' );
-
-				if ( signupSidebar ) {
-					signupSidebar.classList.remove( 'scrolled' );
+			if ( slider && tocItems.length > 8 ) {
+				const activeHref = query( '.SidebarTOC a.active' );
+				if ( firstTitle.getBoundingClientRect().top < headerHeight && activeHref ) {
+					slider.go( activeHref.dataset.number, true );
+				} else if ( firstTitle.getBoundingClientRect().top > headerHeight && activeHref ) {
+					activeHref.classList.remove( 'active' );
+					slider.go( 0 );
 				}
-
-				scrollSidebarsElement.forEach( ( scrollOutElem ) => {
-					if (
-						scrollOutElem.getBoundingClientRect().top - 217 <
-						window.innerHeight
-					) {
-						sidebarTOC.classList.add( 'scrolled' );
-						if ( signupSidebar ) {
-							signupSidebar.classList.add( 'scrolled' );
-						}
-					}
-				} );
 			}
+		}, 750 );
+	} );
+};
 
-			// Set a timeout to run after scrolling ends
-			isScrolling = setTimeout( () => {
-				if ( shareIcons !== null ) {
-					shareIcons.classList.remove( 'inactive' );
-				}
-
-				if ( tocItems.length > 8 ) {
-					const activeHref = query( '.SidebarTOC a.active' );
-					const firstTitle = query( '.Content h2:first-of-type' );
-					const firstTitlePos = firstTitle.getBoundingClientRect()
-						.top;
-
-					if ( firstTitlePos < headerHeight && activeHref !== null ) {
-						slider.go( activeHref.dataset.number, true );
-					}
-					if ( firstTitlePos > headerHeight && activeHref !== null ) {
-						activeHref.classList.remove( 'active' );
-						slider.go( 0 );
-					}
-				}
-			}, 750 );
-		},
-		false
-	);
-}
-
-// Handles case when user visits with required screen/window size
+// Initialize on load if window size matches
 if ( mql.matches ) {
 	activateSidebars();
 }
 
-// Handles case when user changes orientation of device from portrait > landscape, ie. iPad Pro
+// Listen for screen size changes
 mql.addEventListener( 'change', ( event ) => {
 	if ( event.matches ) {
 		activateSidebars();
 	}
 } );
+
+// Run on initial load
+addFaqToToc();
+handleScroll();
