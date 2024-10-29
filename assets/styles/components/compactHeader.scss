@@ -17,7 +17,7 @@ body.compact-header--active {
 
 .compact-header {
 	$class-name: compact-header;
-	$v-space: 1em;
+	$v-space: 2em;
 	$bottom-space: 2.2em;
 	$bg-color: #f9f9fa;
 	padding-top: $v-space;
@@ -193,14 +193,18 @@ body.compact-header--active {
 		&-list {
 			margin: 0 -0.4em;
 			line-height: 1.5;
-			font-size: 0.75em;
+			font-size: 0.85rem;
+
+			@media (min-width: $breakpoint-desktop ) {
+				font-size: 0.75rem;
+			}
 
 			li {
 
 				@include color(color, font-color-normal);
 				display: inline-block;
 				vertical-align: middle;
-				padding: 0 0.4em;
+				padding: 0.2em 0.6em;
 			}
 
 			a,
@@ -698,6 +702,8 @@ body.compact-header--active {
 
 		&__wrapper {
 			flex-direction: column;
+			padding-left: 20px !important;
+			padding-right: 20px !important;
 
 			&:not(:last-child) {
 				margin-bottom: 0.75em;
