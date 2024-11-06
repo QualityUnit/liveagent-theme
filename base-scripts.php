@@ -270,7 +270,7 @@
 					chatbotId: chatbotId,
 					workspaceId: workspaceId,
 					welcomeMessage: 'Hi, I\'m LiveAgent support Bot. How can I help you?',
-					inputPlaceholder: 'Ask me any question...',
+					inputPlaceholder: __('Ask me any question…'),
 					suggestedUserMessages: [],
 					urlSuffix: '?utm_medium=chatbot&utm_source=flowhunt',
 					maxWindowWidth: '500px',
