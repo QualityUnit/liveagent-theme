@@ -7,7 +7,7 @@ value-keyword-case */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 @use "../elements/Typography" as *;
-@forward "_HeroHeadlineBanner";
+@forward "_HeroHeadlineBanner"; 	/* scss/load-no-partial-leading-underscore */
 
 .heroHeadline__home,
 .heroHeadline {
