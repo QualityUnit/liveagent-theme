@@ -27,7 +27,7 @@ body.single-ms_features {
 		"ticket-management"
 	);
 
-	@for $i from 1 through length($features) {
+	@for $i from 1 through length($features) {  /* stylelint-disable-line scss/no-global-function-names */
 		$image: nth($features, $i); /* stylelint-disable-line scss/no-global-function-names */
 
 		.Post__header.#{$image} .wrapper__wide {
@@ -66,7 +66,7 @@ body.single-ms_academy {
 		"ticketing"
 	);
 
-	@for $i from 1 through length($academy) {
+	@for $i from 1 through length($academy) {  /* stylelint-disable-line scss/no-global-function-names */
 		$image: nth($academy, $i); /* stylelint-disable-line scss/no-global-function-names */
 
 		.Post__header.#{$image} .wrapper__wide {
@@ -102,7 +102,7 @@ body.single-ms_templates {
 		"ticketing"
 	);
 
-	@for $i from 1 through length($templates) {
+	@for $i from 1 through length($templates) {  /* stylelint-disable-line scss/no-global-function-names */
 		$image: nth($templates, $i); /* stylelint-disable-line scss/no-global-function-names */
 
 		.Post__header.#{$image} .wrapper__wide {

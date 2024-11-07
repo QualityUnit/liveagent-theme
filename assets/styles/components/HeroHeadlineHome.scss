@@ -1,12 +1,13 @@
 /* stylelint-disable selector-class-pattern,
 no-descending-specificity, scss/at-extend-no-missing-placeholder,
+scss/load-no-partial-leading-underscore
 value-keyword-case */
 
 @use "sass:math";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 @use "../elements/Typography" as *;
-@forward "_HeroHeadlineBanner";
+@forward "HeroHeadlineBanner";
 
 .heroHeadline__home,
 .heroHeadline {
@@ -603,7 +604,7 @@ value-keyword-case */
 					&--icon {
 
 						height: 1.5em;
-						fill: currentColor;
+						fill: currentcolor;
 						margin-left: 1em;
 					}
 
