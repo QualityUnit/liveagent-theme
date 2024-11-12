@@ -1,0 +1,278 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+.Reviews {
+
+	&.elementor-section {
+		margin-top: $block-space;
+		margin-bottom: $block-space;
+
+		.elementor-widget:not(:last-child) {
+			margin-bottom: 0 !important;
+		}
+
+		h2 {
+			font-size: $font-size-h1;
+			line-height: $line-height-h1 !important;
+			margin-bottom: 15px !important;
+			text-align: center;
+		}
+
+		p {
+			text-align: center;
+			max-width: 650px;
+			margin: auto;
+			margin-bottom: 45px;
+		}
+
+		.Clients {
+			margin-top: 35px;
+
+			&__item {
+				margin-left: 30px;
+				margin-right: 30px;
+			}
+		}
+	}
+
+	.elementor-widget-html .elementor-widget-container {
+		display: flex;
+		flex-flow: wrap column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	&__items {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: center;
+		align-items: center;
+		margin-top: 80px;
+
+		&__item {
+			display: flex;
+			flex-flow: wrap column;
+			max-width: 195px;
+			margin: 0 90px;
+
+			&:first-of-type {
+				margin-left: 0;
+			}
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+
+			a {
+				display: flex;
+				flex-flow: wrap row;
+				justify-content: center;
+			}
+
+			img {
+				display: block;
+				max-width: 100%;
+				height: 40px;
+				margin-bottom: 20px;
+			}
+
+			&__stars {
+
+				&__item {
+					display: inline-block;
+					margin-right: 5px;
+					width: 30px;
+					height: 30px;
+					background-image: url(../images/icon_star.svg);
+
+					&.half {
+						background-image: url(../images/icon_star_half.svg);
+					}
+
+					.elementor-widget-html & {
+						background-image: url(../images/icon_star.svg);
+
+						&.half {
+							background-image: url(../mages/icon_star_half.svg);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&--short {
+		margin-top: 100px;
+		margin-bottom: 100px;
+
+		h2 {
+			font-size: $font-size-h2;
+			line-height: $line-height-h2 !important;
+		}
+
+		.Reviews__items {
+			margin-top: 20px;
+
+			&__item {
+				margin: 0 40px;
+
+				img {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	&__images-hover {
+
+		.elementor-column {
+
+			width: 100%;
+
+			&:first-child {
+
+				@include posZero();
+				position: absolute;
+				z-index: 5;
+				opacity: 0;
+				background-color: transparent;
+				transition: all 0.3s;
+				cursor: pointer;
+
+				&:active,
+				&:focus,
+				&:hover {
+					opacity: 1;
+				}
+
+				[class^="elementor"] {
+
+					@include fullSize();
+					position: relative;
+				}
+
+				a {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					justify-content: center;
+					align-items: center;
+					display: flex;
+					margin: 0;
+					transform: translate3d(-50%, -50%, 0);
+				}
+			}
+		}
+	}
+
+	&__many-more {
+		display: flex;
+		justify-content: flex-end;
+		text-align: center;
+
+		> * {
+			width: 100%;
+			max-width: 24em;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		&.elementor-section {
+			margin-top: 100px;
+			margin-bottom: 100px;
+
+			h2 {
+				font-size: $font-size-h2;
+				line-height: $line-height-h2 !important;
+			}
+		}
+
+		&__items {
+			margin-top: 45px;
+
+			&__item {
+				margin: 20px 35px !important;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		&.elementor-section {
+
+			h2 {
+				margin-bottom: 5px !important;
+			}
+
+			p {
+				font-size: 14px;
+				line-height: 24px;
+			}
+		}
+
+		&--short {
+
+			.Reviews__items {
+				margin-top: 0;
+			}
+		}
+
+		&__many-more {
+
+			> * {
+				max-width: 100%;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		&.elementor-section {
+			margin-top: 75px;
+			margin-bottom: 75px;
+
+			h2 {
+				font-size: 28px;
+				line-height: 38px !important;
+			}
+
+			.Clients {
+				margin-top: 0;
+			}
+		}
+
+		&__items {
+			margin-top: 25px;
+
+			&__item {
+				align-items: center;
+				max-width: none;
+				margin: 10px 15px !important;
+
+				img {
+					height: 30px;
+					margin-bottom: 10px;
+				}
+
+				&__stars {
+
+					&__item {
+						width: 20px;
+						height: 20px;
+					}
+				}
+			}
+		}
+
+		&--short {
+
+			.Reviews__items {
+				margin-top: 25px;
+			}
+		}
+	}
+}
