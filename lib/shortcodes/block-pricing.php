@@ -4,7 +4,7 @@ function ms_block_pricing( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'title1'   => __( 'Small', 'ms' ),
-			'price1'   => __( '$9', 'ms' ),
+			'price1'   => __( '$15', 'ms' ),
 			'text1-1'  => __( 'Unlimited ticket history', 'ms' ),
 			'text1-2'  => __( '3 email addresses', 'ms' ),
 			'text1-3'  => __( '3 contact forms', 'ms' ),
