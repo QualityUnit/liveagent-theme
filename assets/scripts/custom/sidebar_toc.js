@@ -143,10 +143,17 @@ const handleScroll = () => {
 
 			// Sidebar scroll behavior
 			scrollSidebarsElement.forEach( ( el ) => {
-				if ( el.getBoundingClientRect().top - 217 < window.innerHeight ) {
+				const isVisible = el.getBoundingClientRect().top - 217 < window.innerHeight;
+
+				if ( isVisible ) {
 					sidebarTOC.classList.add( 'scrolled' );
 					if ( signupSidebar ) {
 						signupSidebar.classList.add( 'scrolled' );
+					}
+				} else {
+					sidebarTOC.classList.remove( 'scrolled' );
+					if ( signupSidebar ) {
+						signupSidebar.classList.remove( 'scrolled' );
 					}
 				}
 			} );
