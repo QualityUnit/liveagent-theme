@@ -303,8 +303,14 @@ if (
 
 	<script type="text/javascript" id="fh-chatbot-script">
 		const chatBtnOptions = {
+			<?php if ( is_post_type_archive( array( 'ms_directory' ) ) || is_singular( array( 'ms_directory' ) ) ) { ?>
+				chatbotId: '43655338-f1ff-4273-8e9c-6f0d38c48dd2',
+				workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
+				maxWindowWidth: '700px',
+			<?php } else { ?>
 			chatbotId: 'ee7cb389-4f00-441f-a287-07a43f72f1e3',
 			workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
+			<?php } ?>
 			btnTarget: '#chatBotOnly'
 		};
 		acceptButton.addEventListener( "click", () => {

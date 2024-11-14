@@ -3,11 +3,14 @@
 	require_once get_template_directory() . '/chat-button.php';
 ?>
 
-<div class="ContactUs__form hidden" data-targetId="contactUsForm">
+
+<div class="ContactUs__form hidden" id="contactUsForm" data-targetId="contactUsForm">
 	<button class="ContactUs__menu--close" data-close-target="contactUsForm" type="button">
 		<svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use></svg>
 	</button>
-	<script>
+</div>
+
+<script>
 		<?php
 		$form_id = '99c3idgr';
 		if ( ICL_LANGUAGE_CODE === 'de' ) {
@@ -21,14 +24,10 @@
 		}
 		?>
 		function showContactForm() {
-			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('<?= esc_attr( $form_id ); ?>', e); });
+			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};document.querySelector('#contactUsForm').insertAdjacentElement('beforeend',s);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('<?= esc_attr( $form_id ); ?>', e); });
 		}
+</script>
 
-		if ( getCookieFrontend( "cookieLaw" ) ) {
-			showContactForm()
-		}
-	</script>
-</div>
 
 <div class="ContactUs">
 	<button class="ContactUs__button flex flex-align-center" data-target="contactUsMenu" type="button">
@@ -109,7 +108,7 @@
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
 					<span class="fakeChatButton__msg bottom"><?php _e( 'Please accept our cookies before sending contact form.', 'ms' ); ?></span>
 				</div>
-				<span class="ContactUs__menu--link ContactUs__menu--link__form red" data-target="contactUsForm" data-close-target="contactUsMenu">
+				<span class="ContactUs__menu--link ContactUs__menu--link__form red" onClick="showContactForm()" data-target="contactUsForm" data-close-target="contactUsMenu">
 					<?php _e( 'Contact form', 'ms' ); ?>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
 				</span>
