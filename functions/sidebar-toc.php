@@ -1,36 +1,38 @@
 <?php
 
 
-//Add ID to every H2 and H3 element in post/page that has no ID. Generated from sanitized text content of element
+////Add ID to every H2 and H3 element in post/page that has no ID. Generated from sanitized text content of element
 function add_id_to_h2( $html ) {
+	// Adds ID only to <h2> and <h3> headings that already have a non-empty ID
 	$html = preg_replace_callback(
-		'/\<h2( id=".+?")?\>(.+?)\<\/h2\>/',
+		'/<h(2|3)([^>]*)id="([^"]+)"([^>]*)>(.*?)<\/h\1>/',
 		function ( $m ) {
-			return '<h2 id="h-' . preg_replace( '/[%\/\:]/i', '', sanitize_title( $m[2] ) ) . '">' . $m[2] . '</h2>';
+			// If the heading already has a non-empty ID and contains text, return it unchanged
+			return trim( $m[5] ) !== '' ? $m[0] : $m[0];
 		},
 		$html
 	);
 
+	// Adds ID only to <h2> headings without an ID
 	$html = preg_replace_callback(
-		'/\<h2(((?!id).).+?)\>(.+?)\<\/h2\>/',
+		'/<h2(?!.*\sid=").*?>(.*?)<\/h2>/',
 		function ( $m ) {
-			return '<h2 ' . $m[1] . ' id="h-' . preg_replace( '/[%\/]/i', '', sanitize_title( $m[3] ) ) . '">' . $m[3] . '</h2>';
+			// Adds ID only if the heading contains text
+			return trim( $m[1] ) !== ''
+				? '<h2 id="h-' . preg_replace( '/[%\/\:]/i', '', sanitize_title( $m[1] ) ) . '">' . $m[1] . '</h2>'
+				: $m[0];
 		},
 		$html
 	);
 
+	// Adds ID only to <h3> headings without an ID
 	$html = preg_replace_callback(
-		'/\<h3( id=".+?")?\>(.+)\<\/h3\>/',
+		'/<h3(?!.*\sid=").*?>(.*?)<\/h3>/',
 		function ( $m ) {
-			return '<h3 id="h-' . preg_replace( '/[%\/\:]/i', '', sanitize_title( $m[2] ) ) . '">' . $m[2] . '</h3>';
-		},
-		$html
-	);
-
-	$html = preg_replace_callback(
-		'/\<h3(((?!id).).+?)\>(.+?)\<\/h3\>/',
-		function ( $m ) {
-			return '<h3 ' . $m[1] . ' id="h-' . preg_replace( '/[%\/]/i', '', sanitize_title( $m[3] ) ) . '">' . $m[3] . '</h3>';
+			// Adds ID only if the heading contains text
+			return trim( $m[1] ) !== ''
+				? '<h3 id="h-' . preg_replace( '/[%\/\:]/i', '', sanitize_title( $m[1] ) ) . '">' . $m[1] . '</h3>'
+				: $m[0];
 		},
 		$html
 	);
