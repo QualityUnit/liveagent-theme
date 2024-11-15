@@ -31,12 +31,12 @@ if ( ICL_LANGUAGE_CODE === 'en' ) {
 		),
 		array(
 			array(
-				'title' => __( 'AI Answer Assistant', 'ms' ),
-				'subtitle' => __( 'Suggests the responses to your agents need', 'ms' ),
-				'class' => 'Ai__whisper__assistent',
-				'image' => 'ai-announcement-bar-img-right.png',
-				'bg' => 'announcementBar-ai-whisper-assistant-bg.jpg',
-				'url' => __( '/features/ai-assistant/', 'ms' ),
+				'title'      => __( 'AI Answer Assistant', 'ms' ),
+				'subtitle'   => __( 'Suggests the responses to your agents need', 'ms' ),
+				'class'      => 'Ai__whisper__assistent',
+				'image'      => 'ai-announcement-bar-img-right.png',
+				'bg'         => 'announcementBar-ai-whisper-assistant-bg.jpg',
+				'url'        => __( '/features/ai-assistant/', 'ms' ),
 				'icon-class' => '', // Here insert icon class from our WordPress icons - icon after title
 			),
 
@@ -53,7 +53,6 @@ if ( ICL_LANGUAGE_CODE === 'en' ) {
 	);
 }
 ?>
-
 
 <header class="Header urlslab-skip-keywords urlslab-skip-fragment">
 	<div class="wrapper">

@@ -4,7 +4,7 @@ use QualityUnit\Trial_Signup;
 function ms_signup_form_free() {
 
 	// include resources
-	set_custom_source( 'components/Signup' );
+	set_source( false, 'components/Signup' );
 	set_custom_source( 'filterMenu', 'js' );
 	Trial_Signup::include_crm();
 	

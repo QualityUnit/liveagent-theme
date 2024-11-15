@@ -77,6 +77,13 @@ body.login {
 		}
 	}
 
+	@media (min-width: $breakpoint-desktop) {
+
+		.wrapper {
+			height: 29.5em;
+		}
+	}
+
 	@media (max-device-height: 1080px) {
 		align-items: flex-start !important;
 		padding-top: 8em !important;
