@@ -4,6 +4,44 @@
 @use "../common/mixins" as *;
 @use "../elements/LabelTag" as *;
 
+html {
+
+	&:not(
+	[lang="en-US"],
+	[lang="de-DE"],
+	[lang="it-IT"],
+	[lang="hu-HU"],
+	[lang="ro-RO"],
+	[lang="sk-SK"],
+	[lang="sl-SI"],
+	[lang="zh-hans"],
+	[lang="ar"]
+) {
+
+		.Pricing__program {
+
+			&__desc {
+
+				.elementor-widget-container {
+
+					* {
+						font-size: 0.85rem;
+						line-height: 1.375;
+						height: 4.23em;
+
+						display: -webkit-box;
+						-webkit-box-orient: vertical;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						line-clamp: 3;
+						-webkit-line-clamp: 3;
+					}
+				}
+			}
+		}
+	}
+}
+
 
 .Pricing__programs {
 	position: relative;
@@ -241,6 +279,7 @@
 		p {
 			font-size: 0.875rem;
 		}
+
 	}
 
 	&.popular {
