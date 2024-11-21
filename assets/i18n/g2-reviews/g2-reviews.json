@@ -15,5 +15,52 @@
 		"reviewCount": 1500,
 		"bestRating": 10,
 		"worstRating": 0
-	}
+	},
+	"operatingSystem": "Windows, MacOS, Android, iOS",
+	"offers": [
+		{
+			"@type": "Offer",
+			"price": "15",
+			"priceCurrency": "USD",
+			"description": "Small business plan",
+			"eligibleQuantity": {
+				"@type": "QuantitativeValue",
+				"value": 1,
+				"unitCode": "MON"
+			}
+		},
+		{
+			"@type": "Offer",
+			"price": "24",
+			"priceCurrency": "USD",
+			"description": "Medium business plan",
+			"eligibleQuantity": {
+				"@type": "QuantitativeValue",
+				"value": 1,
+				"unitCode": "MON"
+			}
+		},
+		{
+			"@type": "Offer",
+			"price": "39",
+			"priceCurrency": "USD",
+			"description": "Large business plan",
+			"eligibleQuantity": {
+				"@type": "QuantitativeValue",
+				"value": 1,
+				"unitCode": "MON"
+			}
+		},
+		{
+			"@type": "Offer",
+			"price": "59",
+			"priceCurrency": "USD",
+			"description": "Enterprise plan",
+			"eligibleQuantity": {
+				"@type": "QuantitativeValue",
+				"value": 1,
+				"unitCode": "MON"
+			}
+		}
+	]
 }
