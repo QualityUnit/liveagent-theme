@@ -51,7 +51,7 @@ scss/at-extend-no-missing-placeholder */
 					margin-bottom: em(16);
 				}
 
-				h2.elementor-heading-title {
+				h2 {
 
 					font-size: em(32);
 					margin: 0;
@@ -136,13 +136,17 @@ scss/at-extend-no-missing-placeholder */
 	&__btn[class] {
 
 		width: auto;
-		padding: 0 1em;
+		padding: 0 2em;
 		margin: 0;
 		border: 0;
 		border-radius: $border-radius - 2;
-		color: currentcolor;
+		color: $black;
 		background-color: $white;
 		transition: all 0.3s;
+
+		&.Button--copy {
+			padding: 0 1em;
+		}
 
 		span::before {
 			display: none;
