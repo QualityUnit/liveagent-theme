@@ -4,8 +4,8 @@ use QualityUnit\Trial_Signup;
 function ms_signup_form( $atts ) {
 	
 	// include resources
-	set_custom_source( 'components/Signup' );
-	set_custom_source( 'filterMenu', 'js' );
+	set_source( false, 'components/Signup' );
+	set_source( false, 'filterMenu', 'js' );
 	Trial_Signup::include_crm();
 	
 	$atts = shortcode_atts(

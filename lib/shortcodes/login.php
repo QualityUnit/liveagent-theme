@@ -2,6 +2,7 @@
 
 function ms_login() {
 	ob_start();
+	set_source( false, 'components/Signup' );
 	?>
 
 	<div class="Login">
@@ -108,7 +109,6 @@ function ms_login() {
 	<?php // @codingStandardsIgnoreEnd ?>
 
 	<?php
-	set_custom_source( 'components/Signup' );
 	return ob_get_clean();
 }
 add_shortcode( 'login', 'ms_login' );

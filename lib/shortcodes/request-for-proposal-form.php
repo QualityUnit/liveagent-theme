@@ -3,19 +3,19 @@
 function ms_request_for_proposal_form( $atts ) {
 
 	// include resources
-	set_custom_source( 'components/Signup' );
+	set_source( false, 'components/Signup' );
 
 	$atts = shortcode_atts(
 		array(
-			'title'    => __( 'Request for proposal', 'ms' ),
-			'title_tooltip'    => __( 'A request for proposal is ideal for users who want to customize LiveAgent according to their demands. Contacts us and well discuss what we can offer for your business.', 'ms' ),
-			'description'    => __( 'Fill out the form or send us an email. If you need us to sign an NDA, contact Andy at ', 'ms' ),
+			'title'                => __( 'Request for proposal', 'ms' ),
+			'title_tooltip'        => __( 'A request for proposal is ideal for users who want to customize LiveAgent according to their demands. Contacts us and well discuss what we can offer for your business.', 'ms' ),
+			'description'          => __( 'Fill out the form or send us an email. If you need us to sign an NDA, contact Andy at ', 'ms' ),
 			'email_in_description' => __( 'andy@liveagent.com.', 'ms' ),
-			'label1'   => __( 'Customer service since 2004', 'ms' ),
-			'label2'   => __( 'More than 20 000 clients', 'ms' ),
-			'footer_btn_one_text'   => __( 'Start free trial', 'ms' ),
+			'label1'               => __( 'Customer service since 2004', 'ms' ),
+			'label2'               => __( 'More than 20 000 clients', 'ms' ),
+			'footer_btn_one_text'  => __( 'Start free trial', 'ms' ),
 			'footer_btn_one_url'   => __( '/trial/', 'ms' ),
-			'footer_btn_two_text'   => __( 'Request demo', 'ms' ),
+			'footer_btn_two_text'  => __( 'Request demo', 'ms' ),
 			'footer_btn_two_url'   => __( '/demo/', 'ms' ),
 
 		),

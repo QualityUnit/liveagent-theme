@@ -141,6 +141,7 @@
 		@media (min-width: $breakpoint-tablet-landscape) {
 			display: flex;
 			width: $width-left-sm;
+			min-height: 54.875em;
 		}
 
 		@media (min-width: $breakpoint-desktop-box) {
@@ -176,6 +177,7 @@
 			z-index: 5;
 			width: 100%;
 			max-width: 35em;
+			min-height: 54.875em;
 			padding: 0 $wrapper-padding;
 		}
 
