@@ -3,7 +3,7 @@
 function ms_countdown( $atts, $content = null ) {
 	$atts = shortcode_atts(
 		array(
-			'date' => '',
+			'date' => '', // YYYY-MM-DD HH:MM:SS
 		),
 		$atts,
 		'countdown'
