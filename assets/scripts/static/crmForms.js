@@ -269,12 +269,21 @@ class CrmFormHandler {
 		const regex = this.regexPatterns[ key ];
 		const value = element.value.trim();
 
+		// Check if the field is empty
 		if ( value === '' ) {
 			fields[ key ].main.classList.add( 'Error' );
 			this.setError( key, localized.textEmpty );
 			return false;
 		}
 
+		// Check if the value is less than 3 characters
+		if ( key === 'domain' && value.length < 3 ) {
+			fields[ key ].main.classList.add( 'Error' );
+			this.setError( key, localized.textTooShort );
+			return false;
+		}
+
+		// Validate against regex pattern
 		if ( regex.test( value ) ) {
 			this.setError( key, localized.invalid[ key ] );
 			return false;
