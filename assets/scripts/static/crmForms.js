@@ -634,7 +634,7 @@ const handleSourceScripts = () => {
 	handleSourceScripts();
 
 	// init signup forms handlers
-	document.querySelectorAll( 'form[data-form-type=signup-trial-form' ).forEach( ( form ) => {
+	document.querySelectorAll( 'form[data-form-type=signup-trial-form]' ).forEach( ( form ) => {
 		new CrmFormHandler( form );
 	} );
 } )();
