@@ -7,7 +7,7 @@
 	async function initCaptchaApi() {
 		const handleError = () => {
 			//crm respond with error or failed, show error message on submit attempt
-			document.querySelectorAll( 'form[data-form-type=signup-trial-form' ).forEach( ( form ) => {
+			document.querySelectorAll( 'form[data-form-type=signup-trial-form]' ).forEach( ( form ) => {
 				form.addEventListener( 'submit', () => {
 					const errorWrapper = form.querySelector( '[data-id=signUpError]' );
 					if ( errorWrapper ) {
@@ -47,7 +47,7 @@
 				}
 
 				// pass captcha information to forms
-				document.querySelectorAll( 'form[data-form-type=signup-trial-form' ).forEach( ( form ) => {
+				document.querySelectorAll( 'form[data-form-type=signup-trial-form]' ).forEach( ( form ) => {
 					form.dataset.captcha = JSON.stringify( captcha );
 
 					// handle submission without captcha
@@ -80,7 +80,7 @@
 // global captcha onload callback
 // eslint-disable-next-line no-unused-vars
 function quCaptchaOnloadCallback() {
-	document.querySelectorAll( 'form[data-form-type=signup-trial-form' ).forEach( ( form ) => {
+	document.querySelectorAll( 'form[data-form-type=signup-trial-form]' ).forEach( ( form ) => {
 		const captcha = JSON.parse( form.dataset.captcha );
 		const ver = captcha.version;
 		const siteKey = captcha.site_key;

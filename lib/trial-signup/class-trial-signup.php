@@ -69,7 +69,7 @@ class Trial_Signup {
 				'nonce'        => wp_create_nonce( 'qu-crm-nonce' ),
 				'trialUrl'     => home_url( self::$slugs['trial'] ),
 				'thankYouUrl'  => home_url( add_query_arg( 'ver', 'installation', self::$slugs['thank-you'] ) ),
-				
+
 				'crmLangCode'  => self::get_language_code(),
 				'currentLang'  => self::$current_lang,
 			)
@@ -185,6 +185,7 @@ class Trial_Signup {
 				'captcha' => __( 'Verify captcha.', 'qu_signup' ),
 			),
 			'textEmpty'               => __( "Field can't be empty", 'qu_signup' ),
+			'textTooShort'            => __( 'The input must be at least 3 characters long.', 'qu_signup' ),
 			'textFailedDomain'        => __( 'Failed to validate domain', 'qu_signup' ),
 			'textValidating'          => __( 'Validating...', 'qu_signup' ),
 			'textFailedRetrieve'      => __( 'Failed to retrieve valid progress info.', 'qu_signup' ),
