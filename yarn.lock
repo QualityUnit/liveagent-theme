@@ -4919,10 +4919,10 @@ gulp-rtlcss@^1.4:
     through2 "^2.0.5"
     vinyl-sourcemaps-apply "^0.2.1"
 
-gulp-sass@^5.1:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/gulp-sass/-/gulp-sass-5.1.0.tgz#bb3d9094f39a260f62a8d0a6797b95ab826f9663"
-  integrity sha512-7VT0uaF+VZCmkNBglfe1b34bxn/AfcssquLKVDYnCDJ3xNBaW7cUuI3p3BQmoKcoKFrs9jdzUxyb+u+NGfL4OQ==
+gulp-sass@^6.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-sass/-/gulp-sass-6.0.0.tgz#91e651d86baf53bf7de8a537b1a38ea839968a4b"
+  integrity sha512-FGb4Uab4jnH2GnSfBGd6uW3+imvNodAGfsjGcUhEtpNYPVx+TK2tp5uh7MO0sSR7aIf1Sm544werc+zV7ejHHw==
   dependencies:
     lodash.clonedeep "^4.5.0"
     picocolors "^1.0.0"
@@ -6786,12 +6786,7 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-picocolors@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
-  integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
-
-picocolors@^1.0.1, picocolors@^1.1.0:
+picocolors@^1.0.0, picocolors@^1.0.1, picocolors@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.1.1.tgz#3d321af3eab939b083c8f929a1d12cda81c26b6b"
   integrity sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==
