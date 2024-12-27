@@ -7,14 +7,14 @@ function ms_signup_form_free() {
 	set_source( false, 'components/Signup' );
 	set_custom_source( 'filterMenu', 'js' );
 	Trial_Signup::include_crm();
-	
+
 	$regions = Trial_Signup::$regions;
 
 	ob_start();
 	?>
 
 	<div class="Signup__form ">
-		<h2 class="Signup__form__title h3"><?php _e( 'Create FREE account', 'ms' ); ?></h2>
+		<h2 id="h-create-free-account" class="Signup__form__title h3"><?php _e( 'Create FREE account', 'ms' ); ?></h2>
 		<p class="Signup__form__subtitle"><?php _e( 'The FREE account is free forever, but it comes with limited features.', 'ms' ); ?></p>
 
 		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
@@ -61,13 +61,13 @@ function ms_signup_form_free() {
 							<div class="FilterMenu__items--inn">
 								<?php foreach ( $regions as $region_code => $region_name ) { ?>
 									<div class="checkbox FilterMenu__item">
-										<input 
-											class="filter-item" 
-											type="radio" 
-											name="region" 
-											id="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" 
-											value="<?php echo esc_attr( $region_code ); ?>" 
-											data-title="<?php echo esc_attr( $region_name ); ?>" 
+										<input
+											class="filter-item"
+											type="radio"
+											name="region"
+											id="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>"
+											value="<?php echo esc_attr( $region_code ); ?>"
+											data-title="<?php echo esc_attr( $region_name ); ?>"
 										/>
 										<label for="<?php echo esc_attr( "signup_region_{$region_code}" ); ?>" >
 											<span><?php echo esc_html( $region_name ); ?></span>
@@ -105,7 +105,7 @@ function ms_signup_form_free() {
 			</div>
 		</form>
 	</div>
-	
+
 	<?php
 	return ob_get_clean();
 }
