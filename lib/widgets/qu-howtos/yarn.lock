@@ -4172,15 +4172,16 @@
     "@wordpress/i18n" "*"
 
 "@wordpress/media-utils@^5":
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-5.11.0.tgz#9de94893c5fbb1ae037170b454d061df74e01f23"
-  integrity sha512-G8lLmUVeSw+Z/OvmCx6hXO0mWQuuXXht/Vv/BdkjayxQ5kz/2v6szi3TUL1nTVlid7GnIt6QI2LzqxFKf+K8Ug==
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-5.14.0.tgz#8b7b4b36a53e093df3749b0caae63e61999ec3fe"
+  integrity sha512-cZm45MAl/vjssRCMzxNuAKxrZ4NS7Qc3K/iqO/AbNdG/dKKnsyzGBrRCAK0+h8Lvw5Fw84w//ztVdtcllxbwUg==
   dependencies:
     "@babel/runtime" "7.25.7"
     "@wordpress/api-fetch" "*"
     "@wordpress/blob" "*"
     "@wordpress/element" "*"
     "@wordpress/i18n" "*"
+    "@wordpress/private-apis" "*"
 
 "@wordpress/notices@*":
   version "5.11.0"
