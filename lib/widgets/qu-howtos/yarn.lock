@@ -15,26 +15,26 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@ariakit/core@0.4.9":
-  version "0.4.9"
-  resolved "https://registry.yarnpkg.com/@ariakit/core/-/core-0.4.9.tgz#0cb69a4b600c35a5ca8d5cee184ce10e53d4b0f7"
-  integrity sha512-nV0B/OTK/0iB+P9RC7fudznYZ8eR6rR1F912Zc54e3+wSW5RrRvNOiRxyMrgENidd4R7cCMDw77XJLSBLKgEPQ==
+"@ariakit/core@0.4.14":
+  version "0.4.14"
+  resolved "https://registry.yarnpkg.com/@ariakit/core/-/core-0.4.14.tgz#a8bbefbc80a1781ae739bdf25a4fd9130fbd5089"
+  integrity sha512-hpzZvyYzGhP09S9jW1XGsU/FD5K3BKsH1eG/QJ8rfgEeUdPS7BvHPt5lHbOeJ2cMrRzBEvsEzLi1ivfDifHsVA==
 
-"@ariakit/react-core@0.4.10":
-  version "0.4.10"
-  resolved "https://registry.yarnpkg.com/@ariakit/react-core/-/react-core-0.4.10.tgz#d2b7a79e5dbb4f1c809e86d4d9ac2bdbeb20c95d"
-  integrity sha512-r6DZmtHBmSoOj848+RpBwdZy/55YxPhMhfH14JIO2OLn1F6iSFkQwR7AAGpIrlYycWJFSF7KrQu50O+SSfFJdQ==
+"@ariakit/react-core@0.4.15":
+  version "0.4.15"
+  resolved "https://registry.yarnpkg.com/@ariakit/react-core/-/react-core-0.4.15.tgz#333b9ee0f4c12d3b76db06e2d787987c1e3fae27"
+  integrity sha512-Up8+U97nAPJdyUh9E8BCEhJYTA+eVztWpHoo1R9zZfHd4cnBWAg5RHxEmMH+MamlvuRxBQA71hFKY/735fDg+A==
   dependencies:
-    "@ariakit/core" "0.4.9"
+    "@ariakit/core" "0.4.14"
     "@floating-ui/dom" "^1.0.0"
     use-sync-external-store "^1.2.0"
 
-"@ariakit/react@^0.4.10":
-  version "0.4.10"
-  resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.4.10.tgz#4e05e9bc4201b839ef118b4d5acd7965f4a71e3e"
-  integrity sha512-c1+6sNLj57aAXrBZMCVGG+OXeFrPAG0TV1jT7oPJcN/KLRs3aCuO3CCJVep/eKepFzzK01kNRGYX3wPT1TXPNw==
+"@ariakit/react@^0.4.15":
+  version "0.4.15"
+  resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.4.15.tgz#d088faf0e98e59542f3c23c348b6e923a6054208"
+  integrity sha512-0V2LkNPFrGRT+SEIiObx/LQjR6v3rR+mKEDUu/3tq7jfCZ+7+6Q6EMR1rFaK+XMkaRY1RWUcj/rRDWAUWnsDww==
   dependencies:
-    "@ariakit/react-core" "0.4.10"
+    "@ariakit/react-core" "0.4.15"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.22.13":
   version "7.23.5"
@@ -3845,12 +3845,12 @@
     clsx "^2.1.1"
     cmdk "^1.0.0"
 
-"@wordpress/components@*", "@wordpress/components@^28":
-  version "28.11.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/components/-/components-28.11.0.tgz#45c6bd0296abea2c4d40b9fc567f417bea0a06eb"
-  integrity sha512-vDzT1GVaDYhOxjiTkLUA5X/ebatiYBuP2yuynhm+fuWsyoalmlpYfvZAARa/PH+E60C7gpY1CNkU92niJdpr4A==
+"@wordpress/components@*", "@wordpress/components@^29":
+  version "29.0.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/components/-/components-29.0.0.tgz#dc88577880aa70d2d68a57b7e08b3bd7c4441d7c"
+  integrity sha512-Dx8ou9+07RGD6KzOdDDHc8lyE0WVjuARmeD87NtutQWZTpJMc0TXR1eM/7ssgEeSOwXaqvFFuYKTAQajNrrQWQ==
   dependencies:
-    "@ariakit/react" "^0.4.10"
+    "@ariakit/react" "^0.4.15"
     "@babel/runtime" "7.25.7"
     "@emotion/cache" "^11.7.1"
     "@emotion/css" "^11.7.1"
