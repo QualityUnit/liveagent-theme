@@ -3845,9 +3845,9 @@
     "@babel/runtime" "^7.16.0"
 
 "@wordpress/block-editor@*", "@wordpress/block-editor@^14":
-  version "14.6.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-14.6.0.tgz#bf6d90608bfc9c571a4422dbecfa22018e934ac1"
-  integrity sha512-Pala/+i7izwB7QJbr6tVfg2XR0p6wb2biIoF2DjzNh+draoTjPtxCbZQrOJSd8hfyXQOOQPuLiAGdsq50PEZsA==
+  version "14.9.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-14.9.0.tgz#4b78de942a2c7100e4400c332e66d9e98d824169"
+  integrity sha512-Q+91Aip8aG0aslOhGDYfaU6CzM7OA2F2xNHi+6hBixBa++b2jy5WZamLkyot2/7qbCNSS7TPlCFZLyA6UFCtdg==
   dependencies:
     "@babel/runtime" "7.25.7"
     "@emotion/react" "^11.7.1"
@@ -3876,6 +3876,7 @@
     "@wordpress/keycodes" "*"
     "@wordpress/notices" "*"
     "@wordpress/preferences" "*"
+    "@wordpress/priority-queue" "*"
     "@wordpress/private-apis" "*"
     "@wordpress/rich-text" "*"
     "@wordpress/style-engine" "*"
@@ -4858,22 +4859,7 @@
     "@babel/runtime" "7.25.7"
     requestidlecallback "^0.3.0"
 
-"@wordpress/priority-queue@^2.15.0":
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/priority-queue/-/priority-queue-2.15.0.tgz#23031e636d160e92d226eff0484e5466d5e8b854"
-  integrity sha512-5nBlLS6RFMF1tmVV8t8PeyRZNJhnm25EF98TymptykkpJldV8/9waGunFA59fR2sSMV7vg0ofNB18lkQrdBs9Q==
-  dependencies:
-    "@babel/runtime" "^7.16.0"
-
-"@wordpress/priority-queue@^2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/priority-queue/-/priority-queue-2.22.0.tgz#7a54f171a818557f46e011a59253c059e7fdb454"
-  integrity sha512-JLsyYqPoNnkJ/pXtq0PeuE5RhdwwmFeIHjlJBRlZ+xRSXFJB6Z2rJqOYpIbZ7y3zUiAF6o8/o6JUWch6spIwAQ==
-  dependencies:
-    "@babel/runtime" "^7.16.0"
-    requestidlecallback "^0.3.0"
-
-"@wordpress/priority-queue@^2.56.0":
+"@wordpress/priority-queue@^2.15.0", "@wordpress/priority-queue@^2.22.0", "@wordpress/priority-queue@^2.56.0":
   version "2.56.0"
   resolved "https://registry.yarnpkg.com/@wordpress/priority-queue/-/priority-queue-2.56.0.tgz#62a9b8689ed12710bd922d28b642e9e8e40c7bc8"
   integrity sha512-uwQW6RN7xXo7ZOOm4tPkvvAE1pOG8Umo6m95KKy0myQbacDuUfkPZEjq2wAOlRcSjuYyNJkrtjqOdr8Z7eFBsw==
