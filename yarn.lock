@@ -1854,10 +1854,10 @@
   resolved "https://registry.yarnpkg.com/@wordpress/browserslist-config/-/browserslist-config-6.11.0.tgz#4637f0f1336309e519e858347480c01bf2fa8c83"
   integrity sha512-wUDbJ3x7c8iMZLtwo+7VlWZ/vDc47PDW2eSAKW18RrQBSTdaNmWi4qiyFYi7Ye2XkyfUd2gp71MTJjZi6n/V2A==
 
-"@wordpress/eslint-plugin@^21":
-  version "21.4.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/eslint-plugin/-/eslint-plugin-21.4.0.tgz#9499d73c1930b0ba3c598b22f76ac3589ec683de"
-  integrity sha512-8V/cpGDDTG0loqWUjmz2mqVG55hKYTfSRC43xh2aqRIGyeKfMiqaHxD/BgEi94HFdcAhAX6DYwlPnHR18Dc/tw==
+"@wordpress/eslint-plugin@^22":
+  version "22.0.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/eslint-plugin/-/eslint-plugin-22.0.0.tgz#3b5e9a584d780072c5b7012e140332b87315b9d1"
+  integrity sha512-Hh1sO9UV0IYI7D+F6EQnhvs2HAv4H0iBVZikXZKcPmQudlwgV2OWdNprdSe8IoRmpMqmhQ+gkaj9Gwk6NReGHQ==
   dependencies:
     "@babel/eslint-parser" "7.25.7"
     "@typescript-eslint/eslint-plugin" "^6.4.1"
@@ -1867,7 +1867,7 @@
     cosmiconfig "^7.0.0"
     eslint-config-prettier "^8.3.0"
     eslint-plugin-import "^2.25.2"
-    eslint-plugin-jest "^27.2.3"
+    eslint-plugin-jest "^27.4.3"
     eslint-plugin-jsdoc "^46.4.6"
     eslint-plugin-jsx-a11y "^6.5.1"
     eslint-plugin-playwright "^0.15.3"
@@ -3842,7 +3842,7 @@ eslint-plugin-import@^2.25.2:
     semver "^6.3.1"
     tsconfig-paths "^3.15.0"
 
-eslint-plugin-jest@^27.2.3:
+eslint-plugin-jest@^27.4.3:
   version "27.9.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-27.9.0.tgz#7c98a33605e1d8b8442ace092b60e9919730000b"
   integrity sha512-QIT7FH7fNmd9n4se7FFKHbsLKGQiw885Ds6Y/sxKgCZ6natwCsXdgPOADnYVxN2QrRweF0FZWbJ6S7Rsn7llug==
