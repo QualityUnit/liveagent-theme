@@ -3682,9 +3682,9 @@
     "@babel/runtime" "7.25.7"
 
 "@wordpress/block-editor@*", "@wordpress/block-editor@^14":
-  version "14.6.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-14.6.0.tgz#bf6d90608bfc9c571a4422dbecfa22018e934ac1"
-  integrity sha512-Pala/+i7izwB7QJbr6tVfg2XR0p6wb2biIoF2DjzNh+draoTjPtxCbZQrOJSd8hfyXQOOQPuLiAGdsq50PEZsA==
+  version "14.9.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-14.9.0.tgz#4b78de942a2c7100e4400c332e66d9e98d824169"
+  integrity sha512-Q+91Aip8aG0aslOhGDYfaU6CzM7OA2F2xNHi+6hBixBa++b2jy5WZamLkyot2/7qbCNSS7TPlCFZLyA6UFCtdg==
   dependencies:
     "@babel/runtime" "7.25.7"
     "@emotion/react" "^11.7.1"
@@ -3713,6 +3713,7 @@
     "@wordpress/keycodes" "*"
     "@wordpress/notices" "*"
     "@wordpress/preferences" "*"
+    "@wordpress/priority-queue" "*"
     "@wordpress/private-apis" "*"
     "@wordpress/rich-text" "*"
     "@wordpress/style-engine" "*"
