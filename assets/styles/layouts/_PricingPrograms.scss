@@ -47,6 +47,13 @@ html {
 	position: relative;
 	padding: 3em 0 0;
 
+	&.Pricing__programs__new:has(.Pricing__price--sale) {
+
+		.Pricing__price {
+			margin-top: 3.175em !important;
+		}
+	}
+
 	&.Pricing__programs__new {
 
 		> .elementor-container {
@@ -412,7 +419,7 @@ html {
 		display: flex;
 		align-items: flex-end;
 		column-gap: 0.325em;
-		margin: 3.175em 0 0.3em;
+		margin: 1.5em 0 0.3em;
 		line-height: 1;
 
 		&--basic {
