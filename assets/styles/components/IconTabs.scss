@@ -241,6 +241,18 @@
 
 	}
 
+	&__chartRangeText {
+
+		p {
+			font-size: 4rem;
+
+			@media (min-width: $breakpoint-tablet + 1px) and (max-width: $breakpoint-tablet-landscape - 1px) {
+				font-size: 2.75rem;
+			}
+		}
+
+	}
+
 	&__textBubble {
 
 		@include color(background, main-background);
