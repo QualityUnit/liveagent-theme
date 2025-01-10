@@ -18,7 +18,7 @@ function ms_good_hands_redesign( $atts ) {
 	ob_start();
 	?>
 
-	<section class="GoodHands hidden 
+	<section class="GoodHands hidden
 	<?= esc_attr( 'false' === $atts['partnerwithus'] ? '' : 'partnerWithUs' ); ?> ">
 		<div class="wrapper">
 			<div class="GoodHands__text">
@@ -29,12 +29,12 @@ function ms_good_hands_redesign( $atts ) {
 					<?php
 					if ( 'false' === $atts['partnerwithus'] ) {
 						?>
-										
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
-						<span><?php _e( 'Start 14-days free trial', 'ms' ); ?></span>
-					</a>
-					<a href="<?php _e( '/demo/', 'ms' ); ?>" onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a demo' )" class="Button Button--outline">
+
+					<a href="<?php _e( '/demo/', 'ms' ); ?>" onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a demo' )" class="Button Button--full">
 						<span><?php _e( 'Schedule a demo', 'ms' ); ?></span>
+					</a>
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--outline">
+						<span><?php _e( 'Start 14-days free trial', 'ms' ); ?></span>
 					</a>
 					<?php } else { ?>
 						<script type="text/javascript" data-wpfc-render="false">
@@ -44,7 +44,7 @@ function ms_good_hands_redesign( $atts ) {
 							</script>
 					<?php } ?>
 				</div>
-	
+
 				<ul class="GoodHands__logos flex">
 					<li class="GoodHands__logo">
 						<a href="<?php _e( '/awards/', 'ms' ); ?>" title="Capterra">
@@ -104,7 +104,7 @@ function ms_good_hands_redesign( $atts ) {
 	</section>
 
 	<script>
-		
+
 		function showGoodHands() {
 			const goodhands = document.querySelector('.GoodHands');
 			goodhands.classList.remove('hidden');
