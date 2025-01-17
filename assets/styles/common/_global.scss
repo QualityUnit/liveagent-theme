@@ -173,6 +173,12 @@ body {
 	}
 }
 
+[style*="grid-template"] {
+	display: grid;
+	gap: 1em;
+	align-items: center;
+}
+
 .display-block {
 	display: block !important;
 
