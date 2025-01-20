@@ -11,12 +11,13 @@ function ms_signup_sidebar( $atts ) {
 
 	$atts = shortcode_atts(
 		array(
-			'title'     => __( 'Try it for free', 'ms' ),
-			'subtitle'  => __( 'No strings attached', 'ms' ),
+			'form_type' => 'Trial', // Trial, FreeTrial
+			'title'     => '',
+			'subtitle'  => '',
 			'name'      => __( 'Full name', 'ms' ),
 			'email'     => __( 'E-mail', 'ms' ),
 			'company'   => __( 'Company name', 'ms' ),
-			'button'    => __( 'Start your free account', 'ms' ),
+			'button'    => '',
 			'trusted'   => __( 'Trusted by the best', 'ms' ),
 			'js-sticky' => false,
 		),
@@ -24,12 +25,30 @@ function ms_signup_sidebar( $atts ) {
 		'signup-sidebar'
 	);
 
+
 	$signup_switcher = get_post_meta( get_the_ID(), 'signup_switch', true );
+	$signup_form_type = get_post_meta( get_the_ID(), 'signup_form_type', true );
 
 	$title    = get_post_meta( get_the_ID(), 'signup_title', true );
 	$subtitle = get_post_meta( get_the_ID(), 'signup_subtitle', true );
 	$button   = get_post_meta( get_the_ID(), 'signup_button', true );
 
+	// Setting form_type from metabox if available
+	if ( isset( $signup_form_type ) && strlen( $signup_form_type ) > 0 ) {
+		$atts['form_type'] = $signup_form_type;
+	}
+
+	// Default texts based on form_type
+	if ( 'Trial' === $atts['form_type'] ) {
+		$atts['title']    = __( 'Start Free Trial', 'ms' );
+		$atts['subtitle'] = __( '14 or 30 days free trial', 'ms' );
+		$atts['button']   = __( 'Create account for FREE', 'ms' );
+	} elseif ( 'FreeTrial' === $atts['form_type'] ) {
+		$atts['title']    = __( 'Try it for free', 'ms' );
+		$atts['button']   = __( 'Start your free account', 'ms' );
+	}
+
+	// Overwriting texts from metaboxes if set
 	if ( isset( $title ) && strlen( $title ) > 0 ) {
 		$atts['title'] = $title;
 	}
@@ -40,19 +59,17 @@ function ms_signup_sidebar( $atts ) {
 		$atts['button'] = $button;
 	}
 
-	$sticky_class = $atts['js-sticky'] ? 'js-sidebar-sticky' : '';
-
 	$regions = Trial_Signup::$regions;
 
 	ob_start();
 	?>
 
 	<?php if ( 'no' !== $signup_switcher ) { ?>
-		<div class="Signup__sidebar urlslab-skip-keywords <?php echo esc_attr( $sticky_class ); ?>" >
+		<div class="Signup__sidebar urlslab-skip-keywords <?php echo esc_attr( $atts['form_type'] ); ?>" >
 			<div class="Signup__sidebar__title"><?php echo esc_html( $atts['title'] ); ?></div>
 			<div class="Signup__sidebar__subtitle"><?php echo esc_html( $atts['subtitle'] ); ?></div>
 
-			<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
+			<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="<?= esc_attr( $atts['form_type'] ); ?>">
 				<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 				<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 

@@ -21,6 +21,16 @@ function edit_signup_sidebar( $signup ) {
 				'default' => 'yes',
 			),
 			array(
+				'id' => 'signup_form_type',
+				'type' => 'radio',
+				'label' => 'Which form to show',
+				'options' => array(
+					'Trial' => 'Trial form',
+					'FreeTrial' => 'Free from',
+				),
+				'default' => 'Trial',
+			),
+			array(
 				'id'    => 'signup_title',
 				'label' => 'Title',
 				'type'  => 'text',
