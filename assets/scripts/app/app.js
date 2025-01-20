@@ -195,42 +195,6 @@
 		} );
 	}
 
-	const form = query( '.Signup__form' );
-
-	function scroll( element ) {
-		const scrollToPos = form.getBoundingClientRect().top + window.scrollY;
-
-		element.addEventListener( 'click', ( event ) => {
-			if ( element.hasAttribute( 'data-no-anchor' ) ) {
-				return;
-			}
-			event.preventDefault();
-			window.scroll( {
-				top: scrollToPos - 175,
-				behavior: 'smooth',
-			} );
-		} );
-	}
-
-	/* Scroll Buttons to Signup Form */
-	if ( query( '.Signup__form' ) !== null ) {
-		[
-			".Reviews a[href*='trial']",
-			".Reviews a[href*='free-account']",
-			".Portals a[href*='trial']",
-			".Block a[href*='trial']",
-			".Block a[href*='free-account']",
-			".BlockPricing a[href*='trial']",
-		].forEach( ( selector ) => {
-			const elements = queryAll( selector );
-			if ( elements.length > 0 ) {
-				elements.forEach( ( element ) => {
-					scroll( element );
-				} );
-			}
-		} );
-	}
-
 	/* Login */
 	if ( query( '.Login__overlay' ) !== null ) {
 		query( '.Login__overlay' ).addEventListener( 'click', () => {
