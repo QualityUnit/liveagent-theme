@@ -58,9 +58,6 @@ function FinalResults(props) {
 
         <div className="webcalcBlock webcalcBlock--narrow webcalcBlock--rounded__right">
             <AgentsSlider returnAgents={returnAgents} />
-            <small className="click--chartbar">
-              {i18n.click_to_chart}
-            </small>
 
             <ul className="charts">
               <ChartBar width={ getChartWidth('liveagent', agentsCount, maxprice)} name="LiveAgent" price={ getPriceAgents('liveagent', agents).price } />
