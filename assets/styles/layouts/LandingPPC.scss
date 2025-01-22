@@ -7,6 +7,13 @@
 
 .LandingPPC {
 
+	@media (min-width: 1024px) {
+
+		.heroBanner__content__title .elementor-heading-title {
+			font-size: 3.25rem;
+		}
+	}
+
 	&-HeaderSection {
 		max-width: 48em;
 		margin: 5em auto;
@@ -18,10 +25,15 @@
 		}
 	}
 
+	.Clients {
+		margin-top: 7.5em;
+		margin-bottom: 0;
+	}
+
 	section:has(.LandingPPC-floatingBlock) {
 
 		@media (min-width: $breakpoint-tablet-landscape) {
-			margin-top: 13em;
+			margin-top: 11em;
 		}
 	}
 

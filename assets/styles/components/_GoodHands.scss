@@ -13,14 +13,20 @@
 		background: url(../../images/landing-ppc-bg_goodhands.jpg) center bottom no-repeat !important;
 		background-size: cover !important;
 		margin-top: 0 !important;
+		height: auto !important;
 
-		@media (min-width: $breakpoint-tablet-landscape) {
-			height: auto !important;
+		.wrapper[class] {
+
+			padding: 4em 2em !important;
+
+			align-items: center;
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
 
 			.wrapper[class] {
 
 				padding: 4em 0 !important;
-				align-items: center;
 			}
 		}
 	}

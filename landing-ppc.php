@@ -37,7 +37,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	  class="elementor-element elementor-element-73ce06a9 heroBanner__content__title elementor-widget elementor-widget-heading">
 	  <div class="elementor-widget-container">
 	  <h1 class="elementor-heading-title elementor-size-default" id="h-provide-excellent-customer-service">Provide
-		excellent <span class="highlight-gradient">customer</span> service.</h1>
+		excellent customer service.</h1>
 	  </div>
 	  </div>
 	  <div
@@ -60,12 +60,8 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	  <a href="/trial/" class="Button Button--full"
 	  title="Considering LiveAgent help desk software? Fill in your details and you can start your Free Trial, no strings attached, no credit card info needed."
 	  hreflang="en-US" onover-preload="1">
-	  <span>Get Started for FREE</span>
+	  <span>Get Started | 14 days free</span>
 	  </a>
-	  <div class="info__under__button">
-	  <span><strong>30 days </strong>/ corporate email</span>
-	  <span><strong>14 days </strong>/ free email</span>
-	  </div>
 	  </div>
 	</div>
 	</div>
