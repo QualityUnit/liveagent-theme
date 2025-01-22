@@ -9,6 +9,22 @@
 	background: linear-gradient(88deg, rgba(254, 181, 109, 0.3) 0.06%, #ffac5a4d 0.07%, rgba(169, 188, 255, 0.3) 60.59%, rgba(253, 108, 108, 0.3) 85.51%);
 	text-align: center;
 
+	&__new {
+		background: url(../../images/landing-ppc-bg_goodhands.jpg) center bottom no-repeat !important;
+		background-size: cover !important;
+		margin-top: 0 !important;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			height: auto !important;
+
+			.wrapper[class] {
+
+				padding: 4em 0 !important;
+				align-items: center;
+			}
+		}
+	}
+
 	.wrapper {
 
 		padding: 2.5em 0;

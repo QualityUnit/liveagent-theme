@@ -1,0 +1,82 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+.LandingPPC {
+
+	&-HeaderSection {
+		max-width: 48em;
+		margin: 5em auto;
+		text-align: center;
+
+		h2 {
+			font-size: 3rem;
+			line-height: 1.33;
+		}
+	}
+
+	section:has(.LandingPPC-floatingBlock) {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			margin-top: 13em;
+		}
+	}
+
+	&-floatingBlock {
+		position: relative;
+		padding: 5.625em 0;
+		max-width: 1380px;
+		margin: 0 auto;
+		background-color: $white;
+
+
+		.LandingPPC-cols {
+			max-width: 1140px;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			top: -8em;
+			margin-bottom: -6em;
+			border-radius: $border-radius-16;
+			border: 1px solid $level4;
+			box-shadow: 10px 20px 50px -10px rgba(0, 0, 0, 0.06);
+		}
+	}
+
+	&-cols {
+		max-width: 1380px;
+		margin: 0 auto;
+
+		.icon {
+
+			@include square(2.625em);
+			margin-bottom: 1.5em;
+		}
+
+		h4 {
+			font-size: 1.125rem;
+		}
+
+		p {
+			color: $dark-gray;
+			font-size: 0.875rem;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: grid;
+			gap: 3.75em;
+
+
+			&-3 {
+				grid-template-columns: repeat(3, 1fr);
+
+				// .LandingPPC-col {
+				// 	width: 33.33%;
+				// }
+			}
+		}
+	}
+}

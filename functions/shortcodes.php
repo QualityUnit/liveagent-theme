@@ -45,6 +45,7 @@ require_once get_template_directory() . '/lib/shortcodes/small-photo-slider.php'
 	require_once get_template_directory() . '/lib/shortcodes/discover-alternatives.php';
 	require_once get_template_directory() . '/lib/shortcodes/blog-cta.php';
 	require_once get_template_directory() . '/lib/shortcodes/good-hands.php';
+	require_once get_template_directory() . '/lib/shortcodes/good-hands-new.php';
 	require_once get_template_directory() . '/lib/shortcodes/gutenberg-reviews.php';
 	require_once get_template_directory() . '/lib/shortcodes/gutenberg-clients.php';
 	require_once get_template_directory() . '/lib/shortcodes/gutenberg-awards.php';
