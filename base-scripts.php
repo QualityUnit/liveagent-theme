@@ -297,31 +297,14 @@ if (
 	) {
 	?>
 
-	<button class="ContactUs__chatBotOnly hidden" id="chatBotOnly" rel="nofollow noopener external">
-		<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
-	</button>
-
-	<script type="text/javascript" id="fh-chatbot-script">
-		const chatBtnOptions = {
-			<?php if ( is_post_type_archive( array( 'ms_directory' ) ) || is_singular( array( 'ms_directory' ) ) ) { ?>
-				chatbotId: '43655338-f1ff-4273-8e9c-6f0d38c48dd2',
-				workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
-				maxWindowWidth: '700px',
-			<?php } else { ?>
-			chatbotId: 'ee7cb389-4f00-441f-a287-07a43f72f1e3',
-			workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
-			<?php } ?>
-			btnTarget: '#chatBotOnly'
-		};
-		acceptButton.addEventListener( "click", () => {
-			loadChatBot(chatBtnOptions);
-		});
-
-		if ( getCookieFrontend( "cookieLaw" ) ) {
-			loadChatBot(chatBtnOptions);
-		}
-
+	<!-- Start of LiveAgent integration script: Chat button: LA - Website multiwidget - Chatbot -->
+	<script type="text/javascript">
+		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
+			'https://support.ladesk.com/scripts/track.js',
+			function(e){ LiveAgent.createButton('lc71ooi3', e); });
 	</script>
+	<!-- End of LiveAgent integration script -->
+
 	<?php
 }
 ?>
