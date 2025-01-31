@@ -40,7 +40,5 @@
 		}, timeout);
 	}
 
-	if (getCookieFrontend("cookieLaw")) {
 		createAiButton();
-	}
 </script>

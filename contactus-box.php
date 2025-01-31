@@ -1,7 +1,6 @@
 <?php
 	$icons = get_template_directory_uri() . '/assets/images/contact/';
 	require_once get_template_directory() . '/chat-button.php';
-	require_once get_template_directory() . '/ai-chat-button.php';
 ?>
 
 
@@ -104,11 +103,6 @@
 			}
 			?>
 			<li class="ContactUs__menu--item top">
-				<div class="ContactUs__menu--link fakeChatButton no-icon hidden">
-					<span class="fakeChatButton__text"><?php _e( 'Contact form', 'ms' ); ?></span>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
-					<span class="fakeChatButton__msg bottom"><?php _e( 'Please accept our cookies before sending contact form.', 'ms' ); ?></span>
-				</div>
 				<span class="ContactUs__menu--link ContactUs__menu--link__form red" onClick="showContactForm()" data-target="contactUsForm" data-close-target="contactUsMenu">
 					<?php _e( 'Contact form', 'ms' ); ?>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
@@ -124,23 +118,9 @@
 				</button>
 			</li>
 			<li class="ContactUs__menu--item">
-				<div class="ContactUs__menu--link fakeChatButton hidden">
-					<span class="fakeChatButton__text"><?php _e( 'Live Chat', 'ms' ); ?></span>
-					<div class="ContactUs__icon fakeChatButton__icon"></div>
-					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before we start a chat.', 'ms' ); ?></span>
-				</div>
 				<span class="ContactUs__menu--link chat orange" id="chatBtn" data-close-target="contactUsMenu">
-					<?php _e( 'Chat with an agent', 'ms' ); ?>
+					<?php _e( 'Chat', 'ms' ); ?>
 				</span>
-			</li>
-			<li class="ContactUs__menu--item chatbot">
-				<div class="ContactUs__menu--link fakeChatButton hidden">
-					<span class="fakeChatButton__text"><?php _e( 'Chat with a bot', 'ms' ); ?></span>
-					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before we start a chat.', 'ms' ); ?></span>
-				</div>
-				<button class="ContactUs__menu--link chat blue" id="chatBot" data-close-target="contactUsMenu"  rel="nofollow noopener external">
-					<?php _e( 'Chat with a bot', 'ms' ); ?>
-				</button>
 			</li>
 		</ul>
 	</nav>
