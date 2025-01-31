@@ -69,7 +69,6 @@ function createButton() {
 		}, timeout );
 	<?php } ?>
 }
-	if ( getCookieFrontend( "cookieLaw" ) ) {
 		createButton()
-	}
+
 </script>
