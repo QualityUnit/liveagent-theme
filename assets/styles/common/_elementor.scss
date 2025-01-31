@@ -65,11 +65,11 @@
 
 .elementor-widget-heading {
 
-	.elementor-widget-container {
+	&.large-heading {
 
-		h2.large-heading {
-			font-size: $line-height-h2-xxl;
-			line-height: $line-height-h2-xxl;
+		h2 {
+			font-size: $font-size-h2-xxl !important;
+			line-height: $line-height-h2-xxl !important;
 		}
 	}
 
