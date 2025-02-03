@@ -401,7 +401,7 @@ document.addEventListener( 'DOMContentLoaded', ( e ) => {
 } );
 </script>
 
-<?php if(is_page('trial')) { ?>
+<?php if ( is_page( 'trial' ) ) { ?>
 	<!--Start of LiveAgent integration script: CrozDesk Conversion Tracking-->
 	<script type='text/javascript'>
 		(function() {
