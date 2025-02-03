@@ -31,13 +31,13 @@
 
 			<div class="Trial__main__inner">
 				<h1 class="Trial__main__title"><?php _e( 'Start your <span class="highlight-gradient">free trial</span> today', 'ms' ); ?></h1>
-				<p class="Trial__main__text"><?php _e( 'Experience working with LiveAgent for free with our 14 or 30 days free trial. You can enjoy every feature available in the Large plan for free without any strings attached, and select your new LiveAgent plan at the end of your trial.', 'ms' ); ?></p>
+				<p class="Trial__main__text"><?php _e( 'Experience working with LiveAgent for free with our 30 days free trial. You can enjoy every feature available in the Large plan for free without any strings attached, and select your new LiveAgent plan at the end of your trial.', 'ms' ); ?></p>
 				<div class="Signup__form__labels Trial__labels">
 					<div class="Signup__form__labels__label">
-						<?php _e( '14 or 30 days free trial', 'ms' ); ?>&nbsp;
+						<?php _e( '30 days free trial', 'ms' ); ?>&nbsp;
 						<div class="ComparePlans__tooltip">
 							<div class="fontello-info"></div>
-							<div class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?php _e( 'Free trial for 14 days with a free email, or 30 days with a company email', 'ms' ); ?></div>
+							<div class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?php _e( 'Free trial for 30 days with a company email', 'ms' ); ?></div>
 						</div>
 					</div>
 					<div class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></div>
