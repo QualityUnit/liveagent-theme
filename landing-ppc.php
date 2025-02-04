@@ -106,18 +106,42 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	</div>
   </section>
 
+	<section class="LandingPPC-HeaderSection">
+		<div class="wrapper">
+			<h2 class="h1 text-align-center">Connect with your customers on all channels</h2>
+			<p class="text-align-center">
+				Discover our multi-channel help desk software with 130+ ticketing features 
+				and 200+ integrations with the tools you love
+			</p>
+		</div>
+	</section>
+
 	<section>
-		<div class="wrapper flex">
-			<div>
-				<div class="h2"><?= __( 'One solution for every business', 'ms' ); ?></div>
-				<p><?= __( 'Get an efficient customer communication solution and streamline business growth with improved customer satisfaction. LiveAgent is the right help desk software for various business types.', 'ms' ); ?></p>
+		<div class="wrapper">
+			<picture class="urlslab-skip-all">
+				<source srcset="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_all-channels_mobile.jpg' ); ?>" media="(max-width: 48em)">
+				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_all-channels.jpg' ); ?>" alt="Connect with your customers on all channels" loading="lazy" />
+			</picture>
+		</div>
+	</section>
+
+	<section class="LandingPPC-signupForm" id="signupform">
+		<div class="wrapper">
+			<div class="LandingPPC-signupForm__inn flex">
+				<div class="LandingPPC-signupForm__left flex flex-direction-column">
+					<div class="LandingPPC-signupForm__left-text">
+						<h3 class="title"><?= __( 'One solution for every business', 'ms' ); ?></h3>
+						<p><?= __( 'Get an efficient customer communication solution and streamline business growth with improved customer satisfaction. LiveAgent is the right help desk software for various business types.', 'ms' ); ?></p>
+					</div>
+					<img class="ma-top" src="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_img_sign-up-form-app.png' ); ?>" alt="<?= __( 'One solution for every business', 'ms' ); ?>" loading="lazy" />
+				</div>
+				<?= do_shortcode( '[signupform-landingppc]' ); ?>
 			</div>
-			<?= do_shortcode( '[signupform]' ); ?>
 		</div>
 	</section>
 
   <section class="LandingPPC-HeaderSection">
-	<h2>
+	<h2 class="h1">
 	<?=
 	esc_html( get_post_meta( get_the_ID(), 'title', true ) );
 	?>
@@ -174,15 +198,22 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	</div>
   </section>
 
-  <section class="bg-level4">
+  <section class="bg-level4 mt-ultra">
 
 	<div class="wrapper">
-		<h2>Get LiveAgent and join 7000 happy clients</h2>
-		<p>Take a look at the key features and benefits you get when you pick LiveAgent as a dedicated help desk and communication afor your business.</p>
+		<div class="LandingPPC-HeaderSection mb-l">
+			<h2 class="h1">Get LiveAgent and join 7000 happy clients</h2>
+			<p>Take a look at the key features and benefits you get when you pick LiveAgent as a dedicated help desk and communication for your business.</p>
+
+			<div class="Buttons">
+				<a class="Button Button--full" href="#signupform"><span><?php _e( 'Sign up for FREE', 'ms' ); ?></span></a>
+				<a class="Button Button--outline" href="/demo"><span><?php _e( 'Book a demo', 'ms' ); ?></span></a>
+			</div>
+		</div>
 	
-		<div >
+		<div class="SliderTestimonials__wrapper">
 			<?=
-			do_shortcode( '[slidertestimonials_home]' );
+			do_shortcode( '[slidertestimonials_landingppc]' );
 			?>
 		</div>
 	</div>

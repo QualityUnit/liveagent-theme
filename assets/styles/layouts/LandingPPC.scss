@@ -3,9 +3,15 @@
 @use "sass:math";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@use "../common/marginsPaddings" as *;
 
 
 .LandingPPC {
+
+	picture,
+	img {
+		max-width: 100%;
+	}
 
 	@media (min-width: 1024px) {
 
@@ -28,6 +34,45 @@
 	.Clients {
 		margin-top: 7.5em;
 		margin-bottom: 0;
+	}
+
+	&-signupForm {
+		margin: 7.5em auto;
+
+		&__inn {
+			border-radius: $border-radius-16;
+			overflow: hidden;
+			background-color: $level4;
+		}
+
+		&__left {
+			background: url(../../images/landingpcc_sign-up-form_bg.jpg) center bottom no-repeat;
+			background-size: cover;
+			border-radius: 0.625em;
+			margin: 0.5em;
+
+			.title {
+				font-size: 2.5rem;
+				max-width: 15ch;
+			}
+
+			&-text {
+				padding: 6em 3.75em 0;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&__left {
+				width: 57%;
+			}
+		}
+	}
+
+	.SliderTestimonials__wrapper {
+		background: url(../../images/earth.png) center center no-repeat;
+		background-size: contain;
+		padding: 4em 0;
 	}
 
 	section:has(.LandingPPC-floatingBlock) {

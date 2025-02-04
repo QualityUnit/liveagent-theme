@@ -646,4 +646,90 @@
 			}
 		}
 	}
+
+	&__slider--landingPPC {
+
+		&::before,
+		&::after {
+			position: absolute;
+			content: "";
+			width: 14em;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: linear-gradient(to left, rgba($level4, 0), rgba($level4, 1));
+			z-index: 1;
+		}
+
+		&::after {
+			left: auto;
+			right: 0;
+			background: linear-gradient(to right, rgba($level4, 0), rgba($level4, 1));
+		}
+
+		.splide__list {
+			margin-left: -1.5em !important;
+		}
+
+		.splide__pagination {
+			bottom: -3em;
+
+			button.is-active {
+				width: 3em;
+				height: 6px;
+				background-color: #ccc;
+				border-radius: 0.5em;
+				margin: 0 0.5em;
+				top: -2px;
+			}
+		}
+
+		.splide__slide {
+			transition: all 0.3s !important;
+			transform: scale(0.9);
+
+			&::after {
+				mask: none;
+			}
+
+			.slide__inn {
+				height: 100%;
+			}
+
+			&.is-active {
+				z-index: 1;
+				transform: scale(1);
+			}
+		}
+
+		.SliderTestimonials__slider {
+
+			&__header__photo[class] {
+
+				@include square(2.875em);
+				position: static;
+				margin: 0;
+				margin-right: 1em;
+			}
+
+			&__content {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+
+				&__bottom {
+					margin-top: auto;
+				}
+			}
+
+			&__name,
+			&__company {
+				color: $dark-gray;
+			}
+
+			&__company {
+				font-size: 0.75rem;
+			}
+		}
+	}
 }
