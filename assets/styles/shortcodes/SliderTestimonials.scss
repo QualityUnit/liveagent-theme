@@ -674,13 +674,19 @@
 		.splide__pagination {
 			bottom: -3em;
 
-			button.is-active {
-				width: 3em;
-				height: 6px;
-				background-color: #ccc;
-				border-radius: 0.5em;
-				margin: 0 0.5em;
-				top: -2px;
+			button {
+
+				@include square(10px);
+				background-color: $light-gray;
+				opacity: 1;
+
+				&.is-active {
+					width: 2em;
+					height: 8px;
+					border-radius: 0.5em;
+					margin: 0 0.5em;
+					top: -2px;
+				}
 			}
 		}
 
