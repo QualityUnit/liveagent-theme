@@ -16,10 +16,21 @@ function landing_ppc_metaboxes( $metaboxes ) {
 				'show_in_rest' => true,
 			),
 			array(
+				'id'           => 'select',
+				'label'        => 'Main title',
+				'description'  => 'Blabalfwadlasda',
+				'type'         => 'select',
+				'show_in_rest' => true,
+				'options'      => array(
+					'val1' => 'Hodnota',
+					'val2' => 'Hpodnada2',
+				),
+			),
+			array(
 				'id'           => 'subtitle',
 				'label'        => 'Subtitle',
-				'description'  => '',
-				'type'         => 'text',
+				'description'  => 'dadasdadaadda',
+				'type'         => 'image',
 				'show_in_rest' => true,
 			),
 			array(

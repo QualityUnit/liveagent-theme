@@ -106,34 +106,87 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	</div>
   </section>
 
+	<section>
+		<div class="wrapper flex">
+			<div>
+				<div class="h2"><?= __( 'One solution for every business', 'ms' ); ?></div>
+				<p><?= __( 'Get an efficient customer communication solution and streamline business growth with improved customer satisfaction. LiveAgent is the right help desk software for various business types.', 'ms' ); ?></p>
+			</div>
+			<?= do_shortcode( '[signupform]' ); ?>
+		</div>
+	</section>
+
   <section class="LandingPPC-HeaderSection">
-	<h2>What are the benefits of help desk software?</h2>
-	<p>Take a look at the key features and benefits you get when you pick LiveAgent as a dedicated help desk and communication afor your business.</p>
+	<h2>
+	<?=
+	esc_html( get_post_meta( get_the_ID(), 'title', true ) );
+	?>
+	</h2 >
+	<p>
+	<?=
+	esc_html( get_post_meta( get_the_ID(), 'subtitle', true ) );
+	?>
+	</p>
   </section>
 
   <section class="bg-level4">
 	<div class="LandingPPC-floatingBlock">
 	<div class="LandingPPC-cols  LandingPPC-cols-3">
 	  <div class="LandingPPC-col">
-	  <svg class="icon icon-chevron-right"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#color-clock' ); ?>"></use></svg>
-	  <h4>Get rid of late replies to your customers</h4>
-	  <p>Deliver consistent customer service across all channels with faster response times. Use SLAs to prioritize customer emails. Deliver consistent customer service across all channels with faster.</p>
+	  <h4>
+	  <?=
+		esc_html( get_post_meta( get_the_ID(), 'box1_title', true ) );
+		?>
+	</h4>
+	  <p>
+	  <?=
+		esc_html( get_post_meta( get_the_ID(), 'box1_text', true ) );
+		?>
+	</p>
 	  </div>
 	  
 	  <div class="LandingPPC-col">
-	  <svg class="icon icon-chevron-right"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#color-direction' ); ?>"></use></svg>
-	  <h4>Organize your team with collaboration tools</h4>
-	  <p>Customer service teams can use a collaborative inbox and other tools to work in tight integration with each other. Customer service teams can use a collaborative inbox and other tools.</p>
+			<h4>
+	  <?=
+		esc_html( get_post_meta( get_the_ID(), 'box2_title', true ) );
+		?>
+	</h4>
+	  <p>
+	  <?=
+		esc_html( get_post_meta( get_the_ID(), 'box2_text', true ) );
+		?>
+	</p>
 	  </div>
 	  
 	  <div class="LandingPPC-col">
-	  <svg class="icon icon-chevron-right"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#color-stopwatch' ); ?>"></use></svg>
-	  <h4>Measure performance with custom reports</h4>
-	  <p>Get important data, use it to improve, and provide awesome customer service thanks to analytics from custom reports. Get important data, use it to improve, and provide awesome customer service.</p>
+			<h4>
+	  <?=
+		esc_html( get_post_meta( get_the_ID(), 'box3_title', true ) );
+		?>
+	</h4>
+	  <p>
+	  <?=
+		esc_html( get_post_meta( get_the_ID(), 'box3_text', true ) );
+		?>
+	</p>
 	  </div>
 	</div>
 	</div>
   </section>
+
+  <section class="bg-level4">
+
+	<div class="wrapper">
+		<h2>Get LiveAgent and join 7000 happy clients</h2>
+		<p>Take a look at the key features and benefits you get when you pick LiveAgent as a dedicated help desk and communication afor your business.</p>
+	
+		<div >
+			<?=
+			do_shortcode( '[slidertestimonials_home]' );
+			?>
+		</div>
+	</div>
+	</section>
 
   <?= do_shortcode( '[good-hands-new]' ); ?>
 
