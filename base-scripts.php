@@ -81,12 +81,12 @@
 	function gtag() { dataLayer.push(arguments) }
 	gtag('js', new Date())
 
-	// ✅ Default cookie permission for the rest of the world
+	// Default cookie permission for the rest of the world
 	gtag('consent', 'default', {
 		'ad_storage': 'granted',
 		'ad_user_data': 'granted',
 		'ad_personalization': 'granted',
-		'analytics_storage': 'granted'
+		'analytics_storage': 'granted',
 		'functionality_storage': 'granted',
 	});
 
@@ -182,14 +182,14 @@
 		}
 	})
 
-	// ✅ After consent is granted, all cookies and tracking are enabled
+	// After consent is granted, all cookies and tracking are enabled
 	function consentGranted() {
 		gtag('consent', 'update', {
-			'ad_storage': 'granted',  // ✅ Advertising cookies (Google Ads)
-			'ad_user_data': 'granted', // ✅ Data for Google Ads
-			'ad_personalization': 'granted', // ✅ Personalized ads
-			'analytics_storage': 'granted', // ✅ Google Analytics cookies
-			'functionality_storage': 'granted', // ✅ Functional cookies
+			'ad_storage': 'granted',  // Advertising cookies (Google Ads)
+			'ad_user_data': 'granted', // Data for Google Ads
+			'ad_personalization': 'granted', // Personalized ads
+			'analytics_storage': 'granted', // Google Analytics cookies
+			'functionality_storage': 'granted', // Functional cookies
 		})
 	}
 </script>
