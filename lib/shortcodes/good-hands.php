@@ -34,7 +34,7 @@ function ms_good_hands_redesign( $atts ) {
 						<span><?php _e( 'Schedule a demo', 'ms' ); ?></span>
 					</a>
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--outline">
-						<span><?php _e( 'Start 14-days free trial', 'ms' ); ?></span>
+						<span><?php _e( 'Start 30-days free trial', 'ms' ); ?></span>
 					</a>
 					<?php } else { ?>
 						<script type="text/javascript" data-wpfc-render="false">
