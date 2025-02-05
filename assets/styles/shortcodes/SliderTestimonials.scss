@@ -648,27 +648,52 @@
 	}
 
 	&__slider--landingPPC {
+		position: relative;
+		margin: 0 -2em;
 
 		&::before,
 		&::after {
-			position: absolute;
-			content: "";
-			width: 14em;
-			height: 100%;
-			top: 0;
-			left: 0;
-			background: linear-gradient(to left, rgba($level4, 0), rgba($level4, 1));
-			z-index: 1;
-		}
-
-		&::after {
-			left: auto;
-			right: 0;
-			background: linear-gradient(to right, rgba($level4, 0), rgba($level4, 1));
+			display: none;
 		}
 
 		.splide__list {
-			margin-left: -1.5em !important;
+			margin-left: 0 !important;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			&::before,
+			&::after {
+				display: block;
+				position: absolute;
+				content: "";
+				width: 6em;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background: linear-gradient(to left, rgba($level4, 0), rgba($level4, 0.75));
+				z-index: 1;
+			}
+
+			&::after {
+				left: auto;
+				right: 0;
+				background: linear-gradient(to right, rgba($level4, 0), rgba($level4, 0.75));
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			margin: 0;
+
+			&::before,
+			&::after {
+				width: 14em;
+				background: linear-gradient(to left, rgba($level4, 0), rgba($level4, 1));
+			}
+
+			&::after {
+				background: linear-gradient(to right, rgba($level4, 0), rgba($level4, 1));
+			}
 		}
 
 		.splide__pagination {
@@ -692,7 +717,6 @@
 
 		.splide__slide {
 			transition: all 0.3s !important;
-			transform: scale(0.9);
 
 			&::after {
 				mask: none;
@@ -702,9 +726,14 @@
 				height: 100%;
 			}
 
-			&.is-active {
-				z-index: 1;
-				transform: scale(1);
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				transform: scale(0.9);
+
+				&.is-active {
+					z-index: 1;
+					transform: scale(1);
+				}
 			}
 		}
 
@@ -719,9 +748,10 @@
 			}
 
 			&__content {
+
+				@include square(100%);
 				display: flex;
 				flex-direction: column;
-				height: 100%;
 
 				&__bottom {
 					margin-top: auto;

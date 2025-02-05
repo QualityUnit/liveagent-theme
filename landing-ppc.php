@@ -36,15 +36,20 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	  <div
 	  class="elementor-element elementor-element-73ce06a9 heroBanner__content__title elementor-widget elementor-widget-heading">
 	  <div class="elementor-widget-container">
-	  <h1 class="elementor-heading-title elementor-size-default" id="h-provide-excellent-customer-service">Provide
-		excellent customer service.</h1>
+	  <h1 class="elementor-heading-title elementor-size-default" id="h-provide-excellent-customer-service">	
+	  <?=
+		esc_html( get_post_meta( get_the_ID(), 'title', true ) );
+		?>
+	</h1>
 	  </div>
 	  </div>
 	  <div
 	  class="elementor-element elementor-element-6ae1520d heroBanner__content__subtitle elementor-widget elementor-widget-text-editor">
 	  <div class="elementor-widget-container">
-	  <h3 id="h-answer-more-tickets-with-all-in-one-customer-care-solution">Answer more tickets with <br> all-in-one
-	  customer care solution.</h3>
+	  <h3 id="h-answer-more-tickets-with-all-in-one-customer-care-solution">	
+	  <?= get_post_meta( get_the_ID(), 'subtitle', true );  // @codingStandardsIgnoreLine
+		?>
+	</h3>
 	  </div>
 	</div>
 	<div
@@ -108,32 +113,48 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 
 	<section class="LandingPPC-HeaderSection">
 		<div class="wrapper">
-			<h2 class="h1 text-align-center">Connect with your customers on all channels</h2>
+			<h2 class="h1 text-align-center"><?php _e( 'Connect with your customers on all channels', 'ms' ); ?></h2>
 			<p class="text-align-center">
-				Discover our multi-channel help desk software with 130+ ticketing features 
-				and 200+ integrations with the tools you love
+				<?php
+				_e(
+					'Discover our multi-channel help desk software with 130+ ticketing features 
+				and 200+ integrations with the tools you love.',
+					'ms'
+				);
+				?>
 			</p>
 		</div>
 	</section>
 
 	<section>
-		<div class="wrapper">
+		<div class="wrapper LandingPPC-Connect">
 			<picture class="urlslab-skip-all">
-				<source srcset="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_all-channels_mobile.jpg' ); ?>" media="(max-width: 48em)">
+				<source srcset="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_all-channels_mobile.jpg' ); ?>" media="(max-width: 1023px)">
 				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_all-channels.jpg' ); ?>" alt="Connect with your customers on all channels" loading="lazy" />
 			</picture>
+			<div class="flex LandingPPC-Connect__button">
+				<a href="/help-desk-software/" class="Button Button--outline Button--outline-white icn-after-arrow-right" title="Help Desk Software"><span><?php _e( 'Explore our Helpdesk', 'ms' ); ?></span><svg class="icon icon-arrow-right"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=1.25.58#arrow-right' ); ?>"></use></svg></a>
+
+				<a href="#signupform" class="Button Button--full mt-l ma-left ma-right hidden-tablet">
+					<span>
+						<?php
+						_e( 'Get started | 14 day free', 'ms' );
+						?>
+					</span>
+				</a>
+			</div>
 		</div>
 	</section>
 
 	<section class="LandingPPC-signupForm" id="signupform">
-		<div class="wrapper">
-			<div class="LandingPPC-signupForm__inn flex">
+		<div class="wrapper__wide">
+			<div class="LandingPPC-signupForm__inn">
 				<div class="LandingPPC-signupForm__left flex flex-direction-column">
 					<div class="LandingPPC-signupForm__left-text">
-						<h3 class="title"><?= __( 'One solution for every business', 'ms' ); ?></h3>
-						<p><?= __( 'Get an efficient customer communication solution and streamline business growth with improved customer satisfaction. LiveAgent is the right help desk software for various business types.', 'ms' ); ?></p>
+						<h3 class="title"><?= esc_html( get_post_meta( get_the_ID(), 'form_title', true ) ); ?></h3>
+						<p><?= esc_html( get_post_meta( get_the_ID(), 'form_subtitle', true ) ); ?></p>
 					</div>
-					<img class="ma-top" src="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_img_sign-up-form-app.png' ); ?>" alt="<?= __( 'One solution for every business', 'ms' ); ?>" loading="lazy" />
+					<img class="ma-top" src="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_img_sign-up-form-app.png' ); ?>" alt="<?= esc_attr( __( 'One solution for every business', 'ms' ) ); ?>" loading="lazy" />
 				</div>
 				<?= do_shortcode( '[signupform-landingppc]' ); ?>
 			</div>
@@ -143,12 +164,12 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
   <section class="LandingPPC-HeaderSection">
 	<h2 class="h1">
 	<?=
-	esc_html( get_post_meta( get_the_ID(), 'title', true ) );
+	esc_html( get_post_meta( get_the_ID(), 'col_title', true ) );
 	?>
 	</h2 >
 	<p>
 	<?=
-	esc_html( get_post_meta( get_the_ID(), 'subtitle', true ) );
+	esc_html( get_post_meta( get_the_ID(), 'col_subtitle', true ) );
 	?>
 	</p>
   </section>
@@ -157,11 +178,12 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	<div class="LandingPPC-floatingBlock">
 	<div class="LandingPPC-cols  LandingPPC-cols-3">
 	  <div class="LandingPPC-col">
+		<img class="LandingPPC-col__icon mb-l" src="<?= esc_url( get_template_directory_uri() . '/assets/images/landingppc_plus_icon.svg' ); ?>" alt="icon" />
 	  <h4>
-	  <?=
-		esc_html( get_post_meta( get_the_ID(), 'box1_title', true ) );
-		?>
-	</h4>
+			<?=
+			esc_html( get_post_meta( get_the_ID(), 'box1_title', true ) );
+			?>
+		</h4>
 	  <p>
 	  <?=
 		esc_html( get_post_meta( get_the_ID(), 'box1_text', true ) );
@@ -170,11 +192,12 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	  </div>
 	  
 	  <div class="LandingPPC-col">
+			<img class="LandingPPC-col__icon mb-l" src="<?= esc_url( get_template_directory_uri() . '/assets/images/landingppc_plus_icon.svg' ); ?>" alt="icon" />
 			<h4>
-	  <?=
-		esc_html( get_post_meta( get_the_ID(), 'box2_title', true ) );
-		?>
-	</h4>
+				<?=
+				esc_html( get_post_meta( get_the_ID(), 'box2_title', true ) );
+				?>
+			</h4>
 	  <p>
 	  <?=
 		esc_html( get_post_meta( get_the_ID(), 'box2_text', true ) );
@@ -183,27 +206,36 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	  </div>
 	  
 	  <div class="LandingPPC-col">
+			<img class="LandingPPC-col__icon mb-l" src="<?= esc_url( get_template_directory_uri() . '/assets/images/landingppc_plus_icon.svg' ); ?>" alt="icon" />
 			<h4>
-	  <?=
-		esc_html( get_post_meta( get_the_ID(), 'box3_title', true ) );
-		?>
-	</h4>
+				<?=
+				esc_html( get_post_meta( get_the_ID(), 'box3_title', true ) );
+				?>
+			</h4>
 	  <p>
-	  <?=
-		esc_html( get_post_meta( get_the_ID(), 'box3_text', true ) );
-		?>
+			<?=
+				esc_html( get_post_meta( get_the_ID(), 'box3_text', true ) );
+			?>
 	</p>
 	  </div>
+	</div>
+	<div class="flex">
+		<a href="/features" class="LandingPPC-discover">
+			<strong>
+				<?php _e( 'Discover all features', 'ms' ); ?>
+			</strong>
+			<svg class="icon-arrow"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#arrow-right' ); ?>"></use></svg>
+		</a>
 	</div>
 	</div>
   </section>
 
-  <section class="bg-level4 mt-ultra">
+  <section class="bg-level4 mt-ultra p-xxl p-0-tablet-landscape">
 
 	<div class="wrapper">
 		<div class="LandingPPC-HeaderSection mb-l">
-			<h2 class="h1">Get LiveAgent and join 7000 happy clients</h2>
-			<p>Take a look at the key features and benefits you get when you pick LiveAgent as a dedicated help desk and communication for your business.</p>
+			<h2 class="h1"><?php _e( 'Get LiveAgent and join 7000 happy clients', 'ms' ); ?></h2>
+			<p><?php _e( 'Take a look at the key features and benefits you get when you pick LiveAgent as a dedicated help desk and communication for your business.', 'ms' ); ?></p>
 
 			<div class="Buttons">
 				<a class="Button Button--full" href="#signupform"><span><?php _e( 'Sign up for FREE', 'ms' ); ?></span></a>

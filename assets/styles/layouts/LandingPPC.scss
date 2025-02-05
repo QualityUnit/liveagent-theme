@@ -20,6 +20,36 @@
 		}
 	}
 
+	&-Connect {
+		position: relative;
+
+		.Button--full {
+			font-size: 1.125rem;
+			height: 4.333em;
+		}
+
+		.Button--outline {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transition: all 0.3s;
+			opacity: 0;
+
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+
+				.Button--outline {
+					opacity: 1;
+				}
+			}
+		}
+
+	}
+
 	&-HeaderSection {
 		max-width: 48em;
 		margin: 5em auto;
@@ -43,6 +73,10 @@
 			border-radius: $border-radius-16;
 			overflow: hidden;
 			background-color: $level4;
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				display: flex;
+			}
 		}
 
 		&__left {
@@ -53,6 +87,7 @@
 
 			.title {
 				font-size: 2.5rem;
+				line-height: 1.15;
 				max-width: 15ch;
 			}
 
@@ -100,6 +135,23 @@
 			border-radius: $border-radius-16;
 			border: 1px solid $level4;
 			box-shadow: 10px 20px 50px -10px rgba(0, 0, 0, 0.06);
+		}
+	}
+
+	&-discover[class] {
+		display: flex;
+		align-items: center;
+		position: relative;
+		top: 3em;
+		margin-left: auto;
+		margin-right: 3em;
+		text-decoration: none;
+		font-size: 0.875rem;
+
+		svg {
+
+			@include square(1.85em);
+			margin-left: 0.5em;
 		}
 	}
 

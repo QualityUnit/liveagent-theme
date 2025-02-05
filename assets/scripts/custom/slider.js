@@ -93,8 +93,8 @@ if ( sliderLandingPPC.length > 0 ) {
 			type: 'loop',
 			lazyLoad: 'sequential',
 			autoplay: true,
-			fixedWidth: '27.65rem',
-			height: '15.5em',
+			fixedWidth: '28.75rem',
+			height: '14.625em',
 			speed: 500,
 			interval: 5000,
 			perPage: 3,
@@ -105,16 +105,11 @@ if ( sliderLandingPPC.length > 0 ) {
 			focus: 'center',
 			gap: '3em',
 			breakpoints: {
-				1024: {
-					fixedWidth: 'calc(100% - 3em)',
-					height: '18em',
+				1023: {
+					fixedWidth: '75%',
+					perPage: 1,
+					gap: '3em',
 					arrows: false,
-				},
-				767: {
-					fixedWidth: '100%',
-					height: '18em',
-					arrows: false,
-					gap: '0',
 				},
 			},
 		} );
