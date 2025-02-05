@@ -388,7 +388,8 @@ body {
 						}
 					}
 
-					&--full {
+					&--full,
+					&--outline {
 						margin: 0.5em 1.25em;
 						width: calc(100% - 2.5em);
 					}
