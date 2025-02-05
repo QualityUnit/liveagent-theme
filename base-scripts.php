@@ -24,7 +24,7 @@
 
 		const demobarNow = document.querySelector('#demobar');
 
-		if( demobar ) {
+		if( demobarNow ) {
 			demobarNow.classList.add( 'visible' );
 
 			setTimeout( () => {
@@ -81,16 +81,24 @@
 	function gtag() { dataLayer.push(arguments) }
 	gtag('js', new Date())
 
+	// Default cookie permission for the rest of the world
 	gtag('consent', 'default', {
+		'ad_storage': 'granted',
 		'ad_user_data': 'granted',
-		'analytics_storage': 'granted'
-	})
+		'ad_personalization': 'granted',
+		'analytics_storage': 'granted',
+		'functionality_storage': 'granted',
+	});
 
+	// ✅ Override settings: Block cookies for EU countries
 	gtag('consent', 'default', {
+		'ad_storage': 'denied',
 		'ad_user_data': 'denied',
+		'ad_personalization': 'denied',
 		'analytics_storage': 'denied',
+		'functionality_storage': 'denied',
 		'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO']
-	})
+	});
 
 	gtag('config', 'G-T9HBB9KMVK', {
 		'allow_enhanced_conversions': true,
@@ -174,10 +182,14 @@
 		}
 	})
 
+	// After consent is granted, all cookies and tracking are enabled
 	function consentGranted() {
 		gtag('consent', 'update', {
-			'ad_user_data': 'granted',
-			'analytics_storage': 'granted'
+			'ad_storage': 'granted',  // Advertising cookies (Google Ads)
+			'ad_user_data': 'granted', // Data for Google Ads
+			'ad_personalization': 'granted', // Personalized ads
+			'analytics_storage': 'granted', // Google Analytics cookies
+			'functionality_storage': 'granted', // Functional cookies
 		})
 	}
 </script>
@@ -251,34 +263,6 @@
 	}
 </script>
 
-<!-- LiveAgent - Chat Button -->
-<script>
-	function loadChatBot( { chatbotId, workspaceId, btnTarget } ) {
-		const chatBotButton = document.querySelector( btnTarget );
-		try {
-			chatBotButton.classList.remove('hidden');
-		} catch (error) {
-		}
-
-		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
-			'https://app.flowhunt.io/fh-chat-widget.js?v=1.0.20',
-			function(e){
-				const chatbotManager = FHChatbot.initChatbot({
-					showChatButton: false, // important to not show chat button on page load
-					chatbotId: chatbotId,
-					workspaceId: workspaceId,
-					welcomeMessage: 'Hi, I\'m LiveAgent support Bot. How can I help you?',
-					inputPlaceholder: '<?= esc_html( __( 'Ask me any question...' ) ); ?>',
-					suggestedUserMessages: [],
-					urlSuffix: '?utm_medium=chatbot&utm_source=flowhunt',
-					maxWindowWidth: '500px',
-				});
-				chatBotButton.addEventListener('click', () => {
-					chatbotManager.openChat();
-				});
-			});
-	}
-</script>
 
 <?php
 if (
