@@ -121,7 +121,7 @@ class CrmInstaller {
 
 	checkInstallationProgress = async () => {
 		try {
-			const response = await fetch( this.apiBase + `subscriptions/${ this.signupData.id }/install_progress`, {
+			const response = await fetch( this.apiBase + `accounts/${ this.signupData.account_id }/install_progress`, {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
