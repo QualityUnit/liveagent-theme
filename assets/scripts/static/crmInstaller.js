@@ -222,7 +222,7 @@ class CrmInstaller {
 			<input type='hidden' name='${ this.authTokenName }' value='${ data.login_token }'>
 			<input type='hidden' name='l' value='${ this.signupData.language }'>
 			<input type='submit' name='goto' value='${ goToText }' class='FinalButton' style='display: none;'>
-			<a href='${ data.login_url }' data-id='gotoapp' class='FinalButton'>${ goToText }<span class="FinalButton__counter"></span></a>
+			<a href='${ data.login_url }' data-id='gotoapp' class='FinalButton'><span class="FinalButton__counter"><span class="FinalButton__counter__number"></span></span><span class="FinalButton__text">${ goToText }</span></a>
 		</form>`;
 
 		this.fields.main.querySelectorAll( '[data-id="redirectButtonPanel"]' ).forEach( ( elm ) => {
@@ -266,7 +266,9 @@ class CrmInstaller {
 	};
 
 	runLoginExpirationCounter = ( goToButton ) => {
-		const counterElm = goToButton.querySelector( '.FinalButton__counter' );
+		const counterElm = goToButton.querySelector( '.FinalButton__counter__number' );
+		const textElm = goToButton.querySelector( '.FinalButton__text' );
+
 		if ( counterElm ) {
 			let counter = this.loginLinkExpiration;
 			counterElm.innerText = counter;
@@ -276,13 +278,14 @@ class CrmInstaller {
 
 				if ( counter === 0 ) {
 					clearInterval( interval );
-					this.setProgressText( this.localized.textProgressLoginViaEmail );
-					goToButton.innerText = this.localized.textLogInEmail;
 					goToButton.classList.add( 'disabled' );
 					goToButton.setAttribute( 'aria-disabled', true );
 					goToButton.setAttribute( 'tabindex', -1 );
+
+					textElm.innerText = this.localized.textLogInEmail;
+					this.setProgressText( this.localized.textProgressLoginViaEmail );
 				}
-			}, this.loginLinkExpiration * 100 );
+			}, 1000 );
 		}
 	};
 
