@@ -102,6 +102,14 @@
 
 	.elementor-widget-heading {
 
+		&.large-heading {
+
+			h2 {
+				font-size: $font-size-h2-xxl;
+				line-height: $line-height-h2-xxl !important;
+			}
+		}
+
 		h2 {
 			font-size: $font-size-h1;
 			line-height: $line-height-h1 !important;
