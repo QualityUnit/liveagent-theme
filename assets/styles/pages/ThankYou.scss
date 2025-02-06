@@ -80,7 +80,6 @@
 		align-items: center;
 
 		.FinalButton {
-
 			background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%);
 			color: $white;
 			display: inline-block;
@@ -97,6 +96,11 @@
 			cursor: pointer;
 			position: relative;
 			overflow: hidden;
+
+			&.disabled {
+				opacity: 0.5;
+				pointer-events: none;
+			}
 
 			&::after {
 				content: url(/assets/images/arrow_right_white.svg);
@@ -123,6 +127,10 @@
 					right: unset;
 					transform: translate(70%, -44%);
 				}
+			}
+
+			&__counter {
+				margin-left: .5em;
 			}
 		}
 	}
@@ -152,7 +160,7 @@
 
 		&__progress {
 			width: 100%;
-			max-width: 50em;
+			max-width: 55em;
 			padding: 0 1.3125em;
 
 			&__header {
