@@ -218,7 +218,7 @@ class CrmInstaller {
 	createGoToAppForm = ( data ) => {
 		const goToText = this.signupData.is_redeem ? this.localized.textGoToApp : this.localized.textGoToLiveAgent;
 		const redirectFormString =
-		`<form method='GET' action='${ data.login_url }' data-id="gotoapp-form">
+		`<form method='POST' action='${ data.login_url }' data-id="gotoapp-form">
 			<input type='hidden' name='action' value='login'>
 			<input type='hidden' name='${ this.authTokenName }' value='${ data.login_token }'>
 			<input type='hidden' name='l' value='${ this.signupData.language }'>
