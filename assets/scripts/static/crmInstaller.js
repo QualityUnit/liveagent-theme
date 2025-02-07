@@ -238,6 +238,7 @@ class CrmInstaller {
 				if ( ! this.loginFormSubmissionActive ) {
 					return;
 				}
+
 				setTimeout( () => {
 					const form = e.target;
 					const href = form.getAttribute( 'action' );
@@ -251,8 +252,8 @@ class CrmInstaller {
 					}
 
 					const redirectUrl = params.size ? `${ baseUrl }?${ params.toString() }` : baseUrl;
-					redirectForm.setAttribute( 'action', redirectUrl );
-					redirectForm.submit();
+					form.setAttribute( 'action', redirectUrl );
+					form.submit();
 				}, 100 );
 			} );
 
