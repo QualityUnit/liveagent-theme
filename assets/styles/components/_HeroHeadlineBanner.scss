@@ -64,6 +64,10 @@
 
 			&__cta {
 
+				@media (max-width: $breakpoint-tablet) {
+					text-align: center;
+				}
+
 				.Buttons {
 					display: flex;
 					flex-wrap: wrap;
