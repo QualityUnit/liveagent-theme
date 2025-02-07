@@ -68,8 +68,11 @@
 	&.large-heading {
 
 		h2 {
-			font-size: $font-size-h2-xxl !important;
-			line-height: $line-height-h2-xxl !important;
+
+			@media (min-width: ($breakpoint-desktop)) {
+				font-size: $font-size-h2-xxl !important;
+				line-height: $line-height-h2-xxl !important;
+			}
 		}
 	}
 
