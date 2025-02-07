@@ -267,11 +267,14 @@
 <?php
 if (
 		! is_page( array( 'pricing', 'request-demo', 'demo', 'trial', 'thank-you', 'redeem-code', 'free-account', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
-		&& ! is_post_type_archive( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory' ) )
+		&& ! is_post_type_archive( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory', 'ms_checklists', 'ms_reviews', 'ms_awards' ) )
 		&& ! is_single( array( 'facebook', 'liveagent-huawei', 'twitter', 'viber', 'instagram' ) )
-		&& ! is_singular( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory', 'ms_about', 'post' ) )
+		&& ! is_singular( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory', 'ms_about', 'ms_checklists', 'ms_reviews', 'ms_awards', 'post' ) )
 		&& ! is_category( array( 'blog', 'news', 'reviews', 'growth', 'support', 'live-chat', 'help-desk-software' ) )
 		&& ! is_search()
+		&& ! check_parent_child_slug( array( 'business', 'industry' ) )
+		&& ! is_tax( 'ms_reviews_categories' )
+
 	) {
 	include_once get_template_directory() . '/contactus-box.php';
 } elseif ( is_page( 'pricing' ) ) {
