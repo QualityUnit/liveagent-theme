@@ -12,6 +12,7 @@ class CrmInstaller {
 		this.productDomain = 'ladesk.com';
 		this.authTokenName = 'AuthToken';
 
+		this.loginLinkExpiration = 10; // in seconds
 		this.progress = 0;
 		this.progressDots = '';
 
@@ -108,6 +109,8 @@ class CrmInstaller {
 
 				if ( data.login_token ) {
 					this.createGoToAppForm( data );
+				} else {
+					this.setProgressText( this.localized.textProgressLoginViaEmail );
 				}
 
 				return;
@@ -121,7 +124,7 @@ class CrmInstaller {
 
 	checkInstallationProgress = async () => {
 		try {
-			const response = await fetch( this.apiBase + `subscriptions/${ this.signupData.id }/install_progress`, {
+			const response = await fetch( this.apiBase + `accounts/${ this.signupData.account_id }/install_progress`, {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
@@ -219,7 +222,7 @@ class CrmInstaller {
 			<input type='hidden' name='${ this.authTokenName }' value='${ data.login_token }'>
 			<input type='hidden' name='l' value='${ this.signupData.language }'>
 			<input type='submit' name='goto' value='${ goToText }' class='FinalButton' style='display: none;'>
-			<a href='${ data.login_url }' data-id='gotoapp' class='FinalButton'>${ goToText }</a>
+			<a href='${ data.login_url }' data-id='gotoapp' class='FinalButton'><span class="FinalButton__counter"><span class="FinalButton__counter__number"></span></span><span class="FinalButton__text">${ goToText }</span></a>
 		</form>`;
 
 		this.fields.main.querySelectorAll( '[data-id="redirectButtonPanel"]' ).forEach( ( elm ) => {
@@ -257,7 +260,33 @@ class CrmInstaller {
 					redirectForm.submit();
 				}, 100 );
 			} );
+
+			this.runLoginExpirationCounter( goToButton );
 		} );
+	};
+
+	runLoginExpirationCounter = ( goToButton ) => {
+		const counterElm = goToButton.querySelector( '.FinalButton__counter__number' );
+		const textElm = goToButton.querySelector( '.FinalButton__text' );
+
+		if ( counterElm ) {
+			let counter = this.loginLinkExpiration;
+			counterElm.innerText = counter;
+			const interval = setInterval( () => {
+				counter--;
+				counterElm.innerText = counter;
+
+				if ( counter === 0 ) {
+					clearInterval( interval );
+					goToButton.classList.add( 'disabled' );
+					goToButton.setAttribute( 'aria-disabled', true );
+					goToButton.setAttribute( 'tabindex', -1 );
+
+					textElm.innerText = this.localized.textLogInEmail;
+					this.setProgressText( this.localized.textProgressLoginViaEmail );
+				}
+			}, 1000 );
+		}
 	};
 
 	setProgressText = ( text ) => {
