@@ -10,7 +10,7 @@
 	&__control {
 
 		@include color(background-color, main-background);
-		@include color(box-shadow, box-shadow);
+		@include color(box-shadow, box-shadow-small-soft);
 		display: flex;
 		align-items: center;
 		font-size: 0.875rem;
@@ -23,7 +23,8 @@
 		&--menu-is-open {
 
 			&::after {
-				box-shadow: 3px 6px 6px 0 rgba(0, 0, 0, 0.06);
+
+				@include color(box-shadow, box-shadow-small-soft);
 				position: absolute;
 				bottom: 0;
 				left: 0;
@@ -109,7 +110,7 @@
 		&-list {
 
 			@include color(background-color, main-background);
-			@include color(box-shadow, box-shadow);
+			@include color(box-shadow, box-shadow-small-soft);
 			@include scrollbar;
 			display: block;
 			position: absolute;
