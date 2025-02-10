@@ -147,7 +147,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	</section>
 
 	<section class="LandingPPC-signupForm" id="signupform">
-		<div class="wrapper__wide">
+		<div class="wrapper">
 			<div class="LandingPPC-signupForm__inn">
 				<div class="LandingPPC-signupForm__left flex flex-direction-column">
 					<div class="LandingPPC-signupForm__left-text">
