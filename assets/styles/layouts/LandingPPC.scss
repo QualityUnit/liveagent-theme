@@ -13,15 +13,62 @@
 		max-width: 100%;
 	}
 
-	@media (min-width: 1024px) {
+	.Button[class] {
+		height: 2.5rem;
+	}
+
+	.heroBanner {
 
 		.heroBanner__content__title .elementor-heading-title {
-			font-size: 3.25rem;
+			font-size: 2.5rem;
+			line-height: 1.5;
+			text-align: left;
+		}
+
+		h3 {
+			font-size: 1.625rem;
+			text-align: left;
+		}
+
+		@media (max-width: ($breakpoint-tablet - 1px)) {
+
+			.elementor-col-50:has(.homeVideo) {
+				display: block;
+				width: 100% !important;
+				margin-top: 10em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			.heroBanner__content__title .elementor-heading-title {
+				font-size: 3.25rem;
+				line-height: 1.3;
+			}
+		}
+
+		@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+
+			.elementor-col-50:has(.homeVideo) {
+				width: calc(50% + 3.5em);
+				margin-right: -3.5em;
+			}
 		}
 	}
 
+
 	&-Connect {
 		position: relative;
+
+		picture {
+			display: block;
+			margin: 0 auto;
+			max-width: 340px !important;
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				max-width: none !important;
+			}
+		}
 
 		.Button--full {
 			font-size: 1.125rem;
@@ -56,8 +103,15 @@
 		text-align: center;
 
 		h2 {
-			font-size: 3rem;
+			font-size: 2rem;
 			line-height: 1.33;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			h2 {
+				font-size: 3rem;
+			}
 		}
 	}
 
@@ -79,22 +133,47 @@
 			}
 		}
 
+		@media (max-width: ($breakpoint-tablet - 1px)) {
+			margin-left: calc(-1em - 20px);
+			margin-right: calc(-1em - 20px);
+
+			.wrapper {
+				padding: 0;
+			}
+		}
+
 		&__left {
 			background: url(../../images/landingpcc_sign-up-form_bg.jpg) center bottom no-repeat;
 			background-size: cover;
 			border-radius: 0.625em;
-			margin: 0.5em;
 
 			.title {
-				font-size: 2.5rem;
+				font-size: 2rem;
 				line-height: 1.35;
-				max-width: 15ch;
 			}
 
 			&-text {
-				padding: 6.5em 3.75em 0;
+				padding: 6.5em 3em 0;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				.title {
+					font-size: 2.5rem;
+					line-height: 1.35;
+					max-width: 15ch;
+				}
+
+				&-text {
+					padding: 6.5em 3.75em 0;
+				}
+
+				&__left {
+					margin: 0.5em;
+				}
 			}
 		}
+
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 
@@ -119,34 +198,68 @@
 
 	&-floatingBlock {
 		position: relative;
-		padding: 5.625em 0;
-		max-width: 1380px;
+		padding: 1.5em 0;
 		margin: 0 auto;
+		max-width: calc(100% - 3em);
 		background-color: $white;
+		box-shadow: 10px 20px 50px -10px rgba(0, 0, 0, 0.06);
+		border-radius: $border-radius-16;
+		top: -8em;
+		margin-bottom: -6em;
+		padding-bottom: 5.625em;
 
+		&__header {
+			margin-bottom: 12em;
+		}
 
 		.LandingPPC-cols {
 			max-width: 1140px;
 		}
 
-		@media (min-width: $breakpoint-tablet-landscape) {
-			top: -8em;
-			margin-bottom: -6em;
-			border-radius: $border-radius-16;
+		@media (min-width: $breakpoint-tablet) {
+			padding: 2em 0 5.625em;
 			border: 1px solid $level4;
-			box-shadow: 10px 20px 50px -10px rgba(0, 0, 0, 0.06);
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 5.625em 0;
+			// margin-bottom: -6em;
+			// border: 1px solid $level4;
+			max-width: 1380px;
 		}
 	}
 
-	&-discover[class] {
+	&-discover {
+		position: relative;
 		display: flex;
 		align-items: center;
-		position: relative;
-		top: 3em;
+		text-decoration: none !important;
+		font-size: 0.875rem !important;
+		padding: 0 0.25em;
+		background-color: $white;
 		margin-left: auto;
-		margin-right: 3em;
-		text-decoration: none;
-		font-size: 0.875rem;
+		z-index: 1;
+
+		&__wrapper {
+			display: flex;
+			align-items: center;
+			position: relative;
+			top: 3em;
+			width: 100%;
+			padding: 0 3em;
+
+			&::before {
+				position: absolute;
+				left: 3em;
+				top: 50%;
+				transform: translateY(-50%);
+				content: "";
+				border-top: 1px solid $light-gray;
+				height: 0;
+				width: calc(100% - 6em);
+			}
+		}
+
 
 		svg {
 
@@ -167,6 +280,7 @@
 
 		h4 {
 			font-size: 1.125rem;
+			margin-bottom: 0.5em !important;
 		}
 
 		p {
@@ -185,6 +299,13 @@
 				// .LandingPPC-col {
 				// 	width: 33.33%;
 				// }
+			}
+		}
+
+		@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+
+			.LandingPPC-col {
+				padding: 2em;
 			}
 		}
 	}

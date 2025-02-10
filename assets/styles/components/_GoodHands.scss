@@ -21,6 +21,17 @@
 			align-items: center;
 		}
 
+		@media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-tablet-landscape) {
+
+			.GoodHands__text {
+				padding-right: 0;
+			}
+
+			h3 {
+				font-size: 2.5rem !important;
+			}
+		}
+
 		@media (min-width: $breakpoint-desktop-box) {
 
 			.wrapper[class] {

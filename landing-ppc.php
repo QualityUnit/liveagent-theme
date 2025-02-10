@@ -161,7 +161,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 		</div>
 	</section>
 
-  <section class="LandingPPC-HeaderSection">
+  <section class="LandingPPC-HeaderSection LandingPPC-floatingBlock__header">
 	<h2 class="h1">
 	<?=
 	esc_html( get_post_meta( get_the_ID(), 'col_title', true ) );
@@ -219,7 +219,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	</p>
 	  </div>
 	</div>
-	<div class="flex">
+	<div class="flex LandingPPC-discover__wrapper">
 		<a href="/features" class="LandingPPC-discover">
 			<strong>
 				<?php _e( 'Discover all features', 'ms' ); ?>
@@ -230,7 +230,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	</div>
   </section>
 
-  <section class="bg-level4 mt-ultra p-xxl p-0-tablet-landscape">
+  <section class="bg-level4 p-xxl p-0-tablet-landscape">
 
 	<div class="wrapper">
 		<div class="LandingPPC-HeaderSection mb-l">

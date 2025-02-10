@@ -7,11 +7,9 @@
 .Clients {
 	display: flex;
 	flex-flow: wrap row;
-	justify-content: center;
 	align-items: center;
 	margin-top: 10em;
 	column-gap: 2em;
-	height: 4.0625em;
 	overflow: hidden;
 	width: 100%;
 
@@ -31,24 +29,12 @@
 		margin-right: auto;
 	}
 
-	@media (max-width: $breakpoint-mobile) {
-
-		&__item {
-			display: none !important;
-		}
-
-		@for $item from 1 to 4 {
-			&__item:nth-of-type(#{$item}) {
-				display: block !important;
-			}
-		}
-	}
-
 	@media (max-width: $breakpoint-desktop) {
 		margin-top: 7.8125em;
 
 		&__item {
 			margin: 1.25em !important;
+			height: 1.5em;
 		}
 	}
 
@@ -58,6 +44,14 @@
 
 	@media (max-width: $breakpoint-mobile) {
 		margin-top: 3.125em;
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		justify-content: center;
+
+		&__item {
+			height: 4.0625em;
+		}
 	}
 }
 

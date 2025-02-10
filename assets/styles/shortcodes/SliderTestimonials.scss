@@ -753,6 +753,18 @@
 				display: flex;
 				flex-direction: column;
 
+
+				&::before {
+
+					@include square(1.875em);
+					display: block;
+					background: url(../../images/quote.svg) center center no-repeat;
+					background-size: contain;
+					opacity: 0.2;
+					margin-bottom: 1em;
+					content: "";
+				}
+
 				&__bottom {
 					margin-top: auto;
 				}
