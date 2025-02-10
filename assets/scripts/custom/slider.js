@@ -94,7 +94,7 @@ if ( sliderLandingPPC.length > 0 ) {
 			lazyLoad: 'sequential',
 			autoplay: true,
 			fixedWidth: '28.75rem',
-			height: '14.625em',
+			height: '16.625em',
 			speed: 500,
 			interval: 5000,
 			perPage: 3,
