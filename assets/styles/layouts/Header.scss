@@ -388,7 +388,8 @@ body {
 						}
 					}
 
-					&--full {
+					&--full,
+					&--outline {
 						margin: 0.5em 1.25em;
 						width: calc(100% - 2.5em);
 					}
@@ -409,9 +410,8 @@ body {
 					margin: 0;
 				}
 
-				&.Button--outline {
+				&.Button--full {
 					display: flex;
-					width: 6.25em;
 				}
 
 				span {

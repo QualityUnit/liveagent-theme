@@ -17,7 +17,7 @@
 
 			<div class="flex flex-justify-center Buttons">
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
-						<span><?php _e( 'Start 14 day trial', 'ms' ); ?></span>
+						<span><?php _e( 'Start 30 day trial', 'ms' ); ?></span>
 					</a>
 					<a href="<?php _e( '/business/', 'use-case' ); ?>" class="Button Button--outline">
 						<span><?php _e( 'Find my solution', 'use-case' ); ?></span>

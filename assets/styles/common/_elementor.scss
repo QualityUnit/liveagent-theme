@@ -65,6 +65,17 @@
 
 .elementor-widget-heading {
 
+	&.large-heading {
+
+		h2 {
+
+			@media (min-width: ($breakpoint-desktop)) {
+				font-size: $font-size-h2-xxl !important;
+				line-height: $line-height-h2-xxl !important;
+			}
+		}
+	}
+
 	h2.elementor-heading-title {
 		line-height: $line-height-h2;
 

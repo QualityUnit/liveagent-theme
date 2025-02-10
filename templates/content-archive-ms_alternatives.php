@@ -1,6 +1,6 @@
 <?php // @codingStandardsIgnoreLine
 	set_custom_source( 'filter', 'js' );
-	
+
 	$page_header_title = __( 'Alternatives', 'alternatives' );
 	$page_header_args  = array(
 		'type'   => 'lvl-1',
@@ -26,8 +26,8 @@
 							<p class="mt-l"><?php _e( 'Don’t overpay for key features to increase your agent productivity. Compare LiveAgent help desk software with alternative options and find out how you can save more regardless of company size.', 'alternatives' ); ?></p>
 						</div>
 					</div>
-				<?php 
-					echo do_shortcode( '[web_calc]' ); 
+				<?php
+					echo do_shortcode( '[web_calc]' );
 				?>
 			</section>
 
@@ -59,12 +59,12 @@
 												data-id="8860c9c" data-element_type="widget" data-widget_type="text-editor.default">
 												<div class="elementor-widget-container">
 													<p>
-													<?php 
+													<?php
 													_e(
 														'We carefully selected features in our pricing plans so you can pick the most affordable
 														plan with the best value. Pay only for what you use without breaking your budget.',
 														'alternatives'
-													); 
+													);
 													?>
 													</p>
 												</div>
@@ -74,8 +74,8 @@
 												<div class="elementor-widget-container">
 													<div class="pricing__tags">
 														<div class="pricing__tags__label">
-														<?php 
-														_e( '7 or 30 days free trial', 'alternatives' ); 
+														<?php
+														_e( '30 days free trial', 'alternatives' );
 														?>
 														&nbsp;
 															<div class="Tooltip">
@@ -83,19 +83,19 @@
 																<span class="Tooltip__text"
 																	style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(442px, 19417.5px, 0px);"
 																	data-popper-placement="bottom">
-																	<?php 
+																	<?php
 																	_e(
-																		'Free trial for 7 days with a free email, or 30 days with a company email',
+																		'Free trial for 30 days with a company email',
 																		'alternatives'
-																	); 
+																	);
 																	?>
 																	<span data-popper-arrow=""
 																		style="position: absolute; left: 0px; transform: translate3d(0px, 0px, 0px);"></span></span>
 															</div>
 														</div>
 														<div class="pricing__tags__label">
-														<?php 
-														_e( 'No Credit Card required', 'alternatives' ); 
+														<?php
+														_e( 'No Credit Card required', 'alternatives' );
 														?>
 														</div>
 														<div class="pricing__tags__label"><?php _e( 'and many more', 'alternatives' ); ?> </div>

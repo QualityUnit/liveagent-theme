@@ -3,7 +3,7 @@
 /**
  * Setup variables
  */
-define( 'THEME_VERSION', '1.25.58' );
+define( 'THEME_VERSION', '1.25.63' );
 
 /**
  * Includes
@@ -48,6 +48,7 @@ $theme_includes = array(
 	'functions/create-language-menu.php', // Function for generate languages
 	'functions/dynamic-award-badges.php', // Function to place award badges dynamically
 	'functions/get-archive-items-images.php', // Get backgrounds for item on  the archive pages
+	'functions/check-parent-child-slug.php', // Checking pages and subpages for compliance with the slug
 
 );
 

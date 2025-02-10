@@ -64,11 +64,39 @@
 
 			&__cta {
 
+				@media (max-width: $breakpoint-tablet) {
+					text-align: center;
+				}
+
+				.Buttons {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 1em;
+					row-gap: 0.5em;
+
+					@media (max-width: $breakpoint-tablet) {
+						justify-content: center;
+						margin-bottom: 0.5em;
+					}
+				}
+
 				.Button {
 					width: auto;
+
+					+ .Button {
+						margin: 0;
+					}
 				}
 
 				.info__under__button {
+
+					@media (max-width: $breakpoint-tablet) {
+						text-align: center;
+
+						span {
+							margin-right: 0;
+						}
+					}
 
 					span {
 						color: $medium-gray-quotes;

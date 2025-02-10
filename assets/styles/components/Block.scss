@@ -63,9 +63,17 @@ scss/at-extend-no-missing-placeholder */
 
 	h1,
 	h2 {
+		margin-bottom: 15px !important;
+	}
+
+	h1 {
 		font-size: $font-size-h1;
 		line-height: $line-height-h1 !important;
-		margin-bottom: 15px !important;
+	}
+
+	h2 {
+		font-size: $font-size-h2-xxl;
+		line-height: $line-height-h2-xxl !important;
 	}
 
 	.Button {

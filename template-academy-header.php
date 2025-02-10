@@ -75,7 +75,7 @@
 									</ul>
 									<div class="flex flex-wrap">
 										<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
-											<span><?php _e( 'Get Started | 14 days free', 'ms' ); ?> </span>
+											<span><?php _e( 'Get Started | 30 days free', 'ms' ); ?> </span>
 										</a>
 
 									</div>

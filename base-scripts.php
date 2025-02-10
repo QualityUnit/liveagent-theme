@@ -24,7 +24,7 @@
 
 		const demobarNow = document.querySelector('#demobar');
 
-		if( demobar ) {
+		if( demobarNow ) {
 			demobarNow.classList.add( 'visible' );
 
 			setTimeout( () => {
@@ -35,9 +35,7 @@
 		consentGranted();
 		grafana();
 		postAffiliate();
-		if ( typeof createButton == 'function' ) {
-			createButton();
-		}
+
 		<?php if ( ! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) ) ) { ?>
 		if ( typeof offlineContactForm == 'function' ) {
 			offlineContactForm();
@@ -83,16 +81,24 @@
 	function gtag() { dataLayer.push(arguments) }
 	gtag('js', new Date())
 
+	// Default cookie permission for the rest of the world
 	gtag('consent', 'default', {
+		'ad_storage': 'granted',
 		'ad_user_data': 'granted',
-		'analytics_storage': 'granted'
-	})
+		'ad_personalization': 'granted',
+		'analytics_storage': 'granted',
+		'functionality_storage': 'granted',
+	});
 
+	// ✅ Override settings: Block cookies for EU countries
 	gtag('consent', 'default', {
+		'ad_storage': 'denied',
 		'ad_user_data': 'denied',
+		'ad_personalization': 'denied',
 		'analytics_storage': 'denied',
+		'functionality_storage': 'denied',
 		'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO']
-	})
+	});
 
 	gtag('config', 'G-T9HBB9KMVK', {
 		'allow_enhanced_conversions': true,
@@ -176,10 +182,14 @@
 		}
 	})
 
+	// After consent is granted, all cookies and tracking are enabled
 	function consentGranted() {
 		gtag('consent', 'update', {
-			'ad_user_data': 'granted',
-			'analytics_storage': 'granted'
+			'ad_storage': 'granted',  // Advertising cookies (Google Ads)
+			'ad_user_data': 'granted', // Data for Google Ads
+			'ad_personalization': 'granted', // Personalized ads
+			'analytics_storage': 'granted', // Google Analytics cookies
+			'functionality_storage': 'granted', // Functional cookies
 		})
 	}
 </script>
@@ -253,75 +263,59 @@
 	}
 </script>
 
-<!-- LiveAgent - Chat Button -->
-<script>
-	function loadChatBot( { chatbotId, workspaceId, btnTarget } ) {
-		const chatBotButton = document.querySelector( btnTarget );
-		try {
-			chatBotButton.classList.remove('hidden');
-		} catch (error) {
-		}
-
-		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
-			'https://app.flowhunt.io/fh-chat-widget.js?v=1.0.20',
-			function(e){
-				const chatbotManager = FHChatbot.initChatbot({
-					showChatButton: false, // important to not show chat button on page load
-					chatbotId: chatbotId,
-					workspaceId: workspaceId,
-					welcomeMessage: 'Hi, I\'m LiveAgent support Bot. How can I help you?',
-					inputPlaceholder: '<?= esc_html( __( 'Ask me any question...' ) ); ?>',
-					suggestedUserMessages: [],
-					urlSuffix: '?utm_medium=chatbot&utm_source=flowhunt',
-					maxWindowWidth: '500px',
-				});
-				chatBotButton.addEventListener('click', () => {
-					chatbotManager.openChat();
-				});
-			});
-	}
-</script>
 
 <?php
 if (
-		! is_page( array( 'request-demo', 'demo', 'trial', 'thank-you', 'redeem-code', 'free-account', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
-		&& ! is_post_type_archive( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory' ) )
+		! is_page( array( 'pricing', 'request-demo', 'demo', 'trial', 'thank-you', 'redeem-code', 'free-account', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
+		&& ! is_post_type_archive( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory', 'ms_checklists', 'ms_reviews', 'ms_awards' ) )
 		&& ! is_single( array( 'facebook', 'liveagent-huawei', 'twitter', 'viber', 'instagram' ) )
-		&& ! is_singular( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory', 'ms_about', 'post' ) )
+		&& ! is_singular( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory', 'ms_about', 'ms_checklists', 'ms_reviews', 'ms_awards', 'post' ) )
 		&& ! is_category( array( 'blog', 'news', 'reviews', 'growth', 'support', 'live-chat', 'help-desk-software' ) )
 		&& ! is_search()
+		&& ! check_parent_child_slug( array( 'business', 'industry' ) )
+		&& ! is_tax( 'ms_reviews_categories' )
+
 	) {
 	include_once get_template_directory() . '/contactus-box.php';
-} elseif (
-		! is_page( array( 'request-demo', 'demo', 'trial', 'thank-you', 'free-account' ) )
-	) {
+} elseif ( is_page( 'pricing' ) ) {
 	?>
-
-	<button class="ContactUs__chatBotOnly hidden" id="chatBotOnly" rel="nofollow noopener external">
-		<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
-	</button>
-
-	<script type="text/javascript" id="fh-chatbot-script">
-		const chatBtnOptions = {
-			<?php if ( is_post_type_archive( array( 'ms_directory' ) ) || is_singular( array( 'ms_directory' ) ) ) { ?>
-				chatbotId: '43655338-f1ff-4273-8e9c-6f0d38c48dd2',
-				workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
-				maxWindowWidth: '700px',
-			<?php } else { ?>
-			chatbotId: 'ee7cb389-4f00-441f-a287-07a43f72f1e3',
-			workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
-			<?php } ?>
-			btnTarget: '#chatBotOnly'
-		};
-		acceptButton.addEventListener( "click", () => {
-			loadChatBot(chatBtnOptions);
-		});
-
-		if ( getCookieFrontend( "cookieLaw" ) ) {
-			loadChatBot(chatBtnOptions);
-		}
-
+	<!-- Start of LiveAgent integration script: Chat button: LA - Pricing -->
+	<script type="text/javascript">
+		(function(d, src, c) {
+			var t = d.scripts[d.scripts.length - 1], s = d.createElement('script');
+			s.id = 'la_x2s6df8d';
+			s.defer = true;
+			s.src = src;
+			s.onload = s.onreadystatechange = function() {
+				var rs = this.readyState;
+				if (rs && rs !== 'complete' && rs !== 'loaded') return;
+				c(this);
+			};
+			t.parentElement.insertBefore(s, t.nextSibling);
+		})(document, 'https://support.ladesk.com/scripts/track.js',
+			function(e) { LiveAgent.createButton('kri1tmbp', e); });
 	</script>
+	<!-- End of LiveAgent integration script -->
+	<?php
+} elseif ( ! is_page( array( 'request-demo', 'demo', 'trial', 'thank-you', 'free-account' ) ) ) {
+	?>
+	<!-- Start of LiveAgent integration script: Chat button: LA - Website multiwidget - chatbot -->
+	<script type="text/javascript">
+		(function(d, src, c) {
+			var t = d.scripts[d.scripts.length - 1], s = d.createElement('script');
+			s.id = 'la_x2s6df8d';
+			s.defer = true;
+			s.src = src;
+			s.onload = s.onreadystatechange = function() {
+				var rs = this.readyState;
+				if (rs && rs !== 'complete' && rs !== 'loaded') return;
+				c(this);
+			};
+			t.parentElement.insertBefore(s, t.nextSibling);
+		})(document, 'https://support.ladesk.com/scripts/track.js',
+			function(e) { LiveAgent.createButton('lc71ooi3', e); });
+	</script>
+	<!-- End of LiveAgent integration script -->
 	<?php
 }
 ?>
@@ -393,3 +387,15 @@ document.addEventListener( 'DOMContentLoaded', ( e ) => {
 	}
 } );
 </script>
+
+<?php if ( is_page( 'trial' ) ) { ?>
+	<!--Start of LiveAgent integration script: CrozDesk Conversion Tracking-->
+	<script type='text/javascript'>
+		(function() {
+			var cdx = document.createElement("script");  cdx.type = "text/javascript";  cdx.async = true;
+			cdx.src = "https://trk.crozdesk.com/JJ2ye4YXFVAt3ozNznyx";
+			var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(cdx,s);
+		})();
+	</script>
+	<!--End of LiveAgent integration script-->
+<?php } ?>

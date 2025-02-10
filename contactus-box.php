@@ -103,11 +103,6 @@
 			}
 			?>
 			<li class="ContactUs__menu--item top">
-				<div class="ContactUs__menu--link fakeChatButton no-icon hidden">
-					<span class="fakeChatButton__text"><?php _e( 'Contact form', 'ms' ); ?></span>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
-					<span class="fakeChatButton__msg bottom"><?php _e( 'Please accept our cookies before sending contact form.', 'ms' ); ?></span>
-				</div>
 				<span class="ContactUs__menu--link ContactUs__menu--link__form red" onClick="showContactForm()" data-target="contactUsForm" data-close-target="contactUsMenu">
 					<?php _e( 'Contact form', 'ms' ); ?>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
@@ -123,25 +118,9 @@
 				</button>
 			</li>
 			<li class="ContactUs__menu--item">
-				<div class="ContactUs__menu--link fakeChatButton hidden">
-					<span class="fakeChatButton__text"><?php _e( 'Live Chat', 'ms' ); ?></span>
-					<div class="ContactUs__icon fakeChatButton__icon"></div>
-					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before we start a chat.', 'ms' ); ?></span>
-				</div>
 				<span class="ContactUs__menu--link chat orange" id="chatBtn" data-close-target="contactUsMenu">
-					<?php _e( 'Chat with an agent', 'ms' ); ?>
+					<?php _e( 'Chat', 'ms' ); ?>
 				</span>
-			</li>
-			<li class="ContactUs__menu--item chatbot">
-				<div class="ContactUs__menu--link fakeChatButton hidden">
-					<span class="fakeChatButton__text"><?php _e( 'Chat with a bot', 'ms' ); ?></span>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>chatbot.svg" />
-					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before we start a chat.', 'ms' ); ?></span>
-				</div>
-				<button class="ContactUs__menu--link blue" id="chatBot" data-close-target="contactUsMenu"  rel="nofollow noopener external">
-					<?php _e( 'Chat with a bot', 'ms' ); ?>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>chatbot.svg" />
-				</button>
 			</li>
 		</ul>
 	</nav>
@@ -149,38 +128,7 @@
 
 
 <script>
-	const contactUsBtn = document.querySelector('.ContactUs__button');
 	const statusUrl = 'https://status.liveagent.com/';
-
-	contactUsBtn.addEventListener('click', async () => {
-			const chatbotScriptSet = document.getElementById('fh-chatbot-script');
-
-			const menu = document.querySelector('.ContactUs__menu--wrap');
-			const statusInfo = document.querySelector('#contactUsStatus');
-			if ( menu?.classList.contains('hidden') ) {
-
-				if( ! chatbotScriptSet ) {
-					const chatbotScript = document.createElement('script');
-					chatbotScript.setAttribute('id', 'fh-chatbot-script');
-					chatbotScript.innerHTML = `
-							loadChatBot({
-							chatbotId: 'ee7cb389-4f00-441f-a287-07a43f72f1e3',
-							workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
-							btnTarget: '#chatBot'});
-					`;
-					document.querySelector('body').appendChild(chatbotScript);
-				}
-				const serviceStatus = await quStatusWidget.getStatus().then( ( result ) => {
-					return displayStatusIndicator( result );
-				});
-
-				if ( serviceStatus === 'outage' ) {
-					const statusInfoLink = statusInfo.querySelector(`[data-status^=${serviceStatus}]`);
-					statusInfoLink.style.display = 'flex';
-					statusInfoLink.addEventListener( 'click', () => window.open( statusUrl, '_blank' ) );
-				}
-			}
-	})
 
 	const quStatusWidget = {
 		statusJsonUrl: `${statusUrl}/status.json`,
@@ -200,7 +148,7 @@
 
 	function displayStatusIndicator(serviceStatus) {
 		let statusClass = 'ok';
-		if ( !serviceStatus ) {
+		if (!serviceStatus) {
 			return 'unavailable';
 		}
 		if (serviceStatus?.outages?.length > 0) {
@@ -212,16 +160,16 @@
 		return statusClass;
 	}
 
-	function contactUsWhatsApp( element ) {
-		const message = element.getAttribute( 'data-message' );
+	function contactUsWhatsApp(element) {
+		const message = element.getAttribute('data-message');
 		const number = '17862041375';
-		const whatsappLink = 'https://wa.me/' + number + '?text=' + encodeURIComponent( message );
+		const whatsappLink = 'https://wa.me/' + number + '?text=' + encodeURIComponent(message);
 
-		window.open( whatsappLink, '_blank' );
+		window.open(whatsappLink, '_blank');
 	}
+
 	function contactUsMessenger() {
 		const facebookLink = 'https://m.me/LiveAgent/';
-		window.open( facebookLink, '_blank' );
+		window.open(facebookLink, '_blank');
 	}
-
 </script>
