@@ -10,9 +10,9 @@ class CrmInstaller {
 		this.nonce = quCrmData.nonce;
 
 		this.productDomain = 'ladesk.com';
-		this.authTokenName = 'AuthToken';
 
 		this.loginLinkExpiration = 10; // in seconds
+		this.loginFormSubmissionActive = true;
 		this.progress = 0;
 		this.progressDots = '';
 
@@ -217,47 +217,40 @@ class CrmInstaller {
 	createGoToAppForm = ( data ) => {
 		const goToText = this.signupData.is_redeem ? this.localized.textGoToApp : this.localized.textGoToLiveAgent;
 		const redirectFormString =
-		`<form method='POST' action='${ data.login_url }' data-id="trialform">
-			<input type='hidden' name='action' value='login'>
-			<input type='hidden' name='${ this.authTokenName }' value='${ data.login_token }'>
+		`<form method='POST' action='${ data.login_url }' data-id="gotoapp-form">
 			<input type='hidden' name='l' value='${ this.signupData.language }'>
-			<input type='submit' name='goto' value='${ goToText }' class='FinalButton' style='display: none;'>
-			<a href='${ data.login_url }' data-id='gotoapp' class='FinalButton'><span class="FinalButton__counter"><span class="FinalButton__counter__number"></span></span><span class="FinalButton__text">${ goToText }</span></a>
+			<button type="submit" class='FinalButton'><span class="FinalButton__counter"><span class="FinalButton__counter__number"></span></span><span class="FinalButton__text">${ goToText }</span></button>
 		</form>`;
 
 		this.fields.main.querySelectorAll( '[data-id="redirectButtonPanel"]' ).forEach( ( elm ) => {
 			elm.insertAdjacentHTML( 'beforeend', redirectFormString );
 			elm.style.display = 'block';
 
-			const redirectForm = elm.querySelector( 'form[data-id="trialform"]' );
-			const goToButton = elm.querySelector( '[data-id=gotoapp]' );
+			const redirectForm = elm.querySelector( 'form[data-id="gotoapp-form"]' );
+			const goToButton = elm.querySelector( '.FinalButton' );
 
-			goToButton.addEventListener( 'click', ( e ) => {
+			redirectForm.addEventListener( 'submit', ( e ) => {
 				e.preventDefault();
-				setTimeout( () => {
-					const btn = e.target;
-					const href = btn.href;
-					let param = href.replace(
-						`${ data.login_url }`,
-						''
-					);
-					param = param.replace( '?', '' );
 
-					if ( this.pkvid === '' ) {
-						const url = `${ data.login_url }?${ param }`;
-						redirectForm.setAttribute( 'action', url );
-					} else if ( param === '' ) {
-						const url = `${ data.login_url }${ this.pkvid }`;
-						redirectForm.setAttribute( 'action', url );
-					} else if ( this.pkvid === '' && param === '' ) {
-						const url = `${ data.login_url }`;
-						redirectForm.setAttribute( 'action', url );
-					} else {
-						const url = `${ data.login_url }${ this.pkvid }&${ param }`;
-						redirectForm.setAttribute( 'action', url );
+				if ( ! this.loginFormSubmissionActive ) {
+					return;
+				}
+
+				setTimeout( () => {
+					const form = e.target;
+					const href = form.getAttribute( 'action' );
+
+					const url = new URL( href );
+					const params = new URLSearchParams( url.search );
+					const baseUrl = url.origin + url.pathname;
+
+					if ( this.pkvid ) {
+						params.set( 'pk_vid', this.pkvid );
 					}
 
-					redirectForm.submit();
+					const redirectUrl = params.size ? `${ baseUrl }?${ params.toString() }` : baseUrl;
+					form.setAttribute( 'action', redirectUrl );
+					form.submit();
 				}, 100 );
 			} );
 
@@ -284,6 +277,7 @@ class CrmInstaller {
 
 					textElm.innerText = this.localized.textLogInEmail;
 					this.setProgressText( this.localized.textProgressLoginViaEmail );
+					this.loginFormSubmissionActive = false;
 				}
 			}, 1000 );
 		}
@@ -365,7 +359,7 @@ class CrmInstaller {
 				this.pkvid = '';
 			} else {
 				try {
-					this.pkvid = `?pk_vid=${ Piwik.getTracker().getVisitorId() }`;
+					this.pkvid = Piwik.getTracker().getVisitorId();
 				} catch ( e ) {
 					// eslint-disable-next-line no-console
 					console.warn( 'Tracking script failed:', 'Piwik' );
