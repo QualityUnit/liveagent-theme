@@ -112,9 +112,9 @@ if ( sliderLandingPPC.length > 0 ) {
 					arrows: false,
 				},
 				767: {
-					fixedWidth: '75%',
+					fixedWidth: '90%',
 					height: '22em',
-					perPage: 1,
+					perPage: 3,
 					gap: '3em',
 					arrows: false,
 				},

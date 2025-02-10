@@ -16,12 +16,13 @@
 	.Clients__item {
 		filter: brightness(0) opacity(0.18);
 		transition: filter 0.3s;
+		margin: 1.5em 0.5em !important;
 	}
 
 	img {
 		display: block;
 		max-width: 7.8125em;
-		height: 1.5625em;
+		height: 1.125em;
 	}
 
 	.Reviews & {
@@ -30,16 +31,12 @@
 	}
 
 	@media (max-width: $breakpoint-desktop) {
-		margin-top: 7.8125em;
+		margin-top: 4.6875em;
 
 		&__item {
-			margin: 1.25em !important;
-			height: 1.5em;
+			margin: 1.25em 0.5em !important;
+			height: 1.125em;
 		}
-	}
-
-	@media (max-width: $breakpoint-desktop) {
-		margin-top: 4.6875em;
 	}
 
 	@media (max-width: $breakpoint-mobile) {
@@ -54,6 +51,7 @@
 		}
 	}
 }
+
 
 .Block .Clients {
 	margin-top: 2.5em;

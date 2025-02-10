@@ -213,9 +213,9 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 				?>
 			</h4>
 	  <p>
-			<?=
-				esc_html( get_post_meta( get_the_ID(), 'box3_text', true ) );
-			?>
+			Customer service teams can use a collaborative inbox and other tools to work in tight integration with each other. Customer service teams can use a collaborative inbox and other tools.
+
+			Customer service teams can use a collaborative inbox and other tools to work in tight integration with each other. Customer service teams can use a collaborative inbox and other tools.
 	</p>
 	  </div>
 	</div>
@@ -230,7 +230,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	</div>
   </section>
 
-  <section class="bg-level4 p-xxl p-0-tablet-landscape">
+  <section class="bg-level4">
 
 	<div class="wrapper">
 		<div class="LandingPPC-HeaderSection mb-l">

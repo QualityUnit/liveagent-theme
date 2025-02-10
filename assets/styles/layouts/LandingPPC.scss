@@ -13,7 +13,12 @@
 		max-width: 100%;
 	}
 
+	section {
+		border-radius: $border-radius-16;
+	}
+
 	.heroBanner {
+
 
 		.heroBanner__content__title .elementor-heading-title {
 			font-size: 2.5rem;
@@ -28,10 +33,25 @@
 
 		@media (max-width: ($breakpoint-tablet - 1px)) {
 
+			.wrapper {
+				padding: 0 !important;
+				text-align: left;
+			}
+
+			.elementor-col-50 * {
+				justify-content: flex-start !important;
+			}
+
+			.heroBanner__content__footer__cta {
+				width: 100%;
+				text-align: left;
+			}
+
 			.elementor-col-50:has(.homeVideo) {
 				display: block;
-				width: 100% !important;
-				margin-top: 10em;
+				width: calc(100% + 2em) !important;
+				margin-top: 8em;
+				margin-right: -1em !important;
 			}
 		}
 
@@ -156,6 +176,12 @@
 				padding: 6.5em 3em 0;
 			}
 
+			img {
+				width: 130%;
+				margin-left: -15%;
+				max-width: none;
+			}
+
 			@media (min-width: $breakpoint-tablet) {
 				margin: 0.5em;
 
@@ -172,7 +198,6 @@
 			}
 		}
 
-
 		@media (min-width: $breakpoint-tablet-landscape) {
 
 			&__left {
@@ -184,7 +209,12 @@
 	.SliderTestimonials__wrapper {
 		background: url(../../images/earth.png) center center no-repeat;
 		background-size: contain;
-		padding: 4em 0;
+		padding: 0 2em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			padding: 4em 0;
+		}
 	}
 
 	section:has(.LandingPPC-floatingBlock) {
@@ -212,6 +242,12 @@
 
 		.LandingPPC-cols {
 			max-width: 1140px;
+
+			p {
+				margin-bottom: 0;
+				max-height: 4lh;
+				overflow-y: hidden;
+			}
 		}
 
 		@media (min-width: $breakpoint-tablet) {
