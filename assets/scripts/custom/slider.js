@@ -111,6 +111,13 @@ if ( sliderLandingPPC.length > 0 ) {
 					gap: '3em',
 					arrows: false,
 				},
+				767: {
+					fixedWidth: '75%',
+					height: '22em',
+					perPage: 1,
+					gap: '3em',
+					arrows: false,
+				},
 			},
 		} );
 

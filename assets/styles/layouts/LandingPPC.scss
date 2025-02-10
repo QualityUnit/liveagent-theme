@@ -13,10 +13,6 @@
 		max-width: 100%;
 	}
 
-	.Button[class] {
-		height: 2.5rem;
-	}
-
 	.heroBanner {
 
 		.heroBanner__content__title .elementor-heading-title {
@@ -105,6 +101,10 @@
 		h2 {
 			font-size: 2rem;
 			line-height: 1.33;
+		}
+
+		.Button {
+			height: 2.5rem;
 		}
 
 		@media (min-width: $breakpoint-tablet) {
