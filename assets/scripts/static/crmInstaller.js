@@ -10,7 +10,6 @@ class CrmInstaller {
 		this.nonce = quCrmData.nonce;
 
 		this.productDomain = 'ladesk.com';
-		this.authTokenName = 'AuthToken';
 
 		this.loginLinkExpiration = 10; // in seconds
 		this.loginFormSubmissionActive = true;
@@ -219,8 +218,6 @@ class CrmInstaller {
 		const goToText = this.signupData.is_redeem ? this.localized.textGoToApp : this.localized.textGoToLiveAgent;
 		const redirectFormString =
 		`<form method='POST' action='${ data.login_url }' data-id="gotoapp-form">
-			<input type='hidden' name='action' value='login'>
-			<input type='hidden' name='${ this.authTokenName }' value='${ data.login_token }'>
 			<input type='hidden' name='l' value='${ this.signupData.language }'>
 			<button type="submit" class='FinalButton'><span class="FinalButton__counter"><span class="FinalButton__counter__number"></span></span><span class="FinalButton__text">${ goToText }</span></button>
 		</form>`;
