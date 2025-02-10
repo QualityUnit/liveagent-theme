@@ -140,6 +140,21 @@ body {
 
 .hidden {
 	display: none !important;
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&-tablet {
+			display: none !important;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&-tablet-landscape {
+			display: none !important;
+		}
+	}
+
 }
 
 .invisible {

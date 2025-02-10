@@ -49,6 +49,86 @@
 		}
 	}
 
+	&__items {
+
+		@include color(background-color, main-background);
+		position: absolute;
+		top: 100%;
+		left: 0;
+		display: none;
+		opacity: 0;
+		overflow: hidden;
+		border-radius: 0.625em;
+		width: 100%;
+		padding: 1em 1.45em;
+		transition: opacity 0.1s;
+		box-shadow: 0 0.063em 0.375em rgba($black, 0.16);
+
+		&--inn {
+			max-height: 19em;
+			position: relative;
+			margin-left: -1.45em;
+			margin-right: -1.85em;
+		}
+
+		&.scrollbar-visible {
+
+			&::before {
+
+				@include color(background-color, secondary-background);
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 0.7em;
+			}
+
+			.FilterMenu__items--inn {
+
+				@include scrollbar(0.5em);
+				overflow-y: scroll;
+				margin-right: -1.35em;
+			}
+		}
+
+		&.active {
+			display: block;
+		}
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+
+	&__item {
+		overflow: visible;
+		position: relative;
+		display: flex;
+		align-content: center;
+		margin-bottom: 0.25em;
+		text-decoration: none !important;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+				background-color: $pricing-gray;
+			}
+		}
+	}
+
+	&__item [type="checkbox"] + label,
+	&__item [type="radio"] + label,
+	a[href] &__item-title {
+		line-height: 1.4;
+		padding: 0.5em 1em;
+	}
+
 	@media (min-width: $breakpoint-tablet) {
 
 		&__desc {
@@ -56,130 +136,6 @@
 			font-size: 0.875rem;
 			font-weight: $font-weight-semi;
 			line-height: 1;
-		}
-
-		&__items {
-
-			@include color(background-color, main-background);
-			position: absolute;
-			top: 100%;
-			left: 0;
-			display: none;
-			opacity: 0;
-			overflow: hidden;
-			border-radius: 0.625em;
-			width: 100%;
-			padding: 1em 1.45em;
-			transition: opacity 0.1s;
-			box-shadow: 0 0.063em 0.375em rgba($black, 0.16);
-
-			&--inn {
-				max-height: 19em;
-				position: relative;
-				margin-left: -1.45em;
-				margin-right: -1.85em;
-			}
-
-			&.scrollbar-visible {
-
-				&::before {
-
-					@include color(background-color, secondary-background);
-					display: block;
-					content: "";
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					width: 0.7em;
-				}
-
-				.FilterMenu__items--inn {
-
-					@include scrollbar(0.5em);
-					overflow-y: scroll;
-					margin-right: -1.35em;
-				}
-			}
-
-			&.active {
-				display: block;
-			}
-
-			&.visible {
-				opacity: 1;
-			}
-		}
-
-		&__item {
-			overflow: visible;
-			position: relative;
-			display: flex;
-			align-content: center;
-			margin-bottom: 0.25em;
-			text-decoration: none !important;
-
-			&:last-of-type {
-				margin-bottom: 0;
-			}
-
-			@media (hover: hover) {
-
-				&:hover {
-					background-color: $pricing-gray;
-				}
-			}
-		}
-
-		&__item [type="checkbox"] + label,
-		&__item [type="radio"] + label,
-		a[href] &__item-title {
-			line-height: 1.4;
-			padding: 0.5em 1em;
-		}
-	}
-
-	@media (max-width: $breakpoint-tablet - 1) {
-
-		&__title {
-			display: none !important;
-		}
-
-		&__item {
-
-			margin-bottom: 0.143em;
-
-			[type="checkbox"],
-			[type="radio"] {
-
-				+ label {
-					line-height: 1.2;
-					padding: 0.857em;
-					border-radius: 0.429em;
-					box-shadow: inset 0 0 0 0.071em $medium-gray-inputs;
-				}
-
-				&:checked + label {
-					box-shadow: inset 0 0 0 0.143em $dark-orange;
-				}
-			}
-		}
-
-		a[href] {
-
-			display: block;
-			margin-bottom: 0.143em;
-
-			.FilterMenu__item-title {
-				line-height: 1.2;
-				padding: 0.857em;
-				border-radius: 0.429em;
-				box-shadow: inset 0 0 0 0.071em $medium-gray-inputs;
-			}
-
-			&.active .FilterMenu__item-title {
-				box-shadow: inset 0 0 0 0.143em $dark-orange;
-			}
 		}
 	}
 }

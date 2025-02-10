@@ -1,0 +1,176 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.no-margin[class] {
+	margin: 0;
+}
+
+.elementorPadding[class] {
+	padding-left: var(--padding-left) !important;
+	padding-right: var(--padding-right) !important;
+	padding-top: var(--padding-top) !important;
+	padding-bottom: var(--padding-bottom) !important;
+}
+
+$marginSide: (
+	left,
+	right,
+	top,
+	bottom
+);
+
+@each $side in $marginSide {
+
+	[class].ma-#{$side} {
+		margin-#{$side}: auto;
+	}
+}
+
+@each $size,
+	$val in $sizes {
+	.m-#{$size}[class] {
+		margin: $val;
+	}
+
+	.mt-#{$size}[class] {
+		margin-top: $val;
+	}
+
+	.mr-#{$size}[class] {
+		margin-right: $val;
+	}
+
+	.mb-#{$size}[class] {
+		margin-bottom: $val;
+	}
+
+	.ml-#{$size}[class] {
+		margin-left: $val;
+	}
+
+	.p-#{$size}[class] {
+		padding: $val;
+	}
+
+	.pt-#{$size}[class] {
+		padding-top: $val;
+	}
+
+	.pr-#{$size}[class] {
+		padding-right: $val;
+	}
+
+	.pb-#{$size}[class] {
+		padding-bottom: $val;
+	}
+
+	.pl-#{$size}[class] {
+		padding-left: $val;
+	}
+}
+
+@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+	$size2xultra: 5em;
+
+	.pt-2xultra[class] {
+		padding-top: $size2xultra;
+	}
+
+	.pb-2xultra[class] {
+		padding-bottom: $size2xultra;
+	}
+}
+
+@media (min-width: $breakpoint-tablet) {
+
+	@each $size,
+		$val in $sizes {
+		.m-#{$size}-tablet[class] {
+			margin: $val;
+		}
+
+		.mt-#{$size}-tablet[class] {
+			margin-top: $val;
+		}
+
+		.mr-#{$size}-tablet[class] {
+			margin-right: $val;
+		}
+
+		.mb-#{$size}-tablet[class] {
+			margin-bottom: $val;
+		}
+
+		.ml-#{$size}-tablet[class] {
+			margin-left: $val;
+		}
+
+		.p-#{$size}-tablet[class] {
+			padding: $val;
+		}
+
+		.pt-#{$size}-tablet[class] {
+			padding-top: $val;
+		}
+
+		.pr-#{$size}-tablet[class] {
+			padding-right: $val;
+		}
+
+		.pb-#{$size}-tablet[class] {
+			padding-bottom: $val;
+		}
+
+		.pl-#{$size}-tablet[class] {
+			padding-left: $val;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-tablet-landscape) {
+
+	@each $size,
+		$val in $sizes {
+		.m-#{$size}-tablet-landscape[class] {
+			margin: $val;
+		}
+
+		.mt-#{$size}-tablet-landscape[class] {
+			margin-top: $val;
+		}
+
+		.mr-#{$size}-tablet-landscape[class] {
+			margin-right: $val;
+		}
+
+		.mb-#{$size}-tablet-landscape[class] {
+			margin-bottom: $val;
+		}
+
+		.ml-#{$size}-tablet-landscape[class] {
+			margin-left: $val;
+		}
+
+		.p-#{$size}-tablet-landscape[class] {
+			padding: $val;
+		}
+
+		.pt-#{$size}-tablet-landscape[class] {
+			padding-top: $val;
+		}
+
+		.pr-#{$size}-tablet-landscape[class] {
+			padding-right: $val;
+		}
+
+		.pb-#{$size}-tablet-landscape[class] {
+			padding-bottom: $val;
+		}
+
+		.pl-#{$size}-tablet-landscape[class] {
+			padding-left: $val;
+		}
+	}
+}
