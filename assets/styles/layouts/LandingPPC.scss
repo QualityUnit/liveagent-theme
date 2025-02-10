@@ -245,8 +245,11 @@
 
 			p {
 				margin-bottom: 0;
-				max-height: 4lh;
-				overflow-y: hidden;
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 		}
 
