@@ -58,6 +58,14 @@
 		}
 	}
 
+	&--free-plan {
+		display: flex;
+		align-items: center;
+		margin-top: 2.5em;
+		margin-bottom: 5em;
+		min-height: 37.5em;
+	}
+
 	@media (max-width: $breakpoint-desktop) {
 
 		h1 {

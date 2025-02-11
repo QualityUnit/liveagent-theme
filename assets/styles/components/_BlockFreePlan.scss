@@ -1,0 +1,162 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+
+.Block--free-plan {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+
+	.elementor-widget-heading {
+
+		h2 {
+			margin-bottom: 1.25em;
+			color: $black;
+			text-align: center;
+			font-size: 2.5em;
+			font-weight: $font-weight-bold;
+			line-height: 1.4;
+		}
+	}
+
+	.elementor-widget-text-editor {
+		max-width: 56.25rem;
+		margin-left: auto;
+		margin-right: auto;
+
+		p {
+			margin-bottom: 3.75em;
+			color: $black;
+			text-align: center;
+			font-size: 1rem;
+			font-weight: $font-weight-normal;
+			line-height: 1.625;
+		}
+	}
+
+	&--benefits {
+		position: relative;
+		text-align: center;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 91px;
+			width: 100%;
+			height: 1px;
+			background: linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, $light-gray 19.79%, rgba(228, 229, 233, 0.85) 72.4%, rgba(228, 229, 233, 0.00) 100%, rgba(255, 255, 255, 0.00) 100%);
+		}
+
+		> .elementor-container {
+			position: relative;
+			width: 100%;
+			max-width: $wrapper-width;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: $wrapper-padding;
+			padding-right: $wrapper-padding;
+			border-radius: 1rem;
+
+			@media (max-width: $breakpoint-desktop) {
+				padding-left: ($wrapper-padding * 2);
+				padding-right: ($wrapper-padding * 2);
+			}
+
+			@media (max-width: $breakpoint-tablet) {
+				padding-left: ($wrapper-padding * 2) !important;
+				padding-right: ($wrapper-padding * 2) !important;
+			}
+
+			@media (max-width: 415px) {
+				padding-left: $wrapper-padding !important;
+				padding-right: $wrapper-padding !important;
+			}
+
+			.elementor-column {
+				position: relative;
+
+				@media (max-width: $breakpoint-tablet-landscape) {
+					width: 50%;
+				}
+
+				@media (max-width: $breakpoint-tablet) {
+					width: 100%;
+				}
+
+				&::before {
+					content: '';
+					position: absolute;
+					bottom: 72px;
+					left: 50%;
+					transform: translate(-50%, -50%);
+
+					@include square(1.25em);
+					background-image: url(../../images/dot-orange.svg);
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center center;
+				}
+
+				.elementor-widget-wrap {
+					max-width: 10.8125rem;
+					margin-left: auto;
+					margin-right: auto;
+					padding: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					gap: 5em;
+
+					@media (max-width: $breakpoint-tablet-landscape) {
+						max-width: 100%;
+					}
+				}
+			}
+		}
+
+		.elementor-widget-text-editor {
+
+			p {
+				margin: 0;
+				color: $black;
+				font-size: 1.125em;
+				font-weight: $font-weight-bold;
+			}
+		}
+	}
+
+	&--table-wrapper {
+
+		.elementor-widget-text-editor {
+
+			p {
+				margin: 0;
+			}
+		}
+
+		.link-arrow {
+			margin-top: 0.625em;
+			margin-bottom: 1.25em;
+			display: block;
+			color: $black;
+			font-size: 0.875rem;
+			font-weight: $font-weight-bold;
+			text-decoration: none;
+
+			&--right {
+				text-align: right;
+			}
+
+			svg {
+				margin-left: 0.625em;
+
+				@include square(1.3125em);
+			}
+		}
+	}
+}
