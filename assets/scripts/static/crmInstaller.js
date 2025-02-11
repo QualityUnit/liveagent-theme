@@ -107,7 +107,7 @@ class CrmInstaller {
 				// remove cookie after installation, installation process is available even the user refresh page or come back
 				setCookie( 'trial_signup_response', '', -1 );
 
-				if ( data.login_token ) {
+				if ( data.login_url ) {
 					this.createGoToAppForm( data );
 				} else {
 					this.setProgressText( this.localized.textProgressLoginViaEmail );
