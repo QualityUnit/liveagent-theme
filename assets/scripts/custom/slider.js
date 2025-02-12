@@ -77,6 +77,79 @@ if ( homeHorizontal.length > 0 ) {
 	} );
 }
 
+const sliderLandingPPC = document.querySelectorAll(
+	'.SliderTestimonials__slider--landingPPC .slider'
+);
+
+/* Testimonials Slider */
+if ( sliderLandingPPC.length > 0 ) {
+	sliderLandingPPC.forEach( ( slider ) => {
+		slider.querySelectorAll( '[data-src]' ).forEach( ( image ) => {
+			const img = image;
+			img.setAttribute( 'src', img.dataset.src );
+			img.style.cssText = null;
+		} );
+		const horizontalSlider = new Splide( slider, {
+			type: 'loop',
+			lazyLoad: 'sequential',
+			autoplay: true,
+			fixedWidth: '28.75rem',
+			height: '16.625em',
+			speed: 500,
+			interval: 5000,
+			perPage: 3,
+			perMove: 1,
+			pagination: true,
+			arrows: false,
+			trimspace: true,
+			focus: 'center',
+			gap: '3em',
+			breakpoints: {
+				1023: {
+					fixedWidth: '75%',
+					perPage: 1,
+					gap: '3em',
+					arrows: false,
+				},
+				767: {
+					fixedWidth: '90%',
+					height: '22em',
+					perPage: 3,
+					gap: '3em',
+					arrows: false,
+				},
+			},
+		} );
+
+		// Fix to achieve fluid opacity animation on move, not after move
+		horizontalSlider.on( 'move', () => {
+			const visibles = slider.querySelectorAll( '.is-visible' );
+			if ( visibles.length >= 2 ) {
+				visibles.item( 1 ).classList.remove( 'is-active' );
+				visibles.item( 2 ).classList.add( 'is-active' );
+			}
+		} );
+
+		if ( 'IntersectionObserver' in window && sliderLandingPPC.length > 0 ) {
+			const sliderLandingPPCObserver = new IntersectionObserver(
+				( entries ) => {
+					entries.forEach( ( entry ) => {
+						if ( entry.isIntersecting ) {
+							horizontalSlider.mount();
+
+							const sliderObject = entry.target;
+							sliderLandingPPCObserver.unobserve( sliderObject );
+						}
+					} );
+				}
+			);
+			sliderLandingPPC.forEach( ( sliderObject ) => {
+				sliderLandingPPCObserver.observe( sliderObject );
+			} );
+		}
+	} );
+}
+
 /* Testimonials Slider in Gutenberg */
 const gutenSliders = document.querySelectorAll(
 	'.Gutenberg .SliderTestimonials__slider .slider'

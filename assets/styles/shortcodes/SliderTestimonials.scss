@@ -646,4 +646,138 @@
 			}
 		}
 	}
+
+	&__slider--landingPPC {
+		position: relative;
+		margin: 0 -2em;
+
+		&::before,
+		&::after {
+			display: none;
+		}
+
+		.splide__list {
+			margin-left: 0 !important;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			&::before,
+			&::after {
+				display: block;
+				position: absolute;
+				content: "";
+				width: 6em;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background: linear-gradient(to left, rgba($level4, 0), rgba($level4, 0.75));
+				z-index: 1;
+			}
+
+			&::after {
+				left: auto;
+				right: 0;
+				background: linear-gradient(to right, rgba($level4, 0), rgba($level4, 0.75));
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			margin: 0;
+
+			&::before,
+			&::after {
+				width: 14em;
+				background: linear-gradient(to left, rgba($level4, 0), rgba($level4, 1));
+			}
+
+			&::after {
+				background: linear-gradient(to right, rgba($level4, 0), rgba($level4, 1));
+			}
+		}
+
+		.splide__pagination {
+			bottom: -4em;
+
+			button {
+
+				@include square(10px);
+				background-color: $light-gray;
+				opacity: 1;
+
+				&.is-active {
+					width: 2em;
+					height: 8px;
+					border-radius: 0.5em;
+					margin: 0 0.5em;
+					top: -2px;
+				}
+			}
+		}
+
+		.splide__slide {
+			transition: all 0.3s !important;
+
+			&::after {
+				mask: none;
+			}
+
+			.slide__inn {
+				height: 100%;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				transform: scale(0.9);
+
+				&.is-active {
+					z-index: 1;
+					transform: scale(1);
+				}
+			}
+		}
+
+		.SliderTestimonials__slider {
+
+			&__header__photo[class] {
+
+				@include square(2.875em);
+				position: static;
+				margin: 0;
+				margin-right: 1em;
+			}
+
+			&__content {
+
+				@include square(100%);
+				display: flex;
+				flex-direction: column;
+
+
+				&::before {
+
+					@include square(1.875em);
+					display: block;
+					background: url(../../images/quote.svg) center center no-repeat;
+					background-size: contain;
+					opacity: 0.2;
+					margin-bottom: 1em;
+					content: "";
+				}
+
+				&__bottom {
+					margin-top: auto;
+				}
+			}
+
+			&__name,
+			&__company {
+				color: $dark-gray;
+			}
+
+			&__company {
+				font-size: 0.75rem;
+			}
+		}
+	}
 }
