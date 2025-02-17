@@ -1,4 +1,4 @@
-/* global _paq, Piwik, gtag, PostAffTracker, analytics, twq */
+/* global _paq, Piwik, gtag, PostAffTracker, FHTrck, analytics, twq */
 /* global quCrmData, getCookie, setCookie */
 
 class CrmInstaller {
@@ -429,7 +429,7 @@ class CrmInstaller {
 		if ( typeof FHTrck !== 'undefined' ) {
 			try {
 				await FHTrck.trackLinks( [ this.signupData.customer_email, this.signupData.subdomain, this.signupData.id ] );
-			} catch (e) {
+			} catch ( e ) {
 				// eslint-disable-next-line no-console
 				console.warn( 'Tracking script failed:', 'FHTrck' );
 			}
