@@ -305,6 +305,7 @@ class CrmInstaller {
 		this.handlePapAction();
 		this.handleTrackersAction();
 		this.handlePaqAction();
+		this.handleFlowHuntAction();
 
 		if ( ! this.signupData.is_redeem && typeof gtag !== 'undefined' ) {
 			try {
@@ -423,6 +424,17 @@ class CrmInstaller {
 			}
 		}
 	};
+
+	handleFlowHuntAction = async () => {
+		if ( typeof FHTrck !== 'undefined' ) {
+			try {
+				await FHTrck.trackLinks( [ this.signupData.customer_email, this.signupData.subdomain, this.signupData.id ] );
+			} catch (e) {
+				// eslint-disable-next-line no-console
+				console.warn( 'Tracking script failed:', 'FHTrck' );
+			}
+		}
+	}
 
 	handlePaqAction = () => {
 		if ( typeof _paq !== 'undefined' ) {
