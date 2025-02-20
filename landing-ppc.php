@@ -213,9 +213,9 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 				?>
 			</h4>
 	  <p>
-			Customer service teams can use a collaborative inbox and other tools to work in tight integration with each other. Customer service teams can use a collaborative inbox and other tools.
-
-			Customer service teams can use a collaborative inbox and other tools to work in tight integration with each other. Customer service teams can use a collaborative inbox and other tools.
+			<?=
+				esc_html( get_post_meta( get_the_ID(), 'box3_text', true ) );
+			?>
 	</p>
 	  </div>
 	</div>

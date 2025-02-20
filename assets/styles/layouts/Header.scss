@@ -37,9 +37,6 @@ body {
 
 		.wrapper {
 
-			@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
-				padding-inline: 1.25em !important;
-			}
 			display: flex;
 			flex-flow: wrap row;
 			justify-content: space-between;

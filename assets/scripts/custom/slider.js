@@ -94,7 +94,7 @@ if ( sliderLandingPPC.length > 0 ) {
 			lazyLoad: 'sequential',
 			autoplay: true,
 			fixedWidth: '28.75rem',
-			height: '16.625em',
+			height: '14.625em',
 			speed: 500,
 			interval: 5000,
 			perPage: 3,
@@ -128,6 +128,13 @@ if ( sliderLandingPPC.length > 0 ) {
 				visibles.item( 1 ).classList.remove( 'is-active' );
 				visibles.item( 2 ).classList.add( 'is-active' );
 			}
+		} );
+
+		const slides = slider?.querySelectorAll( '.splide__slide' );
+		slides.forEach( ( slide, index ) => {
+			slide.addEventListener( 'click', () => {
+				horizontalSlider.go( index );
+			} );
 		} );
 
 		if ( 'IntersectionObserver' in window && sliderLandingPPC.length > 0 ) {

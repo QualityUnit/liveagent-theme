@@ -15,6 +15,25 @@
 
 	section {
 		border-radius: $border-radius-16;
+
+		&.bg-level4 {
+
+			@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+				margin: 0 40px;
+
+				.wrapper {
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
+		}
+
+		&:has(.LandingPPC-floatingBlock) {
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				margin-top: 11em;
+			}
+		}
 	}
 
 	.heroBanner {
@@ -183,7 +202,7 @@
 			}
 
 			@media (min-width: $breakpoint-tablet) {
-				margin: 0.5em;
+				margin: 0.65em;
 
 				.title {
 					font-size: 2.5rem;
@@ -195,6 +214,11 @@
 					padding: 6.5em 3.75em 0;
 				}
 
+				img {
+					width: 100%;
+					margin: 0 auto;
+					max-width: none;
+				}
 			}
 		}
 
@@ -213,14 +237,7 @@
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 
-			padding: 4em 0;
-		}
-	}
-
-	section:has(.LandingPPC-floatingBlock) {
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-			margin-top: 11em;
+			padding: 4em 0 7em;
 		}
 	}
 
@@ -281,13 +298,14 @@
 			display: flex;
 			align-items: center;
 			position: relative;
-			top: 3em;
+			top: 4em;
 			width: 100%;
-			padding: 0 3em;
+			max-width: 71.25em;
+			margin: 0 auto 1em;
 
 			&::before {
 				position: absolute;
-				left: 3em;
+				left: 0;
 				top: 50%;
 				transform: translateY(-50%);
 				content: "";
