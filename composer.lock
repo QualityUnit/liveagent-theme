@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72d1e9be838dcb6aa1fd83e27a8d5ed7",
+    "content-hash": "d2d598a6aac070a80f5001cd2e03e95b",
     "packages": [
         {
             "name": "composer/installers",
@@ -216,16 +216,16 @@
         },
         {
             "name": "oscarotero/env",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/env.git",
-                "reference": "0da22cadc6924155fa9bbea2cdda2e84ab7cbdd3"
+                "reference": "9f7d85cc6890f06a65bad4fe0077c070d596e4a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/env/zipball/0da22cadc6924155fa9bbea2cdda2e84ab7cbdd3",
-                "reference": "0da22cadc6924155fa9bbea2cdda2e84ab7cbdd3",
+                "url": "https://api.github.com/repos/oscarotero/env/zipball/9f7d85cc6890f06a65bad4fe0077c070d596e4a4",
+                "reference": "9f7d85cc6890f06a65bad4fe0077c070d596e4a4",
                 "shasum": ""
             },
             "require": {
@@ -234,7 +234,7 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.16",
-                "phpunit/phpunit": "^7.0"
+                "phpunit/phpunit": ">=7.0"
             },
             "type": "library",
             "autoload": {
@@ -265,9 +265,9 @@
             "support": {
                 "email": "oom@oscarotero.com",
                 "issues": "https://github.com/oscarotero/env/issues",
-                "source": "https://github.com/oscarotero/env/tree/v2.1.0"
+                "source": "https://github.com/oscarotero/env/tree/v2.1.1"
             },
-            "time": "2020-06-11T10:59:27+00:00"
+            "time": "2024-12-03T01:02:28+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -1774,16 +1774,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.10.3",
+            "version": "3.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "62d32998e820bddc40f99f8251958aed187a5c9c"
+                "reference": "ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/62d32998e820bddc40f99f8251958aed187a5c9c",
-                "reference": "62d32998e820bddc40f99f8251958aed187a5c9c",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10",
+                "reference": "ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10",
                 "shasum": ""
             },
             "require": {
@@ -1848,9 +1848,13 @@
                 {
                     "url": "https://opencollective.com/php_codesniffer",
                     "type": "open_collective"
+                },
+                {
+                    "url": "https://thanks.dev/phpcsstandards",
+                    "type": "thanks_dev"
                 }
             ],
-            "time": "2024-09-18T10:38:58+00:00"
+            "time": "2025-01-23T17:04:15+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
@@ -1931,5 +1935,5 @@
         "php": ">=8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
