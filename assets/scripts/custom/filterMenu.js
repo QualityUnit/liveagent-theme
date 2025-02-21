@@ -1,11 +1,13 @@
-const FilterMenus = document.querySelectorAll( '.FilterMenu' );
+const FilterMenus = document.querySelectorAll( '.FilterMenu, .DropDownMenu' );
 
 if ( FilterMenus.length > 0 ) {
 	FilterMenus.forEach( ( filtermenu ) => {
 		const clScrollbarVisible = 'scrollbar-visible';
-		const menuTitle = filtermenu.querySelector( '.FilterMenu__title' );
-		const menuItems = filtermenu.querySelector( '.FilterMenu__items' );
-		const menuItemsInn = filtermenu.querySelector( '.FilterMenu__items--inn' );
+		const mainClass = filtermenu.classList.contains( 'DropDownMenu' ) ? 'DropDownMenu' : 'FilterMenu';
+		const menuTitle = filtermenu.querySelector( `.${ mainClass }__title` );
+		const menuItems = filtermenu.querySelector( `.${ mainClass }__items` );
+		const menuItemsInn = filtermenu.querySelector( `.${ mainClass }__items--inn` );
+
 		const isSingleSelect = filtermenu.classList.contains( 'isSingleSelect' );
 
 		const hideMenu = () => {
@@ -43,7 +45,7 @@ if ( FilterMenus.length > 0 ) {
 		} );
 
 		document.addEventListener( 'click', ( event ) => {
-			if ( ! event.target.closest( '.FilterMenu__item' ) ) {
+			if ( ! event.target.closest( `.${ mainClass }__item` ) ) {
 				event.stopPropagation();
 				hideMenu();
 			}
