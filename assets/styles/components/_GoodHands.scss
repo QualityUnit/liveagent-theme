@@ -33,7 +33,7 @@
 			display: block;
 		}
 
-		@media (max-width: $breakpoint-tablet-landscape - 1px) {
+		@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 			.GoodHands__image {
 				margin-top: 8em;
