@@ -242,13 +242,13 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 				<a class="Button Button--outline" href="/demo"><span><?php _e( 'Book a demo', 'ms' ); ?></span></a>
 			</div>
 		</div>
-	
+	</div>
+		
 		<div class="SliderTestimonials__wrapper">
 			<?=
 			do_shortcode( '[slidertestimonials_landingppc]' );
 			?>
 		</div>
-	</div>
 	</section>
 
   <?= do_shortcode( '[good-hands-new]' ); ?>

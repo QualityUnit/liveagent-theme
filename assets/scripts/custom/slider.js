@@ -5,7 +5,7 @@ const direction = () => {
 };
 
 const homeHorizontal = document.querySelectorAll(
-	'.elementor-shortcode .SliderTestimonials__slider--horizontal .slider'
+	'.elementor-shortcode .SliderTestimonials__slider--horizontal:not(.SliderTestimonials__slider--landingPPC) .slider'
 );
 
 /* Testimonials Slider */
@@ -106,14 +106,14 @@ if ( sliderLandingPPC.length > 0 ) {
 			gap: '3em',
 			breakpoints: {
 				1023: {
-					fixedWidth: '75%',
+					fixedWidth: '62%',
 					perPage: 1,
-					gap: '3em',
+					gap: '4em',
 					arrows: false,
 				},
 				767: {
 					fixedWidth: '90%',
-					height: '22em',
+					height: '17.875em',
 					perPage: 3,
 					gap: '3em',
 					arrows: false,

@@ -3,7 +3,7 @@
 
 @use "../common/mixins" as *;
 @use "../common/variables" as *;
-@forward "../elements/FilterMenu";
+@forward "../elements/DropDownMenu";
 
 .Signup {
 
@@ -11,7 +11,7 @@
 		position: relative;
 		max-width: 31.25em;
 		margin: 0 auto;
-		padding: 0.5em 2.5em 2em;
+		padding: 3.75em 2.5em 2em;
 		background-color: $level4;
 
 		@media (min-width: $breakpoint-tablet) {
@@ -411,13 +411,6 @@
 				font-weight: $font-weight-bold;
 				color: currentcolor;
 			}
-
-		}
-
-		@media (max-width: 480px) {
-			margin-bottom: 50px;
-			padding: 25px;
-			box-shadow: none;
 		}
 	}
 }
