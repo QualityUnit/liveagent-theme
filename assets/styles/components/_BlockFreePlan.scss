@@ -159,10 +159,27 @@
 
 	&--table-wrapper {
 
-		.elementor-widget-text-editor {
+		.table-label {
+			margin-top: 1.5em;
+			margin-bottom: 1.5em !important;
 
 			p {
 				margin: 0;
+			}
+		}
+
+		.table-button {
+
+			.elementor-widget-container {
+				display: flex;
+				justify-content: center;
+				gap: 0.625em;
+
+				.Button {
+					margin: 0 !important;
+					padding: 0.75em 2.25em;
+					top: 0;
+				}
 			}
 		}
 

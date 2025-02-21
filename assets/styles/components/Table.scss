@@ -219,8 +219,13 @@ body:not(.pricing) {
 				}
 
 				th {
-					padding: 1.875em 1.5625em;
+					padding: 1.875rem 1.5625rem;
 					font-size: 0.875rem;
+
+					&:first-child {
+						padding: 1.875rem 2.1875rem;
+						text-align: left;
+					}
 
 					span {
 						display: block;
@@ -230,17 +235,24 @@ body:not(.pricing) {
 				}
 
 				td {
-					padding: 0.75em 1.5625em;
+					padding: 0.75rem 1rem;
 					text-align: left;
 
-					&.info {
-						display: flex;
-						justify-content: space-between;
+					&:first-child {
+						padding: 0.75rem 1.25rem 0.75rem 2.1875rem;
+					}
 
-						svg {
+					&.info-wrap {
 
-							@include square(1.125em);
-							fill: $light-gray-icon;
+						.info {
+							display: flex;
+							justify-content: space-between;
+
+							svg {
+
+								@include square(1.125em);
+								fill: $light-gray-icon;
+							}
 						}
 					}
 
@@ -249,7 +261,12 @@ body:not(.pricing) {
 
 						svg {
 
-							@include square(1.5em);
+							@include square(1.125em);
+						}
+
+						div {
+							font-size: 0.8125rem;
+							line-height: 1;
 						}
 					}
 
