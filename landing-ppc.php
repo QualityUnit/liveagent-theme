@@ -78,11 +78,20 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	<div class="elementor-element elementor-element-1d37a861 homeVideo elementor-widget elementor-widget-image"
 	  data-ytid="KpY51cPRg5w" data-lightbox="youtube">
 	<div class="elementor-widget-container">
-	  <img fetchpriority="high" decoding="async" width="1200" height="1200"
+			<?php
+			if ( null === get_post_meta( get_the_ID(), 'media', true ) ) {
+				?>
+			<img fetchpriority="high" decoding="async" width="1200" height="1200"
 	  class="attachment-full size-full wp-image-979762" alt="" sizes="(max-width: 1200px) 100vw, 1200px"
 	  style="opacity: 1;" urlslab-id="28"
 	  srcset="https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo.jpg 1200w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-300x300.jpg 300w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-1024x1024.jpg 1024w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-150x150.jpg 150w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-768x768.jpg 768w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-50x50.jpg 50w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-25x25.jpg 25w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-380x380.jpg 380w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-335x335.jpg 335w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-400x400.jpg 400w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-185x185.jpg 185w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-110x110.jpg 110w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-485x485.jpg 485w"
-	  src="https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo.jpg"> </div>
+	  src="https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo.jpg"> 
+				<?php 
+			} else {
+				echo wp_get_attachment_image( get_post_meta( get_the_ID(), 'media', true ), 'header_image' );
+			}
+			?>
+	  </div>
 	<div itemscope="" itemtype="https://schema.org/VideoObject" itemprop="video">
 	  <meta itemprop="name" content="LiveAgent product overview 2024.">
 	  <meta itemprop="description"
