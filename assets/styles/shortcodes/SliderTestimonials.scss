@@ -695,7 +695,12 @@
 			&::after {
 				background: linear-gradient(to right, rgba($level4, 0), rgba($level4, 1));
 			}
+
+			.splide__list {
+				margin-left: -1.5em !important;
+			}
 		}
+
 
 		.splide__pagination {
 			bottom: -3em;

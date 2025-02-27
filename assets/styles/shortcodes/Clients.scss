@@ -22,7 +22,7 @@
 	img {
 		display: block;
 		max-width: 7.8125em;
-		height: 1.125em;
+		height: 1.25em;
 	}
 
 	.Reviews & {
@@ -45,10 +45,6 @@
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 		justify-content: center;
-
-		&__item {
-			height: 4.0625em;
-		}
 	}
 }
 
