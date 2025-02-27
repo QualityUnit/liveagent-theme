@@ -12,7 +12,7 @@ function ms_clients( $atts ) {
 	ob_start();
 	?>
 
-	<div class="Clients">
+	<div class="Clients wrapper">
 	<?php
 	$query_clients_posts = new WP_Query(
 		array(
