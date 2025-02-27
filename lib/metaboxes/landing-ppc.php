@@ -25,6 +25,14 @@ function landing_ppc_metaboxes( $sidebars ) {
 				'default'      => 'Answer more tickets with <br> all-in-one customer care solution.',
 			),
 			array(
+				'id'           => 'media',
+				'label'        => 'Header Media',
+				'description'  => '',
+				'type'         => 'image',
+				'show_in_rest' => true,
+				'default'      => '',
+			),
+			array(
 				'id'           => 'form_title',
 				'label'        => 'Signup Left title',
 				'description'  => '',

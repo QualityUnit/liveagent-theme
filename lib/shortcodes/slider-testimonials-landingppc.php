@@ -2,6 +2,9 @@
 
 function slidertestimonials_landing( $atts ) {
 	$atts = shortcode_atts(
+		array(
+			'posts_per_page' => 6,
+		),
 		$atts,
 		'slidertestimonials_landingppc'
 	);
@@ -15,8 +18,11 @@ function slidertestimonials_landing( $atts ) {
 				<?php
 				$query_slider_testimonials_posts = new WP_Query(
 					array(
-						'post_type'      => 'ms_testimonials',
-						'posts_per_page' => 30,
+						'post_type'        => 'ms_testimonials',
+						'posts_per_page'   => $atts['posts_per_page'],
+						'order'            => 'ASC',
+						'orderby'          => 'date',
+						'suppress_filters' => false,
 					)
 				);
 

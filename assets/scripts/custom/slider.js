@@ -5,7 +5,7 @@ const direction = () => {
 };
 
 const homeHorizontal = document.querySelectorAll(
-	'.elementor-shortcode .SliderTestimonials__slider--horizontal .slider'
+	'.elementor-shortcode .SliderTestimonials__slider--horizontal:not(.SliderTestimonials__slider--landingPPC) .slider'
 );
 
 /* Testimonials Slider */
@@ -94,7 +94,7 @@ if ( sliderLandingPPC.length > 0 ) {
 			lazyLoad: 'sequential',
 			autoplay: true,
 			fixedWidth: '28.75rem',
-			height: '16.625em',
+			height: '14.625em',
 			speed: 500,
 			interval: 5000,
 			perPage: 3,
@@ -106,14 +106,14 @@ if ( sliderLandingPPC.length > 0 ) {
 			gap: '3em',
 			breakpoints: {
 				1023: {
-					fixedWidth: '75%',
+					fixedWidth: '62%',
 					perPage: 1,
-					gap: '3em',
+					gap: '4em',
 					arrows: false,
 				},
 				767: {
 					fixedWidth: '90%',
-					height: '22em',
+					height: '17.875em',
 					perPage: 3,
 					gap: '3em',
 					arrows: false,
@@ -128,6 +128,13 @@ if ( sliderLandingPPC.length > 0 ) {
 				visibles.item( 1 ).classList.remove( 'is-active' );
 				visibles.item( 2 ).classList.add( 'is-active' );
 			}
+		} );
+
+		const slides = slider?.querySelectorAll( '.splide__slide' );
+		slides.forEach( ( slide, index ) => {
+			slide.addEventListener( 'click', () => {
+				horizontalSlider.go( index );
+			} );
 		} );
 
 		if ( 'IntersectionObserver' in window && sliderLandingPPC.length > 0 ) {

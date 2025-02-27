@@ -36,7 +36,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	  <div
 	  class="elementor-element elementor-element-73ce06a9 heroBanner__content__title elementor-widget elementor-widget-heading">
 	  <div class="elementor-widget-container">
-	  <h1 class="elementor-heading-title elementor-size-default" id="h-provide-excellent-customer-service">	
+	  <h1 class="elementor-heading-title elementor-size-default" id="h-provide-excellent-customer-service">
 	  <?=
 		esc_html( get_post_meta( get_the_ID(), 'title', true ) );
 		?>
@@ -46,7 +46,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	  <div
 	  class="elementor-element elementor-element-6ae1520d heroBanner__content__subtitle elementor-widget elementor-widget-text-editor">
 	  <div class="elementor-widget-container">
-	  <h3 id="h-answer-more-tickets-with-all-in-one-customer-care-solution">	
+	  <h3 id="h-answer-more-tickets-with-all-in-one-customer-care-solution">
 	  <?= get_post_meta( get_the_ID(), 'subtitle', true );  // @codingStandardsIgnoreLine
 		?>
 	</h3>
@@ -78,11 +78,20 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	<div class="elementor-element elementor-element-1d37a861 homeVideo elementor-widget elementor-widget-image"
 	  data-ytid="KpY51cPRg5w" data-lightbox="youtube">
 	<div class="elementor-widget-container">
-	  <img fetchpriority="high" decoding="async" width="1200" height="1200"
+			<?php
+			if ( null === get_post_meta( get_the_ID(), 'media', true ) ) {
+				?>
+			<img fetchpriority="high" decoding="async" width="1200" height="1200"
 	  class="attachment-full size-full wp-image-979762" alt="" sizes="(max-width: 1200px) 100vw, 1200px"
 	  style="opacity: 1;" urlslab-id="28"
 	  srcset="https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo.jpg 1200w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-300x300.jpg 300w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-1024x1024.jpg 1024w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-150x150.jpg 150w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-768x768.jpg 768w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-50x50.jpg 50w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-25x25.jpg 25w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-380x380.jpg 380w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-335x335.jpg 335w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-400x400.jpg 400w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-185x185.jpg 185w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-110x110.jpg 110w, https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo-485x485.jpg 485w"
-	  src="https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo.jpg"> </div>
+	  src="https://www.liveagent.com/app/uploads/2024/11/heroBanner_homeVideo.jpg">
+				<?php
+			} else {
+				echo wp_get_attachment_image( get_post_meta( get_the_ID(), 'media', true ), 'header_image' );
+			}
+			?>
+	  </div>
 	<div itemscope="" itemtype="https://schema.org/VideoObject" itemprop="video">
 	  <meta itemprop="name" content="LiveAgent product overview 2024.">
 	  <meta itemprop="description"
@@ -105,9 +114,9 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
   </section>
 
 
-  <section class="elementor-section elementor-section-boxed">
+  <section class="elementor-section">
 	<div class="elementor-container Logos">
-	<?= do_shortcode( '[clients]' ); ?>
+		<?= do_shortcode( '[clients]' ); ?>
 	</div>
   </section>
 
@@ -117,7 +126,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 			<p class="text-align-center">
 				<?php
 				_e(
-					'Discover our multi-channel help desk software with 130+ ticketing features 
+					'Discover our multi-channel help desk software with 130+ ticketing features
 				and 200+ integrations with the tools you love.',
 					'ms'
 				);
@@ -190,7 +199,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 		?>
 	</p>
 	  </div>
-	  
+
 	  <div class="LandingPPC-col">
 			<img class="LandingPPC-col__icon mb-l" src="<?= esc_url( get_template_directory_uri() . '/assets/images/landingppc_plus_icon.svg' ); ?>" alt="icon" />
 			<h4>
@@ -204,7 +213,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 		?>
 	</p>
 	  </div>
-	  
+
 	  <div class="LandingPPC-col">
 			<img class="LandingPPC-col__icon mb-l" src="<?= esc_url( get_template_directory_uri() . '/assets/images/landingppc_plus_icon.svg' ); ?>" alt="icon" />
 			<h4>
@@ -213,9 +222,9 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 				?>
 			</h4>
 	  <p>
-			Customer service teams can use a collaborative inbox and other tools to work in tight integration with each other. Customer service teams can use a collaborative inbox and other tools.
-
-			Customer service teams can use a collaborative inbox and other tools to work in tight integration with each other. Customer service teams can use a collaborative inbox and other tools.
+			<?=
+				esc_html( get_post_meta( get_the_ID(), 'box3_text', true ) );
+			?>
 	</p>
 	  </div>
 	</div>
@@ -242,13 +251,13 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 				<a class="Button Button--outline" href="/demo"><span><?php _e( 'Book a demo', 'ms' ); ?></span></a>
 			</div>
 		</div>
-	
+	</div>
+
 		<div class="SliderTestimonials__wrapper">
 			<?=
 			do_shortcode( '[slidertestimonials_landingppc]' );
 			?>
 		</div>
-	</div>
 	</section>
 
   <?= do_shortcode( '[good-hands-new]' ); ?>

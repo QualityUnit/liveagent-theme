@@ -1,0 +1,141 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "./menuArrow" as *;
+
+.DropDownMenu {
+	position: relative;
+	z-index: 3;
+
+	&__title {
+
+		@extend %menuArrow;
+		display: block;
+		min-width: 10em;
+		max-width: 100%;
+		font-size: 0.875rem;
+		line-height: 1;
+		border: 1px solid $medium-gray-inputs;
+		padding: 0.85em 2em 0.85em 1em;
+		border-radius: 0.714em;
+		background-color: $white;
+		transition: all 0.2s;
+		cursor: pointer;
+		transform: scale(1);
+		filter: none;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		&::after { // aka menuArrow
+
+			@include square(0.52rem);
+			position: absolute;
+			top: 50%;
+			right: 1em;
+			margin: -0.4rem 0 0 0;
+			border-color: $black;
+			border-width: 0.125rem;
+		}
+
+		&.menu-active,
+		&.active,
+		.active & {
+
+			&::after {
+				top: 50%;
+				margin: -0.1rem 0 0 0;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__desc {
+			margin-right: 0.25em;
+			font-size: 0.875rem;
+			font-weight: $font-weight-semi;
+			line-height: 1;
+		}
+	}
+
+	&__items {
+
+		@include color(background-color, main-background);
+		position: absolute;
+		top: 100%;
+		left: 0;
+		display: none;
+		opacity: 0;
+		overflow: hidden;
+		border-radius: 0.625em;
+		width: 100%;
+		padding: 1em 1.45em;
+		transition: opacity 0.1s;
+		box-shadow: 0 0.063em 0.375em rgba($black, 0.16);
+
+		&--inn {
+			max-height: 19em;
+			position: relative;
+			margin-left: -1.45em;
+			margin-right: -1.85em;
+		}
+
+		&.scrollbar-visible {
+
+			&::before {
+
+				@include color(background-color, secondary-background);
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 0.7em;
+			}
+
+			.DropDownMenu__items--inn {
+
+				@include scrollbar(0.5em);
+				overflow-y: scroll;
+				margin-right: -1.35em;
+			}
+		}
+
+		&.active {
+			display: block;
+		}
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+
+	&__item {
+		overflow: visible;
+		position: relative;
+		display: flex;
+		align-content: center;
+		margin-bottom: 0.25em;
+		text-decoration: none !important;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+				background-color: $pricing-gray;
+			}
+		}
+	}
+
+	&__item [type="checkbox"] + label,
+	&__item [type="radio"] + label,
+	a[href] &__item-title {
+		line-height: 1.4;
+		padding: 0.5em 1em;
+	}
+}

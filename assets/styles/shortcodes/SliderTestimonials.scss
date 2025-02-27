@@ -666,19 +666,20 @@
 			&::after {
 				display: block;
 				position: absolute;
+				pointer-events: none;
 				content: "";
 				width: 6em;
 				height: 100%;
 				top: 0;
 				left: 0;
-				background: linear-gradient(to left, rgba($level4, 0), rgba($level4, 0.75));
+				background: linear-gradient(to left, rgba($level4, 0), rgba($level4, 0.85));
 				z-index: 1;
 			}
 
 			&::after {
 				left: auto;
 				right: 0;
-				background: linear-gradient(to right, rgba($level4, 0), rgba($level4, 0.75));
+				background: linear-gradient(to right, rgba($level4, 0), rgba($level4, 0.85));
 			}
 		}
 
@@ -694,16 +695,23 @@
 			&::after {
 				background: linear-gradient(to right, rgba($level4, 0), rgba($level4, 1));
 			}
+
+			.splide__list {
+				margin-left: -1.5em !important;
+			}
 		}
 
+
 		.splide__pagination {
-			bottom: -4em;
+			bottom: -3em;
 
 			button {
 
 				@include square(10px);
 				background-color: $light-gray;
 				opacity: 1;
+				transition: width 0.3s ease-in-out;
+
 
 				&.is-active {
 					width: 2em;
@@ -716,6 +724,7 @@
 		}
 
 		.splide__slide {
+			cursor: pointer;
 			transition: all 0.3s !important;
 
 			&::after {
@@ -726,7 +735,7 @@
 				height: 100%;
 			}
 
-			@media (min-width: $breakpoint-tablet-landscape) {
+			@media (min-width: $breakpoint-tablet) {
 
 				transform: scale(0.9);
 
@@ -752,16 +761,17 @@
 				@include square(100%);
 				display: flex;
 				flex-direction: column;
-
+				padding-top: 1.25em;
 
 				&::before {
 
-					@include square(1.875em);
+					@include square(1.75em);
 					display: block;
 					background: url(../../images/quote.svg) center center no-repeat;
 					background-size: contain;
-					opacity: 0.2;
-					margin-bottom: 1em;
+					opacity: 0.15;
+					margin-bottom: 0.5em;
+					transform: scaleX(0.9);
 					content: "";
 				}
 

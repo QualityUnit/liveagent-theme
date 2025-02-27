@@ -139,7 +139,7 @@
 		}
 	}
 
-	@media (max-width: $breakpoint-tablet - 1) {
+	@media (max-width: ($breakpoint-tablet - 1px)) {
 
 		&__title {
 			display: none !important;
