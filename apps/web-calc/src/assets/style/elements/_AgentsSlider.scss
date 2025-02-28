@@ -21,7 +21,7 @@
 
 	&--modal {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 		@include absoluteCenter;
 		position: absolute;
 		display: flex;
@@ -58,7 +58,7 @@
 		.submitting {
 
 			@include square(100%);
-			@include color(color, font-color-normal);
+			color: $dark-gray;
 			background-color: rgba($white, 0.9);
 			border-radius: $border-radius-16;
 			position: absolute;

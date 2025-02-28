@@ -109,8 +109,8 @@ button,
 .Button--full,
 %Button--full {
 
-	@include color(background, background);
-	@include color(color, button-full-font-color);
+	background: $primary-gradient;
+	color: $white;
 	overflow: hidden;
 
 	span,
@@ -123,7 +123,7 @@ button,
 
 	&::before {
 
-		@include color(background, background);
+		background: $primary-gradient;
 		@include fullSize;
 		content: "";
 		position: absolute;
@@ -137,7 +137,7 @@ button,
 
 	&::after {
 
-		@include color(background, background-invert);
+		background: $primary-gradient-reverse;
 		@include fullSize;
 		content: "";
 		position: absolute;
@@ -160,7 +160,7 @@ button,
 
 		span {
 
-			@include color(color, button-full-font-color, !important);
+			color: $white;
 		}
 	}
 }
@@ -259,7 +259,7 @@ button,
 
 .Button--knockout {
 
-	@include color(background-color, main-background);
+	background-color: $white;
 	mix-blend-mode: screen;
 	transition: all 0.2s;
 
@@ -272,19 +272,19 @@ button,
 	&:focus,
 	&:hover {
 
-		@include color(background-color, content-color-dark);
+		background-color: $black;
 		mix-blend-mode: normal;
 
 		span {
 
-			@include color(color, font-color-light);
+			color: $white;
 		}
 	}
 }
 
 .Button--outline {
 
-	@include color(color, font-color-dark);
+	color: $black;
 	border: 1px solid currentColor;
 	overflow: hidden;
 	transition: all 0.3s;
@@ -299,18 +299,18 @@ button,
 	&:focus,
 	&:hover {
 
-		@include color(color, primary-color);
-		@include color(border-color, primary-color);
+		color: $dark-orange;
+		border-color: $dark-orange;
 	}
 
 	&-gray {
 
-		@include color(background-color, button-outline-color);
+		background-color: $light-gray;
 	}
 
 	&-white {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 	}
 
 	&__white {
@@ -417,7 +417,7 @@ button,
 
 .Button--inaction {
 
-	@include color(color, font-color-dark);
+	color: $black;
 	display: inline-flex;
 	align-items: center;
 	font-weight: $font-weight-semi;
@@ -435,13 +435,13 @@ button,
 
 	&:hover {
 
-		@include color(color, primary-color);
+		color: $dark-orange;
 	}
 }
 
 .Button--learn-more {
 
-	@include color(color, dark-orange);
+	color: $dark-orange;
 	padding: 0.5rem 0 0 !important;
 	margin: 0 !important;
 
@@ -467,7 +467,7 @@ button,
 
 		.highlight-gradient {
 
-			@include color(background, background-invert);
+			background: $primary-gradient-reverse;
 			background-clip: text;
 			color: transparent;
 			box-decoration-break: clone;

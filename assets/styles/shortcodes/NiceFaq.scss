@@ -15,7 +15,7 @@
 
 	&__sidebar {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 		border-radius: $border-radius-16;
 		box-shadow: 0.3125em 0.625em 5.625em -0.625em rgba($black-real, 0.15);
 		width: 100%;
@@ -30,8 +30,8 @@
 
 		&--item {
 
-			@include color(background-color, secondary-background);
-			@include color(color, font-color-dark);
+			background-color: $lightest-gray;
+			color: $black;
 			font-size: 0.875rem;
 			padding: 0.15em 1.5em;
 			border-radius: math.div($border-radius-16, 2);
@@ -43,14 +43,14 @@
 
 				&:hover {
 
-					@include color(color, primary-color);
+					color: $dark-orange;
 				}
 			}
 
 			&.active {
 
-				@include color(color, primary-color);
-				@include color(background-color, third-color);
+				color: $dark-orange;
+				background-color: $medium-orange;
 				font-weight: $font-weight-semi;
 				cursor: default;
 			}
@@ -128,7 +128,7 @@
 
 	&__question {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 		padding-left: 3.5em;
 		margin-bottom: 1.5em;
 
@@ -141,8 +141,8 @@
 
 	&__answer {
 
-		@include color(color, font-color-light);
-		@include color(background, background);
+		color: $white;
+		background: $primary-gradient;
 		padding-right: 2.5em;
 
 		.NiceFaq__item--person {

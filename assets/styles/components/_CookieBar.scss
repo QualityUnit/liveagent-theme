@@ -7,8 +7,8 @@
 
 .Medovnicky { // Naming as Slovak “gingerbread“ due to adblocks
 
-	@include color(background-color, content-color-dark);
-	@include color(color, font-color-light);
+	background-color: $black;
+	color: $white;
 	@include shakeX(2em);
 	position: fixed;
 	left: 25px;
@@ -51,7 +51,7 @@
 			&:focus,
 			&:hover {
 
-				@include color(color, primary-color);
+				color: $dark-orange;
 				text-decoration: none;
 			}
 		}
@@ -66,8 +66,8 @@
 
 		.Button--full[class] {
 
-			@include color(background, main-background);
-			@include color(color, font-color-dark);
+			background: $white;
+			color: $black;
 			transition: all 0.75s;
 
 			&::before,
@@ -77,7 +77,7 @@
 
 			&:hover {
 
-				@include color(color, font-color-light, !important);
+				color: $white;
 				background: transparent;
 
 				&::before,
@@ -92,7 +92,7 @@
 
 		&--more[class] {
 
-			@include color(color, font-color-light);
+			color: $white;
 			border-color: transparent !important;
 			padding: 0;
 			font-weight: $font-weight-normal;
@@ -102,7 +102,7 @@
 			&:focus,
 			&:hover {
 
-				@include color(color, primary-color);
+				color: $dark-orange;
 				text-decoration: none;
 			}
 		}

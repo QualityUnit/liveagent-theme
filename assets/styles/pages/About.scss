@@ -28,7 +28,7 @@ $sidebarWidth: 13.5em;
 
 		.wp-block-column {
 
-			@include color(box-shadow, box-shadow);
+			box-shadow: 0;
 			padding: 0 1.5em 1.5em;
 			position: relative;
 			transition: transform 0.2s;
@@ -70,7 +70,7 @@ $sidebarWidth: 13.5em;
 
 			p {
 
-				@include color(color, font-color-medium);
+				color: $medium-gray;
 			}
 		}
 	}
@@ -135,7 +135,7 @@ $sidebarWidth: 13.5em;
 
 	.about__career-block {
 
-		@include color(box-shadow, box-shadow-big);
+		box-shadow: 0;
 		position: relative;
 		border-radius: $border-radius-16;
 		padding: 1.5em 2.5em;
@@ -362,7 +362,7 @@ $sidebarWidth: 13.5em;
 
 		p {
 
-			@include color(background-color, main-background);
+			background-color: $white;
 			position: relative;
 			border: 1px solid #eee;
 			border-radius: 1em;
@@ -378,7 +378,7 @@ $sidebarWidth: 13.5em;
 				position: absolute;
 
 				@include circle(12px);
-				@include color(background-color, primary-color);
+				background-color: $dark-orange;
 				content: "";
 				box-shadow: 0 0 0 6px #fff;
 				bottom: calc(100% + 0.5em);

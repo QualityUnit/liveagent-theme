@@ -148,7 +148,7 @@
 
 			&--mid.elementor-column[class] {
 
-				@include color(background-color, main-background);
+				background-color: $white;
 				box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
 				font-size: 1.2rem;
 				border-radius: $border-radius-16;
@@ -173,7 +173,7 @@
 
 					p {
 
-						@include color(background, background);
+						background: $primary-gradient;
 						background-clip: text;
 						color: transparent;
 						box-decoration-break: clone;

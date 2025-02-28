@@ -39,7 +39,7 @@ $signupSidebarWidth: 16.875em;
 	&__logo {
 
 		@include square(9.375em);
-		@include color(background-color, main-background);
+		background-color: $white;
 		box-shadow: 0 0.25em 1em 0 rgba(0, 0, 0, 0.08);
 		padding: 1.5em;
 		border-radius: $border-radius-16;

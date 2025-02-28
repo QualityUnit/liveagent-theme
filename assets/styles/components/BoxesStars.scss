@@ -30,7 +30,7 @@
 			a {
 
 				@include learn-more();
-				@include color(color, font-color-dark);
+				color: $black;
 				margin-top: auto;
 			}
 		}
@@ -233,7 +233,7 @@
 
 				* {
 
-					@include color(background-image, background);
+					background-image: $primary-gradient;
 					font-weight: $font-weight-bold;
 					color: transparent;
 					background-clip: text;

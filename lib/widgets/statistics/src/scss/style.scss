@@ -106,7 +106,7 @@
 
 			.text p {
 
-				@include color(color, font-color-normal, !important);
+				color: $dark-gray;
 			}
 
 			.Research--block {
@@ -121,7 +121,7 @@
 
 			&--header {
 
-				@include color(color, font-color-light);
+				color: $white;
 				font-size: 1.5rem;
 				line-height: 1;
 				font-weight: $font-weight-bold;
@@ -159,7 +159,7 @@
 
 				&__url {
 
-					@include color(color, font-color-light, !important);
+					color: $white;
 					display: inline-block;
 					float: none;
 					padding: 1em 2em;

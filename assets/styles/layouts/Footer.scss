@@ -28,8 +28,8 @@
 
 .Footer {
 
-	@include color(color, content-color-light);
-	@include color(background-color, invert-main-background);
+	color: $white;
+	background-color: $black;
 
 	padding-top: em(110);
 	padding-bottom: em(20);
@@ -69,7 +69,7 @@
 			flex-flow: wrap row;
 			align-items: center;
 
-			@include color(color, content-color-light);
+			color: $white;
 
 			img {
 				display: block;
@@ -86,7 +86,7 @@
 
 		a:not(.Button) {
 
-			@include color(color, content-color-light);
+			color: $white;
 			text-decoration: none;
 
 			&:active,
@@ -173,7 +173,7 @@
 
 	p {
 
-		@include color(color, font-color-light);
+		color: $white;
 		margin-bottom: 0;
 		font-size: $font-size-smaller;
 		line-height: $line-height-smaller;
@@ -181,7 +181,7 @@
 
 	a {
 
-		@include color(color, font-color-light);
+		color: $white;
 		text-decoration: none;
 	}
 
@@ -193,7 +193,7 @@
 
 	&__title {
 
-		@include color(color, font-color-light);
+		color: $white;
 	}
 
 	&__contacts {
@@ -204,7 +204,7 @@
 
 			li {
 
-				@include color(color, font-color-light);
+				color: $white;
 				font-size: $font-size-smaller;
 				line-height: $line-height-smaller;
 				font-weight: $font-weight-semi;
@@ -284,7 +284,7 @@
 
 						svg {
 
-							@include color(fill, primary-color);
+							fill: $dark-orange;
 						}
 					}
 				}
@@ -387,7 +387,7 @@
 	p,
 	ul {
 
-		@include color(color, font-color-normal);
+		color: $dark-gray;
 		font-size: em(12);
 		line-height: 1.66;
 		margin-bottom: 0;
@@ -395,7 +395,7 @@
 
 	a {
 
-		@include color(color, font-color-normal);
+		color: $dark-gray;
 
 		&:active,
 		&:focus,

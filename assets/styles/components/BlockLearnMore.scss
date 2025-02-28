@@ -66,8 +66,8 @@
 		+ .elementor-widget-text-editor pre,
 		+ .Post__container > .Post__content > .elementor-widget-text-editor:first-child pre {
 
-			@include color(background-color, main-background);
-			@include color(color, font-color-dark);
+			background-color: $white;
+			color: $black;
 			border: none;
 			border-radius: $border-radius-16;
 			overflow: visible;

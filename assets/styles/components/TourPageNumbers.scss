@@ -46,7 +46,7 @@
 
 		&__title {
 
-			@include color(color, package-color-4);
+			color: $medium-gray;
 			font-weight: $font-weight-semi;
 			font-size: 14px;
 		}

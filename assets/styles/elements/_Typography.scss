@@ -18,7 +18,7 @@ h6,
 .h5,
 .h6 {
 
-	@include color(color, font-color-dark);
+	color: $black;
 	margin-bottom: $default-element-margin;
 	font-weight: $font-weight-bold;
 
@@ -106,7 +106,7 @@ p {
 		line-height: 1.625;
 	}
 
-	@include color(color, font-color-dark);
+	color: $black;
 	margin-bottom: $default-element-margin;
 	font-size: $font-size-default;
 	font-weight: $font-weight-normal;
@@ -132,7 +132,7 @@ p {
 ul,
 ol {
 
-	@include color(color, font-color-dark);
+	color: $black;
 	margin-bottom: $default-element-margin;
 	font-size: $font-size-default;
 	font-weight: $font-weight-normal;
@@ -147,14 +147,14 @@ a {
 
 	&:not(.Button) {
 
-		@include color(color, font-color-dark);
+		color: $black;
 		text-decoration: underline;
 
 		&:active,
 		&:focus,
 		&:hover {
 
-			@include color(color, primary-color);
+			color: $dark-orange;
 
 			text-decoration: underline;
 		}
@@ -180,7 +180,7 @@ a {
 
 	li {
 
-		@include color(color, font-color-dark, !important);
+		color: $black;
 		font-size: 0.875rem;
 		line-height: 1.5;
 		padding-left: 2em;
@@ -228,7 +228,7 @@ video {
 	p,
 	ul {
 
-		@include color(color, font-color-dark);
+		color: $black;
 	}
 
 	h2,
@@ -267,7 +267,7 @@ video {
 
 				&::before {
 
-					@include color(color, primary-color);
+					color: $dark-orange;
 					position: absolute;
 					left: -0.5em;
 					margin: 0;
@@ -281,7 +281,7 @@ video {
 
 	table {
 
-		@include color(color, font-color-normal);
+		color: $dark-gray;
 		font-size: $font-size-default;
 		font-weight: $font-weight-normal;
 		line-height: $line-height-default;
@@ -290,7 +290,7 @@ video {
 
 		tr {
 
-			@include color(border-top-color, border-color-normal);
+			border-top-color: $dark-gray;
 			border-top-width: 1px;
 			border-top-style: solid;
 
@@ -311,7 +311,7 @@ video {
 
 				&:first-of-type {
 
-					@include color(color, font-color-dark);
+					color: $black;
 					font-size: 14px;
 					font-weight: $font-weight-bold;
 				}
@@ -326,7 +326,7 @@ video {
 
 					&:first-of-type {
 
-						@include color(color, font-color-dark);
+						color: $black;
 						font-size: 14px;
 						font-weight: $font-weight-bold;
 					}
@@ -337,7 +337,7 @@ video {
 
 	pre {
 
-		@include color(color, font-color-medium);
+		color: $medium-gray;
 		border: 1px solid #f0f0f0;
 		background-color: #fafafa;
 		max-width: 100%;
@@ -472,7 +472,7 @@ video {
 
 		figcaption {
 
-			@include color(color, font-color-normal);
+			color: $dark-gray;
 			display: flex;
 			flex-flow: wrap row;
 			justify-content: center;
@@ -487,7 +487,7 @@ video {
 
 	blockquote.wp-block-quote {
 
-		@include color(background-color, secondary-background);
+		background-color: $lightest-gray;
 		position: relative;
 		border-radius: $border-radius-16;
 		margin: 2em 0 0 0.75rem;
@@ -569,7 +569,7 @@ video {
 
 			figcaption {
 
-				@include color(color, font-color-normal);
+				color: $dark-gray;
 				position: static;
 				text-align: center;
 				background: transparent;
@@ -713,7 +713,7 @@ video {
 
 .no-cc {
 
-	@include color(color, font-color-level3);
+	color: $medium-gray-quotes;
 	font-size: 14px;
 	display: flex;
 	flex-flow: row wrap;
@@ -726,14 +726,14 @@ video {
 	span {
 
 		@include learn-more();
-		@include color(color, font-color-dark, !important);
+		color: $black;
 	}
 
 	&.grey {
 
 		a {
 
-			@include color(color, font-color-level3, !important);
+			color: $medium-gray-quotes;
 
 			&::after {
 				filter: brightness(30);
@@ -777,7 +777,7 @@ video {
 	&-gradient,
 	%highlight-gradient {
 
-		@include color(background, background);
+		background: $primary-gradient;
 		background-clip: text;
 		color: transparent !important;
 		box-decoration-break: clone;

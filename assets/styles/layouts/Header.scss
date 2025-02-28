@@ -27,7 +27,7 @@ body {
 
 	.Header {
 
-		@include color(background-color, header-background);
+		background-color: $white;
 		position: fixed;
 		top: 0;
 		z-index: 99991;
@@ -146,7 +146,7 @@ body {
 
 				.menu-item-description {
 
-					@include color(color, font-color-level3);
+					color: $medium-gray-quotes;
 					display: block;
 					font-size: 0.75em;
 					line-height: 1.5;
@@ -448,7 +448,7 @@ body {
 
 				a {
 
-					@include color(color, main-nav-font-color);
+					color: $black;
 					position: relative;
 					display: flex;
 					justify-content: space-between;
@@ -459,7 +459,7 @@ body {
 
 					&::before {
 
-						@include color(background-color, main-nav-underline);
+						background-color: $dark-orange;
 						content: "";
 						position: absolute;
 						bottom: 0.8125em;
@@ -543,7 +543,7 @@ body {
 
 				a {
 
-					@include color(color, main-nav-submenu-font-color, !important);
+					color: $black;
 					font-size: $main-nav-submenu-font-size;
 					line-height: $main-nav-submenu-line-height;
 					font-weight: $font-weight-semi;
@@ -587,8 +587,8 @@ body {
 
 								&::after {
 
-									@include color(background-color, primary-color);
-									@include color(color, font-color-light);
+									background-color: $dark-orange;
+									color: $white;
 									content: "";
 									position: absolute;
 									top: 0.5em;
@@ -928,7 +928,7 @@ body {
 					&::after {
 						content: "";
 
-						@include color(background-color, main-nav-submenu-background);
+						background-color: $white;
 						position: absolute;
 						top: 0;
 						width: 100vw;
@@ -949,7 +949,7 @@ body {
 
 							.menu-item-description {
 
-								@include color(color, font-color-level3);
+								color: $medium-gray-quotes;
 								display: block;
 								font-size: 0.75rem;
 								line-height: 1.5;

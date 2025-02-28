@@ -16,9 +16,9 @@ input[type="url"],
 input,
 .Input {
 
-	@include color(border-color, border-color-inputs);
-	@include color(color, font-color-level3);
-	@include color(background-color, main-background);
+	border-color: $medium-gray-inputs;
+	color: $medium-gray-quotes;
+	background-color: $white;
 	width: auto;
 	height: $input-height-normal;
 	padding: 0 $input-padding-normal;
@@ -43,15 +43,15 @@ input,
 
 	&:focus {
 
-		@include color(border-color, font-color-dark);
-		@include color(color, font-color-dark);
+		border-color: $black;
+		color: $black;
 	}
 }
 
 textarea {
 
-	@include color(border-color, border-color-inputs);
-	@include color(color, font-color-level3);
+	border-color: $medium-gray-inputs;
+	color: $medium-gray-quotes;
 	width: auto;
 	min-height: $input-height-normal;
 	padding: $input-padding-normal;
@@ -64,7 +64,7 @@ textarea {
 
 	&::placeholder {
 
-		@include color(color, font-color-level3);
+		color: $medium-gray-quotes;
 		opacity: 1;
 	}
 }

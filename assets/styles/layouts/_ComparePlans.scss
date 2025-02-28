@@ -119,7 +119,7 @@
 
 				span {
 
-					@include color(color, font-color-normal);
+					color: $dark-gray;
 					display: inline-block !important;
 				}
 
@@ -241,7 +241,7 @@
 
 	&__table {
 
-		@include color(color, font-color-dark);
+		color: $black;
 		margin: 2rem 3rem;
 		font-size: $font-size-smaller;
 	}
@@ -349,7 +349,7 @@
 		&:nth-child(odd),
 		&.odd {
 
-			@include color(background-color, secondary-background);
+			background-color: $lightest-gray;
 		}
 
 		&.even {

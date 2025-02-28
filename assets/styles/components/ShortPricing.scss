@@ -7,7 +7,7 @@
 
 	&__item {
 
-		@include color(box-shadow, box-shadow);
+		box-shadow: 0;
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: flex-start;
@@ -32,7 +32,7 @@
 
 			&__title {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				font-size: $font-size-bigger;
 				line-height: $line-height-bigger;
 				margin: 0;
@@ -40,7 +40,7 @@
 
 			&__subtitle {
 
-				@include color(color, font-color-medium);
+				color: $medium-gray;
 				font-size: $font-size-smaller;
 				line-height: $line-height-smaller;
 				margin: 0;
@@ -51,7 +51,7 @@
 
 			&__amount {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				font-size: $font-size-h1;
 				line-height: $line-height-h1;
 				margin-right: 10px;
@@ -59,7 +59,7 @@
 
 			&__label {
 
-				@include color(color, font-color-medium);
+				color: $medium-gray;
 				font-size: $font-size-bigger;
 				line-height: $line-height-bigger;
 			}
