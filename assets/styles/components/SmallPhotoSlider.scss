@@ -37,7 +37,7 @@
 	.SmallPhoto__slider &__desc,
 	&__desc {
 
-		@include color(color, font-color-light);
+		color: $white;
 		position: absolute;
 		font-weight: $font-weight-semi;
 		font-size: 0.875rem;
@@ -63,7 +63,7 @@
 		&__zoomin {
 
 			@include posZero;
-			@include color(color, font-color-light);
+			color: $white;
 			display: flex;
 			align-items: center;
 			justify-content: center;

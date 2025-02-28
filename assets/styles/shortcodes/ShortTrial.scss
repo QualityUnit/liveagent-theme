@@ -70,24 +70,24 @@
 
 		input[type="email"] {
 
-			@include color(background-color, content-color-light);
-			@include color(border-color, content-color-light);
+			background-color: $white;
+			border-color: $white;
 		}
 
 		.Button--full {
 
-			@include color(background, content-color-dark);
+			background: $black;
 			margin-top: 0;
 			margin-right: 0;
 
 			&::before {
 
-				@include color(background, content-color-dark);
+				background: $black;
 			}
 
 			&::after {
 
-				@include color(background, content-color-normal);
+				background: $dark-gray;
 			}
 		}
 	}

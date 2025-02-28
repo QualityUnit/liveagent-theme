@@ -37,7 +37,7 @@ body.lb-disable-scrolling {
 
 		&::after {
 
-			@include color(background-color, invert-main-background);
+			background-color: $black;
 			@include square(100%);
 			content: "";
 			position: absolute;
@@ -141,7 +141,7 @@ body.lb-disable-scrolling {
 
 	&__close.lightbox__close {
 
-		@include color(color, font-color-light);
+		color: $white;
 		@include square(1em);
 		position: absolute;
 		display: inline-block;

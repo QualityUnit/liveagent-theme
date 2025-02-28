@@ -7,8 +7,8 @@ input,
 	&[type="number"],
 	&[type="search"] {
 
-		@include color(background-color, main-background);
-		@include color(border-color, border-color-inputs);
+		background-color: $white;
+		border-color: $medium-gray-inputs;
 		color: currentColor;
 		outline: none;
 		border: 1px solid;
@@ -24,7 +24,7 @@ input,
 
 	&--wrapper {
 
-		@include color(color, font-color-level3);
+		color: $medium-gray-quotes;
 		display: inline-block;
 		position: relative;
 	}

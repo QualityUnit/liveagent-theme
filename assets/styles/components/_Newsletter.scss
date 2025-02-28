@@ -55,7 +55,7 @@ $nl-input-height: 44;
 				&::before {
 
 					@include square(em($nl-input-height));
-					@include color(color, font-color-level3);
+					color: $medium-gray-quotes;
 					pointer-events: none;
 					position: absolute;
 					top: 0;
@@ -81,7 +81,7 @@ $nl-input-height: 44;
 			footer.Footer & {
 
 				@extend %footer-newsletter-input;
-				@include color(border-color, font-color-dark);
+				border-color: $black;
 				width: 70%;
 				min-width: initial;
 				padding: 0.25em 1em 0.25em em($nl-input-height, $font-size-smaller);
@@ -208,8 +208,8 @@ form.MailChimp {
 
 		select {
 
-			@include color(border-color, border-color-normal);
-			@include color(color, font-color-normal);
+			border-color: $dark-gray;
+			color: $dark-gray;
 			width: auto;
 			min-width: 50%;
 			height: $input-height-normal;

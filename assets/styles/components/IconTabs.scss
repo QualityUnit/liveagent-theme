@@ -73,7 +73,7 @@
 
 				a {
 
-					@include color(color, font-color-level3);
+					color: $medium-gray-quotes;
 					display: flex;
 					align-items: center;
 					position: relative;
@@ -130,7 +130,7 @@
 
 					a {
 
-						@include color(background, background);
+						background: $primary-gradient;
 						color: $white;
 
 						&::after {
@@ -219,7 +219,7 @@
 
 		p {
 
-			@include color(background, background);
+			background: $primary-gradient;
 			background-clip: text;
 			color: transparent;
 			box-decoration-break: clone;
@@ -254,7 +254,7 @@
 
 	&__textBubble {
 
-		@include color(background, main-background);
+		background: $white;
 		position: relative;
 		border-radius: $border-radius-16;
 		margin: 0 auto;
@@ -270,7 +270,7 @@
 			content: "";
 
 			@include square(2em);
-			@include color(background, main-background);
+			background: $white;
 			position: absolute;
 			top: -0.75em;
 			left: 50%;

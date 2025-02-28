@@ -28,8 +28,8 @@ scss/at-extend-no-missing-placeholder */
 
 		a {
 
-			@include color(color, main-nav-submenu-font-color);
-			@include color(background-color, main-background);
+			color: $black;
+			background-color: $white;
 			display: flex;
 			align-items: center;
 			padding: 0.82em 1em;
@@ -55,7 +55,7 @@ scss/at-extend-no-missing-placeholder */
 
 			&::before {
 
-				@include color(background-color, primary-color);
+				background-color: $dark-orange;
 				@include square(0.82rem);
 				content: "";
 				display: block;
