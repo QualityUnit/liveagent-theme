@@ -10,6 +10,35 @@
 	justify-content: center;
 	text-align: center;
 
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		width: 100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+	}
+
+	&--table-basic {
+
+		&::before {
+			top: 54px;
+			height: 556px;
+			background-image: url(../../images/bg-table-contrast-basic.svg);
+		}
+	}
+
+	&--table-wide {
+
+		&::before {
+			top: 0;
+			height: 680px;
+			background-image: url(../../images/bg-table-contrast-wide.svg);
+		}
+	}
+
 	.elementor-widget-heading {
 
 		h2 {
