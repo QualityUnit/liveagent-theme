@@ -1,4 +1,4 @@
-/* global _paq, Piwik, gtag, PostAffTracker, analytics, twq */
+/* global _paq, Piwik, gtag, PostAffTracker, FHTrck, analytics, twq */
 /* global quCrmData, getCookie, setCookie */
 
 class CrmInstaller {
@@ -305,6 +305,7 @@ class CrmInstaller {
 		this.handlePapAction();
 		this.handleTrackersAction();
 		this.handlePaqAction();
+		this.handleFlowHuntAction();
 
 		if ( ! this.signupData.is_redeem && typeof gtag !== 'undefined' ) {
 			try {
@@ -419,6 +420,20 @@ class CrmInstaller {
 			} catch ( e ) {
 				// eslint-disable-next-line no-console
 				console.warn( 'Tracking script failed:', 'PostAffTracker' );
+			}
+		}
+	};
+
+	handleFlowHuntAction = async () => {
+		if ( typeof FHTrck !== 'undefined' ) {
+			try {
+				await FHTrck.trackEvent( {
+					event_name: 'fh_trial_signup',
+					event_value: 0.1,
+					link_ids: [ this.signupData.customer_email, this.signupData.subdomain, this.signupData.id ], // Optional, session ID will be automatically added
+					conversion_action_id: '6722290247', // Optional, ID of the conversion action to track
+				} );
+			} catch ( e ) {
 			}
 		}
 	};

@@ -399,3 +399,27 @@ document.addEventListener( 'DOMContentLoaded', ( e ) => {
 	</script>
 	<!--End of LiveAgent integration script-->
 <?php } ?>
+
+<script>
+	(function(d,t) {
+		var script = d.createElement(t);
+		script.id = 'fh_tracking';
+		script.async = true;
+		script.src = 'https://app.flowhunt.io/fh_trk.min.js';
+
+		script.onload = script.onreadystatechange = function() {
+			var rs = this.readyState;
+			if (rs && (rs != 'complete') && (rs != 'loaded')) return;
+
+			if (window.FHTrck) {
+				window.FHTrck.init({
+					workspace_id: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
+					customer_id: '3600902407',
+					cookiesEnabled: getCookieFrontend("cookieLaw") ? true : false,
+					appendSessionToLinks: true,
+				});
+			}
+		};
+		document.body.insertBefore(script, document.body.lastChild);
+	})(document, 'script');
+</script>
