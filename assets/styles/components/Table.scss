@@ -209,6 +209,16 @@ body:not(.pricing) {
 			table {
 				margin: 0;
 
+				tbody {
+
+					tr {
+
+						&:nth-of-type(even) {
+							background-color: $white;
+						}
+					}
+				}
+
 				th,
 				td {
 					color: $black;
@@ -221,6 +231,7 @@ body:not(.pricing) {
 				th {
 					padding: 1.875rem 1.5625rem;
 					font-size: 0.875rem;
+					background-color: $white;
 
 					&:first-child {
 						padding: 1.875rem 2.1875rem;
@@ -285,7 +296,6 @@ body:not(.pricing) {
 						width: 18.75em;
 					}
 				}
-
 			}
 
 			&--wide {
@@ -302,7 +312,7 @@ body:not(.pricing) {
 				}
 			}
 
-			@media (max-width: $breakpoint-tablet) {
+			@media (max-width: $breakpoint-tablet - 1px) {
 
 				table {
 
@@ -399,11 +409,18 @@ body:not(.pricing) {
 
 							tr {
 								display: flex;
+								background-color: $white;
+
+								&:nth-of-type(even) {
+									background-color: $lightest-gray;
+								}
 							}
 						}
 
 						th {
 							width: 50%;
+							background-color: $medium-gray-inputs;
+							font-weight: 600;
 
 							&:first-child {
 								width: 50%;
@@ -412,6 +429,7 @@ body:not(.pricing) {
 
 						td {
 							font-weight: $font-weight-normal;
+							background-color: transparent;
 						}
 					}
 				}
