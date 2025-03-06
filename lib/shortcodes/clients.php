@@ -12,7 +12,7 @@ function ms_clients( $atts ) {
 	ob_start();
 	?>
 
-	<div class="Clients">
+	<div class="Clients wrapper">
 	<?php
 	$query_clients_posts = new WP_Query(
 		array(
@@ -27,7 +27,7 @@ function ms_clients( $atts ) {
 			?>
 
 		<div class="Clients__item">
-			<?php the_post_thumbnail( 'archive_small_thumbnail', array( 'class' => 'urlslab-skip-lazy' ) ); ?>
+			<?php the_post_thumbnail( 'archive_thumbnail', array( 'class' => 'urlslab-skip-lazy' ) ); ?>
 		</div>
 
 	<?php endwhile; ?>

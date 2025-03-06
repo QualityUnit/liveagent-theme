@@ -5,6 +5,8 @@
 
 
 .Logos {
+	max-width: $wrapper-width;
+	margin: 0 auto;
 
 	h2 {
 		text-align: center;
@@ -23,16 +25,21 @@
 
 	.Clients {
 		margin: 45px 0;
+		padding: 0 40px;
+
+		@media (min-width: $breakpoint-desktop) {
+			padding: 0 $wrapper-padding;
+		}
 
 		&__item {
 			margin: 0 40px;
 
 			&:first-of-type {
-				margin-left: 0;
+				margin-left: 0 !important;
 			}
 
 			&:last-of-type {
-				margin-right: 0;
+				margin-right: 0 !important;
 			}
 		}
 	}
@@ -50,9 +57,6 @@
 		}
 	}
 
-	@media (max-width: $breakpoint-tablet-small) {
-		display: none;
-	}
 
 	&.Logos--home {
 

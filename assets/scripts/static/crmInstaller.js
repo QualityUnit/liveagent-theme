@@ -310,8 +310,7 @@ class CrmInstaller {
 		if ( ! this.signupData.is_redeem && typeof gtag !== 'undefined' ) {
 			try {
 				gtag( 'set', 'user_data', { email: this.signupData.customer_email } );
-				gtag( 'event', 'Trial_sign_up_old', { send_to: 'G-T9HBB9KMVK' } );
-				gtag( 'event', 'Trial_sign_up_skuska', { send_to: 'AW-966671101/bfzFCPmy1eMZEP31-MwD' } );
+				gtag( 'event', 'Trial_sign_up', { send_to: 'AW-966671101/bfzFCPmy1eMZEP31-MwD' } );
 			} catch ( e ) {
 				// eslint-disable-next-line no-console
 				console.warn( 'Tracking script failed:', 'gtag' );

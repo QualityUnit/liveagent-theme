@@ -47,6 +47,7 @@ add_action(
 		add_image_size( 'logo_thumbnail', 185, 185 );
 		add_image_size( 'logo_small_thumbnail', 110, 110 );
 		add_image_size( 'person_thumbnail', 485, 485 );
+		add_image_size( 'header_image', 1200, 1200 );
 
 		// Enable post formats
 		// http://codex.wordpress.org/Post_Formats

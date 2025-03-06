@@ -1,6 +1,6 @@
 {
 	"name": "liveagent",
-	"version": "1.25.68",
+	"version": "1.25.72",
 	"description": "wordpress theme",
 	"author": "LiveAgent",
 	"license": "GPL-2.0-only",
@@ -28,13 +28,13 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.26",
-		"@babel/eslint-parser": "^7.25",
+		"@babel/eslint-parser": "^7.26",
 		"@commitlint/cli": "^19.5.0",
-		"@commitlint/config-conventional": "^19.5.0",
-		"@wordpress/eslint-plugin": "^21",
+		"@commitlint/config-conventional": "^19.6.0",
+		"@wordpress/eslint-plugin": "^22",
 		"@wordpress/stylelint-config": "^23",
 		"browser-sync": "^3.0",
-		"concurrently": "^9.0",
+		"concurrently": "^9.1",
 		"del": "^6",
 		"eslint": "^8.57",
 		"eslint-config-airbnb-base": "^14.2",
@@ -49,19 +49,19 @@
 		"gulp-rename": "^2.0.0",
 		"gulp-revert-path": "^2",
 		"gulp-rtlcss": "^1.4",
-		"gulp-sass": "^5.1",
+		"gulp-sass": "^6.0",
 		"gulp-stylelint": "^13",
 		"gulp-svg-sprite": "^2.0.3",
 		"gulp-terser": "^2.1",
 		"gulp-uglifycss": "^1.1",
-		"husky": "^9.1.6",
+		"husky": "^9.1.7",
 		"minimist": "^1.2",
-		"prettier": "^3.3",
+		"prettier": "^3.4",
 		"stylelint": "^15"
 	},
 	"dependencies": {
 		"browserlist": "^1.0.1",
 		"gulp-replace": "^1.1.4",
-		"sass": "^1.80.5"
+		"sass": "^1.83.4"
 	}
 }

@@ -58,6 +58,14 @@
 		}
 	}
 
+	&--free-plan {
+		display: flex;
+		align-items: center;
+		margin-top: 2.5rem;
+		margin-bottom: 5rem;
+		min-height: 37.5rem;
+	}
+
 	@media (max-width: $breakpoint-desktop) {
 
 		h1 {
@@ -67,6 +75,10 @@
 
 		p {
 			max-width: 75%;
+		}
+
+		&--free-plan {
+			min-height: auto;
 		}
 	}
 

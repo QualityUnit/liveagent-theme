@@ -74,14 +74,14 @@ function signup_form( $atts ) {
 			<div data-id="regionFieldmain" class="Signup__form__item">
 				<div class="InputWrapper">
 					<label><strong><?php _e( 'Region', 'ms' ); ?></strong></label>
-					<div class="FilterMenu isSingleSelect">
-						<div class="FilterMenu__title flex flex-align-center">
+					<div class="DropDownMenu isSingleSelect">
+						<div class="DropDownMenu__title flex flex-align-center">
 							<span><?php _e( 'Your region', 'ms' ); ?></span>
 						</div>
-						<div class="FilterMenu__items">
-							<div class="FilterMenu__items--inn">
+						<div class="DropDownMenu__items">
+							<div class="DropDownMenu__items--inn">
 								<?php foreach ( $regions as $region_code => $region_name ) { ?>
-									<div class="checkbox FilterMenu__item">
+									<div class="checkbox DropDownMenu__item">
 										<input
 											class="filter-item"
 											type="radio"

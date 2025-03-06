@@ -127,6 +127,40 @@
 		}
 	}
 
+	&--free-plan {
+
+		&__content {
+			align-items: center;
+
+			.elementor-widget-heading {
+
+				h1 {
+					margin: 0 0 1.125rem 0 !important;
+					font-size: 3.25em;
+					font-weight: $font-weight-bold;
+					line-height: 1.23 !important;
+
+					.highlight-gradient {
+						display: block;
+					}
+
+				}
+			}
+
+			.elementor-widget-text-editor {
+
+				p {
+					width: 100%;
+					max-width: 100%;
+					margin: 0 0 2.125rem 0;
+					font-size: 1.625em;
+					font-weight: $font-weight-normal;
+					line-height: 1.46;
+				}
+			}
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet) {
 
 		&__content {
