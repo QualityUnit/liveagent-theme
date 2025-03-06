@@ -427,13 +427,16 @@ class CrmInstaller {
 	handleFlowHuntAction = async () => {
 		if ( typeof FHTrck !== 'undefined' ) {
 			try {
-				await FHTrck.trackLinks( [ this.signupData.customer_email, this.signupData.subdomain, this.signupData.id ] );
+				await FHTrck.trackEvent( {
+					event_name: 'fh_trial_signup',
+					event_value: 0.1,
+					link_ids: [ this.signupData.customer_email, this.signupData.subdomain, this.signupData.id ], // Optional, session ID will be automatically added
+					conversion_action_id: '942942148', // Optional, ID of the conversion action to track
+				} );
 			} catch ( e ) {
-				// eslint-disable-next-line no-console
-				console.warn( 'Tracking script failed:', 'FHTrck' );
 			}
 		}
-	}
+	};
 
 	handlePaqAction = () => {
 		if ( typeof _paq !== 'undefined' ) {
