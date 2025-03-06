@@ -431,7 +431,7 @@ class CrmInstaller {
 					event_name: 'fh_trial_signup',
 					event_value: 0.1,
 					link_ids: [ this.signupData.customer_email, this.signupData.subdomain, this.signupData.id ], // Optional, session ID will be automatically added
-					conversion_action_id: '942942148', // Optional, ID of the conversion action to track
+					conversion_action_id: '6722290247', // Optional, ID of the conversion action to track
 				} );
 			} catch ( e ) {
 			}
