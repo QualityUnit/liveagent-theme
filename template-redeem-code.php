@@ -36,21 +36,6 @@ set_source( 'redeem-code', 'pages/TrialRedesign', 'css' );
 				</div>
 
 				<?= do_shortcode( '[signupform-redeemcode]' ); ?>
-
-				<div class="Trial__main__logos">
-					<div class="Trial__main__logo">
-						<a href="<?php _e( '/awards/', 'ms' ); ?>">
-							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_capterra.svg" alt="<?php _e( 'Capterra', 'ms' ); ?>" class="urlslab-skip-lazy">
-						</a>
-					</div>
-
-					<div class="Trial__main__logo">
-						<a href="<?php _e( '/awards/', 'ms' ); ?>">
-							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_g2.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
-						</a>
-					</div>
-
-				</div>
 			</div>
 		</div>
 	</div>
