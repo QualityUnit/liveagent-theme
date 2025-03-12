@@ -34,8 +34,8 @@
 
 			li {
 
-				@include color(background-color, primary-color);
-				@include color(color, font-color-light);
+				background-color: $dark-orange;
+				color: $white;
 				height: 20px;
 				padding: 0 8px;
 				border-radius: 10px;
@@ -60,33 +60,33 @@
 
 				&.ticket {
 
-					@include color(background-color, package-color-1);
+					background-color: $light-green;
 				}
 
 				&.ticket-chat {
 
-					@include color(background-color, package-color-2);
+					background-color: $light-blue;
 				}
 
 				&.all-inclusive {
 
-					@include color(background-color, package-color-3);
+					background-color: $dark-orange;
 				}
 
 				&.extensions {
 
-					@include color(background-color, extension-item-color);
+					background-color: $black;
 				}
 
 				&.new-feature {
 
-					@include color(background-color, new-item-color);
-					@include color(color, font-color-dark);
+					background-color: $yellow;
+					color: $black;
 				}
 
 				a {
 
-					@include color(color, font-color-light, !important);
+					color: $white;
 					pointer-events: none;
 
 					&:active,
@@ -101,7 +101,7 @@
 
 	&__thumbnail {
 
-		@include color(background-color, secondary-background);
+		background-color: $lightest-gray;
 		max-width: 1340px;
 		min-height: 200px;
 		margin-top: 45px;
@@ -134,14 +134,14 @@
 
 			a:not(.Button) {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				text-decoration: underline;
 
 				&:active,
 				&:focus,
 				&:hover {
 
-					@include color(color, primary-color);
+					color: $dark-orange;
 
 					text-decoration: underline;
 				}
@@ -160,7 +160,7 @@
 
 				&__item {
 
-					@include color(color, font-color-medium);
+					color: $medium-gray;
 					margin-right: 40px;
 					font-size: $font-size-default;
 					line-height: $line-height-default;
@@ -176,7 +176,7 @@
 
 						a {
 
-							@include color(color, font-color-medium, !important);
+							color: $medium-gray;
 
 							&:last-of-type {
 								font-size: 16px;
@@ -242,7 +242,7 @@
 
 							a {
 
-								@include color(color, font-color-light, !important);
+								color: $white;
 								background-color: #4267b2;
 							}
 						}
@@ -262,7 +262,7 @@
 
 							a {
 
-								@include color(color, font-color-light, !important);
+								color: $white;
 								background-color: #50abf1;
 							}
 						}
@@ -282,7 +282,7 @@
 
 							a {
 
-								@include color(color, font-color-light, !important);
+								color: $white;
 								background-color: #0084b1;
 							}
 						}
@@ -292,7 +292,7 @@
 
 			&__author {
 
-				@include color(background-color, newsletter-background);
+				background-color: $lightest-gray;
 				margin: 40px 0;
 				padding: 40px !important;
 				border-radius: $border-radius;
@@ -313,7 +313,7 @@
 				h4,
 				.h4 {
 
-					@include color(color, font-color-dark);
+					color: $black;
 					font-size: $font-size-h4;
 					line-height: $line-height-h4;
 					margin: 0 0 15px;
@@ -321,7 +321,7 @@
 
 				p {
 
-					@include color(color, font-color-normal);
+					color: $dark-gray;
 					font-size: $font-size-default;
 					line-height: $line-height-default;
 					margin: 0;
@@ -366,7 +366,7 @@
 
 					a {
 
-						@include color(color, font-color-normal);
+						color: $dark-gray;
 						display: block;
 						width: 100%;
 						height: 100%;
@@ -376,7 +376,7 @@
 					&.active,
 					&:hover {
 
-						@include color(background-color, secondary-background);
+						background-color: $lightest-gray;
 					}
 				}
 			}
@@ -443,7 +443,7 @@
 						&:focus,
 						&:hover {
 
-							@include color(color, font-color-dark);
+							color: $black;
 						}
 					}
 				}

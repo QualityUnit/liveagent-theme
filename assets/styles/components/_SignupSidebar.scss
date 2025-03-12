@@ -64,8 +64,8 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 		input {
 
-			@include color(background-color, main-background);
-			@include color(color, font-color-level3);
+			background-color: $white;
+			color: $medium-gray-quotes;
 			width: 100%;
 			height: 2.75rem;
 			border: 1px solid $medium-gray-inputs;
@@ -85,8 +85,8 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 			&:focus {
 
-				@include color(border-color, font-color-dark);
-				@include color(color, font-color-dark);
+				border-color: $black;
+				color: $black;
 			}
 
 		}
@@ -95,8 +95,8 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 			&__title {
 
-				@include color(background-color, main-background);
-				@include color(color, font-color-level3);
+				background-color: $white;
+				color: $medium-gray-quotes;
 				width: 100%;
 				height: 2.75rem;
 				border: 1px solid $medium-gray-inputs;
@@ -106,8 +106,8 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 				&.active {
 
-					@include color(border-color, font-color-dark);
-					@include color(color, font-color-dark);
+					border-color: $black;
+					color: $black;
 				}
 
 				span {
@@ -135,7 +135,7 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 	.ErrorMessage {
 
-		@include color(color, error-color);
+		color: $saturated-red;
 		font-size: 0.6875rem;
 		line-height: 1.3;
 		margin-bottom: 0;
@@ -211,8 +211,8 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 		&__domain {
 
-			@include color(background-color, secondary-background);
-			@include color(color, font-color-normal);
+			background-color: $lightest-gray;
+			color: $dark-gray;
 			position: absolute;
 			display: flex;
 			align-items: center;
@@ -290,7 +290,7 @@ no-descending-specificity, value-keyword-case, selector-id-pattern */
 
 				span {
 
-					@include color(color, font-color-dark);
+					color: $black;
 					font-size: 0.8125rem;
 					margin-left: 0.5em;
 					text-decoration: none !important;

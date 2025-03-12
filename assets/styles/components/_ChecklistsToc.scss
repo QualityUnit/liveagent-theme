@@ -15,7 +15,7 @@
 
 	&__label {
 
-		@include color(color, font-color-normal);
+		color: $dark-gray;
 		min-width: 7.5em;
 		padding: 0 0.5em 0 1em;
 		font-size: 0.75em;
@@ -67,7 +67,7 @@
 
 	&__wrapper {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 		position: absolute;
 		z-index: 10;
 		top: 100%;
@@ -142,7 +142,7 @@
 
 	&__item {
 
-		@include color(color, font-color-dark);
+		color: $black;
 		position: relative;
 		font-size: 0.875em;
 
@@ -156,7 +156,7 @@
 
 			a {
 
-				@include color(color, primary-color);
+				color: $dark-orange;
 			}
 		}
 	}

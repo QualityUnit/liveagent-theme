@@ -81,7 +81,7 @@
 				&::before {
 
 					@include circle(0.875em);
-					@include color(background-color, primary-color);
+					background-color: $dark-orange;
 					position: relative;
 					margin: 0 auto 1em;
 					box-shadow: 0 0 0.5em 0 rgba($dark-orange, 0.8);

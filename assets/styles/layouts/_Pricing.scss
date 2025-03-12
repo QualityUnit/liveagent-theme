@@ -9,7 +9,7 @@ html {
 
 .Pricing {
 
-	@include color(background-color, secondary-background);
+	background-color: $lightest-gray;
 	padding: 90px 0;
 	overflow: hidden;
 	margin: 0 5%;
@@ -35,7 +35,7 @@ html {
 
 		&__title {
 
-			@include color(color, font-color-dark);
+			color: $black;
 			font-size: 48px;
 			line-height: 64px;
 			font-weight: $font-weight-bold;
@@ -59,8 +59,8 @@ html {
 
 			&-title {
 
-				@include color(color, font-color-dark);
-				@include color(background-color, button-outline-color);
+				color: $black;
+				background-color: $light-gray;
 				margin: 0 12px 12px 0;
 				padding: 3px 12px;
 				border-radius: 50px;
@@ -395,7 +395,7 @@ html {
 
 		&::before {
 
-			@include color(background-color, main-background);
+			background-color: $white;
 			content: "";
 			display: inline-block;
 			width: 100%;
@@ -444,7 +444,7 @@ html {
 
 		th {
 
-			@include color(color, font-color-normal);
+			color: $dark-gray;
 			font-weight: $font-weight-normal;
 		}
 	}
@@ -486,7 +486,7 @@ html {
 
 				span {
 
-					@include color(color, font-color-normal);
+					color: $dark-gray;
 					display: inline-block !important;
 				}
 			}
@@ -517,7 +517,7 @@ html {
 
 			&__label {
 
-				@include color(color, font-color-normal);
+				color: $dark-gray;
 				display: inline-block !important;
 				line-height: $line-height-bigger;
 				font-size: 20px;
@@ -575,7 +575,7 @@ html {
 
 			&__note {
 
-				@include color(color, font-color-medium);
+				color: $medium-gray;
 				display: block;
 				font-size: 13px;
 				line-height: 23px;
@@ -601,7 +601,7 @@ html {
 
 				span {
 
-					@include color(color, font-color-dark);
+					color: $black;
 					font-size: 18px;
 					line-height: 24px;
 					font-weight: $font-weight-bold;
@@ -672,7 +672,7 @@ html {
 
 					p {
 
-						@include color(color, font-color-dark);
+						color: $black;
 						font-size: 14px;
 						font-weight: $font-weight-bold;
 						font-style: italic;
@@ -716,7 +716,7 @@ html {
 		a,
 		a:visited {
 
-			@include color(color, font-color-light);
+			color: $white;
 			text-decoration: underline;
 		}
 	}

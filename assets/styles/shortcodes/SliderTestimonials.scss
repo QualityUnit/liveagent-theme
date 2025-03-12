@@ -42,7 +42,7 @@
 
 				&__name {
 
-					@include color(color, font-color-dark);
+					color: $black;
 					font-size: $font-size-default;
 					line-height: 21px;
 					font-weight: $font-weight-bold;
@@ -116,7 +116,7 @@
 
 		.splide__slide {
 
-			@include color(box-shadow, box-shadow);
+			box-shadow: 0;
 			margin: 20px;
 			border-radius: $border-radius;
 
@@ -156,7 +156,7 @@
 			.splide__arrow {
 
 				@include square(2.5rem);
-				@include color(background-color, secondary-background);
+				background-color: $lightest-gray;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -168,7 +168,7 @@
 
 				&::before {
 
-					@include color(color, font-color-medium);
+					color: $medium-gray;
 					position: relative;
 					font-size: 1.15rem;
 				}
@@ -234,7 +234,7 @@
 
 				p {
 
-					@include color(color, font-color-dark);
+					color: $black;
 					text-align: left;
 					max-height: 750px;
 					font-size: 0.875rem;
@@ -302,7 +302,7 @@
 
 		.splide__slide {
 
-			@include color(background-color, main-background);
+			background-color: $white;
 			box-shadow: 3px 3px 1.5em -10px rgba($black, 0.07);
 			border-radius: $border-radius * 2;
 			width: 100% !important;
@@ -360,13 +360,13 @@
 
 				svg {
 
-					@include color(fill, primary-color);
+					fill: $dark-orange;
 				}
 			}
 
 			svg {
 
-				@include color(fill, font-color-medium);
+				fill: $medium-gray;
 				@include square(auto);
 			}
 
@@ -389,14 +389,14 @@
 
 			&__content {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				width: 81%;
 				margin-left: 2em;
 				font-size: 1rem;
 
 				&__bottom {
 
-					@include color(color, font-color-dark);
+					color: $black;
 					display: flex;
 					font-size: 1.125rem;
 					margin-top: 1em;
@@ -469,7 +469,7 @@
 			&::after {
 
 				@include posZero();
-				@include color(background-color, main-background);
+				background-color: $white;
 				position: absolute;
 				content: "";
 				border-radius: $border-radius-16;
@@ -576,14 +576,14 @@
 
 			&__content {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				width: 81%;
 				font-size: 1rem;
 				padding: 2em;
 
 				&__bottom {
 
-					@include color(color, font-color-dark);
+					color: $black;
 					display: flex;
 					font-size: 1rem;
 					margin-top: 1em;

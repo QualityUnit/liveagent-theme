@@ -39,8 +39,8 @@
 
 			.elementor-widget-wrap {
 
-				@include color(box-shadow, box-shadow);
-				@include color(background-color, main-background);
+				box-shadow: 0;
+				background-color: $white;
 			}
 
 			.elementor-widget-image {
@@ -101,7 +101,7 @@
 
 			.elementor-widget-text-editor p {
 
-				@include color(color, font-color-normal);
+				color: $dark-gray;
 				line-height: 1.625;
 				font-size: 0.875rem;
 			}
@@ -113,7 +113,7 @@
 
 				.elementor-widget-text-editor p {
 
-					@include color(color, font-color-dark);
+					color: $black;
 				}
 			}
 		}
@@ -334,8 +334,8 @@
 
 			.elementor-widget-wrap {
 
-				@include color(box-shadow, box-shadow);
-				@include color(background-color, main-background);
+				box-shadow: 0;
+				background-color: $white;
 				flex-direction: column;
 			}
 
@@ -437,7 +437,7 @@
 
 			a:not(.Button) {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				text-decoration: none;
 
 				&:active,
@@ -449,7 +449,7 @@
 
 			a {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				font-weight: $font-weight-bold;
 			}
 		}

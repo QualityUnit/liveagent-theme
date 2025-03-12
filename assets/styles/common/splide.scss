@@ -70,8 +70,8 @@
 				all: unset;
 				pointer-events: auto;
 
-				@include color(background-color, main-background);
-				@include color(color, primary-color);
+				background-color: $white;
+				color: $dark-orange;
 				@include square(3em);
 				display: flex;
 				align-items: center;
@@ -87,8 +87,8 @@
 
 				&:hover {
 
-					@include color(background-color, primary-color);
-					@include color(color, font-color-light);
+					background-color: $dark-orange;
+					color: $white;
 				}
 
 				svg {
@@ -255,7 +255,7 @@
 
 	&::before {
 
-		@include color(color, button-outline-color);
+		color: $light-gray;
 		font-family: fontello, sans-serif;
 		font-weight: 900;
 		font-size: 24px;

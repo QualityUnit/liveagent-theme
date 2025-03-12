@@ -1,7 +1,7 @@
 .webcalcBlock {
 
-	@include color(background-color, main-background);
-	@include color(box-shadow, box-shadow);
+	background-color: $white;
+	box-shadow: 0;
 	width: 100%;
 
 	&--narrow {

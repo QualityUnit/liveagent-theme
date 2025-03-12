@@ -6,14 +6,14 @@
 
 .BlockResources {
 
-	@include color(background-color, newsletter-background);
+	background-color: $lightest-gray;
 	margin: 40px 0;
 	padding: 30px 40px !important;
 	border-radius: $border-radius;
 
 	p {
 
-		@include color(color, font-color-dark);
+		color: $black;
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: flex-start;

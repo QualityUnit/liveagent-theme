@@ -63,7 +63,7 @@
 
 		[data-id="promoFieldmain"] {
 
-			@include color(color, font-color-normal);
+			color: $dark-gray;
 			margin: 2em 0;
 			font-size: 0.75rem !important;
 
@@ -121,8 +121,8 @@
 
 			input {
 
-				@include color(border-color, border-color-inputs);
-				@include color(color, font-color-level3);
+				border-color: $medium-gray-inputs;
+				color: $medium-gray-quotes;
 				background-color: $white;
 				width: 100%;
 				height: $input-height-sm;
@@ -148,8 +148,8 @@
 
 				&:focus {
 
-					@include color(border-color, font-color-dark);
-					@include color(color, font-color-dark);
+					border-color: $black;
+					color: $black;
 				}
 			}
 
@@ -226,7 +226,7 @@
 
 					&::before {
 
-						@include color(color, font-color-normal);
+						color: $dark-gray;
 						background-color: $white;
 						border-radius: 100%;
 					}
@@ -251,9 +251,9 @@
 
 				&__content {
 
-					@include color(color, font-color-medium);
-					@include color(background-color, main-background);
-					@include color(border-color, border-color-gray, !important);
+					color: $medium-gray;
+					background-color: $white;
+					border-color: $light-gray;
 					display: none;
 					position: absolute;
 					top: 10px;
@@ -276,7 +276,7 @@
 
 			.ErrorMessage {
 
-				@include color(color, error-color);
+				color: $saturated-red;
 				font-size: 12px;
 				line-height: 1.3;
 				margin-top: 0.4em;
@@ -320,12 +320,12 @@
 				input[data-type="text"], // fix for removed default "type" attr by urlslab html optimisation
 				input[type="email"] {
 
-					@include color(border-color, successful-color);
-					@include color(color, successful-color);
+					border-color: $saturated-green;
+					color: $saturated-green;
 
 					&::placeholder {
 
-						@include color(color, successful-color);
+						color: $saturated-green;
 						opacity: 1;
 					}
 				}
@@ -334,14 +334,14 @@
 
 					&__title {
 
-						@include color(border-color, successful-color);
-						@include color(color, successful-color);
+						border-color: $saturated-green;
+						color: $saturated-green;
 					}
 				}
 
 				.InputWrapper::before {
 
-					@include color(color, successful-color);
+					color: $saturated-green;
 				}
 
 				.ErrorMessage {
@@ -350,7 +350,7 @@
 
 				.Signup__form__item__domain {
 
-					@include color(color, successful-color);
+					color: $saturated-green;
 				}
 			}
 
@@ -360,12 +360,12 @@
 				input[data-type="text"], // fix for removed default "type" attr by urlslab html optimisation
 				input.textfield {
 
-					@include color(border-color, error-color);
-					@include color(color, error-color);
+					border-color: $saturated-red;
+					color: $saturated-red;
 
 					&::placeholder {
 
-						@include color(color, error-color);
+						color: $saturated-red;
 						opacity: 1;
 					}
 				}
@@ -374,20 +374,20 @@
 
 					&__title {
 
-						@include color(border-color, error-color);
-						@include color(color, error-color);
+						border-color: $saturated-red;
+						color: $saturated-red;
 
 					}
 				}
 
 				.InputWrapper::before {
 
-					@include color(color, error-color);
+					color: $saturated-red;
 				}
 
 				.Signup__form__item__domain {
 
-					@include color(color, error-color);
+					color: $saturated-red;
 				}
 			}
 
@@ -395,7 +395,7 @@
 
 				.ErrorMessage {
 
-					@include color(color, font-color-dark);
+					color: $black;
 				}
 			}
 		}

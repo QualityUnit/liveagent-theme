@@ -55,7 +55,7 @@
 
 		&--title {
 
-			@include color(color, font-color-medium);
+			color: $medium-gray;
 			font-size: 0.875rem;
 			display: block;
 			position: relative;
@@ -82,8 +82,8 @@
 
 			span {
 
-				@include color(background-color, button-outline-color);
-				@include color(color, font-color-normal);
+				background-color: $light-gray;
+				color: $dark-gray;
 				display: block;
 				padding: 0.5em 2.5em;
 				padding-bottom: 1em;
@@ -94,14 +94,14 @@
 
 				span {
 
-					@include color(background, background);
-					@include color(color, font-color-light);
+					background: $primary-gradient;
+					color: $white;
 					font-weight: $font-weight-bold;
 				}
 
 				&::after {
 
-					@include color(background, background);
+					background: $primary-gradient;
 					box-shadow: 0 0 0 2px $dark-orange;
 				}
 			}

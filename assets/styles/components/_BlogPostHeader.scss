@@ -6,7 +6,7 @@ no-descending-specificity, value-keyword-case */
 
 .BlogPost__header {
 
-	@include color(background-color, secondary-background);
+	background-color: $lightest-gray;
 	display: flex;
 	align-items: center;
 	flex-direction: column;

@@ -186,7 +186,7 @@
 
 		&__icon {
 
-			@include color(background, main-background);
+			background: $white;
 			position: relative;
 			display: block;
 			width: 25px;
@@ -201,7 +201,7 @@
 
 			&::before {
 
-				@include color(background, primary-color);
+				background: $dark-orange;
 				content: "";
 				position: absolute;
 				top: 3px;
@@ -215,12 +215,12 @@
 
 			&:hover {
 
-				@include color(border-color, border-color-dark);
+				border-color: $black;
 				animation: none;
 
 				&::before {
 
-					@include color(background, invert-main-background);
+					background: $black;
 				}
 
 				+ div {
@@ -231,8 +231,8 @@
 
 		&__content {
 
-			@include color(background, invert-main-background);
-			@include color(color, font-color-light);
+			background: $black;
+			color: $white;
 			position: absolute;
 			top: -7px;
 			left: 40px;
@@ -269,8 +269,8 @@
 
 			&__content {
 
-				@include color(background, secondary-background);
-				@include color(color, font-color-normal);
+				background: $lightest-gray;
+				color: $dark-gray;
 				position: static;
 				width: 100%;
 				opacity: 1;
