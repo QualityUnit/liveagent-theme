@@ -187,7 +187,8 @@ html {
 			}
 
 			&:last-child {
-				background-color: $saturated-green;
+				background-color: $pricing-gray;
+				border: 1px solid $medium-gray-inputs;
 				overflow: hidden;
 
 
@@ -196,18 +197,18 @@ html {
 					@include posCustom(-1.5em);
 					content: "";
 					position: absolute;
-					background-color: rgba($white, 0.5);
-					opacity: 0.15;
+					opacity: 0.98;
+					background: linear-gradient(166deg, rgba($white, 0.70) 16.9%, rgba($white, 0) 86.96%);
 					transform: skewX(-45deg)  translateX(50%);
 
 					@media (min-width: $breakpoint-tablet) {
 
-						@include posCustom(-1.5em, 0, -1.5em, 50%);
+						@include posCustom(-1.5em, 0, -1.5em, 0);
 					}
 				}
 
 				* {
-					color: $white;
+					color: $black;
 					margin-bottom: 0;
 				}
 
@@ -412,6 +413,20 @@ html {
 			&:last-of-type {
 				margin-bottom: 0;
 			}
+		}
+	}
+
+	&:has(.appendix) {
+
+		.checklist.elementor-widget-text-editor {
+			margin-bottom: 0.625em;
+		}
+	}
+
+	.appendix {
+
+		* {
+			font-size: 0.875rem;
 		}
 	}
 
