@@ -203,7 +203,7 @@ html {
 
 					@media (min-width: $breakpoint-tablet) {
 
-						@include posCustom(-1.5em, 0, -1.5em, 50%);
+						@include posCustom(-1.5em, 0, -1.5em, 0);
 					}
 				}
 
