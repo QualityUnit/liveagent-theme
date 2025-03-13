@@ -416,6 +416,20 @@ html {
 		}
 	}
 
+	&:has(.appendix) {
+
+		.checklist.elementor-widget-text-editor {
+			margin-bottom: 0.625em;
+		}
+	}
+
+	.appendix {
+
+		* {
+			font-size: 0.875rem;
+		}
+	}
+
 	.Pricing__price {
 		display: flex;
 		align-items: flex-end;
