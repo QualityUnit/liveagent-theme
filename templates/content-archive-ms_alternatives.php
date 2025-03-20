@@ -77,21 +77,6 @@
 														<?php
 														_e( '30 days free trial', 'alternatives' );
 														?>
-														&nbsp;
-															<div class="Tooltip">
-																<span class="fontello-info"></span>
-																<span class="Tooltip__text"
-																	style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(442px, 19417.5px, 0px);"
-																	data-popper-placement="bottom">
-																	<?php
-																	_e(
-																		'Free trial for 30 days with a company email',
-																		'alternatives'
-																	);
-																	?>
-																	<span data-popper-arrow=""
-																		style="position: absolute; left: 0px; transform: translate3d(0px, 0px, 0px);"></span></span>
-															</div>
 														</div>
 														<div class="pricing__tags__label">
 														<?php
