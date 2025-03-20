@@ -1,5 +1,34 @@
 <?php
 add_filter( 'simple_register_metaboxes', 'landing_ppc_metaboxes' );
+add_action( 'admin_head', 'format_image' );
+
+function format_image() {
+	echo '<style>
+	  #landingppc td:has(input+img) {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 1.5em;
+		}
+		#landingppc label:has(input[type=radio]+img) {
+			display: block;
+			cursor: pointer;
+		}
+		#landingppc label:has(input[type=radio]:checked+img) {
+			cursor: default;
+		}
+		#landingppc label:has(input+img) input[type=radio] {
+			display: none;
+		}
+		#landingppc label:has(input+img) input[type=radio]:checked + img {
+			border: 1px solid red;
+		}
+    #landingppc label:has(input[type=radio]+img) img {
+			display: block;
+			height: auto;
+		}
+  </style>';
+}
 
 function landing_ppc_metaboxes( $sidebars ) {
 
@@ -25,12 +54,21 @@ function landing_ppc_metaboxes( $sidebars ) {
 				'default'      => 'Answer more tickets with <br> all-in-one customer care solution.',
 			),
 			array(
-				'id'           => 'media',
-				'label'        => 'Header Media',
-				'description'  => '',
-				'type'         => 'image',
-				'show_in_rest' => true,
-				'default'      => '',
+				'id'          => 'media',
+				'label'       => 'Header Media',
+				'description' => '',
+				'type'        => 'radio',
+				'options'     => array(
+					'979762' => wp_get_attachment_image( 979762 ),
+					'867550' => wp_get_attachment_image( 867550 ),
+					'867413' => wp_get_attachment_image( 867413 ),
+					'867340' => wp_get_attachment_image( 867340 ),
+					'867295' => wp_get_attachment_image( 867295 ),
+					'867215' => wp_get_attachment_image( 867215 ),
+					'867163' => wp_get_attachment_image( 867163 ),
+					'865816' => wp_get_attachment_image( 865816 ),
+				),
+				'default'     => '979762',
 			),
 			array(
 				'id'           => 'form_title',
