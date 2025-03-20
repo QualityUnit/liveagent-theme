@@ -12,7 +12,6 @@ function ms_signup_form( $atts ) {
 		array(
 			'title'    => __( 'Start Free Trial', 'ms' ),
 			'label1'   => __( '30 days free trial', 'ms' ),
-			'tooltip1' => __( 'Free trial for 30 days with a company email', 'ms' ),
 			'label2'   => __( 'No Credit Card required', 'ms' ),
 			'button'   => __( 'Create account for FREE', 'ms' ),
 		),
@@ -31,10 +30,6 @@ function ms_signup_form( $atts ) {
 		<div class="Signup__form__labels">
 			<span class="Signup__form__labels__label">
 				<?php echo esc_html( $atts['label1'] ); ?>&nbsp;
-				<span class="ComparePlans__tooltip">
-					<span class="fontello-info"></span>
-					<span class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?php echo esc_html( $atts['tooltip1'] ); ?></span>
-				</span>
 			</span>
 			<span class="Signup__form__labels__label"><?php echo esc_html( $atts['label2'] ); ?></span>
 		</div>
@@ -60,7 +55,7 @@ function ms_signup_form( $atts ) {
 					<svg class="InfoMessage__icon">
 						<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#info-solid' ); ?>"></use>
 					</svg>
-					<span class="InfoMessage__text"><?php _e( 'Use your company email to get a 30 day trial for free.', 'ms' ); ?></span>
+					<span class="InfoMessage__text"><?php _e( 'We encourage creating trial accounts under the company email addresses.', 'ms' ); ?></span>
 				</div>
 			</div>
 

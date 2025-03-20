@@ -51,7 +51,7 @@ function signup_form( $atts ) {
 				</div>
 				<div class="ErrorMessage"></div>
 				<div data-id="messageTrial" class="InfoMessage hidden">
-					<span class="InfoMessage__text"><?php _e( 'Use your company email to get a 30 day trial for free.', 'ms' ); ?></span>
+					<span class="InfoMessage__text"><?php _e( 'We encourage creating trial accounts under the company email addresses.', 'ms' ); ?></span>
 				</div>
 			</div>
 

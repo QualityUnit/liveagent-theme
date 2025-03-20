@@ -35,10 +35,6 @@
 				<div class="Signup__form__labels Trial__labels">
 					<div class="Signup__form__labels__label">
 						<?php _e( '30 days free trial', 'ms' ); ?>&nbsp;
-						<div class="ComparePlans__tooltip">
-							<div class="fontello-info"></div>
-							<div class="ComparePlans__tooltip__text ComparePlans__tooltip__text--top"><?php _e( 'Free trial for 30 days with a company email', 'ms' ); ?></div>
-						</div>
 					</div>
 					<div class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></div>
 				</div>
