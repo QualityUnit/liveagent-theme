@@ -68,7 +68,7 @@
 
 			p {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				font-size: $font-size-h2;
 				line-height: $line-height-h2;
 				font-weight: $font-weight-normal;
@@ -85,7 +85,7 @@
 
 			cite {
 
-				@include color(color, font-color-normal);
+				color: $dark-gray;
 				font-size: $font-size-default;
 				font-weight: $font-weight-bold;
 				line-height: $line-height-default;

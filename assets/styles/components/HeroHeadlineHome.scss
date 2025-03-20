@@ -283,7 +283,7 @@ value-keyword-case */
 		h6,
 		.h6 {
 
-			@include color(color, font-color-level3);
+			color: $medium-gray-quotes;
 			margin-bottom: 0;
 			font-size: 0.875rem;
 		}
@@ -451,7 +451,7 @@ value-keyword-case */
 
 			&__dots {
 
-				@include color(color, font-color-light);
+				color: $white;
 				align-items: center;
 
 				.elementor-widget-container,
@@ -507,7 +507,7 @@ value-keyword-case */
 
 				p {
 
-					@include color(color, font-color-light);
+					color: $white;
 					position: relative;
 					max-width: calc(32ch + 3em);
 					padding: 0.75em 3em 0.75em 1.25em;
@@ -527,7 +527,7 @@ value-keyword-case */
 
 				&__dots {
 
-					@include color(color, border-color-inputs);
+					color: $medium-gray-inputs;
 				}
 
 				&:nth-child(even) {
@@ -597,7 +597,7 @@ value-keyword-case */
 
 				.readmore {
 
-					@include color(color, font-color-medium);
+					color: $medium-gray;
 					margin-left: auto;
 					font-size: 1em;
 
@@ -610,7 +610,7 @@ value-keyword-case */
 
 					&:hover {
 
-						@include color(color, primary-color, !important);
+						color: $dark-orange;
 					}
 				}
 			}
@@ -630,7 +630,7 @@ value-keyword-case */
 
 			.elementor-widget-container {
 
-				@include color(background-color, main-background);
+				background-color: $white;
 
 				display: flex;
 				align-content: center;

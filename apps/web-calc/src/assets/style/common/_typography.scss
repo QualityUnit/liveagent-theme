@@ -36,7 +36,7 @@ h4 {
 
 p {
 
-	@include color(color, font-color-normal);
+	color: $dark-gray;
 	font-size: 0.875rem;
 	line-height: 1.6;
 
@@ -66,17 +66,17 @@ a:not(.Button) {
 
 	&:hover {
 
-		@include color(color, primary-color);
+		color: $dark-orange;
 	}
 }
 
 .highlight {
 
-	@include color(color, primary-color);
+	color: $dark-orange;
 
 	&-gradient {
 
-		@include color(background, background);
+		background: $primary-gradient;
 		background-clip: text;
 		color: transparent;
 		box-decoration-break: clone;
@@ -85,5 +85,5 @@ a:not(.Button) {
 
 .error {
 
-	@include color(color, error-color);
+	color: $saturated-red;
 }

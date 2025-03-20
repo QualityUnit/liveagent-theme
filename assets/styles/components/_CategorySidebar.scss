@@ -82,7 +82,7 @@ $sidebarWidth: 15.625rem;
 
 		a {
 
-			@include color(color, primary-color);
+			color: $dark-orange;
 		}
 
 		label {
@@ -94,7 +94,7 @@ $sidebarWidth: 15.625rem;
 
 			span {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				display: block;
 				margin: 0.05em -1em;
 				padding: 0.11em 1em;
@@ -168,7 +168,7 @@ $sidebarWidth: 15.625rem;
 
 			&--label[class] {
 
-				@include color(color, font-color-normal);
+				color: $dark-gray;
 				display: flex;
 				align-items: center;
 				font-weight: $font-weight-normal;

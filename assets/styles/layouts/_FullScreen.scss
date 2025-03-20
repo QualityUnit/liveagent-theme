@@ -82,7 +82,7 @@ body.page-template-template-redeem-code {
 
 				button {
 
-					@include color(border-color, border-color-light);
+					border-color: $white;
 					width: 10px;
 					height: 10px;
 					padding: 0;
@@ -97,7 +97,7 @@ body.page-template-template-redeem-code {
 
 					button {
 
-						@include color(background, main-background);
+						background: $white;
 					}
 				}
 			}
@@ -151,7 +151,7 @@ body.page-template-template-redeem-code {
 
 				p {
 
-					@include color(color, font-color-light);
+					color: $white;
 					font-size: 18px;
 					line-height: 24px;
 					font-weight: $font-weight-bold;
@@ -263,7 +263,7 @@ body.page-template-template-redeem-code {
 
 					p {
 
-						@include color(color, font-color-normal);
+						color: $dark-gray;
 					}
 				}
 			}

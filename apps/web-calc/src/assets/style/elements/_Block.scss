@@ -1,7 +1,7 @@
 .webcalcBlock {
 
-	@include color(background-color, main-background);
-	@include color(box-shadow, box-shadow-small-soft);
+	background-color: $white;
+	box-shadow: $box-shadow-small-soft;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

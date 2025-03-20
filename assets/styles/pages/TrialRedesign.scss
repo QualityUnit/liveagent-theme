@@ -9,11 +9,11 @@
 .page-template-template-redeem-code {
 
 
-	@include color(background-color, main-background);
+	background-color: $white;
 
 	@media (min-width: $breakpoint-tablet-landscape) {
 
-		@include color(background-color, secondary-background);
+		background-color: $lightest-gray;
 	}
 
 	.Header,
@@ -232,7 +232,7 @@
 
 					p {
 
-						@include color(color, font-color-normal);
+						color: $dark-gray;
 					}
 				}
 
@@ -270,7 +270,7 @@
 
 				label {
 
-					@include color(background-color, main-background);
+					background-color: $white;
 					position: relative;
 					display: block;
 					padding: 0 0.8em;
@@ -279,7 +279,7 @@
 
 				&::before {
 
-					@include color(background-color, border-color-inputs);
+					background-color: $medium-gray-inputs;
 					position: absolute;
 					top: 52% !important;
 					left: 0.8em;
@@ -316,7 +316,7 @@
 			&::before {
 
 				@include posCustom(0);
-				@include color(background-color, main-background);
+				background-color: $white;
 				content: "";
 				position: absolute;
 				z-index: 1;

@@ -210,8 +210,8 @@ body.demo {
 
 			.Box--shadow:first-of-type {
 
-				@include color(box-shadow, box-shadow);
-				@include color(background-color, main-background);
+				box-shadow: 0;
+				background-color: $white;
 				padding: 1em !important;
 				border-radius: $border-radius-16;
 

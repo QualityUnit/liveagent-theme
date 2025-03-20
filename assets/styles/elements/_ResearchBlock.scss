@@ -17,7 +17,7 @@
 .Research--block,
 .Statistics--block {
 
-	@include color(background-color, main-background);
+	background-color: $white;
 	border-radius: $border-radius-16;
 	padding: 2.625em;
 	margin-bottom: 2.5em;
@@ -35,7 +35,7 @@
 
 		.elementor-heading-title {
 
-			@include color(color, font-color-light);
+			color: $white;
 			box-shadow: 0 0 0.5em rgba($black-real, 0.4);
 			font-weight: $font-weight-normal;
 			font-size: 0.875rem;
@@ -124,7 +124,7 @@
 		p,
 		input {
 
-			@include color(color, font-color-medium);
+			color: $medium-gray;
 			font-size: 0.8125rem;
 			line-height: 1.7;
 			font-weight: $font-weight-normal;
@@ -235,7 +235,7 @@
 
 	.text {
 
-		@include color(color, font-color-normal);
+		color: $dark-gray;
 		font-size: 1.125rem;
 		line-height: 1.55;
 		margin-bottom: 0;
@@ -255,7 +255,7 @@
 
 		&.no-color p {
 
-			@include color(color, font-color-normal, !important);
+			color: $dark-gray;
 		}
 	}
 
@@ -336,7 +336,7 @@
 
 		* {
 
-			@include color(color, font-color-light, !important);
+			color: $white;
 		}
 
 		%full {
@@ -376,7 +376,7 @@
 
 	&__grey {
 
-		@include color(background-color, secondary-background);
+		background-color: $lightest-gray;
 
 		.Research--block__buttons {
 			filter: brightness(80%);
@@ -478,7 +478,7 @@
 
 		.source {
 
-			@include color(color, font-color-medium);
+			color: $medium-gray;
 			margin-top: 0;
 			font-size: 0.875rem;
 		}

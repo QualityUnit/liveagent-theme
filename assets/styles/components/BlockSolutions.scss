@@ -46,7 +46,7 @@ scss/at-extend-no-missing-placeholder */
 
 	.elementor-col-25 {
 
-		@include color(background-color, secondary-background);
+		background-color: $lightest-gray;
 		max-width: 265px !important;
 		margin: 10px;
 		padding: 40px;
@@ -147,6 +147,6 @@ scss/at-extend-no-missing-placeholder */
 
 	.elementor-col-25 {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 	}
 }
