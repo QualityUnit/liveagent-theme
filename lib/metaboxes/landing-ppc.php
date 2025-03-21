@@ -72,6 +72,14 @@ function landing_ppc_metaboxes( $sidebars ) {
 				'default'     => '979762',
 			),
 			array(
+				'id'           => 'form_videoid',
+				'label'        => 'Youtube Video ID',
+				'description'  => '',
+				'type'         => 'text',
+				'show_in_rest' => true,
+				'default'      => 'KpY51cPRg5w',
+			),
+			array(
 				'id'           => 'form_title',
 				'label'        => 'Signup Left title',
 				'description'  => '',

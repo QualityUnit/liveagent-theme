@@ -76,7 +76,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-59ba5d18 heroBanner__image">
 	<div class="elementor-widget-wrap elementor-element-populated">
 	<div class="elementor-element elementor-element-1d37a861 homeVideo elementor-widget elementor-widget-image"
-	  data-ytid="KpY51cPRg5w" data-lightbox="youtube">
+	  data-ytid="<?= esc_attr( get_post_meta( get_the_ID(), 'form_videoid', true ) ); ?>" data-lightbox="youtube">
 	<div class="elementor-widget-container">
 			<?php
 			if ( null === get_post_meta( get_the_ID(), 'media', true ) ) {
