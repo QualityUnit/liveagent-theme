@@ -74,7 +74,7 @@ function landing_ppc_metaboxes( $sidebars ) {
 			array(
 				'id'           => 'form_videoid',
 				'label'        => 'Youtube Video ID',
-				'description'  => '',
+				'description'  => 'Empty field will turn off video popup on header image click. <br />For Youtube video, insert the highlighted part (like this example) from Youtube URL in browser:<br /> https://www.youtube.com/watch?v=<strong style="color: var(--wp-admin-theme-color);">KpY51cPRg5w</strong>',
 				'type'         => 'text',
 				'show_in_rest' => true,
 				'default'      => 'KpY51cPRg5w',
