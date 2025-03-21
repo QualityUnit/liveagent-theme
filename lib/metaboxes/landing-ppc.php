@@ -21,10 +21,11 @@ function format_image() {
 			display: none;
 		}
 		#landingppc label:has(input+img) input[type=radio]:checked + img {
-			border: 1px solid red;
+			box-shadow: 0 0 0 2px var(--wp-admin-theme-color);
 		}
     #landingppc label:has(input[type=radio]+img) img {
 			display: block;
+			width: 12.5em;
 			height: auto;
 		}
   </style>';
@@ -59,14 +60,14 @@ function landing_ppc_metaboxes( $sidebars ) {
 				'description' => '',
 				'type'        => 'radio',
 				'options'     => array(
-					'979762' => wp_get_attachment_image( 979762 ),
-					'867550' => wp_get_attachment_image( 867550 ),
-					'867413' => wp_get_attachment_image( 867413 ),
-					'867340' => wp_get_attachment_image( 867340 ),
-					'867295' => wp_get_attachment_image( 867295 ),
-					'867215' => wp_get_attachment_image( 867215 ),
-					'867163' => wp_get_attachment_image( 867163 ),
-					'865816' => wp_get_attachment_image( 865816 ),
+					'979762' => '<img src="' . wp_get_attachment_image_src( 979762, 'full' )[0] . '" />',
+					'867550' => '<img src="' . wp_get_attachment_image_src( 867550, 'full' )[0] . '" />',
+					'867413' => '<img src="' . wp_get_attachment_image_src( 867413, 'full' )[0] . '" />',
+					'867340' => '<img src="' . wp_get_attachment_image_src( 867340, 'full' )[0] . '" />',
+					'867295' => '<img src="' . wp_get_attachment_image_src( 867295, 'full' )[0] . '" />',
+					'867215' => '<img src="' . wp_get_attachment_image_src( 867215, 'full' )[0] . '" />',
+					'867163' => '<img src="' . wp_get_attachment_image_src( 867163, 'full' )[0] . '" />',
+					'865816' => '<img src="' . wp_get_attachment_image_src( 865816, 'full' )[0] . '" />',
 				),
 				'default'     => '979762',
 			),
