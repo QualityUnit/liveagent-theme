@@ -143,6 +143,31 @@ html {
 			padding: 1.125em 1.5em !important;
 			border-radius: $border-radius-16;
 
+			a {
+
+				&:hover {
+					text-decoration: underline;
+					color: $dark-orange;
+				}
+			}
+
+			.Button--outline {
+
+				&:hover {
+
+					border-color: $dark-orange;
+
+					span {
+						color: $dark-orange;
+					}
+
+				}
+
+				span {
+					transition: 0.3s all;
+				}
+			}
+
 			&:first-child {
 
 				background-color: transparent;
@@ -154,36 +179,9 @@ html {
 					margin-bottom: 0;
 				}
 
-				a {
-
-					&:hover {
-						text-decoration: underline;
-						color: $dark-orange;
-					}
-				}
-
-				.Button--outline {
-
-					&:hover {
-
-						border-color: $dark-orange;
-
-						span {
-							color: $dark-orange;
-						}
-
-					}
-
-					span {
-						transition: 0.3s all;
-					}
-				}
-
 				@media (min-width: $breakpoint-desktop ) {
 					margin-bottom: 0;
 				}
-
-
 			}
 
 			&:last-child {
@@ -210,30 +208,6 @@ html {
 				* {
 					color: $black;
 					margin-bottom: 0;
-				}
-
-				a {
-
-					&:hover {
-						text-decoration: underline;
-						color: $black;
-					}
-				}
-
-
-				.Button--outline {
-
-					&:hover {
-
-						span {
-							color: $black;
-						}
-
-					}
-
-					span {
-						transition: 0.3s all;
-					}
 				}
 			}
 
