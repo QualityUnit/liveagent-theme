@@ -19,4 +19,5 @@
 	require_once get_template_directory() . '/lib/metaboxes/videos.php';
 	require_once get_template_directory() . '/lib/metaboxes/landing-ppc.php';
 	require_once get_template_directory() . '/lib/metaboxes/show-related-articles.php';
+	require_once get_template_directory() . '/lib/metaboxes/blog.php';
   // require_once get_template_directory() . '/lib/metaboxes/webinars.php';
