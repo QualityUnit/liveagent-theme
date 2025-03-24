@@ -11,8 +11,8 @@ function signup_form( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'title'    => __( 'Try it for free', 'ms' ),
-			'label1'   => __( 'Start a <strong>30-day trial</strong> with company email or a <strong>7-day trial</strong> with free email, <span class="c-saturated-green">no credit card required</span>', 'ms' ),
-			'tooltip1' => __( 'Free trial for 14 days with a free email, or 30 days with a company email', 'ms' ),
+			'label1'   => __( 'Start a <strong>30-day trial</strong>, <span class="c-saturated-green">no credit card required</span>', 'ms' ),
+			'tooltip1' => __( 'Free trial for 30 days', 'ms' ),
 			'label2'   => __( 'No Credit Card required', 'ms' ),
 			'button'   => __( 'Create account for FREE', 'ms' ),
 		),

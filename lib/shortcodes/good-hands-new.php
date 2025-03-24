@@ -24,9 +24,9 @@ function ms_good_hands_new( $atts ) {
 					if ( 'false' === $atts['partnerwithus'] ) {
 						?>
 
-					
+
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
-						<span><?php _e( 'Start 14-days free trial', 'ms' ); ?></span>
+						<span><?php _e( 'Start 30-days free trial', 'ms' ); ?></span>
 					</a>
 
 		  <a href="<?php _e( '/demo/', 'ms' ); ?>" onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a demo' )" class="Button Button--outline">
