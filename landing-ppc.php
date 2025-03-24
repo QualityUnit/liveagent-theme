@@ -62,15 +62,9 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 	  <li>✓ Cancel any time</li>
 	  </ul>
 	  <div class="heroBanner__content__footer__cta">
-	  <a href="<?= get_post_meta( get_the_ID(), 'header_button_url', true );  // @codingStandardsIgnoreLine
-		?>
-		" class="Button Button--full"
-	  title="Considering LiveAgent help desk software? Fill in your details and you can start your Free Trial, no strings attached, no credit card info needed."
-	  hreflang="en-US" onover-preload="1">
-	  <span><?= get_post_meta( get_the_ID(), 'header_button_text', true );  // @codingStandardsIgnoreLine
-		?>
-		</span>
-	  </a>
+			<a href="<?= get_post_meta( get_the_ID(), 'header_button_url', true ); // @codingStandardsIgnoreLine ?>" class="Button Button--full" title="Considering LiveAgent help desk software? Fill in your details and you can start your Free Trial, no strings attached, no credit card info needed." hreflang="en-US" onover-preload="1">
+				<span><?= get_post_meta( get_the_ID(), 'header_button_text', true );  // @codingStandardsIgnoreLine  ?></span>
+			</a>
 	  </div>
 	</div>
 	</div>
