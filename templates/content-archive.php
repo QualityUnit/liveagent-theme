@@ -105,9 +105,9 @@
 								<?php _e( 'TOP POST', 'ms' ); ?>
 							</div>
 							<?php
-							if ( get_post_meta( get_the_ID(), 'mb_monthly_update_label_checkbox', true ) ) {
-								$monthly_update_label_title = get_post_meta( get_the_ID(), 'mb_monthly_update_label_title', true );
-								$monthly_update_label_text = get_post_meta( get_the_ID(), 'mb_monthly_update_label_text', true );
+							if ( get_post_meta( get_the_ID(), 'mb_update_label_enabled', true ) ) {
+								$monthly_update_label_title = get_post_meta( get_the_ID(), 'mb_update_label_title', true );
+								$monthly_update_label_text = get_post_meta( get_the_ID(), 'mb_update_label_text', true );
 
 								if ( ! empty( $monthly_update_label_title && $monthly_update_label_text ) ) {
 									?>
@@ -120,8 +120,7 @@
 							}
 							?>
 							<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
-							<!--<img data-src="<?php /*= esc_url( get_the_post_thumbnail_url( '', 'box_archive_thumbnail' ) ); */?>" alt="<?php /*= esc_attr( get_the_title() ); */?>" />-->
-							<img data-src="https://www.liveagent.com/app/uploads/2025/03/universal_cover.png" alt="<?= esc_attr( get_the_title() ); ?>" />
+							<img data-src="<?= esc_url( get_the_post_thumbnail_url( '', 'box_archive_thumbnail' ) ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
 						</div>
 						<div class="blog__top__post__content Blog__item__content">
 							<div class="Blog__item__meta">
@@ -252,9 +251,9 @@
 						<div class="Blog__item__thumbnail">
 							<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
 							<?php
-							if ( get_post_meta( get_the_ID(), 'mb_monthly_update_label_checkbox', true ) ) {
-								$monthly_update_label_title = get_post_meta( get_the_ID(), 'mb_monthly_update_label_title', true );
-								$monthly_update_label_text = get_post_meta( get_the_ID(), 'mb_monthly_update_label_text', true );
+							if ( get_post_meta( get_the_ID(), 'mb_update_label_enabled', true ) ) {
+								$monthly_update_label_title = get_post_meta( get_the_ID(), 'mb_update_label_title', true );
+								$monthly_update_label_text = get_post_meta( get_the_ID(), 'mb_update_label_text', true );
 
 								if ( ! empty( $monthly_update_label_title && $monthly_update_label_text ) ) {
 									?>
@@ -266,8 +265,7 @@
 								}
 							}
 							?>
-							<!--<img style="opacity: 0; transition: opacity 0.2s;" data-src="<?php /*= esc_url( get_the_post_thumbnail_url() ); */?>" alt="<?php /*= esc_attr( get_the_title() ); */?>" />-->
-							<img style="opacity: 0; transition: opacity 0.2s;" data-src="https://www.liveagent.com/app/uploads/2025/03/universal_cover.png" alt="<?= esc_attr( get_the_title() ); ?>" />
+							<img style="opacity: 0; transition: opacity 0.2s;" data-src="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
 						</div>
 						<div class="Blog__item__content">
 							<div class="Blog__item__meta">
