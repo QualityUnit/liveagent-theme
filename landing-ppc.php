@@ -142,7 +142,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
 				<a href="#signupform" class="Button Button--full mt-l ma-left ma-right hidden-tablet">
 					<span>
 						<?php
-						_e( 'Get started | 14 day free', 'ms' );
+						_e( 'Get started | 30 day free', 'ms' );
 						?>
 					</span>
 				</a>
