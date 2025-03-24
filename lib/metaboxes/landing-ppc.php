@@ -55,6 +55,22 @@ function landing_ppc_metaboxes( $sidebars ) {
 				'default'      => 'Answer more tickets with <br> all-in-one customer care solution.',
 			),
 			array(
+				'id'           => 'header_button_text',
+				'label'        => 'Header Button text',
+				'description'  => '',
+				'type'         => 'text',
+				'show_in_rest' => true,
+				'default'      => 'Get Started | 14 days free',
+			),
+			array(
+				'id'           => 'header_button_url',
+				'label'        => 'Header Button URL',
+				'description'  => '',
+				'type'         => 'text',
+				'show_in_rest' => true,
+				'default'      => '/trial/',
+			),
+			array(
 				'id'          => 'media',
 				'label'       => 'Header Media',
 				'description' => '',
