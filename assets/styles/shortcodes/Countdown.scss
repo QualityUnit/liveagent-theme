@@ -30,7 +30,7 @@
 				align-items: center;
 				justify-content: center;
 				width: 0.75em;
-				height: 2em;
+				height: 1.875em;
 				color: $white;
 			}
 		}
@@ -38,7 +38,7 @@
 
 	&__digits {
 
-		@include square(2em);
+		@include square(1.875em);
 		display: flex;
 		justify-content: center;
 		align-items: center;
