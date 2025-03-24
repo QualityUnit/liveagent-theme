@@ -29,8 +29,8 @@
 
 	&__item {
 
-		@include color(background-color, main-background);
-		@include color(box-shadow, box-shadow-big);
+		background-color: $white;
+		box-shadow: 0;
 		display: flex;
 		flex-direction: column;
 		width: 100%;

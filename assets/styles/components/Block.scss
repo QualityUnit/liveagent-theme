@@ -136,7 +136,7 @@ scss/at-extend-no-missing-placeholder */
 
 		.elementor-widget-text-editor {
 
-			@include color(color, font-color-medium);
+			color: $medium-gray;
 			font-size: 1rem;
 			line-height: 1.625;
 			text-align: center;
@@ -147,7 +147,7 @@ scss/at-extend-no-missing-placeholder */
 			a {
 
 				@include learn-more();
-				@include color(color, font-color-level3);
+				color: $medium-gray-quotes;
 			}
 		}
 
@@ -326,7 +326,7 @@ scss/at-extend-no-missing-placeholder */
 
 			.value__box {
 
-				@include color(background-color, main-background);
+				background-color: $white;
 				display: flex;
 				align-items: center;
 				margin-bottom: 2.4em;
@@ -344,7 +344,7 @@ scss/at-extend-no-missing-placeholder */
 
 					strong {
 
-						@include color(background, background);
+						background: $primary-gradient;
 						background-clip: text;
 						color: transparent;
 						font-size: 3rem;
@@ -370,7 +370,7 @@ scss/at-extend-no-missing-placeholder */
 
 					p {
 
-						@include color(color, font-color-normal);
+						color: $dark-gray;
 					}
 				}
 
@@ -708,7 +708,7 @@ scss/at-extend-no-missing-placeholder */
 
 	.wrapper {
 
-		@include color(background-color, orange-background);
+		background-color: $medium-orange;
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {

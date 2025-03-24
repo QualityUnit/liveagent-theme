@@ -6,7 +6,7 @@
 
 	&--optional {
 
-		@include color(color, border-color-gray-icon);
+		color: $light-gray-icon;
 		background-color: $pricing-gray;
 		font-size: 0.75rem;
 		font-weight: $font-weight-bold;

@@ -48,13 +48,13 @@ button,
 
 .Button--full {
 
-	@include color(background, background);
-	@include color(color, button-full-font-color);
+	background: $primary-gradient;
+	color: $white;
 	overflow: hidden;
 
 	&::before {
 
-		@include color(background, background);
+		background: $primary-gradient;
 		@include fullSize;
 		content: "";
 		position: absolute;
@@ -68,7 +68,7 @@ button,
 
 	&::after {
 
-		@include color(background, background-invert);
+		background: $primary-gradient-reverse;
 		@include fullSize;
 		display: block !important;
 		content: "";
@@ -124,7 +124,7 @@ button,
 
 .Button--outline {
 
-	@include color(color, border-color-inputs);
+	color: $medium-gray-inputs;
 	border: 1px solid currentColor;
 	background-color: transparent;
 	overflow: hidden;
@@ -132,17 +132,17 @@ button,
 
 	&:hover {
 
-		@include color(color, primary-color);
+		color: $dark-orange;
 	}
 
 	&:disabled:hover {
 
-		@include color(color, border-color-inputs);
+		color: $medium-gray-inputs;
 	}
 
 	&__dark {
 
-		@include color(color, border-color-dark);
+		color: $black;
 	}
 }
 

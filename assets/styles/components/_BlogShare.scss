@@ -9,7 +9,7 @@
 
 	&__title {
 
-		@include color(color, font-color-dark);
+		color: $black;
 		font-size: 0.875rem;
 		font-weight: $font-weight-bold;
 		margin-bottom: 8px;
@@ -27,7 +27,7 @@
 			button {
 
 				@include square(1.875em);
-				@include color(color, font-color-light, !important);
+				color: $white;
 				display: block;
 				background-color: #000;
 				border-radius: 50%;
@@ -41,7 +41,7 @@
 				&:focus,
 				&:hover {
 
-					@include color(background-color, primary-color);
+					background-color: $dark-orange;
 				}
 			}
 		}

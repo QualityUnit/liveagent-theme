@@ -16,7 +16,7 @@
 
 	&-counter {
 
-		@include color(color, font-color-dark);
+		color: $black;
 		font-size: 0.8125rem;
 		font-weight: 500;
 
@@ -31,8 +31,8 @@
 
 	&-collapse {
 
-		@include color(color, font-color-dark);
-		@include color(background-color, button-outline-color);
+		color: $black;
+		background-color: $light-gray;
 		font-weight: $font-weight-semi;
 		border-radius: 6px;
 		transition: all 0.2s;
@@ -45,7 +45,7 @@
 
 		&:hover {
 
-			@include color(background-color, secondary-background);
+			background-color: $lightest-gray;
 		}
 
 		.qu-Checklist__expander {
@@ -84,7 +84,7 @@
 
 /*.Post__header__small {
 
-	@include color(background-color, main-background);
+	background-color: $white;
 	position: fixed;
 	width: 100vw;
 	transition: all 0.2s;
@@ -95,7 +95,7 @@
 
 	&__navLabel {
 
-		@include color(color, font-color-level3);
+		color: $medium-gray-quotes;
 		display: none;
 		font-size: 0.75rem;
 
@@ -130,7 +130,7 @@
 
 		&__counter {
 
-			@include color(color, font-color-dark);
+			color: $black;
 			font-size: 0.8125rem;
 			font-weight: 500;
 			margin-left: 0.75em;
@@ -142,8 +142,8 @@
 
 		&__collapse {
 
-			@include color(color, font-color-dark);
-			@include color(background-color, button-outline-color);
+			color: $black;
+			background-color: $light-gray;
 			font-size: 0.8125rem;
 			font-weight: $font-weight-semi;
 			border-radius: 6px;
@@ -156,7 +156,7 @@
 
 			&:hover {
 
-				@include color(background-color, secondary-background);
+				background-color: $lightest-gray;
 			}
 
 			.inactive {

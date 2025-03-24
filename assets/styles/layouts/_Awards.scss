@@ -77,7 +77,7 @@
 
 		&--text {
 
-			@include color(background-color, main-background);
+			background-color: $white;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;

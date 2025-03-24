@@ -9,8 +9,8 @@
 
 	&__control {
 
-		@include color(background-color, main-background);
-		@include color(box-shadow, box-shadow-small-soft);
+		background-color: $white;
+		box-shadow: $box-shadow-small-soft;
 		display: flex;
 		align-items: center;
 		font-size: 0.875rem;
@@ -24,7 +24,7 @@
 
 			&::after {
 
-				@include color(box-shadow, box-shadow-small-soft);
+				box-shadow: $box-shadow-small-soft;
 				position: absolute;
 				bottom: 0;
 				left: 0;
@@ -54,21 +54,21 @@
 
 		+ .select__indicators svg {
 
-			@include color(color, font-color-normal);
+			color: $dark-gray;
 		}
 
 		&--has-value {
 
-			@include color(background-color, third-color);
+			background-color: $medium-orange;
 
 			+ .select__indicators svg {
 
-				@include color(fill, primary-color, !important);
+				fill: $dark-orange;
 			}
 
 			.select__single-value {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				font-weight: $font-weight-bold;
 			}
 		}
@@ -77,7 +77,7 @@
 
 			&__placeholder {
 
-				@include color(color, font-color-normal);
+				color: $dark-gray;
 			}
 
 			&__single-value {
@@ -109,8 +109,8 @@
 
 		&-list {
 
-			@include color(background-color, main-background);
-			@include color(box-shadow, box-shadow-small-soft);
+			background-color: $white;
+			box-shadow: $box-shadow-small-soft;
 			@include scrollbar;
 			display: block;
 			position: absolute;
@@ -130,8 +130,8 @@
 
 			&--is-focused {
 
-				@include color(background-color, primary-color);
-				@include color(color, font-color-light);
+				background-color: $dark-orange;
+				color: $white;
 			}
 
 			&--is-disabled {
