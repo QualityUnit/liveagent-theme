@@ -1,8 +1,8 @@
 <?php
 
-add_filter('simple_register_metaboxes', 'monthly_update_label_blog');
+add_filter( 'simple_register_metaboxes', 'monthly_update_label_blog' );
 
-function monthly_update_label_blog( $monthly_update) {
+function monthly_update_label_blog( $monthly_update ) {
 
 	$monthly_update[] = array(
 		'id'        => 'monthly_update',
