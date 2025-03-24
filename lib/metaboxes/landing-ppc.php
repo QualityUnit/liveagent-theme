@@ -60,7 +60,7 @@ function landing_ppc_metaboxes( $sidebars ) {
 				'description'  => '',
 				'type'         => 'text',
 				'show_in_rest' => true,
-				'default'      => 'Get Started | 14 days free',
+				'default'      => 'Get Started | 30 days free',
 			),
 			array(
 				'id'           => 'header_button_url',
