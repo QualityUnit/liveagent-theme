@@ -42,7 +42,7 @@ function set_source( $page, $source_file, $filetype = 'css', $defer = false ) {
 		if ( 'css' === $filetype && false === $defer ) {
 			?>
 			<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css"  media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
-			
+
 			<?php
 			// @codingStandardsIgnoreEnd
 		}
@@ -117,6 +117,12 @@ function site_breadcrumb( $breadcrumb = array() ) {
 		} elseif ( is_category() ) {
 			if ( is_subcategory() ) {
 				$categories = get_the_category();
+				usort(
+					$categories,
+					function ( $a, $b ) {
+						return $a->parent - $b->parent;
+					}
+				);
 				if ( isset( $categories[0] ) ) {
 					$breadcrumb[] = array( $categories[0]->name, get_category_link( $categories[0]->term_id ) );
 				}
