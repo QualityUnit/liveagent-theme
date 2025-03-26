@@ -104,6 +104,21 @@
 							<div class="Blog__item__tag-top post__tag-star">
 								<?php _e( 'TOP POST', 'ms' ); ?>
 							</div>
+							<?php
+							if ( get_post_meta( get_the_ID(), 'mb_update_label_enabled', true ) ) {
+								$monthly_update_label_title = get_post_meta( get_the_ID(), 'mb_update_label_title', true );
+								$monthly_update_label_text = get_post_meta( get_the_ID(), 'mb_update_label_text', true );
+
+								if ( ! empty( $monthly_update_label_title && $monthly_update_label_text ) ) {
+									?>
+									<div class="Blog__item__label">
+										<div class="Blog__item__label__title"><?php echo esc_html( $monthly_update_label_title ); ?></div>
+										<div class="Blog__item__label__text"><?php echo esc_html( $monthly_update_label_text ); ?></div>
+									</div>
+									<?php
+								}
+							}
+							?>
 							<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
 							<img data-src="<?= esc_url( get_the_post_thumbnail_url( '', 'box_archive_thumbnail' ) ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
 						</div>
@@ -235,6 +250,21 @@
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
 						<div class="Blog__item__thumbnail">
 							<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
+							<?php
+							if ( get_post_meta( get_the_ID(), 'mb_update_label_enabled', true ) ) {
+								$monthly_update_label_title = get_post_meta( get_the_ID(), 'mb_update_label_title', true );
+								$monthly_update_label_text = get_post_meta( get_the_ID(), 'mb_update_label_text', true );
+
+								if ( ! empty( $monthly_update_label_title && $monthly_update_label_text ) ) {
+									?>
+									<div class="Blog__item__label">
+										<div class="Blog__item__label__title"><?php echo esc_html( $monthly_update_label_title ); ?></div>
+										<div class="Blog__item__label__text"><?php echo esc_html( $monthly_update_label_text ); ?></div>
+									</div>
+									<?php
+								}
+							}
+							?>
 							<img style="opacity: 0; transition: opacity 0.2s;" data-src="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
 						</div>
 						<div class="Blog__item__content">

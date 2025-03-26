@@ -84,6 +84,24 @@ body.compact-header--active {
 		@media (min-width: $breakpoint-tablet) {
 			display: block;
 		}
+
+		&__label {
+			position: absolute;
+			top: 1.25em;
+			left: 1.875em;
+			z-index: 3;
+
+			&--title {
+				color: $black;
+				font-size: $font-size-default;
+				font-weight: $font-weight-bold;
+			}
+
+			&--text {
+				color: $black;
+				font-size: $font-size-smaller;
+			}
+		}
 	}
 
 	&__img--author {
@@ -573,6 +591,11 @@ body.compact-header--active {
 			.#{$class-name}--lvl-2 & {
 				margin-top: 0.7em;
 			}
+		}
+
+		&__img,
+		&__img--author {
+			position: relative;
 		}
 
 		&__img--author {

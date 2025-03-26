@@ -108,9 +108,32 @@ no-descending-specificity, value-keyword-case */
 			left: 1em;
 		}
 
+		&__label {
+			position: absolute;
+			top: 4em;
+			left: 1.5em;
+
+			&__title {
+				color: $black;
+				font-size: $font-size-default;
+				font-weight: $font-weight-bold;
+			}
+
+			&__text {
+				color: $black;
+				font-size: $font-size-smaller;
+			}
+		}
+
 		&__thumbnail {
 			display: block;
 			height: 10em;
+			position: relative;
+
+			.Blog__item__label {
+				top: 1.25em;
+				left: 1.875em;
+			}
 
 			img {
 
