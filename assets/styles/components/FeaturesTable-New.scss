@@ -35,7 +35,7 @@
 
 		.elementor-widget-text-editor.elementor-element {
 
-			@include color(color, font-color-dark);
+			color: $black;
 			padding: 1.5em 2em;
 
 			a {
@@ -136,8 +136,8 @@
 
 				.elementor-widget-text-editor.elementor-element {
 
-					@include color(background, background);
-					@include color(color, font-color-light);
+					background: $primary-gradient;
+					color: $white;
 					transition: color $transition;
 				}
 			}

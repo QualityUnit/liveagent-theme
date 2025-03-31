@@ -9,7 +9,7 @@
 
 	li {
 
-		@include color(color, font-color-dark);
+		color: $black;
 		position: relative;
 		font-size: 1rem;
 		padding-left: 1.5em;
@@ -40,7 +40,7 @@
 
 			&::before {
 
-				@include color(color, primary-color);
+				color: $dark-orange;
 				@include square(auto);
 				content: "\2022";
 				background: none;
@@ -57,7 +57,7 @@
 	ul:not([class]) {
 
 		@extend %checklist;
-		@include color(color, font-color-normal);
+		color: $dark-gray;
 	}
 
 	li {

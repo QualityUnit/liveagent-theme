@@ -97,7 +97,7 @@
 
 			&__title {
 
-				@include color(color, font-color-medium);
+				color: $medium-gray;
 				font-size: 0.75rem;
 				margin-bottom: 1.5em;
 			}
@@ -118,14 +118,14 @@
 
 				a {
 
-					@include color(color, font-color-dark);
+					color: $black;
 					font-size: 0.875rem;
 					font-weight: $font-weight-bold;
 					text-decoration: none !important;
 
 					&:hover {
 
-						@include color(color, primary-color);
+						color: $dark-orange;
 					}
 				}
 			}
@@ -169,7 +169,7 @@
 
 					&::after {
 
-						@include color(background-color, main-background);
+						background-color: $white;
 						z-index: 0;
 					}
 

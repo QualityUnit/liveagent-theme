@@ -21,7 +21,7 @@
 
 			i {
 
-				@include color(color, font-color-normal);
+				color: $dark-gray;
 				position: absolute;
 				margin-left: 20px;
 				line-height: 48px;
@@ -42,7 +42,7 @@
 
 				a {
 
-					@include color(color, font-color-normal);
+					color: $dark-gray;
 					text-decoration: none !important;
 				}
 
@@ -53,7 +53,7 @@
 
 					a {
 
-						@include color(color, primary-color);
+						color: $dark-orange;
 					}
 				}
 			}
@@ -80,7 +80,7 @@
 
 				&__title {
 
-					@include color(color, primary-color);
+					color: $dark-orange;
 					width: 50px;
 					font-size: 42px;
 					line-height: 42px;
@@ -90,7 +90,7 @@
 
 				&__content {
 
-					@include color(border-left-color, border-color-gray);
+					border-left-color: $light-gray;
 					width: calc(100% - 51px);
 					padding: 0 25px;
 					border-left-width: 1px;

@@ -47,7 +47,7 @@ $bg-color: #f9f9fa;
 
 		&-link[class] {
 
-			@include color(color, font-color-level3);
+			color: $medium-gray-quotes;
 			position: relative;
 			display: flex;
 			align-items: center;
@@ -79,7 +79,7 @@ $bg-color: #f9f9fa;
 			&:focus,
 			&:hover {
 
-				@include color(color, font-color-level3);
+				color: $medium-gray-quotes;
 
 				&::before {
 					transform: scaleX(1);
@@ -125,7 +125,7 @@ $bg-color: #f9f9fa;
 
 	&--mainmenu {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 		position: fixed;
 		overflow: scroll;
 		width: 100vw;

@@ -6,7 +6,7 @@
 
 %counter {
 
-	@include color(color, font-color-medium);
+	color: $medium-gray;
 	margin-right: 0.75em;
 	text-align: right;
 	transition: color 0.2s;
@@ -67,14 +67,14 @@
 		$num-width: 1.8em;
 		$num-margin: 0.875em;
 
-		@include color(color, font-color-level3);
+		color: $medium-gray-quotes;
 		display: flex;
 		justify-content: space-between;
 		border-radius: $border-radius-16;
 
 		@media (min-width: $breakpoint-tablet) {
 
-			@include color(background-color, secondary-background);
+			background-color: $lightest-gray;
 			width: 30em;
 		}
 
@@ -96,7 +96,7 @@
 		&__selected,
 		a.Research--navigation__post__title {
 
-			@include color(color, font-color-dark);
+			color: $black;
 			font-size: 0.875rem;
 			font-weight: $font-weight-semi;
 		}
@@ -104,7 +104,7 @@
 		&__selected {
 
 			@extend %menuArrow;
-			@include color(background-color, main-background);
+			background-color: $white;
 			position: relative;
 			z-index: 2;
 			display: flex;
@@ -132,7 +132,7 @@
 
 		&__menu {
 
-			@include color(background-color, main-background);
+			background-color: $white;
 			position: absolute;
 			top: 100%;
 			left: 0;
@@ -147,7 +147,7 @@
 
 			&::before {
 
-				@include color(background-color, secondary-background);
+				background-color: $lightest-gray;
 				display: block;
 				content: "";
 				position: absolute;
@@ -259,7 +259,7 @@
 
 	&--toc {
 
-		@include color(background-color, secondary-background);
+		background-color: $lightest-gray;
 		display: none;
 		border-radius: $border-radius-16;
 
@@ -272,7 +272,7 @@
 
 			&__title {
 
-				@include color(color, font-color-level3);
+				color: $medium-gray-quotes;
 				display: flex;
 				align-items: center;
 				font-size: 0.75em;
@@ -298,7 +298,7 @@
 
 			a.Research--toc__post__title {
 
-				@include color(color, font-color-dark);
+				color: $black;
 				display: flex;
 				text-decoration: none !important;
 

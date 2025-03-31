@@ -6,7 +6,7 @@
 
 .AuthorCard {
 
-	@include color(background-color, secondary-background);
+	background-color: $lightest-gray;
 	display: flex;
 	align-items: stretch;
 	border-radius: $border-radius-16;
@@ -56,7 +56,7 @@
 
 			&__company {
 
-				@include color(color, font-color-medium);
+				color: $medium-gray;
 				font-size: 0.8125rem;
 				font-weight: $font-weight-semi;
 				text-transform: uppercase;
@@ -83,7 +83,7 @@
 
 		li {
 
-			@include color(background-color, button-outline-color);
+			background-color: $light-gray;
 			display: inline-block;
 			position: relative;
 			font-weight: $font-weight-semi;
@@ -96,7 +96,7 @@
 
 			&::before {
 
-				@include color(color, primary-color);
+				color: $dark-orange;
 				font-size: 1.125em;
 				margin-right: 0.5em;
 			}
@@ -115,7 +115,7 @@
 
 			a {
 
-				@include color(color, font-color-dark, !important);
+				color: $black;
 				text-decoration: none !important;
 				display: inline-block;
 

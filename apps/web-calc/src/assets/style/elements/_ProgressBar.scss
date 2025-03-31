@@ -11,7 +11,7 @@
 
 	@include progressbarValue() {
 
-		@include color(background, background);
+		background: $primary-gradient;
 		transition: width 0.2s ease;
 	}
 

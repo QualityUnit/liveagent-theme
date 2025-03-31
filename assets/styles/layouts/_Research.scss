@@ -89,17 +89,17 @@ $maxWidth: 71.125em;
 
 	&--content.Content {
 
-		@include color(color, font-color-dark);
+		color: $black;
 
 		.checklist ul:not([class]) {
 
-			@include color(color, font-color-dark);
+			color: $black;
 			color: currentColor;
 		}
 
 		%highlight {
 
-			@include color(color, primary-color);
+			color: $dark-orange;
 			border-left: 1px solid $dark-orange;
 			padding: 0 1.5rem;
 			font-weight: $font-weight-semi;
@@ -175,7 +175,7 @@ $maxWidth: 71.125em;
 
 			&__inn {
 
-				@include color(box-shadow, box-shadow);
+				box-shadow: 0;
 				display: flex;
 				align-items: center;
 				border: 1px solid transparent;

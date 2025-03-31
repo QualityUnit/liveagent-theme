@@ -32,7 +32,7 @@
 
 				&:hover {
 
-					@include color(background, background);
+					background: $primary-gradient;
 					color: $white;
 					text-decoration: none;
 

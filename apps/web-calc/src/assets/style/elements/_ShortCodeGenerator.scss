@@ -8,7 +8,7 @@
 
 	&__message {
 
-		@include color(color, font-color-light);
+		color: $white;
 		@include absoluteCenter();
 		position: absolute;
 		z-index: 1;

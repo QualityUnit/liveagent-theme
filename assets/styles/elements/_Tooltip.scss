@@ -40,7 +40,7 @@
 		a,
 		a:visited {
 
-			@include color(color, font-color-light);
+			color: $white;
 			text-decoration: underline;
 		}
 

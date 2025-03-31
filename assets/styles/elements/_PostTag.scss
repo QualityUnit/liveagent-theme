@@ -4,8 +4,8 @@
 
 %posttag {
 
-	@include color(background-color, main-background);
-	@include color(color, primary-color, !important);
+	background-color: $white;
+	color: $dark-orange;
 	display: inline-flex;
 	align-items: center;
 	border-radius: 1.5em;

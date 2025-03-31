@@ -15,8 +15,8 @@
 
 	&__link {
 
-		@include color(background-color, secondary-background);
-		@include color(box-shadow, box-shadow);
+		background-color: $lightest-gray;
+		box-shadow: 0;
 		position: absolute;
 		width: calc(100% + 2em);
 		max-width: 15em;
@@ -36,7 +36,7 @@
 		label,
 		input {
 
-			@include color(color, font-color-dark, !important);
+			color: $black;
 		}
 	}
 
@@ -53,7 +53,7 @@
 
 		.Statistics--block__negative & {
 
-			@include color(color, font-color-light, !important);
+			color: $white;
 		}
 	}
 }
@@ -132,7 +132,7 @@
 
 			.text input {
 
-				@include color(color, font-color-normal, !important);
+				color: $dark-gray;
 			}
 
 			.Research--block {
@@ -147,7 +147,7 @@
 
 			&--header input[type="text"] {
 
-				@include color(color, font-color-light);
+				color: $white;
 				font-size: 1.5rem !important;
 				line-height: 1 !important;
 				font-weight: $font-weight-bold;
@@ -181,13 +181,13 @@
 
 						textarea {
 
-							@include color(color, font-color-normal, !important);
+							color: $dark-gray;
 						}
 					}
 
 					.source.source input {
 
-						@include color(color, font-color-normal, !important);
+						color: $dark-gray;
 					}
 				}
 			}
@@ -198,7 +198,7 @@
 
 			.URLInput__text input {
 
-				@include color(color, font-color-light, !important);
+				color: $white;
 				display: inline-block;
 				float: none;
 				padding: 1em 2em;

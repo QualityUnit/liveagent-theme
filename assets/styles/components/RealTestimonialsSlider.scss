@@ -14,7 +14,7 @@
 
 		&__slide {
 
-			@include color(background-color, secondary-background);
+			background-color: $lightest-gray;
 			border-radius: $border-radius-16;
 			overflow: hidden;
 			height: auto;
@@ -138,7 +138,7 @@
 			&__arrow {
 
 				@include square(100%);
-				@include color(color, font-color-light);
+				color: $white;
 				display: flex;
 				position: relative !important;
 				border-radius: 0;
@@ -202,7 +202,7 @@
 
 		&__slide {
 
-			@include color(background-color, secondary-background);
+			background-color: $lightest-gray;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -221,7 +221,7 @@
 
 			&.is-active {
 
-				@include color(background-color, main-background);
+				background-color: $white;
 				box-shadow: 0 3px 2em 0 rgba($black-real, 0.1);
 
 				img {

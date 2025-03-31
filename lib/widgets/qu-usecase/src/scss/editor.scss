@@ -41,7 +41,7 @@
 
 			input {
 
-				@include color(background, background);
+				background: $primary-gradient;
 				background-clip: text;
 				color: transparent;
 				box-decoration-break: clone;

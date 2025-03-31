@@ -5,7 +5,7 @@
 
 %resources {
 
-	@include color(border-top-color, secondary-background);
+	border-top-color: $lightest-gray;
 	border-top-style: solid;
 	margin-top: 25px;
 }
@@ -47,7 +47,7 @@
 
 			a {
 
-				@include color(color, primary-color);
+				color: $dark-orange;
 
 				&:active,
 				&:focus,
@@ -71,8 +71,8 @@
 
 				a {
 
-					@include color(background-color, third-color);
-					@include color(color, primary-color);
+					background-color: $medium-orange;
+					color: $dark-orange;
 					display: inline-block;
 					border-radius: 1em;
 					font-size: 0.75rem;
@@ -86,8 +86,8 @@
 					&:focus,
 					&:hover {
 
-						@include color(background-color, primary-color);
-						@include color(color, font-color-light);
+						background-color: $dark-orange;
+						color: $white;
 						text-decoration: none !important;
 					}
 				}
@@ -155,7 +155,7 @@
 
 		table {
 
-			@include color(color, font-color-dark);
+			color: $black;
 			margin-bottom: 2em;
 		}
 
@@ -163,7 +163,7 @@
 
 			ul {
 
-				@include color(color, font-color-normal);
+				color: $dark-gray;
 				display: flex;
 				flex-flow: wrap row;
 				font-size: 0.75rem;
@@ -175,7 +175,7 @@
 
 					&:last-of-type {
 
-						@include color(color, font-color-dark);
+						color: $black;
 					}
 
 					+ li {
@@ -193,7 +193,7 @@
 
 			a {
 
-				@include color(color, font-color-normal, !important);
+				color: $dark-gray;
 				text-decoration: none;
 
 				&:active,

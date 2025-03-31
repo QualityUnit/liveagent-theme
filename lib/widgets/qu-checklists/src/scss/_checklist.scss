@@ -21,7 +21,7 @@
 
 	&.open {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 		border-color: rgba($light-gray, 1);
 
 		.qu-ChecklistItem {
@@ -167,7 +167,7 @@
 
 		&__copy.Button {
 
-			@include color(border-color, border-color-inputs);
+			border-color: $medium-gray-inputs;
 			position: relative;
 			z-index: 1;
 			display: inline-flex;
@@ -197,7 +197,7 @@
 
 				&:hover {
 
-					@include color(border-color, border-color-inputs);
+					border-color: $medium-gray-inputs;
 					color: currentcolor;
 					background-color: $light-gray;
 				}
@@ -293,7 +293,7 @@
 
 			.checked {
 
-				@include color(color, font-color-dark);
+				color: $black;
 			}
 
 			span {

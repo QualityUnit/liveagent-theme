@@ -78,8 +78,8 @@ no-descending-specificity, value-keyword-case */
 
 	&__item {
 
-		@include color(background-color, main-background);
-		@include color(box-shadow, box-shadow-big);
+		background-color: $white;
+		box-shadow: 0;
 		border-radius: $border-radius-16;
 		overflow: hidden;
 		transition: all 0.2s;
@@ -92,7 +92,7 @@ no-descending-specificity, value-keyword-case */
 				.Blog__item__title,
 				.learn-more {
 
-					@include color(color, primary-color);
+					color: $dark-orange;
 				}
 			}
 		}
@@ -159,8 +159,8 @@ no-descending-specificity, value-keyword-case */
 				span span,
 				.Blog__item__meta__category {
 
-					@include color(background-color, third-color);
-					@include color(color, font-color-dark);
+					background-color: $medium-orange;
+					color: $black;
 					display: inline-block;
 					font-size: 0.75rem;
 					font-weight: $font-weight-semi;
@@ -177,7 +177,7 @@ no-descending-specificity, value-keyword-case */
 
 			&__date {
 
-				@include color(color, border-color-gray-icon);
+				color: $light-gray-icon;
 				display: flex;
 				align-items: center;
 				margin-bottom: 0.5em;

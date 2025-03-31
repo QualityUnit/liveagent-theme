@@ -9,7 +9,7 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 	.wrapper,
 	.wrapper__wide {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: space-between;
@@ -20,7 +20,7 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 
 	@media (max-width: $breakpoint-desktop-box) {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 		padding: 65px 0;
 
 		.wrapper,
@@ -50,12 +50,12 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 	.wrapper,
 	.wrapper__wide {
 
-		@include color(background-color, newsletter-background);
+		background-color: $lightest-gray;
 	}
 
 	@media (max-width: $breakpoint-desktop-box) {
 
-		@include color(background-color, newsletter-background);
+		background-color: $lightest-gray;
 	}
 }
 
@@ -64,12 +64,12 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 	.wrapper,
 	.wrapper__wide {
 
-		@include color(background-color, orange-background);
+		background-color: $medium-orange;
 	}
 
 	@media (max-width: $breakpoint-desktop-box) {
 
-		@include color(background-color, orange-background);
+		background-color: $medium-orange;
 	}
 }
 
@@ -112,7 +112,7 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 
 .Box--regular {
 
-	@include color(background-color, main-background);
+	background-color: $white;
 	box-shadow: 0 0.25em 4em 0 rgba($black-real, 0.1);
 	border-radius: $border-radius-16;
 	overflow: hidden;
@@ -303,7 +303,7 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 
 .Box--medium {
 
-	@include color(background-color, main-background);
+	background-color: $white;
 	max-width: em(837);
 	padding: em(24) em(18);
 	margin-left: auto;

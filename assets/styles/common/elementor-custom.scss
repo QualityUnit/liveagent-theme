@@ -543,13 +543,13 @@ ul.elementor-icon-list-items {
 
 	.elementor-accordion-item {
 
-		@include color(background-color, main-background);
+		background-color: $white;
 		border: 0;
 		border-top: 1px solid $light-gray;
 
 		&:hover {
 
-			@include color(background-color, secondary-background, !important);
+			background-color: $lightest-gray;
 		}
 	}
 
@@ -586,7 +586,7 @@ ul.elementor-icon-list-items {
 
 		&[data-active="elementor-active"] {
 
-			@include color(background-color, secondary-background, !important);
+			background-color: $lightest-gray;
 
 			.elementor-accordion-icon {
 				transform: none;
@@ -607,14 +607,14 @@ ul.elementor-icon-list-items {
 
 		a:not(.Button) {
 
-			@include color(color, font-color-dark);
+			color: $black;
 			text-decoration: underline;
 
 			&:active,
 			&:focus,
 			&:hover {
 
-				@include color(color, primary-color);
+				color: $dark-orange;
 
 				text-decoration: underline;
 			}

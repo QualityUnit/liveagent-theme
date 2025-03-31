@@ -41,7 +41,7 @@ no-descending-specificity, value-keyword-case */
 
 		a[href] {
 
-			@include color(color, font-color-dark);
+			color: $black;
 			position: relative;
 			display: block;
 			width: 100%;
@@ -83,13 +83,13 @@ no-descending-specificity, value-keyword-case */
 
 					&::before {
 
-						@include color(background-color, font-color-dark);
+						background-color: $black;
 					}
 				}
 
 				&.active::before {
 
-					@include color(background-color, font-color-dark);
+					background-color: $black;
 				}
 			}
 		}
@@ -108,12 +108,12 @@ no-descending-specificity, value-keyword-case */
 				padding: 0.25em 1.75em;
 				margin-top: 0;
 
-				@include color(color, font-color-normal);
+				color: $dark-gray;
 
 				&:hover,
 				&.active {
 
-					@include color(color, font-color-dark);
+					color: $black;
 				}
 
 				&::before {

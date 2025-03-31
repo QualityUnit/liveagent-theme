@@ -1,6 +1,6 @@
 .Tooltip {
 
-	@include color(color, font-color-light);
+	color: $white;
 	position: absolute;
 	visibility: hidden;
 	width: 250px;
@@ -20,7 +20,7 @@
 	a,
 	a:visited {
 
-		@include color(color, font-color-light);
+		color: $white;
 		text-decoration: underline;
 	}
 
@@ -80,7 +80,7 @@
 
 .fontello-info {
 
-	@include color(color, font-color-inputs);
+	color: $font-color-inputs;
 	font-size: 1rem;
 }
 

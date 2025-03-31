@@ -2,28 +2,6 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-.bullet-list {
-	$bulletList: "basic", "first", "second", "third", "fourth";
-
-	@each $list in $bulletList {
-		&__#{$list} {
-
-			h4 {
-
-				@include color(color, bullet-list-#{$list});
-			}
-
-			li {
-
-				&::before {
-
-					@include color(color, bullet-list-#{$list});
-					content: "\2022";
-				}
-			}
-		}
-	}
-}
 
 .bullet-list__basic {
 
