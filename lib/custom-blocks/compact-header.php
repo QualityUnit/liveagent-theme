@@ -333,11 +333,11 @@ inline_compact_header();
 								<div class="compact-header__image">
 									<?php
 									if ( isset( $img ) ) {
-										if ( get_post_meta( get_the_ID(), 'mb_update_label_enabled', true ) ) {
+										if ( get_post_meta( get_the_ID(), 'mb_update_label_enabled', true ) && is_single() ) {
 											$monthly_update_label_title = get_post_meta( get_the_ID(), 'mb_update_label_title', true );
 											$monthly_update_label_text = get_post_meta( get_the_ID(), 'mb_update_label_text', true );
 
-											if ( ! empty( $monthly_update_label_title && $monthly_update_label_text ) ) {
+											if ( ! empty( $monthly_update_label_title ) && ! empty( $monthly_update_label_text ) ) {
 												?>
 												<div class="compact-header__image__label">
 													<div class="compact-header__image__label--title"><?php echo esc_html( $monthly_update_label_title ); ?></div>
@@ -369,11 +369,11 @@ inline_compact_header();
 							<div class="compact-header__image">
 							<?php
 							if ( isset( $image['src'] ) ) {
-								if ( get_post_meta( get_the_ID(), 'mb_update_label_enabled', true ) ) {
+								if ( get_post_meta( get_the_ID(), 'mb_update_label_enabled', true ) && is_single() ) {
 									$monthly_update_label_title = get_post_meta( get_the_ID(), 'mb_update_label_title', true );
 									$monthly_update_label_text = get_post_meta( get_the_ID(), 'mb_update_label_text', true );
 
-									if ( ! empty( $monthly_update_label_title && $monthly_update_label_text ) ) {
+									if ( ! empty( $monthly_update_label_title ) && ! empty( $monthly_update_label_text ) ) {
 										?>
 										<div class="compact-header__image__label">
 											<div class="compact-header__image__label--title"><?php echo esc_html( $monthly_update_label_title ); ?></div>
