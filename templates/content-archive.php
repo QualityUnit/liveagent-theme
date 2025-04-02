@@ -109,7 +109,7 @@
 								$monthly_update_label_title = get_post_meta( get_the_ID(), 'mb_update_label_title', true );
 								$monthly_update_label_text = get_post_meta( get_the_ID(), 'mb_update_label_text', true );
 
-								if ( ! empty( $monthly_update_label_title && $monthly_update_label_text ) ) {
+								if ( ! empty( $monthly_update_label_title ) && ! empty( $monthly_update_label_text ) ) {
 									?>
 									<div class="Blog__item__label">
 										<div class="Blog__item__label__title"><?php echo esc_html( $monthly_update_label_title ); ?></div>
@@ -255,7 +255,7 @@
 								$monthly_update_label_title = get_post_meta( get_the_ID(), 'mb_update_label_title', true );
 								$monthly_update_label_text = get_post_meta( get_the_ID(), 'mb_update_label_text', true );
 
-								if ( ! empty( $monthly_update_label_title && $monthly_update_label_text ) ) {
+								if ( ! empty( $monthly_update_label_title ) && ! empty( $monthly_update_label_text ) ) {
 									?>
 									<div class="Blog__item__label">
 										<div class="Blog__item__label__title"><?php echo esc_html( $monthly_update_label_title ); ?></div>
