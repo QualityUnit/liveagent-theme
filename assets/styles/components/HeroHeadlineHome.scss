@@ -624,9 +624,13 @@ value-keyword-case */
 				left: -30%;
 			}
 
-			@media (min-width: $breakpoint-desktop) {
+			@media (min-width: $breakpoint-tablet-landscape) {
 				display: block;
 				font-size: 0.875em;
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+				font-size: 1em;
 			}
 
 			@media (min-width: $breakpoint-desktop-big) {
