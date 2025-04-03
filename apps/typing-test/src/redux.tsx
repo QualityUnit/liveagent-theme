@@ -118,8 +118,7 @@ const initial_store: Store = {
 }
 
 function reducer(state = initial_store, action: Action) : Store {
-    return produce (state, draft => {
-	console.log("ASDSADS" + draft.localization.choose_test_diff);
+	return produce (state, draft => {
 	switch (action.type) {
 	    case ActionType.SwitchState:
 		draft.app_state = action.state;
