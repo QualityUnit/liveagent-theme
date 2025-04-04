@@ -544,7 +544,7 @@ value-keyword-case */
 		.white--bubble {
 			display: none;
 			position: relative;
-			left: -38%;
+			left: -20%;
 			z-index: 2;
 			width: auto;
 			max-width: 29.625em;
@@ -620,8 +620,21 @@ value-keyword-case */
 				font-size: 0.875em;
 			}
 
+			@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop) {
+				left: -30%;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				display: block;
+				font-size: 0.875em;
+			}
+
 			@media (min-width: $breakpoint-desktop-box) {
 				font-size: 1em;
+			}
+
+			@media (min-width: $breakpoint-desktop-big) {
+				left: -32%;
 			}
 
 			&:not(:nth-of-type(2)) {
