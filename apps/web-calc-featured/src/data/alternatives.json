@@ -1,1682 +1,1995 @@
 {
   "liveagent": {
-    "active": true,
-    "name": "LiveAgent",
-    "landing": "https://www.liveagent.com/",
-    "url": "https://www.liveagent.com/",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 15
-      },
-      "package2": {
-        "agents": 1,
-        "price": 29
-      },
-      "package3": {
-        "agents": 1,
-        "price": 49
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": "package1",
-      "callcenter": "package2",
-      "selfservice": "package1",
-      "facebook": "package3",
-      "twitter": "package3",
-      "instagram": "package3",
-      "viber": "package3",
-      "knowledgebase": "package1",
-      "customerforum": "package1",
-      "automationrules": "package2",
-      "api": "package1",
-      "ivr": "package2",
-      "videocalls": "package2",
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": "package1",
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": "package2",
-      "unlimitedsupport": "package2"
-    }
-  },
+	"active": true,
+	"name": "LiveAgent",
+	"landing": "https://www.liveagent.com/",
+	"url": "https://www.liveagent.com/",
+	"packages": {
+		"package1": {
+			"agents": 1,
+			"price": 19
+		},
+		"package2": {
+			"agents": 1,
+			"price": 35
+		},
+		"package3": {
+			"agents": 1,
+			"price": 59
+		},
+		"package4": {
+			"agents": 1,
+			"price": 85
+		}
+	},
+	"features": {
+		"ticketing": "package1",
+		"livechat": "package1",
+		"callcenter": "package2",
+		"facebook": "package3",
+		"twitter": "package3",
+		"instagram": "package3",
+		"viber": "package3",
+		"whatsapp": "package3",
+		"ai": "package2",
+		"knowledgebase": "package1",
+		"automationrules": "package1",
+		"api": "package1",
+		"ivr": "package2",
+		"videocalls": "package2",
+		"unlimitedhistory": true,
+		"unlimitedwebsites": true,
+		"unlimitedchatbuttons": false,
+		"unlimitedtickets": true,
+		"unlimitedcallrecording": "package2",
+		"unlimitedsupport": true
+	}
+},
+	"3cx": {
+		"active": false,
+		"name": "3CX",
+		"landing": "https://www.liveagent.com/3cx-alternative/",
+		"url": "https://www.3cx.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 0
+			},
+			"package2": {
+				"agents": 12,
+				"price": 135
+			},
+			"package3": {
+				"agents": 12,
+				"price": 175
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": false,
+			"livechat": "package2",
+			"callcenter": "package2",
+			"facebook": "package2",
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": false,
+			"automationrules": false,
+			"api": "package2",
+			"ivr": "package2",
+			"videocalls": "package2",
+			"unlimitedhistory": "package2",
+			"unlimitedwebsites": "package2",
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": "package2",
+			"unlimitedcallrecording": "package2",
+			"unlimitedsupport": false
+		}
+	},
+	"aircall": {
+		"active": false,
+		"name": "AirCall",
+		"landing": "https://www.liveagent.com/aircall-alternative/",
+		"url": "https://aircall.io",
+		"packages": {
+			"package1": {
+				"agents": 3,
+				"price": 120
+			},
+			"package2": {
+				"agents": 3,
+				"price": 210
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": false,
+			"livechat": false,
+			"callcenter": "package1",
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": false,
+			"automationrules": "package1",
+			"api": "package1",
+			"ivr": "package1",
+			"videocalls": false,
+			"unlimitedhistory": "package2",
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": "package2",
+			"unlimitedsupport": false
+		}
+	},
+	"birdeye": {
+		"active": false,
+		"name": "BirdEye",
+		"landing": "https://www.liveagent.com/birdeye-alternative/",
+		"url": "https://birdeye.com",
+		"packages": {
+			"package1": {
+				"agents": 9999,
+				"price": 349
+			},
+			"package2": {
+				"agents": 9999,
+				"price": 449
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": true,
+			"livechat": true,
+			"callcenter": false,
+			"facebook": true,
+			"twitter": true,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": true,
+			"ai": true,
+			"knowledgebase": false,
+			"automationrules": true,
+			"api": true,
+			"ivr": false,
+			"videocalls": true,
+			"unlimitedhistory": true,
+			"unlimitedwebsites": true,
+			"unlimitedchatbuttons": true,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": true
+		}
+	},
+	"birdseed": {
+		"active": false,
+		"name": "Birdseed",
+		"landing": "https://www.liveagent.com/birdseed-alternative/",
+		"url": "https://birdseed.io",
+		"packages": {
+			"package1": {
+				"agents": 0,
+				"price": 0
+			},
+			"package2": {
+				"agents": 0,
+				"price": 7
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package2",
+			"livechat": "package1",
+			"callcenter": "package2",
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": "package2",
+			"automationrules": false,
+			"api": false,
+			"ivr": false,
+			"videocalls": "package2",
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
+	"bitrix24": {
+		"active": true,
+		"name": "Bitrix24",
+		"landing": "https://www.liveagent.com/bitrix24-alternative/",
+		"url": "https://www.bitrix24.com",
+		"packages": {
+			"package1": {
+				"agents": 5,
+				"price": 61
+			},
+			"package2": {
+				"agents": 50,
+				"price": 124
+			},
+			"package3": {
+				"agents": 100,
+				"price": 249
+			},
+			"package4": {
+				"agents": 250,
+				"price": 499
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": "package1",
+			"facebook": "package1",
+			"twitter": "package1",
+			"instagram": "package1",
+			"viber": "package1",
+			"whatsapp": "package1",
+			"ai": "package1",
+			"knowledgebase": "package1",
+			"automationrules": "package3",
+			"api": "package1",
+			"ivr": "package1",
+			"videocalls": "package2",
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": "package3",
+			"unlimitedchatbuttons": "package1",
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": "package1",
+			"unlimitedsupport": "package1"
+		}
+	},
+	"callhub": {
+		"active": false,
+		"name": "CallHub",
+		"landing": "https://www.liveagent.com/callhub-alternative/",
+		"url": "https://callhub.io",
+		"packages": {
+			"package1": {
+				"agents": 9999,
+				"price": 0
+			},
+			"package2": {
+				"agents": 9999,
+				"price": 0
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": false,
+			"livechat": false,
+			"callcenter": "package1",
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package2",
+			"ai": "package2",
+			"knowledgebase": false,
+			"automationrules": false,
+			"api": "package1",
+			"ivr": "package1",
+			"videocalls": false,
+			"unlimitedhistory": "package2",
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": "package2",
+			"unlimitedsupport": "package2"
+		}
+	},
+	"callpage": {
+		"active": false,
+		"name": "CallPage",
+		"landing": "https://www.liveagent.com/callpage-alternative/",
+		"url": "https://www.callpage.io",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 39
+			},
+			"package2": {
+				"agents": 2,
+				"price": 99
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": false,
+			"livechat": false,
+			"callcenter": "package1",
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": false,
+			"automationrules": "package1",
+			"api": "package1",
+			"ivr": "package2",
+			"videocalls": false,
+			"unlimitedhistory": false,
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": "package3",
+			"unlimitedsupport": false
+		}
+	},
+	"channels": {
+		"active": false,
+		"name": "Channels",
+		"landing": "https://www.liveagent.com/channels-alternative/",
+		"url": "https://www.channels.app",
+		"packages": {
+			"package1": {
+				"agents": 3,
+				"price": 29
+			},
+			"package2": {
+				"agents": 5,
+				"price": 75
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": false,
+			"livechat": false,
+			"callcenter": "package1",
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": true,
+			"ai": true,
+			"knowledgebase": false,
+			"automationrules": "package1",
+			"api": "package1",
+			"ivr": "package1",
+			"videocalls": false,
+			"unlimitedhistory": false,
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": true
+		}
+	},
+	"chaport": {
+		"active": false,
+		"name": "Chaport",
+		"landing": "https://www.liveagent.com/chaport-alternative/",
+		"url": "https://www.chaport.com",
+		"packages": {
+			"package1": {
+				"agents": 2,
+				"price": 0
+			},
+			"package2": {
+				"agents": 4,
+				"price": 39
+			},
+			"package3": {
+				"agents": 9999,
+				"price": 129
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package2",
+			"livechat": "package1",
+			"callcenter": false,
+			"facebook": "package2",
+			"twitter": false,
+			"instagram": false,
+			"viber": "package2",
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": "package3",
+			"automationrules": "package3",
+			"api": "package2",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package2",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": "package1",
+			"unlimitedtickets": "package2",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
+	"chatra": {
+		"active": true,
+		"name": "Chatra",
+		"landing": "",
+		"url": "https://chatra.com/",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 0
+			},
+			"package2": {
+				"agents": 1,
+				"price": 31
+			},
+			"package3": {
+				"agents": 1,
+				"price": 41
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package2",
+			"livechat": "package1",
+			"callcenter": false,
+			"facebook": "package2",
+			"twitter": false,
+			"instagram": "package2",
+			"viber": false,
+			"whatsapp": false,
+			"ai": "package2",
+			"knowledgebase": false,
+			"automationrules": false,
+			"api": "package1",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": "package2",
+			"unlimitedtickets": "package2",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
+	"chatwoot": {
+		"active": true,
+		"name": "Chatwoot",
+		"landing": "",
+		"url": "https://www.chatwoot.com/",
+		"packages": {
+			"package1": {
+				"agents": 2,
+				"price": 0
+			},
+			"package2": {
+				"agents": 1,
+				"price": 19
+			},
+			"package3": {
+				"agents": 1,
+				"price": 39
+			},
+			"package4": {
+				"agents": 1,
+				"price": 99
+			}
+		},
+		"features": {
+			"ticketing": "package2",
+			"livechat": "package1",
+			"callcenter": false,
+			"facebook": "package2",
+			"twitter": false,
+			"instagram": "package2",
+			"viber": false,
+			"whatsapp": "package2",
+			"ai": "package1",
+			"knowledgebase": "package2",
+			"automationrules": "package3",
+			"api": "package2",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package2",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": "package1",
+			"unlimitedtickets": "package2",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
   "crisp": {
-    "active": true,
+    "active": false,
     "name": "Crisp",
-    "landing": "https://www.liveagent.com/crispalternative/",
+    "landing": "https://www.liveagent.com/crisp-alternative/",
     "url": "https://crisp.chat/en/",
     "packages": {
       "package1": {
-        "agents": 4,
-        "price": 30
+        "agents": 2,
+        "price": 0
       },
       "package2": {
-        "agents": 9999,
-        "price": 113
+        "agents": 4,
+        "price": 45
       },
       "package3": {
-        "agents": 0,
-        "price": 0
+        "agents": 10,
+        "price": 95
       },
       "package4": {
-        "agents": 0,
-        "price": 0
+        "agents": 20,
+        "price": 295
       }
     },
     "features": {
       "ticketing": "package1",
       "livechat": "package1",
-      "callcenter": "package2",
-      "selfservice": "package2",
-      "facebook": "package1",
-      "twitter": "package1",
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package2",
-      "customerforum": false,
-      "automationrules": "package2",
-      "api": "package1",
-      "ivr": false,
-      "videocalls": "package1",
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": "package1",
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package1"
-    }
-  },
-  "intercom": {
-    "active": false,
-    "name": "Intercom",
-    "landing": "https://www.liveagent.com/intercomalternative/",
-    "url": "https://www.intercom.com",
-    "packages": {
-      "package1": {
-        "agents": 0,
-        "price": 0
-      },
-      "package2": {
-        "agents": 0,
-        "price": 0
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": true,
-      "livechat": true,
-      "callcenter": false,
-      "selfservice": true,
-      "facebook": true,
-      "twitter": true,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": true,
-      "customerforum": true,
-      "automationrules": true,
-      "api": true,
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": false,
-      "unlimitedwebsites": true,
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": true,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": true
-    }
-  },
-  "3cx": {
-    "active": true,
-    "name": "3CX",
-    "landing": "https://www.liveagent.com/3cxalternative/",
-    "url": "https://www.3cx.com",
-    "packages": {
-      "package1": {
-        "agents": 12,
-        "price": 0
-      },
-      "package2": {
-        "agents": 12,
-        "price": 135
-      },
-      "package3": {
-        "agents": 12,
-        "price": 170
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": false,
-      "livechat": "package2",
-      "callcenter": "package2",
-      "selfservice": false,
-      "facebook": "package2",
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": false,
-      "api": "package2",
-      "ivr": "package2",
-      "videocalls": "package2",
-      "unlimitedhistory": "package2",
-      "unlimitedwebsites": "package2",
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": "package2",
-      "unlimitedcallrecording": "package2",
-      "unlimitedsupport": false
-    }
-  },
-  "aircall": {
-    "active": true,
-    "name": "AirCall",
-    "landing": "https://www.liveagent.com/aircallalternative/",
-    "url": "https://aircall.io",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 47
-      },
-      "package2": {
-        "agents": 1,
-        "price": 82
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": false,
-      "livechat": false,
-      "callcenter": "package1",
-      "selfservice": false,
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": "package1",
-      "api": "package1",
-      "ivr": "package1",
-      "videocalls": false,
-      "unlimitedhistory": "package2",
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": "package2",
-      "unlimitedsupport": "package1"
-    }
-  },
-  "birdeye": {
-    "active": false,
-    "name": "BirdEye",
-    "landing": "https://www.liveagent.com/birdeyealternative/",
-    "url": "https://birdeye.com",
-    "packages": {
-      "package1": {
-        "agents": 0,
-        "price": 0
-      },
-      "package2": {
-        "agents": 0,
-        "price": 0
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": true,
-      "livechat": true,
-      "callcenter": false,
-      "selfservice": false,
-      "facebook": true,
-      "twitter": true,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": true,
-      "api": true,
-      "ivr": false,
-      "videocalls": true,
-      "unlimitedhistory": true,
-      "unlimitedwebsites": true,
-      "unlimitedchatbuttons": true,
-      "unlimitedtickets": true,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": true
-    }
-  },
-  "birdseed": {
-    "active": true,
-    "name": "Birdseed",
-    "landing": "https://www.liveagent.com/birdseedalternative/",
-    "url": "https://birdseed.io",
-    "packages": {
-      "package1": {
-        "agents": 3,
-        "price": 39
-      },
-      "package2": {
-        "agents": 15,
-        "price": 99
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": false,
-      "livechat": "package1",
-      "callcenter": false,
-      "selfservice": "package1",
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package1",
-      "customerforum": false,
-      "automationrules": false,
-      "api": false,
-      "ivr": false,
-      "videocalls": "package2",
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": "package1",
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": false
-    }
-  },
-  "bitrix24": {
-    "active": true,
-    "name": "Bitrix24",
-    "landing": "https://www.liveagent.com/bitrix24alternative/",
-    "url": "https://www.bitrix24.com",
-    "packages": {
-      "package1": {
-        "agents": 0,
-        "price": 0
-      },
-      "package2": {
-        "agents": 5,
-        "price": 49
-      },
-      "package3": {
-        "agents": 50,
-        "price": 99
-      },
-      "package4": {
-        "agents": 9999,
-        "price": 199
-      }
-    },
-    "features": {
-      "ticketing": "package2",
-      "livechat": "package2",
-      "callcenter": "package2",
-      "selfservice": "package2",
+      "callcenter": "package3",
       "facebook": "package2",
       "twitter": "package2",
-      "instagram": "package2",
-      "viber": "package2",
-      "knowledgebase": "package2",
-      "customerforum": false,
-      "automationrules": "package4",
-      "api": "package2",
-      "ivr": "package4",
-      "videocalls": "package2",
-      "unlimitedhistory": "package2",
-      "unlimitedwebsites": "package2",
-      "unlimitedchatbuttons": "package2",
-      "unlimitedtickets": "package3",
-      "unlimitedcallrecording": "package2",
-      "unlimitedsupport": "package2"
-    }
-  },
-  "callhub": {
-    "active": true,
-    "name": "CallHub",
-    "landing": "https://www.liveagent.com/callhubalternative/",
-    "url": "https://callhub.io",
-    "packages": {
-      "package1": {
-        "agents": 9999,
-        "price": 0
-      },
-      "package2": {
-        "agents": 9999,
-        "price": 199
-      },
-      "package3": {
-        "agents": 9999,
-        "price": 499
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": false,
-      "livechat": false,
-      "callcenter": "package2",
-      "selfservice": false,
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": false,
-      "api": "package2",
-      "ivr": "package2",
-      "videocalls": false,
-      "unlimitedhistory": false,
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": false
-    }
-  },
-  "callpage": {
-    "active": true,
-    "name": "CallPage",
-    "landing": "https://www.liveagent.com/callpagealternative/",
-    "url": "https://www.callpage.io",
-    "packages": {
-      "package1": {
-        "agents": 2,
-        "price": 29
-      },
-      "package2": {
-        "agents": 3,
-        "price": 159
-      },
-      "package3": {
-        "agents": 10,
-        "price": 379
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": false,
-      "livechat": false,
-      "callcenter": "package2",
-      "selfservice": false,
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": "package2",
-      "api": "package2",
-      "ivr": "package2",
-      "videocalls": false,
-      "unlimitedhistory": false,
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": false
-    }
-  },
-  "channels": {
-    "active": true,
-    "name": "Channels",
-    "landing": "https://www.liveagent.com/channelsalternative/",
-    "url": "https://www.channels.app",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 0
-      },
-      "package2": {
-        "agents": 3,
-        "price": 29
-      },
-      "package3": {
-        "agents": 5,
-        "price": 75
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": false,
-      "livechat": false,
-      "callcenter": "package2",
-      "selfservice": false,
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": "package2",
-      "api": "package2",
-      "ivr": "package2",
-      "videocalls": false,
-      "unlimitedhistory": false,
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package2"
-    }
-  },
-  "chaport": {
-    "active": true,
-    "name": "Chaport",
-    "landing": "https://www.liveagent.com/chaportalternative/",
-    "url": "https://www.chaport.com",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 0
-      },
-      "package2": {
-        "agents": 1,
-        "price": 19
-      },
-      "package3": {
-        "agents": 1,
-        "price": 29
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package2",
-      "livechat": "package2",
-      "callcenter": false,
-      "selfservice": false,
-      "facebook": "package2",
-      "twitter": false,
-      "instagram": false,
-      "viber": "package2",
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": false,
-      "api": "package2",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package3",
-      "unlimitedwebsites": "package2",
-      "unlimitedchatbuttons": "package2",
-      "unlimitedtickets": "package2",
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": false
-    }
-  },
-  "connectwise": {
-    "active": false,
-    "name": "ConnectWise",
-    "landing": "https://www.liveagent.com/connectwisealternative/",
-    "url": "https://www.connectwise.com",
-    "packages": {
-      "package1": {
-        "agents": 0,
-        "price": 0
-      },
-      "package2": {
-        "agents": 0,
-        "price": 0
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": true,
-      "livechat": true,
-      "callcenter": false,
-      "selfservice": true,
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": true,
-      "customerforum": true,
-      "automationrules": true,
-      "api": false,
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": true,
-      "unlimitedwebsites": true,
-      "unlimitedchatbuttons": true,
-      "unlimitedtickets": true,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": true
-    }
-  },
-  "customerly": {
-    "active": true,
-    "name": "Customerly",
-    "landing": "https://www.liveagent.com/customerlyalternative/",
-    "url": "https://www.customerly.io",
-    "packages": {
-      "package1": {
-        "agents": 2,
-        "price": 0
-      },
-      "package2": {
-        "agents": 5,
-        "price": 29
-      },
-      "package3": {
-        "agents": 10,
-        "price": 87
-      },
-      "package4": {
-        "agents": 9999,
-        "price": 159
-      }
-    },
-    "features": {
-      "ticketing": "package2",
-      "livechat": "package2",
-      "callcenter": false,
-      "selfservice": "package2",
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package2",
-      "customerforum": "package2",
+      "instagram": "package3",
+      "viber": "package3",
+			"whatsapp": true,
+			"ai": true,
+      "knowledgebase": "package3",
       "automationrules": "package3",
       "api": false,
       "ivr": false,
       "videocalls": "package3",
-      "unlimitedhistory": "package3",
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": "package3",
-      "unlimitedtickets": "package3",
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package2"
-    }
-  },
-  "dashly": {
-    "active": true,
-    "name": "Dashly",
-    "landing": "https://www.liveagent.com/dashlyalternative/",
-    "url": "https://www.dashly.io",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 0
-      },
-      "package2": {
-        "agents": 1,
-        "price": 19
-      },
-      "package3": {
-        "agents": 1,
-        "price": 70
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package2",
-      "livechat": "package2",
-      "callcenter": false,
-      "selfservice": "package3",
-      "facebook": "package2",
-      "twitter": false,
-      "instagram": false,
-      "viber": "package2",
-      "knowledgebase": "package3",
-      "customerforum": false,
-      "automationrules": "package3",
-      "api": "package3",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package3",
+      "unlimitedhistory": "package2",
       "unlimitedwebsites": false,
       "unlimitedchatbuttons": false,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package4"
-    }
-  },
-  "desk.com": {
-    "active": true,
-    "name": "Desk.com",
-    "landing": "https://www.liveagent.com/deskcomalternative/",
-    "url": "https://www.salesforce.com",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 25
-      },
-      "package2": {
-        "agents": 1,
-        "price": 100
-      },
-      "package3": {
-        "agents": 1,
-        "price": 175
-      },
-      "package4": {
-        "agents": 1,
-        "price": 325
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": "package3",
-      "callcenter": "package1",
-      "selfservice": "package1",
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package1",
-      "customerforum": "package1",
-      "automationrules": "package3",
-      "api": "package3",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": false,
-      "unlimitedwebsites": "package1",
-      "unlimitedchatbuttons": "package3",
       "unlimitedtickets": "package1",
       "unlimitedcallrecording": false,
-      "unlimitedsupport": "package4"
-    }
-  },
-  "dixa": {
-    "active": false,
-    "name": "Dixa",
-    "landing": "https://www.liveagent.com/dixaalternative/",
-    "url": "https://www.dixa.com",
-    "packages": {
-      "package1": {
-        "agents": 0,
-        "price": 0
-      },
-      "package2": {
-        "agents": 0,
-        "price": 0
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": true,
-      "livechat": true,
-      "callcenter": true,
-      "selfservice": false,
-      "facebook": true,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": true,
-      "api": true,
-      "ivr": true,
-      "videocalls": false,
-      "unlimitedhistory": true,
-      "unlimitedwebsites": true,
-      "unlimitedchatbuttons": true,
-      "unlimitedtickets": true,
-      "unlimitedcallrecording": true,
       "unlimitedsupport": true
     }
   },
-  "drift": {
-    "active": false,
-    "name": "Drift",
-    "landing": "https://www.liveagent.com/driftalternative/",
-    "url": "https://www.drift.com",
-    "packages": {
-      "package1": {
-        "agents": 0,
-        "price": 0
-      },
-      "package2": {
-        "agents": 0,
-        "price": 0
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": false,
-      "livechat": true,
-      "callcenter": false,
-      "selfservice": false,
-      "facebook": true,
-      "twitter": false,
-      "instagram": true,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": true,
-      "api": true,
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": false,
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": true,
-      "unlimitedtickets": true,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": false
-    }
-  },
-  "extend": {
-    "active": false,
-    "name": "Extend",
-    "landing": "https://www.liveagent.com/extendalternative/",
-    "url": "",
-    "packages": {
-      "package1": "",
-      "": "",
-      "package2": "",
-      "__1": "",
-      "package3": "",
-      "__2": "",
-      "package4": "",
-      "__3": "",
-      "ticketing": "",
-      "__4": "",
-      "livechat": "",
-      "__5": "",
-      "callcenter": "",
-      "__6": "",
-      "selfservice": "",
-      "__7": "",
-      "facebook": "",
-      "__8": "",
-      "twitter": "",
-      "__9": "",
-      "instagram": "",
-      "__10": "",
-      "viber": "",
-      "__11": "",
-      "knowledgebase": "",
-      "__12": "",
-      "customerforum": "",
-      "__13": "",
-      "automationrules": "",
-      "__14": "",
-      "api": "",
-      "__15": "",
-      "ivr": "",
-      "__16": "",
-      "videocalls": "",
-      "__17": "",
-      "unlimitedhistory": "",
-      "__18": "",
-      "unlimitedwebsites": "",
-      "__19": "",
-      "unlimitedchatbuttons": "",
-      "__20": "",
-      "unlimitedtickets": "",
-      "__21": "",
-      "unlimitedcallrecording": "",
-      "__22": "",
-      "unlimitedsupport": ""
-    }
-  },
-  "freshdesk": {
+	"connectwise": {
+		"active": false,
+		"name": "ConnectWise",
+		"landing": "https://www.liveagent.com/connectwise-alternative/",
+		"url": "https://www.connectwise.com",
+		"packages": {
+			"package1": {
+				"agents": 0,
+				"price": 0
+			},
+			"package2": {
+				"agents": 0,
+				"price": 0
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": true,
+			"livechat": true,
+			"callcenter": false,
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": true,
+			"ai": true,
+			"knowledgebase": true,
+			"automationrules": true,
+			"api": false,
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": true,
+			"unlimitedwebsites": true,
+			"unlimitedchatbuttons": true,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": true
+		}
+	},
+	"customerly": {
+		"active": false,
+		"name": "Customerly",
+		"landing": "https://www.liveagent.com/customerly-alternative/",
+		"url": "https://www.customerly.io",
+		"packages": {
+			"package1": {
+				"agents": 3,
+				"price": 9
+			},
+			"package2": {
+				"agents": 6,
+				"price": 49
+			},
+			"package3": {
+				"agents": 10,
+				"price": 99
+			},
+			"package4": {
+				"agents": 15,
+				"price": 299
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": false,
+			"facebook": "package2",
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": "package1",
+			"automationrules": "package2",
+			"api": "package2",
+			"ivr": false,
+			"videocalls": "package3",
+			"unlimitedhistory": "package3",
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": "package3",
+			"unlimitedtickets": "package3",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
+	"dashly": {
+		"active": false,
+		"name": "Dashly",
+		"landing": "https://www.liveagent.com/dashly-alternative/",
+		"url": "https://www.dashly.io",
+		"packages": {
+			"package1": {
+				"agents": 9999,
+				"price": 39
+			},
+			"package2": {
+				"agents": 9999,
+				"price": 79
+			},
+			"package3": {
+				"agents": 9999,
+				"price": 109
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": false,
+			"facebook": "package1",
+			"twitter": false,
+			"instagram": "package1",
+			"viber": "package1",
+			"ai": "package4",
+			"knowledgebase": "package1",
+			"automationrules": "package2",
+			"api": "package1",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package3",
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package4"
+		}
+	},
+	"desk.com": {
+		"active": true,
+		"name": "Desk.com",
+		"landing": "https://www.liveagent.com/desk-com-alternative/",
+		"url": "https://www.salesforce.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 25
+			},
+			"package2": {
+				"agents": 1,
+				"price": 100
+			},
+			"package3": {
+				"agents": 1,
+				"price": 165
+			},
+			"package4": {
+				"agents": 1,
+				"price": 330
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package4",
+			"callcenter": "package2",
+			"facebook": true,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": true,
+			"ai": "package3",
+			"knowledgebase": "package1",
+			"automationrules": "package2",
+			"api": "package3",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": false,
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": "package3",
+			"unlimitedtickets": "package1",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package4"
+		}
+	},
+	"deskero": {
+		"active": true,
+		"name": "Deskero",
+		"landing": "",
+		"url": "https://www.deskero.com/",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 12
+			},
+			"package2": {
+				"agents": 1,
+				"price": 30
+			},
+			"package3": {
+				"agents": 1,
+				"price": 120
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": "package3",
+			"facebook": "package1",
+			"twitter": "package1",
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package3",
+			"ai": false,
+			"knowledgebase": "package1",
+			"automationrules": "package2",
+			"api": "package1",
+			"ivr": "package3",
+			"videocalls": false,
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": "package2",
+			"unlimitedtickets": "package2",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package2"
+		}
+	},
+	"dixa": {
+		"active": false,
+		"name": "Dixa",
+		"landing": "https://www.liveagent.com/dixa-alternative/",
+		"url": "https://www.dixa.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 49
+			},
+			"package2": {
+				"agents": 1,
+				"price": 109
+			},
+			"package3": {
+				"agents": 1,
+				"price": 169
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package2",
+			"livechat": "package2",
+			"callcenter": "package2",
+			"facebook": "package2",
+			"twitter": false,
+			"instagram": "package2",
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": "package2",
+			"automationrules": "package2",
+			"api": "package1",
+			"ivr": "package2",
+			"videocalls": false,
+			"unlimitedhistory": "package2",
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": "package2",
+			"unlimitedsupport": false
+		}
+	},
+	"drift": {
+		"active": false,
+		"name": "Drift",
+		"landing": "https://www.liveagent.com/drift-alternative/",
+		"url": "https://www.drift.com",
+		"packages": {
+			"package1": {
+				"agents": 0,
+				"price": 0
+			},
+			"package2": {
+				"agents": 0,
+				"price": 0
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": false,
+			"livechat": true,
+			"callcenter": false,
+			"facebook": true,
+			"twitter": false,
+			"instagram": true,
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": false,
+			"automationrules": true,
+			"api": true,
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": false,
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": true,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
+	"extend": {
+		"active": false,
+		"name": "Extend",
+		"landing": "https://www.liveagent.com/extend-alternative/",
+		"url": "",
+		"packages": {
+			"package1": "",
+			"": "",
+			"package2": "",
+			"__1": "",
+			"package3": "",
+			"__2": "",
+			"package4": "",
+			"__3": "",
+			"ticketing": "",
+			"__4": "",
+			"livechat": "",
+			"__5": "",
+			"callcenter": "",
+			"__6": "",
+			"facebook": "",
+			"__8": "",
+			"twitter": "",
+			"__9": "",
+			"instagram": "",
+			"__10": "",
+			"viber": "",
+			"__11": "",
+			"knowledgebase": "",
+			"__12": "",
+			"automationrules": "",
+			"__14": "",
+			"api": "",
+			"__15": "",
+			"ivr": "",
+			"__16": "",
+			"videocalls": "",
+			"__17": "",
+			"unlimitedhistory": "",
+			"__18": "",
+			"unlimitedwebsites": "",
+			"__19": "",
+			"unlimitedchatbuttons": "",
+			"__20": "",
+			"unlimitedtickets": "",
+			"__21": "",
+			"unlimitedcallrecording": "",
+			"__22": "",
+			"unlimitedsupport": ""
+		}
+	},
+	"freshdesk": {
+		"active": true,
+		"name": "Freshdesk",
+		"landing": "https://www.liveagent.com/freshdesk-alternative/",
+		"url": "https://freshdesk.com",
+		"packages": {
+			"package1": {
+				"agents": 9999,
+				"price": 0
+			},
+			"package2": {
+				"agents": 1,
+				"price": 18
+			},
+			"package3": {
+				"agents": 1,
+				"price": 59
+			},
+			"package4": {
+				"agents": 1,
+				"price": 95
+			}
+		},
+		"features": {
+			"ticketing": "package4",
+			"livechat": "package1",
+			"callcenter": "package1",
+			"facebook": "package1",
+			"twitter": "package1",
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package1",
+			"ai": "package1",
+			"knowledgebase": "package1",
+			"automationrules": "package1",
+			"api": "package1",
+			"ivr": "package3",
+			"videocalls": false,
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": "package3",
+			"unlimitedchatbuttons": "package1",
+			"unlimitedtickets": "package1",
+			"unlimitedcallrecording": "package1",
+			"unlimitedsupport": "package1"
+		}
+	},
+	"front": {
+		"active": true,
+		"name": "Front",
+		"landing": "https://www.liveagent.com/front-alternative/",
+		"url": "https://front.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 29
+			},
+			"package2": {
+				"agents": 1,
+				"price": 79
+			},
+			"package3": {
+				"agents": 1,
+				"price": 99
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": "package2",
+			"facebook": "package1",
+			"twitter": "package1",
+			"instagram": "package1",
+			"viber": false,
+			"whatsapp": "package1",
+			"ai": "package2",
+			"knowledgebase": "package1",
+			"automationrules": "package1",
+			"api": "package1",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": false,
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": "package1",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package3"
+		}
+	},
+	"genesys": {
+		"active": false,
+		"name": "Genesys",
+		"landing": "https://www.liveagent.com/genesys-alternative/",
+		"url": "https://www.genesys.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 75
+			},
+			"package2": {
+				"agents": 1,
+				"price": 110
+			},
+			"package3": {
+				"agents": 1,
+				"price": 140
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package2",
+			"livechat": "package2",
+			"callcenter": "package1",
+			"facebook": "package3",
+			"twitter": "package3",
+			"instagram": false,
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": "package1",
+			"automationrules": "package1",
+			"api": "package1",
+			"ivr": "package1",
+			"videocalls": "package1",
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": "package2",
+			"unlimitedtickets": "package2",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
+	"gist": {
+		"active": false,
+		"name": "Gist",
+		"landing": "https://www.liveagent.com/gist-alternative/",
+		"url": "https://getgist.com",
+		"packages": {
+			"package1": {
+				"agents": 2,
+				"price": 0
+			},
+			"package2": {
+				"agents": 5,
+				"price": 29
+			},
+			"package3": {
+				"agents": 9999,
+				"price": 99
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": false,
+			"livechat": "package2",
+			"callcenter": false,
+			"facebook": "package2",
+			"twitter": "package2",
+			"instagram": false,
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": "package2",
+			"automationrules": "package3",
+			"api": "package2",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package2",
+			"unlimitedwebsites": "package2",
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": "package2",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
+	"gladly": {
+		"active": false,
+		"name": "Gladly",
+		"landing": "",
+		"url": "https://www.gladly.com/",
+		"packages": {
+			"package1": {
+				"agents": 0,
+				"price": 0
+			},
+			"package2": {
+				"agents": 0,
+				"price": 0
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": true,
+			"livechat": true,
+			"callcenter": true,
+			"facebook": true,
+			"twitter": false,
+			"instagram": true,
+			"viber": false,
+			"whatsapp": true,
+			"ai": true,
+			"knowledgebase": false,
+			"automationrules": true,
+			"api": true,
+			"ivr": true,
+			"videocalls": false,
+			"unlimitedhistory": false,
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": true,
+			"unlimitedsupport": true
+		}
+	},
+	"gmail": {
+		"active": false,
+		"name": "Gmail",
+		"landing": "https://www.liveagent.com/gmail-alternative/",
+		"url": "https://www.google.com/gmail/about/",
+		"packages": {
+			"package1": "",
+			"": "",
+			"package2": "",
+			"__1": "",
+			"package3": "",
+			"__2": "",
+			"package4": "",
+			"__3": "",
+			"ticketing": "",
+			"__4": "",
+			"livechat": "",
+			"__5": "",
+			"callcenter": "",
+			"__6": "",
+			"facebook": "",
+			"__8": "",
+			"twitter": "",
+			"__9": "",
+			"instagram": "",
+			"__10": "",
+			"viber": "",
+			"__11": "",
+			"knowledgebase": "",
+			"__12": "",
+			"automationrules": "",
+			"__14": "",
+			"api": "",
+			"__15": "",
+			"ivr": "",
+			"__16": "",
+			"videocalls": "",
+			"__17": "",
+			"unlimitedhistory": "",
+			"__18": "",
+			"unlimitedwebsites": "",
+			"__19": "",
+			"unlimitedchatbuttons": "",
+			"__20": "",
+			"unlimitedtickets": "",
+			"__21": "",
+			"unlimitedcallrecording": "",
+			"__22": "",
+			"unlimitedsupport": ""
+		}
+	},
+	"gorgias": {
+		"active": true,
+		"name": "Gorgias",
+		"landing": "https://www.liveagent.com/gorgias-alternative/",
+		"url": "https://www.gorgias.com",
+		"packages": {
+			"package1": {
+				"agents": 3,
+				"price": 10
+			},
+			"package2": {
+				"agents": 500,
+				"price": 60
+			},
+			"package3": {
+				"agents": 500,
+				"price": 360
+			},
+			"package4": {
+				"agents": 500,
+				"price": 900
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": "package2",
+			"facebook": "package1",
+			"twitter": false,
+			"instagram": "package1",
+			"viber": false,
+			"whatsapp": "package1",
+			"ai": "package1",
+			"knowledgebase": false,
+			"automationrules": "package1",
+			"api": "package1",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": "package1",
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package1"
+		}
+	},
+	"groove": {
+		"active": false,
+		"name": "Groove",
+		"landing": "https://www.liveagent.com/groove-alternative/",
+		"url": "https://www.groovehq.com",
+		"packages": {
+			"package1": {
+				"agents": 0,
+				"price": 0
+			},
+			"package2": {
+				"agents": 1,
+				"price": 25
+			},
+			"package3": {
+				"agents": 1,
+				"price": 40
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": false,
+			"facebook": "package1",
+			"twitter": "package1",
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package1",
+			"ai": "package1",
+			"knowledgebase": "package3",
+			"automationrules": "package2",
+			"api": "package2",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package2",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": "package1",
+			"unlimitedtickets": "package1",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package1"
+		}
+	},
+	"happyfox--help-desk": {
+		"active": true,
+		"name": "HappyFox  Help Desk",
+		"landing": "https://www.liveagent.com/happyfox-alternative/",
+		"url": "https://www.happyfox.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 29
+			},
+			"package2": {
+				"agents": 1,
+				"price": 69
+			},
+			"package3": {
+				"agents": 1,
+				"price": 119
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": "package2",
+			"facebook": true,
+			"twitter": true,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package2",
+			"ai": "package1",
+			"knowledgebase": "package1",
+			"automationrules": "package1",
+			"api": "package1",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": true,
+			"unlimitedwebsites": true,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package3"
+		}
+	},
+	"happyfox--live-chat": {
+		"active": false,
+		"name": "HappyFox  Live Chat",
+		"landing": "https://www.liveagent.com/happyfox-alternative/",
+		"url": "https://www.happyfox.com",
+		"packages": {
+			"package1": {
+				"agents": 9999,
+				"price": 29
+			},
+			"package2": {
+				"agents": 9999,
+				"price": 49
+			},
+			"package3": {
+				"agents": 9999,
+				"price": 149
+			},
+			"package4": {
+				"agents": 9999,
+				"price": 299
+			}
+		},
+		"features": {
+			"ticketing": false,
+			"livechat": "package1",
+			"callcenter": false,
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package3",
+			"ai": "package3",
+			"knowledgebase": false,
+			"automationrules": "package3",
+			"api": "package1",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package3",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": "package4",
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package3"
+		}
+	},
+	"helpdesk": {
+		"active": true,
+		"name": "Helpdesk",
+		"landing": "",
+		"url": "https://www.helpdesk.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 34
+			},
+			"package2": {
+				"agents": 1,
+				"price": 59
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": false,
+			"callcenter": false,
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": false,
+			"ai": "package1",
+			"knowledgebase": true,
+			"automationrules": "package1",
+			"api": "package1",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package1"
+		}
+	},
+	"helponclick": {
+		"active": true,
+		"name": "HelpOnClick",
+		"landing": "",
+		"url": "https://www.helponclick.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 2
+			},
+			"package2": {
+				"agents": 0,
+				"price": 0
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": true,
+			"livechat": false,
+			"callcenter": false,
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": true,
+			"automationrules": true,
+			"api": false,
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": true,
+			"unlimitedwebsites": true,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
+	"helpcrunch": {
+		"active": false,
+		"name": "HelpCrunch",
+		"landing": "https://www.liveagent.com/helpcrunch-alternative/",
+		"url": "https://helpcrunch.com",
+		"packages": {
+			"package1": {
+				"agents": 0,
+				"price": 0
+			},
+			"package2": {
+				"agents": 1,
+				"price": 29
+			},
+			"package3": {
+				"agents": 1,
+				"price": 45
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": false,
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package2",
+			"ai": "package2",
+			"knowledgebase": "package1",
+			"automationrules": false,
+			"api": "package1",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": false,
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package2"
+		}
+	},
+	"helprace": {
+		"active": false,
+		"name": "Helprace",
+		"landing": "https://www.liveagent.com/helprace-alternative/",
+		"url": "https://site.helprace.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 10
+			},
+			"package2": {
+				"agents": 1,
+				"price": 20
+			},
+			"package3": {
+				"agents": 1,
+				"price": 30
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": false,
+			"callcenter": false,
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package1",
+			"ai": "package1",
+			"knowledgebase": "package2",
+			"automationrules": "package3",
+			"api": "package1",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": "package2",
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": "package1",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package1"
+		}
+	},
+	"helpscout": {
+		"active": true,
+		"name": "HelpScout",
+		"landing": "https://www.liveagent.com/help-scout-alternative/",
+		"url": "https://www.helpscout.com",
+		"packages": {
+			"package1": {
+				"agents": 9999,
+				"price": 0
+			},
+			"package2": {
+				"agents": 9999,
+				"price": 55
+			},
+			"package3": {
+				"agents": 9999,
+				"price": 83
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": "package2",
+			"facebook": "package1",
+			"twitter": false,
+			"instagram": "package1",
+			"viber": false,
+			"whatsapp": false,
+			"ai": "package1",
+			"knowledgebase": "package1",
+			"automationrules": "package1",
+			"api": "package2",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": "package1",
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
+	"helpshift": {
+		"active": false,
+		"name": "HelpShift",
+		"landing": "https://www.liveagent.com/helpshift-alternative/",
+		"url": "https://www.helpshift.com",
+		"packages": {
+			"package1": {
+				"agents": 0,
+				"price": 0
+			},
+			"package2": {
+				"agents": 0,
+				"price": 0
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": true,
+			"livechat": true,
+			"callcenter": false,
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": true,
+			"ai": true,
+			"knowledgebase": true,
+			"automationrules": true,
+			"api": true,
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": true,
+			"unlimitedwebsites": true,
+			"unlimitedchatbuttons": true,
+			"unlimitedtickets": false,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": true
+		}
+	},
+	"helpspot": {
+		"active": false,
+		"name": "HelpSpot",
+		"landing": "https://www.liveagent.com/helpspot-alternative/",
+		"url": "https://www.helpspot.com/",
+		"packages": {
+			"package1": {
+				"agents": 3,
+				"price": 41.5
+			},
+			"package2": {
+				"agents": 0,
+				"price": 0
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": false,
+			"callcenter": false,
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package1",
+			"ai": "package1",
+			"knowledgebase": "package1",
+			"automationrules": "package1",
+			"api": "package1",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": "package1",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package1"
+		}
+	},
+	"hesk": {
+		"active": false,
+		"name": "Hesk",
+		"landing": "https://www.liveagent.com/hesk-alternative/",
+		"url": "https://www.hesk.com",
+		"packages": {
+			"package1": {
+				"agents": 0,
+				"price": 0
+			},
+			"package2": {
+				"agents": 0,
+				"price": 0
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": true,
+			"livechat": false,
+			"callcenter": false,
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": false,
+			"ai": false,
+			"knowledgebase": true,
+			"automationrules": false,
+			"api": false,
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": true,
+			"unlimitedwebsites": true,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
+	"hiver": {
+		"active": true,
+		"name": "Hiver",
+		"landing": "https://www.liveagent.com/hiver-alternative/",
+		"url": "https://hiverhq.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 0
+			},
+			"package2": {
+				"agents": 1,
+				"price": 24
+			},
+			"package3": {
+				"agents": 1,
+				"price": 34
+			},
+			"package4": {
+				"agents": 1,
+				"price": 59
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": "package1",
+			"facebook": false,
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package1",
+			"ai": "package4",
+			"knowledgebase": "package1",
+			"automationrules": "package2",
+			"api": "package4",
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": "package1",
+			"unlimitedwebsites": false,
+			"unlimitedchatbuttons": false,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package1"
+		}
+	},
+	"hubspotservice-hub": {
+		"active": true,
+		"name": "HubSpot Service Hub",
+		"landing": "https://www.liveagent.com/hubspot-service-hub-alternative/",
+		"url": "https://www.hubspot.com",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 0
+			},
+			"package2": {
+				"agents": 1,
+				"price": 20
+			},
+			"package3": {
+				"agents": 1,
+				"price": 100
+			},
+			"package4": {
+				"agents": 1,
+				"price": 150
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": "package2",
+			"facebook": "package1",
+			"twitter": false,
+			"instagram": false,
+			"viber": false,
+			"whatsapp": "package3",
+			"ai": "package1",
+			"knowledgebase": "package3",
+			"automationrules": "package2",
+			"api": "package1",
+			"ivr": "package4",
+			"videocalls": "package3",
+			"unlimitedhistory": true,
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": "package1",
+			"unlimitedtickets": "package1",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": "package2"
+		}
+	},
+  "intercom": {
     "active": true,
-    "name": "Freshdesk",
-    "landing": "https://www.liveagent.com/freshdeskalternative/",
-    "url": "https://freshdesk.com",
+    "name": "Intercom",
+    "landing": "https://www.liveagent.com/intercom-alternative/",
+    "url": "https://www.intercom.com",
     "packages": {
       "package1": {
         "agents": 1,
-        "price": 41
+        "price": 39
       },
       "package2": {
         "agents": 1,
-        "price": 83
-      },
-      "package3": {
-        "agents": 1,
-        "price": 139.5
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": "package1",
-      "callcenter": "package1",
-      "selfservice": "package1",
-      "facebook": "package1",
-      "twitter": "package1",
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package1",
-      "customerforum": "package2",
-      "automationrules": "package1",
-      "api": "package1",
-      "ivr": "package3",
-      "videocalls": false,
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": "package3",
-      "unlimitedchatbuttons": "package1",
-      "unlimitedtickets": "package1",
-      "unlimitedcallrecording": "package1",
-      "unlimitedsupport": "package1"
-    }
-  },
-  "front": {
-    "active": true,
-    "name": "Front",
-    "landing": "https://www.liveagent.com/frontalternative/",
-    "url": "https://front.com",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 19
-      },
-      "package2": {
-        "agents": 0,
-        "price": 0
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": "package1",
-      "callcenter": false,
-      "selfservice": false,
-      "facebook": "package1",
-      "twitter": "package1",
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": "package1",
-      "api": "package1",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": false,
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": "package1",
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package1"
-    }
-  },
-  "genesys": {
-    "active": true,
-    "name": "Genesys",
-    "landing": "https://www.liveagent.com/genesysalternative/",
-    "url": "https://www.genesys.com",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 75
-      },
-      "package2": {
-        "agents": 1,
-        "price": 110
-      },
-      "package3": {
-        "agents": 1,
-        "price": 140
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package2",
-      "livechat": "package2",
-      "callcenter": "package1",
-      "selfservice": "package1",
-      "facebook": "package3",
-      "twitter": "package3",
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package1",
-      "customerforum": false,
-      "automationrules": "package1",
-      "api": "package1",
-      "ivr": "package1",
-      "videocalls": "package1",
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": "package2",
-      "unlimitedtickets": "package2",
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": false
-    }
-  },
-  "gist": {
-    "active": true,
-    "name": "Gist",
-    "landing": "https://www.liveagent.com/gistalternative/",
-    "url": "https://getgist.com",
-    "packages": {
-      "package1": {
-        "agents": 2,
-        "price": 0
-      },
-      "package2": {
-        "agents": 5,
-        "price": 29
-      },
-      "package3": {
-        "agents": 9999,
         "price": 99
       },
+      "package3": {
+        "agents": 1,
+        "price": 139
+      },
       "package4": {
         "agents": 0,
         "price": 0
       }
     },
     "features": {
-      "ticketing": false,
-      "livechat": "package2",
-      "callcenter": false,
-      "selfservice": "package2",
+      "ticketing": "package1",
+      "livechat": "package1",
+      "callcenter": "package1",
       "facebook": "package2",
-      "twitter": "package2",
-      "instagram": false,
+      "twitter": false,
+      "instagram": "package2",
       "viber": false,
-      "knowledgebase": "package2",
-      "customerforum": false,
-      "automationrules": "package3",
+			"whatsapp": true,
+			"ai": true,
+      "knowledgebase": "package1",
+      "automationrules": "package1",
       "api": "package2",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package2",
-      "unlimitedwebsites": "package2",
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": "package2",
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": false
-    }
-  },
-  "gmail": {
-    "active": false,
-    "name": "Gmail",
-    "landing": "https://www.liveagent.com/gmailalternative/",
-    "url": "https://www.google.com/gmail/about/",
-    "packages": {
-      "package1": "",
-      "": "",
-      "package2": "",
-      "__1": "",
-      "package3": "",
-      "__2": "",
-      "package4": "",
-      "__3": "",
-      "ticketing": "",
-      "__4": "",
-      "livechat": "",
-      "__5": "",
-      "callcenter": "",
-      "__6": "",
-      "selfservice": "",
-      "__7": "",
-      "facebook": "",
-      "__8": "",
-      "twitter": "",
-      "__9": "",
-      "instagram": "",
-      "__10": "",
-      "viber": "",
-      "__11": "",
-      "knowledgebase": "",
-      "__12": "",
-      "customerforum": "",
-      "__13": "",
-      "automationrules": "",
-      "__14": "",
-      "api": "",
-      "__15": "",
-      "ivr": "",
-      "__16": "",
-      "videocalls": "",
-      "__17": "",
-      "unlimitedhistory": "",
-      "__18": "",
-      "unlimitedwebsites": "",
-      "__19": "",
-      "unlimitedchatbuttons": "",
-      "__20": "",
-      "unlimitedtickets": "",
-      "__21": "",
-      "unlimitedcallrecording": "",
-      "__22": "",
-      "unlimitedsupport": ""
-    }
-  },
-  "gorgias": {
-    "active": true,
-    "name": "Gorgias",
-    "landing": "https://www.liveagent.com/gorgiasalternative/",
-    "url": "https://www.gorgias.com",
-    "packages": {
-      "package1": {
-        "agents": 9999,
-        "price": 60
-      },
-      "package2": {
-        "agents": 9999,
-        "price": 300
-      },
-      "package3": {
-        "agents": 9999,
-        "price": 750
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": "package1",
-      "callcenter": "package2",
-      "selfservice": false,
-      "facebook": "package1",
-      "twitter": false,
-      "instagram": "package1",
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": "package1",
-      "api": "package1",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": "package1",
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package1"
-    }
-  },
-  "groove": {
-    "active": true,
-    "name": "Groove",
-    "landing": "https://www.liveagent.com/groovealternative/",
-    "url": "https://www.groovehq.com",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 15
-      },
-      "package2": {
-        "agents": 1,
-        "price": 25
-      },
-      "package3": {
-        "agents": 1,
-        "price": 40
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": "package1",
-      "callcenter": false,
-      "selfservice": "package3",
-      "facebook": "package1",
-      "twitter": "package1",
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package3",
-      "customerforum": false,
-      "automationrules": "package2",
-      "api": "package2",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package2",
-      "unlimitedwebsites": "package1",
-      "unlimitedchatbuttons": "package1",
-      "unlimitedtickets": "package1",
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package1"
-    }
-  },
-  "happyfox--help-desk": {
-    "active": false,
-    "name": "HappyFox  Help Desk",
-    "landing": "https://www.liveagent.com/happyfoxalternative/",
-    "url": "https://www.happyfox.com",
-    "packages": {
-      "package1": {
-        "agents": 0,
-        "price": 0
-      },
-      "package2": {
-        "agents": 0,
-        "price": 0
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": true,
-      "livechat": false,
-      "callcenter": false,
-      "selfservice": true,
-      "facebook": false,
-      "twitter": true,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": true,
-      "customerforum": true,
-      "automationrules": true,
-      "api": true,
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": true,
-      "unlimitedwebsites": true,
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": true
-    }
-  },
-  "happyfox--live-chat": {
-    "active": true,
-    "name": "HappyFox  Live Chat",
-    "landing": "https://www.liveagent.com/happyfoxalternative/",
-    "url": "https://www.happyfox.com",
-    "packages": {
-      "package1": {
-        "agents": 9999,
-        "price": 29
-      },
-      "package2": {
-        "agents": 9999,
-        "price": 49
-      },
-      "package3": {
-        "agents": 9999,
-        "price": 149
-      },
-      "package4": {
-        "agents": 9999,
-        "price": 299
-      }
-    },
-    "features": {
-      "ticketing": false,
-      "livechat": "package1",
-      "callcenter": false,
-      "selfservice": false,
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": "package3",
-      "api": "package1",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package3",
-      "unlimitedwebsites": "package1",
-      "unlimitedchatbuttons": "package4",
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package3"
-    }
-  },
-  "helpcrunch": {
-    "active": true,
-    "name": "HelpCrunch",
-    "landing": "https://www.liveagent.com/helpcrunchalternative/",
-    "url": "https://helpcrunch.com",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 17.5
-      },
-      "package2": {
-        "agents": 1,
-        "price": 29
-      },
-      "package3": {
-        "agents": 1,
-        "price": 33.5
-      },
-      "package4": {
-        "agents": 1,
-        "price": 56.5
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": "package1",
-      "callcenter": false,
-      "selfservice": "package1",
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package1",
-      "customerforum": false,
-      "automationrules": false,
-      "api": "package1",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": false,
-      "unlimitedwebsites": "package1",
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package2"
-    }
-  },
-  "helprace": {
-    "active": true,
-    "name": "Helprace",
-    "landing": "https://www.liveagent.com/helpracealternative/",
-    "url": "https://site.helprace.com",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 10
-      },
-      "package2": {
-        "agents": 1,
-        "price": 20
-      },
-      "package3": {
-        "agents": 1,
-        "price": 20
-      },
-      "package4": {
-        "agents": 1,
-        "price": 30
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": false,
-      "callcenter": false,
-      "selfservice": "package2",
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package2",
-      "customerforum": "package2",
-      "automationrules": "package3",
-      "api": "package1",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": "package2",
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": "package1",
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package1"
-    }
-  },
-  "helpscout": {
-    "active": true,
-    "name": "HelpScout",
-    "landing": "https://www.liveagent.com/helpscoutalternative/",
-    "url": "https://www.helpscout.com",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 25
-      },
-      "package2": {
-        "agents": 1,
-        "price": 40
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": "package1",
-      "callcenter": false,
-      "selfservice": "package1",
-      "facebook": "package1",
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package1",
-      "customerforum": false,
-      "automationrules": "package1",
-      "api": "package1",
-      "ivr": false,
-      "videocalls": false,
+      "ivr": "package2",
+      "videocalls": true,
       "unlimitedhistory": "package1",
       "unlimitedwebsites": "package1",
-      "unlimitedchatbuttons": "package1",
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": false
-    }
-  },
-  "helpshift": {
-    "active": false,
-    "name": "HelpShift",
-    "landing": "https://www.liveagent.com/helpshiftalternative/",
-    "url": "https://www.helpshift.com",
-    "packages": {
-      "package1": {
-        "agents": 0,
-        "price": 0
-      },
-      "package2": {
-        "agents": 0,
-        "price": 0
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": true,
-      "livechat": true,
-      "callcenter": false,
-      "selfservice": true,
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": true,
-      "customerforum": false,
-      "automationrules": true,
-      "api": true,
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": true,
-      "unlimitedwebsites": true,
-      "unlimitedchatbuttons": true,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": true
-    }
-  },
-  "helpspot": {
-    "active": true,
-    "name": "HelpSpot",
-    "landing": "https://www.liveagent.com/helpspotalternative/",
-    "url": "https://www.helpspot.com/",
-    "packages": {
-      "package1": {
-        "agents": 3,
-        "price": 41.5
-      },
-      "package2": {
-        "agents": 0,
-        "price": 0
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": false,
-      "callcenter": false,
-      "selfservice": "package1",
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package1",
-      "customerforum": "package1",
-      "automationrules": "package1",
-      "api": "package1",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": "package1",
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": "package1",
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package1"
-    }
-  },
-  "hesk": {
-    "active": false,
-    "name": "Hesk",
-    "landing": "https://www.liveagent.com/heskalternative/",
-    "url": "https://www.hesk.com",
-    "packages": {
-      "package1": {
-        "agents": 0,
-        "price": 0
-      },
-      "package2": {
-        "agents": 0,
-        "price": 0
-      },
-      "package3": {
-        "agents": 0,
-        "price": 0
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": true,
-      "livechat": false,
-      "callcenter": false,
-      "selfservice": true,
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": true,
-      "customerforum": false,
-      "automationrules": false,
-      "api": false,
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": true,
-      "unlimitedwebsites": true,
       "unlimitedchatbuttons": false,
       "unlimitedtickets": true,
       "unlimitedcallrecording": false,
-      "unlimitedsupport": false
+      "unlimitedsupport": true
     }
   },
-  "hiver": {
-    "active": true,
-    "name": "Hiver",
-    "landing": "https://www.liveagent.com/hiveralternative/",
-    "url": "https://hiverhq.com",
-    "packages": {
-      "package1": {
-        "agents": 1,
-        "price": 15
-      },
-      "package2": {
-        "agents": 1,
-        "price": 29
-      },
-      "package3": {
-        "agents": 1,
-        "price": 47
-      },
-      "package4": {
-        "agents": 1,
-        "price": 69
-      }
-    },
-    "features": {
-      "ticketing": false,
-      "livechat": false,
-      "callcenter": false,
-      "selfservice": false,
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": "package2",
-      "api": false,
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": false,
-      "unlimitedchatbuttons": false,
-      "unlimitedtickets": false,
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package1"
-    }
-  },
-  "hubspotservice-hub": {
-    "active": true,
-    "name": "HubSpot Service Hub",
-    "landing": "https://www.liveagent.com/hubspotservicehub-alternative/",
-    "url": "https://www.hubspot.com",
-    "packages": {
-      "package1": {
-        "agents": 2,
-        "price": 50
-      },
-      "package2": {
-        "agents": 5,
-        "price": 400
-      },
-      "package3": {
-        "agents": 10,
-        "price": 1200
-      },
-      "package4": {
-        "agents": 0,
-        "price": 0
-      }
-    },
-    "features": {
-      "ticketing": "package1",
-      "livechat": "package1",
-      "callcenter": "package2",
-      "selfservice": "package1",
-      "facebook": false,
-      "twitter": false,
-      "instagram": false,
-      "viber": false,
-      "knowledgebase": "package3",
-      "customerforum": "package1",
-      "automationrules": "package1",
-      "api": "package1",
-      "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": "package1",
-      "unlimitedchatbuttons": "package1",
-      "unlimitedtickets": "package1",
-      "unlimitedcallrecording": false,
-      "unlimitedsupport": "package1"
-    }
-  },
+	"jivochat": {
+		"active": true,
+		"name": "JivoChat",
+		"landing": "",
+		"url": "https://www.jivochat.com/",
+		"packages": {
+			"package1": {
+				"agents": 1,
+				"price": 0
+			},
+			"package2": {
+				"agents": 1,
+				"price": 29
+			},
+			"package3": {
+				"agents": 1,
+				"price": 59
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": "package1",
+			"livechat": "package1",
+			"callcenter": "package1",
+			"facebook": "package1",
+			"twitter": false,
+			"instagram": "package1",
+			"viber": "package1",
+			"whatsapp": "package2",
+			"ai": "package1",
+			"knowledgebase": false,
+			"automationrules": "package2",
+			"api": "package2",
+			"ivr": "package1",
+			"videocalls": "package1",
+			"unlimitedhistory": "package2",
+			"unlimitedwebsites": "package1",
+			"unlimitedchatbuttons": "package1",
+			"unlimitedtickets": "package1",
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": true
+		}
+	},
   "jira": {
-    "active": true,
+    "active": false,
     "name": "Jira",
-    "landing": "https://www.liveagent.com/jiraalternative/",
+    "landing": "https://www.liveagent.com/jira-alternative/",
     "url": "https://www.atlassian.com/software/jira/servicemanagement",
     "packages": {
       "package1": {
@@ -1700,13 +2013,13 @@
       "ticketing": "package2",
       "livechat": false,
       "callcenter": false,
-      "selfservice": "package2",
       "facebook": false,
       "twitter": "package2",
       "instagram": false,
       "viber": false,
+      "whatsapp": "package3",
+      "ai": "package3",
       "knowledgebase": false,
-      "customerforum": "package2",
       "automationrules": "package2",
       "api": "package2",
       "ivr": false,
@@ -1720,22 +2033,22 @@
     }
   },
   "kayako": {
-    "active": true,
+    "active": false,
     "name": "Kayako",
-    "landing": "https://www.liveagent.com/kayakoalternative/",
+    "landing": "https://www.liveagent.com/kayako-alternative/",
     "url": "https://kayako.com",
     "packages": {
       "package1": {
         "agents": 1,
-        "price": 15
+        "price": 49
       },
       "package2": {
-        "agents": 1,
-        "price": 30
+        "agents": 0,
+        "price": 0
       },
       "package3": {
         "agents": 1,
-        "price": 60
+        "price": 0
       },
       "package4": {
         "agents": 0,
@@ -1746,29 +2059,29 @@
       "ticketing": "package1",
       "livechat": "package1",
       "callcenter": false,
-      "selfservice": "package1",
-      "facebook": "package1",
-      "twitter": "package1",
+      "facebook": true,
+      "twitter": true,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": "package1",
       "knowledgebase": "package1",
-      "customerforum": "package1",
-      "automationrules": "package3",
-      "api": "package2",
+      "automationrules": true,
+      "api": "package1",
       "ivr": false,
       "videocalls": false,
-      "unlimitedhistory": "package2",
+      "unlimitedhistory": true,
       "unlimitedwebsites": false,
       "unlimitedchatbuttons": "package1",
       "unlimitedtickets": "package1",
       "unlimitedcallrecording": false,
-      "unlimitedsupport": true
+      "unlimitedsupport": false
     }
   },
   "kustomer": {
-    "active": true,
+    "active": false,
     "name": "Kustomer",
-    "landing": "https://www.liveagent.com/kustomeralternative/",
+    "landing": "https://www.liveagent.com/kustomer-alternative/",
     "url": "https://www.kustomer.com",
     "packages": {
       "package1": {
@@ -1792,13 +2105,13 @@
       "ticketing": false,
       "livechat": "package1",
       "callcenter": false,
-      "selfservice": "package1",
       "facebook": "package1",
       "twitter": "package1",
       "instagram": "package1",
       "viber": false,
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": "package1",
-      "customerforum": false,
       "automationrules": "package1",
       "api": "package2",
       "ivr": false,
@@ -1812,22 +2125,22 @@
     }
   },
   "leaddesk": {
-    "active": true,
+    "active": false,
     "name": "LeadDesk",
-    "landing": "https://www.liveagent.com/leaddeskalternative/",
+    "landing": "https://www.liveagent.com/leaddesk-alternative/",
     "url": "https://leaddesk.com",
     "packages": {
       "package1": {
         "agents": 1,
-        "price": 104
+        "price": 89
       },
       "package2": {
         "agents": 1,
-        "price": 116
+        "price": 99
       },
       "package3": {
         "agents": 1,
-        "price": 151
+        "price": 129
       },
       "package4": {
         "agents": 0,
@@ -1838,13 +2151,13 @@
       "ticketing": false,
       "livechat": false,
       "callcenter": "package1",
-      "selfservice": false,
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": "package1",
+      "ai": "package1",
       "knowledgebase": false,
-      "customerforum": false,
       "automationrules": false,
       "api": "package3",
       "ivr": "package1",
@@ -1860,7 +2173,7 @@
   "livecall": {
     "active": false,
     "name": "LiveCall",
-    "landing": "https://www.liveagent.com/livecallalternative/",
+    "landing": "https://www.liveagent.com/livecall-alternative/",
     "url": "https://www.livecall.io",
     "packages": {
       "package1": {
@@ -1884,13 +2197,13 @@
       "ticketing": false,
       "livechat": false,
       "callcenter": true,
-      "selfservice": false,
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": false,
-      "customerforum": false,
       "automationrules": false,
       "api": false,
       "ivr": false,
@@ -1906,20 +2219,20 @@
   "livechat": {
     "active": true,
     "name": "LiveChat",
-    "landing": "https://www.liveagent.com/livechatalternative/",
+    "landing": "https://www.liveagent.com/livechat-alternative/",
     "url": "https://www.livechat.com",
     "packages": {
       "package1": {
         "agents": 1,
-        "price": 19
+        "price": 24
       },
       "package2": {
         "agents": 1,
-        "price": 39
+        "price": 49
       },
       "package3": {
         "agents": 1,
-        "price": 59
+        "price": 69
       },
       "package4": {
         "agents": 0,
@@ -1930,13 +2243,13 @@
       "ticketing": "package1",
       "livechat": "package1",
       "callcenter": false,
-      "selfservice": "package1",
       "facebook": "package1",
-      "twitter": false,
-      "instagram": false,
+      "twitter": "package1",
+      "instagram": "package1",
       "viber": false,
+      "whatsapp": "package1",
+      "ai": "package1",
       "knowledgebase": "package1",
-      "customerforum": "package1",
       "automationrules": "package1",
       "api": "package1",
       "ivr": false,
@@ -1950,9 +2263,9 @@
     }
   },
   "livehelpnow": {
-    "active": true,
+    "active": false,
     "name": "LiveHelpNow",
-    "landing": "https://www.liveagent.com/livehelpnowalternative/",
+    "landing": "https://www.liveagent.com/livehelpnow-alternative/",
     "url": "https://www.livehelpnow.net",
     "packages": {
       "package1": {
@@ -1976,13 +2289,19 @@
       "ticketing": "package2",
       "livechat": "package1",
       "callcenter": false,
-      "selfservice": "package3",
       "facebook": "package1",
       "twitter": "package1",
       "instagram": false,
       "viber": false,
+      "whatsapp": {
+				"price": 15,
+				"type": "peragent"
+			},
+      "ai": {
+				"price": 15,
+				"type": "peragent"
+			},
       "knowledgebase": "package1",
-      "customerforum": false,
       "automationrules": "package1",
       "api": "package1",
       "ivr": false,
@@ -2007,7 +2326,7 @@
   "liveperson": {
     "active": false,
     "name": "LivePerson",
-    "landing": "https://www.liveagent.com/livepersonalternative/",
+    "landing": "https://www.liveagent.com/liveperson-alternative/",
     "url": "https://www.liveperson.com",
     "packages": {
       "package1": {
@@ -2031,13 +2350,13 @@
       "ticketing": true,
       "livechat": true,
       "callcenter": false,
-      "selfservice": true,
       "facebook": true,
       "twitter": true,
       "instagram": true,
       "viber": false,
+      "whatsapp": true,
+      "ai": true,
       "knowledgebase": true,
-      "customerforum": true,
       "automationrules": true,
       "api": true,
       "ivr": false,
@@ -2051,22 +2370,22 @@
     }
   },
   "lucep": {
-    "active": true,
+    "active": false,
     "name": "Lucep",
-    "landing": "https://www.liveagent.com/lucepalternative/",
+    "landing": "https://www.liveagent.com/lucep-alternative/",
     "url": "https://lucep.com",
     "packages": {
       "package1": {
-        "agents": 1,
+        "agents": 0,
         "price": 0
       },
       "package2": {
-        "agents": 1,
-        "price": 30
+        "agents": 0,
+        "price": 0
       },
       "package3": {
-        "agents": 1,
-        "price": 60
+        "agents": 0,
+        "price": 0
       },
       "package4": {
         "agents": 0,
@@ -2077,13 +2396,13 @@
       "ticketing": false,
       "livechat": false,
       "callcenter": false,
-      "selfservice": false,
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": false,
-      "customerforum": false,
       "automationrules": false,
       "api": "package2",
       "ivr": false,
@@ -2096,10 +2415,56 @@
       "unlimitedsupport": false
     }
   },
+	"movidesk": {
+		"active": false,
+		"name": "Movidesk",
+		"landing": "",
+		"url": "https://www.movidesk.com/",
+		"packages": {
+			"package1": {
+				"agents": 10,
+				"price": 121.16
+			},
+			"package2": {
+				"agents": 0,
+				"price": 0
+			},
+			"package3": {
+				"agents": 0,
+				"price": 0
+			},
+			"package4": {
+				"agents": 0,
+				"price": 0
+			}
+		},
+		"features": {
+			"ticketing": true,
+			"livechat": true,
+			"callcenter": false,
+			"facebook": true,
+			"twitter": false,
+			"instagram": true,
+			"viber": false,
+			"whatsapp": true,
+			"ai": true,
+			"knowledgebase": true,
+			"automationrules": true,
+			"api": true,
+			"ivr": false,
+			"videocalls": false,
+			"unlimitedhistory": true,
+			"unlimitedwebsites": true,
+			"unlimitedchatbuttons": true,
+			"unlimitedtickets": true,
+			"unlimitedcallrecording": false,
+			"unlimitedsupport": false
+		}
+	},
   "novocall": {
-    "active": true,
+    "active": false,
     "name": "Novocall",
-    "landing": "https://www.liveagent.com/novocallalternative/",
+    "landing": "https://www.liveagent.com/novocall-alternative/",
     "url": "https://novocall.co",
     "packages": {
       "package1": {
@@ -2123,13 +2488,13 @@
       "ticketing": false,
       "livechat": false,
       "callcenter": "package1",
-      "selfservice": false,
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": "package1",
+      "ai": "package1",
       "knowledgebase": false,
-      "customerforum": false,
       "automationrules": "package1",
       "api": false,
       "ivr": false,
@@ -2143,14 +2508,14 @@
     }
   },
   "olark": {
-    "active": true,
+    "active": false,
     "name": "Olark",
-    "landing": "https://www.liveagent.com/olarkalternative/",
+    "landing": "https://www.liveagent.com/olark-alternative/",
     "url": "https://www.olark.com",
     "packages": {
       "package1": {
         "agents": 1,
-        "price": 19
+        "price": 29
       },
       "package2": {
         "agents": 0,
@@ -2169,13 +2534,13 @@
       "ticketing": false,
       "livechat": "package1",
       "callcenter": false,
-      "selfservice": false,
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": false,
-      "customerforum": false,
       "automationrules": "package1",
       "api": "package1",
       "ivr": false,
@@ -2191,20 +2556,20 @@
   "onedesk": {
     "active": true,
     "name": "OneDesk",
-    "landing": "https://www.liveagent.com/onedeskalternative/",
+    "landing": "https://www.liveagent.com/onedesk-alternative/",
     "url": "https://www.onedesk.com/",
     "packages": {
       "package1": {
         "agents": 1,
-        "price": 11
+        "price": 13.99
       },
       "package2": {
-        "agents": 0,
-        "price": 0
+        "agents": 1,
+        "price": 15.99
       },
       "package3": {
-        "agents": 0,
-        "price": 0
+        "agents": 1,
+        "price": 18.99
       },
       "package4": {
         "agents": 0,
@@ -2215,19 +2580,19 @@
       "ticketing": "package1",
       "livechat": "package1",
       "callcenter": false,
-      "selfservice": "package1",
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": true,
       "knowledgebase": "package1",
-      "customerforum": "package1",
       "automationrules": "package1",
-      "api": "package1",
+      "api": "package3",
       "ivr": false,
       "videocalls": false,
-      "unlimitedhistory": "package1",
-      "unlimitedwebsites": false,
+      "unlimitedhistory": true,
+      "unlimitedwebsites": true,
       "unlimitedchatbuttons": false,
       "unlimitedtickets": "package1",
       "unlimitedcallrecording": false,
@@ -2235,9 +2600,9 @@
     }
   },
   "osticket": {
-    "active": true,
+    "active": false,
     "name": "osTicket",
-    "landing": "https://www.liveagent.com/osticketalternative/",
+    "landing": "https://www.liveagent.com/osticket-alternative/",
     "url": "https://osticket.com",
     "packages": {
       "package1": {
@@ -2261,13 +2626,13 @@
       "ticketing": "package2",
       "livechat": false,
       "callcenter": false,
-      "selfservice": "package2",
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": "package2",
-      "customerforum": "package2",
       "automationrules": "package2",
       "api": "package2",
       "ivr": false,
@@ -2283,7 +2648,7 @@
   "otrs": {
     "active": false,
     "name": "OTRS",
-    "landing": "https://www.liveagent.com/otrsalternative/",
+    "landing": "https://www.liveagent.com/otrs-alternative/",
     "url": "https://otrs.com",
     "packages": {
       "package1": {
@@ -2307,13 +2672,13 @@
       "ticketing": true,
       "livechat": true,
       "callcenter": false,
-      "selfservice": true,
       "facebook": true,
       "twitter": true,
       "instagram": false,
       "viber": false,
+      "whatsapp": true,
+      "ai": true,
       "knowledgebase": true,
-      "customerforum": false,
       "automationrules": true,
       "api": true,
       "ivr": false,
@@ -2329,7 +2694,7 @@
   "outlook": {
     "active": false,
     "name": "Outlook",
-    "landing": "https://www.liveagent.com/outlookalternative/",
+    "landing": "https://www.liveagent.com/outlook-alternative/",
     "url": "https://outlook.live.com/owa/",
     "packages": {
       "package1": "",
@@ -2346,8 +2711,6 @@
       "__5": "",
       "callcenter": "",
       "__6": "",
-      "selfservice": "",
-      "__7": "",
       "facebook": "",
       "__8": "",
       "twitter": "",
@@ -2358,8 +2721,6 @@
       "__11": "",
       "knowledgebase": "",
       "__12": "",
-      "customerforum": "",
-      "__13": "",
       "automationrules": "",
       "__14": "",
       "api": "",
@@ -2384,7 +2745,7 @@
   "purechat": {
     "active": true,
     "name": "PureChat",
-    "landing": "https://www.liveagent.com/purechatalternative/",
+    "landing": "https://www.liveagent.com/pure-chat-alternative/",
     "url": "https://www.purechat.com",
     "packages": {
       "package1": {
@@ -2408,14 +2769,14 @@
       "ticketing": false,
       "livechat": "package1",
       "callcenter": false,
-      "selfservice": false,
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": false,
+      "automationrules": "package1",
       "api": "package1",
       "ivr": false,
       "videocalls": false,
@@ -2428,9 +2789,9 @@
     }
   },
   "qonvo": {
-    "active": true,
+    "active": false,
     "name": "Qonvo",
-    "landing": "https://www.liveagent.com/qonvoalternative/",
+    "landing": "https://www.liveagent.com/qonvo-alternative/",
     "url": "https://www.qonvo.com",
     "packages": {
       "package1": {
@@ -2454,13 +2815,13 @@
       "ticketing": false,
       "livechat": false,
       "callcenter": false,
-      "selfservice": false,
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": "package2",
+      "ai": "package2",
       "knowledgebase": false,
-      "customerforum": false,
       "automationrules": "package2",
       "api": "package2",
       "ivr": false,
@@ -2474,18 +2835,18 @@
     }
   },
   "rocket.chat": {
-    "active": true,
+    "active": false,
     "name": "Rocket.chat",
-    "landing": "https://www.liveagent.com/rocketchatalternative/",
+    "landing": "https://www.liveagent.com/rocket-chat-alternative/",
     "url": "https://rocket.chat",
     "packages": {
       "package1": {
-        "agents": 1000,
-        "price": 0
+        "agents": 10,
+        "price": 20
       },
       "package2": {
-        "agents": 1,
-        "price": 3
+        "agents": 10,
+        "price": 48
       },
       "package3": {
         "agents": 0,
@@ -2500,13 +2861,13 @@
       "ticketing": "package2",
       "livechat": "package2",
       "callcenter": false,
-      "selfservice": false,
       "facebook": false,
       "twitter": 25,
       "instagram": false,
       "viber": false,
+      "whatsapp": "package2",
+      "ai": "package2",
       "knowledgebase": false,
-      "customerforum": false,
       "automationrules": "package2",
       "api": "package2",
       "ivr": false,
@@ -2520,10 +2881,10 @@
     }
   },
   "samanage": {
-    "active": true,
+    "active": false,
     "name": "Samanage",
-    "landing": "https://www.liveagent.com/samanagealternative/",
-    "url": "https://www.solarwinds.com",
+    "landing": "https://www.liveagent.com/samanage-alternative/",
+    "url": "",
     "packages": {
       "package1": {
         "agents": 1,
@@ -2546,13 +2907,13 @@
       "ticketing": false,
       "livechat": false,
       "callcenter": false,
-      "selfservice": "package1",
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": "package1",
+      "ai": "package1",
       "knowledgebase": "package1",
-      "customerforum": "package1",
       "automationrules": "package3",
       "api": "package3",
       "ivr": false,
@@ -2566,22 +2927,22 @@
     }
   },
   "smartsupp": {
-    "active": true,
+    "active": false,
     "name": "SmartsUpp",
-    "landing": "https://www.liveagent.com/smartsuppalternative/",
+    "landing": "https://www.liveagent.com/smartsupp-alternative/",
     "url": "https://www.smartsupp.com",
     "packages": {
       "package1": {
-        "agents": 1,
-        "price": 0
+        "agents": 0,
+        "price": 3
       },
       "package2": {
-        "agents": 1,
-        "price": 17.5
+        "agents": 3,
+        "price": 22.5
       },
       "package3": {
-        "agents": 1,
-        "price": 34
+        "agents": 3,
+        "price": 108
       },
       "package4": {
         "agents": 0,
@@ -2592,13 +2953,13 @@
       "ticketing": "package2",
       "livechat": "package2",
       "callcenter": false,
-      "selfservice": false,
       "facebook": false,
       "twitter": false,
       "instagram": false,
-      "viber": false,
+      "whatsapp": false,
+      "viber": "package2",
+      "ai": "package2",
       "knowledgebase": false,
-      "customerforum": false,
       "automationrules": false,
       "api": "package2",
       "ivr": false,
@@ -2614,39 +2975,39 @@
   "solarwinds": {
     "active": true,
     "name": "SolarWinds",
-    "landing": "https://www.liveagent.com/solarwindsalternative/",
+    "landing": "https://www.liveagent.com/solarwinds-alternative/",
     "url": "https://www.solarwinds.com",
     "packages": {
       "package1": {
         "agents": 1,
-        "price": 19
+        "price": 39
       },
       "package2": {
         "agents": 1,
-        "price": 39
+        "price": 79
       },
       "package3": {
         "agents": 1,
-        "price": 69
+        "price": 999
       },
       "package4": {
-        "agents": 1,
-        "price": 89
+        "agents": 0,
+        "price": 0
       }
     },
     "features": {
-      "ticketing": false,
+      "ticketing": "package1",
       "livechat": false,
       "callcenter": false,
-      "selfservice": "package1",
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": "package2",
       "knowledgebase": "package1",
-      "customerforum": "package1",
-      "automationrules": "package3",
-      "api": "package3",
+      "automationrules": "package2",
+      "api": "package1",
       "ivr": false,
       "videocalls": false,
       "unlimitedhistory": "package1",
@@ -2660,7 +3021,7 @@
   "spiceworks": {
     "active": false,
     "name": "SpiceWorks",
-    "landing": "https://www.liveagent.com/spiceworksalternative/",
+    "landing": "https://www.liveagent.com/spiceworks-alternative/",
     "url": "https://www.spiceworks.com",
     "packages": {
       "package1": {
@@ -2684,13 +3045,13 @@
       "ticketing": true,
       "livechat": false,
       "callcenter": false,
-      "selfservice": true,
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": true,
-      "customerforum": false,
       "automationrules": true,
       "api": true,
       "ivr": false,
@@ -2704,9 +3065,9 @@
     }
   },
   "supportbee": {
-    "active": true,
+    "active": false,
     "name": "SupportBee",
-    "landing": "https://www.liveagent.com/supportbeealternative/",
+    "landing": "https://www.liveagent.com/supportbee-alternative/",
     "url": "https://supportbee.com",
     "packages": {
       "package1": {
@@ -2730,13 +3091,13 @@
       "ticketing": "package1",
       "livechat": false,
       "callcenter": false,
-      "selfservice": "package1",
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": "package1",
+      "ai": "package1",
       "knowledgebase": "package1",
-      "customerforum": "package2",
       "automationrules": "package1",
       "api": "package1",
       "ivr": false,
@@ -2752,7 +3113,7 @@
   "sysaid": {
     "active": false,
     "name": "SysAid",
-    "landing": "https://www.liveagent.com/sysaidalternative/",
+    "landing": "https://www.liveagent.com/sysaid-alternative/",
     "url": "https://www.sysaid.com",
     "packages": {
       "package1": {
@@ -2776,29 +3137,29 @@
       "ticketing": true,
       "livechat": true,
       "callcenter": false,
-      "selfservice": true,
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": true,
       "knowledgebase": true,
-      "customerforum": true,
       "automationrules": true,
       "api": true,
       "ivr": false,
       "videocalls": false,
       "unlimitedhistory": true,
       "unlimitedwebsites": true,
-      "unlimitedchatbuttons": true,
+      "unlimitedchatbuttons": false,
       "unlimitedtickets": true,
       "unlimitedcallrecording": false,
-      "unlimitedsupport": true
+      "unlimitedsupport": false
     }
   },
   "tawk": {
     "active": false,
     "name": "Tawk",
-    "landing": "https://www.liveagent.com/tawkalternative/",
+    "landing": "https://www.liveagent.com/tawk-alternative/",
     "url": "https://www.tawk.to",
     "packages": {
       "package1": {
@@ -2822,13 +3183,13 @@
       "ticketing": true,
       "livechat": true,
       "callcenter": false,
-      "selfservice": true,
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": true,
+      "ai": true,
       "knowledgebase": true,
-      "customerforum": true,
       "automationrules": false,
       "api": true,
       "ivr": false,
@@ -2844,20 +3205,20 @@
   "teamsupport": {
     "active": true,
     "name": "TeamSupport",
-    "landing": "https://www.liveagent.com/teamsupportalternative/",
+    "landing": "https://www.liveagent.com/teamsupport-alternative/",
     "url": "https://www.teamsupport.com",
     "packages": {
       "package1": {
         "agents": 1,
-        "price": 50
+        "price": 29
       },
       "package2": {
         "agents": 1,
-        "price": 69
+        "price": 35
       },
       "package3": {
-        "agents": 0,
-        "price": 0
+        "agents": 1,
+        "price": 49
       },
       "package4": {
         "agents": 0,
@@ -2868,29 +3229,29 @@
       "ticketing": "package1",
       "livechat": "package1",
       "callcenter": false,
-      "selfservice": "package1",
       "facebook": "package1",
       "twitter": "package1",
       "instagram": false,
       "viber": false,
-      "knowledgebase": "package1",
-      "customerforum": "package1",
+      "whatsapp": false,
+      "ai": "package1",
+      "knowledgebase": "package2",
       "automationrules": "package1",
       "api": "package1",
       "ivr": false,
-      "videocalls": "package2",
+      "videocalls": false,
       "unlimitedhistory": "package1",
       "unlimitedwebsites": false,
       "unlimitedchatbuttons": "package1",
       "unlimitedtickets": "package1",
       "unlimitedcallrecording": false,
-      "unlimitedsupport": "package1"
+      "unlimitedsupport": false
     }
   },
   "teamworkdesk": {
-    "active": true,
+    "active": false,
     "name": "TeamWork Desk",
-    "landing": "https://www.liveagent.com/teamworkdeskalternative/",
+    "landing": "https://www.liveagent.com/teamwork-desk-alternative/",
     "url": "https://www.teamwork.com",
     "packages": {
       "package1": {
@@ -2899,11 +3260,11 @@
       },
       "package2": {
         "agents": 1,
-        "price": 14.5
+        "price": 12.5
       },
       "package3": {
         "agents": 1,
-        "price": 26.5
+        "price": 22.5
       },
       "package4": {
         "agents": 0,
@@ -2914,13 +3275,13 @@
       "ticketing": "package2",
       "livechat": false,
       "callcenter": false,
-      "selfservice": "package2",
       "facebook": false,
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": "package2",
+      "ai": "package2",
       "knowledgebase": "package2",
-      "customerforum": false,
       "automationrules": "package3",
       "api": "package2",
       "ivr": false,
@@ -2936,43 +3297,43 @@
   "tidio": {
     "active": true,
     "name": "Tidio",
-    "landing": "https://www.liveagent.com/tidioalternative/",
+    "landing": "https://www.liveagent.com/tidio-alternative/",
     "url": "https://www.tidio.com",
     "packages": {
       "package1": {
-        "agents": 3,
+        "agents": 10,
         "price": 0
       },
       "package2": {
-        "agents": 3,
-        "price": 46
+        "agents": 10,
+        "price": 29
       },
       "package3": {
-        "agents": 3,
-        "price": 17.5
+        "agents": 10,
+        "price": 59
       },
       "package4": {
-        "agents": 3,
-        "price": 29.5
+        "agents": 9999,
+        "price": 749
       }
     },
     "features": {
-      "ticketing": false,
-      "livechat": "package2",
+      "ticketing": "package1",
+      "livechat": "package1",
       "callcenter": false,
-      "selfservice": false,
-      "facebook": "package2",
+      "facebook": "package1",
       "twitter": false,
-      "instagram": false,
+      "instagram": "package1",
       "viber": false,
+      "whatsapp": "package1",
+      "ai": "package1",
       "knowledgebase": false,
-      "customerforum": false,
-      "automationrules": false,
-      "api": "package2",
+      "automationrules": "package1",
+      "api": "package4",
       "ivr": false,
-      "videocalls": false,
-      "unlimitedhistory": "package2",
-      "unlimitedwebsites": "package2",
+      "videocalls": "package1",
+      "unlimitedhistory": "package3",
+      "unlimitedwebsites": "package4",
       "unlimitedchatbuttons": "package2",
       "unlimitedtickets": false,
       "unlimitedcallrecording": false,
@@ -2980,9 +3341,9 @@
     }
   },
   "userlike": {
-    "active": true,
+    "active": false,
     "name": "UserLike",
-    "landing": "https://www.liveagent.com/userlikealternative/",
+    "landing": "https://www.liveagent.com/userlike-alternative/",
     "url": "https://www.userlike.com/en/",
     "packages": {
       "package1": {
@@ -2991,28 +3352,28 @@
       },
       "package2": {
         "agents": 4,
-        "price": 117
+        "price": 100
       },
       "package3": {
         "agents": 10,
-        "price": 374.5
+        "price": 320
       },
       "package4": {
         "agents": 20,
-        "price": 936.5
+        "price": 800
       }
     },
     "features": {
       "ticketing": false,
       "livechat": "package2",
       "callcenter": false,
-      "selfservice": false,
       "facebook": "package2",
       "twitter": false,
       "instagram": false,
       "viber": false,
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": false,
-      "customerforum": false,
       "automationrules": "package4",
       "api": "package4",
       "ivr": false,
@@ -3028,7 +3389,7 @@
   "verloop": {
     "active": false,
     "name": "Verloop",
-    "landing": "https://www.liveagent.com/verloopalternative/",
+    "landing": "https://www.liveagent.com/verloop-alternative/",
     "url": "https://verloop.io",
     "packages": {
       "package1": {
@@ -3052,13 +3413,13 @@
       "ticketing": true,
       "livechat": true,
       "callcenter": false,
-      "selfservice": true,
       "facebook": true,
       "twitter": true,
       "instagram": true,
       "viber": false,
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": true,
-      "customerforum": false,
       "automationrules": true,
       "api": true,
       "ivr": false,
@@ -3072,39 +3433,39 @@
     }
   },
   "vision": {
-    "active": true,
+    "active": false,
     "name": "Vision",
-    "landing": "https://www.liveagent.com/visionalternative/",
+    "landing": "https://www.liveagent.com/vision-alternative/",
     "url": "https://www.visionhelpdesk.com",
     "packages": {
       "package1": {
         "agents": 1,
-        "price": 15
+        "price": 12
       },
       "package2": {
         "agents": 1,
-        "price": 25
+        "price": 24
       },
       "package3": {
         "agents": 1,
-        "price": 30
+        "price": 32
       },
       "package4": {
         "agents": 1,
-        "price": 40
+        "price": 48
       }
     },
     "features": {
       "ticketing": "package2",
       "livechat": "package2",
       "callcenter": false,
-      "selfservice": "package1",
       "facebook": "package2",
       "twitter": "package2",
       "instagram": false,
       "viber": false,
+      "whatsapp": "package1",
+      "ai": "package2",
       "knowledgebase": "package1",
-      "customerforum": "package2",
       "automationrules": "package1",
       "api": "package1",
       "ivr": false,
@@ -3120,7 +3481,7 @@
   "vocalcom": {
     "active": false,
     "name": "Vocalcom",
-    "landing": "https://www.liveagent.com/vocalcomalternative/",
+    "landing": "https://www.liveagent.com/vocalcom-alternative/",
     "url": "https://www.vocalcom.com",
     "packages": {
       "package1": {
@@ -3144,13 +3505,13 @@
       "ticketing": true,
       "livechat": true,
       "callcenter": true,
-      "selfservice": false,
       "facebook": true,
       "twitter": true,
       "instagram": true,
       "viber": true,
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": false,
-      "customerforum": false,
       "automationrules": true,
       "api": true,
       "ivr": true,
@@ -3166,53 +3527,53 @@
   "zendesk": {
     "active": true,
     "name": "Zendesk",
-    "landing": "https://www.liveagent.com/zendeskalternative/",
+    "landing": "https://www.liveagent.com/zendesk-alternative/",
     "url": "https://www.zendesk.com",
     "packages": {
       "package1": {
         "agents": 1,
-        "price": 69
+        "price": 25
       },
       "package2": {
         "agents": 1,
-        "price": 116
+        "price": 69
       },
       "package3": {
         "agents": 1,
-        "price": 146.5
+        "price": 149
       },
       "package4": {
-        "agents": 1,
-        "price": 233
+        "agents": 0,
+        "price": 0
       }
     },
     "features": {
       "ticketing": "package1",
       "livechat": "package1",
-      "callcenter": "package1",
-      "selfservice": "package1",
+      "callcenter": "package2",
       "facebook": "package1",
       "twitter": "package1",
-      "instagram": "package1",
-      "viber": "package1",
+      "instagram": "package2",
+      "viber": false,
+      "whatsapp": "package2",
+      "ai": "package1",
       "knowledgebase": "package2",
-      "customerforum": "package3",
       "automationrules": "package1",
       "api": "package1",
       "ivr": "package3",
       "videocalls": false,
-      "unlimitedhistory": "package1",
+      "unlimitedhistory": "package2",
       "unlimitedwebsites": "package1",
       "unlimitedchatbuttons": "package1",
       "unlimitedtickets": "package1",
-      "unlimitedcallrecording": "package1",
+      "unlimitedcallrecording": "package2",
       "unlimitedsupport": false
     }
   },
   "zendesktalk": {
-    "active": true,
+    "active": false,
     "name": "Zendesk Talk",
-    "landing": "https://www.liveagent.com/zendesktalkalternative/",
+    "landing": "https://www.liveagent.com/zendesk-talk-alternative/",
     "url": "https://www.zendesk.com",
     "packages": {
       "package1": {
@@ -3236,13 +3597,13 @@
       "ticketing": "package1",
       "livechat": "package1",
       "callcenter": "package1",
-      "selfservice": "package1",
       "facebook": "package1",
       "twitter": "package1",
       "instagram": "package1",
       "viber": "package1",
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": "package2",
-      "customerforum": "package3",
       "automationrules": "package1",
       "api": "package1",
       "ivr": "package3",
@@ -3258,42 +3619,42 @@
   "zohodesk": {
     "active": true,
     "name": "Zoho Desk",
-    "landing": "https://www.liveagent.com/zohodeskalternative/",
+    "landing": "https://www.liveagent.com/zoho-desk-alternative/",
     "url": "https://www.zoho.com/desk/",
     "packages": {
       "package1": {
-        "agents": 3,
-        "price": 0
+        "agents": 1,
+        "price": 9
       },
       "package2": {
         "agents": 1,
-        "price": 23.5
+        "price": 20
       },
       "package3": {
         "agents": 1,
-        "price": 41
+        "price": 35
       },
       "package4": {
         "agents": 1,
-        "price": 58.5
+        "price": 50
       }
     },
     "features": {
-      "ticketing": "package2",
-      "livechat": "package4",
+      "ticketing": "package1",
+      "livechat": "package2",
       "callcenter": "package3",
-      "selfservice": "package2",
-      "facebook": "package2",
-      "twitter": "package2",
-      "instagram": "package2",
+      "facebook": "package1",
+      "twitter": "package1",
+      "instagram": "package1",
       "viber": false,
+      "whatsapp": "package2",
+      "ai": "package2",
       "knowledgebase": "package2",
-      "customerforum": "package2",
-      "automationrules": "package2",
-      "api": "package2",
+      "automationrules": "package1",
+      "api": "package1",
       "ivr": "package4",
       "videocalls": false,
-      "unlimitedhistory": "package2",
+      "unlimitedhistory": "package1",
       "unlimitedwebsites": false,
       "unlimitedchatbuttons": false,
       "unlimitedtickets": "package2",
@@ -3302,9 +3663,9 @@
     }
   },
   "zopim": {
-    "active": true,
+    "active": false,
     "name": "Zopim",
-    "landing": "https://www.liveagent.com/zopimalternative/",
+    "landing": "https://www.liveagent.com/zopim-alternative/",
     "url": "https://www.zendesk.com",
     "packages": {
       "package1": {
@@ -3328,13 +3689,13 @@
       "ticketing": "package1",
       "livechat": "package1",
       "callcenter": "package1",
-      "selfservice": "package1",
       "facebook": "package1",
       "twitter": "package1",
       "instagram": "package1",
       "viber": "package1",
+      "whatsapp": false,
+      "ai": false,
       "knowledgebase": "package2",
-      "customerforum": "package3",
       "automationrules": "package1",
       "api": "package1",
       "ivr": "package3",
