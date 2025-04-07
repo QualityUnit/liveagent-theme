@@ -198,12 +198,8 @@ body.demo {
 
 		iframe,
 		.ScheduleForm .elementor-widget-html {
+			margin-bottom: 0.625em;
 			width: 100% !important;
-			height: 760px;
-
-			@media (min-width: $breakpoint-tablet) {
-				height: 619px;
-			}
 		}
 
 		.elementor-section .elementor-container {
