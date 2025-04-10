@@ -1,0 +1,59 @@
+/* stylelint-disable selector-class-pattern */
+@use "../common/variables" as *;
+
+.elementor-widget-heading {
+
+	&.heading-icon {
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			width: 1.5rem;
+			height: 1.5rem;
+			background-position: center center;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+
+		&--key {
+
+			&::before {
+				background-image: url(../../images/icon-key.svg);
+			}
+		}
+
+		&--chatbot {
+
+			&::before {
+				background-image: url(../../images/icon-message-chatbot.svg);
+			}
+		}
+
+		&--file-description {
+
+			&::before {
+				background-image: url(../../images/icon-file-description.svg);
+			}
+		}
+
+		&--pencil-plus {
+
+			&::before {
+				background-image: url(../../images/icon-pencil-plus.svg);
+			}
+		}
+
+		.elementor-widget-container {
+
+			@for $i from 1 through 6 {
+				h#{$i} {
+					padding-left: 2.25rem;
+				}
+			}
+		}
+	}
+}

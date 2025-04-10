@@ -282,18 +282,40 @@
 				gap: 3.75em;
 			}
 
-			.elementor-column {
+			.Boxes--icons--item.elementor-col-33 {
+				padding: 0;
 
 				.elementor-widget-image {
+					margin-bottom: 1.25em;
 
 					.elementor-widget-container {
 						padding: 0;
 
 						img {
+							margin: inherit;
 							padding: 0.5rem;
 							border-radius: $border-radius;
 							background: $medium-orange;
 						}
+					}
+				}
+
+				.elementor-widget-heading {
+					padding: 0;
+
+					h4 {
+						margin: 0;
+						padding: 1.25em 0 0.5em;
+					}
+				}
+
+				.elementor-widget-text-editor {
+					padding: 0;
+
+					* {
+						color: $dark-gray;
+						font-size: $font-size-smaller;
+						line-height: 1.57;
 					}
 				}
 			}
