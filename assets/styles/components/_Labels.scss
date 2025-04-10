@@ -1,0 +1,107 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/mixins" as *;
+@use "../common/variables" as *;
+
+/*LABELS*/
+
+.label {
+	margin: 0;
+	width: auto;
+	display: flex;
+	gap: 0.25rem;
+	align-items: flex-end;
+
+	&--transparent {
+		padding: 0.375rem;
+		background: transparent;
+		color: $white;
+		font-size: 0.675rem;
+		font-weight: $font-weight-bold;
+		line-height: 2.16;
+
+		&:has(.icon) {
+
+			.icon {
+				width: 1.25rem;
+				height: 1.25rem;
+			}
+		}
+	}
+
+	&--light-gray {
+		max-width: 266px;
+		padding: 0.375rem 1rem;
+		border-radius: $border-radius;
+		background: $lightest-gray;
+		color: $black;
+		font-size: 0.75rem;
+		line-height: 1.66;
+		gap: 0.8125rem;
+
+		&:has(.icon) {
+
+			.icon {
+				width: 0.875rem;
+				height: 0.875rem;
+			}
+		}
+	}
+
+	&--orange {
+		max-width: 231px;
+		padding: 0.375rem 1rem;
+		border-radius: $border-radius;
+		background: $primary-gradient;
+		color: $white;
+		font-size: 0.75rem;
+		line-height: 1.66;
+		align-items: center;
+
+		&:has(.icon) {
+
+			.icon {
+				width: 0.875rem;
+				height: 0.875rem;
+			}
+		}
+	}
+
+	&--huge {
+		max-width: 471px !important;
+		padding: 0.625rem 1rem;
+		font-size: 0.875rem;
+
+		&:has(.icon) {
+
+			.icon {
+				width: 1.5rem;
+				height: 1.5rem;
+			}
+		}
+	}
+
+	.icon-wrapper {
+		width: 1.25rem;
+		height: auto;
+
+		.icon {
+			display: block;
+			background-position: center top;
+			background-repeat: no-repeat;
+			background-size: contain;
+
+			&-sparkless {
+				background-image: url(../../images/icon-sparkles.svg);
+			}
+
+			&-logo-fh {
+				background-image: url(../../images/icon-fh.svg);
+			}
+
+			&-read {
+				background-image: url(../../images/icon-read.svg);
+			}
+		}
+	}
+}

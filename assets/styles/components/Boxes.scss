@@ -273,6 +273,33 @@
 		}
 	}
 
+	&--icons {
+
+		&--items {
+
+			.elementor-container {
+				display: flex;
+				gap: 3.75em;
+			}
+
+			.elementor-column {
+
+				.elementor-widget-image {
+
+					.elementor-widget-container {
+						padding: 0;
+
+						img {
+							padding: 0.5rem;
+							border-radius: $border-radius;
+							background: $medium-orange;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	h2 {
 		font-size: $font-size-h1;
 		line-height: $line-height-h1 !important;

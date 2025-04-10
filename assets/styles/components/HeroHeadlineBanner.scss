@@ -161,6 +161,44 @@
 		}
 	}
 
+	&--with-labels {
+
+		.heroBanner__content {
+
+			.elementor-widget-heading {
+
+				h1 {
+					color: $black;
+					font-size: 3.25rem;
+					font-weight: $font-weight-bold;
+					line-height: 1.23;
+				}
+			}
+
+			.elementor-widget-text-editor {
+				padding-right: 23%;
+
+				p {
+					color: $black;
+					font-size: 1.625rem;
+					line-height: 1.46;
+				}
+			}
+
+			.no-cc {
+				width: 70%;
+			}
+		}
+
+		.heroBanner__image {
+
+			img {
+				width: calc(100% - 4.875em);
+				border-radius: $border-radius-12;
+			}
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet) {
 
 		&__content {
