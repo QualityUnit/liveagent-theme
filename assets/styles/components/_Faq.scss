@@ -4,4 +4,42 @@
 
 .faq {
 
+	.elementor-inner-section {
+
+		> .elementor-container {
+			gap: 1.25em;
+		}
+
+		.elementor-widget-heading {
+			padding: 20px 30px;
+			border-radius: 8px;
+			border-bottom: 1px solid #F5F5F7;
+			background: #F5F5F7;
+
+			.elementor-widget-container {
+				margin-bottom: 0;
+
+				h1,
+				h2,
+				h3,
+				h4,
+				h5,
+				h6 {
+					margin: 0;
+				}
+			}
+		}
+
+		.elementor-widget-text-editor {
+			padding: 20px 30px;
+
+			.elementor-widget-container {
+				margin-bottom: 0;
+
+				p {
+					margin: 0;
+				}
+			}
+		}
+	}
 }

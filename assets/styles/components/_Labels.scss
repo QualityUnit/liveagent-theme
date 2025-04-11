@@ -1,6 +1,5 @@
 /* stylelint-disable selector-class-pattern */
 
-@use "../common/mixins" as *;
 @use "../common/variables" as *;
 
 /*LABELS*/
@@ -19,6 +18,7 @@
 		font-size: 0.675rem;
 		font-weight: $font-weight-bold;
 		line-height: 2.16;
+		border-radius: $border-radius;
 
 		&:has(.icon) {
 
@@ -71,6 +71,11 @@
 		max-width: 471px !important;
 		padding: 0.625rem 1rem;
 		font-size: 0.875rem;
+		border: 2px solid transparent;
+		border-top: none;
+		border-bottom: none;
+		border-radius: $border-radius;
+		background: linear-gradient($lightest-gray, $lightest-gray) padding-box, linear-gradient(135deg, $dark-orange, $light-orange) border-box;
 
 		&:has(.icon) {
 

@@ -1,0 +1,35 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+
+.FormBlock {
+	padding: 3.125em 4.375em 3.75em;
+
+	.elementor-widget-heading {
+		margin: 0;
+		text-align: left;
+
+		h2 {
+			margin: 0;
+			font-size: 2rem;
+			font-weight: $font-weight-bold;
+			line-height: 1.5;
+		}
+	}
+
+	.elementor-widget-text-editor {
+		margin-bottom: 1.5em;
+		text-align: left;
+
+		p {
+			margin: 0;
+			color: $dark-gray;
+			font-size: $font-size-smaller;
+			line-height: 1.57;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+		padding: 0;
+	}
+}

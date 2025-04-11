@@ -103,6 +103,10 @@ body {
 		padding-right: 1.5em !important;
 	}
 
+	&__medium {
+		max-width: $breakpoint-desktop-medium;
+	}
+
 	&__extended {
 		max-width: $breakpoint-desktop-box;
 
@@ -353,6 +357,7 @@ $marginSide: (
 }
 
 $sizes: (
+	"0": 0,
 	"xxs": 0.15em,
 	"xs": 0.25em,
 	"s": 0.5em,
@@ -361,8 +366,12 @@ $sizes: (
 	"xl": 2em,
 	"xxl": 2.5em,
 	"xxxl": 3.25em,
+	"extreme-small": 3.75em,
 	"extreme": 4.5em,
-	"ultra": 6em
+	"extreme-plus": 5em,
+	"ultra": 6em,
+	"ultra-xl": 9.375em,
+	"2xultra": 10em
 );
 
 
@@ -384,19 +393,19 @@ $sizes: (
 	}
 
 	.pt-#{$size}[class] {
-		margin-top: $val;
+		padding-top: $val;
 	}
 
 	.pr-#{$size}[class] {
-		margin-right: $val;
+		padding-right: $val;
 	}
 
 	.pb-#{$size}[class] {
-		margin-bottom: $val;
+		padding-bottom: $val;
 	}
 
 	.pl-#{$size}[class] {
-		margin-left: $val;
+		padding-left: $val;
 	}
 }
 
@@ -420,19 +429,19 @@ $sizes: (
 		}
 
 		.pt-#{$size}-tablet[class] {
-			margin-top: $val;
+			padding-top: $val;
 		}
 
 		.pr-#{$size}-tablet[class] {
-			margin-right: $val;
+			padding-right: $val;
 		}
 
 		.pb-#{$size}-tablet[class] {
-			margin-bottom: $val;
+			padding-bottom: $val;
 		}
 
 		.pl-#{$size}-tablet[class] {
-			margin-left: $val;
+			padding-left: $val;
 		}
 	}
 }
@@ -457,38 +466,20 @@ $sizes: (
 		}
 
 		.pt-#{$size}-tablet-landscape[class] {
-			margin-top: $val;
+			padding-top: $val;
 		}
 
 		.pr-#{$size}-tablet-landscape[class] {
-			margin-right: $val;
+			padding-right: $val;
 		}
 
 		.pb-#{$size}-tablet-landscape[class] {
-			margin-bottom: $val;
+			padding-bottom: $val;
 		}
 
 		.pl-#{$size}-tablet-landscape[class] {
-			margin-left: $val;
+			padding-left: $val;
 		}
-	}
-}
-
-@each $size, $val in $sizes {
-	.pt-#{$size}[class] {
-		padding-top: $val;
-	}
-
-	.pr-#{$size}[class] {
-		padding-right: $val;
-	}
-
-	.pb-#{$size}[class] {
-		padding-bottom: $val;
-	}
-
-	.pl-#{$size}[class] {
-		padding-left: $val;
 	}
 }
 
