@@ -11,10 +11,10 @@
 		}
 
 		.elementor-widget-heading {
-			padding: 20px 30px;
-			border-radius: 8px;
-			border-bottom: 1px solid #F5F5F7;
-			background: #F5F5F7;
+			padding: 1.25em 1.875em;
+			border-radius: $border-radius;
+			border-bottom: 1px solid $lightest-gray;
+			background: $lightest-gray;
 
 			.elementor-widget-container {
 				margin-bottom: 0;
@@ -31,7 +31,7 @@
 		}
 
 		.elementor-widget-text-editor {
-			padding: 20px 30px;
+			padding: 1.25em 1.875em;
 
 			.elementor-widget-container {
 				margin-bottom: 0;
