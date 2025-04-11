@@ -1,0 +1,76 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Ai__chatbot__section {
+	position: relative;
+	margin: 0 1em; /* 16px / 16 = 1em */
+
+	> .elementor-container {
+		padding: 0 2.5em;
+		position: relative;
+		max-width: 73.75em;
+		width: 100%;
+		flex-direction: column-reverse;
+		height: 30.9375em; /* 495px / 16 = 30.9375em */
+
+		@media (min-width: $breakpoint-tablet) {
+			height: 30.9375em; /* 495px / 16 = 30.9375em */
+			flex-direction: row;
+		}
+
+		&::before {
+
+			@include square(100%);
+			content: "";
+			position: absolute;
+			inset: 0; /* Nahrádza top: 0; left: 0; */
+			background: url(../../images/ai-chatbot-bg.jpg) center/cover no-repeat;
+			border-radius: 0.75em; /* 12px / 16 = 0.75em */
+		}
+
+		h2 { font-size: 2rem; } /* 32px / 16 = 2rem */
+
+		.elementor-widget-text-editor {
+
+			@media (min-width: $breakpoint-tablet) {
+				width: 90%;
+			}
+		}
+
+		.elementor-column {
+
+			@media (min-width: $breakpoint-tablet) {
+
+				&:first-child {
+					width: 48%;
+				}
+
+				&:last-child {
+					width: 52%;
+				}
+			}
+		}
+
+		.elementor-widget-wrap {
+			align-content: center;
+
+			.elementor-widget-image {
+				height: 100%;
+				align-content: end;
+
+				img {
+					max-height: 30.9375em; /* 495px / 16 = 30.9375em */
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			padding: 0 7.5em;
+			margin: 0 auto;
+		}
+	}
+
+	p.Ai__whisper__assistent__cta { margin-bottom: 0; }
+}
