@@ -21,7 +21,14 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
   }
 </style>
 
-<div class="LandingPPC urlslab-skip-keywords">
+
+<?php
+// Check if internal linking should be disabled
+$disable_internal_linking = get_post_meta( get_the_ID(), 'enable_internal_linking', true ) !== 'yes';
+$internal_linking_class = $disable_internal_linking ? 'urlslab-skip-keywords' : '';
+?>
+
+<div class="LandingPPC <?php echo esc_attr( $internal_linking_class ); ?>">
   <section class="heroBanner heroBanner--home">
 	<div class="elementor-container elementor-column-gap-default">
 	<div

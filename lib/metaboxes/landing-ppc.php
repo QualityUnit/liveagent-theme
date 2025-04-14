@@ -39,6 +39,16 @@ function landing_ppc_metaboxes( $sidebars ) {
 		'post_type' => array( 'ms_landing' ),
 		'fields'    => array(
 			array(
+				'id'          => 'enable_internal_linking',
+				'label'       => 'Internal Linking',
+				'type'        => 'radio',
+				'options'     => array(
+						'yes' => '<span style="color:green; font-weight:bold">Enable</span> - Allow automatic keyword linking',
+						'no'  => '<span style="color:red; font-weight:bold">Disable</span> - No automatic links will be added',
+				),
+				'default'     => 'no',
+		),
+			array(
 				'id'           => 'title',
 				'label'        => 'Main title',
 				'description'  => '',
