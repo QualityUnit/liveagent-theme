@@ -21,7 +21,7 @@ set_custom_source( 'layouts/LandingPPC', 'css' );
   }
 </style>
 
-<div class="LandingPPC">
+<div class="LandingPPC urlslab-skip-keywords">
   <section class="heroBanner heroBanner--home">
 	<div class="elementor-container elementor-column-gap-default">
 	<div
