@@ -43,11 +43,11 @@ function landing_ppc_metaboxes( $sidebars ) {
 				'label'       => 'Internal Linking',
 				'type'        => 'radio',
 				'options'     => array(
-						'yes' => '<span style="color:green; font-weight:bold">Enable</span> - Allow automatic keyword linking',
-						'no'  => '<span style="color:red; font-weight:bold">Disable</span> - No automatic links will be added',
+					'yes' => '<span style="color:green; font-weight:bold">Enable</span> - Allow automatic keyword linking',
+					'no'  => '<span style="color:red; font-weight:bold">Disable</span> - No automatic links will be added',
 				),
 				'default'     => 'no',
-		),
+			),
 			array(
 				'id'           => 'title',
 				'label'        => 'Main title',
