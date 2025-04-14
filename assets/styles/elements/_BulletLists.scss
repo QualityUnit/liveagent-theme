@@ -25,6 +25,8 @@
 	}
 }
 
+
+
 .bullet-list__basic {
 
 	ul {
@@ -48,7 +50,25 @@
 	}
 }
 
-[class*="bullet-list__"] {
+.bullet-list__clear {
+
+	li {
+		position: relative;
+		padding-left: 0.875rem;
+
+		&:not(:last-child) {
+			padding-bottom: 0.875rem;
+		}
+
+		&::before {
+			position: absolute;
+			left: 0;
+			content: "\2022";
+		}
+	}
+}
+
+[class*="bullet-list__"]:not(.bullet-list__clear) {
 	margin-bottom: 0.875em;
 
 	&:not(.bullet-list__basic) {

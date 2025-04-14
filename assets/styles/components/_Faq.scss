@@ -1,0 +1,45 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+
+.faq {
+
+	.elementor-inner-section {
+
+		> .elementor-container {
+			gap: 1.25em;
+		}
+
+		.elementor-widget-heading {
+			padding: 1.25em 1.875em;
+			border-radius: $border-radius;
+			border-bottom: 1px solid $lightest-gray;
+			background: $lightest-gray;
+
+			.elementor-widget-container {
+				margin-bottom: 0;
+
+				h1,
+				h2,
+				h3,
+				h4,
+				h5,
+				h6 {
+					margin: 0;
+				}
+			}
+		}
+
+		.elementor-widget-text-editor {
+			padding: 1.25em 1.875em;
+
+			.elementor-widget-container {
+				margin-bottom: 0;
+
+				p {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
