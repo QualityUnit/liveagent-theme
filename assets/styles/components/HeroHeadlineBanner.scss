@@ -194,33 +194,133 @@
 
 		.heroBanner__image[class] {
 
-			.elementor-widget-html:last-child {
-				margin-bottom: 0;
+			.elementor-widget-html {
+
+				&.label-wrapper {
+					position: absolute;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
 			}
 
-			img {
-				width: calc(100% - 4.875em);
-				border-radius: $border-radius-12;
+			.elementor-widget-image {
+
+				img {
+					width: calc(100% - 4.875em);
+					border-radius: $border-radius-12;
+				}
 			}
 		}
 
-		@media (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-tablet-landscape) {
+		@media (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-desktop) {
 
-			.heroBanner__content[class],
 			.heroBanner__image[class] {
 
 				.elementor-widget-html {
-					position: static;
-					margin-bottom: 1.25em;
 
-					.label--transparent {
-						background: $lightest-gray;
-						color: $black;
+					&.label-wrapper {
+						right: 0.5rem;
+
+						.label {
+							padding: .5rem;
+						}
+
+						&:nth-child(1) {
+							top: 0;
+						}
+
+						&:nth-child(2) {
+							top: 9%;
+
+							.label {
+								max-width: 11.5625rem;
+							}
+						}
+
+						&:nth-child(3) {
+							top: 38%;
+						}
+
+						&:nth-child(4) {
+							top: 52%;
+
+							.label {
+								max-width: 18.75rem !important;
+								font-size: 0.75rem;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-desktop) {
+
+			.heroBanner__image[class] {
+
+				.elementor-widget-html {
+
+					&.label-wrapper {
+						right: 0.5rem;
+
+						.label {
+							padding: .5rem;
+						}
+
+						&:nth-child(1) {
+							top: 0;
+						}
+
+						&:nth-child(2) {
+							top: 9%;
+
+							.label {
+								max-width: 11.5625rem;
+							}
+						}
+
+						&:nth-child(3) {
+							top: 41%;
+						}
+
+						&:nth-child(4) {
+							top: 55%;
+
+							.label {
+								max-width: 18.75rem !important;
+								font-size: 0.75rem;
+							}
+						}
 					}
 				}
 
 				.elementor-widget-image {
-					display: none;
+
+					img {
+						width: 100%;
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-tablet-landscape - 1) {
+
+			.heroBanner__image[class] {
+
+				.elementor-widget-html {
+
+					&.label-wrapper {
+
+						&:nth-child(3) {
+							top: 46%;
+						}
+
+						&:nth-child(4) {
+							top: 62%;
+						}
+					}
 				}
 			}
 		}
