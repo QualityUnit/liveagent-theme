@@ -33,7 +33,7 @@ function banners_block_init() {
 
 		wp_add_inline_script(
 			'qu_banners_block_editor_script',
-			'const images = ' . wp_json_encode( $js_data ),
+			'window.quBannersConfig = ' . wp_json_encode( $js_data ) . ';',
 			'before'
 		);
 
