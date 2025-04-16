@@ -20,7 +20,7 @@ function banners_block_init() {
 		$path_uri = get_template_directory_uri() . '/lib/widgets/qu-banners/';
 		$version  = THEME_VERSION;
 		$js_data  = array(
-			'url' => $path_uri . 'images',
+			'url' => $path_uri . 'quBannersConfig',
 		);
 
 		wp_enqueue_script(
@@ -33,7 +33,7 @@ function banners_block_init() {
 
 		wp_add_inline_script(
 			'qu_banners_block_editor_script',
-			'const images = ' . wp_json_encode( $js_data ),
+			'window.quBannersConfig = ' . wp_json_encode( $js_data ) . ';',
 			'before'
 		);
 
