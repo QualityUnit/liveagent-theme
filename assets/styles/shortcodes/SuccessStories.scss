@@ -32,28 +32,7 @@
 		row-gap: em(32);
 	}
 
-
 	&__item {
-
-		&__article {
-			position: relative;
-			border-radius: $border-radius-16;
-			box-shadow: em(0) em(0) em($shadow-size) em(-16) rgba($black-real, 0.12);
-			background-color: $white;
-			cursor: pointer;
-
-			img {
-				max-width: 100%;
-			}
-
-			@include hover {
-
-				.learn-more a {
-
-					@include learn-more-hover;
-				}
-			}
-		}
 
 		&__link {
 
@@ -65,43 +44,7 @@
 		&__thumbnail {
 			position: relative;
 			display: block;
-			height: 9.375em;
-
-			.postLabels {
-				position: absolute;
-				display: flex;
-				flex-direction: column;
-				top: 2.5em;
-				right: -0.5em;
-				font-size: 0.625rem;
-			}
-
-			.postLabel {
-				position: relative;
-				display: flex;
-				align-items: center;
-				border-radius: 5px;
-				background-color: $saturated-blue;
-				color: $white;
-				margin-left: auto;
-				padding: 0.75em 1em 0.75em 0.15em;
-				font-weight: $font-weight-semi;
-				line-height: 1.25;
-				z-index: 2;
-
-				+ .postLabel {
-					margin-top: 1em;
-				}
-
-				svg {
-					fill: $saturated-blue;
-					height: 100%;
-					position: absolute;
-					top: 0;
-					right: calc(100% - 3px);
-					z-index: -1;
-				}
-			}
+			height: 24.0625em;
 
 			img {
 
@@ -112,28 +55,172 @@
 		}
 
 		&__content {
-			padding: 2em;
+			padding: 3.125em 2.5em;
+
+			&__category {
+
+				.postLabels {
+					font-size: 1rem;
+					line-height: 1.125;
+					display: none;
+				}
+
+				.postLabel {
+					padding: 0.75em;
+					border-radius: $border-radius-6;
+					background: $lightest-gray;
+				}
+			}
+
+			&__main {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5em;
+
+				&__label {
+					color: $primary;
+					font-size: $font-size-smaller;
+					font-weight: $font-weight-semi;
+					line-height: 1.71;
+					letter-spacing: 1.68px;
+				}
+
+				&__headline {
+					color: $black;
+					font-size: $font-size-bigger;
+					font-weight: $font-weight-bold;
+				}
+
+				&__title {
+
+					color: $black;
+					font-size: $font-size-smaller !important;
+					font-weight: $font-weight-normal !important;
+					line-height: 1.57 !important;
+				}
+
+				&__excerpt {
+					display: none;
+
+					.item-excerpt {
+						color: $black;
+						font-size: $font-size-bigger;
+					}
+				}
+			}
 		}
 
-		a {
+		.learn-more-wrap {
+			position: relative;
+			display: none;
+			align-items: center;
+			justify-content: space-between;
 
-			@include color(color, font-color-dark);
+			.line {
+				flex: 1;
+				height: 1px;
+				background: $light-gray;
+				margin-right: 1rem;
+			}
+
+			.learn-more {
+
+				@include learn-more;
+				margin: 0;
+				justify-content: flex-end;
+			}
 		}
 
-		.learn-more {
+		&__article {
+			position: relative;
+			border-radius: $border-radius-16;
+			background-color: $white;
+			height: 37.5625em;
+			cursor: pointer;
+			transition: all 0.5s;
 
-			@include learn-more;
+			img {
+				max-width: 100%;
+			}
+
+			@include hover {
+
+				.success__stories__item {
+
+					&__thumbnail {
+						display: none;
+						visibility: hidden;
+					}
+
+					&__content {
+						height: 100%;
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+
+						&__category {
+							margin-bottom: 0.5rem;
+
+							.postLabels {
+								display: block;
+							}
+						}
+
+						&__main {
+
+							&__label {
+								color: $primary;
+								font-size: $font-size-smaller;
+								font-weight: $font-weight-semi;
+								line-height: 1.71;
+								letter-spacing: 1.68px;
+							}
+
+							&__headline {
+								display: none;
+								visibility: hidden;
+							}
+
+							&__title {
+
+								font-size: 3.25rem !important;
+								font-weight: $font-weight-bold !important;
+								line-height: 1.23 !important;
+							}
+
+							&__excerpt {
+								display: block;
+							}
+						}
+
+						.learn-more-wrap {
+							display: flex;
+
+							.learn-more {
+
+								a {
+
+									@include learn-more-hover;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			a {
+
+				@include color(color, font-color-dark);
+			}
 		}
 	}
 
-	@media (min-width: $breakpoint-tablet ) {
+	@media (min-width: $breakpoint-tablet) {
 
 		&__list {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			column-gap: em(32);
 		}
-
 	}
 }
-
