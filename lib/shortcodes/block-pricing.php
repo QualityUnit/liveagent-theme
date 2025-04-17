@@ -38,7 +38,6 @@ function ms_block_pricing( $atts ) {
 		for ( $i = 1; $i <= 3; ++$i ) {
 			?>
 		<div class="BlockPricing__container__item
-			<?= esc_attr( 3 == $i ? 'BlockPricing__container__item--last' : '' ); ?>
 			<?= esc_attr( ( 3 == $i && false !== $atts['startups'] ) ? 'BlockPricing__container__item--startup-label' : '' ); ?>
 		">
 			<div class="PricingTable__header <?= esc_attr( 3 == $i ? 'popular' : '' ); ?>">
