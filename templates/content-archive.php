@@ -96,8 +96,9 @@
 
 				while ( $show_top_posts->have_posts() ) :
 					$show_top_posts->the_post();
+					$top_post_classes = get_post_class( 'blog__top__post__item', get_the_ID() );
 					?>
-				<div class="blog__top__post__item" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+				<div class="<?php echo esc_attr( implode( ' ', $top_post_classes ) ); ?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="blog__top__post__inn slide__inn" itemprop="url">
 					<div class="blog__top__post__inn--main">
 						<div class="blog__top__post__image">
@@ -175,7 +176,7 @@
 				<?php
 					global $wp_query;
 
-					/* Gets currenty category ID */
+					/* Gets current category ID */
 					$categories = get_the_category();
 
 					// Get category ID
@@ -187,7 +188,7 @@
 					$sticky_posts       = get_option( 'sticky_posts' );
 
 					// Get posts in current category
-				$category_posts = array();
+					$category_posts = array();
 				if ( $this_category instanceof WP_Term ) {
 					$category_posts = get_posts(
 						array(
@@ -203,7 +204,7 @@
 					// Sort sticky posts by date
 					rsort( $category_sticky_posts );
 
-					// Get newest sticky post
+				// Get newest sticky post
 					$newest_sticky_post = array_shift( $category_sticky_posts );
 
 					// Query args
@@ -218,7 +219,6 @@
 					if ( is_author() ) {
 						$user_id              = get_the_author_meta( 'ID' );
 						$query_args['author'] = $user_id;
-
 					} else {
 
 						// If category page, query posts by category
@@ -227,6 +227,7 @@
 							$query_args['post__not_in'] = array( $newest_sticky_post );
 						}
 					}
+
 					// If category has parent, query posts by parent category
 					if ( ( $this_category && isset( $this_category->parent ) ) && 0 != $this_category->parent ) {
 						$query_args['cat'] = $this_category->term_id;
