@@ -14,6 +14,7 @@ $features_label_colors: (
 	"integrations": $saturated-blue,
 	"security": "#FF492B",
 	"browser-extensions": "#9154CE",
+	"ai-features": $lavender-purple,
 );
 
 @each $className, $color in $features_label_colors {
