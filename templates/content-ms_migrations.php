@@ -18,6 +18,7 @@ $page_header_args        = array(
 	'title'  => $page_header_title,
 	'text'   => $page_header_description,
 	'search' => array( 'type' => 'academy' ),
+	'count' => count( $migrations_posts->posts ),
 );
 ?>
 
@@ -26,7 +27,7 @@ $page_header_args        = array(
 
 	<div class="wrapper Migrations__container">
 		<div class="Migrations__content">
-			<ul class="Migrations__content__items list">
+			<ul class="Migrations__content__items">
 				<?php
 				while ( have_posts() === true ) :
 					the_post();
@@ -36,7 +37,7 @@ $page_header_args        = array(
 					$item_url    = $custom_link ? $custom_link : get_the_permalink();
 					?>
 					<li>
-						<div class="Migrations__item__wrap">
+						<div class="Migrations__item">
 							<div class="Migrations__item__image">
 								<?php
 								if ( has_post_thumbnail() ) {
@@ -46,7 +47,7 @@ $page_header_args        = array(
 									<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg"
 											 alt="<?php esc_attr_e( 'Features', 'ms' ); ?>">
 								<?php } ?>
-								<h3 class="Migrations__item__content__title item-title"><a
+								<h3 class="Migrations__item__title"><a
 										href="<?= esc_url( $item_url ); ?>"><?php the_title(); ?></a></h3>
 							</div>
 						</div>

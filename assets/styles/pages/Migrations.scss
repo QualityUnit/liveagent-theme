@@ -1,0 +1,47 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../components/MigrationHeader" as *;
+@use "../components/MigrationItem" as *;
+
+.Migrations {
+
+	&__container {
+		padding-top: 3.75em;
+		padding-bottom: 9.375em;
+	}
+
+	&__content {
+		position: relative;
+		z-index: 1;
+
+		&__items {
+
+			&.empty,
+			&:empty {
+
+				&::before {
+					content: "No results found... 😢";
+					display: block;
+				}
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__content {
+
+			&__items {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				grid-gap: 1.875em 1.5em;
+			}
+		}
+
+		&__item {
+			width: auto;
+		}
+	}
+}
