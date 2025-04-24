@@ -65,13 +65,26 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 			image,
 			date,
 			dateU,
+			update_label,
 		} = data;
+
+		let update_label_content = '';
+		if ( update_label && update_label.title && update_label.text ) {
+			const updateLabelTitle = update_label.title;
+			const updateLabelText = update_label.text;
+
+			update_label_content = `<div class="Blog__item__label">
+				 <div class="Blog__item__label__title">${ updateLabelTitle }</div>
+				 <div class="Blog__item__label__text">${ updateLabelText }</div>
+			</div>`;
+		}
 
 		const blogPost = `
 					<li itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting" class="Blog__item inactive postDynamic-${ id }">
 						<a href="${ url }" title=${ title }" itemprop="url">
 							<div class="Blog__item__thumbnail">
 								<meta itemprop="image" content="${ image }">
+								${ update_label_content }
 								<img data-src="${ image }" alt="${ title }" />
 							</div>
 							<div class="Blog__item__content">
