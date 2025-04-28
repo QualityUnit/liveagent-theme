@@ -16,10 +16,17 @@
 	section {
 		border-radius: $border-radius-16;
 
+		@media (max-width: $breakpoint-tablet) {
+
+			&:not(:has(.wrapper)) {
+				padding-left: 1.5em !important;
+				padding-right: 1.5em !important;
+			}
+		}
+
 		&.bg-level4 {
 
 			@media (max-width: $breakpoint-tablet) {
-				margin: 0 1.5em;
 
 				+ .bg-level4 {
 					border-radius: 0;
@@ -132,6 +139,8 @@
 		.Button--full {
 			font-size: 1.125rem;
 			height: 4.333em;
+			margin-left: auto !important;
+			margin-right: auto;
 		}
 
 		.Button--outline {
@@ -292,21 +301,27 @@
 
 	&-floatingBlock {
 		position: relative;
-		padding: 1.5em 0;
-		margin: 0 auto;
-		max-width: calc(100% - 3em);
+		padding: 4.375em 0 3.125em;
+		margin: 0 auto 3.75em;
 		background-color: $white;
-		box-shadow: 10px 20px 50px -10px rgba(0, 0, 0, 0.06);
 		border-radius: $border-radius-16;
-		top: -8em;
-		margin-bottom: -6em;
-		padding-bottom: 5.625em;
+		display: flex;
+		flex-direction: column;
+		gap: 3.75em;
 
 		&__header {
-			margin-bottom: 12em;
+			padding-left: 2.5em;
+			padding-right: 2.5em;
+			margin: 5em auto 3.75em;
+
+			p {
+				margin-bottom: 0;
+			}
 		}
 
 		.LandingPPC-cols {
+			padding-top: 0;
+			padding-bottom: 0;
 			max-width: 1140px;
 
 			p {
@@ -321,13 +336,12 @@
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			padding: 2em 2.5em 5.625em;
+			padding: 4.375em 0 3.125em;
 			max-width: none;
-			border: 1px solid $level4;
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
-			padding: 5.625em 0;
+			padding: 4.375em 2.5em 3.125em;
 			max-width: 1380px;
 		}
 	}
@@ -338,30 +352,11 @@
 		align-items: center;
 		text-decoration: none !important;
 		font-size: 0.875rem !important;
-		padding: 0 0.25em;
-		background-color: $white;
-		margin-left: auto;
-		z-index: 1;
 
 		&__wrapper {
 			display: flex;
+			justify-content: center;
 			align-items: center;
-			position: relative;
-			top: 4em;
-			width: calc(100% - 5em);
-			max-width: 71.25em;
-			margin: 0 auto 1em;
-
-			&::before {
-				position: absolute;
-				left: 0;
-				top: 50%;
-				transform: translateY(-50%);
-				content: "";
-				border-top: 1px solid $light-gray;
-				height: 0;
-				width: calc(100% - 6em);
-			}
 
 			@media (min-width: $breakpoint-tablet) {
 				width: 100%;
@@ -381,7 +376,7 @@
 		max-width: 1380px;
 		margin: 0 auto;
 		gap: 3.75em;
-		padding: 3.75em 2.5em 0;
+		padding: 3.75em 0 0;
 
 		.icon {
 
@@ -391,12 +386,13 @@
 
 		h4 {
 			font-size: 1.125rem;
-			margin-bottom: 0.5em !important;
+			margin-bottom: 0.45em !important;
 		}
 
 		p {
 			color: $dark-gray;
 			font-size: 0.875rem;
+			line-height:  1.57;
 			hyphens: auto;
 		}
 
