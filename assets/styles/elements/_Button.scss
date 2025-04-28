@@ -3,6 +3,8 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+$border-width: 1px;
+
 input[type="submit"],
 input[type="button"],
 button,
@@ -13,14 +15,20 @@ button,
 	align-items: center;
 	justify-content: center;
 	width: auto;
-	height: $button-height-normal;
-	padding: 0 $button-padding-normal;
+	padding: 13px 24px;
 	border: 0;
-	border-radius: $border-radius - 2;
+	border-radius: $border-radius-6;
 	font-size: $button-font-size-normal;
 	font-weight: $font-weight-semi;
-	background-color: transparent;
 	cursor: pointer;
+	transition: all 0.3s;
+
+
+	span,
+	strong {
+		line-height: 1.28;
+		font-size: $button-font-size-normal;
+	}
 
 	&:disabled {
 		pointer-events: none;
@@ -95,65 +103,25 @@ button,
 	}
 }
 
-%Button--full--hover {
-
-	&::before {
-		opacity: 0;
-	}
-
-	&::after {
-		opacity: 1;
-	}
-}
-
 .Button--full,
 %Button--full {
 
-	@include color(background, background);
-	@include color(color, button-full-font-color);
+	background-color: #F98006;
+	color: #fff;
 	overflow: hidden;
 
 	span,
 	strong {
 		position: relative;
 		z-index: 2;
-		font-weight: $font-weight-semi;
-		line-height: 1.33;
-	}
-
-	&::before {
-
-		@include color(background, background);
-		@include fullSize;
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		border-radius: ($border-radius - 2);
-		opacity: 1;
-		transition: opacity 0.75s;
-		z-index: 1;
-	}
-
-	&::after {
-
-		@include color(background, background-invert);
-		@include fullSize;
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		border-radius: ($border-radius - 2);
-		opacity: 0;
-		transition: opacity 0.75s;
-		z-index: 1;
+		font-weight: $font-weight-bold;
 	}
 
 	&:active,
 	&:focus,
 	&:hover {
-
-		@extend %Button--full--hover;
+		background-color: #AE5A04;
+		transition: all 0.3s;
 	}
 
 	&.elementor-widget-button {
@@ -178,7 +146,6 @@ button,
 	span {
 		position: relative;
 		z-index: 2;
-		line-height: 1.33;
 	}
 
 	&:active,
@@ -195,7 +162,7 @@ button,
 	&:active,
 	&:focus,
 	&:hover {
-		background-color: #f98006;
+		background-color: #303030;
 	}
 }
 
@@ -208,7 +175,7 @@ button,
 	span {
 		position: relative;
 		z-index: 2;
-		line-height: 1.33;
+
 	}
 
 	&::before {
@@ -220,7 +187,7 @@ button,
 		left: 0;
 		width: 100%;
 		height: 100%;
-		border-radius: ($border-radius - 2);
+		border-radius: $border-radius-6;
 		opacity: 1;
 		transition: opacity 0.75s;
 		z-index: 1;
@@ -235,7 +202,7 @@ button,
 		left: 0;
 		width: 100%;
 		height: 100%;
-		border-radius: ($border-radius - 2);
+		border-radius: $border-radius-6;
 		opacity: 0;
 		transition: opacity 0.75s;
 		z-index: 1;
@@ -284,33 +251,57 @@ button,
 
 .Button--outline {
 
-	@include color(color, font-color-dark);
-	border: 1px solid currentColor;
+	color: $black;
+	border: $border-width solid $medium-gray-inputs;
 	overflow: hidden;
 	transition: all 0.3s;
+	background-color: transparent;
 
 	span {
 		position: relative;
 		z-index: 2;
-		line-height: 1.33;
+
 	}
 
 	&:active,
 	&:focus,
 	&:hover {
 
-		@include color(color, primary-color);
-		@include color(border-color, primary-color);
+		color: #F98006;
+	}
+
+	&__black {
+		background-color: $black;
+		border-color: $white;
+
+		span {
+			color: $white;
+			transition: all 0.3s;
+		}
+
+		&:active,
+		&:focus,
+		&:hover {
+
+			background-color: $white;
+			border-color: $white;
+
+			span {
+				color: $black;
+				transition: all 0.3s;
+			}
+
+		}
+
 	}
 
 	&-gray {
 
-		@include color(background-color, button-outline-color);
+		background-color: $light-gray;
 	}
 
 	&-white {
-
-		@include color(background-color, main-background);
+		background-color: $white;
 	}
 
 	&__white {
@@ -375,38 +366,39 @@ button,
 }
 
 .Button--small {
-	height: 2.25rem;
-	padding: 0.25em 1em;
-	font-size: 0.8125rem;
+	padding: 11px $button-padding-normal;
+
+	&.Button--outline {
+		padding-top: calc(11px - $border-width * 2);
+	}
 }
 
 .Button--medium {
-	height: 60px;
-	padding: 0 40px;
-	font-size: 18px;
 
-	span {
-		line-height: 1.33;
+	&.Button--outline {
+		padding-top: calc(13px - $border-width);
 	}
+
 }
 
 .Button--big {
-	height: 72px;
-	padding: 0 30px;
+
+	padding: 18px 30px;
 	font-size: 18px;
 
-	span {
-		line-height: 1.33;
+	span,strong {
+		font-size: 18px;
+		line-height: 1.5;
+	}
+
+	&.Button--outline {
+		padding-top: calc(18px - $border-width);
 	}
 
 	@media (max-width: $breakpoint-mobile) {
-		height: 60px;
 		padding: 0 25px;
 		font-size: 16px;
 
-		span {
-			line-height: 1.33;
-		}
 	}
 }
 
@@ -417,7 +409,7 @@ button,
 
 .Button--inaction {
 
-	@include color(color, font-color-dark);
+	color: $black;
 	display: inline-flex;
 	align-items: center;
 	font-weight: $font-weight-semi;
@@ -435,7 +427,7 @@ button,
 
 	&:hover {
 
-		@include color(color, primary-color);
+		color: $dark-orange;
 	}
 }
 
@@ -511,3 +503,5 @@ html[lang="vi-VN"] .Button--demo {
 html[lang="de-DE"] .Button--demo {
 	padding: 0 2.4em !important;
 }
+
+

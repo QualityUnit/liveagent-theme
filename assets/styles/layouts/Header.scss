@@ -399,9 +399,7 @@ body {
 
 			a.Button {
 				display: none;
-				max-height: 3em;
 				margin-right: 1.5em;
-				padding-inline: 1em;
 
 				&.Button--login {
 					margin: 0;
@@ -857,8 +855,6 @@ body {
 				a.Button {
 					display: flex;
 					flex-direction: column;
-					padding-left: 1.7em;
-					padding-right: 1.7em;
 					margin-right: 0;
 					margin-left: 0;
 
@@ -1101,8 +1097,6 @@ html[lang="vi-VN"] {
 		}
 
 		.Header__navigation__buttons .Button {
-			padding-left: 1em;
-			padding-right: 1em;
 			margin-left: 0.5em;
 		}
 	}

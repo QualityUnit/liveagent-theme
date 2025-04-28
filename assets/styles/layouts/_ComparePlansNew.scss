@@ -60,11 +60,11 @@
 			}
 
 			&.first {
-				border-top-left-radius: $border-radius-16;
+				border-top-left-radius: $border-radius-12;
 			}
 
 			&.last {
-				border-top-right-radius: $border-radius-16;
+				border-top-right-radius: $border-radius-12;
 			}
 
 			.elementor-widget-image {
@@ -200,18 +200,23 @@
 	}
 
 	.elementor-post {
-		margin-bottom: 0 !important;
 		overflow: visible;
+		margin-bottom: 2em !important;
 
 		&__title {
 			display: flex;
 			align-items: center;
 			font-weight: $font-weight-bold;
 			color: $black;
-			background-color: $medium-gray-inputs;
+			background-color: $lighter-gray;
+			border-radius: $border-radius-12 $border-radius-12 0 0;
 			padding: $padding;
 			margin-bottom: 0;
 			cursor: pointer;
+
+			&:first-child {
+				border-radius: 0;
+			}
 
 			&::after {
 				content: "";
@@ -275,6 +280,11 @@
 
 	}
 
+	figure {
+		border-radius: 0 0 12px 12px;
+		//border-bottom: 1px solid $light-gray;
+	}
+
 	table.compare-price {
 
 		td {
@@ -320,7 +330,6 @@
 
 		tr {
 			border: none;
-			border-bottom: 1px dashed $light-gray;
 
 			&.even {
 				background-color: $lightest-gray;
@@ -335,6 +344,10 @@
 
 			&:not(:first-of-type) {
 				text-align: center;
+			}
+
+			&:last-child {
+				border-right: none;
 			}
 
 			&:nth-child(5) {

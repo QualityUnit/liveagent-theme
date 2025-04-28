@@ -143,7 +143,7 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|redeem-code|free-account|demo|r
 
 				<div class="Footer__middle__newsletter">
 					<div class="Footer__middle__title h5"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></div>
-					<?= do_shortcode( '[newsletterform]' ); ?>
+					<?= do_shortcode( '[newsletterform button-classes="Button Button--outline Button--outline__black" form-classes="Newsletter__form Newsletter__form__footer"]' ); ?>
 					<div class="Footer__middle__newsletter__text">
 						<p><?php _e( 'Get the latest news about LiveAgent updates and discounts', 'ms' ); ?></p>
 					</div>
