@@ -108,6 +108,60 @@
 				}
 			}
 		}
+
+		&__base-info {
+
+			&__item {
+				margin-bottom: 2.25em;
+
+				&__title {
+					margin-bottom: 1.125em;
+					color: $black-real;
+					font-size: $font-size-bigger;
+					font-weight: $font-weight-bold;
+					line-height: 1.11;
+				}
+
+				&__content {
+
+					p {
+						color: $black;
+						font-size: $font-size-smaller;
+						line-height: 1.43;
+					}
+
+					.Post__sidebar__list {
+
+						li {
+							margin-bottom: 0.714em;
+							padding: 0;
+							border-radius: $border-radius-6;
+							border: 1px solid $primary;
+							background: $medium-orange;
+							color: $black;
+							text-align: center;
+							font-size: $font-size-smaller;
+							line-height: 1.28;
+
+							&:not( :has( a ) ) {
+								padding: 0.428em 0.714em;
+							}
+
+							a {
+								padding: 0.428em 0.714em;
+								display: block;
+								text-decoration: none;
+
+								&::after {
+									content: '';
+									display: none;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	&__content {

@@ -4,10 +4,16 @@
 	set_custom_source( 'splide', 'js' );
 	set_custom_source( 'slider', 'js' );
 	set_custom_source( 'sidebar_toc', 'js' );
-	
+
 	$current_lang    = apply_filters( 'wpml_current_language', null );
 	$header_category = get_en_category( 'ms_success-stories', $post->ID );
 	$company         = get_the_title();
+
+	$sidebar_info = (object) array(
+		'description' => get_post_meta( get_the_ID(), 'description', true ),
+		'location'    => get_post_meta( get_the_ID(), 'location', true ),
+		'features'    => get_post_meta( get_the_ID(), 'features', true ),
+	);
 
 	// We have to use ms_success-stories everywhere to preserve old DB records
 	$details = (object) array(
@@ -55,24 +61,7 @@
 
 	<div class="wrapper__wide Post__container">
 		<div class="Post__sidebar urlslab-skip-keywords">
-			<?php
-			if ( ! empty( $details->website ) ) {
-				?>
-			<div class="Post__sidebar__buttons mb-m">
-				<a href="<?= esc_url( $details->website ); ?>" class="Button Button--outline" target="_blank" title="<?= esc_attr( str_replace( '${company}', $company, __( '${company}\'s website', 'use-case' ) ) ); ?>">
-					<span>
-					<?php
-						the_title();
-						echo ' ';
-						_e( 'website', 'use-case' );
-					?>
-					</span>
-				</a>
-			</div>
-				<?php
-			}
-			?>
-			<div class="Post__sidebar__socials flex flex-align-center flex-justify-center">
+			<div class="Post__sidebar__socials flex flex-align-center">
 				<?php
 				if ( ! empty( $details->insta ) && 'https://www.instagram.com/' !== $details->insta ) {
 					?>
@@ -110,6 +99,13 @@
 					</a>
 					<?php
 				}
+				if ( ! empty( $details->website ) ) {
+					?>
+					<a href="<?= esc_url( $details->website ); ?>" class="Post__sidebar__social" target="_blank" title="<?= esc_attr( str_replace( '${company}', $company, __( '${company}\'s Website', 'use-case' ) ) ); ?>">
+						<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/social_icons/website.svg' ); ?>" alt="<?= esc_attr( str_replace( '${company}', $company, __( '${company}\'s Website', 'use-case' ) ) ); ?>" />
+					</a>
+					<?php
+				}
 				?>
 			</div>
 			<div class="Post__sidebar__categories">
@@ -130,6 +126,53 @@
 					}
 					?>
 				</ul>
+			</div>
+			<div class="Post__sidebar__base-info">
+				<?php if ( ! empty( $sidebar_info->description ) ) { ?>
+					<div class="Post__sidebar__base-info__item">
+						<div class="Post__sidebar__base-info__item__title h4"><?php _e( 'Company', 'ms' ); ?></div>
+						<div class="Post__sidebar__base-info__item__content">
+							<p><?= esc_html( $sidebar_info->description ); ?></p>
+						</div>
+					</div>
+				<?php } ?>
+				<?php if ( ! empty( $sidebar_info->location ) ) { ?>
+					<div class="Post__sidebar__base-info__item">
+						<div class="Post__sidebar__base-info__item__title h4"><?php _e( 'Location', 'ms' ); ?></div>
+						<div class="Post__sidebar__base-info__item__content">
+							<p><?= esc_html( $sidebar_info->location ); ?></p>
+						</div>
+					</div>
+				<?php } ?>
+
+				<?php if ( ! empty( $sidebar_info->features ) ) { ?>
+					<div class="Post__sidebar__base-info__item">
+						<div class="Post__sidebar__base-info__item__title h4"><?php _e( 'Key features used:', 'ms' ); ?></div>
+						<div class="Post__sidebar__base-info__item__content">
+							<ul class="Post__sidebar__list">
+								<?php
+								foreach ( $sidebar_info->features as $feature ) {
+									if ( ! empty( $feature['name'] ) && ! empty( $feature['url'] ) ) {
+										?>
+										<li>
+											<a class="icn-after-arrow-right" href="<?= esc_url( $feature['url'] ); ?>" target="_blank">
+												<?= esc_html( $feature['name'] ); ?>
+											</a>
+										</li>
+										<?php
+									} elseif ( ! empty( $feature['name'] ) ) {
+										?>
+										<li>
+											<?= esc_html( $feature['name'] ); ?>
+										</li>
+										<?php
+									}
+								}
+								?>
+							</ul>
+						</div>
+					</div>
+				<?php } ?>
 			</div>
 
 			<?php
@@ -168,7 +211,7 @@
 				</div>
 			<?php } ?>
 		</div>
-		
+
 
 		<div class="Post__content">
 			<div class="Post__content__breadcrumbs">

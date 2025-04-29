@@ -162,5 +162,54 @@ $author = array(
 	),
 );
 
+add_filter( 'simple_register_metaboxes', 'single_sidebar_info' );
+
+function single_sidebar_info( $info ) {
+	$info[] = array(
+		'id'        => 'mb_ss-company',
+		'name'      => 'Information about company (sidebar in single post)',
+		'post_type' => array( 'ms_success-stories' ),
+		'opened'    => false,
+		'fields'    => array(
+			array(
+				'id'          => 'description',
+				'label'       => 'Company description',
+				'description' => '',
+				'cols'        => 50,
+				'type'        => 'textarea',
+			),
+			array(
+				'id'          => 'location',
+				'label'       => 'Company location',
+				'description' => '',
+				'default'     => '',
+				'type'        => 'text',
+			),
+			array(
+				'id'          => 'features',
+				'label'       => 'Company key features',
+				'description' => '',
+				'type'        => 'repeater',
+				'subfields' => array(
+					array(
+						'id'          => 'name',
+						'label'       => 'Name',
+						'description' => '',
+						'type'        => 'text',
+					),
+					array(
+						'id'          => 'url',
+						'label'       => 'URL',
+						'description' => '',
+						'type'        => 'text',
+					),
+				),
+			),
+		),
+	);
+
+	return $info;
+}
+
 new trueMetaBox( $author );
 new trueMetaBox( $metabox );
