@@ -154,15 +154,15 @@
 								foreach ( $sidebar_info->features as $feature ) {
 									if ( ! empty( $feature['name'] ) && ! empty( $feature['url'] ) ) {
 										?>
-										<li>
-											<a class="icn-after-arrow-right" href="<?= esc_url( $feature['url'] ); ?>" target="_blank">
+										<li class="post__sidebar__list__item">
+											<a class="link" href="<?= esc_url( $feature['url'] ); ?>" target="_blank">
 												<?= esc_html( $feature['name'] ); ?>
 											</a>
 										</li>
 										<?php
 									} elseif ( ! empty( $feature['name'] ) ) {
 										?>
-										<li>
+										<li class="post__sidebar__list__item">
 											<?= esc_html( $feature['name'] ); ?>
 										</li>
 										<?php
