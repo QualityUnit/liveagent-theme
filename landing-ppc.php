@@ -45,7 +45,7 @@ $internal_linking_class = $disable_internal_linking ? 'urlslab-skip-keywords' : 
 	  <div class="elementor-widget-container">
 	  <h1 class="elementor-heading-title elementor-size-default" id="h-provide-excellent-customer-service">
 	  <?=
-		esc_html( get_post_meta( get_the_ID(), 'title', true ) );
+		wp_kses_post( get_post_meta( get_the_ID(), 'title', true ) );
 		?>
 	</h1>
 	  </div>
