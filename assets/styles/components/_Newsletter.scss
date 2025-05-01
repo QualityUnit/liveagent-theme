@@ -80,8 +80,9 @@ $nl-input-height: 44;
 
 			footer.Footer & {
 
-				@extend %footer-newsletter-input;
-				@include color(border-color, font-color-dark);
+				height: em($nl-input-height, $font-size-smaller);
+				font-size: $font-size-smaller;
+				border-color: $black;
 				width: 70%;
 				min-width: initial;
 				padding: 0.25em 1em 0.25em em($nl-input-height, $font-size-smaller);
@@ -92,18 +93,14 @@ $nl-input-height: 44;
 
 		.Button {
 
-			@extend .Button--full;
 			min-width: 185px;
 
 			footer.Footer & {
 
-				@extend %footer-newsletter-input;
-				@extend .Button--small;
-				@extend .Button--outline;
-				@extend .Button--outline__white;
+				height: em($nl-input-height, $font-size-smaller);
+				font-size: $font-size-smaller;
 				width: 30%;
 				min-width: initial;
-				background: transparent;
 
 				&::before,
 				&::after {
@@ -227,10 +224,4 @@ form.MailChimp {
 		}
 	}
 
-	input[type="submit"],
-	button {
-
-		@extend .Button;
-		@extend .Button--full;
-	}
 }
