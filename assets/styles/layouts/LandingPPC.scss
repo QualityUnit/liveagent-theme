@@ -16,7 +16,7 @@
 	section {
 		border-radius: $border-radius-16;
 
-		@media (max-width: $breakpoint-tablet) {
+		@media (max-width: $breakpoint-tablet - 1px) {
 
 			&:not(:has(.wrapper)) {
 				padding-left: 1.5em !important;
@@ -136,14 +136,18 @@
 			}
 		}
 
-		.Button--full {
-			font-size: 1.125rem;
-			height: 4.333em;
+		.Button--normal {
 			margin-left: auto !important;
 			margin-right: auto;
+
+			svg {
+
+				@include square(0.875em);
+				margin-left: 0.75em;
+			}
 		}
 
-		.Button--outline {
+		.Button--dark {
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -151,13 +155,18 @@
 			transition: all 0.3s;
 			opacity: 0;
 
+			svg {
+
+				@include square(1em);
+				margin-left: 0.75em;
+			}
 		}
 
 		@media (hover: hover) {
 
 			&:hover {
 
-				.Button--outline {
+				.Button--dark {
 					opacity: 1;
 				}
 			}
@@ -350,8 +359,6 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		text-decoration: none !important;
-		font-size: 0.875rem !important;
 
 		&__wrapper {
 			display: flex;
@@ -365,8 +372,8 @@
 
 		svg {
 
-			@include square(1.85em);
-			margin-left: 0.5em;
+			@include square(1em);
+			margin-left: 0.75em;
 		}
 	}
 

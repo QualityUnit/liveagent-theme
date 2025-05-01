@@ -209,13 +209,13 @@ $internal_linking_class   = $disable_internal_linking ? 'urlslab-skip-keywords' 
 			</div>
 		</div>
 		<div class="flex LandingPPC-discover__wrapper">
-			<a href="/features" class="Button Button--outline LandingPPC-discover">
+			<a href="/features" class="Button Button--dark LandingPPC-discover">
 				<strong>
 					<?php _e( 'Discover all features', 'ms' ); ?>
 				</strong>
 				<svg class="icon-arrow">
 					<use
-						xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#arrow-right' ); ?>"></use>
+						xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#arrow-out' ); ?>"></use>
 				</svg>
 			</a>
 		</div>
@@ -246,20 +246,24 @@ $internal_linking_class   = $disable_internal_linking ? 'urlslab-skip-keywords' 
 						 alt="Connect with your customers on all channels" loading="lazy"/>
 			</picture>
 			<div class="flex LandingPPC-Connect__button">
-				<a href="/help-desk-software/" class="Button Button--outline Button--outline-white icn-after-arrow-right"
+				<a href="/help-desk-software/" class="Button Button--dark"
 					 title="Help Desk Software"><span><?php _e( 'Explore our Helpdesk', 'ms' ); ?></span>
-					<svg class="icon icon-arrow-right">
+					<svg class="icon icon-arrow-out">
 						<use
-							xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=1.25.58#arrow-right' ); ?>"></use>
+							xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=1.25.58#arrow-out' ); ?>"></use>
 					</svg>
 				</a>
 
-				<a href="#signupform" class="Button Button--full">
+				<a href="#signupform" class="Button Button--normal Button--big">
 					<span>
 						<?php
 						_e( 'Create account for FREE', 'ms' );
 						?>
 					</span>
+					<svg class="icon icon-arrow-out">
+						<use
+							xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=1.25.58#arrow-out' ); ?>"></use>
+					</svg>
 				</a>
 			</div>
 		</div>
