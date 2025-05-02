@@ -110,10 +110,10 @@
 			</div>
 
 			<div class="Header__navigation__buttons">
-				<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--full">
+				<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--small Button--outline">
 					<span><?php _e( 'Demo', 'ms' ); ?></span>
 				</a>
-				<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--outline">
+				<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--small Button--full">
 					<span><?php _e( 'Free Trial', 'ms' ); ?></span>
 				</a>
 				<a href="<?php _e( '/login/', 'ms' ); ?>" class="Button Button--login">

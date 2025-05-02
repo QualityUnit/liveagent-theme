@@ -22,12 +22,6 @@ function ms_block_pricing( $atts ) {
 			'text3-3'  => __( '10 live chat buttons', 'ms' ),
 			'text3-4'  => __( 'WhatsApp', 'ms' ),
 			'popular'  => __( 'Most Popular', 'ms' ),
-			'title4'   => __( 'Free', 'ms' ),
-			'price4'   => __( '$0', 'ms' ),
-			'text4-1'  => __( '7 days ticket history', 'ms' ),
-			'text4-2'  => __( '1 email address', 'ms' ),
-			'text4-3'  => __( '1 chat button', 'ms' ),
-			'text4-4'  => __( '1 contact form', 'ms' ),
 			'startups' => false,
 		),
 		$atts,
@@ -41,10 +35,9 @@ function ms_block_pricing( $atts ) {
 
 <div class="BlockPricing__container <?= esc_attr( ! $atts['startups'] ? '' : 'startups' ); ?>">
 		<?php
-		for ( $i = 1; $i <= 4; ++$i ) {
+		for ( $i = 1; $i <= 3; ++$i ) {
 			?>
 		<div class="BlockPricing__container__item
-			<?= esc_attr( 4 == $i ? 'BlockPricing__container__item--last' : '' ); ?>
 			<?= esc_attr( ( 3 == $i && false !== $atts['startups'] ) ? 'BlockPricing__container__item--startup-label' : '' ); ?>
 		">
 			<div class="PricingTable__header <?= esc_attr( 3 == $i ? 'popular' : '' ); ?>">
@@ -75,9 +68,7 @@ function ms_block_pricing( $atts ) {
 				<?php } ?>
 				<div class="PricingTable__header__title">
 					<h3><?= esc_html( $atts[ 'title' . $i ] ); ?>
-					<?php if ( 4 != $i ) { ?>
-						 <small><?php _e( 'business', 'ms' ); ?></small>
-					<?php } ?>
+						<small><?php _e( 'business', 'ms' ); ?></small>
 					</h3>
 				</div>
 				<div class="PricingTable__header__description">
@@ -97,21 +88,9 @@ function ms_block_pricing( $atts ) {
 					</ul>
 				</div>
 				<div class="PricingTable__header__button">
-					<?php
-					if ( 4 != $i ) {
-						?>
-						<a href="<?= esc_url( __( '/trial/', 'ms' ) ); ?>" class="Button Button--outline">
-							<span><?= esc_html( __( 'Try for FREE', 'ms' ) ); ?></span>
-						</a>
-						<?php
-					} else {
-						?>
-						<a href="<?= esc_url( __( '/free-account/', 'ms' ) ); ?>" class="Button Button--outline">
-							<span><?= esc_html( __( 'Create', 'ms' ) ); ?></span>
-						</a>
-						<?php
-					}
-					?>
+					<a href="<?= esc_url( __( '/trial/', 'ms' ) ); ?>" class="Button Button--outline">
+						<span><?= esc_html( __( 'Try for FREE', 'ms' ) ); ?></span>
+					</a>
 				</div>
 			</div>
 		</div>
