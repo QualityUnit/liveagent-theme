@@ -8,6 +8,34 @@ $metabox = array(
 	'priority'   => 'high',
 	'args'       => array(
 		array(
+			'id'          => 'mb_success-stories-headline',
+			'label'       => 'Headline',
+			'description' => '',
+			'type'        => 'text',
+		),
+		array(
+			'id'          => 'mb_success-stories-image',
+			'label'       => 'Featured Image for Success Stories',
+			'description' => '',
+			'type'        => 'image',
+		),
+		array(
+			'id'          => 'mb_success-stories-text',
+			'label'       => 'Short description',
+			'description' => '',
+			'cols'        => 43,
+			'class'       => 'textarea',
+			'maxlength'   => 256,
+			'type'        => 'textarea',
+		),
+		array(
+			'id'          => 'mb_success-stories-active-shortcode',
+			'label'       => 'Activate for "Success Stories" shortcode',
+			'description' => '',
+			'type'        => 'checkbox',
+			'default'     => 'off',
+		),
+		array(
 			'id'          => 'mb_success-stories-website',
 			'label'       => 'Company Website',
 			'description' => '',
