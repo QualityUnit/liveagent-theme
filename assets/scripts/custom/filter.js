@@ -208,9 +208,7 @@
 				const title = listItem
 					.querySelector( '.item-title' )
 					.textContent.toLowerCase();
-				const excerpt = listItem
-					.querySelector( '.item-excerpt' )
-					.textContent.toLowerCase();
+				const excerpt = listItem.querySelector( '.item-excerpt' )?.textContent.toLowerCase() || '';
 
 				if (
 					listItem.style.display === 'none' &&

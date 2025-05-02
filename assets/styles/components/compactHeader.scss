@@ -153,6 +153,16 @@ body.compact-header--active {
 		}
 	}
 
+	&__count-posts {
+		font-size: $font-size-smaller;
+		font-weight: $font-weight-semi;
+		line-height: 1.57;
+
+		&:not(:last-child) {
+			margin-bottom: 1.6em;
+		}
+	}
+
 	&__date {
 
 		@include color(color, font-color-normal);

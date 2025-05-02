@@ -1,4 +1,7 @@
 <?php // @codingStandardsIgnoreLine
+set_custom_source( 'pages/Migrations', 'css' );
+set_source( 'migrations', 'filter', 'js' );
+
 $query_args = array(
 	'post_type'      => 'ms_migrations',
 	'posts_per_page' => - 1,
@@ -18,38 +21,42 @@ $page_header_args        = array(
 	'title'  => $page_header_title,
 	'text'   => $page_header_description,
 	'search' => array( 'type' => 'academy' ),
-	'count' => count( $migrations_posts->posts ),
+	'mobile_filter' => false,
+	'count_posts'  => count( $migrations_posts->posts ),
 );
 ?>
 
-<div class="Migrations">
+<div id="category" class="Category">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
-	<div class="wrapper Migrations__container">
-		<div class="Migrations__content">
-			<ul class="Migrations__content__items">
+	<div class="wrapper Category__container">
+		<div class="Category__content">
+			<ul class="Category__content__items list">
 				<?php
 				while ( have_posts() === true ) :
 					the_post();
 
 					// Custom link for items
-					$custom_link = get_post_meta( get_the_ID(), 'mb_custom_url', true );
-					$item_url    = $custom_link ? $custom_link : get_the_permalink();
+					$custom_link        = get_post_meta( get_the_ID(), 'mb_custom_url', true );
+					$item_url           = $custom_link ? $custom_link : get_the_permalink();
+					$first_letter_title = substr( get_the_title(), 0, 1 );
 					?>
 					<li>
-						<div class="Migrations__item">
-							<div class="Migrations__item__image">
+						<div class="Category__item">
+							<div class="Category__item__image">
 								<?php
 								if ( has_post_thumbnail() ) {
 									the_post_thumbnail( 'archive_thumbnail' );
 								} else {
 									?>
-									<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg"
+									<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/migrations-featured.svg"
 											 alt="<?php esc_attr_e( 'Features', 'ms' ); ?>">
+									<span><?= esc_html( $first_letter_title ); ?></span>
 								<?php } ?>
-								<h3 class="Migrations__item__title"><a
-										href="<?= esc_url( $item_url ); ?>"><?php the_title(); ?></a></h3>
 							</div>
+							<h3 class="Category__item__title item-title">
+								<a href="<?= esc_url( $item_url ); ?>"><?php the_title(); ?></a>
+							</h3>
 						</div>
 					</li>
 				<?php endwhile; ?>

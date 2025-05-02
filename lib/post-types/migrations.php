@@ -10,7 +10,7 @@ add_action(
 			'name_admin_bar' => __( 'Migration', 'ms' ),
 		);
 		$rewrite = array(
-			'slug'       => 'Migrations',
+			'slug'       => 'migrations',
 			'with_front' => true,
 			'pages'      => true,
 			'feeds'      => false,
