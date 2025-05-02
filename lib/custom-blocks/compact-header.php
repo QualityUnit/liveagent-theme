@@ -141,7 +141,7 @@ inline_compact_header();
 					);
 					?>
 					<!-- Count posts -->
-					<div class="compact-header__count-posts"><?= $count_posts_output; ?></div>
+						<div class="compact-header__count-posts"><?= esc_html( $count_posts_output ); ?></div>
 					<!-- Count posts end -->
 				<?php } ?>
 				<?php
@@ -443,7 +443,7 @@ inline_compact_header();
 					?>
 				<div class="compact-header__bottom">
 					   <?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_sort ) || isset( $filer_count ) ) { ?>
-						 <?php if ( $mobile_filter ) { ?>
+							<?php if ( $mobile_filter ) { ?>
 							<div class="compact-header__filters-toggle">
 								<a class="Button Button--outline js-compact-header__toggle">
 									<?= esc_html( __( 'Filters', 'ms' ) ); ?>
