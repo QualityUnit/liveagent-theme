@@ -56,6 +56,7 @@ inline_compact_header();
 	if ( ! empty( $args['checklist'] ) ) {
 		$checklist = $args['checklist'];
 	}
+	$mobile_filter = $args['mobile_filter'] ?? true;
 	?>
 	<div class="compact-header__placeholder">
 	<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?> urlslab-skip-lazy">
@@ -125,6 +126,23 @@ inline_compact_header();
 						<div class="compact-header__text"><?= wp_kses_post( $args['text'] ); ?></div>
 					<?php } ?>
 					<!-- Description end -->
+				<?php } ?>
+				<?php
+				if ( ! empty( $args['count_posts'] ) ) {
+					$count_posts = $args['count_posts'];
+					$count_posts_output = sprintf(
+						_n(
+							'%s migration',
+							'%s migrations',
+							$count_posts,
+							'ms'
+						),
+						$count_posts
+					);
+					?>
+					<!-- Count posts -->
+						<div class="compact-header__count-posts"><?= esc_html( $count_posts_output ); ?></div>
+					<!-- Count posts end -->
 				<?php } ?>
 				<?php
 				if ( is_author() ) {
@@ -425,14 +443,16 @@ inline_compact_header();
 					?>
 				<div class="compact-header__bottom">
 					   <?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_sort ) || isset( $filer_count ) ) { ?>
-						<div class="compact-header__filters-toggle">
-							<a class="Button Button--outline js-compact-header__toggle">
-								<?= esc_html( __( 'Filters', 'ms' ) ); ?>
-								<svg class="searchField__reset-icon icon-gear">
-									<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#gear' ); ?>"></use>
-								</svg>
-							</a>
-						</div>
+							<?php if ( $mobile_filter ) { ?>
+							<div class="compact-header__filters-toggle">
+								<a class="Button Button--outline js-compact-header__toggle">
+									<?= esc_html( __( 'Filters', 'ms' ) ); ?>
+									<svg class="searchField__reset-icon icon-gear">
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#gear' ); ?>"></use>
+									</svg>
+								</a>
+							</div>
+						<?php } ?>
 						<div class="compact-header__filters js-compact-header__close urlslab-skip-keywords">
 							<a class="compact-header__filters-close js-compact-header__close">
 								<svg class="icon-close">

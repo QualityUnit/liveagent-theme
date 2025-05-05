@@ -127,13 +127,22 @@
 							<div class="Blog__item__meta">
 								<div class="Blog__item__meta__categories">
 									<?php
-									/* translators: %s: don't modify */
-									$cats = get_the_taxonomies( 0, array( 'template' => __( '<span class="hidden">%s:</span><span>%l</span>' ) ) )['category'];
-									$cats = str_replace( 'and', '', $cats );
-									$cats = preg_replace( '/\<a(.+?)\<\/a>/', '<span$1</span>', $cats );
-									echo wp_kses_post( $cats );
+									$categories = get_the_category();
+									if ( $categories ) {
+										echo '<span class="hidden">Categories:</span>';
+										echo '<span>';
+										foreach ( $categories as $index => $category ) {
+											if ( $index > 0 ) {
+												echo ' ';
+											}
+											echo '<span class="category-link">' . esc_html( $category->name ) . '</span>';
+										}
+										echo '</span>';
+									}
 									?>
 								</div>
+
+
 
 								<div class="Blog__item__meta__date">
 									<svg viewBox="0 0 11 12" xmlns="http://www.w3.org/2000/svg">
