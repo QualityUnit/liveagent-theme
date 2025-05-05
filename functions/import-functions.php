@@ -38,32 +38,34 @@ function wp_head_content( $pages ) {
 
 // Calling specific JS/CSS for page or subpage, ie. features/pageXXX will be $page = features
 function set_source( $page, $source_file, $filetype = 'css', $defer = false ) {
-	if ( $page && wp_head_content( $page ) ) {
-		if ( 'css' === $filetype && false === $defer ) {
-			?>
-			<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css"  media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
+	if ( ( ! $page || wp_head_content( $page ) ) ) {
+		$src = get_template_directory_uri() . '/assets/dist/' . $source_file . isrtl() . wpenv();
+		$version = THEME_VERSION;
 
-			<?php
-			// @codingStandardsIgnoreEnd
-		}
-		if ( 'css' === $filetype && true === $defer ) {
-			?>
-			<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css" as="style" onload='this.rel=\"stylesheet\"' media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
-			<noscript>
-				<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" type="text/css" media="all">
-			</noscript>
-			<?php
-			// @codingStandardsIgnoreEnd
-		}
-		if ( 'js' === $filetype ) {
-			wp_enqueue_script( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . wpenv() . '.js', array(), THEME_VERSION, true );
-		}
-	}
+		if ( 'css' === $filetype ) {
+			wp_enqueue_style( $source_file, $src . '.css', array(), $version, 'all' );
 
-	if ( ! $page ) {
-		?>
-	<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css"  media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
-		<?php
+			if ( $defer ) {
+				add_filter(
+					'style_loader_tag',
+					function ( $html, $handle ) use ( $source_file ) {
+						if ( $handle === $source_file ) {
+							$html = str_replace(
+								"rel='stylesheet'",
+								"rel='preload' as='style' onload=\"this.onload=null;this.rel='stylesheet'\"",
+								$html
+							);
+							$html .= "<noscript><link rel='stylesheet' id='" . esc_attr( $handle ) . "' href='" . esc_url( get_template_directory_uri() . '/assets/dist/' . $handle . isrtl() . wpenv() . '.css?ver=' . esc_attr( THEME_VERSION ) ) . "' type='text/css' media='all'></noscript>";
+						}
+						return $html;
+					},
+					10,
+					2
+				);
+			}
+		} elseif ( 'js' === $filetype ) {
+			wp_enqueue_script( $source_file, $src . '.js', array(), $version, true );
+		}
 	}
 }
 

@@ -4,15 +4,59 @@
 @use "../common/mixins" as *;
 
 .ComparePlans {
-	$padding: 0.35em 0.75em;
+	$padding: 0.5em 0.75em;
+
+	&.elementor-section[class] {
+		padding: 0 0.5em !important;
+	}
 
 	.wrapper__wide {
 		padding: 0;
 	}
 
-	&__sectionTitle {
-		margin-top: 4em;
+	[data-expand="collapsed"] {
+
+		.elementor-widget-wrap {
+
+			.elementor-element {
+
+				.elementor-posts-container {
+					height: 515px;
+					overflow: hidden;
+
+					&::after {
+						content: "";
+						display: block;
+						width: 100%;
+						height: 100%;
+						background: linear-gradient(0deg, #fff 0%, #fff0 100%);
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+				}
+
+				.ExpandButton {
+					margin-top: -100px;
+				}
+			}
+		}
+
+	}
+
+
+	&__sectionTitle.elementor-section {
+		margin-top: 4em !important;
 		margin-bottom: 2em !important;
+		padding: 0 0.5em !important;
+		text-align: center;
+	}
+
+	&__fake__section {
+		background-color: $white;
+		height: 31px;
+		width: 100%;
+		margin: 0;
 	}
 
 	&__header {
@@ -49,22 +93,33 @@
 
 		.Pricing__program[class] {
 			width: 25%;
-			padding: 2em 1.5em;
+			padding: 3.6em 0.5em 1em !important;
 			margin-bottom: 0;
-			border: 1px solid $light-gray;
-			border-bottom: none;
+			border: none;
 			border-radius: 0;
+
+
+			@media (min-width: $breakpoint-mobile) {
+				padding: 3.6em 1.25em 1.875em !important;
+			}
+
+			.elementor-widget-heading {
+				text-align: center;
+
+				h3 {
+					margin-bottom: 0;
+					font-size: 1.125rem;
+
+					@media (min-width: $breakpoint-mobile) {
+						margin-bottom: 1em;
+						font-size: 1.25rem;
+					}
+				}
+
+			}
 
 			.enterprise & {
 				width: 50%;
-			}
-
-			&.first {
-				border-top-left-radius: $border-radius-12;
-			}
-
-			&.last {
-				border-top-right-radius: $border-radius-12;
 			}
 
 			.elementor-widget-image {
@@ -104,12 +159,16 @@
 				}
 			}
 
-			+.Pricing__program[class] {
-				border-left: none;
-			}
-
 			.Button {
 				display: none;
+			}
+
+			.LabelTag.popular {
+				top: 0 ;
+
+				p {
+					text-align: center;
+				}
 			}
 		}
 
@@ -201,21 +260,55 @@
 
 	.elementor-post {
 		overflow: visible;
-		margin-bottom: 2em !important;
+		margin-bottom: 10px !important;
+
+		.wp-block-table {
+			display: grid;
+			grid-template-rows: 1fr;
+			transition: grid-template-rows 0.2s ease-in-out,
+			opacity 0.2s ease-in-out,
+			max-height 0.2s ease-in-out;
+			opacity: 1;
+			visibility: visible;
+			max-height: 2000px;
+			overflow: visible;
+
+		}
+
+		&:has(.elementor-post__title.inactive) {
+
+			.wp-block-table {
+				grid-template-rows: 0fr;
+				opacity: 0;
+				transition: grid-template-rows 0.25s ease-in-out,
+				opacity 0.25s ease-in-out, max-height 0.2s ease-in-out;
+				z-index: -10;
+				max-height: 0;
+				visibility: hidden;
+			}
+
+		}
+
+
+		.wp-block-table > * {
+			min-height: 0;
+		}
+
 
 		&__title {
 			display: flex;
 			align-items: center;
+			justify-content: center;
 			font-weight: $font-weight-bold;
 			color: $black;
 			background-color: $lighter-gray;
-			border-radius: $border-radius-12 $border-radius-12 0 0;
 			padding: $padding;
-			margin-bottom: 0;
+			margin-bottom: 10px;
 			cursor: pointer;
+			border-radius: $border-radius;
 
-			&:first-child {
-				border-radius: 0;
+			@media (min-width: $breakpoint-mobile) {
+				justify-content: unset;
 			}
 
 			&::after {
@@ -223,10 +316,14 @@
 
 				@include square(0.75em);
 				display: inline-block;
-				transform: rotate(-90deg) scaleX(1);
-				margin-left: auto;
+				transform: rotate(90deg) scaleX(1);
+				margin-left: 1em;
 				background: url(../../images/icon-arrow.svg) center center no-repeat;
 				background-size: contain;
+
+				@media (min-width: $breakpoint-mobile) {
+					margin-left: auto;
+				}
 			}
 
 			a {
@@ -238,22 +335,20 @@
 			&.inactive {
 
 				&::after {
-					transform: rotate(-90deg) scaleX(-1);
-				}
-
-				+ .wp-block-table {
-					display: none;
+					transform: rotate(-90deg) scaleX(1);
 				}
 			}
-		}
 
-		.wp-block-table {
-			overflow: visible;
 		}
 	}
 
 	.Pricing__program.popular {
 		margin-top: 0;
+		border-left: 1px solid $saturated-blue;
+		border-right: 1px solid $saturated-blue;
+		border-color: $saturated-blue !important;
+		border-top-left-radius: $border-radius;
+		border-top-right-radius: $border-radius;
 	}
 
 	&.enterprise table {
@@ -282,7 +377,6 @@
 
 	figure {
 		border-radius: 0 0 12px 12px;
-		//border-bottom: 1px solid $light-gray;
 	}
 
 	table.compare-price {
@@ -321,7 +415,6 @@
 		}
 	}
 
-
 	table {
 		width: 100%;
 		table-layout: fixed;
@@ -329,9 +422,14 @@
 
 
 		tr {
-			border: none;
+			border-bottom: 1px dotted $light-gray;
+			transition: background-color 0.1s ease-in-out;
 
-			&.even {
+			&:last-child {
+				border-bottom: 0;
+			}
+
+			&:hover {
 				background-color: $lightest-gray;
 			}
 		}
@@ -339,16 +437,31 @@
 		td {
 
 			padding: $padding;
-			border: none;
-			border-right: 1px solid $light-gray;
+
+			border-right: 1px solid;
+			border-color: $light-gray;
+
+			&:first-of-type,
+			&:last-of-type {
+				border-right: none ;
+			}
 
 			&:not(:first-of-type) {
 				text-align: center;
+				font-size: 16px;
 			}
 
-			&:last-child {
-				border-right: none;
+			&:nth-child(3),
+			&:nth-child(4) {
+				border-right: 1px solid $saturated-blue !important;
+
 			}
+
+
+			&.popular-border-bottom {
+				border-bottom: 1px solid $saturated-blue;
+			}
+
 
 			&:nth-child(5) {
 				display: none;
@@ -362,7 +475,7 @@
 					@include square(1.125em);
 					margin-left: 0.75ch;
 
-					&.icon-check {
+					&.icon-check-narrow {
 						fill: $dark-orange;
 					}
 				}
@@ -378,6 +491,7 @@
 
 				&__text {
 					left: -50%;
+					z-index: 10;
 				}
 			}
 
@@ -406,6 +520,7 @@
 				display: flex;
 				width: 25%;
 				background-color: $white;
+				justify-content: center;
 
 				.enterprise & {
 					width: 50%;
@@ -417,5 +532,12 @@
 				}
 			}
 		}
+	}
+
+	.Button[data-expand="false"] {
+		display: flex;
+		justify-self: center;
+		margin: 0 auto;
+		width: fit-content;
 	}
 }

@@ -122,9 +122,44 @@ $internal_linking_class   = $disable_internal_linking ? 'urlslab-skip-keywords' 
 	</section>
 
 
-	<section class="elementor-section">
-		<div class="elementor-container Logos">
-			<?= do_shortcode( '[clients]' ); ?>
+  <section class="elementor-section">
+	<div class="elementor-container Logos">
+		<?= do_shortcode( '[clients]' ); ?>
+	</div>
+  </section>
+
+	<section class="LandingPPC-HeaderSection">
+		<div class="wrapper">
+			<h2 class="h1 text-align-center"><?php _e( 'Connect with your customers on all channels', 'ms' ); ?></h2>
+			<p class="text-align-center">
+				<?php
+				_e(
+					'Discover our multi-channel help desk software with 130+ ticketing features
+				and 200+ integrations with the tools you love.',
+					'ms'
+				);
+				?>
+			</p>
+		</div>
+	</section>
+
+	<section>
+		<div class="wrapper LandingPPC-Connect">
+			<picture class="urlslab-skip-all">
+				<source srcset="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_all-channels_mobile.jpg' ); ?>" media="(max-width: 1023px)">
+				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_all-channels.jpg' ); ?>" alt="Connect with your customers on all channels" loading="lazy" />
+			</picture>
+			<div class="flex LandingPPC-Connect__button">
+				<a href="/help-desk-software/" class="Button Button--outline Button--outline-white icn-after-arrow-right" title="Help Desk Software"><span><?php _e( 'Explore our Helpdesk', 'ms' ); ?></span><svg class="icon icon-arrow-right"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=1.25.58#arrow-right' ); ?>"></use></svg></a>
+
+				<a href="#signupform" class="Button Button--full mt-l ma-left ma-right hidden-tablet">
+					<span>
+						<?php
+						_e( 'Get started | 30 day free', 'ms' );
+						?>
+					</span>
+				</a>
+			</div>
 		</div>
 	</section>
 
