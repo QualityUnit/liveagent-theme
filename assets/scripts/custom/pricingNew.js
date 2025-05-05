@@ -55,41 +55,75 @@ if ( comparePlansTableTitles.length ) {
 if ( comparePlansRows.length ) {
 	const matchingRows = [];
 	const compareSwitcher = document.querySelector( '[data-switcher="compare"]' );
-	const compareSwitcherLabels = compareSwitcher.querySelectorAll( 'label' );
-	let cells;
-	setOddEven();
 
-	comparePlansRows.forEach( ( row ) => {
-		// Checking if the row has the class .ComparePlans.enterprise
-		const isEnterpriseRow = row.closest( '.ComparePlans.enterprise' );
+	if ( compareSwitcher ) {
+		const compareSwitcherLabels = compareSwitcher.querySelectorAll( 'label' );
+		let cells;
+		setOddEven();
 
-		cells = isEnterpriseRow
-			? row.querySelectorAll( 'td:nth-of-type(4), td:nth-of-type(6)' )
-			: row.querySelectorAll( 'td:not(:first-of-type):not(:last-of-type)' );
+		comparePlansRows.forEach( ( row ) => {
+			// Checking if the row has the class .ComparePlans.enterprise
+			const isEnterpriseRow = row.closest( '.ComparePlans.enterprise' );
 
-		const firstValueCell = cells.item( 0 ).innerText;
+			cells = isEnterpriseRow
+				? row.querySelectorAll( 'td:nth-of-type(4), td:nth-of-type(6)' )
+				: row.querySelectorAll( 'td:not(:first-of-type):not(:last-of-type)' );
 
-		// Filtering array of nodes with different values
-		const matching = [ ...cells ].filter( ( cell ) => cell.innerText !== firstValueCell );
+			const firstValueCell = cells.item( 0 ).innerText;
 
-		// If all cells have the same content, push the row to the array
-		if ( ! matching.length ) {
-			matchingRows.push( row );
-		}
-	} );
+			// Filtering array of nodes with different values
+			const matching = [ ...cells ].filter( ( cell ) => cell.innerText !== firstValueCell );
 
-	if ( matchingRows.length ) {
-		compareSwitcher.addEventListener( 'click', () => {
-			compareSwitcherLabels.forEach( ( label ) => {
-				label.classList.toggle( 'active' );
-			} );
-			matchingRows.forEach( ( row ) => {
-				row.classList.toggle( 'hidden' );
-			} );
-			setOddEven();
+			// If all cells have the same content, push the row to the array
+			if ( ! matching.length ) {
+				matchingRows.push( row );
+			}
 		} );
-	}
-	if ( ! matchingRows.length ) {
-		compareSwitcher.classList.add( 'inactive' );
+
+		if ( matchingRows.length ) {
+			compareSwitcher.addEventListener( 'click', () => {
+				compareSwitcherLabels.forEach( ( label ) => {
+					label.classList.toggle( 'active' );
+				} );
+				matchingRows.forEach( ( row ) => {
+					row.classList.toggle( 'hidden' );
+				} );
+				setOddEven();
+			} );
+		}
+		if ( ! matchingRows.length ) {
+			compareSwitcher.classList.add( 'inactive' );
+		}
+	} else {
+		setOddEven();
 	}
 }
+
+// Toggle expand/collapse functionality for sections with data-expand attribute
+document.addEventListener( 'DOMContentLoaded', function() {
+	const toggleButton = document.querySelector( '.ExpandButton' );
+	const section = document.querySelector( '[data-expand]' );
+	const buttonText = toggleButton.querySelector( 'span:not(.hidden-text)' ); // Prvý viditeľný span
+	const hiddenText = toggleButton.querySelector( '.hidden-text' );
+
+	if ( toggleButton && section && buttonText && hiddenText ) {
+		const expandText = buttonText.textContent;
+		const collapseText = hiddenText.textContent;
+
+		const initialState = section.getAttribute( 'data-expand' );
+		if ( initialState === 'expanded' ) {
+			buttonText.textContent = collapseText;
+		}
+
+		toggleButton.addEventListener( 'click', function( e ) {
+			e.preventDefault();
+
+			const current = section.getAttribute( 'data-expand' );
+			const isExpanding = current === 'collapsed';
+
+			section.setAttribute( 'data-expand', isExpanding ? 'expanded' : 'collapsed' );
+
+			buttonText.textContent = isExpanding ? collapseText : expandText;
+		} );
+	}
+} );
