@@ -108,6 +108,69 @@
 				}
 			}
 		}
+
+		&__base-info {
+
+			&__item {
+				margin-bottom: 2.25em;
+
+				&__title {
+					margin-bottom: 1.125em;
+					color: $black-real;
+					font-size: $font-size-bigger;
+					font-weight: $font-weight-bold;
+					line-height: 1.11;
+				}
+
+				&__content {
+
+					p {
+						color: $black;
+						font-size: $font-size-smaller;
+						line-height: 1.43;
+					}
+
+					.Post__sidebar__list {
+
+						li {
+							margin-bottom: 0.714em;
+							padding: 0;
+							border-radius: $border-radius-6;
+							border: 1px solid $primary;
+							background: $medium-orange;
+							color: $black;
+							font-size: $font-size-smaller;
+							line-height: 1.28;
+
+							&:not( :has( a ) ) {
+								padding: 0.428em 0.714em;
+							}
+
+							a.link {
+								padding: 0.428em 0.714em;
+								display: flex;
+								text-decoration: none;
+								align-items: flex-start;
+								gap: 0.357em;
+
+								&::after {
+									content: '' !important;
+									background-image: url(../../images/icon-arrow-up-right.svg);
+									background-repeat: no-repeat;
+									background-position: right center;
+									width: 1.125em;
+									height: 1.125em;
+								}
+
+								&:hover::after {
+									background-image: url(../../images/icon-arrow-up-right-hover.svg);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	&__content {
@@ -275,6 +338,80 @@
 				border-top-width: 2px;
 				content: "";
 				max-width: 5em;
+			}
+		}
+
+		&__features_list {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 1em;
+			margin: 1.875em 0;
+			overflow: hidden;
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				margin: 1.875em -3.125em;
+			}
+
+			li {
+				padding: 1.5em 2.8125em;
+				border-radius: $border-radius;
+				background: $lightest-gray;
+				display: flex;
+				flex-direction: column;
+				gap: 0.625em;
+
+				.title {
+					color: $black;
+					font-size: $font-size-bigger;
+					font-weight: $font-weight-bold;
+
+					.accent {
+
+						background: $primary-gradient-reverse;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						font-size: 1.875rem;
+						line-height: 1.133;
+					}
+				}
+
+				.text {
+					color: $black;
+					font-size: $font-size-default;
+					line-height: 1.43;
+				}
+			}
+
+			&--huge {
+				gap: 0.625em;
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					flex-direction: row;
+					flex-wrap: nowrap;
+				}
+
+				li {
+					padding: 1.25em;
+					justify-content: center;
+					flex: 1;
+					gap: 0;
+
+					.title {
+						text-align: center;
+						background: $primary-gradient-reverse;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						font-size: 3.4375rem;
+						line-height: 1.45;
+					}
+
+					.text {
+						text-align: center;
+						font-weight: $font-weight-bold;
+					}
+				}
 			}
 		}
 	}
