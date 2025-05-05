@@ -128,14 +128,14 @@
 								<div class="Blog__item__meta__categories">
 									<?php
 									$categories = get_the_category();
-									if ($categories) {
+									if ( $categories ) {
 										echo '<span class="hidden">Categories:</span>';
 										echo '<span>';
-										foreach ($categories as $index => $category) {
-											if ($index > 0) {
+										foreach ( $categories as $index => $category ) {
+											if ( $index > 0 ) {
 												echo ' ';
 											}
-											echo '<span class="category-link">' . esc_html($category->name) . '</span>';
+											echo '<span class="category-link">' . esc_html( $category->name ) . '</span>';
 										}
 										echo '</span>';
 									}
