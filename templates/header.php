@@ -99,8 +99,8 @@
 					?>
 				</div>
 				<div class="Header__navigation__buttons__mobile">
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--outline">
-						<span><?php _e( 'Free Trial', 'ms' ); ?></span>
+					<a href="<?php _e( '/demo/', 'ms' ); ?>" class="Button Button--outline">
+						<span><?php _e( 'Demo', 'ms' ); ?></span>
 					</a>
 					<a href="<?php _e( '/login/', 'ms' ); ?>" class="Button Button--login">
 						<span><?php _e( 'Login', 'ms' ); ?></span>
