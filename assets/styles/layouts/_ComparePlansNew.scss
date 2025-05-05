@@ -270,7 +270,7 @@
 			max-height 0.2s ease-in-out;
 			opacity: 1;
 			visibility: visible;
-			max-height: 2000px;
+			max-height: 4000px;
 			overflow: visible;
 
 		}
@@ -441,6 +441,10 @@
 			border-right: 1px solid;
 			border-color: $light-gray;
 
+			@media (min-width: $breakpoint-tablet-landscape) {
+				border-right: none;
+			}
+
 			&:first-of-type,
 			&:last-of-type {
 				border-right: none ;
@@ -521,6 +525,7 @@
 				width: 25%;
 				background-color: $white;
 				justify-content: center;
+				align-items: center;
 
 				.enterprise & {
 					width: 50%;
