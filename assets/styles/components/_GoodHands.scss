@@ -34,6 +34,19 @@
 			display: block;
 		}
 
+		@media (max-width: ($breakpoint-tablet - 1px)) {
+
+			.GoodHands__text {
+
+				.Buttons {
+
+					.Button {
+						width: 100%;
+					}
+				}
+			}
+		}
+
 		@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 			.GoodHands__image {
