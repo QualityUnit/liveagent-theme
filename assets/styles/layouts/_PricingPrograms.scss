@@ -225,7 +225,13 @@ html {
 							align-content: center;
 
 							.elementor-widget {
-								width: 50%;
+
+								margin-top: 1em;
+
+								@media (min-width: $breakpoint-desktop) {
+									width: 50%;
+									margin-top: 0;
+								}
 							}
 						}
 					}
