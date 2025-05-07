@@ -128,23 +128,6 @@ $internal_linking_class   = $disable_internal_linking ? 'urlslab-skip-keywords' 
 	</div>
   </section>
 
-	<section class="LandingPPC-signupForm" id="signupform">
-		<div class="wrapper">
-			<div class="LandingPPC-signupForm__inn">
-				<div class="LandingPPC-signupForm__left flex flex-direction-column">
-					<div class="LandingPPC-signupForm__left-text">
-						<h3 class="title"><?= esc_html( get_post_meta( get_the_ID(), 'form_title', true ) ); ?></h3>
-						<p><?= esc_html( get_post_meta( get_the_ID(), 'form_subtitle', true ) ); ?></p>
-					</div>
-					<img class="ma-top"
-							 src="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_img_sign-up-form-app.png' ); ?>"
-							 alt="<?= esc_attr( __( 'One solution for every business', 'ms' ) ); ?>" loading="lazy"/>
-				</div>
-				<?= do_shortcode( '[signupform-landingppc]' ); ?>
-			</div>
-		</div>
-	</section>
-
 	<section class="LandingPPC-HeaderSection LandingPPC-floatingBlock__header">
 		<h2 class="h1">
 			<?=
@@ -218,6 +201,23 @@ $internal_linking_class   = $disable_internal_linking ? 'urlslab-skip-keywords' 
 						xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#arrow-out' ); ?>"></use>
 				</svg>
 			</a>
+		</div>
+	</section>
+
+	<section class="LandingPPC-signupForm" id="signupform">
+		<div class="wrapper">
+			<div class="LandingPPC-signupForm__inn">
+				<div class="LandingPPC-signupForm__left flex flex-direction-column">
+					<div class="LandingPPC-signupForm__left-text">
+						<h3 class="title"><?= esc_html( get_post_meta( get_the_ID(), 'form_title', true ) ); ?></h3>
+						<p><?= esc_html( get_post_meta( get_the_ID(), 'form_subtitle', true ) ); ?></p>
+					</div>
+					<img class="ma-top"
+							 src="<?= esc_url( get_template_directory_uri() . '/assets/images/landing_ppc_img_sign-up-form-app.png' ); ?>"
+							 alt="<?= esc_attr( __( 'One solution for every business', 'ms' ) ); ?>" loading="lazy"/>
+				</div>
+				<?= do_shortcode( '[signupform-landingppc]' ); ?>
+			</div>
 		</div>
 	</section>
 
