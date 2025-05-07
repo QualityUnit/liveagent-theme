@@ -345,12 +345,11 @@
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			padding: 4.375em 0 3.125em;
+			padding: 4.375em 2.5em 3.125em;
 			max-width: none;
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
-			padding: 4.375em 2.5em 3.125em;
 			max-width: 1380px;
 		}
 	}
