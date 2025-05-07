@@ -313,6 +313,14 @@
 					background-image: url(/app/themes/liveagent/assets/images/icon-post-check.svg);
 				}
 			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				figure.wp-block-image.size-large {
+					margin-left: -2.8125em;
+					margin-right: -2.8125em;
+				}
+			}
 		}
 
 		&__resources {
@@ -351,7 +359,7 @@
 			overflow: hidden;
 
 			@media (min-width: $breakpoint-tablet-landscape) {
-				margin: 1.875em -3.125em;
+				margin: 1.875em -2.8125em;
 			}
 
 			li {
@@ -399,6 +407,8 @@
 					gap: 0;
 
 					.title {
+						padding-right: 0.445em;
+						padding-left: 0.445em;
 						text-align: center;
 						background: $primary-gradient-reverse;
 						-webkit-background-clip: text;
@@ -408,6 +418,8 @@
 					}
 
 					.text {
+						padding-right: 2.5em;
+						padding-left: 2.5em;
 						text-align: center;
 						font-weight: $font-weight-bold;
 					}
