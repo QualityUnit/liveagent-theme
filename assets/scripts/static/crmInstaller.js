@@ -22,7 +22,18 @@ class CrmInstaller {
 
 		this.trackers = {
 			googleScript: "<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' />",
-			capterraScript: '<img src="https://ct.capterra.com/capterra_tracker.gif?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b" />',
+			capterraScript: '<script type="text/javascript">\n' +
+				'  (function(l,o,w,n,g){\n' +
+				'  window._gz=function(e,t){window._ct={vid:e,vkey:t,\n' +
+				'  uc:false,hasDoNotTrackIPs:false};window.ct};\n' +
+				'  n=l.createElement(o);g=l.getElementsByTagName(o)[0];\n' +
+				'  n["async"]=1;\n' +
+				'  n.src=w;g.parentNode.insertBefore(n,g)})(\n' +
+				'  document,"script",\n' +
+				'  "https://tr.capterra.com/static/wp.js");\n' +
+				'  window._gz(\'fe449882-d667-41be-9d89-9653a963c094\', \n' +
+				'  \'ca1d7fde1191b65d701f8444dee12e71\');\n' +
+				'</script>',
 			redditTracking: "<script>!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement(\"script\");t.src=\"https://www.redditstatic.com/ads/pixel.js\",t.async=!0;var s=d.getElementsByTagName(\"script\")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_an9rcu5x');rdt('track', 'PageVisit');</script>",
 		};
 		this.pap = {
