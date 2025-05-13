@@ -21,7 +21,7 @@
 			.elementor-element {
 
 				.elementor-posts-container {
-					height: 515px;
+					height: 815px;
 					overflow: hidden;
 
 					&::after {
@@ -111,7 +111,7 @@
 					font-size: 1.125rem;
 
 					@media (min-width: $breakpoint-mobile) {
-						margin-bottom: 1em;
+						margin-bottom: 0.5em;
 						font-size: 1.25rem;
 					}
 				}
@@ -165,9 +165,11 @@
 
 			.LabelTag.popular {
 				top: 0 ;
+				padding: 0.45em 0.5em;
 
 				p {
 					text-align: center;
+					font-size: 0.9em;
 				}
 			}
 		}
@@ -316,7 +318,8 @@
 
 				@include square(0.75em);
 				display: inline-block;
-				transform: rotate(90deg) scaleX(1);
+				transform: rotate(-90deg) scaleX(1);
+				transition: all ease-in-out 0.25s;
 				margin-left: 1em;
 				background: url(../../images/icon-arrow.svg) center center no-repeat;
 				background-size: contain;
@@ -335,7 +338,8 @@
 			&.inactive {
 
 				&::after {
-					transform: rotate(-90deg) scaleX(1);
+					transform: rotate(90deg) scaleX(1);
+					transition: all ease-in-out 0.25s;
 				}
 			}
 

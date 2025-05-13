@@ -367,10 +367,6 @@ button,
 
 .Button--small {
 	padding: 11px $button-padding-normal;
-
-	&.Button--outline {
-		padding-top: calc(11px - $border-width * 2);
-	}
 }
 
 .Button--medium {
