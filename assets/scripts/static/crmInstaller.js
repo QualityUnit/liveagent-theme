@@ -34,7 +34,7 @@ class CrmInstaller {
 				'  window._gz(\'fe449882-d667-41be-9d89-9653a963c094\', \n' +
 				'  \'ca1d7fde1191b65d701f8444dee12e71\');\n' +
 				'</script>',
-			redditTracking: '<script>!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt("init","t2_an9rcu5x", {"optOut":false,"useDecimalCurrencyValues":true});rdt("track", "PageVisit");</script>',
+			redditTracking: "<script>!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement(\"script\");t.src=\"https://www.redditstatic.com/ads/pixel.js\",t.async=!0;var s=d.getElementsByTagName(\"script\")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_an9rcu5x');rdt('track', 'PageVisit');</script>",
 		};
 		this.pap = {
 			account: 'default1',
