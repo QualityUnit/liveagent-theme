@@ -6,6 +6,8 @@
 .award-badges {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
 
 	> div {
 
@@ -15,9 +17,8 @@
 		background-size: cover;
 	}
 
-	@media (max-width: ($breakpoint-tablet - 1px)) {
-		flex-wrap: wrap;
-		justify-content: center;
+	@media (min-width: ($breakpoint-tablet)) {
+		justify-content: normal;
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
@@ -31,7 +32,7 @@
 
 		> div {
 
-			@include square(16em);
+			@include square(12em);
 			position: absolute;
 
 			flex-shrink: 0;
@@ -39,16 +40,36 @@
 		}
 
 		@for $i from 2 through 6 {
+			$size: 12.5 - $i;
+			$moveX: $i * 4;
+			$moveY: -$size * 3;
+
+			>div:nth-of-type(#{$i}) {
+
+				@include square(#{$size}em);
+				top: 10em;
+				transform: translate(#{$moveX}em, #{-$i * 1.5}em);
+				z-index: 6 - $i;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop-medium) {
+
+		@for $i from 2 through 6 {
 			$size: 15 - $i * 1.5;
 			$moveX: $i * 5;
-			$moveY: -$size * 3;
+
+			> div {
+
+				@include square(16em);
+			}
 
 			>div:nth-of-type(#{$i}) {
 
 				@include square(#{$size}em);
 				top: 12em;
 				transform: translate(#{$moveX}em, #{-$i * 1.5}em);
-				z-index: 6 - $i;
 			}
 		}
 	}
@@ -59,6 +80,7 @@
 	overflow: hidden;
 
 	&__bg {
+		padding: $block-bg-space-sm 0;
 		position: relative;
 		background-position: left center;
 		background-size: cover;
@@ -96,15 +118,17 @@
 		}
 
 		&__wrap {
-			justify-content: space-between;
+			position: relative;
+			flex-direction: column;
 			align-items: center;
+			text-align: center;
+			z-index: 5;
 		}
 
 		&__content {
 			position: relative;
 			z-index: 5;
-			width: 30em;
-			max-width: 45%;
+			width: 100%;
 		}
 
 		.Post__content & {
@@ -140,18 +164,17 @@
 		}
 	}
 
-	@media (max-width: ($breakpoint-tablet + 1)) {
-
-		&__bg {
-			padding: $block-bg-space-sm 0;
-		}
+	@media (min-width: $breakpoint-tablet-landscape) {
 
 		&__wrap {
-			position: relative;
-			z-index: 5;
-			flex-direction: column;
+			flex-direction: row;
+			justify-content: space-between;
 			align-items: center;
-			text-align: center;
+		}
+
+		&__content {
+			width: 30em;
+			max-width: 45%;
 		}
 	}
 }
