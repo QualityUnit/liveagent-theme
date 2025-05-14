@@ -107,21 +107,19 @@
 			const link = item.querySelector( ':scope > a' );
 			const submenu = item.querySelector( ':scope > ul' );
 
-			if ( link ) {
-				link.addEventListener( 'click', () => {
-					closeAllSubMenus( item );
+			link.addEventListener( 'click', () => {
+				closeAllSubMenus( item );
 
-					item.classList.toggle( 'active' );
-					if ( submenu ) {
-						submenu.classList.toggle( 'active' );
+				item.classList.toggle( 'active' );
+				if ( submenu ) {
+					submenu.classList.toggle( 'active' );
 
-						const allSubmenuSubmenu = submenu.querySelectorAll( ':scope > li > ul' );
-						allSubmenuSubmenu.forEach( ( subSub ) => {
-							subSub.classList.toggle( 'active' );
-						} );
-					}
-				} );
-			}
+					const allSubmenuSubmenu = submenu.querySelectorAll( ':scope > li > ul' );
+					allSubmenuSubmenu.forEach( ( subSub ) => {
+						subSub.classList.toggle( 'active' );
+					} );
+				}
+			} );
 		} );
 	};
 
