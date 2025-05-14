@@ -35,6 +35,8 @@ class CrmInstaller {
 				'  \'ca1d7fde1191b65d701f8444dee12e71\');\n' +
 				'</script>',
 			redditTracking: "<script>!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement(\"script\");t.src=\"https://www.redditstatic.com/ads/pixel.js\",t.async=!0;var s=d.getElementsByTagName(\"script\")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_an9rcu5x');rdt('track', 'PageVisit');</script>",
+			linkedinTracking: '<script type="text/javascript"> _linkedin_partner_id = "8316681"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id); </script><script type="text/javascript">\n\n(function(l) {\nif (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}\nvar s = document.getElementsByTagName("script")[0];\nvar b = document.createElement("script");\nb.type = "text/javascript";b.async = true;\nb.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";\ns.parentNode.insertBefore(b, s);})(window.lintrk);\n</script>',
+
 		};
 		this.pap = {
 			account: 'default1',
