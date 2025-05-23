@@ -20,24 +20,6 @@ class CrmInstaller {
 			main: installationElement,
 		};
 
-		this.trackers = {
-			googleScript: "<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' />",
-			capterraScript: '<script type="text/javascript">\n' +
-				'  (function(l,o,w,n,g){\n' +
-				'  window._gz=function(e,t){window._ct={vid:e,vkey:t,\n' +
-				'  uc:false,hasDoNotTrackIPs:false};window.ct};\n' +
-				'  n=l.createElement(o);g=l.getElementsByTagName(o)[0];\n' +
-				'  n["async"]=1;\n' +
-				'  n.src=w;g.parentNode.insertBefore(n,g)})(\n' +
-				'  document,"script",\n' +
-				'  "https://tr.capterra.com/static/wp.js");\n' +
-				'  window._gz(\'fe449882-d667-41be-9d89-9653a963c094\', \n' +
-				'  \'ca1d7fde1191b65d701f8444dee12e71\');\n' +
-				'</script>',
-			redditTracking: "<script>!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement(\"script\");t.src=\"https://www.redditstatic.com/ads/pixel.js\",t.async=!0;var s=d.getElementsByTagName(\"script\")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_an9rcu5x');rdt('track', 'PageVisit');</script>",
-			linkedinTracking: '<script type="text/javascript"> _linkedin_partner_id = "8316681"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id); </script><script type="text/javascript">\n\n(function(l) {\nif (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}\nvar s = document.getElementsByTagName("script")[0];\nvar b = document.createElement("script");\nb.type = "text/javascript";b.async = true;\nb.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";\ns.parentNode.insertBefore(b, s);})(window.lintrk);\n</script>',
-
-		};
 		this.pap = {
 			account: 'default1',
 			action: 'LATrial',
@@ -404,18 +386,6 @@ class CrmInstaller {
 		this.fields.progressHeader.querySelectorAll( '.invisible' ).forEach( ( elm ) => elm.classList.remove( 'invisible' ) );
 	};
 
-	handleTrackersAction = () => {
-		Object.values( this.trackers ).forEach( ( tracker ) => {
-			this.fields.main.insertAdjacentHTML( 'beforeend', tracker );
-		} );
-		if ( typeof fbq !== 'undefined' ) {
-			this.fields.main.insertAdjacentHTML(
-				'beforeend',
-				`<script>try{ fbq('track', 'StartTrial' ); } catch ( e ) { console.warn( 'Tracking script failed:', 'fbq' ); }</script>`
-			);
-		}
-	};
-
 	handlePapAction = () => {
 		if ( typeof PostAffTracker !== 'undefined' ) {
 			try {
@@ -475,6 +445,123 @@ class CrmInstaller {
 				console.warn( 'Tracking script failed:', '_paq' );
 			}
 		}
+	};
+
+	// Google pixel tracker
+	handleGoogleTracker = () => {
+		try {
+			document.body.insertAdjacentHTML( 'beforeend',
+				"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' alt='Google conversion tracking' />"
+			);
+			return true;
+		} catch ( e ) {
+			return false;
+		}
+	};
+
+	// Capterra tracker
+	handleCapterraTracker = () => {
+		try {
+			( function( l, o, w, n, g ) {
+				window._gz = function( e, t ) {
+					window._ct = {
+						vid: e,
+						vkey: t,
+						uc: false,
+						hasDoNotTrackIPs: false,
+					};
+					return window._ct;
+				};
+				n = l.createElement( o );
+				g = l.getElementsByTagName( o )[ 0 ];
+				n.async = 1;
+				n.src = w;
+				g.parentNode.insertBefore( n, g );
+			}( document, 'script', 'https://tr.capterra.com/static/wp.js' ) );
+			window._gz( 'fe449882-d667-41be-9d89-9653a963c094', 'ca1d7fde1191b65d701f8444dee12e71' );
+			return true;
+		} catch ( e ) {
+			return false;
+		}
+	};
+
+	// Reddit tracker
+	handleRedditTracker = () => {
+		try {
+			// Vytvorenie globálnej funkcie rdt, ak neexistuje
+			if ( ! window.rdt ) {
+				window.rdt = function() {
+					if ( window.rdt.sendEvent ) {
+						window.rdt.sendEvent.apply( window.rdt, arguments );
+					} else {
+						window.rdt.callQueue = window.rdt.callQueue || [];
+						window.rdt.callQueue.push( arguments );
+					}
+				};
+				window.rdt.callQueue = [];
+
+				const t = document.createElement( 'script' );
+				t.src = 'https://www.redditstatic.com/ads/pixel.js';
+				t.async = true;
+				const s = document.getElementsByTagName( 'script' )[ 0 ];
+				s.parentNode.insertBefore( t, s );
+			}
+
+			window.rdt( 'init', 't2_an9rcu5x' );
+			window.rdt( 'track', 'PageVisit' );
+			return true;
+		} catch ( e ) {
+			return false;
+		}
+	};
+
+	// LinkedIn tracker
+	handleLinkedInTracker = () => {
+		try {
+			window._linkedin_partner_id = '8316681';
+			window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+			window._linkedin_data_partner_ids.push( window._linkedin_partner_id );
+
+			if ( ! window.lintrk ) {
+				window.lintrk = function( a, b ) {
+					window.lintrk.q = window.lintrk.q || [];
+					window.lintrk.q.push( [ a, b ] );
+				};
+			}
+
+			const s = document.getElementsByTagName( 'script' )[ 0 ];
+			const b = document.createElement( 'script' );
+			b.type = 'text/javascript';
+			b.async = true;
+			b.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
+			s.parentNode.insertBefore( b, s );
+			return true;
+		} catch ( e ) {
+			return false;
+		}
+	};
+
+	// Facebook tracker
+	handleFacebookTracker = () => {
+		if ( typeof window.fbq !== 'undefined' ) {
+			try {
+				window.fbq( 'track', 'StartTrial' );
+				return true;
+			} catch ( e ) {
+				return false;
+			}
+		}
+		return false;
+	};
+
+	// Main tracking method that executes all individual trackers
+	handleTrackersAction = () => {
+		// Run all trackers individually
+		this.handleGoogleTracker();
+		this.handleCapterraTracker();
+		this.handleRedditTracker();
+		this.handleLinkedInTracker();
+		this.handleFacebookTracker();
 	};
 }
 
