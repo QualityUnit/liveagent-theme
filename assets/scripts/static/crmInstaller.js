@@ -488,7 +488,6 @@ class CrmInstaller {
 	// Reddit tracker
 	handleRedditTracker = () => {
 		try {
-			// Vytvorenie globálnej funkcie rdt, ak neexistuje
 			if ( ! window.rdt ) {
 				window.rdt = function() {
 					if ( window.rdt.sendEvent ) {
