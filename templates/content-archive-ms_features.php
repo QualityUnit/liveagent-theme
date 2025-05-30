@@ -16,7 +16,7 @@ if ( is_tax( 'ms_features_categories' ) === true ) :
 	$page_header_description = the_archive_description();
 else :
 	$page_header_title       = __( 'Features', 'ms' );
-	$page_header_description = __( 'Get to know all LiveAgent features, that are part of the complex multi-channel help desk software. Described in one place and in depth.', 'ms' );
+	$page_header_description = __( 'Get to know all LiveAgent features that are part of the comprehensive multi-channel help desk software, all described in one place and in depth.', 'ms' );
 endif;
 $filter_items_categories = array(
 	array(
