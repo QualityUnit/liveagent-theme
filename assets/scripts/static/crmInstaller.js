@@ -462,23 +462,9 @@ class CrmInstaller {
 	// Capterra tracker
 	handleCapterraTracker = () => {
 		try {
-			( function( l, o, w, n, g ) {
-				window._gz = function( e, t ) {
-					window._ct = {
-						vid: e,
-						vkey: t,
-						uc: false,
-						hasDoNotTrackIPs: false,
-					};
-					return window._ct;
-				};
-				n = l.createElement( o );
-				g = l.getElementsByTagName( o )[ 0 ];
-				n.async = 1;
-				n.src = w;
-				g.parentNode.insertBefore( n, g );
-			}( document, 'script', 'https://tr.capterra.com/static/wp.js' ) );
-			window._gz( 'fe449882-d667-41be-9d89-9653a963c094', 'ca1d7fde1191b65d701f8444dee12e71' );
+			document.body.insertAdjacentHTML( 'beforeend',
+				"<img height='1' width='1' src=\"https://ct.capterra.com/capterra_tracker.gif?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b\" />"
+			);
 			return true;
 		} catch ( e ) {
 			return false;
