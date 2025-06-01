@@ -1837,10 +1837,10 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@wordpress/babel-preset-default@^8.18.0":
-  version "8.18.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/babel-preset-default/-/babel-preset-default-8.18.0.tgz#4c767c7a9db55d376724fd95bf3d6b6206580e91"
-  integrity sha512-vx/UVMMqFhVDoLqymH8jmUC/YGq4p5oo2pgp9aqlYWBz/TO4H9LxMxWNGtcpZCagFBR85BeZD/467fO6UOO7Lw==
+"@wordpress/babel-preset-default@^8.24.0":
+  version "8.24.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/babel-preset-default/-/babel-preset-default-8.24.0.tgz#7e242a4e70df8bee5474ebf5efc2a3c77b55e3df"
+  integrity sha512-czWe+Aa/U+eAS1Bu7OkxXGmyECP/vZBGGxpNO0Za6V14KmM0ZJrMdQkWi5T0p/GVAx3naDVz2GTXqzcn8MFWaw==
   dependencies:
     "@babel/core" "7.25.7"
     "@babel/plugin-transform-react-jsx" "7.25.7"
@@ -1848,27 +1848,27 @@
     "@babel/preset-env" "7.25.7"
     "@babel/preset-typescript" "7.25.7"
     "@babel/runtime" "7.25.7"
-    "@wordpress/browserslist-config" "^6.18.0"
-    "@wordpress/warning" "^3.18.0"
+    "@wordpress/browserslist-config" "^6.24.0"
+    "@wordpress/warning" "^3.24.0"
     browserslist "^4.21.10"
     core-js "^3.31.0"
     react "^18.3.0"
 
-"@wordpress/browserslist-config@^6.18.0":
-  version "6.18.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/browserslist-config/-/browserslist-config-6.18.0.tgz#15b485f7dd1536d8d3b7b2a1fad8b68af4b9f04f"
-  integrity sha512-GhB3p+qrR2xFITPEMi9/w2KoLhz0uzA+sMwtREr4G5UZ37dmgN3XJN55NYe2ZduT6uZnaCVYskOmXGvmx/EEyw==
+"@wordpress/browserslist-config@^6.24.0":
+  version "6.24.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/browserslist-config/-/browserslist-config-6.24.0.tgz#17d49ed53344022c998a60da2b9ba67cf64f696c"
+  integrity sha512-qhFU0pAxNWKkraqMlgdYfcUm+A2Xam5toDIiZXA/6l2dH6iZN+Dnj13p7L7S8k+ftB486/GFXZ2uR8jWXlDQpw==
 
 "@wordpress/eslint-plugin@^22":
-  version "22.4.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/eslint-plugin/-/eslint-plugin-22.4.0.tgz#fcde7ee74947c6e1c33fa49cee9143993eb68d16"
-  integrity sha512-h+QrGdBRI3dnsNjlvCRt7Y9m4btzGcve0PymqmOeckmdEUGjt+6CCz2uS2Mbn8DRx5+1PCBD8SxCv6/J7ek2ow==
+  version "22.10.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/eslint-plugin/-/eslint-plugin-22.10.0.tgz#ff1ea40e5176bb6fb8008c0ddde5316347ab455a"
+  integrity sha512-b1fadRvBx5AXy/V2yMFnCLjNW+95D4jYiAQ6hDQYy/x95bN8clQRLaN7R/llbzr+wSfHSmGHgtLNiD5sGkK6Tg==
   dependencies:
     "@babel/eslint-parser" "7.25.7"
     "@typescript-eslint/eslint-plugin" "^6.4.1"
     "@typescript-eslint/parser" "^6.4.1"
-    "@wordpress/babel-preset-default" "^8.18.0"
-    "@wordpress/prettier-config" "^4.18.0"
+    "@wordpress/babel-preset-default" "^8.24.0"
+    "@wordpress/prettier-config" "^4.24.0"
     cosmiconfig "^7.0.0"
     eslint-config-prettier "^8.3.0"
     eslint-plugin-import "^2.25.2"
@@ -1882,10 +1882,10 @@
     globals "^13.12.0"
     requireindex "^1.2.0"
 
-"@wordpress/prettier-config@^4.18.0":
-  version "4.18.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/prettier-config/-/prettier-config-4.18.0.tgz#d8340c6b962a2ee235bb2bf848b7204b21324133"
-  integrity sha512-VsFFqSBpMw5u2kq1OTQeSMTUrznnAuZ0Z7+41MOsyJjb9DFX2Yq6k1FcmUhBJWDLEvkunMorSZ7kqhUxHWPR+g==
+"@wordpress/prettier-config@^4.24.0":
+  version "4.24.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/prettier-config/-/prettier-config-4.24.0.tgz#03d86fd5b4380fd4fe67c1d157055161145ec446"
+  integrity sha512-J8d0zPrrZc59RQFW5nr1dLYVOQB+gSL0zgmQ4KmCVXrIFbvPo/YDMz2ZyDNhTEcGVbwVRnN2ZwEaBAeafQKy/Q==
 
 "@wordpress/stylelint-config@^23":
   version "23.11.0"
@@ -1896,10 +1896,10 @@
     stylelint-config-recommended "^14.0.1"
     stylelint-config-recommended-scss "^14.1.0"
 
-"@wordpress/warning@^3.18.0":
-  version "3.18.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-3.18.0.tgz#00b4e01b0b734223413be56ee8bf1e5746cd14d7"
-  integrity sha512-Y58A1D38PJbQzFZXokL+4rACzs5Vp5cZMZc/9J+QOYStJdy/xEDQttbhte2P7kq0yF3EUZDC0QnG8RsIV09WSQ==
+"@wordpress/warning@^3.24.0":
+  version "3.24.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-3.24.0.tgz#3890049c16b791cac937e3dc1080fa4bcb14bf7b"
+  integrity sha512-gDlTyyCpjGQi9VAJKkaigLvQdp3SOM2GT/RjbGzRFRWab7N9U7LDV1HViBw99QRBI/PNakJSRAWa8DponDtinA==
 
 "@xmldom/xmldom@^0.8.3":
   version "0.8.10"
