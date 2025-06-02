@@ -451,7 +451,7 @@ class CrmInstaller {
 	handleGoogleTracker = () => {
 		try {
 			document.body.insertAdjacentHTML( 'beforeend',
-				"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' alt='Google conversion tracking' />"
+				"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' />"
 			);
 			return true;
 		} catch ( e ) {
@@ -463,7 +463,7 @@ class CrmInstaller {
 	handleCapterraTracker = () => {
 		try {
 			document.body.insertAdjacentHTML( 'beforeend',
-				"<img height='1' width='1' src=\"https://ct.capterra.com/capterra_tracker.gif?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b\" />"
+				'<img src="https://ct.capterra.com/capterra_tracker.gif?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b" />'
 			);
 			return true;
 		} catch ( e ) {
