@@ -33,6 +33,14 @@
 				<h1 class="Trial__main__title"><?php _e( 'Start your <span class="highlight-gradient">free trial</span> today', 'ms' ); ?></h1>
 				<p class="Trial__main__text"><?php _e( 'Experience working with LiveAgent for free with our 30 days free trial. Enjoy a helpdesk platform with all advanced features and capabilities for free without any strings attached.', 'ms' ); ?></p>
 				<div class="Signup__form__labels Trial__labels">
+					<div class="Signup__form__labels__label limited">
+						<?php _e( 'Limited pricing offer', 'ms' ); ?>
+						<div class="Tooltip">
+							<div class="fontello-info">
+								<div class="Tooltip__text Tooltip__text--left"><?php _e( 'This offer is temporary, but the discount isn’t. Get up to 40% off for life.', 'ms' ); ?></div>
+							</div>
+						</div>
+					</div>
 					<div class="Signup__form__labels__label">
 						<?php _e( '30 days free trial', 'ms' ); ?>&nbsp;
 					</div>

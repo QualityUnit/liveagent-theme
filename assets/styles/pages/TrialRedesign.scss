@@ -207,12 +207,26 @@
 				&__label {
 					margin: 0.5em;
 
-					&:first-of-type {
+					&.limited {
+						background-color: $saturated-red;
+						border: 4px solid $desaturated-red;
+						color: $white;
+						font-size: 0.875rem;
+						border-radius: 100px;
+						padding: 0 1em;
+
+						.Tooltip {
+							margin-left: 0.5em;
+						}
+					}
+
+					&:first-of-type:not(.limited) {
 						background-color: #efe6f8;
 					}
 
 					&:last-of-type {
 						background-color: #e3f2ff;
+						display: none;
 					}
 				}
 
