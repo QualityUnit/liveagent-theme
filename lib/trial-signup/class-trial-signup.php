@@ -173,6 +173,7 @@ class Trial_Signup {
 			'trial'       => __( '/trial/', 'ms' ),
 			'redeem-code' => __( '/redeem-code/', 'ms' ),
 			'thank-you'   => __( '/thank-you/', 'ms' ),
+			
 		);
 
 		self::$localized_text = array(
@@ -197,7 +198,7 @@ class Trial_Signup {
 			'textProgressRedirecting'       => __( 'Almost done, just a moment', 'qu_signup' ),
 			'textProgressFinalizing'        => __( 'Your LiveAgent is ready to use', 'qu_signup' ),
 			'textProgressLoginViaEmail'     => __( 'To log in, use the link we sent to your email', 'qu_signup' ),
-			'textProgressAsyncInstallation' => __( "Setup is in progress, you'll get an email after completion.", 'qu_signup' ),
+			'textProgressAsyncInstallation' => __( "Setup is in progress, you'll get an email after completion...", 'qu_signup' ),
 			'textError'                     => __( 'Something went wrong.', 'qu_signup' ),
 			'textErrorCaptcha'              => __( 'Cannot load captcha', 'qu_signup' ),
 		);

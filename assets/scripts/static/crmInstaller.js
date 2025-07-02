@@ -46,6 +46,7 @@ class CrmInstaller {
 		this.fields.introductionVideos = this.fields.main.querySelector( '.Introduction__videos' );
 		this.fields.progressDoneOverlay = this.fields.main.querySelector( '.progress__done__overlay' );
 		this.fields.redirectButtonPanel = this.fields.main.querySelector( '[data-id="redirectButtonPanel"]' );
+		this.fields.asyncInstallationButton = this.fields.main.querySelector( '.async-installation' );
 
 		if ( this.signupData.async === true ) {
 			this.handleAsyncInstallation();
@@ -113,6 +114,7 @@ class CrmInstaller {
 	};
 
 	handleAsyncInstallation = () => {
+		this.showAsyncInstallationButton();
 		this.setProgressText( this.localized.textProgressAsyncInstallation );
 		this.handleFinishActions();
 		this.removeSignUpCookie();
@@ -254,6 +256,11 @@ class CrmInstaller {
 		} );
 	};
 
+	showAsyncInstallationButton = () => {
+		this.fields.asyncInstallationButton.style.display = 'block';
+		this.fields.progressPercentage.style.display = 'none';
+	};
+
 	runLoginExpirationCounter = ( goToButton ) => {
 		const counterElm = goToButton.querySelector( '.FinalButton__counter__number' );
 		const textElm = goToButton.querySelector( '.FinalButton__text' );
@@ -385,7 +392,7 @@ class CrmInstaller {
 
 	showHiddenParts = () => {
 		// by default, some parts like percentage and progress indicator are invisible in case the installation is processed for user with corrupted javascript
-		this.fields.progressHeader.querySelectorAll( '.invisible' ).forEach( ( elm ) => elm.classList.remove( 'invisible' ) );
+		this.fields.progressHeader.querySelectorAll( '.progress-invisible' ).forEach( ( elm ) => elm.classList.remove( 'progress-invisible' ) );
 	};
 
 	readSignUpCookie = () => {
