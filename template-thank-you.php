@@ -20,7 +20,7 @@ Trial_Signup::include_crm_installer();
 						<div class="BuildingApp__progress__header__action__wrapper">
 							<a class='FinalButton async-installation' href="<?= esc_url( home_url( '/' ) ); ?>" style="display: none;"><span class="FinalButton__text"><?= esc_html__( 'Continue browsing', 'ms' ); ?></span></a>
 							<div class="BuildingApp__progress__header__percentage percentage progress-invisible">0%</div>
-							<div class="redirectButtonPanel" style="display:none"></div>
+							<div data-id="redirectButtonPanel" style="display:none"></div>
 						</div>						
 						<div id="progress-1" class="progress__bar__container progress-invisible">
 							<div class="progress__bar"></div>

@@ -32,7 +32,7 @@
 		.loaderIn {
 			text-align: center;
 
-			.opacity--low > *:not(.progress__done__overlay) {
+			.opacity--low>*:not(.progress__done__overlay) {
 				opacity: 0.2;
 			}
 
@@ -62,7 +62,7 @@
 	}
 
 
-	[data-id="redirectButtonPanel"][style*="block"] + .mobileSignupFinal {
+	[data-id="redirectButtonPanel"][style*="block"]+.mobileSignupFinal {
 
 		@media (max-width: $breakpoint-tablet-landscape) {
 			display: flex;
@@ -85,11 +85,11 @@
 		color: $white;
 		display: inline-block;
 		margin: 0;
-		padding: 0 3em;
+		padding: 1.125em 3em;
 		border: 0;
 		border-radius: $border-radius-small;
 		font-size: 0.875rem;
-		line-height: 3.428;
+		line-height: 1;
 		font-weight: $font-weight-bold;
 		text-align: center;
 		text-decoration: none;
@@ -160,7 +160,9 @@
 
 
 	}
-						
+
+
+
 	[class*="--mobile"] {
 		display: none !important;
 	}
@@ -197,7 +199,7 @@
 				gap: 1em;
 				margin-bottom: 0.75em;
 
-				~ .BuildingApp__progress__wrap__text {
+				~.BuildingApp__progress__wrap__text {
 					padding-top: 0;
 				}
 
@@ -219,7 +221,7 @@
 						justify-content: center;
 					}
 
-					~ .BuildingApp__progress__wrap__text {
+					~.BuildingApp__progress__wrap__text {
 						padding-top: 7.5em;
 					}
 				}
@@ -281,7 +283,7 @@
 						left: 0;
 						transform: translate(-5px, -50%);
 
-						@include square( 0.875em );
+						@include square(0.875em);
 						border-radius: 50%;
 						background-color: $white;
 						transition: left 0.5s;
@@ -310,7 +312,7 @@
 							grid-column: unset;
 						}
 
-						~ .BuildingApp__progress__wrap__text {
+						~.BuildingApp__progress__wrap__text {
 							padding-top: 0;
 						}
 
@@ -334,6 +336,10 @@
 				padding-top: 7.5em;
 				margin: 2em 0;
 				font-size: 0.875rem;
+			}
+
+			form[data-id="gotoapp-form"] {
+				margin: 0;
 			}
 
 			.progress-invisible {
