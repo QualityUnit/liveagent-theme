@@ -176,31 +176,32 @@ class Trial_Signup {
 		);
 
 		self::$localized_text = array(
-			'invalid'                   => array(
+			'invalid'                       => array(
 				'name'    => __( 'Field invalid', 'qu_signup' ),
 				'email'   => __( 'Email invalid', 'qu_signup' ),
 				'domain'  => __( 'Domain can not contain http, www or capital letters (A-Z)', 'qu_signup' ),
 				'code'    => __( 'Invalid code.', 'qu_signup' ),
 				'region'  => __( 'Select datacenter region.', 'qu_signup' ),
 				'captcha' => __( 'Verify captcha.', 'qu_signup' ),
-			),
-			'textEmpty'                 => __( "Field can't be empty", 'qu_signup' ),
-			'textTooShort'              => __( 'The input must be at least 3 characters long.', 'qu_signup' ),
-			'textFailedDomain'          => __( 'Failed to validate domain', 'qu_signup' ),
-			'textValidating'            => __( 'Validating...', 'qu_signup' ),
-			'textFailedRetrieve'        => __( 'Failed to retrieve valid progress info.', 'qu_signup' ),
-			'textGoToApp'               => __( 'Go to your App', 'qu_signup' ),
-			'textGoToLiveAgent'         => __( 'Go to LiveAgent', 'qu_signup' ),
-			'textLogInEmail'            => __( 'Log in via email', 'qu_signup' ),
-			'textProgressInstalling'    => __( 'Building Your LiveAgent', 'qu_signup' ),
-			'textProgressLaunching'     => __( 'Halfway there', 'qu_signup' ),
-			'textProgressRedirecting'   => __( 'Almost done, just a moment', 'qu_signup' ),
-			'textProgressFinalizing'    => __( 'Your LiveAgent is ready to use', 'qu_signup' ),
-			'textProgressLoginViaEmail' => __( 'To log in, use the link we sent to your email', 'qu_signup' ),
-			'textError'                 => __( 'Something went wrong.', 'qu_signup' ),
-			'textErrorCaptcha'          => __( 'Cannot load captcha', 'qu_signup' ),
+			), 
+			'textEmpty'                     => __( "Field can't be empty", 'qu_signup' ),
+			'textTooShort'                  => __( 'The input must be at least 3 characters long.', 'qu_signup' ),
+			'textFailedDomain'              => __( 'Failed to validate domain', 'qu_signup' ),
+			'textValidating'                => __( 'Validating...', 'qu_signup' ),
+			'textFailedRetrieve'            => __( 'Failed to retrieve valid progress info.', 'qu_signup' ),
+			'textGoToApp'                   => __( 'Go to your App', 'qu_signup' ),
+			'textGoToLiveAgent'             => __( 'Go to LiveAgent', 'qu_signup' ),
+			'textLogInEmail'                => __( 'Log in via email', 'qu_signup' ),
+			'textProgressInstalling'        => __( 'Building Your LiveAgent', 'qu_signup' ),
+			'textProgressLaunching'         => __( 'Halfway there', 'qu_signup' ),
+			'textProgressRedirecting'       => __( 'Almost done, just a moment', 'qu_signup' ),
+			'textProgressFinalizing'        => __( 'Your LiveAgent is ready to use', 'qu_signup' ),
+			'textProgressLoginViaEmail'     => __( 'To log in, use the link we sent to your email', 'qu_signup' ),
+			'textProgressAsyncInstallation' => __( "Setup is in progress, you'll get an email after completion.", 'qu_signup' ),
+			'textError'                     => __( 'Something went wrong.', 'qu_signup' ),
+			'textErrorCaptcha'              => __( 'Cannot load captcha', 'qu_signup' ),
 		);
-
+		
 		if ( has_filter( 'wpml_current_language' ) ) {
 			$current_lang = apply_filters( 'wpml_current_language', null );
 			if ( $current_lang ) {  

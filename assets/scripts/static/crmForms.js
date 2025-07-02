@@ -389,6 +389,7 @@ class CrmFormHandler {
 					account_id: result.account_id,
 					subdomain: requestData.subdomain,
 					language: requestData.language,
+					async: result.async,
 					...( this.planType !== undefined && { plan_type: this.planType } ),
 					...( isRedeem && { is_redeem: true } ),
 				};
