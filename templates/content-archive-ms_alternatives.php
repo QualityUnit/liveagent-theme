@@ -75,12 +75,12 @@
 													<div class="pricing__tags">
 														<div class="pricing__tags__label">
 														<?php
-														_e( '30 days free trial', 'alternatives' );
+														_e( '30-day free trial', 'alternatives' );
 														?>
 														</div>
 														<div class="pricing__tags__label">
 														<?php
-														_e( 'No Credit Card required', 'alternatives' );
+														_e( 'No credit card required', 'alternatives' );
 														?>
 														</div>
 														<div class="pricing__tags__label"><?php _e( 'and many more', 'alternatives' ); ?> </div>

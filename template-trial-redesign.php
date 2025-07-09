@@ -44,7 +44,7 @@
 					<div class="Signup__form__labels__label">
 						<?php _e( '30-day free trial', 'ms' ); ?>&nbsp;
 					</div>
-					<div class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></div>
+					<div class="Signup__form__labels__label"><?php _e( 'No credit card required', 'ms' ); ?></div>
 				</div>
 
 				<?= do_shortcode( '[signupform]' ); ?>

@@ -13,7 +13,7 @@ function signup_form( $atts ) {
 			'title'    => __( 'Try it for free', 'ms' ),
 			'label1'   => __( 'Start a <strong>30-day trial</strong>, <span class="c-saturated-green">no credit card required</span>', 'ms' ),
 			'tooltip1' => __( 'Free trial for 30 days', 'ms' ),
-			'label2'   => __( 'No Credit Card required', 'ms' ),
+			'label2'   => __( 'No credit card required', 'ms' ),
 			'button'   => __( 'Create account for FREE', 'ms' ),
 		),
 		$atts,
