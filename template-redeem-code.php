@@ -32,7 +32,7 @@ set_source( 'redeem-code', 'pages/TrialRedesign', 'css' );
 				<h1 class="Trial__main__title"><?php _e( 'LiveAgent registration <br />with <span class="highlight-gradient">a redeem code</span>', 'ms' ); ?></h1>
 				<p class="Trial__main__text"><?php _e( 'Finish your LiveAgent registration with your redeem code in the form below and get access to our extensive set of tools and features. Start providing superb customer service with LiveAgent today!', 'ms' ); ?></p>
 				<div class="Signup__form__labels Trial__labels">
-					<div class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></div>
+					<div class="Signup__form__labels__label"><?php _e( 'No credit card required', 'ms' ); ?></div>
 				</div>
 
 				<?= do_shortcode( '[signupform-redeemcode]' ); ?>

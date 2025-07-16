@@ -13,7 +13,7 @@ function ms_request_for_proposal_form( $atts ) {
 			'email_in_description' => __( 'andy@liveagent.com.', 'ms' ),
 			'label1'               => __( 'Customer service since 2004', 'ms' ),
 			'label2'               => __( 'More than 20 000 clients', 'ms' ),
-			'footer_btn_one_text'  => __( 'Start free trial', 'ms' ),
+			'footer_btn_one_text'  => __( 'Start a free trial', 'ms' ),
 			'footer_btn_one_url'   => __( '/trial/', 'ms' ),
 			'footer_btn_two_text'  => __( 'Request demo', 'ms' ),
 			'footer_btn_two_url'   => __( '/demo/', 'ms' ),

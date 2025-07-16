@@ -40,8 +40,8 @@ function ms_signup_sidebar( $atts ) {
 
 	// Default texts based on form_type
 	if ( 'Trial' === $atts['form_type'] ) {
-		$atts['title']    = __( 'Start Free Trial', 'ms' );
-		$atts['subtitle'] = __( '30 days free trial', 'ms' );
+		$atts['title']    = __( 'Start a Free Trial', 'ms' );
+		$atts['subtitle'] = __( '30-day free trial', 'ms' );
 		$atts['button']   = __( 'Create account for FREE', 'ms' );
 	} elseif ( 'FreeTrial' === $atts['form_type'] ) {
 		$atts['title']    = __( 'Try it for free', 'ms' );

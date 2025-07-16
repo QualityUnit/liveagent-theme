@@ -31,7 +31,7 @@
 
 			<div class="Trial__main__inner">
 				<h1 class="Trial__main__title"><?php _e( 'Start your <span class="highlight-gradient">free trial</span> today', 'ms' ); ?></h1>
-				<p class="Trial__main__text"><?php _e( 'Experience working with LiveAgent for free with our 30 days free trial. Enjoy a helpdesk platform with all advanced features and capabilities for free without any strings attached.', 'ms' ); ?></p>
+				<p class="Trial__main__text"><?php _e( 'Experience working with LiveAgent for free with our 30-day free trial. Enjoy a helpdesk platform with all advanced features and capabilities for free without any strings attached.', 'ms' ); ?></p>
 				<div class="Signup__form__labels Trial__labels">
 					<div class="Signup__form__labels__label limited">
 						<?php _e( 'Limited pricing offer', 'ms' ); ?>
@@ -42,9 +42,9 @@
 						</div>
 					</div>
 					<div class="Signup__form__labels__label">
-						<?php _e( '30 days free trial', 'ms' ); ?>&nbsp;
+						<?php _e( '30-day free trial', 'ms' ); ?>&nbsp;
 					</div>
-					<div class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></div>
+					<div class="Signup__form__labels__label"><?php _e( 'No credit card required', 'ms' ); ?></div>
 				</div>
 
 				<?= do_shortcode( '[signupform]' ); ?>
