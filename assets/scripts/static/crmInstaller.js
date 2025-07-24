@@ -447,73 +447,33 @@ class CrmInstaller {
 		}
 	};
 
-	// Google pixel tracker
-	handleGoogleTracker = () => {
+	// Google, Capterra, Reddit trackers as HTML (robust fallback)
+	insertHtmlTrackers = () => {
+		let success = true;
 		try {
-			document.body.insertAdjacentHTML( 'beforeend',
-				"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' />"
-			);
-			return true;
+			document.body.insertAdjacentHTML( 'beforeend', "<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' />" );
+			document.body.insertAdjacentHTML( 'beforeend', '<img src=\"https://ct.capterra.com/capterra_tracker.gif?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b\" />' );
+			document.body.insertAdjacentHTML( 'beforeend', '<script>!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt("init","t2_an9rcu5x", {"optOut":false,"useDecimalCurrencyValues":true});rdt("track", "PageVisit");<\/script>' );
 		} catch ( e ) {
-			return false;
+			// eslint-disable-next-line no-console
+			console.warn( '[TRACKING] HTML trackers insert failed', e );
+			success = false;
 		}
+		return success;
 	};
 
-	// Capterra tracker
-	handleCapterraTracker = () => {
-		try {
-			document.body.insertAdjacentHTML( 'beforeend',
-				'<img src="https://ct.capterra.com/capterra_tracker.gif?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b" />'
-			);
-			return true;
-		} catch ( e ) {
-			return false;
-		}
-	};
-
-	// Reddit tracker
-	handleRedditTracker = () => {
-		try {
-			if ( ! window.rdt ) {
-				window.rdt = function() {
-					if ( window.rdt.sendEvent ) {
-						window.rdt.sendEvent.apply( window.rdt, arguments );
-					} else {
-						window.rdt.callQueue = window.rdt.callQueue || [];
-						window.rdt.callQueue.push( arguments );
-					}
-				};
-				window.rdt.callQueue = [];
-
-				const t = document.createElement( 'script' );
-				t.src = 'https://www.redditstatic.com/ads/pixel.js';
-				t.async = true;
-				const s = document.getElementsByTagName( 'script' )[ 0 ];
-				s.parentNode.insertBefore( t, s );
-			}
-
-			window.rdt( 'init', 't2_an9rcu5x' );
-			window.rdt( 'track', 'PageVisit' );
-			return true;
-		} catch ( e ) {
-			return false;
-		}
-	};
-
-	// LinkedIn tracker
+	// LinkedIn tracker (JS)
 	handleLinkedInTracker = () => {
 		try {
 			window._linkedin_partner_id = '8316681';
 			window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
 			window._linkedin_data_partner_ids.push( window._linkedin_partner_id );
-
 			if ( ! window.lintrk ) {
 				window.lintrk = function( a, b ) {
 					window.lintrk.q = window.lintrk.q || [];
 					window.lintrk.q.push( [ a, b ] );
 				};
 			}
-
 			const s = document.getElementsByTagName( 'script' )[ 0 ];
 			const b = document.createElement( 'script' );
 			b.type = 'text/javascript';
@@ -522,29 +482,36 @@ class CrmInstaller {
 			s.parentNode.insertBefore( b, s );
 			return true;
 		} catch ( e ) {
+			// eslint-disable-next-line no-console
+			console.warn( 'Tracking script failed:', 'LinkedIn', e );
 			return false;
 		}
 	};
 
-	// Facebook tracker
+	// Facebook tracker (JS or HTML fallback)
 	handleFacebookTracker = () => {
 		if ( typeof window.fbq !== 'undefined' ) {
 			try {
 				window.fbq( 'track', 'StartTrial' );
 				return true;
 			} catch ( e ) {
+				// fallback to HTML
+				document.body.insertAdjacentHTML( 'beforeend', "<script>try{ fbq('track', 'StartTrial' ); } catch ( e ) { console.warn( 'Tracking script failed:', 'fbq' ); }</script>" );
+				// eslint-disable-next-line no-console
+				console.warn( 'Tracking script failed:', 'Facebook', e );
 				return false;
 			}
+		} else {
+			document.body.insertAdjacentHTML( 'beforeend', "<script>try{ fbq('track', 'StartTrial' ); } catch ( e ) { console.warn( 'Tracking script failed:', 'fbq' ); }</script>" );
+			// eslint-disable-next-line no-console
+			console.warn( 'Tracking script failed:', 'Facebook', 'fbq not defined' );
+			return false;
 		}
-		return false;
 	};
 
 	// Main tracking method that executes all individual trackers
 	handleTrackersAction = () => {
-		// Run all trackers individually
-		this.handleGoogleTracker();
-		this.handleCapterraTracker();
-		this.handleRedditTracker();
+		this.insertHtmlTrackers();
 		this.handleLinkedInTracker();
 		this.handleFacebookTracker();
 	};
