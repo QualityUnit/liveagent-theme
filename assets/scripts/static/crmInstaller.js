@@ -31,14 +31,7 @@ class CrmInstaller {
 	}
 
 	init = () => {
-		try {
-			const signupResponse = getCookie( 'trial_signup_response' );
-			this.signupData = JSON.parse( decodeURIComponent( signupResponse ) );
-		} catch ( error ) {
-			// eslint-disable-next-line no-console
-			console.error( error );
-		}
-
+		this.readSignUpCookie();
 		if ( ! this.signupData ) {
 			window.location.href = quCrmData.trialUrl;
 			return;
@@ -53,6 +46,12 @@ class CrmInstaller {
 		this.fields.introductionVideos = this.fields.main.querySelector( '.Introduction__videos' );
 		this.fields.progressDoneOverlay = this.fields.main.querySelector( '.progress__done__overlay' );
 		this.fields.redirectButtonPanel = this.fields.main.querySelector( '[data-id="redirectButtonPanel"]' );
+		this.fields.asyncInstallationButton = this.fields.main.querySelector( '.async-installation' );
+
+		if ( this.signupData.async === true ) {
+			this.handleAsyncInstallation();
+			return;
+		}
 
 		this.showHiddenParts();
 		this.handleInstallation();
@@ -97,9 +96,7 @@ class CrmInstaller {
 				this.setProgress( 100 );
 				this.handleFinishActions();
 				this.handleFinishOverlay();
-
-				// remove cookie after installation, installation process is available even the user refresh page or come back
-				setCookie( 'trial_signup_response', '', -1 );
+				this.removeSignUpCookie();
 
 				if ( data.login_url ) {
 					this.createGoToAppForm( data );
@@ -114,6 +111,13 @@ class CrmInstaller {
 		if ( ! response.success ) {
 			this.setProgressText( response.message );
 		}
+	};
+
+	handleAsyncInstallation = () => {
+		this.showAsyncInstallationButton();
+		this.setProgressText( this.localized.textProgressAsyncInstallation );
+		this.handleFinishActions();
+		this.removeSignUpCookie();
 	};
 
 	checkInstallationProgress = async () => {
@@ -252,6 +256,11 @@ class CrmInstaller {
 		} );
 	};
 
+	showAsyncInstallationButton = () => {
+		this.fields.asyncInstallationButton.style.display = 'block';
+		this.fields.progressPercentage.style.display = 'none';
+	};
+
 	runLoginExpirationCounter = ( goToButton ) => {
 		const counterElm = goToButton.querySelector( '.FinalButton__counter__number' );
 		const textElm = goToButton.querySelector( '.FinalButton__text' );
@@ -383,7 +392,24 @@ class CrmInstaller {
 
 	showHiddenParts = () => {
 		// by default, some parts like percentage and progress indicator are invisible in case the installation is processed for user with corrupted javascript
-		this.fields.progressHeader.querySelectorAll( '.invisible' ).forEach( ( elm ) => elm.classList.remove( 'invisible' ) );
+		this.fields.progressHeader.querySelectorAll( '.progress-invisible' ).forEach( ( elm ) => elm.classList.remove( 'progress-invisible' ) );
+	};
+
+	readSignUpCookie = () => {
+		try {
+			const cookieData = getCookie( 'trial_signup_response' );
+			if ( cookieData ) {
+				this.signupData = JSON.parse( decodeURIComponent( cookieData ) );
+			}
+		} catch ( error ) {
+			// eslint-disable-next-line no-console
+			console.error( error );
+		}
+	};
+
+	removeSignUpCookie = () => {
+		// remove cookie after installation, installation process is available even the user refresh page or come back
+		setCookie( 'trial_signup_response', '', -1 );
 	};
 
 	handlePapAction = () => {
