@@ -199,6 +199,45 @@
 				gap: 1em;
 				margin-bottom: 0.75em;
 
+				&.async-mode {
+					display: flex;
+					flex-direction: column;
+					text-align: center;
+					gap: 1.5em;
+
+					.BuildingApp__progress__header__logo {
+						width: 3.5em;
+					}
+
+					.BuildingApp__progress__header__title {
+						text-align: center;
+						font-size: 1.75rem;
+						margin-bottom: 0;
+					}
+
+					.async-subtitle {
+						text-align: center;
+						font-size: 1rem;
+						margin: 0;
+						opacity: 0.8;
+					}
+
+					.BuildingApp__progress__header__action__wrapper {
+						width: 100%;
+
+						.FinalButton {
+							width: fit-content;
+							display: inline-block;
+							margin: 0 auto;
+
+							&::after {
+								content: '';
+								display: none;
+							}
+						}
+					}
+				}
+
 				~.BuildingApp__progress__wrap__text {
 					padding-top: 0;
 				}
