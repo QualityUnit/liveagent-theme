@@ -47,6 +47,7 @@ class CrmInstaller {
 		this.fields.progressDoneOverlay = this.fields.main.querySelector( '.progress__done__overlay' );
 		this.fields.redirectButtonPanel = this.fields.main.querySelector( '[data-id="redirectButtonPanel"]' );
 		this.fields.asyncInstallationButton = this.fields.main.querySelector( '.async-installation' );
+		this.fields.progressWrapText = this.fields.main.querySelector( '[data-id="progressWrapText"]' );
 
 		if ( this.signupData.async === true ) {
 			this.handleAsyncInstallation();
@@ -115,9 +116,34 @@ class CrmInstaller {
 
 	handleAsyncInstallation = () => {
 		this.showAsyncInstallationButton();
-		this.setProgressText( this.localized.textProgressAsyncInstallation );
+		this.setAsyncHeading();
 		this.handleFinishActions();
 		this.removeSignUpCookie();
+	};
+
+	setAsyncHeading = () => {
+		if ( this.fields.progressHeader ) {
+			const titleElement = this.fields.progressHeader.querySelector( '.BuildingApp__progress__header__title' );
+			if ( titleElement ) {
+				// Set heading
+				if ( this.localized.textAsyncHeading ) {
+					titleElement.textContent = this.localized.textAsyncHeading;
+				}
+				// Add subtitle with async text
+				if ( this.localized.textProgressAsyncInstallation ) {
+					const subtitle = document.createElement( 'p' );
+					subtitle.className = 'async-subtitle';
+					subtitle.textContent = this.localized.textProgressAsyncInstallation;
+					titleElement.insertAdjacentElement( 'afterend', subtitle );
+				}
+			}
+			// Change layout to flex column for async
+			this.fields.progressHeader.classList.add( 'async-mode' );
+		}
+		// Hide the default wrap text for async
+		if ( this.fields.progressWrapText ) {
+			this.fields.progressWrapText.style.display = 'none';
+		}
 	};
 
 	checkInstallationProgress = async () => {
@@ -257,8 +283,12 @@ class CrmInstaller {
 	};
 
 	showAsyncInstallationButton = () => {
-		this.fields.asyncInstallationButton.style.display = 'block';
-		this.fields.progressPercentage.style.display = 'none';
+		if ( this.fields.asyncInstallationButton ) {
+			this.fields.asyncInstallationButton.style.display = 'block';
+		}
+		if ( this.fields.progressPercentage ) {
+			this.fields.progressPercentage.style.display = 'none';
+		}
 	};
 
 	runLoginExpirationCounter = ( goToButton ) => {

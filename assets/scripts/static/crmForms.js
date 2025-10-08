@@ -380,6 +380,7 @@ class CrmFormHandler {
 
 			if ( response.ok ) {
 				const result = await response.json();
+
 				// data used by installer, tracking scripts etc...
 				const cookieData = {
 					id: result.id,
@@ -389,7 +390,7 @@ class CrmFormHandler {
 					account_id: result.account_id,
 					subdomain: requestData.subdomain,
 					language: requestData.language,
-					async: result.async,
+					async: result.async !== undefined ? result.async : true,
 					...( this.planType !== undefined && { plan_type: this.planType } ),
 					...( isRedeem && { is_redeem: true } ),
 				};

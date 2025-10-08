@@ -198,7 +198,8 @@ class Trial_Signup {
 			'textProgressRedirecting'       => __( 'Almost done, just a moment', 'qu_signup' ),
 			'textProgressFinalizing'        => __( 'Your LiveAgent is ready to use', 'qu_signup' ),
 			'textProgressLoginViaEmail'     => __( 'To log in, use the link we sent to your email', 'qu_signup' ),
-			'textProgressAsyncInstallation' => __( "Setup is in progress, you'll get an email after completion...", 'qu_signup' ),
+			'textProgressAsyncInstallation' => __( "We're setting up your LiveAgent account! Check your email inbox in a few minutes for login credentials.", 'qu_signup' ),
+			'textAsyncHeading'              => __( 'Thank you for signing up!', 'qu_signup' ),
 			'textError'                     => __( 'Something went wrong.', 'qu_signup' ),
 			'textErrorCaptcha'              => __( 'Cannot load captcha', 'qu_signup' ),
 		);

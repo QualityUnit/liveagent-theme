@@ -28,7 +28,7 @@ Trial_Signup::include_crm_installer();
 						</div>
 					</div>
 
-					<p class="BuildingApp__progress__wrap__text"><?php _e( 'We appreciate your recent sign up for a LiveAgent. <br>A message will be sent to your email address containing login details, right after your account is installed.', 'ms' ); ?></p>
+					<p class="BuildingApp__progress__wrap__text" data-id="progressWrapText"><?php _e( 'We appreciate your recent sign up for a LiveAgent. <br>A message will be sent to your email address containing login details, right after your account is installed.', 'ms' ); ?></p>
 				</div>
 
 			<?= do_shortcode( '[laIntroductionVideos]' ); ?>
