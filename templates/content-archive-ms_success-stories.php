@@ -25,6 +25,7 @@
 			</div>
 
 			<?php
+			$regions = array();
 			$query_success_stories_posts = new WP_Query(
 				array(
 					'post_type'      => 'ms_success-stories',
@@ -37,11 +38,15 @@
 					$regions_meta = get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories-region', true );
 
 				if ( $regions_meta ) {
-					$regions = $regions_meta;
+					if ( is_array( $regions_meta ) ) {
+						$regions[] = $regions_meta;
+					} else {
+						$regions[] = array( $regions_meta );
+					}
 				}
 			endwhile;
 			wp_reset_postdata();
-			if ( isset( $regions ) ) {
+			if ( ! empty( $regions ) ) {
 				$regions = array_merge( ...$regions );
 			}
 			?>
