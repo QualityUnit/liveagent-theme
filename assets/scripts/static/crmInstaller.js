@@ -654,8 +654,12 @@ class CrmInstaller {
 					eventData.gdmcid = capterraGdmId;
 					// Get other UTM params from signup data if available
 					if ( this.signupData ) {
-						if ( this.signupData.utm_source ) eventData.utm_source = this.signupData.utm_source;
-						if ( this.signupData.utm_campaign ) eventData.utm_campaign = this.signupData.utm_campaign;
+						if ( this.signupData.utm_source ) {
+							eventData.utm_source = this.signupData.utm_source;
+						}
+						if ( this.signupData.utm_campaign ) {
+							eventData.utm_campaign = this.signupData.utm_campaign;
+						}
 					}
 				}
 				window.ct.sendEvent( eventData );
