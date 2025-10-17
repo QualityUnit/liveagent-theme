@@ -395,6 +395,27 @@ class CrmFormHandler {
 					...( isRedeem && { is_redeem: true } ),
 				};
 
+				// Handle Capterra tracking data
+				// Only create _gdmId cookie from sessionStorage if Capterra hasn't already created one
+				const capterraGdmId = getCookie( '_gdmId' );
+				if ( ! capterraGdmId ) {
+					// No _gdmId cookie exists, fallback to sessionStorage
+					const sessionGdmcid = sessionStorage.getItem( 'capterra_gdmcid' );
+					if ( sessionGdmcid ) {
+						setCookie( '_gdmId', sessionGdmcid, 30 ); // Create fallback _gdmId cookie
+					}
+				}
+				// If _gdmId cookie already exists (cookies were accepted), use that one - no action needed
+
+				// Store other UTM params in trial_signup_response for tracking purposes
+				const otherCapterraParams = [ 'utm_source', 'utm_campaign', 'utm_medium', 'a_aid' ];
+				otherCapterraParams.forEach( ( param ) => {
+					const value = sessionStorage.getItem( `capterra_${ param }` );
+					if ( value ) {
+						cookieData[ param ] = value;
+					}
+				} );
+
 				setCookie( 'trial_signup_response', JSON.stringify( cookieData ) );
 				window.location.href = quCrmData.thankYouUrl;
 				return;

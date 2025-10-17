@@ -32,6 +32,14 @@ class CrmInstaller {
 
 	init = () => {
 		this.readSignUpCookie();
+
+		// Handle async mode without cookie - run tracking immediately
+		if ( ! this.signupData && this.isAsyncMode() ) {
+			this.handleAsyncWithoutCookie();
+			return;
+		}
+
+		// Sync mode requires cookie - redirect if missing
 		if ( ! this.signupData ) {
 			window.location.href = quCrmData.trialUrl;
 			return;
@@ -114,10 +122,48 @@ class CrmInstaller {
 		}
 	};
 
+	isAsyncMode = () => {
+		// Async installations always have ver=installation URL parameter
+		const urlParams = new URLSearchParams( window.location.search );
+		return urlParams.get( 'ver' ) === 'installation';
+	};
+
+	handleAsyncWithoutCookie = () => {
+		// For async mode without cookie, run essential tracking only
+		this.handleTrackersAction(); // Includes Capterra conversion tracking
+		// Basic gtag tracking without user data
+		if ( typeof gtag !== 'undefined' ) {
+			try {
+				gtag( 'event', 'Trial_sign_up', { send_to: 'AW-966671101/bfzFCPmy1eMZEP31-MwD' } );
+			} catch ( e ) {
+				// eslint-disable-next-line no-console
+				console.warn( 'Tracking script failed:', 'gtag' );
+			}
+		}
+
+		// UET tracking
+		try {
+			window.uetq = window.uetq || [];
+			window.uetq.push( 'event', 'SignUp', {
+				event_category: 'Click',
+				event_label: 'SignUp',
+				event_value: '1',
+			} );
+		} catch ( e ) {
+			// eslint-disable-next-line no-console
+			console.warn( 'Tracking script failed:', 'uetq' );
+		}
+	};
+
 	handleAsyncInstallation = () => {
 		this.showAsyncInstallationButton();
 		this.setAsyncHeading();
+
+		// Execute tracking immediately before removing cookie
+		this.handleStartupActions(); // ← Capterra tracking
 		this.handleFinishActions();
+
+		// Remove cookie immediately after tracking calls
 		this.removeSignUpCookie();
 	};
 
@@ -585,7 +631,50 @@ class CrmInstaller {
 		}
 	};
 
-	// Load Capterra script first
+	// Load Capterra script and send conversion event
+	handleCapterraTracker = async () => {
+		try {
+			// Prevent duplicate conversions on refresh/back
+			if ( sessionStorage.getItem( 'capterra_conversion_sent' ) === 'true' ) {
+				return true;
+			}
+
+			// Load Capterra script first
+			const loaded = await this.loadCapterraScript();
+			if ( loaded && window.ct && window.ct.sendEvent ) {
+				// Prepare event data with UTM parameters from cookie
+				const eventData = {
+					installationId: '44996ef8-76ee-4173-814c-87d98a8ac925',
+				};
+
+				// Add UTM parameters from cookie if available
+				const capterraGdmId = getCookie( '_gdmId' );
+				if ( capterraGdmId ) {
+					eventData.clickId = capterraGdmId;
+					eventData.gdmcid = capterraGdmId;
+					// Get other UTM params from signup data if available
+					if ( this.signupData ) {
+						if ( this.signupData.utm_source ) eventData.utm_source = this.signupData.utm_source;
+						if ( this.signupData.utm_campaign ) eventData.utm_campaign = this.signupData.utm_campaign;
+					}
+				}
+				window.ct.sendEvent( eventData );
+
+				// Mark as sent to prevent duplicates
+				sessionStorage.setItem( 'capterra_conversion_sent', 'true' );
+				return true;
+			}
+			// eslint-disable-next-line no-console
+			console.warn( 'Capterra script loading failed' );
+			return false;
+		} catch ( e ) {
+			// eslint-disable-next-line no-console
+			console.warn( 'Tracking script failed:', 'Capterra', e );
+			return false;
+		}
+	};
+
+	// Load Capterra script
 	loadCapterraScript = () => {
 		return new Promise( ( resolve ) => {
 			if ( window.ct ) {
@@ -597,7 +686,7 @@ class CrmInstaller {
 				( function( l, o, w, n, g ) {
 					window._gz = function( e, t ) {
 						window._ct = { vid: e, vkey: t, uc: true, hasDoNotTrackIPs: false };
-						window.ct;
+						return window.ct;
 					};
 					n = l.createElement( o );
 					g = l.getElementsByTagName( o )[ 0 ];
@@ -618,26 +707,6 @@ class CrmInstaller {
 				resolve( false );
 			}
 		} );
-	};
-
-	// Capterra conversion tracker (JS)
-	handleCapterraTracker = async () => {
-		try {
-			const loaded = await this.loadCapterraScript();
-			if ( loaded && window.ct && window.ct.sendEvent ) {
-				window.ct.sendEvent( {
-					installationId: '44996ef8-76ee-4173-814c-87d98a8ac925',
-				} );
-				return true;
-			}
-			// eslint-disable-next-line no-console
-			console.warn( 'Capterra tracker not loaded' );
-			return false;
-		} catch ( e ) {
-			// eslint-disable-next-line no-console
-			console.warn( 'Tracking script failed:', 'Capterra', e );
-			return false;
-		}
 	};
 
 	// Main tracking method that executes all individual trackers
