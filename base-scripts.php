@@ -1,4 +1,16 @@
 <script>
+	// Preserve UTM parameters in session storage (GDPR-compliant)
+	(() => {
+		const urlParams = new URLSearchParams(window.location.search);
+		const capterra_params = ['gdmcid', 'utm_source', 'utm_campaign', 'utm_medium', 'a_aid'];
+		
+		capterra_params.forEach(param => {
+			const value = urlParams.get(param);
+			if (value) {
+				sessionStorage.setItem(`capterra_${param}`, value);
+			}
+		});
+	})();
 
 	const getCookieFrontend = ( name ) => {
 		const nameEq = `${name}=`
@@ -20,7 +32,8 @@
 	const acceptButton = document.querySelector( ".Medovnicky__button--yes" );
 	const trialButton = document.querySelector( ".createTrialButton" );
 
-	acceptButton.addEventListener( "click", () => {
+	if ( acceptButton !== null ) {
+		acceptButton.addEventListener( "click", () => {
 
 		const demobarNow = document.querySelector('#demobar');
 
@@ -42,7 +55,8 @@
 			offlineContactForm();
 		}
 		<?php } ?>
-	});
+		});
+	}
 
 	if ( trialButton !== null ) {
 		trialButton.addEventListener( "click", () => {
@@ -446,5 +460,14 @@ document.addEventListener( 'DOMContentLoaded', ( e ) => {
 			"https://tr.capterra.com/static/wp.js");
 			window._gz('fe449882-d667-41be-9d89-9653a963c094', 
 			'ca1d7fde1191b65d701f8444dee12e71');
+	}
+
+	// Auto-load Capterra if cookies are already accepted
+	if ( ! mobile.matches && getCookieFrontend( "cookieLaw" ) ) {
+		loadCapterra()
+	}
+
+	if ( mobile.matches && getCookieFrontend( "cookieLaw" ) ) {
+		loadCapterra()
 	}
 </script>
