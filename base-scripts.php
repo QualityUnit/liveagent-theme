@@ -35,11 +35,7 @@
 		consentGranted();
 		grafana();
 		postAffiliate();
-		
-		// Grant consent for Capterra tracking
-		if (window.ct && window.ct.grantConsent) {
-			window.ct.grantConsent();
-		}
+		loadCapterra();
 
 		<?php if ( ! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) ) ) { ?>
 		if ( typeof offlineContactForm == 'function' ) {
@@ -57,11 +53,7 @@
 				consentGranted();
 				grafana();
 				postAffiliate();
-				
-				// Grant consent for Capterra tracking
-				if (window.ct && window.ct.grantConsent) {
-					window.ct.grantConsent();
-				}
+				loadCapterra();
 			}
 		});
 	}
@@ -202,10 +194,12 @@
 			'functionality_storage': 'granted', // Functional cookies
 		})
 		
-		// Grant consent for Capterra tracking
-		if (window.ct && window.ct.grantConsent) {
-			window.ct.grantConsent();
-		}
+		// Grant consent for Capterra tracking after script is loaded
+		setTimeout(() => {
+			if (window.ct && window.ct.grantConsent) {
+				window.ct.grantConsent();
+			}
+		}, 100);
 	}
 </script>
 
@@ -441,14 +435,16 @@ document.addEventListener( 'DOMContentLoaded', ( e ) => {
 
 <!-- Capterra Tracking -->
 <script type="text/javascript">
-	(function(l,o,w,n,g){
-		window._gz=function(e,t){window._ct={vid:e,vkey:t,
-		uc:true,hasDoNotTrackIPs:false};window.ct};
-		n=l.createElement(o);g=l.getElementsByTagName(o)[0];
-		n["async"]=1;
-		n.src=w;g.parentNode.insertBefore(n,g)})(
-		document,"script",
-		"https://tr.capterra.com/static/wp.js");
-		window._gz('fe449882-d667-41be-9d89-9653a963c094', 
-		'ca1d7fde1191b65d701f8444dee12e71');
+	function loadCapterra() {
+		(function(l,o,w,n,g){
+			window._gz=function(e,t){window._ct={vid:e,vkey:t,
+			uc:true,hasDoNotTrackIPs:false};window.ct};
+			n=l.createElement(o);g=l.getElementsByTagName(o)[0];
+			n["async"]=1;
+			n.src=w;g.parentNode.insertBefore(n,g)})(
+			document,"script",
+			"https://tr.capterra.com/static/wp.js");
+			window._gz('fe449882-d667-41be-9d89-9653a963c094', 
+			'ca1d7fde1191b65d701f8444dee12e71');
+	}
 </script>
