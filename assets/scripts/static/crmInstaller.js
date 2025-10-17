@@ -585,10 +585,46 @@ class CrmInstaller {
 		}
 	};
 
+	// Load Capterra script first
+	loadCapterraScript = () => {
+		return new Promise( ( resolve ) => {
+			if ( window.ct ) {
+				resolve( true );
+				return;
+			}
+
+			try {
+				( function( l, o, w, n, g ) {
+					window._gz = function( e, t ) {
+						window._ct = { vid: e, vkey: t, uc: true, hasDoNotTrackIPs: false };
+						window.ct;
+					};
+					n = l.createElement( o );
+					g = l.getElementsByTagName( o )[ 0 ];
+					n.async = 1;
+					n.src = w;
+					n.onload = () => resolve( true );
+					n.onerror = () => resolve( false );
+					g.parentNode.insertBefore( n, g );
+				}(
+					document, 'script',
+					'https://tr.capterra.com/static/wp.js'
+				) );
+				window._gz( 'fe449882-d667-41be-9d89-9653a963c094',
+					'ca1d7fde1191b65d701f8444dee12e71' );
+			} catch ( e ) {
+				// eslint-disable-next-line no-console
+				console.warn( 'Capterra script loading failed:', e );
+				resolve( false );
+			}
+		} );
+	};
+
 	// Capterra conversion tracker (JS)
-	handleCapterraTracker = () => {
+	handleCapterraTracker = async () => {
 		try {
-			if ( window.ct && window.ct.sendEvent ) {
+			const loaded = await this.loadCapterraScript();
+			if ( loaded && window.ct && window.ct.sendEvent ) {
 				window.ct.sendEvent( {
 					installationId: '44996ef8-76ee-4173-814c-87d98a8ac925',
 				} );
