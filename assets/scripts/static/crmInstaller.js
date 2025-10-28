@@ -678,6 +678,31 @@ class CrmInstaller {
 		}
 	};
 
+	// Load Crozdesk script and track conversion
+	handleCrozdeskTracker = () => {
+		try {
+			// Prevent duplicate conversions
+			if ( sessionStorage.getItem( 'crozdesk_conversion_sent' ) === 'true' ) {
+				return true;
+			}
+
+			const cdx = document.createElement( 'script' );
+			cdx.type = 'text/javascript';
+			cdx.async = true;
+			cdx.src = 'https://trk.crozdesk.com/JJ2ye4YXFVAt3ozNznyx';
+			const s = document.getElementsByTagName( 'script' )[ 0 ];
+			s.parentNode.insertBefore( cdx, s );
+
+			// Mark as sent to prevent duplicates
+			sessionStorage.setItem( 'crozdesk_conversion_sent', 'true' );
+			return true;
+		} catch ( e ) {
+			// eslint-disable-next-line no-console
+			console.warn( 'Tracking script failed:', 'Crozdesk', e );
+			return false;
+		}
+	};
+
 	// Load Capterra script
 	loadCapterraScript = () => {
 		return new Promise( ( resolve ) => {
@@ -720,6 +745,7 @@ class CrmInstaller {
 		this.handleLinkedInTracker();
 		this.handleFacebookTracker();
 		this.handleCapterraTracker();
+		this.handleCrozdeskTracker();
 	};
 }
 
