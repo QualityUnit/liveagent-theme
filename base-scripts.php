@@ -3,7 +3,7 @@
 	(() => {
 		const urlParams = new URLSearchParams(window.location.search);
 		const capterra_params = ['gdmcid', 'utm_source', 'utm_campaign', 'utm_medium', 'a_aid'];
-		
+
 		capterra_params.forEach(param => {
 			const value = urlParams.get(param);
 			if (value) {
@@ -207,7 +207,7 @@
 			'analytics_storage': 'granted', // Google Analytics cookies
 			'functionality_storage': 'granted', // Functional cookies
 		})
-		
+
 		// Grant consent for Capterra tracking after script is loaded
 		setTimeout(() => {
 			if (window.ct && window.ct.grantConsent) {
@@ -411,17 +411,7 @@ document.addEventListener( 'DOMContentLoaded', ( e ) => {
 } );
 </script>
 
-<?php if ( is_page( 'trial' ) ) { ?>
-	<!--Start of LiveAgent integration script: CrozDesk Conversion Tracking-->
-	<script type='text/javascript'>
-		(function() {
-			var cdx = document.createElement("script");  cdx.type = "text/javascript";  cdx.async = true;
-			cdx.src = "https://trk.crozdesk.com/JJ2ye4YXFVAt3ozNznyx";
-			var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(cdx,s);
-		})();
-	</script>
-	<!--End of LiveAgent integration script-->
-<?php } ?>
+
 
 <script>
 	(function(d,t) {
@@ -458,7 +448,7 @@ document.addEventListener( 'DOMContentLoaded', ( e ) => {
 			n.src=w;g.parentNode.insertBefore(n,g)})(
 			document,"script",
 			"https://tr.capterra.com/static/wp.js");
-			window._gz('fe449882-d667-41be-9d89-9653a963c094', 
+			window._gz('fe449882-d667-41be-9d89-9653a963c094',
 			'ca1d7fde1191b65d701f8444dee12e71');
 	}
 
