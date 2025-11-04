@@ -49,7 +49,7 @@ function loadYouTubeModal( yt, target ) {
 		width: '100%',
 		height: '100%',
 		frameborder: '0',
-		allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen',
+		allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen',
 		referrerpolicy: 'strict-origin-when-cross-origin',
 	} );
 
