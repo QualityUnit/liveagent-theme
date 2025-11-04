@@ -45,11 +45,11 @@ function loadYouTubeModal( yt, target ) {
 	Object.assign( iframe, {
 		className: 'youtube__inmodal',
 		title: yt.getAttribute( 'title' ),
-		src: `https://www.youtube-nocookie.com/embed/${ videoID }?autoplay=1&playsinline=1&rel=0&mute=1`,
+		src: `https://www.youtube.com/embed/${ videoID }?autoplay=1&mute=1&rel=0`,
 		width: '100%',
 		height: '100%',
 		frameborder: '0',
-		allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen',
+		allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
 		referrerpolicy: 'strict-origin-when-cross-origin',
 	} );
 
