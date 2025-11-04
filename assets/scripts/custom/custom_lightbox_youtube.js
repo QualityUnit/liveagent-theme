@@ -45,11 +45,12 @@ function loadYouTubeModal( yt, target ) {
 	Object.assign( iframe, {
 		className: 'youtube__inmodal',
 		title: yt.getAttribute( 'title' ),
-		src: `https://www.youtube.com/embed/${ videoID }?feature=oembed&autoplay=1&playsinline=1&rel=0`,
+		src: `https://www.youtube.com/embed/${ videoID }?feature=oembed&autoplay=1&playsinline=1&rel=0&mute=1`,
 		width: '100%',
 		height: '100%',
 		frameborder: '0',
-		allow: 'accelerometer; mute; autoplay; gyroscope; fullscreen',
+		allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen',
+		referrerpolicy: 'strict-origin-when-cross-origin',
 	} );
 
 	target.insertAdjacentElement( 'beforeend', iframe );
