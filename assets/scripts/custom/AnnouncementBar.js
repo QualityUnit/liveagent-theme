@@ -1,5 +1,6 @@
 
 const announcementBarSliders = document.querySelectorAll( '.Announcement__bars__slider' );
+// eslint-disable-next-line no-unused-vars
 const announcementBars = document.querySelectorAll( '.Announcement__bars__slider .Announcement__bar' );
 const appContainer = document.getElementById( 'app' );
 const announcementClosed = sessionStorage.getItem( 'announcementClosed' );
