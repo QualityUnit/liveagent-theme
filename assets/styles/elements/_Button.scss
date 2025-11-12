@@ -348,6 +348,34 @@ button,
 		}
 	}
 
+	&.BlockCoupon__btn {
+
+		span {
+
+			&::before {
+			content: "";
+			display: unset;
+			width: unset;
+			height: unset;
+			margin-right: unset;
+			background-image: unset;
+			transition: unset;
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			width: 20px;
+			height: 20px;
+			margin-right: 0;
+			background-image: url(../../images/icon-copy.svg);
+			transition: opacity 0.3s;
+			filter: invert(1);
+		}
+		}
+
+	}
+
 	&:active,
 	&:focus,
 	&:hover {
@@ -359,6 +387,8 @@ button,
 			}
 		}
 	}
+
+
 }
 
 .Button--back {

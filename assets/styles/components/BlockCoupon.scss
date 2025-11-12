@@ -1,5 +1,4 @@
-/* stylelint-disable selector-class-pattern,
-scss/at-extend-no-missing-placeholder */
+/* stylelint-disable */
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
@@ -22,9 +21,12 @@ scss/at-extend-no-missing-placeholder */
 	color: $saturated-red;
 	border-radius: $border-radius-16;
 
-	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
-		padding: 1.5em 1em;
+	&.elementor-section[class] {
+
+				@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		padding: 1.5em 1em !important;
 		margin: 2em 16px !important;
+	}
 	}
 
 
@@ -35,7 +37,9 @@ scss/at-extend-no-missing-placeholder */
 	.elementor-column {
 		padding: 0 !important;
 		margin: 0;
+
 		.elementor-element  {
+
 			&.wrap-fit-content {
 				margin: 0;
 				padding: 5px 0;
@@ -48,6 +52,7 @@ scss/at-extend-no-missing-placeholder */
 						justify-content: center;
 				}
 			}
+
 			.elementor-widget-container {
 					justify-content: start;
 					align-items: start;
@@ -69,12 +74,13 @@ scss/at-extend-no-missing-placeholder */
 	.wrap-fit-content {
 				width: fit-content;
 				margin: 0;
+
 				.additional-content {
 					display: flex;
 					flex-wrap: nowrap;
 					padding: 5px 10px;
 					border-radius: 4px;
-					border: 1px solid var(--border-brand, #FDBA74);
+					border: 1px solid var(--border-brand, rgba(253, 186, 116, 0.8));
 
 					h2 {
 							color: $white;
@@ -140,10 +146,14 @@ scss/at-extend-no-missing-placeholder */
 
 					&.text-stroke-primary {
 
-						text-shadow: 0 0 9px var(--orange-300, #FDBA74);
-						-webkit-text-stroke-width: 2px;
-						-webkit-text-stroke-color: var(--border-brand, #FDBA74);
-						font-size: 40px;
+						filter:
+							drop-shadow(-1px -1px 0 rgba(253, 186, 116, 0.8))
+							drop-shadow(1px -1px 0 rgba(253, 186, 116, 0.8))
+							drop-shadow(-1px 1px 0 rgba(253, 186, 116, 0.8))
+							drop-shadow(1px 1px 0 rgba(253, 186, 116, 0.8))
+							drop-shadow(0 0 9px rgba(253, 186, 116, 0.5));
+
+						font-size: 42px;
 						font-style: normal;
 						font-weight: 700;
 						line-height: 40px; /* 100% */
@@ -162,6 +172,7 @@ scss/at-extend-no-missing-placeholder */
 				div {
 					margin: 0;
 					color: $white;
+
 							@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 								text-align: center;
 							}
@@ -256,7 +267,6 @@ scss/at-extend-no-missing-placeholder */
 			color: $white;
 			margin: 0;
 			padding: 0;
-			font-size: 16px;
 			font-size: 14px;
 
 			span {
@@ -270,22 +280,26 @@ scss/at-extend-no-missing-placeholder */
 		}
 
 		span::before {
-			display: none;
+			display: none !important;
+		}
+
+		span::after {
+			display: none !important;
 		}
 
 		svg {
 			width: 1.5em;
-			margin-right: 0em;
+			margin-right: 0;
 			fill: currentcolor;
 			transition: all 0.3s;
 		}
 
 		&:hover {
 
-			color: #FDBA74;
+			color: rgba(253, 186, 116, 0.8);
 
 			svg {
-				fill: #FDBA74;
+				fill: rgba(253, 186, 116, 0.8);
 			}
 		}
 	}
@@ -308,7 +322,6 @@ scss/at-extend-no-missing-placeholder */
 			justify-content: center;
 			padding: 0 $button-padding-normal;
 			font-size: $button-font-size-normal;
-			font-weight: $font-weight-semi;
 			background-color: rgba($white, 0.5);
 			color: $black;
 			font-weight: 400;
