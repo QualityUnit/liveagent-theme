@@ -12,52 +12,100 @@ scss/at-extend-no-missing-placeholder */
 	$gradient-3: #ff7b6c;
 
 	text-align: center;
-	min-height: em(500);
-	max-width: $breakpoint-desktop-hd;
+	max-width: 1140px;
 	margin-left: auto !important;
 	margin-right: auto !important;
-	padding-top: em(64);
-	padding-bottom: em(64);
-	background: linear-gradient(90deg, $gradient-1 2%, $gradient-2 50%, $gradient-3 98%) center center no-repeat;
+	padding: 0.5em 2em;
+	margin-top: 2em;
+	background: $black;
 	background-size: cover;
 	color: $saturated-red;
+	border-radius: $border-radius-16;
 
-	&--narrow {
-		max-height: var(--maxHeight);
-		padding-top: 1.5em !important;
-		padding-bottom: 1.5em !important;
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		padding: 1.5em 1em;
+		margin: 2em 16px !important;
+	}
 
-		&.is-expanded {
-			padding-top: 4.375em !important;
-			padding-bottom: 4.375em !important;
 
-			@media (max-width: $breakpoint-tablet-landscape - 1px) {
-				padding-top: 4.125em !important;
-				padding-bottom: 5.5em !important;
+	.elementor-container {
+		margin: 0;
+	}
+
+	.elementor-column {
+		padding: 0 !important;
+		margin: 0;
+		.elementor-element  {
+			&.wrap-fit-content {
+				margin: 0;
+				padding: 5px 0;
+				display: flex;
+				align-items: center;
+				margin-right: 0.5em;
+
+				@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+						width: 100%;
+						justify-content: center;
+				}
 			}
+			.elementor-widget-container {
+					justify-content: start;
+					align-items: start;
+					text-align: left;
+					flex-direction: row;
+
+					@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+							justify-content: center;
+							align-items: center;
+							text-align: center;
+							flex-direction: column;
+					}
+			}
+
 		}
 	}
 
-	&:not(:first-child) {
-		margin-top: em(40);
-	}
 
-	&:not(:last-child) {
-		margin-bottom: em(40);
-	}
+	.wrap-fit-content {
+				width: fit-content;
+				margin: 0;
+				.additional-content {
+					display: flex;
+					flex-wrap: nowrap;
+					padding: 5px 10px;
+					border-radius: 4px;
+					border: 1px solid var(--border-brand, #FDBA74);
 
-	@media (min-width: ($breakpoint-desktop-hd + 1px)) {
-		border-radius: $border-radius-16;
-		overflow: hidden;
-	}
+					h2 {
+							color: $white;
+							font-size: 40px;
+							font-style: normal;
+							font-weight: 500;
+							line-height: 40px;
+							letter-spacing: 2.4px;
+							margin: 0 10px 0 0;
 
-	.wrapper {
+							@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+								font-size: 28px;
+							}
+					}
 
-		@media (max-width: $breakpoint-tablet) {
-			padding-left: 1.25em !important;
-			padding-right: 1.25em !important;
+					p {
+						width: 125px;
+						font-size: 14px;
+						font-style: normal;
+						font-weight: 400 !important;
+						line-height: 20px;
+						margin: 0;
+
+						@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+							text-align: center;
+						}
+					}
+				}
 		}
-	}
+
+
 
 	.elementor {
 
@@ -68,38 +116,64 @@ scss/at-extend-no-missing-placeholder */
 				&:not(:last-child) {
 					margin-bottom: 0;
 
-					@media (max-width: $breakpoint-tablet-landscape - 1px) {
+					@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 						margin-bottom: em(10);
 					}
 				}
 
 				h2 {
 
-					font-size: em(30);
-					line-height: 1.5;
-					margin: 0;
+				font-size: 40px;
+				font-style: normal;
+				font-weight: 700;
+				line-height: 1;
+				letter-spacing: 2.4px;
+				margin: 0;
+
+							@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+								text-align: center;
+							}
+
+				span {
+					font-weight: $font-weight-bold;
 					color: $black;
 
-					span {
-						font-weight: $font-weight-normal;
-					}
+					&.text-stroke-primary {
 
-					@media (min-width: $breakpoint-tablet-landscape) {
-						font-size: em(40);
+						text-shadow: 0 0 9px var(--orange-300, #FDBA74);
+						-webkit-text-stroke-width: 2px;
+						-webkit-text-stroke-color: var(--border-brand, #FDBA74);
+						font-size: 40px;
+						font-style: normal;
+						font-weight: 700;
+						line-height: 40px; /* 100% */
+						letter-spacing: 2.4px;
 					}
 				}
+				}
 
-				h4 {
+				h2,
+				h3,
+				h4,
+				h5,
+				h6,
+				p,
+				span,
+				div {
 					margin: 0;
-					line-height: 1;
-					font-size: em(17);
-
-					@media (min-width: $breakpoint-tablet-landscape) {
-						font-size: em(20);
-						line-height: 1.82;
-					}
-
+					color: $white;
+							@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+								text-align: center;
+							}
 				}
+
+				h3 {
+					line-height: 24px;
+					font-weight: $font-weight-normal;
+					font-size: 1rem;
+				}
+
+
 			}
 
 			&-shortcode {
@@ -122,7 +196,7 @@ scss/at-extend-no-missing-placeholder */
 
 				&,
 				* {
-					color: $black;
+					color: $white;
 				}
 
 				&:not(:last-child) {
@@ -130,13 +204,8 @@ scss/at-extend-no-missing-placeholder */
 				}
 
 				p {
-					font-size: em($font-size-default);
-					line-height: normal;
+					font-size: $font-size-default;
 					margin-bottom: 0;
-
-					@media (min-width: $breakpoint-tablet-landscape) {
-						line-height: 2.05;
-					}
 				}
 			}
 
@@ -159,7 +228,7 @@ scss/at-extend-no-missing-placeholder */
 
 					p {
 						font-weight: $font-weight-semi;
-						color: $black;
+						color: $white;
 					}
 				}
 			}
@@ -169,30 +238,35 @@ scss/at-extend-no-missing-placeholder */
 
 			@include posZero;
 			position: absolute;
-			background-position: center center;
+			background-position: right center;
 			background-repeat: no-repeat;
-			background-size: cover;
+			background-size: contain;
+			border-radius: 0 $border-radius-16  $border-radius-16 0;
+
+			@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+				display: none;
+			}
 		}
 	}
 
+
 	&__btn[class] {
 
-		height: 3.125em;
-		width: auto;
-		padding: 0 2em;
-		margin: 0;
-		border: 0;
-		border-radius: $border-radius - 2;
-		color: $black;
-		background-color: $white;
-		transition: all 0.3s;
-
 		&.Button--copy {
-			padding: 0 1em;
+			color: $white;
+			margin: 0;
+			padding: 0;
+			font-size: 16px;
+			font-size: 14px;
 
-			&.border-radius-0 {
-				border-radius: 0;
+			span {
+				line-height: 1 !important;
 			}
+		}
+
+
+		span.textarea-pseudo {
+			display: none;
 		}
 
 		span::before {
@@ -201,20 +275,17 @@ scss/at-extend-no-missing-placeholder */
 
 		svg {
 			width: 1.5em;
-			margin-right: 0.5em;
+			margin-right: 0em;
 			fill: currentcolor;
 			transition: all 0.3s;
 		}
 
-		&:active,
-		&:focus,
 		&:hover {
 
-			color: $white;
-			background-color: $gray;
+			color: #FDBA74;
 
 			svg {
-				fill: $white;
+				fill: #FDBA74;
 			}
 		}
 	}
@@ -223,6 +294,13 @@ scss/at-extend-no-missing-placeholder */
 		display: flex;
 		overflow: hidden;
 		border-radius: $border-radius - 2;
+		align-items: center;
+		flex-direction: row;
+		gap: 0.5em;
+
+			@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+				flex-direction: column;
+			}
 
 		&-text {
 			display: inline-flex;
@@ -233,6 +311,8 @@ scss/at-extend-no-missing-placeholder */
 			font-weight: $font-weight-semi;
 			background-color: rgba($white, 0.5);
 			color: $black;
+			font-weight: 400;
+
 
 			&.textarea-pseudo {
 				font-size: $font-size-default;
@@ -240,12 +320,14 @@ scss/at-extend-no-missing-placeholder */
 		}
 
 		&-btn[class] {
-			min-width: em(180);
+			font-size: 16px;
+			line-height: 1;
+		}
 
-			@media (min-width: $breakpoint-tablet) {
-				border-top-left-radius: 0;
-				border-bottom-left-radius: 0;
-			}
+		p {
+			margin-bottom: 0;
+			font-weight: 400 !important;
+			font-size: 16px !important;
 		}
 
 		@media (max-width: ($breakpoint-mobile - 1)) {
