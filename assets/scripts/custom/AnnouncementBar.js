@@ -1,5 +1,6 @@
 
 const announcementBarSliders = document.querySelectorAll( '.Announcement__bars__slider' );
+// eslint-disable-next-line no-unused-vars
 const announcementBars = document.querySelectorAll( '.Announcement__bars__slider .Announcement__bar' );
 const appContainer = document.getElementById( 'app' );
 const announcementClosed = sessionStorage.getItem( 'announcementClosed' );
@@ -65,21 +66,22 @@ if ( announcementClosed !== 'true' ) {
 
 	AnnouncementBarObserver.observe( document.querySelector( '.observerPoint' ) );
 
-	if ( announcementBars.length > 1 ) {
-		let counter = 0;
-
-		setInterval( () => {
-			counter = counter + 1;
-
-			if ( counter === announcementBars.length ) {
-				announcementBars.item( 0 ).classList.add( 'active' );
-				announcementBars.item( counter - 1 ).classList.remove( 'active' );
-				counter = 0;
-				return false;
-			}
-
-			announcementBars.item( counter ).classList.add( 'active' );
-			announcementBars.item( counter - 1 ).classList.remove( 'active' );
-		}, 8000 );
-	}
+	// Auto-rotation disabled - banners are shuffled on page load instead
+	// if ( announcementBars.length > 1 ) {
+	//	let counter = 0;
+	//
+	//	setInterval( () => {
+	//		counter = counter + 1;
+	//
+	//		if ( counter === announcementBars.length ) {
+	//			announcementBars.item( 0 ).classList.add( 'active' );
+	//			announcementBars.item( counter - 1 ).classList.remove( 'active' );
+	//			counter = 0;
+	//			return false;
+	//		}
+	//
+	//		announcementBars.item( counter ).classList.add( 'active' );
+	//		announcementBars.item( counter - 1 ).classList.remove( 'active' );
+	//	}, 8000 );
+	// }
 }
