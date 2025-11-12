@@ -27,7 +27,7 @@ function header_banners( $page, $banners_array ) {
 		<?php
 		foreach ( $banners_array as $index => $banner ) {
 			?>
-			<?php if ( !empty( $banner['url'] ) ) : ?>
+			<?php if ( ! empty( $banner['url'] ) ) : ?>
 				<a class="Announcement__bar <?= esc_attr( $banner['class'] . ( 0 === $index ? ' active' : '' ) ); ?>" href="<?= esc_url_raw( $banner['url'] ); ?>" target="_blank" style="background: url(<?= esc_attr( $banner['bg'] ? ( get_template_directory_uri() . '/assets/images/' . $banner['bg'] . ')' ) : 'linear-gradient(87deg, rgba(254, 181, 109, 0.30) -2.57%, rgba(255, 172, 90, 0.30) -2.55%, rgba(169, 188, 255, 0.30) 103.31%)' ); ?>">
 			<?php else : ?>
 				<div class="Announcement__bar <?= esc_attr( $banner['class'] . ( 0 === $index ? ' active' : '' ) ); ?>" style="background: url(<?= esc_attr( $banner['bg'] ? ( get_template_directory_uri() . '/assets/images/' . $banner['bg'] . ')' ) : 'linear-gradient(87deg, rgba(254, 181, 109, 0.30) -2.57%, rgba(255, 172, 90, 0.30) -2.55%, rgba(169, 188, 255, 0.30) 103.31%)' ); ?>">
@@ -35,7 +35,7 @@ function header_banners( $page, $banners_array ) {
 				<div class="wrapper">
 					<div class="Announcement__bar__col__left">
 						<h5><?= esc_html( $banner['pretitle'] ); ?></h5>
-						<?php if ( isset( $banner['title-additional-content'] ) && !empty( $banner['title-additional-content'] ) ) : ?>
+						<?php if ( isset( $banner['title-additional-content'] ) && ! empty( $banner['title-additional-content'] ) ) : ?>
 							<div class="title-wrapper">
 								<h2 class="text-stroke-primary"><?= esc_html( $banner['title'] ); ?></h2>
 								<div class="title-additional-content">
@@ -50,7 +50,7 @@ function header_banners( $page, $banners_array ) {
 						<?php else : ?>
 						<h2 class="text-stroke-primary"><?= esc_html( $banner['title'] ); ?>
 						<!-- added icon after title	-->
-						<?php if ( isset( $banner['icon-class'] ) ) { ?>
+							<?php if ( isset( $banner['icon-class'] ) ) { ?>
 							<svg class="icon icon-<?= esc_html( $banner['icon-class'] ); ?>">
 								<use xlink:href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icons.svg#<?= esc_attr( $banner['icon-class'] ); ?>"></use>
 							</svg>
@@ -59,7 +59,7 @@ function header_banners( $page, $banners_array ) {
 					<?php endif; ?>
 						<p><?= esc_html( $banner['subtitle'] ); ?></p>
 
-						<?php if ( isset( $banner['additional-content'] ) && !empty( $banner['additional-content'] ) ) : ?>
+						<?php if ( isset( $banner['additional-content'] ) && ! empty( $banner['additional-content'] ) ) : ?>
 							<div class="additional-content">
 								<?php foreach ( $banner['additional-content'] as $content ) : ?>
 									<div class="BlockCoupon__code Copy">
@@ -82,7 +82,7 @@ function header_banners( $page, $banners_array ) {
 						<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/<?= esc_attr( $banner['image'] ); ?>" alt="">
 					</div>
 				</div>
-			<?php if ( !empty( $banner['url'] ) ) : ?>
+			<?php if ( ! empty( $banner['url'] ) ) : ?>
 				</a>
 			<?php else : ?>
 				</div>
