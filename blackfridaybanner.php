@@ -17,7 +17,7 @@
 <div id="blackfridaybanner" class="BlackFridayBanner hidden">
 	<a href="/black-friday/" class="BlackFridayBanner__link">
 			<span class="BlackFridayBanner__close" id="blackfridaybanner-close">
-				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/close.png' ); ?>" alt="<?= esc_html( __( 'Close', 'ms' ) ); ?>" />
+				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/close.png' ); ?>" alt="<?= esc_attr( __( 'Close', 'ms' ) ); ?>" />
 			</span>
 		<div class="BlackFridayBanner__wrapper wrapper">
 				<div class="BlackFridayBanner__text">
@@ -27,7 +27,7 @@
 				<p class="BlackFridayBanner__desc"><?= esc_html( __( 'For all new accounts for the first 6 months', 'ms' ) ); ?></p>
 			</div>
 			<div class="BlackFridayBanner__image">
-				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/' . $random_image ); ?>" alt="<?= esc_html( __( 'Black Friday Offer', 'ms' ) ); ?>" />
+				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/' . $random_image ); ?>" alt="<?= esc_attr( __( 'Black Friday Offer', 'ms' ) ); ?>" />
 			</div>
 		</div>
 	</a>
