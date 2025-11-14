@@ -1,0 +1,176 @@
+/* stylelint-disable selector-class-pattern, value-keyword-case */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.BlackFridayBanner {
+
+	position: fixed;
+	display: none;
+	background: $black;
+	left: 0;
+	bottom: 0;
+	transform: translate(0, 100%);
+	z-index: 10;
+	width: 100%;
+	box-shadow: 0 -4px 20px 0 rgba(30, 30, 30, 0.3);
+
+	&__close {
+
+		@include square(2em);
+		position: absolute;
+		top: 0.625em;
+		right: 0.625em;
+		cursor: pointer;
+		z-index: 3;
+		border-radius: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: background 0.3s ease;
+
+
+		img {
+			width: 60%;
+			height: 60%;
+		}
+	}
+
+
+	&__link {
+		display: block;
+		text-decoration: none !important;
+		color: inherit;
+		width: 100%;
+		height: 100%;
+
+		&:hover,
+		&:focus,
+		&:active,
+		&:visited {
+			text-decoration: none !important;
+			color: inherit;
+		}
+
+		* {
+			text-decoration: none !important;
+		}
+	}
+
+	&__wrapper {
+		position: relative;
+	}
+
+	&__text {
+
+		span, p, h3 {
+			color: $white;
+			margin-bottom: 0;
+		}
+	}
+
+	&__title {
+		font-size: 60px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 60px;
+		letter-spacing: 3.6px;
+		margin-bottom: 0;
+
+		&.text-stroke-primary {
+
+			filter:
+				drop-shadow(-1px -1px 0 rgba(253, 186, 116, 0.8))
+				drop-shadow(1px -1px 0 rgba(253, 186, 116, 0.8))
+				drop-shadow(-1px 1px 0 rgba(253, 186, 116, 0.8))
+				drop-shadow(1px 1px 0 rgba(253, 186, 116, 0.8))
+				drop-shadow(0 0 9px rgba(253, 186, 116, 0.5));
+		}
+	}
+
+	&__pretitle {
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400 !important;
+		line-height: 20px;
+		margin: 0;
+
+		@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+			text-align: center;
+		}
+	}
+
+	&__subtitle {
+		font-size: 60px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 60px;
+		letter-spacing: 3.6px;
+
+	}
+
+	@media (min-width: ($breakpoint-tablet - 1px)) {
+
+		&__wrapper {
+			display: flex;
+			max-width: 1280px;
+		}
+
+		&.visible {
+			display: flex;
+		}
+
+		&.show {
+			transform: translate(0, 0);
+			transition: transform 0.5s;
+		}
+
+		&.hide {
+			transform: translate(0, 100%);
+		}
+
+		&__button {
+			margin-top: 1.5em;
+		}
+
+		&__image,
+		&__text {
+			width: 50%;
+		}
+
+		&__text {
+			padding: 3.125em 0;
+		}
+
+		&__image {
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				overflow: visible;
+				margin-top: 0;
+			}
+		}
+	}
+
+	@media (min-width: ($breakpoint-desktop-box - 1px)) {
+		display: flex;
+		align-items: center;
+
+		&__wrapper {
+			width: 70%;
+		}
+
+		&__button {
+			margin-top: auto;
+		}
+	}
+
+	&__main {
+		margin-right: 3.45em;
+	}
+
+
+}

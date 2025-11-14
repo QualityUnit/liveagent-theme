@@ -4,6 +4,7 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 @use "../common/mixins" as *;
 @use "../elements/Typography" as *;
 @forward "../elements/FakeChatButton";
+@forward "../components/ContactUsBanner";
 
 $links: 4;
 $minWidth: 16.125em;
