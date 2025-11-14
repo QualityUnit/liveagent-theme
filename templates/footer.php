@@ -406,7 +406,8 @@ function show_demo_bar() {
 }
 
 if ( show_demo_bar() !== false ) {
-	include_once get_template_directory() . '/demobar.php';
+	// include_once get_template_directory() . '/demobar.php';
+	include_once get_template_directory() . '/blackfridaybanner.php';
 }
 ?>
 

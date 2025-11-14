@@ -61,7 +61,8 @@ if ( ICL_LANGUAGE_CODE === 'en' ) {
 			'business',
 			'industry',
 			'black-friday',
-			'home',
+			'landing/ai-chatbot',
+			'call-center-software',
 		),
 		array(
 			array(
