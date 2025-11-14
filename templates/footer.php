@@ -407,6 +407,10 @@ function show_demo_bar() {
 
 if ( show_demo_bar() !== false ) {
 	// include_once get_template_directory() . '/demobar.php';
+}
+
+// Black Friday banner only on homepage
+if ( is_front_page() ) {
 	include_once get_template_directory() . '/blackfridaybanner.php';
 }
 ?>

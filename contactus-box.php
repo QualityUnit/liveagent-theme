@@ -53,6 +53,7 @@
 			<p><?php _e( 'We are available for you 24/7.', 'contactus' ); ?><br />
 			<?php _e( 'Feel free to contact us.', 'contactus' ); ?>
 			</p>
+			<?php require_once get_template_directory() . '/contactus-banner.php'; ?>
 			<ul class="ContactUs__status--info" id="contactUsStatus">
 				<li class="ContactUs__status ok" data-status="ok"><?php _e( 'Servers online', 'contactus' ); ?></li>
 				<li class="ContactUs__status outage" data-status="outage">
