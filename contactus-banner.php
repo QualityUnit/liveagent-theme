@@ -11,7 +11,7 @@
 	$random_image = $contactus_banner_images[0];
 
 	// Check if we're on pricing page
-	$is_pricing_page = is_page( 'pricing' ) || strpos( $_SERVER['REQUEST_URI'], '/pricing' ) !== false;
+	$is_pricing_page = is_page( 'pricing' ) || ( isset( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/pricing' ) !== false );
 	$pricing_class = $is_pricing_page ? 'ContactUsBanner--pricing' : '';
 	?>
 

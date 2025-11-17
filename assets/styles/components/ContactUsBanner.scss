@@ -21,11 +21,11 @@
 	}
 
 	&__wrapper {
-		    height: 100%;
-		    display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-self: center;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-self: center;
 	}
 
 	.ContactUsBanner__title {
@@ -66,26 +66,14 @@
 		border: 1px solid var(--border-brand, rgba(253, 186, 116, 0.8));
 	}
 
-
-	//.pricing {
-	//
-	//	.elementor-section:has(.ContactUsBanner--pricing) {
-	//
-	//		display: block;
-	//
-	//		@media (min-width: $breakpoint-mobile) {
-	//			display: none;
-	//		}
-	//	}
-	//}
-
 	&--pricing {
 
-		height: 400px;
+		height: 200px;
 		margin: 0 1em;
 
 		.ContactUsBanner__link {
 			height: 100%;
+			background-size: contain;
 		}
 
 		.wrapper {
@@ -94,6 +82,7 @@
 
 		// Fallback for Elementor when it removes classes
 		h2 {
+			max-width: 200px;
 			margin-top: 1em;
 			text-align: left;
 			text-transform: uppercase;
