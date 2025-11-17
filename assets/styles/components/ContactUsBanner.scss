@@ -3,7 +3,6 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
-
 .ContactUsBanner {
 
 	* {
@@ -67,5 +66,66 @@
 		border: 1px solid var(--border-brand, rgba(253, 186, 116, 0.8));
 	}
 
+
+	//.pricing {
+	//
+	//	.elementor-section:has(.ContactUsBanner--pricing) {
+	//
+	//		display: block;
+	//
+	//		@media (min-width: $breakpoint-mobile) {
+	//			display: none;
+	//		}
+	//	}
+	//}
+
+	&--pricing {
+
+		height: 400px;
+		margin: 0 1em;
+
+		.ContactUsBanner__link {
+			height: 100%;
+		}
+
+		.wrapper {
+			justify-content: flex-start;
+		}
+
+		// Fallback for Elementor when it removes classes
+		h2 {
+			margin-top: 1em;
+			text-align: left;
+			text-transform: uppercase;
+			color: $black;
+			font-size: 40px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 1;
+			letter-spacing: 2.4px;
+			margin-bottom: 10px;
+			filter:
+			drop-shadow(-1px -1px 0 rgba(253, 186, 116, 0.8))
+			drop-shadow(1px -1px 0 rgba(253, 186, 116, 0.8))
+			drop-shadow(-1px 1px 0 rgba(253, 186, 116, 0.8))
+			drop-shadow(1px 1px 0 rgba(253, 186, 116, 0.8))
+			drop-shadow(0 0 9px rgba(253, 186, 116, 0.5));
+		}
+
+		h3 {
+			text-align: left;
+			font-size: 26px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 1;
+			letter-spacing: 2.4px;
+			margin-bottom: 0;
+			color: $white;
+			width: fit-content;
+			padding: 2px 4px;
+			border-radius: 4px;
+			border: 1px solid var(--border-brand, rgba(253, 186, 116, 0.8));
+		}
+	}
 }
 
