@@ -25,133 +25,133 @@ if ( ICL_LANGUAGE_CODE === 'en' ) {
 	//      )
 	//  );
 
-	header_banners(
-		array(
-			'landing/ai-chat-agents',
-			'landing/ai-software-for-customer-service',
-			'landing/chatbot-for-website',
-			'happyfox-alternative',
-			'help-scout-alternative',
-			'hiver-alternative',
-			'justcall-alternative',
-			'zendesk-talk-alternative',
-			'zopim-alternative',
-			'3cx-alternative',
-			'bitrix24-alternative',
-			'freshdesk-alternative',
-			'gorgias-alternative',
-			'front-alternative',
-			'features',
-			'liveagent-knowledge-base-software',
-			'free-live-chat-software',
-			'use-case-scenarios',
-			'features/chats-overview',
-			'userlike-alternative',
-			'faq-software',
-			'blog/introducing-liveagents-new-ai-powered-feature-in-the-works',
-			'social-media-customer-service',
-			'tour',
-			'lp/help-desk-software',
-			'trial',
-			'landing/website-chat-software',
-			'lp/call-center-software',
-			'lp/live-chat-software',
-			'live-chat-for-wordpress',
-			'zendesk-alternative',
-			'business',
-			'industry',
-			'black-friday',
-			'landing/ai-chatbot',
-			'call-center-software',
-		),
-		array(
-			array(
-				'pretitle' => __( '12.Nov-11.Dec 2025', 'ms' ),
-				'title' => __( 'BLACK FRIDAY', 'ms' ),
-				'subtitle' => '',
-				'class' => 'black-friday-2025',
-				'image' => 'black-friday-2025-bg-black-man.png',
-				'bg' => '',
-				'url' => __( '/black-friday/', 'ms' ),
-				'icon-class' => '', // Here insert icon class from our WordPress icons - icon after title
-				'title-additional-content' => array(
-					'span' => __( '75% OFF', 'ms' ),
-					'p' => __( 'For new accounts the first 6 months', 'ms' ),
-				),
-				'additional-content' => array(
-					array(
-						'prefix_text' => __( 'Use code', 'ms' ),
-						'code' => 'BFLA-75M',
-						'suffix_text' => __( 'for monthly subscription or', 'ms' ),
-					),
-					array(
-						'code' => 'BFLA-75Y',
-						'suffix_text' => __( 'for yearly subscription', 'ms' ),
-					),
-				),
-			),
-			array(
-				'pretitle' => __( '12.Nov-11.Dec 2025', 'ms' ),
-				'title' => __( 'BLACK FRIDAY', 'ms' ),
-				'subtitle' => '',
-				'class' => 'black-friday-2025',
-				'image' => 'black-friday-2025-bg-assian-woman.png',
-				'bg' => '',
-				'url' => __( '/black-friday/', 'ms' ),
-				'icon-class' => '', // Here insert icon class from our WordPress icons - icon after title
-				'title-additional-content' => array(
-					'span' => __( '75% OFF', 'ms' ),
-					'p' => __( 'For new accounts the first 6 months', 'ms' ),
-				),
-				'additional-content' => array(
-					array(
-						'prefix_text' => __( 'Use code', 'ms' ),
-						'code' => 'BFLA-75M',
-						'suffix_text' => __( 'for monthly subscription or', 'ms' ),
-					),
-					array(
-						'code' => 'BFLA-75Y',
-						'suffix_text' => __( 'for yearly subscription', 'ms' ),
-					),
-				),
-			),
-			array(
-				'pretitle' => __( '12.Nov-11.Dec 2025', 'ms' ),
-				'title' => __( 'BLACK FRIDAY', 'ms' ),
-				'subtitle' => '',
-				'class' => 'black-friday-2025',
-				'image' => 'black-friday-2025-bg-white-woman.png',
-				'bg' => '',
-				'url' => __( '/black-friday/', 'ms' ),
-				'icon-class' => '', // Here insert icon class from our WordPress icons - icon after title
-				'title-additional-content' => array(
-					'span' => __( '75% OFF', 'ms' ),
-					'p' => __( 'For new accounts the first 6 months', 'ms' ),
-				),
-				'additional-content' => array(
-					array(
-						'prefix_text' => __( 'Use code', 'ms' ),
-						'code' => 'BFLA-75M',
-						'suffix_text' => __( 'for monthly subscription or', 'ms' ),
-					),
-					array(
-						'code' => 'BFLA-75Y',
-						'suffix_text' => __( 'for yearly subscription', 'ms' ),
-					),
-				),
-			),
+	// header_banners(
+	// 	array(
+	// 		'landing/ai-chat-agents',
+	// 		'landing/ai-software-for-customer-service',
+	// 		'landing/chatbot-for-website',
+	// 		'happyfox-alternative',
+	// 		'help-scout-alternative',
+	// 		'hiver-alternative',
+	// 		'justcall-alternative',
+	// 		'zendesk-talk-alternative',
+	// 		'zopim-alternative',
+	// 		'3cx-alternative',
+	// 		'bitrix24-alternative',
+	// 		'freshdesk-alternative',
+	// 		'gorgias-alternative',
+	// 		'front-alternative',
+	// 		'features',
+	// 		'liveagent-knowledge-base-software',
+	// 		'free-live-chat-software',
+	// 		'use-case-scenarios',
+	// 		'features/chats-overview',
+	// 		'userlike-alternative',
+	// 		'faq-software',
+	// 		'blog/introducing-liveagents-new-ai-powered-feature-in-the-works',
+	// 		'social-media-customer-service',
+	// 		'tour',
+	// 		'lp/help-desk-software',
+	// 		'trial',
+	// 		'landing/website-chat-software',
+	// 		'lp/call-center-software',
+	// 		'lp/live-chat-software',
+	// 		'live-chat-for-wordpress',
+	// 		'zendesk-alternative',
+	// 		'business',
+	// 		'industry',
+	// 		'black-friday',
+	// 		'landing/ai-chatbot',
+	// 		'call-center-software',
+	// 	),
+	// 	array(
+	// 		array(
+	// 			'pretitle' => __( '12.Nov-11.Dec 2025', 'ms' ),
+	// 			'title' => __( 'BLACK FRIDAY', 'ms' ),
+	// 			'subtitle' => '',
+	// 			'class' => 'black-friday-2025',
+	// 			'image' => 'black-friday-2025-bg-black-man.png',
+	// 			'bg' => '',
+	// 			'url' => __( '/black-friday/', 'ms' ),
+	// 			'icon-class' => '', // Here insert icon class from our WordPress icons - icon after title
+	// 			'title-additional-content' => array(
+	// 				'span' => __( '75% OFF', 'ms' ),
+	// 				'p' => __( 'For new accounts the first 6 months', 'ms' ),
+	// 			),
+	// 			'additional-content' => array(
+	// 				array(
+	// 					'prefix_text' => __( 'Use code', 'ms' ),
+	// 					'code' => 'BFLA-75M',
+	// 					'suffix_text' => __( 'for monthly subscription or', 'ms' ),
+	// 				),
+	// 				array(
+	// 					'code' => 'BFLA-75Y',
+	// 					'suffix_text' => __( 'for yearly subscription', 'ms' ),
+	// 				),
+	// 			),
+	// 		),
+	// 		array(
+	// 			'pretitle' => __( '12.Nov-11.Dec 2025', 'ms' ),
+	// 			'title' => __( 'BLACK FRIDAY', 'ms' ),
+	// 			'subtitle' => '',
+	// 			'class' => 'black-friday-2025',
+	// 			'image' => 'black-friday-2025-bg-assian-woman.png',
+	// 			'bg' => '',
+	// 			'url' => __( '/black-friday/', 'ms' ),
+	// 			'icon-class' => '', // Here insert icon class from our WordPress icons - icon after title
+	// 			'title-additional-content' => array(
+	// 				'span' => __( '75% OFF', 'ms' ),
+	// 				'p' => __( 'For new accounts the first 6 months', 'ms' ),
+	// 			),
+	// 			'additional-content' => array(
+	// 				array(
+	// 					'prefix_text' => __( 'Use code', 'ms' ),
+	// 					'code' => 'BFLA-75M',
+	// 					'suffix_text' => __( 'for monthly subscription or', 'ms' ),
+	// 				),
+	// 				array(
+	// 					'code' => 'BFLA-75Y',
+	// 					'suffix_text' => __( 'for yearly subscription', 'ms' ),
+	// 				),
+	// 			),
+	// 		),
+	// 		array(
+	// 			'pretitle' => __( '12.Nov-11.Dec 2025', 'ms' ),
+	// 			'title' => __( 'BLACK FRIDAY', 'ms' ),
+	// 			'subtitle' => '',
+	// 			'class' => 'black-friday-2025',
+	// 			'image' => 'black-friday-2025-bg-white-woman.png',
+	// 			'bg' => '',
+	// 			'url' => __( '/black-friday/', 'ms' ),
+	// 			'icon-class' => '', // Here insert icon class from our WordPress icons - icon after title
+	// 			'title-additional-content' => array(
+	// 				'span' => __( '75% OFF', 'ms' ),
+	// 				'p' => __( 'For new accounts the first 6 months', 'ms' ),
+	// 			),
+	// 			'additional-content' => array(
+	// 				array(
+	// 					'prefix_text' => __( 'Use code', 'ms' ),
+	// 					'code' => 'BFLA-75M',
+	// 					'suffix_text' => __( 'for monthly subscription or', 'ms' ),
+	// 				),
+	// 				array(
+	// 					'code' => 'BFLA-75Y',
+	// 					'suffix_text' => __( 'for yearly subscription', 'ms' ),
+	// 				),
+	// 			),
+	// 		),
 
-				//  array(
-				//      'title'    => __( 'AI Assistant', 'ms' ),
-				//      'subtitle' => __( 'Unlock the future of support with LiveAgent’s AI Assistant!', 'ms' ),
-				//      'class'    => 'ai-assistant',
-				//      'image'    => 'announcementBar-ai-assistant.png',
-				//      'bg'       => 'announcementBar-ai-assistant-bg.jpg',
-				//      'url'      => __( '/ai-assist/', 'ms' ),
-				//      'icon-class'       => 'pencil-with-stars', // Here insert icon class from our WordPress icons - icon after title
-				//  ),
-		)
-	);
+	// 			//  array(
+	// 			//      'title'    => __( 'AI Assistant', 'ms' ),
+	// 			//      'subtitle' => __( 'Unlock the future of support with LiveAgent’s AI Assistant!', 'ms' ),
+	// 			//      'class'    => 'ai-assistant',
+	// 			//      'image'    => 'announcementBar-ai-assistant.png',
+	// 			//      'bg'       => 'announcementBar-ai-assistant-bg.jpg',
+	// 			//      'url'      => __( '/ai-assist/', 'ms' ),
+	// 			//      'icon-class'       => 'pencil-with-stars', // Here insert icon class from our WordPress icons - icon after title
+	// 			//  ),
+	// 	)
+	// );
 }
 ?>
 
