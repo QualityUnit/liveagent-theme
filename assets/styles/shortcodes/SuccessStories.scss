@@ -49,7 +49,7 @@
 			img {
 
 				@include square(100%);
-				object-fit: cover;
+				object-fit: contain;
 				border-radius: $border-radius-16 $border-radius-16 0 0;
 			}
 		}
