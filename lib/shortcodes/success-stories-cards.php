@@ -118,7 +118,7 @@ function ms_success_stories_cards( $atts ) {
 							}
 							?>
 							<div class="success__stories__item__content__main">
-								<div class="success__stories__item__content__main__label"><?= esc_html( 'Customer Story' ); ?></div>
+								<div class="success__stories__item__content__main__label"><?= esc_html( __( 'Customer Story', 'ms' ) ); ?></div>
 								<div class="success__stories__item__content__main__headline">
 									<div class="headline"><?= esc_html( $headline ); ?></div>
 								</div>
